@@ -118,7 +118,10 @@ def inspect_file(objects, label, errors):
                 "anchor_max": xy(field(obj, "m_AnchorMax")),
                 "pivot": xy(field(obj, "m_Pivot")),
                 "size_delta": xy(field(obj, "m_SizeDelta")),
-                "anchored_position": xy(field(obj, "m_AnchoredPosition"))}
+                "anchored_position": xy(field(obj, "m_AnchoredPosition")),
+                "children": [local_pointer(p) for p in (field(obj, "m_Children", []) or [])],
+                "scale": xy(field(obj, "m_LocalScale")),
+                "rotation_z": float(field(field(obj, "m_LocalRotation"), "z", 0) or 0)}
         elif kind == "Canvas":
             canvases.append({"bundle": label, "canvas_id": pid,
                              "gameobject_id": local_pointer(field(obj, "m_GameObject")),
@@ -127,6 +130,8 @@ def inspect_file(objects, label, errors):
             sprites[pid] = str(field(obj, "m_Name", "") or "")
         elif kind == "MonoScript":
             scripts[pid] = str(field(obj, "m_ClassName", "") or field(obj, "m_Name", "") or "")
+    sibling_indices = {child: index for parent in transforms.values()
+                       for index, child in enumerate(parent["children"]) if child}
     names = {gid: go["name"] for gid, go in gameobjects.items()}
     nodepaths, cyclic = paths_for(transforms, names)
     sizes = subtree_counts(transforms)
@@ -159,7 +164,9 @@ def inspect_file(objects, label, errors):
             "canvas_id": canvas["canvas_id"] if canvas else 0,
             "canvas_name": canvas["name"] if canvas else "",
             "subtree_size": sizes.get(tid, 1),
-            "component_count": len(go.get("components", []))}
+            "component_count": len(go.get("components", [])),
+            "sibling_index": sibling_indices.get(tid, -1),
+            "scale": transform["scale"], "rotation_z": transform["rotation_z"]}
         for attr in ("anchor_min", "anchor_max", "pivot", "size_delta", "anchored_position"):
             row[attr] = transform[attr]
         nodes.append(row)
@@ -257,7 +264,7 @@ def main():
              ["bundle", "transform_id", "gameobject_id", "parent_transform_id",
               "name", "path", "active", "canvas_id", "canvas_name", "subtree_size",
               "component_count", "anchor_min", "anchor_max", "pivot",
-              "size_delta", "anchored_position"])
+              "size_delta", "anchored_position", "sibling_index", "scale", "rotation_z"])
     save_csv(args.report_dir / "ui-canvases.csv", all_data["canvases"],
              ["bundle", "canvas_id", "gameobject_id", "name", "path",
               "transform_id", "sort_order", "descendant_ui_nodes"])
