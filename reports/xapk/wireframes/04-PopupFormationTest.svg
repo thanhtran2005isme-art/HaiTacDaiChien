@@ -58,6 +58,8 @@
 </g>
 <g><title>/PopupFormationTest/PanelTop/PanelFormation/DropdownPet1/Template/Scrollbar | Background</title><rect x="731.8" y="283.5" width="20.0" height="150.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
 </g>
+<g><title>/PopupFormationTest/PanelTop/PanelFormation/DropdownPet1/Template/Scrollbar/Sliding Area/Handle | UISprite</title><rect x="721.8" y="273.5" width="40.0" height="170.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
 <g><title>/PopupFormationTest/PanelTop/InputFieldSearch | box_text_3</title><rect x="289.0" y="571.7" width="160.0" height="38.7" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
 <text x="294.0" y="587.7" fill="#e2e8f0" font-size="12" font-family="sans-serif">InputFieldSearch</text>
 </g>
@@ -340,6 +342,39 @@
 </g>
 <g><title>/PopupFormationTest/PopupRelics/Content/ScrollView/Viewport | UIMask</title><rect x="500.0" y="274.0" width="600.0" height="352.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
 <text x="505.0" y="290.0" fill="#e2e8f0" font-size="12" font-family="sans-serif">Viewport</text>
+</g>
+<g><title>/PopupFormationTest/PopupRelics/Content/ScrollView/Viewport/Content/Relics/Line</title><rect x="801.0" y="620.5" width="600.0" height="5.0" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+</g>
+<g><title>/PopupFormationTest/PopupRelics/Content/ScrollView/Viewport/Content/Relics/ImageQuality | tag_legendary</title><rect x="813.5" y="522.3" width="111.9" height="25.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupFormationTest/PopupRelics/Content/ScrollView/Viewport/Content/Relics/Icon | 1</title><rect x="819.0" y="439.0" width="100.0" height="100.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupFormationTest/PopupRelics/Content/ScrollView/Viewport/Content/Relics/RelicName</title><rect x="951.5" y="437.0" width="305.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+<text x="956.5" y="453.0" fill="#e2e8f0" font-size="12" font-family="sans-serif">RelicName</text>
+</g>
+<g><title>/PopupFormationTest/PopupRelics/Content/ScrollView/Viewport/Content/Relics/RelicDesc</title><rect x="926.7" y="474.4" width="444.6" height="119.1" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+<text x="931.7" y="490.4" fill="#e2e8f0" font-size="12" font-family="sans-serif">RelicDesc</text>
+</g>
+<g><title>/PopupFormationTest/PopupRelics/Content/ScrollView/Viewport/Content/Relics/InputFieldNumber | box_text_3</title><rect x="1295.7" y="431.7" width="76.7" height="38.7" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupFormationTest/PopupRelics/Content/ScrollView/Viewport/Content/Relics/InputFieldNumber/Placeholder</title><rect x="1305.7" y="438.7" width="56.7" height="25.7" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PopupFormationTest/PopupRelics/Content/ScrollView/Viewport/Content/Relics/InputFieldNumber/Text</title><rect x="1305.7" y="438.7" width="56.7" height="25.7" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PopupFormationTest/PopupRelics/Content/ScrollView/Viewport/Content/Relics/GroupAffect/ImageBgr | bgr_affect_relic</title><rect x="830.0" y="541.5" width="80.0" height="79.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupFormationTest/PopupRelics/Content/ScrollView/Viewport/Content/Relics/GroupAffect/ImageBgr/GroupHeroHead/Mask | round_mask_2</title><rect x="835.0" y="546.0" width="70.0" height="70.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupFormationTest/PopupRelics/Content/ScrollView/Viewport/Content/Relics/GroupAffect/ImageBgr/GroupHeroHead/Mask/ImageHeroHead | 222</title><rect x="835.0" y="546.0" width="70.0" height="70.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupFormationTest/PopupRelics/Content/ScrollView/Viewport/Content/Relics/GroupAffect/ImageBgr/GroupText/TextAffect</title><rect x="790.0" y="566.0" width="160.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+<text x="795.0" y="582.0" fill="#e2e8f0" font-size="12" font-family="sans-serif">TextAffect</text>
+</g>
+<g><title>/PopupFormationTest/PopupRelics/Content/ScrollView/Viewport/Content/Relics/GroupAffect/ImageBgr/GroupFaction/ImageFaction | faction_fortress</title><rect x="830.0" y="541.0" width="80.0" height="80.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupFormationTest/PopupRelics/Content/ScrollView/Viewport/Content/Relics/GroupAffect/ImageBgr/GroupClass/ImageClass | icon_mage</title><rect x="846.0" y="557.0" width="48.0" height="48.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupFormationTest/PopupRelics/Content/ScrollView/Viewport/Content/Relics/GroupAffect/ImageFrame | frame_affect_relic</title><rect x="830.0" y="541.5" width="80.0" height="79.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
 </g>
 <g><title>/PopupFormationTest/PopupRelics/Content/InputFieldSearch | box_text_3</title><rect x="506.0" y="222.7" width="160.0" height="38.7" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
 <text x="511.0" y="238.7" fill="#e2e8f0" font-size="12" font-family="sans-serif">InputFieldSearch</text>

@@ -44,6 +44,7 @@
     "Uses anchors, pivot, sizeDelta and anchoredPosition, with parent references",
     "Siblings ordered by serialized m_Children where available",
     "Rotations, scaling, Unity layout groups, masks and runtime animation omitted",
+    "Nodes with zero-size rects forward the parent frame only for schematic child visibility",
     "Unmatched Sprite pointers not assigned a cause (may be null/dynamic/missing)",
     "No game image pixels, art assets or decompiled client code published"
   ]

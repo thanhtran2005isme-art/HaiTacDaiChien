@@ -3,6 +3,1262 @@
 <rect width="1600" height="900" fill="#1e293b"/>
 <text x="20" y="927" font-family="sans-serif" font-size="22" fill="#f8fafc">PopupPlayerInfo3 | 002_UnityDataAssetPack_datapack__file110</text>
 <text x="20" y="953" font-family="sans-serif" font-size="15" fill="#94a3b8">Metadata wireframe | hypothetical 1600x900 viewport | not the actual game screenshot</text>
+<g><title>/PopupPlayerInfo3/Content/Body/PlayerInfo/ImageBgr | round_rect_content</title><rect x="524.0" y="444.0" width="697.0" height="137.5" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+<text x="529.0" y="460.0" fill="#e2e8f0" font-size="12" font-family="sans-serif">ImageBgr</text>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/PlayerInfo/ImageBgr/ButtonAction | button_yellow</title><rect x="1080.0" y="485.2" width="130.0" height="55.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+<text x="1085.0" y="501.2" fill="#e2e8f0" font-size="12" font-family="sans-serif">ButtonAction</text>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/PlayerInfo/ImageBgr/ButtonAction/Text</title><rect x="1080.0" y="481.8" width="130.0" height="55.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+<text x="1085.0" y="497.8" fill="#e2e8f0" font-size="12" font-family="sans-serif">Text</text>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/PlayerInfo/PlayerAvatar</title><rect x="535.0" y="459.0" width="110.0" height="110.0" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+<text x="540.0" y="475.0" fill="#e2e8f0" font-size="12" font-family="sans-serif">PlayerAvatar</text>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/PlayerInfo/PlayerAvatar/Mask | mask_item</title><rect x="544.0" y="468.0" width="92.0" height="92.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/PlayerInfo/PlayerAvatar/Mask/ImageBgr | bgr_avatar</title><rect x="540.0" y="464.0" width="100.0" height="100.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/PlayerInfo/PlayerAvatar/Mask/ImageAvt | item_transparent</title><rect x="542.0" y="466.0" width="96.0" height="96.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/PlayerInfo/PlayerAvatar/Border | border_avatar</title><rect x="540.0" y="464.0" width="100.0" height="100.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/PlayerInfo/PlayerAvatar/TagLevel | tag_level</title><rect x="534.9" y="519.5" width="50.0" height="50.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/PlayerInfo/PlayerAvatar/TagLevel/TextLevel</title><rect x="534.5" y="528.6" width="50.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/PlayerInfo/GroupText/TextID</title><rect x="516.1" y="455.0" width="115.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+<text x="521.1" y="471.0" fill="#e2e8f0" font-size="12" font-family="sans-serif">TextID</text>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/PlayerInfo/GroupText/TextGuildCap/TextGuildName</title><rect x="994.3" y="485.0" width="160.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+<text x="999.3" y="501.0" fill="#e2e8f0" font-size="12" font-family="sans-serif">TextGuildName</text>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/TextLineup</title><rect x="410.9" y="323.0" width="160.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+<text x="415.9" y="339.0" fill="#e2e8f0" font-size="12" font-family="sans-serif">TextLineup</text>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/IconPower | icon_power</title><rect x="1056.0" y="316.0" width="44.0" height="44.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/IconPower/TextPower</title><rect x="888.0" y="323.0" width="160.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+<text x="893.0" y="339.0" fill="#e2e8f0" font-size="12" font-family="sans-serif">TextPower</text>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup1/FrontLine/HeroHeadClickable1</title><rect x="353.7" y="427.0" width="92.0" height="92.0" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup1/FrontLine/HeroHeadClickable1/HeroHeadUI/ImageFrame | frame_item</title><rect x="354.7" y="428.0" width="90.0" height="90.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup1/FrontLine/HeroHeadClickable1/HeroHeadUI/Mask | mask_item</title><rect x="361.7" y="435.0" width="76.0" height="76.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup1/FrontLine/HeroHeadClickable1/HeroHeadUI/Mask/ImageBgr | bgr_item_consumable</title><rect x="354.7" y="428.0" width="90.0" height="90.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup1/FrontLine/HeroHeadClickable1/HeroHeadUI/Mask/ImageHead | hero_5_star</title><rect x="354.7" y="428.0" width="90.0" height="90.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup1/FrontLine/HeroHeadClickable1/HeroHeadUI/Mask/ImageHidden | hero_head_hidden</title><rect x="354.7" y="428.0" width="90.0" height="90.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup1/FrontLine/HeroHeadClickable1/HeroHeadUI/Mask/Check</title><rect x="349.7" y="423.0" width="100.0" height="100.0" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup1/FrontLine/HeroHeadClickable1/HeroHeadUI/Mask/Check/Tick | tick_green</title><rect x="379.2" y="451.0" width="41.0" height="38.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup1/FrontLine/HeroHeadClickable1/HeroHeadUI/Mask/Lock</title><rect x="349.7" y="423.0" width="100.0" height="100.0" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup1/FrontLine/HeroHeadClickable1/HeroHeadUI/Mask/Lock/Lock | icon_lock</title><rect x="381.7" y="452.0" width="36.0" height="36.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup1/FrontLine/HeroHeadClickable1/HeroHeadUI/Mask/Death</title><rect x="349.7" y="423.0" width="100.0" height="100.0" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup1/FrontLine/HeroHeadClickable1/HeroHeadUI/Mask/Death/Tick | mark_death</title><rect x="347.7" y="414.5" width="104.0" height="111.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup1/FrontLine/HeroHeadClickable1/HeroHeadUI/ImageBorder | hero_head_border</title><rect x="359.7" y="433.0" width="80.0" height="80.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup1/FrontLine/HeroHeadClickable1/HeroHeadUI/ImageNotify | notify_dot</title><rect x="418.0" y="426.9" width="28.0" height="28.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup1/FrontLine/HeroHeadClickable1/HeroHeadUI/TextLevel</title><rect x="400.9" y="428.7" width="40.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup1/FrontLine/HeroHeadClickable1/HeroHeadUI/ImageFaction | faction_light</title><rect x="355.0" y="428.3" width="30.0" height="30.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup1/FrontLine/HeroHeadClickable1/HeroHeadUI/HeroStar</title><rect x="355.0" y="492.3" width="88.1" height="25.4" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup1/FrontLine/HeroHeadClickable1/HeroHeadUI/HeroStar/GroupStar1/Star1 | hero_star_1</title><rect x="341.4" y="507.7" width="20.0" height="20.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup1/FrontLine/HeroHeadClickable1/HeroHeadUI/HeroStar/GroupStar1/Star1 | hero_star_1</title><rect x="341.4" y="507.7" width="20.0" height="20.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup1/FrontLine/HeroHeadClickable1/HeroHeadUI/HeroStar/GroupStar1/Star1 | hero_star_1</title><rect x="341.4" y="507.7" width="20.0" height="20.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup1/FrontLine/HeroHeadClickable1/HeroHeadUI/HeroStar/GroupStar1/Star1 | hero_star_1</title><rect x="341.4" y="507.7" width="20.0" height="20.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup1/FrontLine/HeroHeadClickable1/HeroHeadUI/HeroStar/GroupStar1/Star1 | hero_star_1</title><rect x="341.4" y="507.7" width="20.0" height="20.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup1/FrontLine/HeroHeadClickable1/HeroHeadUI/HeroStar/GroupStar6/Star6 | hero_star_2</title><rect x="361.1" y="492.3" width="22.0" height="22.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup1/FrontLine/HeroHeadClickable1/HeroHeadUI/HeroStar/GroupStar6/Star6 | hero_star_2</title><rect x="379.1" y="492.3" width="22.0" height="22.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup1/FrontLine/HeroHeadClickable1/HeroHeadUI/HeroStar/GroupStar6/Star6 | hero_star_2</title><rect x="397.1" y="492.3" width="22.0" height="22.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup1/FrontLine/HeroHeadClickable1/HeroHeadUI/HeroStar/GroupStar6/Star6 | hero_star_2</title><rect x="415.1" y="492.3" width="22.0" height="22.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup1/FrontLine/HeroHeadClickable1/HeroHeadUI/HeroStar/GroupStar10/Star10 | hero_star_3</title><rect x="388.1" y="490.2" width="22.0" height="22.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup1/FrontLine/HeroHeadClickable1/HeroHeadUI/HeroStar/GroupStarE/BgrStarE | star_e_bgr</title><rect x="320.1" y="476.6" width="158.0" height="59.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+<text x="325.1" y="492.6" fill="#e2e8f0" font-size="12" font-family="sans-serif">BgrStarE</text>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup1/FrontLine/HeroHeadClickable1/HeroHeadUI/HeroStar/GroupStarE/StarE | hero_star_e</title><rect x="387.1" y="492.4" width="24.0" height="24.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup1/FrontLine/HeroHeadClickable1/HeroHeadUI/HeroStar/GroupStarE/TextStarE</title><rect x="319.1" y="494.1" width="160.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+<text x="324.1" y="510.1" fill="#e2e8f0" font-size="12" font-family="sans-serif">TextStarE</text>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup1/FrontLine/HeroHeadClickable1/HeroHeadUI/SliderHp/Background | progress_bgr</title><rect x="354.7" y="516.9" width="90.0" height="17.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup1/FrontLine/HeroHeadClickable1/HeroHeadUI/SliderHp/Fill Area/Fill | progress_top_2</title><rect x="355.7" y="516.9" width="88.0" height="17.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup1/FrontLine/HeroHeadClickable2</title><rect x="353.7" y="427.0" width="92.0" height="92.0" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup1/FrontLine/HeroHeadClickable2/HeroHeadUI/ImageFrame | frame_item</title><rect x="354.7" y="428.0" width="90.0" height="90.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup1/FrontLine/HeroHeadClickable2/HeroHeadUI/Mask | mask_item</title><rect x="361.7" y="435.0" width="76.0" height="76.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup1/FrontLine/HeroHeadClickable2/HeroHeadUI/Mask/ImageBgr | bgr_item_consumable</title><rect x="354.7" y="428.0" width="90.0" height="90.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup1/FrontLine/HeroHeadClickable2/HeroHeadUI/Mask/ImageHead | hero_5_star</title><rect x="354.7" y="428.0" width="90.0" height="90.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup1/FrontLine/HeroHeadClickable2/HeroHeadUI/Mask/ImageHidden | hero_head_hidden</title><rect x="354.7" y="428.0" width="90.0" height="90.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup1/FrontLine/HeroHeadClickable2/HeroHeadUI/Mask/Check</title><rect x="349.7" y="423.0" width="100.0" height="100.0" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup1/FrontLine/HeroHeadClickable2/HeroHeadUI/Mask/Check/Tick | tick_green</title><rect x="379.2" y="451.0" width="41.0" height="38.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup1/FrontLine/HeroHeadClickable2/HeroHeadUI/Mask/Lock</title><rect x="349.7" y="423.0" width="100.0" height="100.0" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup1/FrontLine/HeroHeadClickable2/HeroHeadUI/Mask/Lock/Lock | icon_lock</title><rect x="381.7" y="452.0" width="36.0" height="36.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup1/FrontLine/HeroHeadClickable2/HeroHeadUI/Mask/Death</title><rect x="349.7" y="423.0" width="100.0" height="100.0" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup1/FrontLine/HeroHeadClickable2/HeroHeadUI/Mask/Death/Tick | mark_death</title><rect x="347.7" y="414.5" width="104.0" height="111.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup1/FrontLine/HeroHeadClickable2/HeroHeadUI/ImageBorder | hero_head_border</title><rect x="359.7" y="433.0" width="80.0" height="80.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup1/FrontLine/HeroHeadClickable2/HeroHeadUI/ImageNotify | notify_dot</title><rect x="418.0" y="426.9" width="28.0" height="28.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup1/FrontLine/HeroHeadClickable2/HeroHeadUI/TextLevel</title><rect x="400.9" y="428.7" width="40.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup1/FrontLine/HeroHeadClickable2/HeroHeadUI/ImageFaction | faction_light</title><rect x="355.0" y="428.3" width="30.0" height="30.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup1/FrontLine/HeroHeadClickable2/HeroHeadUI/HeroStar</title><rect x="355.0" y="492.3" width="88.1" height="25.4" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup1/FrontLine/HeroHeadClickable2/HeroHeadUI/HeroStar/GroupStar1/Star1 | hero_star_1</title><rect x="341.4" y="507.7" width="20.0" height="20.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup1/FrontLine/HeroHeadClickable2/HeroHeadUI/HeroStar/GroupStar1/Star1 | hero_star_1</title><rect x="341.4" y="507.7" width="20.0" height="20.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup1/FrontLine/HeroHeadClickable2/HeroHeadUI/HeroStar/GroupStar1/Star1 | hero_star_1</title><rect x="341.4" y="507.7" width="20.0" height="20.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup1/FrontLine/HeroHeadClickable2/HeroHeadUI/HeroStar/GroupStar1/Star1 | hero_star_1</title><rect x="341.4" y="507.7" width="20.0" height="20.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup1/FrontLine/HeroHeadClickable2/HeroHeadUI/HeroStar/GroupStar1/Star1 | hero_star_1</title><rect x="341.4" y="507.7" width="20.0" height="20.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup1/FrontLine/HeroHeadClickable2/HeroHeadUI/HeroStar/GroupStar6/Star6 | hero_star_2</title><rect x="361.1" y="492.3" width="22.0" height="22.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup1/FrontLine/HeroHeadClickable2/HeroHeadUI/HeroStar/GroupStar6/Star6 | hero_star_2</title><rect x="379.1" y="492.3" width="22.0" height="22.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup1/FrontLine/HeroHeadClickable2/HeroHeadUI/HeroStar/GroupStar6/Star6 | hero_star_2</title><rect x="397.1" y="492.3" width="22.0" height="22.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup1/FrontLine/HeroHeadClickable2/HeroHeadUI/HeroStar/GroupStar6/Star6 | hero_star_2</title><rect x="415.1" y="492.3" width="22.0" height="22.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup1/FrontLine/HeroHeadClickable2/HeroHeadUI/HeroStar/GroupStar10/Star10 | hero_star_3</title><rect x="388.1" y="490.2" width="22.0" height="22.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup1/FrontLine/HeroHeadClickable2/HeroHeadUI/HeroStar/GroupStarE/BgrStarE | star_e_bgr</title><rect x="320.1" y="476.6" width="158.0" height="59.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+<text x="325.1" y="492.6" fill="#e2e8f0" font-size="12" font-family="sans-serif">BgrStarE</text>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup1/FrontLine/HeroHeadClickable2/HeroHeadUI/HeroStar/GroupStarE/StarE | hero_star_e</title><rect x="387.1" y="492.4" width="24.0" height="24.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup1/FrontLine/HeroHeadClickable2/HeroHeadUI/HeroStar/GroupStarE/TextStarE</title><rect x="319.1" y="494.1" width="160.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+<text x="324.1" y="510.1" fill="#e2e8f0" font-size="12" font-family="sans-serif">TextStarE</text>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup1/FrontLine/HeroHeadClickable2/HeroHeadUI/SliderHp/Background | progress_bgr</title><rect x="354.7" y="516.9" width="90.0" height="17.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup1/FrontLine/HeroHeadClickable2/HeroHeadUI/SliderHp/Fill Area/Fill | progress_top_2</title><rect x="355.7" y="516.9" width="88.0" height="17.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup1/BackLine/HeroHeadClickable3</title><rect x="565.7" y="427.0" width="92.0" height="92.0" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup1/BackLine/HeroHeadClickable3/HeroHeadUI/ImageFrame | frame_item</title><rect x="566.7" y="428.0" width="90.0" height="90.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup1/BackLine/HeroHeadClickable3/HeroHeadUI/Mask | mask_item</title><rect x="573.7" y="435.0" width="76.0" height="76.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup1/BackLine/HeroHeadClickable3/HeroHeadUI/Mask/ImageBgr | bgr_item_consumable</title><rect x="566.7" y="428.0" width="90.0" height="90.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup1/BackLine/HeroHeadClickable3/HeroHeadUI/Mask/ImageHead | hero_5_star</title><rect x="566.7" y="428.0" width="90.0" height="90.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup1/BackLine/HeroHeadClickable3/HeroHeadUI/Mask/ImageHidden | hero_head_hidden</title><rect x="566.7" y="428.0" width="90.0" height="90.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup1/BackLine/HeroHeadClickable3/HeroHeadUI/Mask/Check</title><rect x="561.7" y="423.0" width="100.0" height="100.0" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup1/BackLine/HeroHeadClickable3/HeroHeadUI/Mask/Check/Tick | tick_green</title><rect x="591.2" y="451.0" width="41.0" height="38.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup1/BackLine/HeroHeadClickable3/HeroHeadUI/Mask/Lock</title><rect x="561.7" y="423.0" width="100.0" height="100.0" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup1/BackLine/HeroHeadClickable3/HeroHeadUI/Mask/Lock/Lock | icon_lock</title><rect x="593.7" y="452.0" width="36.0" height="36.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup1/BackLine/HeroHeadClickable3/HeroHeadUI/Mask/Death</title><rect x="561.7" y="423.0" width="100.0" height="100.0" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup1/BackLine/HeroHeadClickable3/HeroHeadUI/Mask/Death/Tick | mark_death</title><rect x="559.7" y="414.5" width="104.0" height="111.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup1/BackLine/HeroHeadClickable3/HeroHeadUI/ImageBorder | hero_head_border</title><rect x="571.7" y="433.0" width="80.0" height="80.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup1/BackLine/HeroHeadClickable3/HeroHeadUI/ImageNotify | notify_dot</title><rect x="630.0" y="426.9" width="28.0" height="28.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup1/BackLine/HeroHeadClickable3/HeroHeadUI/TextLevel</title><rect x="612.9" y="428.7" width="40.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup1/BackLine/HeroHeadClickable3/HeroHeadUI/ImageFaction | faction_light</title><rect x="567.0" y="428.3" width="30.0" height="30.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup1/BackLine/HeroHeadClickable3/HeroHeadUI/HeroStar</title><rect x="567.0" y="492.3" width="88.1" height="25.4" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup1/BackLine/HeroHeadClickable3/HeroHeadUI/HeroStar/GroupStar1/Star1 | hero_star_1</title><rect x="553.4" y="507.7" width="20.0" height="20.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup1/BackLine/HeroHeadClickable3/HeroHeadUI/HeroStar/GroupStar1/Star1 | hero_star_1</title><rect x="553.4" y="507.7" width="20.0" height="20.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup1/BackLine/HeroHeadClickable3/HeroHeadUI/HeroStar/GroupStar1/Star1 | hero_star_1</title><rect x="553.4" y="507.7" width="20.0" height="20.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup1/BackLine/HeroHeadClickable3/HeroHeadUI/HeroStar/GroupStar1/Star1 | hero_star_1</title><rect x="553.4" y="507.7" width="20.0" height="20.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup1/BackLine/HeroHeadClickable3/HeroHeadUI/HeroStar/GroupStar1/Star1 | hero_star_1</title><rect x="553.4" y="507.7" width="20.0" height="20.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup1/BackLine/HeroHeadClickable3/HeroHeadUI/HeroStar/GroupStar6/Star6 | hero_star_2</title><rect x="573.1" y="492.3" width="22.0" height="22.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup1/BackLine/HeroHeadClickable3/HeroHeadUI/HeroStar/GroupStar6/Star6 | hero_star_2</title><rect x="591.1" y="492.3" width="22.0" height="22.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup1/BackLine/HeroHeadClickable3/HeroHeadUI/HeroStar/GroupStar6/Star6 | hero_star_2</title><rect x="609.1" y="492.3" width="22.0" height="22.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup1/BackLine/HeroHeadClickable3/HeroHeadUI/HeroStar/GroupStar6/Star6 | hero_star_2</title><rect x="627.1" y="492.3" width="22.0" height="22.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup1/BackLine/HeroHeadClickable3/HeroHeadUI/HeroStar/GroupStar10/Star10 | hero_star_3</title><rect x="600.1" y="490.2" width="22.0" height="22.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup1/BackLine/HeroHeadClickable3/HeroHeadUI/HeroStar/GroupStarE/BgrStarE | star_e_bgr</title><rect x="532.1" y="476.6" width="158.0" height="59.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+<text x="537.1" y="492.6" fill="#e2e8f0" font-size="12" font-family="sans-serif">BgrStarE</text>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup1/BackLine/HeroHeadClickable3/HeroHeadUI/HeroStar/GroupStarE/StarE | hero_star_e</title><rect x="599.1" y="492.4" width="24.0" height="24.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup1/BackLine/HeroHeadClickable3/HeroHeadUI/HeroStar/GroupStarE/TextStarE</title><rect x="531.1" y="494.1" width="160.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+<text x="536.1" y="510.1" fill="#e2e8f0" font-size="12" font-family="sans-serif">TextStarE</text>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup1/BackLine/HeroHeadClickable3/HeroHeadUI/SliderHp/Background | progress_bgr</title><rect x="566.7" y="516.9" width="90.0" height="17.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup1/BackLine/HeroHeadClickable3/HeroHeadUI/SliderHp/Fill Area/Fill | progress_top_2</title><rect x="567.7" y="516.9" width="88.0" height="17.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup1/BackLine/HeroHeadClickable4</title><rect x="565.7" y="427.0" width="92.0" height="92.0" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup1/BackLine/HeroHeadClickable4/HeroHeadUI/ImageFrame | frame_item</title><rect x="566.7" y="428.0" width="90.0" height="90.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup1/BackLine/HeroHeadClickable4/HeroHeadUI/Mask | mask_item</title><rect x="573.7" y="435.0" width="76.0" height="76.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup1/BackLine/HeroHeadClickable4/HeroHeadUI/Mask/ImageBgr | bgr_item_consumable</title><rect x="566.7" y="428.0" width="90.0" height="90.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup1/BackLine/HeroHeadClickable4/HeroHeadUI/Mask/ImageHead | hero_5_star</title><rect x="566.7" y="428.0" width="90.0" height="90.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup1/BackLine/HeroHeadClickable4/HeroHeadUI/Mask/ImageHidden | hero_head_hidden</title><rect x="566.7" y="428.0" width="90.0" height="90.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup1/BackLine/HeroHeadClickable4/HeroHeadUI/Mask/Check</title><rect x="561.7" y="423.0" width="100.0" height="100.0" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup1/BackLine/HeroHeadClickable4/HeroHeadUI/Mask/Check/Tick | tick_green</title><rect x="591.2" y="451.0" width="41.0" height="38.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup1/BackLine/HeroHeadClickable4/HeroHeadUI/Mask/Lock</title><rect x="561.7" y="423.0" width="100.0" height="100.0" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup1/BackLine/HeroHeadClickable4/HeroHeadUI/Mask/Lock/Lock | icon_lock</title><rect x="593.7" y="452.0" width="36.0" height="36.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup1/BackLine/HeroHeadClickable4/HeroHeadUI/Mask/Death</title><rect x="561.7" y="423.0" width="100.0" height="100.0" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup1/BackLine/HeroHeadClickable4/HeroHeadUI/Mask/Death/Tick | mark_death</title><rect x="559.7" y="414.5" width="104.0" height="111.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup1/BackLine/HeroHeadClickable4/HeroHeadUI/ImageBorder | hero_head_border</title><rect x="571.7" y="433.0" width="80.0" height="80.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup1/BackLine/HeroHeadClickable4/HeroHeadUI/ImageNotify | notify_dot</title><rect x="630.0" y="426.9" width="28.0" height="28.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup1/BackLine/HeroHeadClickable4/HeroHeadUI/TextLevel</title><rect x="612.9" y="428.7" width="40.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup1/BackLine/HeroHeadClickable4/HeroHeadUI/ImageFaction | faction_light</title><rect x="567.0" y="428.3" width="30.0" height="30.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup1/BackLine/HeroHeadClickable4/HeroHeadUI/HeroStar</title><rect x="567.0" y="492.3" width="88.1" height="25.4" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup1/BackLine/HeroHeadClickable4/HeroHeadUI/HeroStar/GroupStar1/Star1 | hero_star_1</title><rect x="553.4" y="507.7" width="20.0" height="20.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup1/BackLine/HeroHeadClickable4/HeroHeadUI/HeroStar/GroupStar1/Star1 | hero_star_1</title><rect x="553.4" y="507.7" width="20.0" height="20.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup1/BackLine/HeroHeadClickable4/HeroHeadUI/HeroStar/GroupStar1/Star1 | hero_star_1</title><rect x="553.4" y="507.7" width="20.0" height="20.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup1/BackLine/HeroHeadClickable4/HeroHeadUI/HeroStar/GroupStar1/Star1 | hero_star_1</title><rect x="553.4" y="507.7" width="20.0" height="20.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup1/BackLine/HeroHeadClickable4/HeroHeadUI/HeroStar/GroupStar1/Star1 | hero_star_1</title><rect x="553.4" y="507.7" width="20.0" height="20.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup1/BackLine/HeroHeadClickable4/HeroHeadUI/HeroStar/GroupStar6/Star6 | hero_star_2</title><rect x="573.1" y="492.3" width="22.0" height="22.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup1/BackLine/HeroHeadClickable4/HeroHeadUI/HeroStar/GroupStar6/Star6 | hero_star_2</title><rect x="591.1" y="492.3" width="22.0" height="22.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup1/BackLine/HeroHeadClickable4/HeroHeadUI/HeroStar/GroupStar6/Star6 | hero_star_2</title><rect x="609.1" y="492.3" width="22.0" height="22.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup1/BackLine/HeroHeadClickable4/HeroHeadUI/HeroStar/GroupStar6/Star6 | hero_star_2</title><rect x="627.1" y="492.3" width="22.0" height="22.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup1/BackLine/HeroHeadClickable4/HeroHeadUI/HeroStar/GroupStar10/Star10 | hero_star_3</title><rect x="600.1" y="490.2" width="22.0" height="22.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup1/BackLine/HeroHeadClickable4/HeroHeadUI/HeroStar/GroupStarE/BgrStarE | star_e_bgr</title><rect x="532.1" y="476.6" width="158.0" height="59.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+<text x="537.1" y="492.6" fill="#e2e8f0" font-size="12" font-family="sans-serif">BgrStarE</text>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup1/BackLine/HeroHeadClickable4/HeroHeadUI/HeroStar/GroupStarE/StarE | hero_star_e</title><rect x="599.1" y="492.4" width="24.0" height="24.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup1/BackLine/HeroHeadClickable4/HeroHeadUI/HeroStar/GroupStarE/TextStarE</title><rect x="531.1" y="494.1" width="160.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+<text x="536.1" y="510.1" fill="#e2e8f0" font-size="12" font-family="sans-serif">TextStarE</text>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup1/BackLine/HeroHeadClickable4/HeroHeadUI/SliderHp/Background | progress_bgr</title><rect x="566.7" y="516.9" width="90.0" height="17.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup1/BackLine/HeroHeadClickable4/HeroHeadUI/SliderHp/Fill Area/Fill | progress_top_2</title><rect x="567.7" y="516.9" width="88.0" height="17.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup1/BackLine/HeroHeadClickable5</title><rect x="565.7" y="427.0" width="92.0" height="92.0" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup1/BackLine/HeroHeadClickable5/HeroHeadUI/ImageFrame | frame_item</title><rect x="566.7" y="428.0" width="90.0" height="90.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup1/BackLine/HeroHeadClickable5/HeroHeadUI/Mask | mask_item</title><rect x="573.7" y="435.0" width="76.0" height="76.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup1/BackLine/HeroHeadClickable5/HeroHeadUI/Mask/ImageBgr | bgr_item_consumable</title><rect x="566.7" y="428.0" width="90.0" height="90.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup1/BackLine/HeroHeadClickable5/HeroHeadUI/Mask/ImageHead | hero_5_star</title><rect x="566.7" y="428.0" width="90.0" height="90.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup1/BackLine/HeroHeadClickable5/HeroHeadUI/Mask/ImageHidden | hero_head_hidden</title><rect x="566.7" y="428.0" width="90.0" height="90.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup1/BackLine/HeroHeadClickable5/HeroHeadUI/Mask/Check</title><rect x="561.7" y="423.0" width="100.0" height="100.0" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup1/BackLine/HeroHeadClickable5/HeroHeadUI/Mask/Check/Tick | tick_green</title><rect x="591.2" y="451.0" width="41.0" height="38.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup1/BackLine/HeroHeadClickable5/HeroHeadUI/Mask/Lock</title><rect x="561.7" y="423.0" width="100.0" height="100.0" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup1/BackLine/HeroHeadClickable5/HeroHeadUI/Mask/Lock/Lock | icon_lock</title><rect x="593.7" y="452.0" width="36.0" height="36.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup1/BackLine/HeroHeadClickable5/HeroHeadUI/Mask/Death</title><rect x="561.7" y="423.0" width="100.0" height="100.0" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup1/BackLine/HeroHeadClickable5/HeroHeadUI/Mask/Death/Tick | mark_death</title><rect x="559.7" y="414.5" width="104.0" height="111.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup1/BackLine/HeroHeadClickable5/HeroHeadUI/ImageBorder | hero_head_border</title><rect x="571.7" y="433.0" width="80.0" height="80.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup1/BackLine/HeroHeadClickable5/HeroHeadUI/ImageNotify | notify_dot</title><rect x="630.0" y="426.9" width="28.0" height="28.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup1/BackLine/HeroHeadClickable5/HeroHeadUI/TextLevel</title><rect x="612.9" y="428.7" width="40.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup1/BackLine/HeroHeadClickable5/HeroHeadUI/ImageFaction | faction_light</title><rect x="567.0" y="428.3" width="30.0" height="30.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup1/BackLine/HeroHeadClickable5/HeroHeadUI/HeroStar</title><rect x="567.0" y="492.3" width="88.1" height="25.4" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup1/BackLine/HeroHeadClickable5/HeroHeadUI/HeroStar/GroupStar1/Star1 | hero_star_1</title><rect x="553.4" y="507.7" width="20.0" height="20.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup1/BackLine/HeroHeadClickable5/HeroHeadUI/HeroStar/GroupStar1/Star1 | hero_star_1</title><rect x="553.4" y="507.7" width="20.0" height="20.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup1/BackLine/HeroHeadClickable5/HeroHeadUI/HeroStar/GroupStar1/Star1 | hero_star_1</title><rect x="553.4" y="507.7" width="20.0" height="20.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup1/BackLine/HeroHeadClickable5/HeroHeadUI/HeroStar/GroupStar1/Star1 | hero_star_1</title><rect x="553.4" y="507.7" width="20.0" height="20.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup1/BackLine/HeroHeadClickable5/HeroHeadUI/HeroStar/GroupStar1/Star1 | hero_star_1</title><rect x="553.4" y="507.7" width="20.0" height="20.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup1/BackLine/HeroHeadClickable5/HeroHeadUI/HeroStar/GroupStar6/Star6 | hero_star_2</title><rect x="573.1" y="492.3" width="22.0" height="22.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup1/BackLine/HeroHeadClickable5/HeroHeadUI/HeroStar/GroupStar6/Star6 | hero_star_2</title><rect x="591.1" y="492.3" width="22.0" height="22.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup1/BackLine/HeroHeadClickable5/HeroHeadUI/HeroStar/GroupStar6/Star6 | hero_star_2</title><rect x="609.1" y="492.3" width="22.0" height="22.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup1/BackLine/HeroHeadClickable5/HeroHeadUI/HeroStar/GroupStar6/Star6 | hero_star_2</title><rect x="627.1" y="492.3" width="22.0" height="22.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup1/BackLine/HeroHeadClickable5/HeroHeadUI/HeroStar/GroupStar10/Star10 | hero_star_3</title><rect x="600.1" y="490.2" width="22.0" height="22.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup1/BackLine/HeroHeadClickable5/HeroHeadUI/HeroStar/GroupStarE/BgrStarE | star_e_bgr</title><rect x="532.1" y="476.6" width="158.0" height="59.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+<text x="537.1" y="492.6" fill="#e2e8f0" font-size="12" font-family="sans-serif">BgrStarE</text>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup1/BackLine/HeroHeadClickable5/HeroHeadUI/HeroStar/GroupStarE/StarE | hero_star_e</title><rect x="599.1" y="492.4" width="24.0" height="24.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup1/BackLine/HeroHeadClickable5/HeroHeadUI/HeroStar/GroupStarE/TextStarE</title><rect x="531.1" y="494.1" width="160.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+<text x="536.1" y="510.1" fill="#e2e8f0" font-size="12" font-family="sans-serif">TextStarE</text>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup1/BackLine/HeroHeadClickable5/HeroHeadUI/SliderHp/Background | progress_bgr</title><rect x="566.7" y="516.9" width="90.0" height="17.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup1/BackLine/HeroHeadClickable5/HeroHeadUI/SliderHp/Fill Area/Fill | progress_top_2</title><rect x="567.7" y="516.9" width="88.0" height="17.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup1/BackLine/HeroHeadClickable6</title><rect x="565.7" y="427.0" width="92.0" height="92.0" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup1/BackLine/HeroHeadClickable6/HeroHeadUI/ImageFrame | frame_item</title><rect x="566.7" y="428.0" width="90.0" height="90.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup1/BackLine/HeroHeadClickable6/HeroHeadUI/Mask | mask_item</title><rect x="573.7" y="435.0" width="76.0" height="76.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup1/BackLine/HeroHeadClickable6/HeroHeadUI/Mask/ImageBgr | bgr_item_consumable</title><rect x="566.7" y="428.0" width="90.0" height="90.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup1/BackLine/HeroHeadClickable6/HeroHeadUI/Mask/ImageHead | hero_5_star</title><rect x="566.7" y="428.0" width="90.0" height="90.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup1/BackLine/HeroHeadClickable6/HeroHeadUI/Mask/ImageHidden | hero_head_hidden</title><rect x="566.7" y="428.0" width="90.0" height="90.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup1/BackLine/HeroHeadClickable6/HeroHeadUI/Mask/Check</title><rect x="561.7" y="423.0" width="100.0" height="100.0" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup1/BackLine/HeroHeadClickable6/HeroHeadUI/Mask/Check/Tick | tick_green</title><rect x="591.2" y="451.0" width="41.0" height="38.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup1/BackLine/HeroHeadClickable6/HeroHeadUI/Mask/Lock</title><rect x="561.7" y="423.0" width="100.0" height="100.0" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup1/BackLine/HeroHeadClickable6/HeroHeadUI/Mask/Lock/Lock | icon_lock</title><rect x="593.7" y="452.0" width="36.0" height="36.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup1/BackLine/HeroHeadClickable6/HeroHeadUI/Mask/Death</title><rect x="561.7" y="423.0" width="100.0" height="100.0" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup1/BackLine/HeroHeadClickable6/HeroHeadUI/Mask/Death/Tick | mark_death</title><rect x="559.7" y="414.5" width="104.0" height="111.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup1/BackLine/HeroHeadClickable6/HeroHeadUI/ImageBorder | hero_head_border</title><rect x="571.7" y="433.0" width="80.0" height="80.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup1/BackLine/HeroHeadClickable6/HeroHeadUI/ImageNotify | notify_dot</title><rect x="630.0" y="426.9" width="28.0" height="28.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup1/BackLine/HeroHeadClickable6/HeroHeadUI/TextLevel</title><rect x="612.9" y="428.7" width="40.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup1/BackLine/HeroHeadClickable6/HeroHeadUI/ImageFaction | faction_light</title><rect x="567.0" y="428.3" width="30.0" height="30.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup1/BackLine/HeroHeadClickable6/HeroHeadUI/HeroStar</title><rect x="567.0" y="492.3" width="88.1" height="25.4" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup1/BackLine/HeroHeadClickable6/HeroHeadUI/HeroStar/GroupStar1/Star1 | hero_star_1</title><rect x="553.4" y="507.7" width="20.0" height="20.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup1/BackLine/HeroHeadClickable6/HeroHeadUI/HeroStar/GroupStar1/Star1 | hero_star_1</title><rect x="553.4" y="507.7" width="20.0" height="20.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup1/BackLine/HeroHeadClickable6/HeroHeadUI/HeroStar/GroupStar1/Star1 | hero_star_1</title><rect x="553.4" y="507.7" width="20.0" height="20.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup1/BackLine/HeroHeadClickable6/HeroHeadUI/HeroStar/GroupStar1/Star1 | hero_star_1</title><rect x="553.4" y="507.7" width="20.0" height="20.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup1/BackLine/HeroHeadClickable6/HeroHeadUI/HeroStar/GroupStar1/Star1 | hero_star_1</title><rect x="553.4" y="507.7" width="20.0" height="20.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup1/BackLine/HeroHeadClickable6/HeroHeadUI/HeroStar/GroupStar6/Star6 | hero_star_2</title><rect x="573.1" y="492.3" width="22.0" height="22.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup1/BackLine/HeroHeadClickable6/HeroHeadUI/HeroStar/GroupStar6/Star6 | hero_star_2</title><rect x="591.1" y="492.3" width="22.0" height="22.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup1/BackLine/HeroHeadClickable6/HeroHeadUI/HeroStar/GroupStar6/Star6 | hero_star_2</title><rect x="609.1" y="492.3" width="22.0" height="22.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup1/BackLine/HeroHeadClickable6/HeroHeadUI/HeroStar/GroupStar6/Star6 | hero_star_2</title><rect x="627.1" y="492.3" width="22.0" height="22.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup1/BackLine/HeroHeadClickable6/HeroHeadUI/HeroStar/GroupStar10/Star10 | hero_star_3</title><rect x="600.1" y="490.2" width="22.0" height="22.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup1/BackLine/HeroHeadClickable6/HeroHeadUI/HeroStar/GroupStarE/BgrStarE | star_e_bgr</title><rect x="532.1" y="476.6" width="158.0" height="59.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+<text x="537.1" y="492.6" fill="#e2e8f0" font-size="12" font-family="sans-serif">BgrStarE</text>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup1/BackLine/HeroHeadClickable6/HeroHeadUI/HeroStar/GroupStarE/StarE | hero_star_e</title><rect x="599.1" y="492.4" width="24.0" height="24.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup1/BackLine/HeroHeadClickable6/HeroHeadUI/HeroStar/GroupStarE/TextStarE</title><rect x="531.1" y="494.1" width="160.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+<text x="536.1" y="510.1" fill="#e2e8f0" font-size="12" font-family="sans-serif">TextStarE</text>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup1/BackLine/HeroHeadClickable6/HeroHeadUI/SliderHp/Background | progress_bgr</title><rect x="566.7" y="516.9" width="90.0" height="17.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup1/BackLine/HeroHeadClickable6/HeroHeadUI/SliderHp/Fill Area/Fill | progress_top_2</title><rect x="567.7" y="516.9" width="88.0" height="17.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup2/FrontLine/HeroHeadClickable1</title><rect x="353.7" y="532.0" width="92.0" height="92.0" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup2/FrontLine/HeroHeadClickable1/HeroHeadUI/ImageFrame | frame_item</title><rect x="354.7" y="533.0" width="90.0" height="90.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup2/FrontLine/HeroHeadClickable1/HeroHeadUI/Mask | mask_item</title><rect x="361.7" y="540.0" width="76.0" height="76.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup2/FrontLine/HeroHeadClickable1/HeroHeadUI/Mask/ImageBgr | bgr_item_consumable</title><rect x="354.7" y="533.0" width="90.0" height="90.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup2/FrontLine/HeroHeadClickable1/HeroHeadUI/Mask/ImageHead | hero_5_star</title><rect x="354.7" y="533.0" width="90.0" height="90.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup2/FrontLine/HeroHeadClickable1/HeroHeadUI/Mask/ImageHidden | hero_head_hidden</title><rect x="354.7" y="533.0" width="90.0" height="90.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup2/FrontLine/HeroHeadClickable1/HeroHeadUI/Mask/Check</title><rect x="349.7" y="528.0" width="100.0" height="100.0" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup2/FrontLine/HeroHeadClickable1/HeroHeadUI/Mask/Check/Tick | tick_green</title><rect x="379.2" y="556.0" width="41.0" height="38.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup2/FrontLine/HeroHeadClickable1/HeroHeadUI/Mask/Lock</title><rect x="349.7" y="528.0" width="100.0" height="100.0" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup2/FrontLine/HeroHeadClickable1/HeroHeadUI/Mask/Lock/Lock | icon_lock</title><rect x="381.7" y="557.0" width="36.0" height="36.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup2/FrontLine/HeroHeadClickable1/HeroHeadUI/Mask/Death</title><rect x="349.7" y="528.0" width="100.0" height="100.0" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup2/FrontLine/HeroHeadClickable1/HeroHeadUI/Mask/Death/Tick | mark_death</title><rect x="347.7" y="519.5" width="104.0" height="111.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup2/FrontLine/HeroHeadClickable1/HeroHeadUI/ImageBorder | hero_head_border</title><rect x="359.7" y="538.0" width="80.0" height="80.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup2/FrontLine/HeroHeadClickable1/HeroHeadUI/ImageNotify | notify_dot</title><rect x="418.0" y="531.9" width="28.0" height="28.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup2/FrontLine/HeroHeadClickable1/HeroHeadUI/TextLevel</title><rect x="400.9" y="533.7" width="40.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup2/FrontLine/HeroHeadClickable1/HeroHeadUI/ImageFaction | faction_light</title><rect x="355.0" y="533.3" width="30.0" height="30.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup2/FrontLine/HeroHeadClickable1/HeroHeadUI/HeroStar</title><rect x="355.0" y="597.3" width="88.1" height="25.4" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup2/FrontLine/HeroHeadClickable1/HeroHeadUI/HeroStar/GroupStar1/Star1 | hero_star_1</title><rect x="341.4" y="612.7" width="20.0" height="20.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup2/FrontLine/HeroHeadClickable1/HeroHeadUI/HeroStar/GroupStar1/Star1 | hero_star_1</title><rect x="341.4" y="612.7" width="20.0" height="20.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup2/FrontLine/HeroHeadClickable1/HeroHeadUI/HeroStar/GroupStar1/Star1 | hero_star_1</title><rect x="341.4" y="612.7" width="20.0" height="20.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup2/FrontLine/HeroHeadClickable1/HeroHeadUI/HeroStar/GroupStar1/Star1 | hero_star_1</title><rect x="341.4" y="612.7" width="20.0" height="20.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup2/FrontLine/HeroHeadClickable1/HeroHeadUI/HeroStar/GroupStar1/Star1 | hero_star_1</title><rect x="341.4" y="612.7" width="20.0" height="20.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup2/FrontLine/HeroHeadClickable1/HeroHeadUI/HeroStar/GroupStar6/Star6 | hero_star_2</title><rect x="361.1" y="597.3" width="22.0" height="22.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup2/FrontLine/HeroHeadClickable1/HeroHeadUI/HeroStar/GroupStar6/Star6 | hero_star_2</title><rect x="379.1" y="597.3" width="22.0" height="22.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup2/FrontLine/HeroHeadClickable1/HeroHeadUI/HeroStar/GroupStar6/Star6 | hero_star_2</title><rect x="397.1" y="597.3" width="22.0" height="22.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup2/FrontLine/HeroHeadClickable1/HeroHeadUI/HeroStar/GroupStar6/Star6 | hero_star_2</title><rect x="415.1" y="597.3" width="22.0" height="22.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup2/FrontLine/HeroHeadClickable1/HeroHeadUI/HeroStar/GroupStar10/Star10 | hero_star_3</title><rect x="388.1" y="595.2" width="22.0" height="22.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup2/FrontLine/HeroHeadClickable1/HeroHeadUI/HeroStar/GroupStarE/BgrStarE | star_e_bgr</title><rect x="320.1" y="581.6" width="158.0" height="59.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup2/FrontLine/HeroHeadClickable1/HeroHeadUI/HeroStar/GroupStarE/StarE | hero_star_e</title><rect x="387.1" y="597.4" width="24.0" height="24.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup2/FrontLine/HeroHeadClickable1/HeroHeadUI/HeroStar/GroupStarE/TextStarE</title><rect x="319.1" y="599.1" width="160.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup2/FrontLine/HeroHeadClickable1/HeroHeadUI/SliderHp/Background | progress_bgr</title><rect x="354.7" y="621.9" width="90.0" height="17.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup2/FrontLine/HeroHeadClickable1/HeroHeadUI/SliderHp/Fill Area/Fill | progress_top_2</title><rect x="355.7" y="621.9" width="88.0" height="17.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup2/FrontLine/HeroHeadClickable2</title><rect x="353.7" y="532.0" width="92.0" height="92.0" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup2/FrontLine/HeroHeadClickable2/HeroHeadUI/ImageFrame | frame_item</title><rect x="354.7" y="533.0" width="90.0" height="90.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup2/FrontLine/HeroHeadClickable2/HeroHeadUI/Mask | mask_item</title><rect x="361.7" y="540.0" width="76.0" height="76.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup2/FrontLine/HeroHeadClickable2/HeroHeadUI/Mask/ImageBgr | bgr_item_consumable</title><rect x="354.7" y="533.0" width="90.0" height="90.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup2/FrontLine/HeroHeadClickable2/HeroHeadUI/Mask/ImageHead | hero_5_star</title><rect x="354.7" y="533.0" width="90.0" height="90.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup2/FrontLine/HeroHeadClickable2/HeroHeadUI/Mask/ImageHidden | hero_head_hidden</title><rect x="354.7" y="533.0" width="90.0" height="90.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup2/FrontLine/HeroHeadClickable2/HeroHeadUI/Mask/Check</title><rect x="349.7" y="528.0" width="100.0" height="100.0" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup2/FrontLine/HeroHeadClickable2/HeroHeadUI/Mask/Check/Tick | tick_green</title><rect x="379.2" y="556.0" width="41.0" height="38.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup2/FrontLine/HeroHeadClickable2/HeroHeadUI/Mask/Lock</title><rect x="349.7" y="528.0" width="100.0" height="100.0" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup2/FrontLine/HeroHeadClickable2/HeroHeadUI/Mask/Lock/Lock | icon_lock</title><rect x="381.7" y="557.0" width="36.0" height="36.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup2/FrontLine/HeroHeadClickable2/HeroHeadUI/Mask/Death</title><rect x="349.7" y="528.0" width="100.0" height="100.0" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup2/FrontLine/HeroHeadClickable2/HeroHeadUI/Mask/Death/Tick | mark_death</title><rect x="347.7" y="519.5" width="104.0" height="111.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup2/FrontLine/HeroHeadClickable2/HeroHeadUI/ImageBorder | hero_head_border</title><rect x="359.7" y="538.0" width="80.0" height="80.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup2/FrontLine/HeroHeadClickable2/HeroHeadUI/ImageNotify | notify_dot</title><rect x="418.0" y="531.9" width="28.0" height="28.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup2/FrontLine/HeroHeadClickable2/HeroHeadUI/TextLevel</title><rect x="400.9" y="533.7" width="40.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup2/FrontLine/HeroHeadClickable2/HeroHeadUI/ImageFaction | faction_light</title><rect x="355.0" y="533.3" width="30.0" height="30.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup2/FrontLine/HeroHeadClickable2/HeroHeadUI/HeroStar</title><rect x="355.0" y="597.3" width="88.1" height="25.4" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup2/FrontLine/HeroHeadClickable2/HeroHeadUI/HeroStar/GroupStar1/Star1 | hero_star_1</title><rect x="341.4" y="612.7" width="20.0" height="20.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup2/FrontLine/HeroHeadClickable2/HeroHeadUI/HeroStar/GroupStar1/Star1 | hero_star_1</title><rect x="341.4" y="612.7" width="20.0" height="20.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup2/FrontLine/HeroHeadClickable2/HeroHeadUI/HeroStar/GroupStar1/Star1 | hero_star_1</title><rect x="341.4" y="612.7" width="20.0" height="20.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup2/FrontLine/HeroHeadClickable2/HeroHeadUI/HeroStar/GroupStar1/Star1 | hero_star_1</title><rect x="341.4" y="612.7" width="20.0" height="20.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup2/FrontLine/HeroHeadClickable2/HeroHeadUI/HeroStar/GroupStar1/Star1 | hero_star_1</title><rect x="341.4" y="612.7" width="20.0" height="20.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup2/FrontLine/HeroHeadClickable2/HeroHeadUI/HeroStar/GroupStar6/Star6 | hero_star_2</title><rect x="361.1" y="597.3" width="22.0" height="22.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup2/FrontLine/HeroHeadClickable2/HeroHeadUI/HeroStar/GroupStar6/Star6 | hero_star_2</title><rect x="379.1" y="597.3" width="22.0" height="22.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup2/FrontLine/HeroHeadClickable2/HeroHeadUI/HeroStar/GroupStar6/Star6 | hero_star_2</title><rect x="397.1" y="597.3" width="22.0" height="22.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup2/FrontLine/HeroHeadClickable2/HeroHeadUI/HeroStar/GroupStar6/Star6 | hero_star_2</title><rect x="415.1" y="597.3" width="22.0" height="22.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup2/FrontLine/HeroHeadClickable2/HeroHeadUI/HeroStar/GroupStar10/Star10 | hero_star_3</title><rect x="388.1" y="595.2" width="22.0" height="22.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup2/FrontLine/HeroHeadClickable2/HeroHeadUI/HeroStar/GroupStarE/BgrStarE | star_e_bgr</title><rect x="320.1" y="581.6" width="158.0" height="59.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup2/FrontLine/HeroHeadClickable2/HeroHeadUI/HeroStar/GroupStarE/StarE | hero_star_e</title><rect x="387.1" y="597.4" width="24.0" height="24.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup2/FrontLine/HeroHeadClickable2/HeroHeadUI/HeroStar/GroupStarE/TextStarE</title><rect x="319.1" y="599.1" width="160.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup2/FrontLine/HeroHeadClickable2/HeroHeadUI/SliderHp/Background | progress_bgr</title><rect x="354.7" y="621.9" width="90.0" height="17.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup2/FrontLine/HeroHeadClickable2/HeroHeadUI/SliderHp/Fill Area/Fill | progress_top_2</title><rect x="355.7" y="621.9" width="88.0" height="17.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup2/BackLine/HeroHeadClickable3</title><rect x="565.7" y="532.0" width="92.0" height="92.0" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup2/BackLine/HeroHeadClickable3/HeroHeadUI/ImageFrame | frame_item</title><rect x="566.7" y="533.0" width="90.0" height="90.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup2/BackLine/HeroHeadClickable3/HeroHeadUI/Mask | mask_item</title><rect x="573.7" y="540.0" width="76.0" height="76.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup2/BackLine/HeroHeadClickable3/HeroHeadUI/Mask/ImageBgr | bgr_item_consumable</title><rect x="566.7" y="533.0" width="90.0" height="90.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup2/BackLine/HeroHeadClickable3/HeroHeadUI/Mask/ImageHead | hero_5_star</title><rect x="566.7" y="533.0" width="90.0" height="90.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup2/BackLine/HeroHeadClickable3/HeroHeadUI/Mask/ImageHidden | hero_head_hidden</title><rect x="566.7" y="533.0" width="90.0" height="90.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup2/BackLine/HeroHeadClickable3/HeroHeadUI/Mask/Check</title><rect x="561.7" y="528.0" width="100.0" height="100.0" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup2/BackLine/HeroHeadClickable3/HeroHeadUI/Mask/Check/Tick | tick_green</title><rect x="591.2" y="556.0" width="41.0" height="38.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup2/BackLine/HeroHeadClickable3/HeroHeadUI/Mask/Lock</title><rect x="561.7" y="528.0" width="100.0" height="100.0" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup2/BackLine/HeroHeadClickable3/HeroHeadUI/Mask/Lock/Lock | icon_lock</title><rect x="593.7" y="557.0" width="36.0" height="36.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup2/BackLine/HeroHeadClickable3/HeroHeadUI/Mask/Death</title><rect x="561.7" y="528.0" width="100.0" height="100.0" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup2/BackLine/HeroHeadClickable3/HeroHeadUI/Mask/Death/Tick | mark_death</title><rect x="559.7" y="519.5" width="104.0" height="111.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup2/BackLine/HeroHeadClickable3/HeroHeadUI/ImageBorder | hero_head_border</title><rect x="571.7" y="538.0" width="80.0" height="80.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup2/BackLine/HeroHeadClickable3/HeroHeadUI/ImageNotify | notify_dot</title><rect x="630.0" y="531.9" width="28.0" height="28.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup2/BackLine/HeroHeadClickable3/HeroHeadUI/TextLevel</title><rect x="612.9" y="533.7" width="40.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup2/BackLine/HeroHeadClickable3/HeroHeadUI/ImageFaction | faction_light</title><rect x="567.0" y="533.3" width="30.0" height="30.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup2/BackLine/HeroHeadClickable3/HeroHeadUI/HeroStar</title><rect x="567.0" y="597.3" width="88.1" height="25.4" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup2/BackLine/HeroHeadClickable3/HeroHeadUI/HeroStar/GroupStar1/Star1 | hero_star_1</title><rect x="553.4" y="612.7" width="20.0" height="20.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup2/BackLine/HeroHeadClickable3/HeroHeadUI/HeroStar/GroupStar1/Star1 | hero_star_1</title><rect x="553.4" y="612.7" width="20.0" height="20.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup2/BackLine/HeroHeadClickable3/HeroHeadUI/HeroStar/GroupStar1/Star1 | hero_star_1</title><rect x="553.4" y="612.7" width="20.0" height="20.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup2/BackLine/HeroHeadClickable3/HeroHeadUI/HeroStar/GroupStar1/Star1 | hero_star_1</title><rect x="553.4" y="612.7" width="20.0" height="20.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup2/BackLine/HeroHeadClickable3/HeroHeadUI/HeroStar/GroupStar1/Star1 | hero_star_1</title><rect x="553.4" y="612.7" width="20.0" height="20.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup2/BackLine/HeroHeadClickable3/HeroHeadUI/HeroStar/GroupStar6/Star6 | hero_star_2</title><rect x="573.1" y="597.3" width="22.0" height="22.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup2/BackLine/HeroHeadClickable3/HeroHeadUI/HeroStar/GroupStar6/Star6 | hero_star_2</title><rect x="591.1" y="597.3" width="22.0" height="22.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup2/BackLine/HeroHeadClickable3/HeroHeadUI/HeroStar/GroupStar6/Star6 | hero_star_2</title><rect x="609.1" y="597.3" width="22.0" height="22.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup2/BackLine/HeroHeadClickable3/HeroHeadUI/HeroStar/GroupStar6/Star6 | hero_star_2</title><rect x="627.1" y="597.3" width="22.0" height="22.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup2/BackLine/HeroHeadClickable3/HeroHeadUI/HeroStar/GroupStar10/Star10 | hero_star_3</title><rect x="600.1" y="595.2" width="22.0" height="22.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup2/BackLine/HeroHeadClickable3/HeroHeadUI/HeroStar/GroupStarE/BgrStarE | star_e_bgr</title><rect x="532.1" y="581.6" width="158.0" height="59.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup2/BackLine/HeroHeadClickable3/HeroHeadUI/HeroStar/GroupStarE/StarE | hero_star_e</title><rect x="599.1" y="597.4" width="24.0" height="24.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup2/BackLine/HeroHeadClickable3/HeroHeadUI/HeroStar/GroupStarE/TextStarE</title><rect x="531.1" y="599.1" width="160.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup2/BackLine/HeroHeadClickable3/HeroHeadUI/SliderHp/Background | progress_bgr</title><rect x="566.7" y="621.9" width="90.0" height="17.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup2/BackLine/HeroHeadClickable3/HeroHeadUI/SliderHp/Fill Area/Fill | progress_top_2</title><rect x="567.7" y="621.9" width="88.0" height="17.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup2/BackLine/HeroHeadClickable4</title><rect x="565.7" y="532.0" width="92.0" height="92.0" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup2/BackLine/HeroHeadClickable4/HeroHeadUI/ImageFrame | frame_item</title><rect x="566.7" y="533.0" width="90.0" height="90.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup2/BackLine/HeroHeadClickable4/HeroHeadUI/Mask | mask_item</title><rect x="573.7" y="540.0" width="76.0" height="76.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup2/BackLine/HeroHeadClickable4/HeroHeadUI/Mask/ImageBgr | bgr_item_consumable</title><rect x="566.7" y="533.0" width="90.0" height="90.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup2/BackLine/HeroHeadClickable4/HeroHeadUI/Mask/ImageHead | hero_5_star</title><rect x="566.7" y="533.0" width="90.0" height="90.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup2/BackLine/HeroHeadClickable4/HeroHeadUI/Mask/ImageHidden | hero_head_hidden</title><rect x="566.7" y="533.0" width="90.0" height="90.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup2/BackLine/HeroHeadClickable4/HeroHeadUI/Mask/Check</title><rect x="561.7" y="528.0" width="100.0" height="100.0" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup2/BackLine/HeroHeadClickable4/HeroHeadUI/Mask/Check/Tick | tick_green</title><rect x="591.2" y="556.0" width="41.0" height="38.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup2/BackLine/HeroHeadClickable4/HeroHeadUI/Mask/Lock</title><rect x="561.7" y="528.0" width="100.0" height="100.0" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup2/BackLine/HeroHeadClickable4/HeroHeadUI/Mask/Lock/Lock | icon_lock</title><rect x="593.7" y="557.0" width="36.0" height="36.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup2/BackLine/HeroHeadClickable4/HeroHeadUI/Mask/Death</title><rect x="561.7" y="528.0" width="100.0" height="100.0" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup2/BackLine/HeroHeadClickable4/HeroHeadUI/Mask/Death/Tick | mark_death</title><rect x="559.7" y="519.5" width="104.0" height="111.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup2/BackLine/HeroHeadClickable4/HeroHeadUI/ImageBorder | hero_head_border</title><rect x="571.7" y="538.0" width="80.0" height="80.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup2/BackLine/HeroHeadClickable4/HeroHeadUI/ImageNotify | notify_dot</title><rect x="630.0" y="531.9" width="28.0" height="28.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup2/BackLine/HeroHeadClickable4/HeroHeadUI/TextLevel</title><rect x="612.9" y="533.7" width="40.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup2/BackLine/HeroHeadClickable4/HeroHeadUI/ImageFaction | faction_light</title><rect x="567.0" y="533.3" width="30.0" height="30.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup2/BackLine/HeroHeadClickable4/HeroHeadUI/HeroStar</title><rect x="567.0" y="597.3" width="88.1" height="25.4" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup2/BackLine/HeroHeadClickable4/HeroHeadUI/HeroStar/GroupStar1/Star1 | hero_star_1</title><rect x="553.4" y="612.7" width="20.0" height="20.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup2/BackLine/HeroHeadClickable4/HeroHeadUI/HeroStar/GroupStar1/Star1 | hero_star_1</title><rect x="553.4" y="612.7" width="20.0" height="20.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup2/BackLine/HeroHeadClickable4/HeroHeadUI/HeroStar/GroupStar1/Star1 | hero_star_1</title><rect x="553.4" y="612.7" width="20.0" height="20.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup2/BackLine/HeroHeadClickable4/HeroHeadUI/HeroStar/GroupStar1/Star1 | hero_star_1</title><rect x="553.4" y="612.7" width="20.0" height="20.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup2/BackLine/HeroHeadClickable4/HeroHeadUI/HeroStar/GroupStar1/Star1 | hero_star_1</title><rect x="553.4" y="612.7" width="20.0" height="20.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup2/BackLine/HeroHeadClickable4/HeroHeadUI/HeroStar/GroupStar6/Star6 | hero_star_2</title><rect x="573.1" y="597.3" width="22.0" height="22.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup2/BackLine/HeroHeadClickable4/HeroHeadUI/HeroStar/GroupStar6/Star6 | hero_star_2</title><rect x="591.1" y="597.3" width="22.0" height="22.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup2/BackLine/HeroHeadClickable4/HeroHeadUI/HeroStar/GroupStar6/Star6 | hero_star_2</title><rect x="609.1" y="597.3" width="22.0" height="22.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup2/BackLine/HeroHeadClickable4/HeroHeadUI/HeroStar/GroupStar6/Star6 | hero_star_2</title><rect x="627.1" y="597.3" width="22.0" height="22.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup2/BackLine/HeroHeadClickable4/HeroHeadUI/HeroStar/GroupStar10/Star10 | hero_star_3</title><rect x="600.1" y="595.2" width="22.0" height="22.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup2/BackLine/HeroHeadClickable4/HeroHeadUI/HeroStar/GroupStarE/BgrStarE | star_e_bgr</title><rect x="532.1" y="581.6" width="158.0" height="59.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup2/BackLine/HeroHeadClickable4/HeroHeadUI/HeroStar/GroupStarE/StarE | hero_star_e</title><rect x="599.1" y="597.4" width="24.0" height="24.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup2/BackLine/HeroHeadClickable4/HeroHeadUI/HeroStar/GroupStarE/TextStarE</title><rect x="531.1" y="599.1" width="160.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup2/BackLine/HeroHeadClickable4/HeroHeadUI/SliderHp/Background | progress_bgr</title><rect x="566.7" y="621.9" width="90.0" height="17.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup2/BackLine/HeroHeadClickable4/HeroHeadUI/SliderHp/Fill Area/Fill | progress_top_2</title><rect x="567.7" y="621.9" width="88.0" height="17.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup2/BackLine/HeroHeadClickable5</title><rect x="565.7" y="532.0" width="92.0" height="92.0" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup2/BackLine/HeroHeadClickable5/HeroHeadUI/ImageFrame | frame_item</title><rect x="566.7" y="533.0" width="90.0" height="90.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup2/BackLine/HeroHeadClickable5/HeroHeadUI/Mask | mask_item</title><rect x="573.7" y="540.0" width="76.0" height="76.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup2/BackLine/HeroHeadClickable5/HeroHeadUI/Mask/ImageBgr | bgr_item_consumable</title><rect x="566.7" y="533.0" width="90.0" height="90.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup2/BackLine/HeroHeadClickable5/HeroHeadUI/Mask/ImageHead | hero_5_star</title><rect x="566.7" y="533.0" width="90.0" height="90.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup2/BackLine/HeroHeadClickable5/HeroHeadUI/Mask/ImageHidden | hero_head_hidden</title><rect x="566.7" y="533.0" width="90.0" height="90.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup2/BackLine/HeroHeadClickable5/HeroHeadUI/Mask/Check</title><rect x="561.7" y="528.0" width="100.0" height="100.0" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup2/BackLine/HeroHeadClickable5/HeroHeadUI/Mask/Check/Tick | tick_green</title><rect x="591.2" y="556.0" width="41.0" height="38.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup2/BackLine/HeroHeadClickable5/HeroHeadUI/Mask/Lock</title><rect x="561.7" y="528.0" width="100.0" height="100.0" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup2/BackLine/HeroHeadClickable5/HeroHeadUI/Mask/Lock/Lock | icon_lock</title><rect x="593.7" y="557.0" width="36.0" height="36.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup2/BackLine/HeroHeadClickable5/HeroHeadUI/Mask/Death</title><rect x="561.7" y="528.0" width="100.0" height="100.0" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup2/BackLine/HeroHeadClickable5/HeroHeadUI/Mask/Death/Tick | mark_death</title><rect x="559.7" y="519.5" width="104.0" height="111.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup2/BackLine/HeroHeadClickable5/HeroHeadUI/ImageBorder | hero_head_border</title><rect x="571.7" y="538.0" width="80.0" height="80.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup2/BackLine/HeroHeadClickable5/HeroHeadUI/ImageNotify | notify_dot</title><rect x="630.0" y="531.9" width="28.0" height="28.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup2/BackLine/HeroHeadClickable5/HeroHeadUI/TextLevel</title><rect x="612.9" y="533.7" width="40.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup2/BackLine/HeroHeadClickable5/HeroHeadUI/ImageFaction | faction_light</title><rect x="567.0" y="533.3" width="30.0" height="30.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup2/BackLine/HeroHeadClickable5/HeroHeadUI/HeroStar</title><rect x="567.0" y="597.3" width="88.1" height="25.4" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup2/BackLine/HeroHeadClickable5/HeroHeadUI/HeroStar/GroupStar1/Star1 | hero_star_1</title><rect x="553.4" y="612.7" width="20.0" height="20.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup2/BackLine/HeroHeadClickable5/HeroHeadUI/HeroStar/GroupStar1/Star1 | hero_star_1</title><rect x="553.4" y="612.7" width="20.0" height="20.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup2/BackLine/HeroHeadClickable5/HeroHeadUI/HeroStar/GroupStar1/Star1 | hero_star_1</title><rect x="553.4" y="612.7" width="20.0" height="20.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup2/BackLine/HeroHeadClickable5/HeroHeadUI/HeroStar/GroupStar1/Star1 | hero_star_1</title><rect x="553.4" y="612.7" width="20.0" height="20.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup2/BackLine/HeroHeadClickable5/HeroHeadUI/HeroStar/GroupStar1/Star1 | hero_star_1</title><rect x="553.4" y="612.7" width="20.0" height="20.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup2/BackLine/HeroHeadClickable5/HeroHeadUI/HeroStar/GroupStar6/Star6 | hero_star_2</title><rect x="573.1" y="597.3" width="22.0" height="22.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup2/BackLine/HeroHeadClickable5/HeroHeadUI/HeroStar/GroupStar6/Star6 | hero_star_2</title><rect x="591.1" y="597.3" width="22.0" height="22.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup2/BackLine/HeroHeadClickable5/HeroHeadUI/HeroStar/GroupStar6/Star6 | hero_star_2</title><rect x="609.1" y="597.3" width="22.0" height="22.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup2/BackLine/HeroHeadClickable5/HeroHeadUI/HeroStar/GroupStar6/Star6 | hero_star_2</title><rect x="627.1" y="597.3" width="22.0" height="22.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup2/BackLine/HeroHeadClickable5/HeroHeadUI/HeroStar/GroupStar10/Star10 | hero_star_3</title><rect x="600.1" y="595.2" width="22.0" height="22.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup2/BackLine/HeroHeadClickable5/HeroHeadUI/HeroStar/GroupStarE/BgrStarE | star_e_bgr</title><rect x="532.1" y="581.6" width="158.0" height="59.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup2/BackLine/HeroHeadClickable5/HeroHeadUI/HeroStar/GroupStarE/StarE | hero_star_e</title><rect x="599.1" y="597.4" width="24.0" height="24.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup2/BackLine/HeroHeadClickable5/HeroHeadUI/HeroStar/GroupStarE/TextStarE</title><rect x="531.1" y="599.1" width="160.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup2/BackLine/HeroHeadClickable5/HeroHeadUI/SliderHp/Background | progress_bgr</title><rect x="566.7" y="621.9" width="90.0" height="17.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup2/BackLine/HeroHeadClickable5/HeroHeadUI/SliderHp/Fill Area/Fill | progress_top_2</title><rect x="567.7" y="621.9" width="88.0" height="17.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup2/BackLine/HeroHeadClickable6</title><rect x="565.7" y="532.0" width="92.0" height="92.0" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup2/BackLine/HeroHeadClickable6/HeroHeadUI/ImageFrame | frame_item</title><rect x="566.7" y="533.0" width="90.0" height="90.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup2/BackLine/HeroHeadClickable6/HeroHeadUI/Mask | mask_item</title><rect x="573.7" y="540.0" width="76.0" height="76.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup2/BackLine/HeroHeadClickable6/HeroHeadUI/Mask/ImageBgr | bgr_item_consumable</title><rect x="566.7" y="533.0" width="90.0" height="90.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup2/BackLine/HeroHeadClickable6/HeroHeadUI/Mask/ImageHead | hero_5_star</title><rect x="566.7" y="533.0" width="90.0" height="90.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup2/BackLine/HeroHeadClickable6/HeroHeadUI/Mask/ImageHidden | hero_head_hidden</title><rect x="566.7" y="533.0" width="90.0" height="90.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup2/BackLine/HeroHeadClickable6/HeroHeadUI/Mask/Check</title><rect x="561.7" y="528.0" width="100.0" height="100.0" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup2/BackLine/HeroHeadClickable6/HeroHeadUI/Mask/Check/Tick | tick_green</title><rect x="591.2" y="556.0" width="41.0" height="38.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup2/BackLine/HeroHeadClickable6/HeroHeadUI/Mask/Lock</title><rect x="561.7" y="528.0" width="100.0" height="100.0" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup2/BackLine/HeroHeadClickable6/HeroHeadUI/Mask/Lock/Lock | icon_lock</title><rect x="593.7" y="557.0" width="36.0" height="36.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup2/BackLine/HeroHeadClickable6/HeroHeadUI/Mask/Death</title><rect x="561.7" y="528.0" width="100.0" height="100.0" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup2/BackLine/HeroHeadClickable6/HeroHeadUI/Mask/Death/Tick | mark_death</title><rect x="559.7" y="519.5" width="104.0" height="111.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup2/BackLine/HeroHeadClickable6/HeroHeadUI/ImageBorder | hero_head_border</title><rect x="571.7" y="538.0" width="80.0" height="80.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup2/BackLine/HeroHeadClickable6/HeroHeadUI/ImageNotify | notify_dot</title><rect x="630.0" y="531.9" width="28.0" height="28.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup2/BackLine/HeroHeadClickable6/HeroHeadUI/TextLevel</title><rect x="612.9" y="533.7" width="40.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup2/BackLine/HeroHeadClickable6/HeroHeadUI/ImageFaction | faction_light</title><rect x="567.0" y="533.3" width="30.0" height="30.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup2/BackLine/HeroHeadClickable6/HeroHeadUI/HeroStar</title><rect x="567.0" y="597.3" width="88.1" height="25.4" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup2/BackLine/HeroHeadClickable6/HeroHeadUI/HeroStar/GroupStar1/Star1 | hero_star_1</title><rect x="553.4" y="612.7" width="20.0" height="20.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup2/BackLine/HeroHeadClickable6/HeroHeadUI/HeroStar/GroupStar1/Star1 | hero_star_1</title><rect x="553.4" y="612.7" width="20.0" height="20.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup2/BackLine/HeroHeadClickable6/HeroHeadUI/HeroStar/GroupStar1/Star1 | hero_star_1</title><rect x="553.4" y="612.7" width="20.0" height="20.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup2/BackLine/HeroHeadClickable6/HeroHeadUI/HeroStar/GroupStar1/Star1 | hero_star_1</title><rect x="553.4" y="612.7" width="20.0" height="20.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup2/BackLine/HeroHeadClickable6/HeroHeadUI/HeroStar/GroupStar1/Star1 | hero_star_1</title><rect x="553.4" y="612.7" width="20.0" height="20.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup2/BackLine/HeroHeadClickable6/HeroHeadUI/HeroStar/GroupStar6/Star6 | hero_star_2</title><rect x="573.1" y="597.3" width="22.0" height="22.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup2/BackLine/HeroHeadClickable6/HeroHeadUI/HeroStar/GroupStar6/Star6 | hero_star_2</title><rect x="591.1" y="597.3" width="22.0" height="22.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup2/BackLine/HeroHeadClickable6/HeroHeadUI/HeroStar/GroupStar6/Star6 | hero_star_2</title><rect x="609.1" y="597.3" width="22.0" height="22.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup2/BackLine/HeroHeadClickable6/HeroHeadUI/HeroStar/GroupStar6/Star6 | hero_star_2</title><rect x="627.1" y="597.3" width="22.0" height="22.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup2/BackLine/HeroHeadClickable6/HeroHeadUI/HeroStar/GroupStar10/Star10 | hero_star_3</title><rect x="600.1" y="595.2" width="22.0" height="22.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup2/BackLine/HeroHeadClickable6/HeroHeadUI/HeroStar/GroupStarE/BgrStarE | star_e_bgr</title><rect x="532.1" y="581.6" width="158.0" height="59.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup2/BackLine/HeroHeadClickable6/HeroHeadUI/HeroStar/GroupStarE/StarE | hero_star_e</title><rect x="599.1" y="597.4" width="24.0" height="24.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup2/BackLine/HeroHeadClickable6/HeroHeadUI/HeroStar/GroupStarE/TextStarE</title><rect x="531.1" y="599.1" width="160.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup2/BackLine/HeroHeadClickable6/HeroHeadUI/SliderHp/Background | progress_bgr</title><rect x="566.7" y="621.9" width="90.0" height="17.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup2/BackLine/HeroHeadClickable6/HeroHeadUI/SliderHp/Fill Area/Fill | progress_top_2</title><rect x="567.7" y="621.9" width="88.0" height="17.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup3/FrontLine/HeroHeadClickable1</title><rect x="353.7" y="637.0" width="92.0" height="92.0" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup3/FrontLine/HeroHeadClickable1/HeroHeadUI/ImageFrame | frame_item</title><rect x="354.7" y="638.0" width="90.0" height="90.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup3/FrontLine/HeroHeadClickable1/HeroHeadUI/Mask | mask_item</title><rect x="361.7" y="645.0" width="76.0" height="76.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup3/FrontLine/HeroHeadClickable1/HeroHeadUI/Mask/ImageBgr | bgr_item_consumable</title><rect x="354.7" y="638.0" width="90.0" height="90.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup3/FrontLine/HeroHeadClickable1/HeroHeadUI/Mask/ImageHead | hero_5_star</title><rect x="354.7" y="638.0" width="90.0" height="90.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup3/FrontLine/HeroHeadClickable1/HeroHeadUI/Mask/ImageHidden | hero_head_hidden</title><rect x="354.7" y="638.0" width="90.0" height="90.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup3/FrontLine/HeroHeadClickable1/HeroHeadUI/Mask/Check</title><rect x="349.7" y="633.0" width="100.0" height="100.0" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup3/FrontLine/HeroHeadClickable1/HeroHeadUI/Mask/Check/Tick | tick_green</title><rect x="379.2" y="661.0" width="41.0" height="38.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup3/FrontLine/HeroHeadClickable1/HeroHeadUI/Mask/Lock</title><rect x="349.7" y="633.0" width="100.0" height="100.0" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup3/FrontLine/HeroHeadClickable1/HeroHeadUI/Mask/Lock/Lock | icon_lock</title><rect x="381.7" y="662.0" width="36.0" height="36.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup3/FrontLine/HeroHeadClickable1/HeroHeadUI/Mask/Death</title><rect x="349.7" y="633.0" width="100.0" height="100.0" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup3/FrontLine/HeroHeadClickable1/HeroHeadUI/Mask/Death/Tick | mark_death</title><rect x="347.7" y="624.5" width="104.0" height="111.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup3/FrontLine/HeroHeadClickable1/HeroHeadUI/ImageBorder | hero_head_border</title><rect x="359.7" y="643.0" width="80.0" height="80.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup3/FrontLine/HeroHeadClickable1/HeroHeadUI/ImageNotify | notify_dot</title><rect x="418.0" y="636.9" width="28.0" height="28.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup3/FrontLine/HeroHeadClickable1/HeroHeadUI/TextLevel</title><rect x="400.9" y="638.7" width="40.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup3/FrontLine/HeroHeadClickable1/HeroHeadUI/ImageFaction | faction_light</title><rect x="355.0" y="638.3" width="30.0" height="30.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup3/FrontLine/HeroHeadClickable1/HeroHeadUI/HeroStar</title><rect x="355.0" y="702.3" width="88.1" height="25.4" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup3/FrontLine/HeroHeadClickable1/HeroHeadUI/HeroStar/GroupStar1/Star1 | hero_star_1</title><rect x="341.4" y="717.7" width="20.0" height="20.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup3/FrontLine/HeroHeadClickable1/HeroHeadUI/HeroStar/GroupStar1/Star1 | hero_star_1</title><rect x="341.4" y="717.7" width="20.0" height="20.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup3/FrontLine/HeroHeadClickable1/HeroHeadUI/HeroStar/GroupStar1/Star1 | hero_star_1</title><rect x="341.4" y="717.7" width="20.0" height="20.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup3/FrontLine/HeroHeadClickable1/HeroHeadUI/HeroStar/GroupStar1/Star1 | hero_star_1</title><rect x="341.4" y="717.7" width="20.0" height="20.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup3/FrontLine/HeroHeadClickable1/HeroHeadUI/HeroStar/GroupStar1/Star1 | hero_star_1</title><rect x="341.4" y="717.7" width="20.0" height="20.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup3/FrontLine/HeroHeadClickable1/HeroHeadUI/HeroStar/GroupStar6/Star6 | hero_star_2</title><rect x="361.1" y="702.3" width="22.0" height="22.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup3/FrontLine/HeroHeadClickable1/HeroHeadUI/HeroStar/GroupStar6/Star6 | hero_star_2</title><rect x="379.1" y="702.3" width="22.0" height="22.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup3/FrontLine/HeroHeadClickable1/HeroHeadUI/HeroStar/GroupStar6/Star6 | hero_star_2</title><rect x="397.1" y="702.3" width="22.0" height="22.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup3/FrontLine/HeroHeadClickable1/HeroHeadUI/HeroStar/GroupStar6/Star6 | hero_star_2</title><rect x="415.1" y="702.3" width="22.0" height="22.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup3/FrontLine/HeroHeadClickable1/HeroHeadUI/HeroStar/GroupStar10/Star10 | hero_star_3</title><rect x="388.1" y="700.2" width="22.0" height="22.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup3/FrontLine/HeroHeadClickable1/HeroHeadUI/HeroStar/GroupStarE/BgrStarE | star_e_bgr</title><rect x="320.1" y="686.6" width="158.0" height="59.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup3/FrontLine/HeroHeadClickable1/HeroHeadUI/HeroStar/GroupStarE/StarE | hero_star_e</title><rect x="387.1" y="702.4" width="24.0" height="24.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup3/FrontLine/HeroHeadClickable1/HeroHeadUI/HeroStar/GroupStarE/TextStarE</title><rect x="319.1" y="704.1" width="160.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup3/FrontLine/HeroHeadClickable1/HeroHeadUI/SliderHp/Background | progress_bgr</title><rect x="354.7" y="726.9" width="90.0" height="17.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup3/FrontLine/HeroHeadClickable1/HeroHeadUI/SliderHp/Fill Area/Fill | progress_top_2</title><rect x="355.7" y="726.9" width="88.0" height="17.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup3/FrontLine/HeroHeadClickable2</title><rect x="353.7" y="637.0" width="92.0" height="92.0" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup3/FrontLine/HeroHeadClickable2/HeroHeadUI/ImageFrame | frame_item</title><rect x="354.7" y="638.0" width="90.0" height="90.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup3/FrontLine/HeroHeadClickable2/HeroHeadUI/Mask | mask_item</title><rect x="361.7" y="645.0" width="76.0" height="76.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup3/FrontLine/HeroHeadClickable2/HeroHeadUI/Mask/ImageBgr | bgr_item_consumable</title><rect x="354.7" y="638.0" width="90.0" height="90.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup3/FrontLine/HeroHeadClickable2/HeroHeadUI/Mask/ImageHead | hero_5_star</title><rect x="354.7" y="638.0" width="90.0" height="90.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup3/FrontLine/HeroHeadClickable2/HeroHeadUI/Mask/ImageHidden | hero_head_hidden</title><rect x="354.7" y="638.0" width="90.0" height="90.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup3/FrontLine/HeroHeadClickable2/HeroHeadUI/Mask/Check</title><rect x="349.7" y="633.0" width="100.0" height="100.0" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup3/FrontLine/HeroHeadClickable2/HeroHeadUI/Mask/Check/Tick | tick_green</title><rect x="379.2" y="661.0" width="41.0" height="38.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup3/FrontLine/HeroHeadClickable2/HeroHeadUI/Mask/Lock</title><rect x="349.7" y="633.0" width="100.0" height="100.0" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup3/FrontLine/HeroHeadClickable2/HeroHeadUI/Mask/Lock/Lock | icon_lock</title><rect x="381.7" y="662.0" width="36.0" height="36.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup3/FrontLine/HeroHeadClickable2/HeroHeadUI/Mask/Death</title><rect x="349.7" y="633.0" width="100.0" height="100.0" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup3/FrontLine/HeroHeadClickable2/HeroHeadUI/Mask/Death/Tick | mark_death</title><rect x="347.7" y="624.5" width="104.0" height="111.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup3/FrontLine/HeroHeadClickable2/HeroHeadUI/ImageBorder | hero_head_border</title><rect x="359.7" y="643.0" width="80.0" height="80.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup3/FrontLine/HeroHeadClickable2/HeroHeadUI/ImageNotify | notify_dot</title><rect x="418.0" y="636.9" width="28.0" height="28.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup3/FrontLine/HeroHeadClickable2/HeroHeadUI/TextLevel</title><rect x="400.9" y="638.7" width="40.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup3/FrontLine/HeroHeadClickable2/HeroHeadUI/ImageFaction | faction_light</title><rect x="355.0" y="638.3" width="30.0" height="30.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup3/FrontLine/HeroHeadClickable2/HeroHeadUI/HeroStar</title><rect x="355.0" y="702.3" width="88.1" height="25.4" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup3/FrontLine/HeroHeadClickable2/HeroHeadUI/HeroStar/GroupStar1/Star1 | hero_star_1</title><rect x="341.4" y="717.7" width="20.0" height="20.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup3/FrontLine/HeroHeadClickable2/HeroHeadUI/HeroStar/GroupStar1/Star1 | hero_star_1</title><rect x="341.4" y="717.7" width="20.0" height="20.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup3/FrontLine/HeroHeadClickable2/HeroHeadUI/HeroStar/GroupStar1/Star1 | hero_star_1</title><rect x="341.4" y="717.7" width="20.0" height="20.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup3/FrontLine/HeroHeadClickable2/HeroHeadUI/HeroStar/GroupStar1/Star1 | hero_star_1</title><rect x="341.4" y="717.7" width="20.0" height="20.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup3/FrontLine/HeroHeadClickable2/HeroHeadUI/HeroStar/GroupStar1/Star1 | hero_star_1</title><rect x="341.4" y="717.7" width="20.0" height="20.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup3/FrontLine/HeroHeadClickable2/HeroHeadUI/HeroStar/GroupStar6/Star6 | hero_star_2</title><rect x="361.1" y="702.3" width="22.0" height="22.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup3/FrontLine/HeroHeadClickable2/HeroHeadUI/HeroStar/GroupStar6/Star6 | hero_star_2</title><rect x="379.1" y="702.3" width="22.0" height="22.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup3/FrontLine/HeroHeadClickable2/HeroHeadUI/HeroStar/GroupStar6/Star6 | hero_star_2</title><rect x="397.1" y="702.3" width="22.0" height="22.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup3/FrontLine/HeroHeadClickable2/HeroHeadUI/HeroStar/GroupStar6/Star6 | hero_star_2</title><rect x="415.1" y="702.3" width="22.0" height="22.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup3/FrontLine/HeroHeadClickable2/HeroHeadUI/HeroStar/GroupStar10/Star10 | hero_star_3</title><rect x="388.1" y="700.2" width="22.0" height="22.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup3/FrontLine/HeroHeadClickable2/HeroHeadUI/HeroStar/GroupStarE/BgrStarE | star_e_bgr</title><rect x="320.1" y="686.6" width="158.0" height="59.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup3/FrontLine/HeroHeadClickable2/HeroHeadUI/HeroStar/GroupStarE/StarE | hero_star_e</title><rect x="387.1" y="702.4" width="24.0" height="24.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup3/FrontLine/HeroHeadClickable2/HeroHeadUI/HeroStar/GroupStarE/TextStarE</title><rect x="319.1" y="704.1" width="160.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup3/FrontLine/HeroHeadClickable2/HeroHeadUI/SliderHp/Background | progress_bgr</title><rect x="354.7" y="726.9" width="90.0" height="17.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup3/FrontLine/HeroHeadClickable2/HeroHeadUI/SliderHp/Fill Area/Fill | progress_top_2</title><rect x="355.7" y="726.9" width="88.0" height="17.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup3/BackLine/HeroHeadClickable3</title><rect x="565.7" y="637.0" width="92.0" height="92.0" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup3/BackLine/HeroHeadClickable3/HeroHeadUI/ImageFrame | frame_item</title><rect x="566.7" y="638.0" width="90.0" height="90.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup3/BackLine/HeroHeadClickable3/HeroHeadUI/Mask | mask_item</title><rect x="573.7" y="645.0" width="76.0" height="76.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup3/BackLine/HeroHeadClickable3/HeroHeadUI/Mask/ImageBgr | bgr_item_consumable</title><rect x="566.7" y="638.0" width="90.0" height="90.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup3/BackLine/HeroHeadClickable3/HeroHeadUI/Mask/ImageHead | hero_5_star</title><rect x="566.7" y="638.0" width="90.0" height="90.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup3/BackLine/HeroHeadClickable3/HeroHeadUI/Mask/ImageHidden | hero_head_hidden</title><rect x="566.7" y="638.0" width="90.0" height="90.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup3/BackLine/HeroHeadClickable3/HeroHeadUI/Mask/Check</title><rect x="561.7" y="633.0" width="100.0" height="100.0" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup3/BackLine/HeroHeadClickable3/HeroHeadUI/Mask/Check/Tick | tick_green</title><rect x="591.2" y="661.0" width="41.0" height="38.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup3/BackLine/HeroHeadClickable3/HeroHeadUI/Mask/Lock</title><rect x="561.7" y="633.0" width="100.0" height="100.0" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup3/BackLine/HeroHeadClickable3/HeroHeadUI/Mask/Lock/Lock | icon_lock</title><rect x="593.7" y="662.0" width="36.0" height="36.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup3/BackLine/HeroHeadClickable3/HeroHeadUI/Mask/Death</title><rect x="561.7" y="633.0" width="100.0" height="100.0" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup3/BackLine/HeroHeadClickable3/HeroHeadUI/Mask/Death/Tick | mark_death</title><rect x="559.7" y="624.5" width="104.0" height="111.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup3/BackLine/HeroHeadClickable3/HeroHeadUI/ImageBorder | hero_head_border</title><rect x="571.7" y="643.0" width="80.0" height="80.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup3/BackLine/HeroHeadClickable3/HeroHeadUI/ImageNotify | notify_dot</title><rect x="630.0" y="636.9" width="28.0" height="28.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup3/BackLine/HeroHeadClickable3/HeroHeadUI/TextLevel</title><rect x="612.9" y="638.7" width="40.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup3/BackLine/HeroHeadClickable3/HeroHeadUI/ImageFaction | faction_light</title><rect x="567.0" y="638.3" width="30.0" height="30.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup3/BackLine/HeroHeadClickable3/HeroHeadUI/HeroStar</title><rect x="567.0" y="702.3" width="88.1" height="25.4" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup3/BackLine/HeroHeadClickable3/HeroHeadUI/HeroStar/GroupStar1/Star1 | hero_star_1</title><rect x="553.4" y="717.7" width="20.0" height="20.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup3/BackLine/HeroHeadClickable3/HeroHeadUI/HeroStar/GroupStar1/Star1 | hero_star_1</title><rect x="553.4" y="717.7" width="20.0" height="20.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup3/BackLine/HeroHeadClickable3/HeroHeadUI/HeroStar/GroupStar1/Star1 | hero_star_1</title><rect x="553.4" y="717.7" width="20.0" height="20.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup3/BackLine/HeroHeadClickable3/HeroHeadUI/HeroStar/GroupStar1/Star1 | hero_star_1</title><rect x="553.4" y="717.7" width="20.0" height="20.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup3/BackLine/HeroHeadClickable3/HeroHeadUI/HeroStar/GroupStar1/Star1 | hero_star_1</title><rect x="553.4" y="717.7" width="20.0" height="20.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup3/BackLine/HeroHeadClickable3/HeroHeadUI/HeroStar/GroupStar6/Star6 | hero_star_2</title><rect x="573.1" y="702.3" width="22.0" height="22.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup3/BackLine/HeroHeadClickable3/HeroHeadUI/HeroStar/GroupStar6/Star6 | hero_star_2</title><rect x="591.1" y="702.3" width="22.0" height="22.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup3/BackLine/HeroHeadClickable3/HeroHeadUI/HeroStar/GroupStar6/Star6 | hero_star_2</title><rect x="609.1" y="702.3" width="22.0" height="22.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup3/BackLine/HeroHeadClickable3/HeroHeadUI/HeroStar/GroupStar6/Star6 | hero_star_2</title><rect x="627.1" y="702.3" width="22.0" height="22.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup3/BackLine/HeroHeadClickable3/HeroHeadUI/HeroStar/GroupStar10/Star10 | hero_star_3</title><rect x="600.1" y="700.2" width="22.0" height="22.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup3/BackLine/HeroHeadClickable3/HeroHeadUI/HeroStar/GroupStarE/BgrStarE | star_e_bgr</title><rect x="532.1" y="686.6" width="158.0" height="59.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup3/BackLine/HeroHeadClickable3/HeroHeadUI/HeroStar/GroupStarE/StarE | hero_star_e</title><rect x="599.1" y="702.4" width="24.0" height="24.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup3/BackLine/HeroHeadClickable3/HeroHeadUI/HeroStar/GroupStarE/TextStarE</title><rect x="531.1" y="704.1" width="160.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup3/BackLine/HeroHeadClickable3/HeroHeadUI/SliderHp/Background | progress_bgr</title><rect x="566.7" y="726.9" width="90.0" height="17.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup3/BackLine/HeroHeadClickable3/HeroHeadUI/SliderHp/Fill Area/Fill | progress_top_2</title><rect x="567.7" y="726.9" width="88.0" height="17.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup3/BackLine/HeroHeadClickable4</title><rect x="565.7" y="637.0" width="92.0" height="92.0" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup3/BackLine/HeroHeadClickable4/HeroHeadUI/ImageFrame | frame_item</title><rect x="566.7" y="638.0" width="90.0" height="90.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup3/BackLine/HeroHeadClickable4/HeroHeadUI/Mask | mask_item</title><rect x="573.7" y="645.0" width="76.0" height="76.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup3/BackLine/HeroHeadClickable4/HeroHeadUI/Mask/ImageBgr | bgr_item_consumable</title><rect x="566.7" y="638.0" width="90.0" height="90.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup3/BackLine/HeroHeadClickable4/HeroHeadUI/Mask/ImageHead | hero_5_star</title><rect x="566.7" y="638.0" width="90.0" height="90.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup3/BackLine/HeroHeadClickable4/HeroHeadUI/Mask/ImageHidden | hero_head_hidden</title><rect x="566.7" y="638.0" width="90.0" height="90.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup3/BackLine/HeroHeadClickable4/HeroHeadUI/Mask/Check</title><rect x="561.7" y="633.0" width="100.0" height="100.0" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup3/BackLine/HeroHeadClickable4/HeroHeadUI/Mask/Check/Tick | tick_green</title><rect x="591.2" y="661.0" width="41.0" height="38.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup3/BackLine/HeroHeadClickable4/HeroHeadUI/Mask/Lock</title><rect x="561.7" y="633.0" width="100.0" height="100.0" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup3/BackLine/HeroHeadClickable4/HeroHeadUI/Mask/Lock/Lock | icon_lock</title><rect x="593.7" y="662.0" width="36.0" height="36.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup3/BackLine/HeroHeadClickable4/HeroHeadUI/Mask/Death</title><rect x="561.7" y="633.0" width="100.0" height="100.0" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup3/BackLine/HeroHeadClickable4/HeroHeadUI/Mask/Death/Tick | mark_death</title><rect x="559.7" y="624.5" width="104.0" height="111.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup3/BackLine/HeroHeadClickable4/HeroHeadUI/ImageBorder | hero_head_border</title><rect x="571.7" y="643.0" width="80.0" height="80.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup3/BackLine/HeroHeadClickable4/HeroHeadUI/ImageNotify | notify_dot</title><rect x="630.0" y="636.9" width="28.0" height="28.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup3/BackLine/HeroHeadClickable4/HeroHeadUI/TextLevel</title><rect x="612.9" y="638.7" width="40.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup3/BackLine/HeroHeadClickable4/HeroHeadUI/ImageFaction | faction_light</title><rect x="567.0" y="638.3" width="30.0" height="30.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup3/BackLine/HeroHeadClickable4/HeroHeadUI/HeroStar</title><rect x="567.0" y="702.3" width="88.1" height="25.4" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup3/BackLine/HeroHeadClickable4/HeroHeadUI/HeroStar/GroupStar1/Star1 | hero_star_1</title><rect x="553.4" y="717.7" width="20.0" height="20.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup3/BackLine/HeroHeadClickable4/HeroHeadUI/HeroStar/GroupStar1/Star1 | hero_star_1</title><rect x="553.4" y="717.7" width="20.0" height="20.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup3/BackLine/HeroHeadClickable4/HeroHeadUI/HeroStar/GroupStar1/Star1 | hero_star_1</title><rect x="553.4" y="717.7" width="20.0" height="20.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup3/BackLine/HeroHeadClickable4/HeroHeadUI/HeroStar/GroupStar1/Star1 | hero_star_1</title><rect x="553.4" y="717.7" width="20.0" height="20.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup3/BackLine/HeroHeadClickable4/HeroHeadUI/HeroStar/GroupStar1/Star1 | hero_star_1</title><rect x="553.4" y="717.7" width="20.0" height="20.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup3/BackLine/HeroHeadClickable4/HeroHeadUI/HeroStar/GroupStar6/Star6 | hero_star_2</title><rect x="573.1" y="702.3" width="22.0" height="22.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup3/BackLine/HeroHeadClickable4/HeroHeadUI/HeroStar/GroupStar6/Star6 | hero_star_2</title><rect x="591.1" y="702.3" width="22.0" height="22.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup3/BackLine/HeroHeadClickable4/HeroHeadUI/HeroStar/GroupStar6/Star6 | hero_star_2</title><rect x="609.1" y="702.3" width="22.0" height="22.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup3/BackLine/HeroHeadClickable4/HeroHeadUI/HeroStar/GroupStar6/Star6 | hero_star_2</title><rect x="627.1" y="702.3" width="22.0" height="22.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup3/BackLine/HeroHeadClickable4/HeroHeadUI/HeroStar/GroupStar10/Star10 | hero_star_3</title><rect x="600.1" y="700.2" width="22.0" height="22.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup3/BackLine/HeroHeadClickable4/HeroHeadUI/HeroStar/GroupStarE/BgrStarE | star_e_bgr</title><rect x="532.1" y="686.6" width="158.0" height="59.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup3/BackLine/HeroHeadClickable4/HeroHeadUI/HeroStar/GroupStarE/StarE | hero_star_e</title><rect x="599.1" y="702.4" width="24.0" height="24.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup3/BackLine/HeroHeadClickable4/HeroHeadUI/HeroStar/GroupStarE/TextStarE</title><rect x="531.1" y="704.1" width="160.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup3/BackLine/HeroHeadClickable4/HeroHeadUI/SliderHp/Background | progress_bgr</title><rect x="566.7" y="726.9" width="90.0" height="17.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup3/BackLine/HeroHeadClickable4/HeroHeadUI/SliderHp/Fill Area/Fill | progress_top_2</title><rect x="567.7" y="726.9" width="88.0" height="17.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup3/BackLine/HeroHeadClickable5</title><rect x="565.7" y="637.0" width="92.0" height="92.0" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup3/BackLine/HeroHeadClickable5/HeroHeadUI/ImageFrame | frame_item</title><rect x="566.7" y="638.0" width="90.0" height="90.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup3/BackLine/HeroHeadClickable5/HeroHeadUI/Mask | mask_item</title><rect x="573.7" y="645.0" width="76.0" height="76.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup3/BackLine/HeroHeadClickable5/HeroHeadUI/Mask/ImageBgr | bgr_item_consumable</title><rect x="566.7" y="638.0" width="90.0" height="90.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup3/BackLine/HeroHeadClickable5/HeroHeadUI/Mask/ImageHead | hero_5_star</title><rect x="566.7" y="638.0" width="90.0" height="90.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup3/BackLine/HeroHeadClickable5/HeroHeadUI/Mask/ImageHidden | hero_head_hidden</title><rect x="566.7" y="638.0" width="90.0" height="90.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup3/BackLine/HeroHeadClickable5/HeroHeadUI/Mask/Check</title><rect x="561.7" y="633.0" width="100.0" height="100.0" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup3/BackLine/HeroHeadClickable5/HeroHeadUI/Mask/Check/Tick | tick_green</title><rect x="591.2" y="661.0" width="41.0" height="38.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup3/BackLine/HeroHeadClickable5/HeroHeadUI/Mask/Lock</title><rect x="561.7" y="633.0" width="100.0" height="100.0" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup3/BackLine/HeroHeadClickable5/HeroHeadUI/Mask/Lock/Lock | icon_lock</title><rect x="593.7" y="662.0" width="36.0" height="36.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup3/BackLine/HeroHeadClickable5/HeroHeadUI/Mask/Death</title><rect x="561.7" y="633.0" width="100.0" height="100.0" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup3/BackLine/HeroHeadClickable5/HeroHeadUI/Mask/Death/Tick | mark_death</title><rect x="559.7" y="624.5" width="104.0" height="111.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup3/BackLine/HeroHeadClickable5/HeroHeadUI/ImageBorder | hero_head_border</title><rect x="571.7" y="643.0" width="80.0" height="80.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup3/BackLine/HeroHeadClickable5/HeroHeadUI/ImageNotify | notify_dot</title><rect x="630.0" y="636.9" width="28.0" height="28.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup3/BackLine/HeroHeadClickable5/HeroHeadUI/TextLevel</title><rect x="612.9" y="638.7" width="40.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup3/BackLine/HeroHeadClickable5/HeroHeadUI/ImageFaction | faction_light</title><rect x="567.0" y="638.3" width="30.0" height="30.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup3/BackLine/HeroHeadClickable5/HeroHeadUI/HeroStar</title><rect x="567.0" y="702.3" width="88.1" height="25.4" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup3/BackLine/HeroHeadClickable5/HeroHeadUI/HeroStar/GroupStar1/Star1 | hero_star_1</title><rect x="553.4" y="717.7" width="20.0" height="20.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup3/BackLine/HeroHeadClickable5/HeroHeadUI/HeroStar/GroupStar1/Star1 | hero_star_1</title><rect x="553.4" y="717.7" width="20.0" height="20.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup3/BackLine/HeroHeadClickable5/HeroHeadUI/HeroStar/GroupStar1/Star1 | hero_star_1</title><rect x="553.4" y="717.7" width="20.0" height="20.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup3/BackLine/HeroHeadClickable5/HeroHeadUI/HeroStar/GroupStar1/Star1 | hero_star_1</title><rect x="553.4" y="717.7" width="20.0" height="20.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup3/BackLine/HeroHeadClickable5/HeroHeadUI/HeroStar/GroupStar1/Star1 | hero_star_1</title><rect x="553.4" y="717.7" width="20.0" height="20.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup3/BackLine/HeroHeadClickable5/HeroHeadUI/HeroStar/GroupStar6/Star6 | hero_star_2</title><rect x="573.1" y="702.3" width="22.0" height="22.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup3/BackLine/HeroHeadClickable5/HeroHeadUI/HeroStar/GroupStar6/Star6 | hero_star_2</title><rect x="591.1" y="702.3" width="22.0" height="22.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup3/BackLine/HeroHeadClickable5/HeroHeadUI/HeroStar/GroupStar6/Star6 | hero_star_2</title><rect x="609.1" y="702.3" width="22.0" height="22.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup3/BackLine/HeroHeadClickable5/HeroHeadUI/HeroStar/GroupStar6/Star6 | hero_star_2</title><rect x="627.1" y="702.3" width="22.0" height="22.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup3/BackLine/HeroHeadClickable5/HeroHeadUI/HeroStar/GroupStar10/Star10 | hero_star_3</title><rect x="600.1" y="700.2" width="22.0" height="22.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup3/BackLine/HeroHeadClickable5/HeroHeadUI/HeroStar/GroupStarE/BgrStarE | star_e_bgr</title><rect x="532.1" y="686.6" width="158.0" height="59.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup3/BackLine/HeroHeadClickable5/HeroHeadUI/HeroStar/GroupStarE/StarE | hero_star_e</title><rect x="599.1" y="702.4" width="24.0" height="24.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup3/BackLine/HeroHeadClickable5/HeroHeadUI/HeroStar/GroupStarE/TextStarE</title><rect x="531.1" y="704.1" width="160.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup3/BackLine/HeroHeadClickable5/HeroHeadUI/SliderHp/Background | progress_bgr</title><rect x="566.7" y="726.9" width="90.0" height="17.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup3/BackLine/HeroHeadClickable5/HeroHeadUI/SliderHp/Fill Area/Fill | progress_top_2</title><rect x="567.7" y="726.9" width="88.0" height="17.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup3/BackLine/HeroHeadClickable6</title><rect x="565.7" y="637.0" width="92.0" height="92.0" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup3/BackLine/HeroHeadClickable6/HeroHeadUI/ImageFrame | frame_item</title><rect x="566.7" y="638.0" width="90.0" height="90.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup3/BackLine/HeroHeadClickable6/HeroHeadUI/Mask | mask_item</title><rect x="573.7" y="645.0" width="76.0" height="76.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup3/BackLine/HeroHeadClickable6/HeroHeadUI/Mask/ImageBgr | bgr_item_consumable</title><rect x="566.7" y="638.0" width="90.0" height="90.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup3/BackLine/HeroHeadClickable6/HeroHeadUI/Mask/ImageHead | hero_5_star</title><rect x="566.7" y="638.0" width="90.0" height="90.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup3/BackLine/HeroHeadClickable6/HeroHeadUI/Mask/ImageHidden | hero_head_hidden</title><rect x="566.7" y="638.0" width="90.0" height="90.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup3/BackLine/HeroHeadClickable6/HeroHeadUI/Mask/Check</title><rect x="561.7" y="633.0" width="100.0" height="100.0" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup3/BackLine/HeroHeadClickable6/HeroHeadUI/Mask/Check/Tick | tick_green</title><rect x="591.2" y="661.0" width="41.0" height="38.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup3/BackLine/HeroHeadClickable6/HeroHeadUI/Mask/Lock</title><rect x="561.7" y="633.0" width="100.0" height="100.0" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup3/BackLine/HeroHeadClickable6/HeroHeadUI/Mask/Lock/Lock | icon_lock</title><rect x="593.7" y="662.0" width="36.0" height="36.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup3/BackLine/HeroHeadClickable6/HeroHeadUI/Mask/Death</title><rect x="561.7" y="633.0" width="100.0" height="100.0" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup3/BackLine/HeroHeadClickable6/HeroHeadUI/Mask/Death/Tick | mark_death</title><rect x="559.7" y="624.5" width="104.0" height="111.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup3/BackLine/HeroHeadClickable6/HeroHeadUI/ImageBorder | hero_head_border</title><rect x="571.7" y="643.0" width="80.0" height="80.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup3/BackLine/HeroHeadClickable6/HeroHeadUI/ImageNotify | notify_dot</title><rect x="630.0" y="636.9" width="28.0" height="28.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup3/BackLine/HeroHeadClickable6/HeroHeadUI/TextLevel</title><rect x="612.9" y="638.7" width="40.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup3/BackLine/HeroHeadClickable6/HeroHeadUI/ImageFaction | faction_light</title><rect x="567.0" y="638.3" width="30.0" height="30.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup3/BackLine/HeroHeadClickable6/HeroHeadUI/HeroStar</title><rect x="567.0" y="702.3" width="88.1" height="25.4" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup3/BackLine/HeroHeadClickable6/HeroHeadUI/HeroStar/GroupStar1/Star1 | hero_star_1</title><rect x="553.4" y="717.7" width="20.0" height="20.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup3/BackLine/HeroHeadClickable6/HeroHeadUI/HeroStar/GroupStar1/Star1 | hero_star_1</title><rect x="553.4" y="717.7" width="20.0" height="20.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup3/BackLine/HeroHeadClickable6/HeroHeadUI/HeroStar/GroupStar1/Star1 | hero_star_1</title><rect x="553.4" y="717.7" width="20.0" height="20.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup3/BackLine/HeroHeadClickable6/HeroHeadUI/HeroStar/GroupStar1/Star1 | hero_star_1</title><rect x="553.4" y="717.7" width="20.0" height="20.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup3/BackLine/HeroHeadClickable6/HeroHeadUI/HeroStar/GroupStar1/Star1 | hero_star_1</title><rect x="553.4" y="717.7" width="20.0" height="20.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup3/BackLine/HeroHeadClickable6/HeroHeadUI/HeroStar/GroupStar6/Star6 | hero_star_2</title><rect x="573.1" y="702.3" width="22.0" height="22.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup3/BackLine/HeroHeadClickable6/HeroHeadUI/HeroStar/GroupStar6/Star6 | hero_star_2</title><rect x="591.1" y="702.3" width="22.0" height="22.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup3/BackLine/HeroHeadClickable6/HeroHeadUI/HeroStar/GroupStar6/Star6 | hero_star_2</title><rect x="609.1" y="702.3" width="22.0" height="22.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup3/BackLine/HeroHeadClickable6/HeroHeadUI/HeroStar/GroupStar6/Star6 | hero_star_2</title><rect x="627.1" y="702.3" width="22.0" height="22.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup3/BackLine/HeroHeadClickable6/HeroHeadUI/HeroStar/GroupStar10/Star10 | hero_star_3</title><rect x="600.1" y="700.2" width="22.0" height="22.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup3/BackLine/HeroHeadClickable6/HeroHeadUI/HeroStar/GroupStarE/BgrStarE | star_e_bgr</title><rect x="532.1" y="686.6" width="158.0" height="59.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup3/BackLine/HeroHeadClickable6/HeroHeadUI/HeroStar/GroupStarE/StarE | hero_star_e</title><rect x="599.1" y="702.4" width="24.0" height="24.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup3/BackLine/HeroHeadClickable6/HeroHeadUI/HeroStar/GroupStarE/TextStarE</title><rect x="531.1" y="704.1" width="160.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup3/BackLine/HeroHeadClickable6/HeroHeadUI/SliderHp/Background | progress_bgr</title><rect x="566.7" y="726.9" width="90.0" height="17.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/HeroesLineup3/BackLine/HeroHeadClickable6/HeroHeadUI/SliderHp/Fill Area/Fill | progress_top_2</title><rect x="567.7" y="726.9" width="88.0" height="17.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/SlotPet1 | border_gear</title><rect x="1006.0" y="371.0" width="102.0" height="100.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/SlotPet1/PetEmpty | icon_gear</title><rect x="1015.0" y="389.5" width="84.0" height="63.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/SlotPet1/PetHeadUI1</title><rect x="1011.0" y="375.0" width="92.0" height="92.0" stroke="#3b82f6" stroke-width="1.2" fill="#3b82f6" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/SlotPet1/PetHeadUI1/ImageFrame | frame_item</title><rect x="1012.0" y="376.0" width="90.0" height="90.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/SlotPet1/PetHeadUI1/Mask | mask_item</title><rect x="1019.0" y="383.0" width="76.0" height="76.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/SlotPet1/PetHeadUI1/Mask/ImageBgr | bgr_item_consumable</title><rect x="1012.0" y="376.0" width="90.0" height="90.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/SlotPet1/PetHeadUI1/Mask/ImageHeadPet | pet_head</title><rect x="1012.0" y="376.0" width="90.0" height="90.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/SlotPet1/PetHeadUI1/Mask/ImageHidden | pet_head_hidden</title><rect x="1012.0" y="376.0" width="90.0" height="90.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/SlotPet1/PetHeadUI1/ImageBorder | hero_head_border</title><rect x="1017.0" y="381.0" width="80.0" height="80.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/SlotPet2 | border_gear</title><rect x="1006.0" y="476.0" width="102.0" height="100.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/SlotPet2/PetEmpty | icon_gear</title><rect x="1015.0" y="494.5" width="84.0" height="63.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/SlotPet2/PetHeadUI2</title><rect x="1011.0" y="480.0" width="92.0" height="92.0" stroke="#3b82f6" stroke-width="1.2" fill="#3b82f6" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/SlotPet2/PetHeadUI2/ImageFrame | frame_item</title><rect x="1012.0" y="481.0" width="90.0" height="90.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/SlotPet2/PetHeadUI2/Mask | mask_item</title><rect x="1019.0" y="488.0" width="76.0" height="76.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/SlotPet2/PetHeadUI2/Mask/ImageBgr | bgr_item_consumable</title><rect x="1012.0" y="481.0" width="90.0" height="90.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/SlotPet2/PetHeadUI2/Mask/ImageHeadPet | pet_head</title><rect x="1012.0" y="481.0" width="90.0" height="90.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/SlotPet2/PetHeadUI2/Mask/ImageHidden | pet_head_hidden</title><rect x="1012.0" y="481.0" width="90.0" height="90.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/SlotPet2/PetHeadUI2/ImageBorder | hero_head_border</title><rect x="1017.0" y="486.0" width="80.0" height="80.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/SlotPet3 | border_gear</title><rect x="1006.0" y="580.0" width="102.0" height="100.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/SlotPet3/PetEmpty | icon_gear</title><rect x="1015.0" y="598.5" width="84.0" height="63.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/SlotPet3/PetHeadUI3</title><rect x="1011.0" y="584.0" width="92.0" height="92.0" stroke="#3b82f6" stroke-width="1.2" fill="#3b82f6" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/SlotPet3/PetHeadUI3/ImageFrame | frame_item</title><rect x="1012.0" y="585.0" width="90.0" height="90.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/SlotPet3/PetHeadUI3/Mask | mask_item</title><rect x="1019.0" y="592.0" width="76.0" height="76.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/SlotPet3/PetHeadUI3/Mask/ImageBgr | bgr_item_consumable</title><rect x="1012.0" y="585.0" width="90.0" height="90.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/SlotPet3/PetHeadUI3/Mask/ImageHeadPet | pet_head</title><rect x="1012.0" y="585.0" width="90.0" height="90.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/SlotPet3/PetHeadUI3/Mask/ImageHidden | pet_head_hidden</title><rect x="1012.0" y="585.0" width="90.0" height="90.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupPlayerInfo3/Content/Body/Lineup/SlotPet3/PetHeadUI3/ImageBorder | hero_head_border</title><rect x="1017.0" y="590.0" width="80.0" height="80.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
 <g><title>/PopupPlayerInfo3/Content/ButtonClose | popup_close</title><rect x="1143.8" y="121.0" width="64.0" height="64.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
 </g>
 </svg>

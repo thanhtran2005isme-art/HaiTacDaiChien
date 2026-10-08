@@ -3,6 +3,930 @@
 <rect width="1600" height="900" fill="#1e293b"/>
 <text x="20" y="927" font-family="sans-serif" font-size="22" fill="#f8fafc">PopupGuildWarPlayerInfo | 002_UnityDataAssetPack_datapack__file110</text>
 <text x="20" y="953" font-family="sans-serif" font-size="15" fill="#94a3b8">Metadata wireframe | hypothetical 1600x900 viewport | not the actual game screenshot</text>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/PlayerInfo/BoxPlayer | round_rect_content</title><rect x="524.0" y="440.0" width="480.1" height="120.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+<text x="529.0" y="456.0" fill="#e2e8f0" font-size="12" font-family="sans-serif">BoxPlayer</text>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/PlayerInfo/BoxPlayer/PlayerAvatar</title><rect x="534.6" y="445.0" width="110.0" height="110.0" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+<text x="539.6" y="461.0" fill="#e2e8f0" font-size="12" font-family="sans-serif">PlayerAvatar</text>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/PlayerInfo/BoxPlayer/PlayerAvatar/Mask | mask_item</title><rect x="543.6" y="454.0" width="92.0" height="92.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/PlayerInfo/BoxPlayer/PlayerAvatar/Mask/ImageBgr | bgr_avatar</title><rect x="539.6" y="450.0" width="100.0" height="100.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/PlayerInfo/BoxPlayer/PlayerAvatar/Mask/ImageAvt | item_transparent</title><rect x="541.6" y="452.0" width="96.0" height="96.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/PlayerInfo/BoxPlayer/PlayerAvatar/Border | border_avatar</title><rect x="539.6" y="450.0" width="100.0" height="100.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/PlayerInfo/BoxPlayer/PlayerAvatar/TagLevel | tag_level</title><rect x="530.6" y="511.0" width="48.0" height="48.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/PlayerInfo/BoxPlayer/PlayerAvatar/TagLevel/TextLevel</title><rect x="529.2" y="516.9" width="50.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/PlayerInfo/BoxPlayer/TextPlayerName</title><rect x="654.0" y="462.0" width="160.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+<text x="659.0" y="478.0" fill="#e2e8f0" font-size="12" font-family="sans-serif">TextPlayerName</text>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/PlayerInfo/BoxPlayer/TextID</title><rect x="654.0" y="501.0" width="160.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+<text x="659.0" y="517.0" fill="#e2e8f0" font-size="12" font-family="sans-serif">TextID</text>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/PlayerInfo/BoxRewards | round_rect_7</title><rect x="1016.8" y="440.0" width="222.4" height="126.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+<text x="1021.8" y="456.0" fill="#e2e8f0" font-size="12" font-family="sans-serif">BoxRewards</text>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/PlayerInfo/BoxRewards/TextReward</title><rect x="1048.0" y="446.9" width="160.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+<text x="1053.0" y="462.9" fill="#e2e8f0" font-size="12" font-family="sans-serif">TextReward</text>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/PlayerInfo/BoxRewards/HLayout</title><rect x="1037.8" y="473.0" width="180.8" height="86.6" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+<text x="1042.8" y="489.0" fill="#e2e8f0" font-size="12" font-family="sans-serif">HLayout</text>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/PlayerInfo/BoxRewards/HLayout/Wrapper1/GameItem/ItemShardUI</title><rect x="991.8" y="513.6" width="92.0" height="92.0" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/PlayerInfo/BoxRewards/HLayout/Wrapper1/GameItem/ItemShardUI/Mask | bgr_light</title><rect x="996.8" y="518.6" width="82.0" height="82.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/PlayerInfo/BoxRewards/HLayout/Wrapper1/GameItem/ItemShardUI/Mask/ImageBgr | bgr_item_consumable</title><rect x="992.8" y="514.6" width="90.0" height="90.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/PlayerInfo/BoxRewards/HLayout/Wrapper1/GameItem/ItemShardUI/Mask/ImageItem | item_transparent</title><rect x="995.8" y="517.6" width="84.0" height="84.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/PlayerInfo/BoxRewards/HLayout/Wrapper1/GameItem/ItemShardUI/Mask/Check</title><rect x="987.8" y="509.6" width="100.0" height="100.0" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/PlayerInfo/BoxRewards/HLayout/Wrapper1/GameItem/ItemShardUI/Mask/Check/Image | tick_green</title><rect x="1009.3" y="534.1" width="57.0" height="51.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/PlayerInfo/BoxRewards/HLayout/Wrapper1/GameItem/ItemShardUI/ImageBorder | border_item</title><rect x="992.8" y="514.6" width="90.0" height="90.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/PlayerInfo/BoxRewards/HLayout/Wrapper1/GameItem/ItemShardUI/IconHeroFaction | faction_abyss</title><rect x="994.3" y="515.7" width="30.0" height="30.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/PlayerInfo/BoxRewards/HLayout/Wrapper1/GameItem/ItemShardUI/IconShard | icon_shard</title><rect x="1055.1" y="515.8" width="28.0" height="28.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/PlayerInfo/BoxRewards/HLayout/Wrapper1/GameItem/ItemShardUI/ShardStar/Star1 | hero_star_1</title><rect x="1002.8" y="581.2" width="18.0" height="18.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/PlayerInfo/BoxRewards/HLayout/Wrapper1/GameItem/ItemShardUI/ShardStar/Star1 | hero_star_1</title><rect x="1015.8" y="581.2" width="18.0" height="18.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/PlayerInfo/BoxRewards/HLayout/Wrapper1/GameItem/ItemShardUI/ShardStar/Star1 | hero_star_1</title><rect x="1028.8" y="581.2" width="18.0" height="18.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/PlayerInfo/BoxRewards/HLayout/Wrapper1/GameItem/ItemShardUI/ShardStar/Star1 | hero_star_1</title><rect x="1041.8" y="581.2" width="18.0" height="18.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/PlayerInfo/BoxRewards/HLayout/Wrapper1/GameItem/ItemShardUI/ShardStar/Star1 | hero_star_1</title><rect x="1054.8" y="581.2" width="18.0" height="18.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/PlayerInfo/BoxRewards/HLayout/Wrapper1/GameItem/ItemShardUI/TextNumber2</title><rect x="1004.4" y="564.5" width="72.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/PlayerInfo/BoxRewards/HLayout/Wrapper1/GameItem/ItemShardUI/Slider/Background | Background</title><rect x="992.8" y="605.6" width="90.0" height="20.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/PlayerInfo/BoxRewards/HLayout/Wrapper1/GameItem/ItemShardUI/Slider/Fill Area/Fill | UISprite</title><rect x="992.8" y="605.6" width="90.0" height="20.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/PlayerInfo/BoxRewards/HLayout/Wrapper1/GameItem/ItemShardUI/Slider/TextNumber</title><rect x="997.8" y="604.8" width="80.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/PlayerInfo/BoxRewards/HLayout/Wrapper1/GameItem/ItemAvatarUI</title><rect x="991.8" y="513.6" width="92.0" height="92.0" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/PlayerInfo/BoxRewards/HLayout/Wrapper1/GameItem/ItemAvatarUI/Mask | mask_item</title><rect x="995.8" y="517.6" width="84.0" height="84.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/PlayerInfo/BoxRewards/HLayout/Wrapper1/GameItem/ItemAvatarUI/Mask/ImageBgr | bgr_item_consumable</title><rect x="995.8" y="517.6" width="84.0" height="84.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/PlayerInfo/BoxRewards/HLayout/Wrapper1/GameItem/ItemAvatarUI/Mask/ImageAvatar | item_transparent</title><rect x="995.8" y="517.6" width="84.0" height="84.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/PlayerInfo/BoxRewards/HLayout/Wrapper1/GameItem/ItemAvatarUI/ImageBorder | border_item</title><rect x="991.8" y="513.6" width="92.0" height="92.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/PlayerInfo/BoxRewards/HLayout/Wrapper1/GameItem/ItemVipExpUI</title><rect x="991.8" y="513.6" width="92.0" height="92.0" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/PlayerInfo/BoxRewards/HLayout/Wrapper1/GameItem/ItemVipExpUI/Mask | mask_item</title><rect x="995.8" y="517.6" width="84.0" height="84.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/PlayerInfo/BoxRewards/HLayout/Wrapper1/GameItem/ItemVipExpUI/Mask/ImageBgr | bgr_item_consumable</title><rect x="995.8" y="517.6" width="84.0" height="84.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/PlayerInfo/BoxRewards/HLayout/Wrapper1/GameItem/ItemVipExpUI/Mask/ImageItem | icon_exp_vip</title><rect x="997.8" y="519.6" width="80.0" height="80.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/PlayerInfo/BoxRewards/HLayout/Wrapper1/GameItem/ItemVipExpUI/ImageBorder | border_item</title><rect x="991.8" y="513.6" width="92.0" height="92.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/PlayerInfo/BoxRewards/HLayout/Wrapper1/GameItem/ItemVipExpUI/TextNumber</title><rect x="1005.0" y="574.9" width="72.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/PlayerInfo/BoxRewards/HLayout/Wrapper1/GameItem/ItemArtifactUI</title><rect x="991.8" y="513.6" width="92.0" height="92.0" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/PlayerInfo/BoxRewards/HLayout/Wrapper1/GameItem/ItemArtifactUI/ImageFrame | frame_item</title><rect x="992.8" y="514.6" width="90.0" height="90.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/PlayerInfo/BoxRewards/HLayout/Wrapper1/GameItem/ItemArtifactUI/Mask | mask_item</title><rect x="999.8" y="521.6" width="76.0" height="76.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/PlayerInfo/BoxRewards/HLayout/Wrapper1/GameItem/ItemArtifactUI/Mask/ImageBgr | bgr_equipment_2</title><rect x="995.8" y="517.6" width="84.0" height="84.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/PlayerInfo/BoxRewards/HLayout/Wrapper1/GameItem/ItemArtifactUI/Mask/ImageItem | item_transparent</title><rect x="997.8" y="519.6" width="80.0" height="80.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/PlayerInfo/BoxRewards/HLayout/Wrapper1/GameItem/ItemArtifactUI/Mask/Check</title><rect x="987.8" y="509.6" width="100.0" height="100.0" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/PlayerInfo/BoxRewards/HLayout/Wrapper1/GameItem/ItemArtifactUI/Mask/Check/Image | tick_green</title><rect x="1009.3" y="534.1" width="57.0" height="51.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/PlayerInfo/BoxRewards/HLayout/Wrapper1/GameItem/ItemArtifactUI/ImageBorder | border_equipment_2</title><rect x="997.8" y="519.6" width="80.0" height="80.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/PlayerInfo/BoxRewards/HLayout/Wrapper1/GameItem/ItemArtifactUI/TextNumber</title><rect x="1023.3" y="570.8" width="51.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/PlayerInfo/BoxRewards/HLayout/Wrapper1/GameItem/ItemArtifactUI/IconHeroFaction | faction_shadow</title><rect x="1050.4" y="517.0" width="30.0" height="30.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/PlayerInfo/BoxRewards/HLayout/Wrapper1/GameItem/ItemArtifactUI/ItemStar/Star1 | item_star</title><rect x="992.7" y="586.4" width="18.0" height="18.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/PlayerInfo/BoxRewards/HLayout/Wrapper1/GameItem/ItemArtifactUI/ItemStar/Star2 | item_star</title><rect x="992.7" y="586.4" width="18.0" height="18.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/PlayerInfo/BoxRewards/HLayout/Wrapper1/GameItem/ItemArtifactUI/ItemStar/Star3 | item_star</title><rect x="992.7" y="586.4" width="18.0" height="18.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/PlayerInfo/BoxRewards/HLayout/Wrapper1/GameItem/ItemArtifactUI/ItemStar/Star4 | item_star</title><rect x="992.7" y="586.4" width="18.0" height="18.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/PlayerInfo/BoxRewards/HLayout/Wrapper1/GameItem/ItemArtifactUI/ItemStar/Star5 | item_star</title><rect x="992.7" y="586.4" width="18.0" height="18.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/PlayerInfo/BoxRewards/HLayout/Wrapper1/GameItem/ItemArtifactUI/ItemStar/Star6 | item_star</title><rect x="992.7" y="586.4" width="18.0" height="18.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/PlayerInfo/BoxRewards/HLayout/Wrapper1/GameItem/ItemArtifactUI/MaskSpineBorder | UIMask</title><rect x="977.8" y="499.6" width="120.0" height="120.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+<text x="982.8" y="515.6" fill="#e2e8f0" font-size="12" font-family="sans-serif">MaskSpineBorder</text>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/PlayerInfo/BoxRewards/HLayout/Wrapper1/GameItem/ItemConsumableUI</title><rect x="991.8" y="513.6" width="92.0" height="92.0" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/PlayerInfo/BoxRewards/HLayout/Wrapper1/GameItem/ItemConsumableUI/Mask | bgr_light</title><rect x="996.8" y="518.6" width="82.0" height="82.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/PlayerInfo/BoxRewards/HLayout/Wrapper1/GameItem/ItemConsumableUI/Mask/ImageBgr | bgr_item_consumable</title><rect x="992.8" y="514.6" width="90.0" height="90.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/PlayerInfo/BoxRewards/HLayout/Wrapper1/GameItem/ItemConsumableUI/Mask/ImageItem | item_transparent</title><rect x="997.8" y="519.6" width="80.0" height="80.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/PlayerInfo/BoxRewards/HLayout/Wrapper1/GameItem/ItemConsumableUI/Mask/Check</title><rect x="987.8" y="509.6" width="100.0" height="100.0" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/PlayerInfo/BoxRewards/HLayout/Wrapper1/GameItem/ItemConsumableUI/Mask/Check/Image | tick_green</title><rect x="1009.3" y="534.1" width="57.0" height="51.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/PlayerInfo/BoxRewards/HLayout/Wrapper1/GameItem/ItemConsumableUI/ImageBorder | border_item</title><rect x="992.8" y="514.6" width="90.0" height="90.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/PlayerInfo/BoxRewards/HLayout/Wrapper1/GameItem/ItemConsumableUI/TextNumber</title><rect x="1003.2" y="571.5" width="72.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/PlayerInfo/BoxRewards/HLayout/Wrapper1/GameItem/ItemEquipmentUI</title><rect x="991.8" y="513.6" width="92.0" height="92.0" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/PlayerInfo/BoxRewards/HLayout/Wrapper1/GameItem/ItemEquipmentUI/ImageFrame | frame_item</title><rect x="992.8" y="514.6" width="90.0" height="90.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/PlayerInfo/BoxRewards/HLayout/Wrapper1/GameItem/ItemEquipmentUI/Mask | mask_item</title><rect x="999.8" y="521.6" width="76.0" height="76.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/PlayerInfo/BoxRewards/HLayout/Wrapper1/GameItem/ItemEquipmentUI/Mask/ImageBgr | bgr_equipment_1</title><rect x="991.8" y="513.6" width="92.0" height="92.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/PlayerInfo/BoxRewards/HLayout/Wrapper1/GameItem/ItemEquipmentUI/Mask/ImageItem | item_placeholder</title><rect x="997.8" y="519.6" width="80.0" height="80.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/PlayerInfo/BoxRewards/HLayout/Wrapper1/GameItem/ItemEquipmentUI/Mask/Check</title><rect x="987.8" y="509.6" width="100.0" height="100.0" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/PlayerInfo/BoxRewards/HLayout/Wrapper1/GameItem/ItemEquipmentUI/Mask/Check/Image | tick_green</title><rect x="1009.3" y="534.1" width="57.0" height="51.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/PlayerInfo/BoxRewards/HLayout/Wrapper1/GameItem/ItemEquipmentUI/ImageBorder | border_equipment_2</title><rect x="997.8" y="519.6" width="80.0" height="80.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/PlayerInfo/BoxRewards/HLayout/Wrapper1/GameItem/ItemEquipmentUI/TextNumber</title><rect x="1020.3" y="571.6" width="53.7" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/PlayerInfo/BoxRewards/HLayout/Wrapper1/GameItem/ItemEquipmentUI/ItemStar/Star1 | item_star</title><rect x="1002.0" y="522.4" width="18.0" height="18.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/PlayerInfo/BoxRewards/HLayout/Wrapper1/GameItem/ItemEquipmentUI/ItemStar/Star1 | item_star</title><rect x="1002.0" y="533.4" width="18.0" height="18.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/PlayerInfo/BoxRewards/HLayout/Wrapper1/GameItem/ItemEquipmentUI/ItemStar/Star1 | item_star</title><rect x="1002.0" y="544.4" width="18.0" height="18.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/PlayerInfo/BoxRewards/HLayout/Wrapper1/GameItem/ItemEquipmentUI/ItemStar/Star1 | item_star</title><rect x="1002.0" y="555.4" width="18.0" height="18.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/PlayerInfo/BoxRewards/HLayout/Wrapper1/GameItem/ItemEquipmentUI/ItemStar/Star1 | item_star</title><rect x="1002.0" y="566.4" width="18.0" height="18.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/PlayerInfo/BoxRewards/HLayout/Wrapper1/GameItem/ItemEquipmentUI/ItemStar/Star1 | item_star</title><rect x="1002.0" y="577.4" width="18.0" height="18.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/PlayerInfo/BoxRewards/HLayout/Wrapper1/GameItem/ItemEquipmentUI/MaskSpineBorder | UIMask</title><rect x="962.8" y="484.6" width="150.0" height="150.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+<text x="967.8" y="500.6" fill="#e2e8f0" font-size="12" font-family="sans-serif">MaskSpineBorder</text>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/PlayerInfo/BoxRewards/HLayout/Wrapper1/GameItem/HeroHeadClickable</title><rect x="991.8" y="513.6" width="92.0" height="92.0" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/PlayerInfo/BoxRewards/HLayout/Wrapper1/GameItem/HeroHeadClickable/HeroHeadUI/ImageFrame | frame_item</title><rect x="992.8" y="514.6" width="90.0" height="90.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/PlayerInfo/BoxRewards/HLayout/Wrapper1/GameItem/HeroHeadClickable/HeroHeadUI/Mask | mask_item</title><rect x="999.8" y="521.6" width="76.0" height="76.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/PlayerInfo/BoxRewards/HLayout/Wrapper1/GameItem/HeroHeadClickable/HeroHeadUI/Mask/ImageBgr | bgr_item_consumable</title><rect x="992.8" y="514.6" width="90.0" height="90.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/PlayerInfo/BoxRewards/HLayout/Wrapper1/GameItem/HeroHeadClickable/HeroHeadUI/Mask/ImageHead | hero_5_star</title><rect x="992.8" y="514.6" width="90.0" height="90.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/PlayerInfo/BoxRewards/HLayout/Wrapper1/GameItem/HeroHeadClickable/HeroHeadUI/Mask/ImageHidden | hero_head_hidden</title><rect x="992.8" y="514.6" width="90.0" height="90.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/PlayerInfo/BoxRewards/HLayout/Wrapper1/GameItem/HeroHeadClickable/HeroHeadUI/Mask/Check</title><rect x="987.8" y="509.6" width="100.0" height="100.0" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/PlayerInfo/BoxRewards/HLayout/Wrapper1/GameItem/HeroHeadClickable/HeroHeadUI/Mask/Check/Tick | tick_green</title><rect x="1017.3" y="537.6" width="41.0" height="38.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/PlayerInfo/BoxRewards/HLayout/Wrapper1/GameItem/HeroHeadClickable/HeroHeadUI/Mask/Lock</title><rect x="987.8" y="509.6" width="100.0" height="100.0" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/PlayerInfo/BoxRewards/HLayout/Wrapper1/GameItem/HeroHeadClickable/HeroHeadUI/Mask/Lock/Lock | icon_lock</title><rect x="1019.8" y="538.6" width="36.0" height="36.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/PlayerInfo/BoxRewards/HLayout/Wrapper1/GameItem/HeroHeadClickable/HeroHeadUI/Mask/Death</title><rect x="987.8" y="509.6" width="100.0" height="100.0" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/PlayerInfo/BoxRewards/HLayout/Wrapper1/GameItem/HeroHeadClickable/HeroHeadUI/Mask/Death/Tick | mark_death</title><rect x="985.8" y="501.1" width="104.0" height="111.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/PlayerInfo/BoxRewards/HLayout/Wrapper1/GameItem/HeroHeadClickable/HeroHeadUI/ImageBorder | hero_head_border</title><rect x="997.8" y="519.6" width="80.0" height="80.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/PlayerInfo/BoxRewards/HLayout/Wrapper1/GameItem/HeroHeadClickable/HeroHeadUI/ImageNotify | notify_dot</title><rect x="1056.1" y="513.5" width="28.0" height="28.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/PlayerInfo/BoxRewards/HLayout/Wrapper1/GameItem/HeroHeadClickable/HeroHeadUI/TextLevel</title><rect x="1039.0" y="515.3" width="40.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/PlayerInfo/BoxRewards/HLayout/Wrapper1/GameItem/HeroHeadClickable/HeroHeadUI/ImageFaction | faction_light</title><rect x="993.1" y="514.9" width="30.0" height="30.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/PlayerInfo/BoxRewards/HLayout/Wrapper1/GameItem/HeroHeadClickable/HeroHeadUI/HeroStar</title><rect x="993.1" y="578.9" width="88.1" height="25.4" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/PlayerInfo/BoxRewards/HLayout/Wrapper1/GameItem/HeroHeadClickable/HeroHeadUI/HeroStar/GroupStar1/Star1 | hero_star_1</title><rect x="997.2" y="578.9" width="20.0" height="20.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/PlayerInfo/BoxRewards/HLayout/Wrapper1/GameItem/HeroHeadClickable/HeroHeadUI/HeroStar/GroupStar1/Star1 | hero_star_1</title><rect x="1012.2" y="578.9" width="20.0" height="20.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/PlayerInfo/BoxRewards/HLayout/Wrapper1/GameItem/HeroHeadClickable/HeroHeadUI/HeroStar/GroupStar1/Star1 | hero_star_1</title><rect x="1027.2" y="578.9" width="20.0" height="20.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/PlayerInfo/BoxRewards/HLayout/Wrapper1/GameItem/HeroHeadClickable/HeroHeadUI/HeroStar/GroupStar1/Star1 | hero_star_1</title><rect x="1042.2" y="578.9" width="20.0" height="20.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/PlayerInfo/BoxRewards/HLayout/Wrapper1/GameItem/HeroHeadClickable/HeroHeadUI/HeroStar/GroupStar1/Star1 | hero_star_1</title><rect x="1057.2" y="578.9" width="20.0" height="20.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/PlayerInfo/BoxRewards/HLayout/Wrapper1/GameItem/HeroHeadClickable/HeroHeadUI/HeroStar/GroupStar6/Star6 | hero_star_2</title><rect x="999.2" y="578.9" width="22.0" height="22.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/PlayerInfo/BoxRewards/HLayout/Wrapper1/GameItem/HeroHeadClickable/HeroHeadUI/HeroStar/GroupStar6/Star6 | hero_star_2</title><rect x="1017.2" y="578.9" width="22.0" height="22.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/PlayerInfo/BoxRewards/HLayout/Wrapper1/GameItem/HeroHeadClickable/HeroHeadUI/HeroStar/GroupStar6/Star6 | hero_star_2</title><rect x="1035.2" y="578.9" width="22.0" height="22.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/PlayerInfo/BoxRewards/HLayout/Wrapper1/GameItem/HeroHeadClickable/HeroHeadUI/HeroStar/GroupStar6/Star6 | hero_star_2</title><rect x="1053.2" y="578.9" width="22.0" height="22.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/PlayerInfo/BoxRewards/HLayout/Wrapper1/GameItem/HeroHeadClickable/HeroHeadUI/HeroStar/GroupStar10/Star10 | hero_star_3</title><rect x="1026.1" y="576.8" width="22.0" height="22.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/PlayerInfo/BoxRewards/HLayout/Wrapper1/GameItem/HeroHeadClickable/HeroHeadUI/HeroStar/GroupStarE/BgrStarE | star_e_bgr</title><rect x="958.1" y="563.2" width="158.0" height="59.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+<text x="963.1" y="579.2" fill="#e2e8f0" font-size="12" font-family="sans-serif">BgrStarE</text>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/PlayerInfo/BoxRewards/HLayout/Wrapper1/GameItem/HeroHeadClickable/HeroHeadUI/HeroStar/GroupStarE/StarE | hero_star_e</title><rect x="1025.1" y="579.0" width="24.0" height="24.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/PlayerInfo/BoxRewards/HLayout/Wrapper1/GameItem/HeroHeadClickable/HeroHeadUI/HeroStar/GroupStarE/TextStarE</title><rect x="957.1" y="580.7" width="160.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+<text x="962.1" y="596.7" fill="#e2e8f0" font-size="12" font-family="sans-serif">TextStarE</text>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/PlayerInfo/BoxRewards/HLayout/Wrapper1/GameItem/HeroHeadClickable/HeroHeadUI/SliderHp/Background | progress_bgr</title><rect x="992.8" y="603.5" width="90.0" height="17.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/PlayerInfo/BoxRewards/HLayout/Wrapper1/GameItem/HeroHeadClickable/HeroHeadUI/SliderHp/Fill Area/Fill | progress_top_2</title><rect x="993.8" y="603.5" width="88.0" height="17.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/PlayerInfo/BoxRewards/HLayout/Wrapper1/GameItem/GroupDone/ImageCover | bgr_light</title><rect x="991.8" y="513.6" width="92.0" height="92.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/PlayerInfo/BoxRewards/HLayout/Wrapper1/GameItem/GroupDone/ImageCover/Image</title><rect x="991.8" y="513.6" width="92.0" height="92.0" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/PlayerInfo/BoxRewards/HLayout/Wrapper1/GameItem/GroupDone/tick | tick_green</title><rect x="1017.3" y="540.6" width="41.0" height="38.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/PlayerInfo/BoxRewards/HLayout/Wrapper1/GameItem/TextDesc</title><rect x="991.8" y="604.8" width="92.0" height="20.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/PlayerInfo/BoxRewards/HLayout/Wrapper1/GameItem/ActionClick | UISprite</title><rect x="991.8" y="513.6" width="92.0" height="92.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/PlayerInfo/BoxRewards/HLayout/Wrapper2/GameItem/ItemShardUI</title><rect x="991.8" y="513.6" width="92.0" height="92.0" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/PlayerInfo/BoxRewards/HLayout/Wrapper2/GameItem/ItemShardUI/Mask | bgr_light</title><rect x="996.8" y="518.6" width="82.0" height="82.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/PlayerInfo/BoxRewards/HLayout/Wrapper2/GameItem/ItemShardUI/Mask/ImageBgr | bgr_item_consumable</title><rect x="992.8" y="514.6" width="90.0" height="90.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/PlayerInfo/BoxRewards/HLayout/Wrapper2/GameItem/ItemShardUI/Mask/ImageItem | item_transparent</title><rect x="995.8" y="517.6" width="84.0" height="84.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/PlayerInfo/BoxRewards/HLayout/Wrapper2/GameItem/ItemShardUI/Mask/Check</title><rect x="987.8" y="509.6" width="100.0" height="100.0" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/PlayerInfo/BoxRewards/HLayout/Wrapper2/GameItem/ItemShardUI/Mask/Check/Image | tick_green</title><rect x="1009.3" y="534.1" width="57.0" height="51.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/PlayerInfo/BoxRewards/HLayout/Wrapper2/GameItem/ItemShardUI/ImageBorder | border_item</title><rect x="992.8" y="514.6" width="90.0" height="90.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/PlayerInfo/BoxRewards/HLayout/Wrapper2/GameItem/ItemShardUI/IconHeroFaction | faction_abyss</title><rect x="994.3" y="515.7" width="30.0" height="30.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/PlayerInfo/BoxRewards/HLayout/Wrapper2/GameItem/ItemShardUI/IconShard | icon_shard</title><rect x="1055.1" y="515.8" width="28.0" height="28.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/PlayerInfo/BoxRewards/HLayout/Wrapper2/GameItem/ItemShardUI/ShardStar/Star1 | hero_star_1</title><rect x="1002.8" y="581.2" width="18.0" height="18.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/PlayerInfo/BoxRewards/HLayout/Wrapper2/GameItem/ItemShardUI/ShardStar/Star1 | hero_star_1</title><rect x="1015.8" y="581.2" width="18.0" height="18.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/PlayerInfo/BoxRewards/HLayout/Wrapper2/GameItem/ItemShardUI/ShardStar/Star1 | hero_star_1</title><rect x="1028.8" y="581.2" width="18.0" height="18.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/PlayerInfo/BoxRewards/HLayout/Wrapper2/GameItem/ItemShardUI/ShardStar/Star1 | hero_star_1</title><rect x="1041.8" y="581.2" width="18.0" height="18.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/PlayerInfo/BoxRewards/HLayout/Wrapper2/GameItem/ItemShardUI/ShardStar/Star1 | hero_star_1</title><rect x="1054.8" y="581.2" width="18.0" height="18.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/PlayerInfo/BoxRewards/HLayout/Wrapper2/GameItem/ItemShardUI/TextNumber2</title><rect x="1004.4" y="564.5" width="72.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/PlayerInfo/BoxRewards/HLayout/Wrapper2/GameItem/ItemShardUI/Slider/Background | Background</title><rect x="992.8" y="605.6" width="90.0" height="20.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/PlayerInfo/BoxRewards/HLayout/Wrapper2/GameItem/ItemShardUI/Slider/Fill Area/Fill | UISprite</title><rect x="992.8" y="605.6" width="90.0" height="20.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/PlayerInfo/BoxRewards/HLayout/Wrapper2/GameItem/ItemShardUI/Slider/TextNumber</title><rect x="997.8" y="604.8" width="80.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/PlayerInfo/BoxRewards/HLayout/Wrapper2/GameItem/ItemAvatarUI</title><rect x="991.8" y="513.6" width="92.0" height="92.0" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/PlayerInfo/BoxRewards/HLayout/Wrapper2/GameItem/ItemAvatarUI/Mask | mask_item</title><rect x="995.8" y="517.6" width="84.0" height="84.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/PlayerInfo/BoxRewards/HLayout/Wrapper2/GameItem/ItemAvatarUI/Mask/ImageBgr | bgr_item_consumable</title><rect x="995.8" y="517.6" width="84.0" height="84.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/PlayerInfo/BoxRewards/HLayout/Wrapper2/GameItem/ItemAvatarUI/Mask/ImageAvatar | item_transparent</title><rect x="995.8" y="517.6" width="84.0" height="84.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/PlayerInfo/BoxRewards/HLayout/Wrapper2/GameItem/ItemAvatarUI/ImageBorder | border_item</title><rect x="991.8" y="513.6" width="92.0" height="92.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/PlayerInfo/BoxRewards/HLayout/Wrapper2/GameItem/ItemVipExpUI</title><rect x="991.8" y="513.6" width="92.0" height="92.0" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/PlayerInfo/BoxRewards/HLayout/Wrapper2/GameItem/ItemVipExpUI/Mask | mask_item</title><rect x="995.8" y="517.6" width="84.0" height="84.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/PlayerInfo/BoxRewards/HLayout/Wrapper2/GameItem/ItemVipExpUI/Mask/ImageBgr | bgr_item_consumable</title><rect x="995.8" y="517.6" width="84.0" height="84.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/PlayerInfo/BoxRewards/HLayout/Wrapper2/GameItem/ItemVipExpUI/Mask/ImageItem | icon_exp_vip</title><rect x="997.8" y="519.6" width="80.0" height="80.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/PlayerInfo/BoxRewards/HLayout/Wrapper2/GameItem/ItemVipExpUI/ImageBorder | border_item</title><rect x="991.8" y="513.6" width="92.0" height="92.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/PlayerInfo/BoxRewards/HLayout/Wrapper2/GameItem/ItemVipExpUI/TextNumber</title><rect x="1005.0" y="574.9" width="72.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/PlayerInfo/BoxRewards/HLayout/Wrapper2/GameItem/ItemArtifactUI</title><rect x="991.8" y="513.6" width="92.0" height="92.0" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/PlayerInfo/BoxRewards/HLayout/Wrapper2/GameItem/ItemArtifactUI/ImageFrame | frame_item</title><rect x="992.8" y="514.6" width="90.0" height="90.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/PlayerInfo/BoxRewards/HLayout/Wrapper2/GameItem/ItemArtifactUI/Mask | mask_item</title><rect x="999.8" y="521.6" width="76.0" height="76.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/PlayerInfo/BoxRewards/HLayout/Wrapper2/GameItem/ItemArtifactUI/Mask/ImageBgr | bgr_equipment_2</title><rect x="995.8" y="517.6" width="84.0" height="84.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/PlayerInfo/BoxRewards/HLayout/Wrapper2/GameItem/ItemArtifactUI/Mask/ImageItem | item_transparent</title><rect x="997.8" y="519.6" width="80.0" height="80.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/PlayerInfo/BoxRewards/HLayout/Wrapper2/GameItem/ItemArtifactUI/Mask/Check</title><rect x="987.8" y="509.6" width="100.0" height="100.0" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/PlayerInfo/BoxRewards/HLayout/Wrapper2/GameItem/ItemArtifactUI/Mask/Check/Image | tick_green</title><rect x="1009.3" y="534.1" width="57.0" height="51.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/PlayerInfo/BoxRewards/HLayout/Wrapper2/GameItem/ItemArtifactUI/ImageBorder | border_equipment_2</title><rect x="997.8" y="519.6" width="80.0" height="80.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/PlayerInfo/BoxRewards/HLayout/Wrapper2/GameItem/ItemArtifactUI/TextNumber</title><rect x="1023.3" y="570.8" width="51.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/PlayerInfo/BoxRewards/HLayout/Wrapper2/GameItem/ItemArtifactUI/IconHeroFaction | faction_shadow</title><rect x="1050.4" y="517.0" width="30.0" height="30.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/PlayerInfo/BoxRewards/HLayout/Wrapper2/GameItem/ItemArtifactUI/ItemStar/Star1 | item_star</title><rect x="992.7" y="586.4" width="18.0" height="18.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/PlayerInfo/BoxRewards/HLayout/Wrapper2/GameItem/ItemArtifactUI/ItemStar/Star2 | item_star</title><rect x="992.7" y="586.4" width="18.0" height="18.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/PlayerInfo/BoxRewards/HLayout/Wrapper2/GameItem/ItemArtifactUI/ItemStar/Star3 | item_star</title><rect x="992.7" y="586.4" width="18.0" height="18.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/PlayerInfo/BoxRewards/HLayout/Wrapper2/GameItem/ItemArtifactUI/ItemStar/Star4 | item_star</title><rect x="992.7" y="586.4" width="18.0" height="18.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/PlayerInfo/BoxRewards/HLayout/Wrapper2/GameItem/ItemArtifactUI/ItemStar/Star5 | item_star</title><rect x="992.7" y="586.4" width="18.0" height="18.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/PlayerInfo/BoxRewards/HLayout/Wrapper2/GameItem/ItemArtifactUI/ItemStar/Star6 | item_star</title><rect x="992.7" y="586.4" width="18.0" height="18.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/PlayerInfo/BoxRewards/HLayout/Wrapper2/GameItem/ItemArtifactUI/MaskSpineBorder | UIMask</title><rect x="977.8" y="499.6" width="120.0" height="120.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+<text x="982.8" y="515.6" fill="#e2e8f0" font-size="12" font-family="sans-serif">MaskSpineBorder</text>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/PlayerInfo/BoxRewards/HLayout/Wrapper2/GameItem/ItemConsumableUI</title><rect x="991.8" y="513.6" width="92.0" height="92.0" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/PlayerInfo/BoxRewards/HLayout/Wrapper2/GameItem/ItemConsumableUI/Mask | bgr_light</title><rect x="996.8" y="518.6" width="82.0" height="82.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/PlayerInfo/BoxRewards/HLayout/Wrapper2/GameItem/ItemConsumableUI/Mask/ImageBgr | bgr_item_consumable</title><rect x="992.8" y="514.6" width="90.0" height="90.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/PlayerInfo/BoxRewards/HLayout/Wrapper2/GameItem/ItemConsumableUI/Mask/ImageItem | item_transparent</title><rect x="997.8" y="519.6" width="80.0" height="80.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/PlayerInfo/BoxRewards/HLayout/Wrapper2/GameItem/ItemConsumableUI/Mask/Check</title><rect x="987.8" y="509.6" width="100.0" height="100.0" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/PlayerInfo/BoxRewards/HLayout/Wrapper2/GameItem/ItemConsumableUI/Mask/Check/Image | tick_green</title><rect x="1009.3" y="534.1" width="57.0" height="51.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/PlayerInfo/BoxRewards/HLayout/Wrapper2/GameItem/ItemConsumableUI/ImageBorder | border_item</title><rect x="992.8" y="514.6" width="90.0" height="90.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/PlayerInfo/BoxRewards/HLayout/Wrapper2/GameItem/ItemConsumableUI/TextNumber</title><rect x="1003.2" y="571.5" width="72.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/PlayerInfo/BoxRewards/HLayout/Wrapper2/GameItem/ItemEquipmentUI</title><rect x="991.8" y="513.6" width="92.0" height="92.0" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/PlayerInfo/BoxRewards/HLayout/Wrapper2/GameItem/ItemEquipmentUI/ImageFrame | frame_item</title><rect x="992.8" y="514.6" width="90.0" height="90.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/PlayerInfo/BoxRewards/HLayout/Wrapper2/GameItem/ItemEquipmentUI/Mask | mask_item</title><rect x="999.8" y="521.6" width="76.0" height="76.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/PlayerInfo/BoxRewards/HLayout/Wrapper2/GameItem/ItemEquipmentUI/Mask/ImageBgr | bgr_equipment_1</title><rect x="991.8" y="513.6" width="92.0" height="92.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/PlayerInfo/BoxRewards/HLayout/Wrapper2/GameItem/ItemEquipmentUI/Mask/ImageItem | item_placeholder</title><rect x="997.8" y="519.6" width="80.0" height="80.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/PlayerInfo/BoxRewards/HLayout/Wrapper2/GameItem/ItemEquipmentUI/Mask/Check</title><rect x="987.8" y="509.6" width="100.0" height="100.0" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/PlayerInfo/BoxRewards/HLayout/Wrapper2/GameItem/ItemEquipmentUI/Mask/Check/Image | tick_green</title><rect x="1009.3" y="534.1" width="57.0" height="51.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/PlayerInfo/BoxRewards/HLayout/Wrapper2/GameItem/ItemEquipmentUI/ImageBorder | border_equipment_2</title><rect x="997.8" y="519.6" width="80.0" height="80.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/PlayerInfo/BoxRewards/HLayout/Wrapper2/GameItem/ItemEquipmentUI/TextNumber</title><rect x="1020.3" y="571.6" width="53.7" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/PlayerInfo/BoxRewards/HLayout/Wrapper2/GameItem/ItemEquipmentUI/ItemStar/Star1 | item_star</title><rect x="1002.0" y="522.4" width="18.0" height="18.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/PlayerInfo/BoxRewards/HLayout/Wrapper2/GameItem/ItemEquipmentUI/ItemStar/Star1 | item_star</title><rect x="1002.0" y="533.4" width="18.0" height="18.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/PlayerInfo/BoxRewards/HLayout/Wrapper2/GameItem/ItemEquipmentUI/ItemStar/Star1 | item_star</title><rect x="1002.0" y="544.4" width="18.0" height="18.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/PlayerInfo/BoxRewards/HLayout/Wrapper2/GameItem/ItemEquipmentUI/ItemStar/Star1 | item_star</title><rect x="1002.0" y="555.4" width="18.0" height="18.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/PlayerInfo/BoxRewards/HLayout/Wrapper2/GameItem/ItemEquipmentUI/ItemStar/Star1 | item_star</title><rect x="1002.0" y="566.4" width="18.0" height="18.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/PlayerInfo/BoxRewards/HLayout/Wrapper2/GameItem/ItemEquipmentUI/ItemStar/Star1 | item_star</title><rect x="1002.0" y="577.4" width="18.0" height="18.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/PlayerInfo/BoxRewards/HLayout/Wrapper2/GameItem/ItemEquipmentUI/MaskSpineBorder | UIMask</title><rect x="962.8" y="484.6" width="150.0" height="150.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+<text x="967.8" y="500.6" fill="#e2e8f0" font-size="12" font-family="sans-serif">MaskSpineBorder</text>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/PlayerInfo/BoxRewards/HLayout/Wrapper2/GameItem/HeroHeadClickable</title><rect x="991.8" y="513.6" width="92.0" height="92.0" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/PlayerInfo/BoxRewards/HLayout/Wrapper2/GameItem/HeroHeadClickable/HeroHeadUI/ImageFrame | frame_item</title><rect x="992.8" y="514.6" width="90.0" height="90.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/PlayerInfo/BoxRewards/HLayout/Wrapper2/GameItem/HeroHeadClickable/HeroHeadUI/Mask | mask_item</title><rect x="999.8" y="521.6" width="76.0" height="76.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/PlayerInfo/BoxRewards/HLayout/Wrapper2/GameItem/HeroHeadClickable/HeroHeadUI/Mask/ImageBgr | bgr_item_consumable</title><rect x="992.8" y="514.6" width="90.0" height="90.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/PlayerInfo/BoxRewards/HLayout/Wrapper2/GameItem/HeroHeadClickable/HeroHeadUI/Mask/ImageHead | hero_5_star</title><rect x="992.8" y="514.6" width="90.0" height="90.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/PlayerInfo/BoxRewards/HLayout/Wrapper2/GameItem/HeroHeadClickable/HeroHeadUI/Mask/ImageHidden | hero_head_hidden</title><rect x="992.8" y="514.6" width="90.0" height="90.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/PlayerInfo/BoxRewards/HLayout/Wrapper2/GameItem/HeroHeadClickable/HeroHeadUI/Mask/Check</title><rect x="987.8" y="509.6" width="100.0" height="100.0" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/PlayerInfo/BoxRewards/HLayout/Wrapper2/GameItem/HeroHeadClickable/HeroHeadUI/Mask/Check/Tick | tick_green</title><rect x="1017.3" y="537.6" width="41.0" height="38.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/PlayerInfo/BoxRewards/HLayout/Wrapper2/GameItem/HeroHeadClickable/HeroHeadUI/Mask/Lock</title><rect x="987.8" y="509.6" width="100.0" height="100.0" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/PlayerInfo/BoxRewards/HLayout/Wrapper2/GameItem/HeroHeadClickable/HeroHeadUI/Mask/Lock/Lock | icon_lock</title><rect x="1019.8" y="538.6" width="36.0" height="36.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/PlayerInfo/BoxRewards/HLayout/Wrapper2/GameItem/HeroHeadClickable/HeroHeadUI/Mask/Death</title><rect x="987.8" y="509.6" width="100.0" height="100.0" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/PlayerInfo/BoxRewards/HLayout/Wrapper2/GameItem/HeroHeadClickable/HeroHeadUI/Mask/Death/Tick | mark_death</title><rect x="985.8" y="501.1" width="104.0" height="111.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/PlayerInfo/BoxRewards/HLayout/Wrapper2/GameItem/HeroHeadClickable/HeroHeadUI/ImageBorder | hero_head_border</title><rect x="997.8" y="519.6" width="80.0" height="80.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/PlayerInfo/BoxRewards/HLayout/Wrapper2/GameItem/HeroHeadClickable/HeroHeadUI/ImageNotify | notify_dot</title><rect x="1056.1" y="513.5" width="28.0" height="28.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/PlayerInfo/BoxRewards/HLayout/Wrapper2/GameItem/HeroHeadClickable/HeroHeadUI/TextLevel</title><rect x="1039.0" y="515.3" width="40.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/PlayerInfo/BoxRewards/HLayout/Wrapper2/GameItem/HeroHeadClickable/HeroHeadUI/ImageFaction | faction_light</title><rect x="993.1" y="514.9" width="30.0" height="30.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/PlayerInfo/BoxRewards/HLayout/Wrapper2/GameItem/HeroHeadClickable/HeroHeadUI/HeroStar</title><rect x="993.1" y="578.9" width="88.1" height="25.4" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/PlayerInfo/BoxRewards/HLayout/Wrapper2/GameItem/HeroHeadClickable/HeroHeadUI/HeroStar/GroupStar1/Star1 | hero_star_1</title><rect x="997.2" y="578.9" width="20.0" height="20.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/PlayerInfo/BoxRewards/HLayout/Wrapper2/GameItem/HeroHeadClickable/HeroHeadUI/HeroStar/GroupStar1/Star1 | hero_star_1</title><rect x="1012.2" y="578.9" width="20.0" height="20.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/PlayerInfo/BoxRewards/HLayout/Wrapper2/GameItem/HeroHeadClickable/HeroHeadUI/HeroStar/GroupStar1/Star1 | hero_star_1</title><rect x="1027.2" y="578.9" width="20.0" height="20.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/PlayerInfo/BoxRewards/HLayout/Wrapper2/GameItem/HeroHeadClickable/HeroHeadUI/HeroStar/GroupStar1/Star1 | hero_star_1</title><rect x="1042.2" y="578.9" width="20.0" height="20.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/PlayerInfo/BoxRewards/HLayout/Wrapper2/GameItem/HeroHeadClickable/HeroHeadUI/HeroStar/GroupStar1/Star1 | hero_star_1</title><rect x="1057.2" y="578.9" width="20.0" height="20.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/PlayerInfo/BoxRewards/HLayout/Wrapper2/GameItem/HeroHeadClickable/HeroHeadUI/HeroStar/GroupStar6/Star6 | hero_star_2</title><rect x="999.2" y="578.9" width="22.0" height="22.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/PlayerInfo/BoxRewards/HLayout/Wrapper2/GameItem/HeroHeadClickable/HeroHeadUI/HeroStar/GroupStar6/Star6 | hero_star_2</title><rect x="1017.2" y="578.9" width="22.0" height="22.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/PlayerInfo/BoxRewards/HLayout/Wrapper2/GameItem/HeroHeadClickable/HeroHeadUI/HeroStar/GroupStar6/Star6 | hero_star_2</title><rect x="1035.2" y="578.9" width="22.0" height="22.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/PlayerInfo/BoxRewards/HLayout/Wrapper2/GameItem/HeroHeadClickable/HeroHeadUI/HeroStar/GroupStar6/Star6 | hero_star_2</title><rect x="1053.2" y="578.9" width="22.0" height="22.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/PlayerInfo/BoxRewards/HLayout/Wrapper2/GameItem/HeroHeadClickable/HeroHeadUI/HeroStar/GroupStar10/Star10 | hero_star_3</title><rect x="1026.1" y="576.8" width="22.0" height="22.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/PlayerInfo/BoxRewards/HLayout/Wrapper2/GameItem/HeroHeadClickable/HeroHeadUI/HeroStar/GroupStarE/BgrStarE | star_e_bgr</title><rect x="958.1" y="563.2" width="158.0" height="59.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+<text x="963.1" y="579.2" fill="#e2e8f0" font-size="12" font-family="sans-serif">BgrStarE</text>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/PlayerInfo/BoxRewards/HLayout/Wrapper2/GameItem/HeroHeadClickable/HeroHeadUI/HeroStar/GroupStarE/StarE | hero_star_e</title><rect x="1025.1" y="579.0" width="24.0" height="24.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/PlayerInfo/BoxRewards/HLayout/Wrapper2/GameItem/HeroHeadClickable/HeroHeadUI/HeroStar/GroupStarE/TextStarE</title><rect x="957.1" y="580.7" width="160.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/PlayerInfo/BoxRewards/HLayout/Wrapper2/GameItem/HeroHeadClickable/HeroHeadUI/SliderHp/Background | progress_bgr</title><rect x="992.8" y="603.5" width="90.0" height="17.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/PlayerInfo/BoxRewards/HLayout/Wrapper2/GameItem/HeroHeadClickable/HeroHeadUI/SliderHp/Fill Area/Fill | progress_top_2</title><rect x="993.8" y="603.5" width="88.0" height="17.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/PlayerInfo/BoxRewards/HLayout/Wrapper2/GameItem/GroupDone/ImageCover | bgr_light</title><rect x="991.8" y="513.6" width="92.0" height="92.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/PlayerInfo/BoxRewards/HLayout/Wrapper2/GameItem/GroupDone/ImageCover/Image</title><rect x="991.8" y="513.6" width="92.0" height="92.0" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/PlayerInfo/BoxRewards/HLayout/Wrapper2/GameItem/GroupDone/tick | tick_green</title><rect x="1017.3" y="540.6" width="41.0" height="38.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/PlayerInfo/BoxRewards/HLayout/Wrapper2/GameItem/TextDesc</title><rect x="991.8" y="604.8" width="92.0" height="20.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/PlayerInfo/BoxRewards/HLayout/Wrapper2/GameItem/ActionClick | UISprite</title><rect x="991.8" y="513.6" width="92.0" height="92.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/Lineup/TextLineup</title><rect x="438.9" y="434.0" width="160.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/Lineup/IconPower | icon_power</title><rect x="1094.0" y="427.0" width="44.0" height="44.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/Lineup/IconPower/TextPower</title><rect x="926.0" y="434.0" width="160.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/Lineup/HeroesLineup/FrontLine/HeroHeadClickable1</title><rect x="389.7" y="525.0" width="92.0" height="92.0" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/Lineup/HeroesLineup/FrontLine/HeroHeadClickable1/HeroHeadUI/ImageFrame | frame_item</title><rect x="390.7" y="526.0" width="90.0" height="90.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/Lineup/HeroesLineup/FrontLine/HeroHeadClickable1/HeroHeadUI/Mask | mask_item</title><rect x="397.7" y="533.0" width="76.0" height="76.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/Lineup/HeroesLineup/FrontLine/HeroHeadClickable1/HeroHeadUI/Mask/ImageBgr | bgr_item_consumable</title><rect x="390.7" y="526.0" width="90.0" height="90.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/Lineup/HeroesLineup/FrontLine/HeroHeadClickable1/HeroHeadUI/Mask/ImageHead | hero_5_star</title><rect x="390.7" y="526.0" width="90.0" height="90.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/Lineup/HeroesLineup/FrontLine/HeroHeadClickable1/HeroHeadUI/Mask/ImageHidden | hero_head_hidden</title><rect x="390.7" y="526.0" width="90.0" height="90.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/Lineup/HeroesLineup/FrontLine/HeroHeadClickable1/HeroHeadUI/Mask/Check</title><rect x="385.7" y="521.0" width="100.0" height="100.0" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/Lineup/HeroesLineup/FrontLine/HeroHeadClickable1/HeroHeadUI/Mask/Check/Tick | tick_green</title><rect x="415.2" y="549.0" width="41.0" height="38.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/Lineup/HeroesLineup/FrontLine/HeroHeadClickable1/HeroHeadUI/Mask/Lock</title><rect x="385.7" y="521.0" width="100.0" height="100.0" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/Lineup/HeroesLineup/FrontLine/HeroHeadClickable1/HeroHeadUI/Mask/Lock/Lock | icon_lock</title><rect x="417.7" y="550.0" width="36.0" height="36.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/Lineup/HeroesLineup/FrontLine/HeroHeadClickable1/HeroHeadUI/Mask/Death</title><rect x="385.7" y="521.0" width="100.0" height="100.0" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/Lineup/HeroesLineup/FrontLine/HeroHeadClickable1/HeroHeadUI/Mask/Death/Tick | mark_death</title><rect x="383.7" y="512.5" width="104.0" height="111.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/Lineup/HeroesLineup/FrontLine/HeroHeadClickable1/HeroHeadUI/ImageBorder | hero_head_border</title><rect x="395.7" y="531.0" width="80.0" height="80.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/Lineup/HeroesLineup/FrontLine/HeroHeadClickable1/HeroHeadUI/ImageNotify | notify_dot</title><rect x="454.0" y="524.9" width="28.0" height="28.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/Lineup/HeroesLineup/FrontLine/HeroHeadClickable1/HeroHeadUI/TextLevel</title><rect x="436.9" y="526.7" width="40.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/Lineup/HeroesLineup/FrontLine/HeroHeadClickable1/HeroHeadUI/ImageFaction | faction_light</title><rect x="391.0" y="526.3" width="30.0" height="30.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/Lineup/HeroesLineup/FrontLine/HeroHeadClickable1/HeroHeadUI/HeroStar</title><rect x="391.0" y="590.3" width="88.1" height="25.4" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/Lineup/HeroesLineup/FrontLine/HeroHeadClickable1/HeroHeadUI/HeroStar/GroupStar1/Star1 | hero_star_1</title><rect x="377.4" y="605.7" width="20.0" height="20.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/Lineup/HeroesLineup/FrontLine/HeroHeadClickable1/HeroHeadUI/HeroStar/GroupStar1/Star1 | hero_star_1</title><rect x="377.4" y="605.7" width="20.0" height="20.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/Lineup/HeroesLineup/FrontLine/HeroHeadClickable1/HeroHeadUI/HeroStar/GroupStar1/Star1 | hero_star_1</title><rect x="377.4" y="605.7" width="20.0" height="20.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/Lineup/HeroesLineup/FrontLine/HeroHeadClickable1/HeroHeadUI/HeroStar/GroupStar1/Star1 | hero_star_1</title><rect x="377.4" y="605.7" width="20.0" height="20.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/Lineup/HeroesLineup/FrontLine/HeroHeadClickable1/HeroHeadUI/HeroStar/GroupStar1/Star1 | hero_star_1</title><rect x="377.4" y="605.7" width="20.0" height="20.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/Lineup/HeroesLineup/FrontLine/HeroHeadClickable1/HeroHeadUI/HeroStar/GroupStar6/Star6 | hero_star_2</title><rect x="397.1" y="590.3" width="22.0" height="22.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/Lineup/HeroesLineup/FrontLine/HeroHeadClickable1/HeroHeadUI/HeroStar/GroupStar6/Star6 | hero_star_2</title><rect x="415.1" y="590.3" width="22.0" height="22.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/Lineup/HeroesLineup/FrontLine/HeroHeadClickable1/HeroHeadUI/HeroStar/GroupStar6/Star6 | hero_star_2</title><rect x="433.1" y="590.3" width="22.0" height="22.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/Lineup/HeroesLineup/FrontLine/HeroHeadClickable1/HeroHeadUI/HeroStar/GroupStar6/Star6 | hero_star_2</title><rect x="451.1" y="590.3" width="22.0" height="22.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/Lineup/HeroesLineup/FrontLine/HeroHeadClickable1/HeroHeadUI/HeroStar/GroupStar10/Star10 | hero_star_3</title><rect x="424.1" y="588.2" width="22.0" height="22.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/Lineup/HeroesLineup/FrontLine/HeroHeadClickable1/HeroHeadUI/HeroStar/GroupStarE/BgrStarE | star_e_bgr</title><rect x="356.1" y="574.6" width="158.0" height="59.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/Lineup/HeroesLineup/FrontLine/HeroHeadClickable1/HeroHeadUI/HeroStar/GroupStarE/StarE | hero_star_e</title><rect x="423.1" y="590.4" width="24.0" height="24.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/Lineup/HeroesLineup/FrontLine/HeroHeadClickable1/HeroHeadUI/HeroStar/GroupStarE/TextStarE</title><rect x="355.1" y="592.1" width="160.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/Lineup/HeroesLineup/FrontLine/HeroHeadClickable1/HeroHeadUI/SliderHp/Background | progress_bgr</title><rect x="390.7" y="614.9" width="90.0" height="17.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/Lineup/HeroesLineup/FrontLine/HeroHeadClickable1/HeroHeadUI/SliderHp/Fill Area/Fill | progress_top_2</title><rect x="391.7" y="614.9" width="88.0" height="17.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/Lineup/HeroesLineup/FrontLine/HeroHeadClickable2</title><rect x="389.7" y="525.0" width="92.0" height="92.0" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/Lineup/HeroesLineup/FrontLine/HeroHeadClickable2/HeroHeadUI/ImageFrame | frame_item</title><rect x="390.7" y="526.0" width="90.0" height="90.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/Lineup/HeroesLineup/FrontLine/HeroHeadClickable2/HeroHeadUI/Mask | mask_item</title><rect x="397.7" y="533.0" width="76.0" height="76.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/Lineup/HeroesLineup/FrontLine/HeroHeadClickable2/HeroHeadUI/Mask/ImageBgr | bgr_item_consumable</title><rect x="390.7" y="526.0" width="90.0" height="90.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/Lineup/HeroesLineup/FrontLine/HeroHeadClickable2/HeroHeadUI/Mask/ImageHead | hero_5_star</title><rect x="390.7" y="526.0" width="90.0" height="90.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/Lineup/HeroesLineup/FrontLine/HeroHeadClickable2/HeroHeadUI/Mask/ImageHidden | hero_head_hidden</title><rect x="390.7" y="526.0" width="90.0" height="90.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/Lineup/HeroesLineup/FrontLine/HeroHeadClickable2/HeroHeadUI/Mask/Check</title><rect x="385.7" y="521.0" width="100.0" height="100.0" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/Lineup/HeroesLineup/FrontLine/HeroHeadClickable2/HeroHeadUI/Mask/Check/Tick | tick_green</title><rect x="415.2" y="549.0" width="41.0" height="38.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/Lineup/HeroesLineup/FrontLine/HeroHeadClickable2/HeroHeadUI/Mask/Lock</title><rect x="385.7" y="521.0" width="100.0" height="100.0" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/Lineup/HeroesLineup/FrontLine/HeroHeadClickable2/HeroHeadUI/Mask/Lock/Lock | icon_lock</title><rect x="417.7" y="550.0" width="36.0" height="36.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/Lineup/HeroesLineup/FrontLine/HeroHeadClickable2/HeroHeadUI/Mask/Death</title><rect x="385.7" y="521.0" width="100.0" height="100.0" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/Lineup/HeroesLineup/FrontLine/HeroHeadClickable2/HeroHeadUI/Mask/Death/Tick | mark_death</title><rect x="383.7" y="512.5" width="104.0" height="111.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/Lineup/HeroesLineup/FrontLine/HeroHeadClickable2/HeroHeadUI/ImageBorder | hero_head_border</title><rect x="395.7" y="531.0" width="80.0" height="80.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/Lineup/HeroesLineup/FrontLine/HeroHeadClickable2/HeroHeadUI/ImageNotify | notify_dot</title><rect x="454.0" y="524.9" width="28.0" height="28.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/Lineup/HeroesLineup/FrontLine/HeroHeadClickable2/HeroHeadUI/TextLevel</title><rect x="436.9" y="526.7" width="40.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/Lineup/HeroesLineup/FrontLine/HeroHeadClickable2/HeroHeadUI/ImageFaction | faction_light</title><rect x="391.0" y="526.3" width="30.0" height="30.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/Lineup/HeroesLineup/FrontLine/HeroHeadClickable2/HeroHeadUI/HeroStar</title><rect x="391.0" y="590.3" width="88.1" height="25.4" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/Lineup/HeroesLineup/FrontLine/HeroHeadClickable2/HeroHeadUI/HeroStar/GroupStar1/Star1 | hero_star_1</title><rect x="377.4" y="605.7" width="20.0" height="20.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/Lineup/HeroesLineup/FrontLine/HeroHeadClickable2/HeroHeadUI/HeroStar/GroupStar1/Star1 | hero_star_1</title><rect x="377.4" y="605.7" width="20.0" height="20.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/Lineup/HeroesLineup/FrontLine/HeroHeadClickable2/HeroHeadUI/HeroStar/GroupStar1/Star1 | hero_star_1</title><rect x="377.4" y="605.7" width="20.0" height="20.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/Lineup/HeroesLineup/FrontLine/HeroHeadClickable2/HeroHeadUI/HeroStar/GroupStar1/Star1 | hero_star_1</title><rect x="377.4" y="605.7" width="20.0" height="20.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/Lineup/HeroesLineup/FrontLine/HeroHeadClickable2/HeroHeadUI/HeroStar/GroupStar1/Star1 | hero_star_1</title><rect x="377.4" y="605.7" width="20.0" height="20.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/Lineup/HeroesLineup/FrontLine/HeroHeadClickable2/HeroHeadUI/HeroStar/GroupStar6/Star6 | hero_star_2</title><rect x="397.1" y="590.3" width="22.0" height="22.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/Lineup/HeroesLineup/FrontLine/HeroHeadClickable2/HeroHeadUI/HeroStar/GroupStar6/Star6 | hero_star_2</title><rect x="415.1" y="590.3" width="22.0" height="22.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/Lineup/HeroesLineup/FrontLine/HeroHeadClickable2/HeroHeadUI/HeroStar/GroupStar6/Star6 | hero_star_2</title><rect x="433.1" y="590.3" width="22.0" height="22.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/Lineup/HeroesLineup/FrontLine/HeroHeadClickable2/HeroHeadUI/HeroStar/GroupStar6/Star6 | hero_star_2</title><rect x="451.1" y="590.3" width="22.0" height="22.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/Lineup/HeroesLineup/FrontLine/HeroHeadClickable2/HeroHeadUI/HeroStar/GroupStar10/Star10 | hero_star_3</title><rect x="424.1" y="588.2" width="22.0" height="22.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/Lineup/HeroesLineup/FrontLine/HeroHeadClickable2/HeroHeadUI/HeroStar/GroupStarE/BgrStarE | star_e_bgr</title><rect x="356.1" y="574.6" width="158.0" height="59.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/Lineup/HeroesLineup/FrontLine/HeroHeadClickable2/HeroHeadUI/HeroStar/GroupStarE/StarE | hero_star_e</title><rect x="423.1" y="590.4" width="24.0" height="24.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/Lineup/HeroesLineup/FrontLine/HeroHeadClickable2/HeroHeadUI/HeroStar/GroupStarE/TextStarE</title><rect x="355.1" y="592.1" width="160.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/Lineup/HeroesLineup/FrontLine/HeroHeadClickable2/HeroHeadUI/SliderHp/Background | progress_bgr</title><rect x="390.7" y="614.9" width="90.0" height="17.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/Lineup/HeroesLineup/FrontLine/HeroHeadClickable2/HeroHeadUI/SliderHp/Fill Area/Fill | progress_top_2</title><rect x="391.7" y="614.9" width="88.0" height="17.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/Lineup/HeroesLineup/BackLine/HeroHeadClickable3</title><rect x="601.7" y="525.0" width="92.0" height="92.0" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/Lineup/HeroesLineup/BackLine/HeroHeadClickable3/HeroHeadUI/ImageFrame | frame_item</title><rect x="602.7" y="526.0" width="90.0" height="90.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/Lineup/HeroesLineup/BackLine/HeroHeadClickable3/HeroHeadUI/Mask | mask_item</title><rect x="609.7" y="533.0" width="76.0" height="76.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/Lineup/HeroesLineup/BackLine/HeroHeadClickable3/HeroHeadUI/Mask/ImageBgr | bgr_item_consumable</title><rect x="602.7" y="526.0" width="90.0" height="90.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/Lineup/HeroesLineup/BackLine/HeroHeadClickable3/HeroHeadUI/Mask/ImageHead | hero_5_star</title><rect x="602.7" y="526.0" width="90.0" height="90.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/Lineup/HeroesLineup/BackLine/HeroHeadClickable3/HeroHeadUI/Mask/ImageHidden | hero_head_hidden</title><rect x="602.7" y="526.0" width="90.0" height="90.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/Lineup/HeroesLineup/BackLine/HeroHeadClickable3/HeroHeadUI/Mask/Check</title><rect x="597.7" y="521.0" width="100.0" height="100.0" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/Lineup/HeroesLineup/BackLine/HeroHeadClickable3/HeroHeadUI/Mask/Check/Tick | tick_green</title><rect x="627.2" y="549.0" width="41.0" height="38.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/Lineup/HeroesLineup/BackLine/HeroHeadClickable3/HeroHeadUI/Mask/Lock</title><rect x="597.7" y="521.0" width="100.0" height="100.0" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/Lineup/HeroesLineup/BackLine/HeroHeadClickable3/HeroHeadUI/Mask/Lock/Lock | icon_lock</title><rect x="629.7" y="550.0" width="36.0" height="36.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/Lineup/HeroesLineup/BackLine/HeroHeadClickable3/HeroHeadUI/Mask/Death</title><rect x="597.7" y="521.0" width="100.0" height="100.0" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/Lineup/HeroesLineup/BackLine/HeroHeadClickable3/HeroHeadUI/Mask/Death/Tick | mark_death</title><rect x="595.7" y="512.5" width="104.0" height="111.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/Lineup/HeroesLineup/BackLine/HeroHeadClickable3/HeroHeadUI/ImageBorder | hero_head_border</title><rect x="607.7" y="531.0" width="80.0" height="80.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/Lineup/HeroesLineup/BackLine/HeroHeadClickable3/HeroHeadUI/ImageNotify | notify_dot</title><rect x="666.0" y="524.9" width="28.0" height="28.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/Lineup/HeroesLineup/BackLine/HeroHeadClickable3/HeroHeadUI/TextLevel</title><rect x="648.9" y="526.7" width="40.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/Lineup/HeroesLineup/BackLine/HeroHeadClickable3/HeroHeadUI/ImageFaction | faction_light</title><rect x="603.0" y="526.3" width="30.0" height="30.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/Lineup/HeroesLineup/BackLine/HeroHeadClickable3/HeroHeadUI/HeroStar</title><rect x="603.0" y="590.3" width="88.1" height="25.4" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/Lineup/HeroesLineup/BackLine/HeroHeadClickable3/HeroHeadUI/HeroStar/GroupStar1/Star1 | hero_star_1</title><rect x="589.4" y="605.7" width="20.0" height="20.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/Lineup/HeroesLineup/BackLine/HeroHeadClickable3/HeroHeadUI/HeroStar/GroupStar1/Star1 | hero_star_1</title><rect x="589.4" y="605.7" width="20.0" height="20.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/Lineup/HeroesLineup/BackLine/HeroHeadClickable3/HeroHeadUI/HeroStar/GroupStar1/Star1 | hero_star_1</title><rect x="589.4" y="605.7" width="20.0" height="20.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/Lineup/HeroesLineup/BackLine/HeroHeadClickable3/HeroHeadUI/HeroStar/GroupStar1/Star1 | hero_star_1</title><rect x="589.4" y="605.7" width="20.0" height="20.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/Lineup/HeroesLineup/BackLine/HeroHeadClickable3/HeroHeadUI/HeroStar/GroupStar1/Star1 | hero_star_1</title><rect x="589.4" y="605.7" width="20.0" height="20.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/Lineup/HeroesLineup/BackLine/HeroHeadClickable3/HeroHeadUI/HeroStar/GroupStar6/Star6 | hero_star_2</title><rect x="609.1" y="590.3" width="22.0" height="22.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/Lineup/HeroesLineup/BackLine/HeroHeadClickable3/HeroHeadUI/HeroStar/GroupStar6/Star6 | hero_star_2</title><rect x="627.1" y="590.3" width="22.0" height="22.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/Lineup/HeroesLineup/BackLine/HeroHeadClickable3/HeroHeadUI/HeroStar/GroupStar6/Star6 | hero_star_2</title><rect x="645.1" y="590.3" width="22.0" height="22.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/Lineup/HeroesLineup/BackLine/HeroHeadClickable3/HeroHeadUI/HeroStar/GroupStar6/Star6 | hero_star_2</title><rect x="663.1" y="590.3" width="22.0" height="22.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/Lineup/HeroesLineup/BackLine/HeroHeadClickable3/HeroHeadUI/HeroStar/GroupStar10/Star10 | hero_star_3</title><rect x="636.1" y="588.2" width="22.0" height="22.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/Lineup/HeroesLineup/BackLine/HeroHeadClickable3/HeroHeadUI/HeroStar/GroupStarE/BgrStarE | star_e_bgr</title><rect x="568.1" y="574.6" width="158.0" height="59.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/Lineup/HeroesLineup/BackLine/HeroHeadClickable3/HeroHeadUI/HeroStar/GroupStarE/StarE | hero_star_e</title><rect x="635.1" y="590.4" width="24.0" height="24.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/Lineup/HeroesLineup/BackLine/HeroHeadClickable3/HeroHeadUI/HeroStar/GroupStarE/TextStarE</title><rect x="567.1" y="592.1" width="160.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/Lineup/HeroesLineup/BackLine/HeroHeadClickable3/HeroHeadUI/SliderHp/Background | progress_bgr</title><rect x="602.7" y="614.9" width="90.0" height="17.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/Lineup/HeroesLineup/BackLine/HeroHeadClickable3/HeroHeadUI/SliderHp/Fill Area/Fill | progress_top_2</title><rect x="603.7" y="614.9" width="88.0" height="17.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/Lineup/HeroesLineup/BackLine/HeroHeadClickable4</title><rect x="601.7" y="525.0" width="92.0" height="92.0" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/Lineup/HeroesLineup/BackLine/HeroHeadClickable4/HeroHeadUI/ImageFrame | frame_item</title><rect x="602.7" y="526.0" width="90.0" height="90.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/Lineup/HeroesLineup/BackLine/HeroHeadClickable4/HeroHeadUI/Mask | mask_item</title><rect x="609.7" y="533.0" width="76.0" height="76.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/Lineup/HeroesLineup/BackLine/HeroHeadClickable4/HeroHeadUI/Mask/ImageBgr | bgr_item_consumable</title><rect x="602.7" y="526.0" width="90.0" height="90.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/Lineup/HeroesLineup/BackLine/HeroHeadClickable4/HeroHeadUI/Mask/ImageHead | hero_5_star</title><rect x="602.7" y="526.0" width="90.0" height="90.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/Lineup/HeroesLineup/BackLine/HeroHeadClickable4/HeroHeadUI/Mask/ImageHidden | hero_head_hidden</title><rect x="602.7" y="526.0" width="90.0" height="90.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/Lineup/HeroesLineup/BackLine/HeroHeadClickable4/HeroHeadUI/Mask/Check</title><rect x="597.7" y="521.0" width="100.0" height="100.0" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/Lineup/HeroesLineup/BackLine/HeroHeadClickable4/HeroHeadUI/Mask/Check/Tick | tick_green</title><rect x="627.2" y="549.0" width="41.0" height="38.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/Lineup/HeroesLineup/BackLine/HeroHeadClickable4/HeroHeadUI/Mask/Lock</title><rect x="597.7" y="521.0" width="100.0" height="100.0" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/Lineup/HeroesLineup/BackLine/HeroHeadClickable4/HeroHeadUI/Mask/Lock/Lock | icon_lock</title><rect x="629.7" y="550.0" width="36.0" height="36.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/Lineup/HeroesLineup/BackLine/HeroHeadClickable4/HeroHeadUI/Mask/Death</title><rect x="597.7" y="521.0" width="100.0" height="100.0" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/Lineup/HeroesLineup/BackLine/HeroHeadClickable4/HeroHeadUI/Mask/Death/Tick | mark_death</title><rect x="595.7" y="512.5" width="104.0" height="111.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/Lineup/HeroesLineup/BackLine/HeroHeadClickable4/HeroHeadUI/ImageBorder | hero_head_border</title><rect x="607.7" y="531.0" width="80.0" height="80.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/Lineup/HeroesLineup/BackLine/HeroHeadClickable4/HeroHeadUI/ImageNotify | notify_dot</title><rect x="666.0" y="524.9" width="28.0" height="28.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/Lineup/HeroesLineup/BackLine/HeroHeadClickable4/HeroHeadUI/TextLevel</title><rect x="648.9" y="526.7" width="40.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/Lineup/HeroesLineup/BackLine/HeroHeadClickable4/HeroHeadUI/ImageFaction | faction_light</title><rect x="603.0" y="526.3" width="30.0" height="30.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/Lineup/HeroesLineup/BackLine/HeroHeadClickable4/HeroHeadUI/HeroStar</title><rect x="603.0" y="590.3" width="88.1" height="25.4" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/Lineup/HeroesLineup/BackLine/HeroHeadClickable4/HeroHeadUI/HeroStar/GroupStar1/Star1 | hero_star_1</title><rect x="589.4" y="605.7" width="20.0" height="20.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/Lineup/HeroesLineup/BackLine/HeroHeadClickable4/HeroHeadUI/HeroStar/GroupStar1/Star1 | hero_star_1</title><rect x="589.4" y="605.7" width="20.0" height="20.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/Lineup/HeroesLineup/BackLine/HeroHeadClickable4/HeroHeadUI/HeroStar/GroupStar1/Star1 | hero_star_1</title><rect x="589.4" y="605.7" width="20.0" height="20.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/Lineup/HeroesLineup/BackLine/HeroHeadClickable4/HeroHeadUI/HeroStar/GroupStar1/Star1 | hero_star_1</title><rect x="589.4" y="605.7" width="20.0" height="20.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/Lineup/HeroesLineup/BackLine/HeroHeadClickable4/HeroHeadUI/HeroStar/GroupStar1/Star1 | hero_star_1</title><rect x="589.4" y="605.7" width="20.0" height="20.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/Lineup/HeroesLineup/BackLine/HeroHeadClickable4/HeroHeadUI/HeroStar/GroupStar6/Star6 | hero_star_2</title><rect x="609.1" y="590.3" width="22.0" height="22.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/Lineup/HeroesLineup/BackLine/HeroHeadClickable4/HeroHeadUI/HeroStar/GroupStar6/Star6 | hero_star_2</title><rect x="627.1" y="590.3" width="22.0" height="22.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/Lineup/HeroesLineup/BackLine/HeroHeadClickable4/HeroHeadUI/HeroStar/GroupStar6/Star6 | hero_star_2</title><rect x="645.1" y="590.3" width="22.0" height="22.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/Lineup/HeroesLineup/BackLine/HeroHeadClickable4/HeroHeadUI/HeroStar/GroupStar6/Star6 | hero_star_2</title><rect x="663.1" y="590.3" width="22.0" height="22.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/Lineup/HeroesLineup/BackLine/HeroHeadClickable4/HeroHeadUI/HeroStar/GroupStar10/Star10 | hero_star_3</title><rect x="636.1" y="588.2" width="22.0" height="22.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/Lineup/HeroesLineup/BackLine/HeroHeadClickable4/HeroHeadUI/HeroStar/GroupStarE/BgrStarE | star_e_bgr</title><rect x="568.1" y="574.6" width="158.0" height="59.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/Lineup/HeroesLineup/BackLine/HeroHeadClickable4/HeroHeadUI/HeroStar/GroupStarE/StarE | hero_star_e</title><rect x="635.1" y="590.4" width="24.0" height="24.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/Lineup/HeroesLineup/BackLine/HeroHeadClickable4/HeroHeadUI/HeroStar/GroupStarE/TextStarE</title><rect x="567.1" y="592.1" width="160.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/Lineup/HeroesLineup/BackLine/HeroHeadClickable4/HeroHeadUI/SliderHp/Background | progress_bgr</title><rect x="602.7" y="614.9" width="90.0" height="17.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/Lineup/HeroesLineup/BackLine/HeroHeadClickable4/HeroHeadUI/SliderHp/Fill Area/Fill | progress_top_2</title><rect x="603.7" y="614.9" width="88.0" height="17.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/Lineup/HeroesLineup/BackLine/HeroHeadClickable5</title><rect x="601.7" y="525.0" width="92.0" height="92.0" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/Lineup/HeroesLineup/BackLine/HeroHeadClickable5/HeroHeadUI/ImageFrame | frame_item</title><rect x="602.7" y="526.0" width="90.0" height="90.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/Lineup/HeroesLineup/BackLine/HeroHeadClickable5/HeroHeadUI/Mask | mask_item</title><rect x="609.7" y="533.0" width="76.0" height="76.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/Lineup/HeroesLineup/BackLine/HeroHeadClickable5/HeroHeadUI/Mask/ImageBgr | bgr_item_consumable</title><rect x="602.7" y="526.0" width="90.0" height="90.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/Lineup/HeroesLineup/BackLine/HeroHeadClickable5/HeroHeadUI/Mask/ImageHead | hero_5_star</title><rect x="602.7" y="526.0" width="90.0" height="90.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/Lineup/HeroesLineup/BackLine/HeroHeadClickable5/HeroHeadUI/Mask/ImageHidden | hero_head_hidden</title><rect x="602.7" y="526.0" width="90.0" height="90.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/Lineup/HeroesLineup/BackLine/HeroHeadClickable5/HeroHeadUI/Mask/Check</title><rect x="597.7" y="521.0" width="100.0" height="100.0" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/Lineup/HeroesLineup/BackLine/HeroHeadClickable5/HeroHeadUI/Mask/Check/Tick | tick_green</title><rect x="627.2" y="549.0" width="41.0" height="38.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/Lineup/HeroesLineup/BackLine/HeroHeadClickable5/HeroHeadUI/Mask/Lock</title><rect x="597.7" y="521.0" width="100.0" height="100.0" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/Lineup/HeroesLineup/BackLine/HeroHeadClickable5/HeroHeadUI/Mask/Lock/Lock | icon_lock</title><rect x="629.7" y="550.0" width="36.0" height="36.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/Lineup/HeroesLineup/BackLine/HeroHeadClickable5/HeroHeadUI/Mask/Death</title><rect x="597.7" y="521.0" width="100.0" height="100.0" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/Lineup/HeroesLineup/BackLine/HeroHeadClickable5/HeroHeadUI/Mask/Death/Tick | mark_death</title><rect x="595.7" y="512.5" width="104.0" height="111.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/Lineup/HeroesLineup/BackLine/HeroHeadClickable5/HeroHeadUI/ImageBorder | hero_head_border</title><rect x="607.7" y="531.0" width="80.0" height="80.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/Lineup/HeroesLineup/BackLine/HeroHeadClickable5/HeroHeadUI/ImageNotify | notify_dot</title><rect x="666.0" y="524.9" width="28.0" height="28.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/Lineup/HeroesLineup/BackLine/HeroHeadClickable5/HeroHeadUI/TextLevel</title><rect x="648.9" y="526.7" width="40.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/Lineup/HeroesLineup/BackLine/HeroHeadClickable5/HeroHeadUI/ImageFaction | faction_light</title><rect x="603.0" y="526.3" width="30.0" height="30.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/Lineup/HeroesLineup/BackLine/HeroHeadClickable5/HeroHeadUI/HeroStar</title><rect x="603.0" y="590.3" width="88.1" height="25.4" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/Lineup/HeroesLineup/BackLine/HeroHeadClickable5/HeroHeadUI/HeroStar/GroupStar1/Star1 | hero_star_1</title><rect x="589.4" y="605.7" width="20.0" height="20.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/Lineup/HeroesLineup/BackLine/HeroHeadClickable5/HeroHeadUI/HeroStar/GroupStar1/Star1 | hero_star_1</title><rect x="589.4" y="605.7" width="20.0" height="20.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/Lineup/HeroesLineup/BackLine/HeroHeadClickable5/HeroHeadUI/HeroStar/GroupStar1/Star1 | hero_star_1</title><rect x="589.4" y="605.7" width="20.0" height="20.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/Lineup/HeroesLineup/BackLine/HeroHeadClickable5/HeroHeadUI/HeroStar/GroupStar1/Star1 | hero_star_1</title><rect x="589.4" y="605.7" width="20.0" height="20.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/Lineup/HeroesLineup/BackLine/HeroHeadClickable5/HeroHeadUI/HeroStar/GroupStar1/Star1 | hero_star_1</title><rect x="589.4" y="605.7" width="20.0" height="20.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/Lineup/HeroesLineup/BackLine/HeroHeadClickable5/HeroHeadUI/HeroStar/GroupStar6/Star6 | hero_star_2</title><rect x="609.1" y="590.3" width="22.0" height="22.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/Lineup/HeroesLineup/BackLine/HeroHeadClickable5/HeroHeadUI/HeroStar/GroupStar6/Star6 | hero_star_2</title><rect x="627.1" y="590.3" width="22.0" height="22.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/Lineup/HeroesLineup/BackLine/HeroHeadClickable5/HeroHeadUI/HeroStar/GroupStar6/Star6 | hero_star_2</title><rect x="645.1" y="590.3" width="22.0" height="22.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/Lineup/HeroesLineup/BackLine/HeroHeadClickable5/HeroHeadUI/HeroStar/GroupStar6/Star6 | hero_star_2</title><rect x="663.1" y="590.3" width="22.0" height="22.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/Lineup/HeroesLineup/BackLine/HeroHeadClickable5/HeroHeadUI/HeroStar/GroupStar10/Star10 | hero_star_3</title><rect x="636.1" y="588.2" width="22.0" height="22.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/Lineup/HeroesLineup/BackLine/HeroHeadClickable5/HeroHeadUI/HeroStar/GroupStarE/BgrStarE | star_e_bgr</title><rect x="568.1" y="574.6" width="158.0" height="59.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/Lineup/HeroesLineup/BackLine/HeroHeadClickable5/HeroHeadUI/HeroStar/GroupStarE/StarE | hero_star_e</title><rect x="635.1" y="590.4" width="24.0" height="24.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/Lineup/HeroesLineup/BackLine/HeroHeadClickable5/HeroHeadUI/HeroStar/GroupStarE/TextStarE</title><rect x="567.1" y="592.1" width="160.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/Lineup/HeroesLineup/BackLine/HeroHeadClickable5/HeroHeadUI/SliderHp/Background | progress_bgr</title><rect x="602.7" y="614.9" width="90.0" height="17.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/Lineup/HeroesLineup/BackLine/HeroHeadClickable5/HeroHeadUI/SliderHp/Fill Area/Fill | progress_top_2</title><rect x="603.7" y="614.9" width="88.0" height="17.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/Lineup/HeroesLineup/BackLine/HeroHeadClickable6</title><rect x="601.7" y="525.0" width="92.0" height="92.0" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/Lineup/HeroesLineup/BackLine/HeroHeadClickable6/HeroHeadUI/ImageFrame | frame_item</title><rect x="602.7" y="526.0" width="90.0" height="90.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/Lineup/HeroesLineup/BackLine/HeroHeadClickable6/HeroHeadUI/Mask | mask_item</title><rect x="609.7" y="533.0" width="76.0" height="76.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/Lineup/HeroesLineup/BackLine/HeroHeadClickable6/HeroHeadUI/Mask/ImageBgr | bgr_item_consumable</title><rect x="602.7" y="526.0" width="90.0" height="90.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/Lineup/HeroesLineup/BackLine/HeroHeadClickable6/HeroHeadUI/Mask/ImageHead | hero_5_star</title><rect x="602.7" y="526.0" width="90.0" height="90.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/Lineup/HeroesLineup/BackLine/HeroHeadClickable6/HeroHeadUI/Mask/ImageHidden | hero_head_hidden</title><rect x="602.7" y="526.0" width="90.0" height="90.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/Lineup/HeroesLineup/BackLine/HeroHeadClickable6/HeroHeadUI/Mask/Check</title><rect x="597.7" y="521.0" width="100.0" height="100.0" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/Lineup/HeroesLineup/BackLine/HeroHeadClickable6/HeroHeadUI/Mask/Check/Tick | tick_green</title><rect x="627.2" y="549.0" width="41.0" height="38.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/Lineup/HeroesLineup/BackLine/HeroHeadClickable6/HeroHeadUI/Mask/Lock</title><rect x="597.7" y="521.0" width="100.0" height="100.0" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/Lineup/HeroesLineup/BackLine/HeroHeadClickable6/HeroHeadUI/Mask/Lock/Lock | icon_lock</title><rect x="629.7" y="550.0" width="36.0" height="36.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/Lineup/HeroesLineup/BackLine/HeroHeadClickable6/HeroHeadUI/Mask/Death</title><rect x="597.7" y="521.0" width="100.0" height="100.0" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/Lineup/HeroesLineup/BackLine/HeroHeadClickable6/HeroHeadUI/Mask/Death/Tick | mark_death</title><rect x="595.7" y="512.5" width="104.0" height="111.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/Lineup/HeroesLineup/BackLine/HeroHeadClickable6/HeroHeadUI/ImageBorder | hero_head_border</title><rect x="607.7" y="531.0" width="80.0" height="80.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/Lineup/HeroesLineup/BackLine/HeroHeadClickable6/HeroHeadUI/ImageNotify | notify_dot</title><rect x="666.0" y="524.9" width="28.0" height="28.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/Lineup/HeroesLineup/BackLine/HeroHeadClickable6/HeroHeadUI/TextLevel</title><rect x="648.9" y="526.7" width="40.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/Lineup/HeroesLineup/BackLine/HeroHeadClickable6/HeroHeadUI/ImageFaction | faction_light</title><rect x="603.0" y="526.3" width="30.0" height="30.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/Lineup/HeroesLineup/BackLine/HeroHeadClickable6/HeroHeadUI/HeroStar</title><rect x="603.0" y="590.3" width="88.1" height="25.4" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/Lineup/HeroesLineup/BackLine/HeroHeadClickable6/HeroHeadUI/HeroStar/GroupStar1/Star1 | hero_star_1</title><rect x="589.4" y="605.7" width="20.0" height="20.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/Lineup/HeroesLineup/BackLine/HeroHeadClickable6/HeroHeadUI/HeroStar/GroupStar1/Star1 | hero_star_1</title><rect x="589.4" y="605.7" width="20.0" height="20.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/Lineup/HeroesLineup/BackLine/HeroHeadClickable6/HeroHeadUI/HeroStar/GroupStar1/Star1 | hero_star_1</title><rect x="589.4" y="605.7" width="20.0" height="20.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/Lineup/HeroesLineup/BackLine/HeroHeadClickable6/HeroHeadUI/HeroStar/GroupStar1/Star1 | hero_star_1</title><rect x="589.4" y="605.7" width="20.0" height="20.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/Lineup/HeroesLineup/BackLine/HeroHeadClickable6/HeroHeadUI/HeroStar/GroupStar1/Star1 | hero_star_1</title><rect x="589.4" y="605.7" width="20.0" height="20.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/Lineup/HeroesLineup/BackLine/HeroHeadClickable6/HeroHeadUI/HeroStar/GroupStar6/Star6 | hero_star_2</title><rect x="609.1" y="590.3" width="22.0" height="22.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/Lineup/HeroesLineup/BackLine/HeroHeadClickable6/HeroHeadUI/HeroStar/GroupStar6/Star6 | hero_star_2</title><rect x="627.1" y="590.3" width="22.0" height="22.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/Lineup/HeroesLineup/BackLine/HeroHeadClickable6/HeroHeadUI/HeroStar/GroupStar6/Star6 | hero_star_2</title><rect x="645.1" y="590.3" width="22.0" height="22.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/Lineup/HeroesLineup/BackLine/HeroHeadClickable6/HeroHeadUI/HeroStar/GroupStar6/Star6 | hero_star_2</title><rect x="663.1" y="590.3" width="22.0" height="22.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/Lineup/HeroesLineup/BackLine/HeroHeadClickable6/HeroHeadUI/HeroStar/GroupStar10/Star10 | hero_star_3</title><rect x="636.1" y="588.2" width="22.0" height="22.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/Lineup/HeroesLineup/BackLine/HeroHeadClickable6/HeroHeadUI/HeroStar/GroupStarE/BgrStarE | star_e_bgr</title><rect x="568.1" y="574.6" width="158.0" height="59.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/Lineup/HeroesLineup/BackLine/HeroHeadClickable6/HeroHeadUI/HeroStar/GroupStarE/StarE | hero_star_e</title><rect x="635.1" y="590.4" width="24.0" height="24.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/Lineup/HeroesLineup/BackLine/HeroHeadClickable6/HeroHeadUI/HeroStar/GroupStarE/TextStarE</title><rect x="567.1" y="592.1" width="160.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/Lineup/HeroesLineup/BackLine/HeroHeadClickable6/HeroHeadUI/SliderHp/Background | progress_bgr</title><rect x="602.7" y="614.9" width="90.0" height="17.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/Lineup/HeroesLineup/BackLine/HeroHeadClickable6/HeroHeadUI/SliderHp/Fill Area/Fill | progress_top_2</title><rect x="603.7" y="614.9" width="88.0" height="17.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/Lineup/PetBox | border_gear</title><rect x="1044.0" y="471.0" width="100.0" height="100.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/Lineup/PetBox/IconGear | icon_gear</title><rect x="1057.0" y="494.0" width="74.0" height="54.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/Lineup/PetBox/PetHeadUI</title><rect x="1048.4" y="475.0" width="92.0" height="92.0" stroke="#3b82f6" stroke-width="1.2" fill="#3b82f6" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/Lineup/PetBox/PetHeadUI/ImageFrame | frame_item</title><rect x="1049.4" y="476.0" width="90.0" height="90.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/Lineup/PetBox/PetHeadUI/Mask | mask_item</title><rect x="1056.4" y="483.0" width="76.0" height="76.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/Lineup/PetBox/PetHeadUI/Mask/ImageBgr | bgr_item_consumable</title><rect x="1049.4" y="476.0" width="90.0" height="90.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/Lineup/PetBox/PetHeadUI/Mask/ImageHeadPet</title><rect x="1049.4" y="476.0" width="90.0" height="90.0" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/Lineup/PetBox/PetHeadUI/Mask/ImageHidden | pet_head_hidden</title><rect x="1049.4" y="476.0" width="90.0" height="90.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/Lineup/PetBox/PetHeadUI/ImageBorder | hero_head_border</title><rect x="1054.4" y="481.0" width="80.0" height="80.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/WarStatus</title><rect x="418.4" y="435.0" width="663.2" height="130.0" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/WarStatus/BoxAttack | round_rect_4</title><rect x="433.0" y="459.5" width="338.0" height="110.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/WarStatus/BoxAttack/BoxTitlte | rect_16</title><rect x="454.6" y="438.0" width="132.9" height="35.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/WarStatus/BoxAttack/BoxTitlte/TextTitle</title><rect x="444.0" y="438.5" width="160.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/WarStatus/BoxAttack/TextTurn1</title><rect x="456.1" y="474.6" width="160.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/WarStatus/BoxAttack/TextAttackEnemy</title><rect x="458.0" y="480.9" width="160.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/WarStatus/BoxAttack/StarAttack/StarOff1 | war_star_slot</title><rect x="455.4" y="524.6" width="30.0" height="29.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/WarStatus/BoxAttack/StarAttack/StarOff2 | war_star_slot</title><rect x="488.6" y="524.6" width="30.0" height="29.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/WarStatus/BoxAttack/StarAttack/StarOff3 | war_star_slot</title><rect x="522.4" y="524.6" width="30.0" height="29.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/WarStatus/BoxAttack/StarAttack/StarOn1 | war_star</title><rect x="455.4" y="524.6" width="30.0" height="29.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/WarStatus/BoxAttack/StarAttack/StarOn2 | war_star</title><rect x="488.6" y="524.6" width="30.0" height="29.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/WarStatus/BoxAttack/StarAttack/StarOn3 | war_star</title><rect x="522.4" y="524.6" width="30.0" height="29.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/WarStatus/BoxDefense | round_rect_4</title><rect x="793.6" y="459.0" width="338.0" height="110.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/WarStatus/BoxDefense/BoxTitlte | rect_16</title><rect x="819.2" y="437.4" width="132.9" height="35.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/WarStatus/BoxDefense/BoxTitlte/TextTitle</title><rect x="808.1" y="437.9" width="160.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/WarStatus/BoxDefense/TextDefenseFromEnemy</title><rect x="818.6" y="476.0" width="160.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/WarStatus/BoxDefense/StarDefense/StarOff1 | war_star_slot</title><rect x="823.4" y="519.5" width="30.0" height="29.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/WarStatus/BoxDefense/StarDefense/StarOff2 | war_star_slot</title><rect x="856.6" y="519.5" width="30.0" height="29.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/WarStatus/BoxDefense/StarDefense/StarOff3 | war_star_slot</title><rect x="890.4" y="519.5" width="30.0" height="29.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/WarStatus/BoxDefense/StarDefense/StarOn1 | war_star</title><rect x="823.4" y="519.5" width="30.0" height="29.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/WarStatus/BoxDefense/StarDefense/StarOn2 | war_star</title><rect x="856.6" y="519.5" width="30.0" height="29.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/WarStatus/BoxDefense/StarDefense/StarOn3 | war_star</title><rect x="890.4" y="519.5" width="30.0" height="29.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/Actions/ButtonAttack | button_yellow</title><rect x="670.0" y="470.0" width="160.0" height="60.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupGuildWarPlayerInfo/Content/Body/Actions/ButtonAttack/Text</title><rect x="670.0" y="470.0" width="163.0" height="60.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
 <g><title>/PopupGuildWarPlayerInfo/Content/ButtonClose | popup_close</title><rect x="1148.0" y="148.0" width="64.0" height="64.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
 </g>
 </svg>

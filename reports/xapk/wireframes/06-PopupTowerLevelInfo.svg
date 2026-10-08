@@ -5,4 +5,229 @@
 <text x="20" y="953" font-family="sans-serif" font-size="15" fill="#94a3b8">Metadata wireframe | hypothetical 1600x900 viewport | not the actual game screenshot</text>
 <g><title>/PopupTowerLevelInfo/GroupTopLeft/ButtonBack | button_back</title><rect x="14.5" y="14.5" width="91.0" height="91.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
 </g>
+<g><title>/PopupTowerLevelInfo/PanelBody/TextTitle</title><rect x="720.0" y="19.0" width="160.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+<text x="725.0" y="35.0" fill="#e2e8f0" font-size="12" font-family="sans-serif">TextTitle</text>
+</g>
+<g><title>/PopupTowerLevelInfo/PanelBody/GroupPower/ImagePower/TextPower</title><rect x="-25.9" y="885.6" width="160.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+<text x="-20.9" y="901.6" fill="#e2e8f0" font-size="12" font-family="sans-serif">TextPower</text>
+</g>
+<g><title>/PopupTowerLevelInfo/PanelBody/BoxHeroes1 | round_rect_content</title><rect x="-319.4" y="842.1" width="638.9" height="115.7" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+<text x="-314.4" y="858.1" fill="#e2e8f0" font-size="12" font-family="sans-serif">BoxHeroes1</text>
+</g>
+<g><title>/PopupTowerLevelInfo/PanelBody/BoxHeroes1/GroupHeroes/HeroHeadClickable (2)/HeroHeadUI/Mask/Death/Tick | mark_death</title><rect x="-103.0" y="841.5" width="104.0" height="111.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupTowerLevelInfo/PanelBody/BoxHeroes1/GroupHeroes/HeroHeadClickable (3)</title><rect x="5.0" y="854.0" width="92.0" height="92.0" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+</g>
+<g><title>/PopupTowerLevelInfo/PanelBody/BoxHeroes1/GroupHeroes/HeroHeadClickable (3)/HeroHeadUI/ImageFrame | frame_item</title><rect x="6.0" y="855.0" width="90.0" height="90.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupTowerLevelInfo/PanelBody/BoxHeroes1/GroupHeroes/HeroHeadClickable (3)/HeroHeadUI/Mask | mask_item</title><rect x="13.0" y="862.0" width="76.0" height="76.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupTowerLevelInfo/PanelBody/BoxHeroes1/GroupHeroes/HeroHeadClickable (3)/HeroHeadUI/Mask/ImageBgr | bgr_item_consumable</title><rect x="6.0" y="855.0" width="90.0" height="90.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupTowerLevelInfo/PanelBody/BoxHeroes1/GroupHeroes/HeroHeadClickable (3)/HeroHeadUI/Mask/ImageHead | hero_5_star</title><rect x="6.0" y="855.0" width="90.0" height="90.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupTowerLevelInfo/PanelBody/BoxHeroes1/GroupHeroes/HeroHeadClickable (3)/HeroHeadUI/Mask/ImageHidden | hero_head_hidden</title><rect x="6.0" y="855.0" width="90.0" height="90.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupTowerLevelInfo/PanelBody/BoxHeroes1/GroupHeroes/HeroHeadClickable (3)/HeroHeadUI/Mask/Check</title><rect x="1.0" y="850.0" width="100.0" height="100.0" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+</g>
+<g><title>/PopupTowerLevelInfo/PanelBody/BoxHeroes1/GroupHeroes/HeroHeadClickable (3)/HeroHeadUI/Mask/Check/Tick | tick_green</title><rect x="30.5" y="878.0" width="41.0" height="38.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupTowerLevelInfo/PanelBody/BoxHeroes1/GroupHeroes/HeroHeadClickable (3)/HeroHeadUI/Mask/Lock</title><rect x="1.0" y="850.0" width="100.0" height="100.0" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+</g>
+<g><title>/PopupTowerLevelInfo/PanelBody/BoxHeroes1/GroupHeroes/HeroHeadClickable (3)/HeroHeadUI/Mask/Lock/Lock | icon_lock</title><rect x="33.0" y="879.0" width="36.0" height="36.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupTowerLevelInfo/PanelBody/BoxHeroes1/GroupHeroes/HeroHeadClickable (3)/HeroHeadUI/Mask/Death</title><rect x="1.0" y="850.0" width="100.0" height="100.0" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+</g>
+<g><title>/PopupTowerLevelInfo/PanelBody/BoxHeroes1/GroupHeroes/HeroHeadClickable (3)/HeroHeadUI/Mask/Death/Tick | mark_death</title><rect x="-1.0" y="841.5" width="104.0" height="111.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupTowerLevelInfo/PanelBody/BoxHeroes1/GroupHeroes/HeroHeadClickable (3)/HeroHeadUI/ImageBorder | hero_head_border</title><rect x="11.0" y="860.0" width="80.0" height="80.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupTowerLevelInfo/PanelBody/BoxHeroes1/GroupHeroes/HeroHeadClickable (3)/HeroHeadUI/ImageNotify | notify_dot</title><rect x="69.3" y="853.9" width="28.0" height="28.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupTowerLevelInfo/PanelBody/BoxHeroes1/GroupHeroes/HeroHeadClickable (3)/HeroHeadUI/TextLevel</title><rect x="52.2" y="855.7" width="40.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PopupTowerLevelInfo/PanelBody/BoxHeroes1/GroupHeroes/HeroHeadClickable (3)/HeroHeadUI/ImageFaction | faction_light</title><rect x="6.3" y="855.3" width="30.0" height="30.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupTowerLevelInfo/PanelBody/BoxHeroes1/GroupHeroes/HeroHeadClickable (4)</title><rect x="107.0" y="854.0" width="92.0" height="92.0" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+</g>
+<g><title>/PopupTowerLevelInfo/PanelBody/BoxHeroes1/GroupHeroes/HeroHeadClickable (4)/HeroHeadUI/ImageFrame | frame_item</title><rect x="108.0" y="855.0" width="90.0" height="90.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupTowerLevelInfo/PanelBody/BoxHeroes1/GroupHeroes/HeroHeadClickable (4)/HeroHeadUI/Mask | mask_item</title><rect x="115.0" y="862.0" width="76.0" height="76.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupTowerLevelInfo/PanelBody/BoxHeroes1/GroupHeroes/HeroHeadClickable (4)/HeroHeadUI/Mask/ImageBgr | bgr_item_consumable</title><rect x="108.0" y="855.0" width="90.0" height="90.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupTowerLevelInfo/PanelBody/BoxHeroes1/GroupHeroes/HeroHeadClickable (4)/HeroHeadUI/Mask/ImageHead | hero_5_star</title><rect x="108.0" y="855.0" width="90.0" height="90.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupTowerLevelInfo/PanelBody/BoxHeroes1/GroupHeroes/HeroHeadClickable (4)/HeroHeadUI/Mask/ImageHidden | hero_head_hidden</title><rect x="108.0" y="855.0" width="90.0" height="90.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupTowerLevelInfo/PanelBody/BoxHeroes1/GroupHeroes/HeroHeadClickable (4)/HeroHeadUI/Mask/Check</title><rect x="103.0" y="850.0" width="100.0" height="100.0" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+</g>
+<g><title>/PopupTowerLevelInfo/PanelBody/BoxHeroes1/GroupHeroes/HeroHeadClickable (4)/HeroHeadUI/Mask/Check/Tick | tick_green</title><rect x="132.5" y="878.0" width="41.0" height="38.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupTowerLevelInfo/PanelBody/BoxHeroes1/GroupHeroes/HeroHeadClickable (4)/HeroHeadUI/Mask/Lock</title><rect x="103.0" y="850.0" width="100.0" height="100.0" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+</g>
+<g><title>/PopupTowerLevelInfo/PanelBody/BoxHeroes1/GroupHeroes/HeroHeadClickable (4)/HeroHeadUI/Mask/Lock/Lock | icon_lock</title><rect x="135.0" y="879.0" width="36.0" height="36.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupTowerLevelInfo/PanelBody/BoxHeroes1/GroupHeroes/HeroHeadClickable (4)/HeroHeadUI/Mask/Death</title><rect x="103.0" y="850.0" width="100.0" height="100.0" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+</g>
+<g><title>/PopupTowerLevelInfo/PanelBody/BoxHeroes1/GroupHeroes/HeroHeadClickable (4)/HeroHeadUI/Mask/Death/Tick | mark_death</title><rect x="101.0" y="841.5" width="104.0" height="111.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupTowerLevelInfo/PanelBody/BoxHeroes1/GroupHeroes/HeroHeadClickable (4)/HeroHeadUI/ImageBorder | hero_head_border</title><rect x="113.0" y="860.0" width="80.0" height="80.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupTowerLevelInfo/PanelBody/BoxHeroes1/GroupHeroes/HeroHeadClickable (4)/HeroHeadUI/ImageNotify | notify_dot</title><rect x="171.3" y="853.9" width="28.0" height="28.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupTowerLevelInfo/PanelBody/BoxHeroes1/GroupHeroes/HeroHeadClickable (4)/HeroHeadUI/TextLevel</title><rect x="154.2" y="855.7" width="40.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PopupTowerLevelInfo/PanelBody/BoxHeroes1/GroupHeroes/HeroHeadClickable (4)/HeroHeadUI/ImageFaction | faction_light</title><rect x="108.3" y="855.3" width="30.0" height="30.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupTowerLevelInfo/PanelBody/BoxHeroes1/GroupHeroes/HeroHeadClickable (5)</title><rect x="209.0" y="854.0" width="92.0" height="92.0" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+</g>
+<g><title>/PopupTowerLevelInfo/PanelBody/BoxHeroes1/GroupHeroes/HeroHeadClickable (5)/HeroHeadUI/ImageFrame | frame_item</title><rect x="210.0" y="855.0" width="90.0" height="90.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupTowerLevelInfo/PanelBody/BoxHeroes1/GroupHeroes/HeroHeadClickable (5)/HeroHeadUI/Mask | mask_item</title><rect x="217.0" y="862.0" width="76.0" height="76.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupTowerLevelInfo/PanelBody/BoxHeroes1/GroupHeroes/HeroHeadClickable (5)/HeroHeadUI/Mask/ImageBgr | bgr_item_consumable</title><rect x="210.0" y="855.0" width="90.0" height="90.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupTowerLevelInfo/PanelBody/BoxHeroes1/GroupHeroes/HeroHeadClickable (5)/HeroHeadUI/Mask/ImageHead | hero_5_star</title><rect x="210.0" y="855.0" width="90.0" height="90.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupTowerLevelInfo/PanelBody/BoxHeroes1/GroupHeroes/HeroHeadClickable (5)/HeroHeadUI/Mask/ImageHidden | hero_head_hidden</title><rect x="210.0" y="855.0" width="90.0" height="90.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupTowerLevelInfo/PanelBody/BoxHeroes1/GroupHeroes/HeroHeadClickable (5)/HeroHeadUI/Mask/Check</title><rect x="205.0" y="850.0" width="100.0" height="100.0" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+</g>
+<g><title>/PopupTowerLevelInfo/PanelBody/BoxHeroes1/GroupHeroes/HeroHeadClickable (5)/HeroHeadUI/Mask/Check/Tick | tick_green</title><rect x="234.5" y="878.0" width="41.0" height="38.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupTowerLevelInfo/PanelBody/BoxHeroes1/GroupHeroes/HeroHeadClickable (5)/HeroHeadUI/Mask/Lock</title><rect x="205.0" y="850.0" width="100.0" height="100.0" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+</g>
+<g><title>/PopupTowerLevelInfo/PanelBody/BoxHeroes1/GroupHeroes/HeroHeadClickable (5)/HeroHeadUI/Mask/Lock/Lock | icon_lock</title><rect x="237.0" y="879.0" width="36.0" height="36.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupTowerLevelInfo/PanelBody/BoxHeroes1/GroupHeroes/HeroHeadClickable (5)/HeroHeadUI/Mask/Death</title><rect x="205.0" y="850.0" width="100.0" height="100.0" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+</g>
+<g><title>/PopupTowerLevelInfo/PanelBody/BoxHeroes1/GroupHeroes/HeroHeadClickable (5)/HeroHeadUI/Mask/Death/Tick | mark_death</title><rect x="203.0" y="841.5" width="104.0" height="111.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupTowerLevelInfo/PanelBody/BoxHeroes1/GroupHeroes/HeroHeadClickable (5)/HeroHeadUI/ImageBorder | hero_head_border</title><rect x="215.0" y="860.0" width="80.0" height="80.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupTowerLevelInfo/PanelBody/BoxHeroes1/GroupHeroes/HeroHeadClickable (5)/HeroHeadUI/ImageNotify | notify_dot</title><rect x="273.3" y="853.9" width="28.0" height="28.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupTowerLevelInfo/PanelBody/BoxHeroes1/GroupHeroes/HeroHeadClickable (5)/HeroHeadUI/TextLevel</title><rect x="256.2" y="855.7" width="40.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PopupTowerLevelInfo/PanelBody/BoxHeroes1/GroupHeroes/HeroHeadClickable (5)/HeroHeadUI/ImageFaction | faction_light</title><rect x="210.3" y="855.3" width="30.0" height="30.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupTowerLevelInfo/PanelBody/BoxHeroes2 | round_rect_content</title><rect x="-319.4" y="842.1" width="638.9" height="115.7" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+<text x="-314.4" y="858.1" fill="#e2e8f0" font-size="12" font-family="sans-serif">BoxHeroes2</text>
+</g>
+<g><title>/PopupTowerLevelInfo/PanelBody/BoxHeroes2/GroupHeroes/HeroHeadClickable (2)/HeroHeadUI/Mask/Death/Tick | mark_death</title><rect x="-103.0" y="841.5" width="104.0" height="111.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupTowerLevelInfo/PanelBody/BoxHeroes2/GroupHeroes/HeroHeadClickable (3)</title><rect x="5.0" y="854.0" width="92.0" height="92.0" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+</g>
+<g><title>/PopupTowerLevelInfo/PanelBody/BoxHeroes2/GroupHeroes/HeroHeadClickable (3)/HeroHeadUI/ImageFrame | frame_item</title><rect x="6.0" y="855.0" width="90.0" height="90.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupTowerLevelInfo/PanelBody/BoxHeroes2/GroupHeroes/HeroHeadClickable (3)/HeroHeadUI/Mask | mask_item</title><rect x="13.0" y="862.0" width="76.0" height="76.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupTowerLevelInfo/PanelBody/BoxHeroes2/GroupHeroes/HeroHeadClickable (3)/HeroHeadUI/Mask/ImageBgr | bgr_item_consumable</title><rect x="6.0" y="855.0" width="90.0" height="90.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupTowerLevelInfo/PanelBody/BoxHeroes2/GroupHeroes/HeroHeadClickable (3)/HeroHeadUI/Mask/ImageHead | hero_5_star</title><rect x="6.0" y="855.0" width="90.0" height="90.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupTowerLevelInfo/PanelBody/BoxHeroes2/GroupHeroes/HeroHeadClickable (3)/HeroHeadUI/Mask/ImageHidden | hero_head_hidden</title><rect x="6.0" y="855.0" width="90.0" height="90.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupTowerLevelInfo/PanelBody/BoxHeroes2/GroupHeroes/HeroHeadClickable (3)/HeroHeadUI/Mask/Check</title><rect x="1.0" y="850.0" width="100.0" height="100.0" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+</g>
+<g><title>/PopupTowerLevelInfo/PanelBody/BoxHeroes2/GroupHeroes/HeroHeadClickable (3)/HeroHeadUI/Mask/Check/Tick | tick_green</title><rect x="30.5" y="878.0" width="41.0" height="38.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupTowerLevelInfo/PanelBody/BoxHeroes2/GroupHeroes/HeroHeadClickable (3)/HeroHeadUI/Mask/Lock</title><rect x="1.0" y="850.0" width="100.0" height="100.0" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+</g>
+<g><title>/PopupTowerLevelInfo/PanelBody/BoxHeroes2/GroupHeroes/HeroHeadClickable (3)/HeroHeadUI/Mask/Lock/Lock | icon_lock</title><rect x="33.0" y="879.0" width="36.0" height="36.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupTowerLevelInfo/PanelBody/BoxHeroes2/GroupHeroes/HeroHeadClickable (3)/HeroHeadUI/Mask/Death</title><rect x="1.0" y="850.0" width="100.0" height="100.0" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+</g>
+<g><title>/PopupTowerLevelInfo/PanelBody/BoxHeroes2/GroupHeroes/HeroHeadClickable (3)/HeroHeadUI/Mask/Death/Tick | mark_death</title><rect x="-1.0" y="841.5" width="104.0" height="111.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupTowerLevelInfo/PanelBody/BoxHeroes2/GroupHeroes/HeroHeadClickable (3)/HeroHeadUI/ImageBorder | hero_head_border</title><rect x="11.0" y="860.0" width="80.0" height="80.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupTowerLevelInfo/PanelBody/BoxHeroes2/GroupHeroes/HeroHeadClickable (3)/HeroHeadUI/ImageNotify | notify_dot</title><rect x="69.3" y="853.9" width="28.0" height="28.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupTowerLevelInfo/PanelBody/BoxHeroes2/GroupHeroes/HeroHeadClickable (3)/HeroHeadUI/TextLevel</title><rect x="52.2" y="855.7" width="40.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PopupTowerLevelInfo/PanelBody/BoxHeroes2/GroupHeroes/HeroHeadClickable (3)/HeroHeadUI/ImageFaction | faction_light</title><rect x="6.3" y="855.3" width="30.0" height="30.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupTowerLevelInfo/PanelBody/BoxHeroes2/GroupHeroes/HeroHeadClickable (4)</title><rect x="107.0" y="854.0" width="92.0" height="92.0" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+</g>
+<g><title>/PopupTowerLevelInfo/PanelBody/BoxHeroes2/GroupHeroes/HeroHeadClickable (4)/HeroHeadUI/ImageFrame | frame_item</title><rect x="108.0" y="855.0" width="90.0" height="90.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupTowerLevelInfo/PanelBody/BoxHeroes2/GroupHeroes/HeroHeadClickable (4)/HeroHeadUI/Mask | mask_item</title><rect x="115.0" y="862.0" width="76.0" height="76.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupTowerLevelInfo/PanelBody/BoxHeroes2/GroupHeroes/HeroHeadClickable (4)/HeroHeadUI/Mask/ImageBgr | bgr_item_consumable</title><rect x="108.0" y="855.0" width="90.0" height="90.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupTowerLevelInfo/PanelBody/BoxHeroes2/GroupHeroes/HeroHeadClickable (4)/HeroHeadUI/Mask/ImageHead | hero_5_star</title><rect x="108.0" y="855.0" width="90.0" height="90.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupTowerLevelInfo/PanelBody/BoxHeroes2/GroupHeroes/HeroHeadClickable (4)/HeroHeadUI/Mask/ImageHidden | hero_head_hidden</title><rect x="108.0" y="855.0" width="90.0" height="90.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupTowerLevelInfo/PanelBody/BoxHeroes2/GroupHeroes/HeroHeadClickable (4)/HeroHeadUI/Mask/Check</title><rect x="103.0" y="850.0" width="100.0" height="100.0" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+</g>
+<g><title>/PopupTowerLevelInfo/PanelBody/BoxHeroes2/GroupHeroes/HeroHeadClickable (4)/HeroHeadUI/Mask/Check/Tick | tick_green</title><rect x="132.5" y="878.0" width="41.0" height="38.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupTowerLevelInfo/PanelBody/BoxHeroes2/GroupHeroes/HeroHeadClickable (4)/HeroHeadUI/Mask/Lock</title><rect x="103.0" y="850.0" width="100.0" height="100.0" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+</g>
+<g><title>/PopupTowerLevelInfo/PanelBody/BoxHeroes2/GroupHeroes/HeroHeadClickable (4)/HeroHeadUI/Mask/Lock/Lock | icon_lock</title><rect x="135.0" y="879.0" width="36.0" height="36.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupTowerLevelInfo/PanelBody/BoxHeroes2/GroupHeroes/HeroHeadClickable (4)/HeroHeadUI/Mask/Death</title><rect x="103.0" y="850.0" width="100.0" height="100.0" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+</g>
+<g><title>/PopupTowerLevelInfo/PanelBody/BoxHeroes2/GroupHeroes/HeroHeadClickable (4)/HeroHeadUI/Mask/Death/Tick | mark_death</title><rect x="101.0" y="841.5" width="104.0" height="111.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupTowerLevelInfo/PanelBody/BoxHeroes2/GroupHeroes/HeroHeadClickable (4)/HeroHeadUI/ImageBorder | hero_head_border</title><rect x="113.0" y="860.0" width="80.0" height="80.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupTowerLevelInfo/PanelBody/BoxHeroes2/GroupHeroes/HeroHeadClickable (4)/HeroHeadUI/ImageNotify | notify_dot</title><rect x="171.3" y="853.9" width="28.0" height="28.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupTowerLevelInfo/PanelBody/BoxHeroes2/GroupHeroes/HeroHeadClickable (4)/HeroHeadUI/TextLevel</title><rect x="154.2" y="855.7" width="40.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PopupTowerLevelInfo/PanelBody/BoxHeroes2/GroupHeroes/HeroHeadClickable (4)/HeroHeadUI/ImageFaction | faction_light</title><rect x="108.3" y="855.3" width="30.0" height="30.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupTowerLevelInfo/PanelBody/BoxHeroes2/GroupHeroes/HeroHeadClickable (5)</title><rect x="209.0" y="854.0" width="92.0" height="92.0" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+</g>
+<g><title>/PopupTowerLevelInfo/PanelBody/BoxHeroes2/GroupHeroes/HeroHeadClickable (5)/HeroHeadUI/ImageFrame | frame_item</title><rect x="210.0" y="855.0" width="90.0" height="90.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupTowerLevelInfo/PanelBody/BoxHeroes2/GroupHeroes/HeroHeadClickable (5)/HeroHeadUI/Mask | mask_item</title><rect x="217.0" y="862.0" width="76.0" height="76.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupTowerLevelInfo/PanelBody/BoxHeroes2/GroupHeroes/HeroHeadClickable (5)/HeroHeadUI/Mask/ImageBgr | bgr_item_consumable</title><rect x="210.0" y="855.0" width="90.0" height="90.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupTowerLevelInfo/PanelBody/BoxHeroes2/GroupHeroes/HeroHeadClickable (5)/HeroHeadUI/Mask/ImageHead | hero_5_star</title><rect x="210.0" y="855.0" width="90.0" height="90.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupTowerLevelInfo/PanelBody/BoxHeroes2/GroupHeroes/HeroHeadClickable (5)/HeroHeadUI/Mask/ImageHidden | hero_head_hidden</title><rect x="210.0" y="855.0" width="90.0" height="90.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupTowerLevelInfo/PanelBody/BoxHeroes2/GroupHeroes/HeroHeadClickable (5)/HeroHeadUI/Mask/Check</title><rect x="205.0" y="850.0" width="100.0" height="100.0" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+</g>
+<g><title>/PopupTowerLevelInfo/PanelBody/BoxHeroes2/GroupHeroes/HeroHeadClickable (5)/HeroHeadUI/Mask/Check/Tick | tick_green</title><rect x="234.5" y="878.0" width="41.0" height="38.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupTowerLevelInfo/PanelBody/BoxHeroes2/GroupHeroes/HeroHeadClickable (5)/HeroHeadUI/Mask/Lock</title><rect x="205.0" y="850.0" width="100.0" height="100.0" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+</g>
+<g><title>/PopupTowerLevelInfo/PanelBody/BoxHeroes2/GroupHeroes/HeroHeadClickable (5)/HeroHeadUI/Mask/Lock/Lock | icon_lock</title><rect x="237.0" y="879.0" width="36.0" height="36.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupTowerLevelInfo/PanelBody/BoxHeroes2/GroupHeroes/HeroHeadClickable (5)/HeroHeadUI/Mask/Death</title><rect x="205.0" y="850.0" width="100.0" height="100.0" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+</g>
+<g><title>/PopupTowerLevelInfo/PanelBody/BoxHeroes2/GroupHeroes/HeroHeadClickable (5)/HeroHeadUI/Mask/Death/Tick | mark_death</title><rect x="203.0" y="841.5" width="104.0" height="111.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupTowerLevelInfo/PanelBody/BoxHeroes2/GroupHeroes/HeroHeadClickable (5)/HeroHeadUI/ImageBorder | hero_head_border</title><rect x="215.0" y="860.0" width="80.0" height="80.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupTowerLevelInfo/PanelBody/BoxHeroes2/GroupHeroes/HeroHeadClickable (5)/HeroHeadUI/ImageNotify | notify_dot</title><rect x="273.3" y="853.9" width="28.0" height="28.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupTowerLevelInfo/PanelBody/BoxHeroes2/GroupHeroes/HeroHeadClickable (5)/HeroHeadUI/TextLevel</title><rect x="256.2" y="855.7" width="40.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PopupTowerLevelInfo/PanelBody/BoxHeroes2/GroupHeroes/HeroHeadClickable (5)/HeroHeadUI/ImageFaction | faction_light</title><rect x="210.3" y="855.3" width="30.0" height="30.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupTowerLevelInfo/PanelBody/BoxReward</title><rect x="-319.5" y="806.8" width="638.9" height="186.5" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+<text x="-314.5" y="822.8" fill="#e2e8f0" font-size="12" font-family="sans-serif">BoxReward</text>
+</g>
+<g><title>/PopupTowerLevelInfo/PanelBody/BoxReward/TextReward</title><rect x="-73.9" y="813.5" width="160.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+<text x="-68.9" y="829.5" fill="#e2e8f0" font-size="12" font-family="sans-serif">TextReward</text>
+</g>
+<g><title>/PopupTowerLevelInfo/PanelBody/BoxReward/GroupReward | round_rect2</title><rect x="-243.9" y="855.0" width="500.0" height="120.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+<text x="-238.9" y="871.0" fill="#e2e8f0" font-size="12" font-family="sans-serif">GroupReward</text>
+</g>
+<g><title>/PopupTowerLevelInfo/PanelBody/ButtonBattle | button_yellow</title><rect x="710.0" y="604.0" width="180.0" height="70.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+<text x="715.0" y="620.0" fill="#e2e8f0" font-size="12" font-family="sans-serif">ButtonBattle</text>
+</g>
+<g><title>/PopupTowerLevelInfo/PanelBody/ButtonBattle/Text</title><rect x="710.0" y="604.0" width="180.0" height="70.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+<text x="715.0" y="620.0" fill="#e2e8f0" font-size="12" font-family="sans-serif">Text</text>
+</g>
+<g><title>/PopupTowerLevelInfo/PanelBody/ButtonClose | popup_close</title><rect x="1557.0" y="-23.0" width="64.0" height="64.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
 </svg>

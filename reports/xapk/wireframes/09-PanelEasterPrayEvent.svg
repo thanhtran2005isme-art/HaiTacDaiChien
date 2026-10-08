@@ -3,11 +3,266 @@
 <rect width="1600" height="900" fill="#1e293b"/>
 <text x="20" y="927" font-family="sans-serif" font-size="22" fill="#f8fafc">PanelEasterPrayEvent | 002_UnityDataAssetPack_datapack__file110</text>
 <text x="20" y="953" font-family="sans-serif" font-size="15" fill="#94a3b8">Metadata wireframe | hypothetical 1600x900 viewport | not the actual game screenshot</text>
+<g><title>/PanelEasterPrayEvent/Bgr/BoxGameEventInfo/PanelInfo/ImgBgr</title><rect x="532.0" y="0.0" width="536.0" height="460.0" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+<text x="537.0" y="16.0" fill="#e2e8f0" font-size="12" font-family="sans-serif">ImgBgr</text>
+</g>
+<g><title>/PanelEasterPrayEvent/Bgr/BoxGameEventInfo/PanelInfo/TextTitle</title><rect x="550.2" y="157.0" width="550.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+<text x="555.2" y="173.0" fill="#e2e8f0" font-size="12" font-family="sans-serif">TextTitle</text>
+</g>
+<g><title>/PanelEasterPrayEvent/Bgr/BoxGameEventInfo/PanelInfo/TextTimeValue</title><rect x="550.0" y="269.0" width="88.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PanelEasterPrayEvent/Bgr/BoxGameEventInfo/PanelInfo/TextTimeValue/TextTimeDesc</title><rect x="646.2" y="269.0" width="100.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PanelEasterPrayEvent/Bgr/BoxGameEventInfo/PanelInfo/Feat | box_gold_event</title><rect x="543.7" y="261.0" width="155.0" height="50.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+<text x="548.7" y="277.0" fill="#e2e8f0" font-size="12" font-family="sans-serif">Feat</text>
+</g>
+<g><title>/PanelEasterPrayEvent/Bgr/BoxGameEventInfo/PanelInfo/Feat/ImgFeat | 1</title><rect x="558.7" y="264.0" width="40.0" height="40.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelEasterPrayEvent/Bgr/BoxGameEventInfo/PanelInfo/Feat/TextFeat</title><rect x="603.7" y="264.0" width="80.0" height="40.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PanelEasterPrayEvent/Bgr/BoxGameEventInfo/PanelInfo/GroupButtonHorizontal/ButtonReward | button_gift</title><rect x="533.0" y="150.0" width="65.0" height="65.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelEasterPrayEvent/Bgr/BoxGameEventInfo/PanelInfo/GroupButtonHorizontal/ButtonHelp | button_help</title><rect x="593.0" y="150.0" width="65.0" height="65.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelEasterPrayEvent/Bgr/BoxGameEventInfo/PanelInfo/GroupButtonHorizontal/ButtonAction | button_yellow</title><rect x="533.0" y="155.0" width="130.0" height="55.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+<text x="538.0" y="171.0" fill="#e2e8f0" font-size="12" font-family="sans-serif">ButtonAction</text>
+</g>
+<g><title>/PanelEasterPrayEvent/Bgr/BoxGameEventInfo/PanelInfo/GroupButtonHorizontal/ButtonAction/Text</title><rect x="533.0" y="153.0" width="130.0" height="55.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+<text x="538.0" y="169.0" fill="#e2e8f0" font-size="12" font-family="sans-serif">Text</text>
+</g>
+<g><title>/PanelEasterPrayEvent/Bgr/BoxGameEventInfo/PanelInfo/GroupButtonVertical/ButtonReward | button_gift</title><rect x="533.0" y="142.5" width="65.0" height="65.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelEasterPrayEvent/Bgr/BoxGameEventInfo/PanelInfo/GroupButtonVertical/ButtonHelp | button_help</title><rect x="533.0" y="202.5" width="65.0" height="65.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelEasterPrayEvent/Bgr/BoxGameEventInfo/PanelInfo/GroupButtonVertical/ButtonAction | button_yellow</title><rect x="533.0" y="142.5" width="130.0" height="55.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+<text x="538.0" y="158.5" fill="#e2e8f0" font-size="12" font-family="sans-serif">ButtonAction</text>
+</g>
+<g><title>/PanelEasterPrayEvent/Bgr/BoxGameEventInfo/PanelInfo/GroupButtonVertical/ButtonAction/Text</title><rect x="533.0" y="140.5" width="130.0" height="55.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+<text x="538.0" y="156.5" fill="#e2e8f0" font-size="12" font-family="sans-serif">Text</text>
+</g>
+<g><title>/PanelEasterPrayEvent/Bgr/PanelStatue/GroupStatue/ItemStatue/HeroStatue</title><rect x="735.0" y="139.0" width="130.0" height="300.0" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+<text x="740.0" y="155.0" fill="#e2e8f0" font-size="12" font-family="sans-serif">HeroStatue</text>
+</g>
+<g><title>/PanelEasterPrayEvent/Bgr/PanelStatue/GroupStatue/ItemStatue/HeroStatue/avatar_statue/NameStatue</title><rect x="749.5" y="-96.5" width="101.0" height="301.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PanelEasterPrayEvent/Bgr/PanelStatue/GroupStatue/ItemStatue/HeroStatue/avatar_statue/GameItem/ItemShardUI</title><rect x="754.0" y="-78.0" width="92.0" height="92.0" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+</g>
+<g><title>/PanelEasterPrayEvent/Bgr/PanelStatue/GroupStatue/ItemStatue/HeroStatue/avatar_statue/GameItem/ItemShardUI/Mask | bgr_light</title><rect x="759.0" y="-73.0" width="82.0" height="82.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelEasterPrayEvent/Bgr/PanelStatue/GroupStatue/ItemStatue/HeroStatue/avatar_statue/GameItem/ItemShardUI/Mask/ImageBgr | bgr_item_consumable</title><rect x="755.0" y="-77.0" width="90.0" height="90.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelEasterPrayEvent/Bgr/PanelStatue/GroupStatue/ItemStatue/HeroStatue/avatar_statue/GameItem/ItemShardUI/Mask/ImageItem | item_transparent</title><rect x="758.0" y="-74.0" width="84.0" height="84.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelEasterPrayEvent/Bgr/PanelStatue/GroupStatue/ItemStatue/HeroStatue/avatar_statue/GameItem/ItemShardUI/Mask/Check</title><rect x="750.0" y="-82.0" width="100.0" height="100.0" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+</g>
+<g><title>/PanelEasterPrayEvent/Bgr/PanelStatue/GroupStatue/ItemStatue/HeroStatue/avatar_statue/GameItem/ItemShardUI/ImageBorder | border_item</title><rect x="755.0" y="-77.0" width="90.0" height="90.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelEasterPrayEvent/Bgr/PanelStatue/GroupStatue/ItemStatue/HeroStatue/avatar_statue/GameItem/ItemShardUI/ShardStar/Star1 | hero_star_1</title><rect x="765.0" y="-10.4" width="18.0" height="18.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelEasterPrayEvent/Bgr/PanelStatue/GroupStatue/ItemStatue/HeroStatue/avatar_statue/GameItem/ItemShardUI/ShardStar/Star1 | hero_star_1</title><rect x="778.0" y="-10.4" width="18.0" height="18.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelEasterPrayEvent/Bgr/PanelStatue/GroupStatue/ItemStatue/HeroStatue/avatar_statue/GameItem/ItemShardUI/ShardStar/Star1 | hero_star_1</title><rect x="791.0" y="-10.4" width="18.0" height="18.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelEasterPrayEvent/Bgr/PanelStatue/GroupStatue/ItemStatue/HeroStatue/avatar_statue/GameItem/ItemShardUI/ShardStar/Star1 | hero_star_1</title><rect x="804.0" y="-10.4" width="18.0" height="18.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelEasterPrayEvent/Bgr/PanelStatue/GroupStatue/ItemStatue/HeroStatue/avatar_statue/GameItem/ItemShardUI/ShardStar/Star1 | hero_star_1</title><rect x="817.0" y="-10.4" width="18.0" height="18.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelEasterPrayEvent/Bgr/PanelStatue/GroupStatue/ItemStatue/HeroStatue/avatar_statue/GameItem/ItemShardUI/TextNumber2</title><rect x="766.6" y="-27.1" width="72.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PanelEasterPrayEvent/Bgr/PanelStatue/GroupStatue/ItemStatue/HeroStatue/avatar_statue/GameItem/ItemShardUI/Slider/Background | Background</title><rect x="755.0" y="14.0" width="90.0" height="20.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelEasterPrayEvent/Bgr/PanelStatue/GroupStatue/ItemStatue/HeroStatue/avatar_statue/GameItem/ItemShardUI/Slider/Fill Area/Fill | UISprite</title><rect x="755.0" y="14.0" width="90.0" height="20.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelEasterPrayEvent/Bgr/PanelStatue/GroupStatue/ItemStatue/HeroStatue/avatar_statue/GameItem/ItemShardUI/Slider/TextNumber</title><rect x="760.0" y="13.2" width="80.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PanelEasterPrayEvent/Bgr/PanelStatue/GroupStatue/ItemStatue/HeroStatue/avatar_statue/GameItem/ItemAvatarUI</title><rect x="754.0" y="-78.0" width="92.0" height="92.0" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+</g>
+<g><title>/PanelEasterPrayEvent/Bgr/PanelStatue/GroupStatue/ItemStatue/HeroStatue/avatar_statue/GameItem/ItemAvatarUI/Mask | mask_item</title><rect x="758.0" y="-74.0" width="84.0" height="84.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelEasterPrayEvent/Bgr/PanelStatue/GroupStatue/ItemStatue/HeroStatue/avatar_statue/GameItem/ItemAvatarUI/Mask/ImageBgr | bgr_item_consumable</title><rect x="758.0" y="-74.0" width="84.0" height="84.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelEasterPrayEvent/Bgr/PanelStatue/GroupStatue/ItemStatue/HeroStatue/avatar_statue/GameItem/ItemAvatarUI/Mask/ImageAvatar | item_transparent</title><rect x="758.0" y="-74.0" width="84.0" height="84.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelEasterPrayEvent/Bgr/PanelStatue/GroupStatue/ItemStatue/HeroStatue/avatar_statue/GameItem/ItemAvatarUI/ImageBorder | border_item</title><rect x="754.0" y="-78.0" width="92.0" height="92.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelEasterPrayEvent/Bgr/PanelStatue/GroupStatue/ItemStatue/HeroStatue/avatar_statue/GameItem/ItemVipExpUI</title><rect x="754.0" y="-78.0" width="92.0" height="92.0" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+</g>
+<g><title>/PanelEasterPrayEvent/Bgr/PanelStatue/GroupStatue/ItemStatue/HeroStatue/avatar_statue/GameItem/ItemVipExpUI/Mask | mask_item</title><rect x="758.0" y="-74.0" width="84.0" height="84.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelEasterPrayEvent/Bgr/PanelStatue/GroupStatue/ItemStatue/HeroStatue/avatar_statue/GameItem/ItemVipExpUI/Mask/ImageBgr | bgr_item_consumable</title><rect x="758.0" y="-74.0" width="84.0" height="84.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelEasterPrayEvent/Bgr/PanelStatue/GroupStatue/ItemStatue/HeroStatue/avatar_statue/GameItem/ItemVipExpUI/Mask/ImageItem | icon_exp_vip</title><rect x="760.0" y="-72.0" width="80.0" height="80.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelEasterPrayEvent/Bgr/PanelStatue/GroupStatue/ItemStatue/HeroStatue/avatar_statue/GameItem/ItemVipExpUI/ImageBorder | border_item</title><rect x="754.0" y="-78.0" width="92.0" height="92.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelEasterPrayEvent/Bgr/PanelStatue/GroupStatue/ItemStatue/HeroStatue/avatar_statue/GameItem/ItemVipExpUI/TextNumber</title><rect x="767.2" y="-16.7" width="72.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PanelEasterPrayEvent/Bgr/PanelStatue/GroupStatue/ItemStatue/HeroStatue/avatar_statue/GameItem/ItemArtifactUI</title><rect x="754.0" y="-78.0" width="92.0" height="92.0" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+</g>
+<g><title>/PanelEasterPrayEvent/Bgr/PanelStatue/GroupStatue/ItemStatue/HeroStatue/avatar_statue/GameItem/ItemArtifactUI/ImageFrame | frame_item</title><rect x="755.0" y="-77.0" width="90.0" height="90.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelEasterPrayEvent/Bgr/PanelStatue/GroupStatue/ItemStatue/HeroStatue/avatar_statue/GameItem/ItemArtifactUI/Mask | mask_item</title><rect x="762.0" y="-70.0" width="76.0" height="76.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelEasterPrayEvent/Bgr/PanelStatue/GroupStatue/ItemStatue/HeroStatue/avatar_statue/GameItem/ItemArtifactUI/Mask/ImageBgr | bgr_equipment_2</title><rect x="758.0" y="-74.0" width="84.0" height="84.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelEasterPrayEvent/Bgr/PanelStatue/GroupStatue/ItemStatue/HeroStatue/avatar_statue/GameItem/ItemArtifactUI/Mask/ImageItem | item_transparent</title><rect x="760.0" y="-72.0" width="80.0" height="80.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelEasterPrayEvent/Bgr/PanelStatue/GroupStatue/ItemStatue/HeroStatue/avatar_statue/GameItem/ItemArtifactUI/Mask/Check</title><rect x="750.0" y="-82.0" width="100.0" height="100.0" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+</g>
+<g><title>/PanelEasterPrayEvent/Bgr/PanelStatue/GroupStatue/ItemStatue/HeroStatue/avatar_statue/GameItem/ItemArtifactUI/ImageBorder | border_equipment_2</title><rect x="760.0" y="-72.0" width="80.0" height="80.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelEasterPrayEvent/Bgr/PanelStatue/GroupStatue/ItemStatue/HeroStatue/avatar_statue/GameItem/ItemArtifactUI/TextNumber</title><rect x="785.5" y="-20.8" width="51.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PanelEasterPrayEvent/Bgr/PanelStatue/GroupStatue/ItemStatue/HeroStatue/avatar_statue/GameItem/ItemArtifactUI/ItemStar/Star1 | item_star</title><rect x="754.9" y="-5.2" width="18.0" height="18.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelEasterPrayEvent/Bgr/PanelStatue/GroupStatue/ItemStatue/HeroStatue/avatar_statue/GameItem/ItemArtifactUI/ItemStar/Star2 | item_star</title><rect x="754.9" y="-5.2" width="18.0" height="18.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelEasterPrayEvent/Bgr/PanelStatue/GroupStatue/ItemStatue/HeroStatue/avatar_statue/GameItem/ItemArtifactUI/ItemStar/Star3 | item_star</title><rect x="754.9" y="-5.2" width="18.0" height="18.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelEasterPrayEvent/Bgr/PanelStatue/GroupStatue/ItemStatue/HeroStatue/avatar_statue/GameItem/ItemArtifactUI/ItemStar/Star4 | item_star</title><rect x="754.9" y="-5.2" width="18.0" height="18.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelEasterPrayEvent/Bgr/PanelStatue/GroupStatue/ItemStatue/HeroStatue/avatar_statue/GameItem/ItemArtifactUI/ItemStar/Star5 | item_star</title><rect x="754.9" y="-5.2" width="18.0" height="18.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelEasterPrayEvent/Bgr/PanelStatue/GroupStatue/ItemStatue/HeroStatue/avatar_statue/GameItem/ItemArtifactUI/ItemStar/Star6 | item_star</title><rect x="754.9" y="-5.2" width="18.0" height="18.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelEasterPrayEvent/Bgr/PanelStatue/GroupStatue/ItemStatue/HeroStatue/avatar_statue/GameItem/ItemArtifactUI/MaskSpineBorder | UIMask</title><rect x="740.0" y="-92.0" width="120.0" height="120.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+<text x="745.0" y="-76.0" fill="#e2e8f0" font-size="12" font-family="sans-serif">MaskSpineBorder</text>
+</g>
+<g><title>/PanelEasterPrayEvent/Bgr/PanelStatue/GroupStatue/ItemStatue/HeroStatue/avatar_statue/GameItem/ItemConsumableUI</title><rect x="754.0" y="-78.0" width="92.0" height="92.0" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+</g>
+<g><title>/PanelEasterPrayEvent/Bgr/PanelStatue/GroupStatue/ItemStatue/HeroStatue/avatar_statue/GameItem/ItemConsumableUI/Mask | bgr_light</title><rect x="759.0" y="-73.0" width="82.0" height="82.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelEasterPrayEvent/Bgr/PanelStatue/GroupStatue/ItemStatue/HeroStatue/avatar_statue/GameItem/ItemConsumableUI/Mask/ImageBgr | bgr_item_consumable</title><rect x="755.0" y="-77.0" width="90.0" height="90.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelEasterPrayEvent/Bgr/PanelStatue/GroupStatue/ItemStatue/HeroStatue/avatar_statue/GameItem/ItemConsumableUI/Mask/ImageItem | item_transparent</title><rect x="760.0" y="-72.0" width="80.0" height="80.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelEasterPrayEvent/Bgr/PanelStatue/GroupStatue/ItemStatue/HeroStatue/avatar_statue/GameItem/ItemConsumableUI/Mask/Check</title><rect x="750.0" y="-82.0" width="100.0" height="100.0" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+</g>
+<g><title>/PanelEasterPrayEvent/Bgr/PanelStatue/GroupStatue/ItemStatue/HeroStatue/avatar_statue/GameItem/ItemConsumableUI/ImageBorder | border_item</title><rect x="755.0" y="-77.0" width="90.0" height="90.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelEasterPrayEvent/Bgr/PanelStatue/GroupStatue/ItemStatue/HeroStatue/avatar_statue/GameItem/ItemConsumableUI/TextNumber</title><rect x="765.4" y="-20.1" width="72.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PanelEasterPrayEvent/Bgr/PanelStatue/GroupStatue/ItemStatue/HeroStatue/avatar_statue/GameItem/ItemEquipmentUI</title><rect x="754.0" y="-78.0" width="92.0" height="92.0" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+</g>
+<g><title>/PanelEasterPrayEvent/Bgr/PanelStatue/GroupStatue/ItemStatue/HeroStatue/avatar_statue/GameItem/ItemEquipmentUI/ImageFrame | frame_item</title><rect x="755.0" y="-77.0" width="90.0" height="90.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelEasterPrayEvent/Bgr/PanelStatue/GroupStatue/ItemStatue/HeroStatue/avatar_statue/GameItem/ItemEquipmentUI/Mask | mask_item</title><rect x="762.0" y="-70.0" width="76.0" height="76.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelEasterPrayEvent/Bgr/PanelStatue/GroupStatue/ItemStatue/HeroStatue/avatar_statue/GameItem/ItemEquipmentUI/Mask/ImageBgr | bgr_equipment_1</title><rect x="754.0" y="-78.0" width="92.0" height="92.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelEasterPrayEvent/Bgr/PanelStatue/GroupStatue/ItemStatue/HeroStatue/avatar_statue/GameItem/ItemEquipmentUI/Mask/ImageItem | item_placeholder</title><rect x="760.0" y="-72.0" width="80.0" height="80.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelEasterPrayEvent/Bgr/PanelStatue/GroupStatue/ItemStatue/HeroStatue/avatar_statue/GameItem/ItemEquipmentUI/Mask/Check</title><rect x="750.0" y="-82.0" width="100.0" height="100.0" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+</g>
+<g><title>/PanelEasterPrayEvent/Bgr/PanelStatue/GroupStatue/ItemStatue/HeroStatue/avatar_statue/GameItem/ItemEquipmentUI/ImageBorder | border_equipment_2</title><rect x="760.0" y="-72.0" width="80.0" height="80.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelEasterPrayEvent/Bgr/PanelStatue/GroupStatue/ItemStatue/HeroStatue/avatar_statue/GameItem/ItemEquipmentUI/TextNumber</title><rect x="782.5" y="-20.0" width="53.7" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PanelEasterPrayEvent/Bgr/PanelStatue/GroupStatue/ItemStatue/HeroStatue/avatar_statue/GameItem/ItemEquipmentUI/ItemStar/Star1 | item_star</title><rect x="764.2" y="-14.2" width="18.0" height="18.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelEasterPrayEvent/Bgr/PanelStatue/GroupStatue/ItemStatue/HeroStatue/avatar_statue/GameItem/ItemEquipmentUI/MaskSpineBorder | UIMask</title><rect x="725.0" y="-107.0" width="150.0" height="150.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+<text x="730.0" y="-91.0" fill="#e2e8f0" font-size="12" font-family="sans-serif">MaskSpineBorder</text>
+</g>
+<g><title>/PanelEasterPrayEvent/Bgr/PanelStatue/GroupStatue/ItemStatue/HeroStatue/avatar_statue/GameItem/HeroHeadClickable</title><rect x="754.0" y="-78.0" width="92.0" height="92.0" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+</g>
+<g><title>/PanelEasterPrayEvent/Bgr/PanelStatue/GroupStatue/ItemStatue/HeroStatue/avatar_statue/GameItem/HeroHeadClickable/HeroHeadUI/ImageFrame | frame_item</title><rect x="755.0" y="-77.0" width="90.0" height="90.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelEasterPrayEvent/Bgr/PanelStatue/GroupStatue/ItemStatue/HeroStatue/avatar_statue/GameItem/HeroHeadClickable/HeroHeadUI/Mask | mask_item</title><rect x="762.0" y="-70.0" width="76.0" height="76.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelEasterPrayEvent/Bgr/PanelStatue/GroupStatue/ItemStatue/HeroStatue/avatar_statue/GameItem/HeroHeadClickable/HeroHeadUI/Mask/ImageBgr | bgr_item_consumable</title><rect x="755.0" y="-77.0" width="90.0" height="90.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelEasterPrayEvent/Bgr/PanelStatue/GroupStatue/ItemStatue/HeroStatue/avatar_statue/GameItem/HeroHeadClickable/HeroHeadUI/Mask/ImageHead | hero_5_star</title><rect x="755.0" y="-77.0" width="90.0" height="90.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelEasterPrayEvent/Bgr/PanelStatue/GroupStatue/ItemStatue/HeroStatue/avatar_statue/GameItem/HeroHeadClickable/HeroHeadUI/Mask/ImageHidden | hero_head_hidden</title><rect x="755.0" y="-77.0" width="90.0" height="90.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelEasterPrayEvent/Bgr/PanelStatue/GroupStatue/ItemStatue/HeroStatue/avatar_statue/GameItem/HeroHeadClickable/HeroHeadUI/Mask/Check</title><rect x="750.0" y="-82.0" width="100.0" height="100.0" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+</g>
+<g><title>/PanelEasterPrayEvent/Bgr/PanelStatue/GroupStatue/ItemStatue/HeroStatue/avatar_statue/GameItem/HeroHeadClickable/HeroHeadUI/Mask/Lock</title><rect x="750.0" y="-82.0" width="100.0" height="100.0" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+</g>
+<g><title>/PanelEasterPrayEvent/Bgr/PanelStatue/GroupStatue/ItemStatue/HeroStatue/avatar_statue/GameItem/HeroHeadClickable/HeroHeadUI/Mask/Death</title><rect x="750.0" y="-82.0" width="100.0" height="100.0" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+</g>
+<g><title>/PanelEasterPrayEvent/Bgr/PanelStatue/GroupStatue/ItemStatue/HeroStatue/avatar_statue/GameItem/HeroHeadClickable/HeroHeadUI/Mask/Death/Tick | mark_death</title><rect x="748.0" y="-90.5" width="104.0" height="111.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelEasterPrayEvent/Bgr/PanelStatue/GroupStatue/ItemStatue/HeroStatue/avatar_statue/GameItem/HeroHeadClickable/HeroHeadUI/ImageBorder | hero_head_border</title><rect x="760.0" y="-72.0" width="80.0" height="80.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelEasterPrayEvent/Bgr/PanelStatue/GroupStatue/ItemStatue/HeroStatue/avatar_statue/GameItem/HeroHeadClickable/HeroHeadUI/HeroStar</title><rect x="755.3" y="-12.7" width="88.1" height="25.4" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+</g>
+<g><title>/PanelEasterPrayEvent/Bgr/PanelStatue/GroupStatue/ItemStatue/HeroStatue/avatar_statue/GameItem/HeroHeadClickable/HeroHeadUI/HeroStar/GroupStar1/Star1 | hero_star_1</title><rect x="759.4" y="-12.7" width="20.0" height="20.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelEasterPrayEvent/Bgr/PanelStatue/GroupStatue/ItemStatue/HeroStatue/avatar_statue/GameItem/HeroHeadClickable/HeroHeadUI/HeroStar/GroupStar1/Star1 | hero_star_1</title><rect x="774.4" y="-12.7" width="20.0" height="20.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelEasterPrayEvent/Bgr/PanelStatue/GroupStatue/ItemStatue/HeroStatue/avatar_statue/GameItem/HeroHeadClickable/HeroHeadUI/HeroStar/GroupStar1/Star1 | hero_star_1</title><rect x="789.4" y="-12.7" width="20.0" height="20.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelEasterPrayEvent/Bgr/PanelStatue/GroupStatue/ItemStatue/HeroStatue/avatar_statue/GameItem/HeroHeadClickable/HeroHeadUI/HeroStar/GroupStar1/Star1 | hero_star_1</title><rect x="804.4" y="-12.7" width="20.0" height="20.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelEasterPrayEvent/Bgr/PanelStatue/GroupStatue/ItemStatue/HeroStatue/avatar_statue/GameItem/HeroHeadClickable/HeroHeadUI/HeroStar/GroupStar1/Star1 | hero_star_1</title><rect x="819.4" y="-12.7" width="20.0" height="20.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelEasterPrayEvent/Bgr/PanelStatue/GroupStatue/ItemStatue/HeroStatue/avatar_statue/GameItem/HeroHeadClickable/HeroHeadUI/HeroStar/GroupStar6/Star6 | hero_star_2</title><rect x="761.4" y="-12.7" width="22.0" height="22.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelEasterPrayEvent/Bgr/PanelStatue/GroupStatue/ItemStatue/HeroStatue/avatar_statue/GameItem/HeroHeadClickable/HeroHeadUI/HeroStar/GroupStar6/Star6 | hero_star_2</title><rect x="779.4" y="-12.7" width="22.0" height="22.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelEasterPrayEvent/Bgr/PanelStatue/GroupStatue/ItemStatue/HeroStatue/avatar_statue/GameItem/HeroHeadClickable/HeroHeadUI/HeroStar/GroupStar6/Star6 | hero_star_2</title><rect x="797.4" y="-12.7" width="22.0" height="22.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelEasterPrayEvent/Bgr/PanelStatue/GroupStatue/ItemStatue/HeroStatue/avatar_statue/GameItem/HeroHeadClickable/HeroHeadUI/HeroStar/GroupStar6/Star6 | hero_star_2</title><rect x="815.4" y="-12.7" width="22.0" height="22.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelEasterPrayEvent/Bgr/PanelStatue/GroupStatue/ItemStatue/HeroStatue/avatar_statue/GameItem/HeroHeadClickable/HeroHeadUI/HeroStar/GroupStar10/Star10 | hero_star_3</title><rect x="788.4" y="-14.8" width="22.0" height="22.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelEasterPrayEvent/Bgr/PanelStatue/GroupStatue/ItemStatue/HeroStatue/avatar_statue/GameItem/HeroHeadClickable/HeroHeadUI/HeroStar/GroupStarE/BgrStarE | star_e_bgr</title><rect x="720.4" y="-28.4" width="158.0" height="59.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+<text x="725.4" y="-12.4" fill="#e2e8f0" font-size="12" font-family="sans-serif">BgrStarE</text>
+</g>
+<g><title>/PanelEasterPrayEvent/Bgr/PanelStatue/GroupStatue/ItemStatue/HeroStatue/avatar_statue/GameItem/HeroHeadClickable/HeroHeadUI/HeroStar/GroupStarE/StarE | hero_star_e</title><rect x="787.4" y="-12.6" width="24.0" height="24.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelEasterPrayEvent/Bgr/PanelStatue/GroupStatue/ItemStatue/HeroStatue/avatar_statue/GameItem/HeroHeadClickable/HeroHeadUI/HeroStar/GroupStarE/TextStarE</title><rect x="719.4" y="-10.9" width="160.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+<text x="724.4" y="5.1" fill="#e2e8f0" font-size="12" font-family="sans-serif">TextStarE</text>
+</g>
+<g><title>/PanelEasterPrayEvent/Bgr/PanelStatue/GroupStatue/ItemStatue/HeroStatue/avatar_statue/GameItem/HeroHeadClickable/HeroHeadUI/SliderHp/Background | progress_bgr</title><rect x="755.0" y="11.9" width="90.0" height="17.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelEasterPrayEvent/Bgr/PanelStatue/GroupStatue/ItemStatue/HeroStatue/avatar_statue/GameItem/HeroHeadClickable/HeroHeadUI/SliderHp/Fill Area/Fill | progress_top_2</title><rect x="756.0" y="11.9" width="88.0" height="17.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelEasterPrayEvent/Bgr/PanelStatue/GroupStatue/ItemStatue/HeroStatue/avatar_statue/GameItem/GroupDone/ImageCover | bgr_light</title><rect x="754.0" y="-78.0" width="92.0" height="92.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelEasterPrayEvent/Bgr/PanelStatue/GroupStatue/ItemStatue/HeroStatue/avatar_statue/GameItem/GroupDone/ImageCover/Image</title><rect x="754.0" y="-78.0" width="92.0" height="92.0" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+</g>
+<g><title>/PanelEasterPrayEvent/Bgr/PanelStatue/GroupStatue/ItemStatue/HeroStatue/avatar_statue/GameItem/TextDesc</title><rect x="754.0" y="13.2" width="92.0" height="20.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PanelEasterPrayEvent/Bgr/PanelStatue/GroupStatue/ItemStatue/HeroStatue/avatar_statue/GameItem/ActionClick | UISprite</title><rect x="754.0" y="-78.0" width="92.0" height="92.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelEasterPrayEvent/Bgr/PanelStatue/GroupStatue/ItemStatue (1)/SkinStatue</title><rect x="600.0" y="89.0" width="130.0" height="300.0" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+<text x="605.0" y="105.0" fill="#e2e8f0" font-size="12" font-family="sans-serif">SkinStatue</text>
+</g>
+<g><title>/PanelEasterPrayEvent/Bgr/PanelStatue/GroupStatue/ItemStatue (1)/SkinStatue/avatar_statue/NameStatue</title><rect x="614.5" y="-146.5" width="101.0" height="301.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PanelEasterPrayEvent/Bgr/PanelStatue/GroupStatue/ItemStatue (2)/ArtifactStatue</title><rect x="870.0" y="89.0" width="130.0" height="300.0" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+<text x="875.0" y="105.0" fill="#e2e8f0" font-size="12" font-family="sans-serif">ArtifactStatue</text>
+</g>
+<g><title>/PanelEasterPrayEvent/Bgr/PanelStatue/GroupStatue/ItemStatue (2)/ArtifactStatue/avatar_statue/NameStatue</title><rect x="884.5" y="-146.5" width="101.0" height="301.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
 <g><title>/PanelEasterPrayEvent/Bgr/TimeCountdown</title><rect x="750.0" y="410.4" width="100.0" height="40.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
 </g>
 <g><title>/PanelEasterPrayEvent/Bgr/ButtonNext | arrow_right</title><rect x="1009.0" y="194.0" width="44.0" height="72.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
 </g>
 <g><title>/PanelEasterPrayEvent/Bgr/ButtonPrev | arrow_left</title><rect x="547.0" y="194.0" width="44.0" height="72.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelEasterPrayEvent/Bgr/GroupButton/ButtonAction1 | button_yellow</title><rect x="535.0" y="0.0" width="150.0" height="55.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+<text x="540.0" y="16.0" fill="#e2e8f0" font-size="12" font-family="sans-serif">ButtonAction1</text>
+</g>
+<g><title>/PanelEasterPrayEvent/Bgr/GroupButton/ButtonAction1/Text</title><rect x="575.0" y="-6.0" width="104.0" height="59.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PanelEasterPrayEvent/Bgr/GroupButton/ButtonAction1/iconTypeActiveItem</title><rect x="551.2" y="5.0" width="40.0" height="40.0" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+</g>
+<g><title>/PanelEasterPrayEvent/Bgr/GroupButton/ButtonAction1/iconTypeActiveItem/feeKey</title><rect x="551.2" y="12.6" width="40.0" height="40.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PanelEasterPrayEvent/Bgr/GroupButton/ButtonAction2 | button_green</title><rect x="535.0" y="0.0" width="150.0" height="55.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+<text x="540.0" y="16.0" fill="#e2e8f0" font-size="12" font-family="sans-serif">ButtonAction2</text>
+</g>
+<g><title>/PanelEasterPrayEvent/Bgr/GroupButton/ButtonAction2/Text</title><rect x="575.0" y="-6.0" width="104.0" height="59.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PanelEasterPrayEvent/Bgr/GroupButton/ButtonAction2/iconTypeExchangeItem</title><rect x="550.9" y="5.0" width="40.0" height="40.0" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+</g>
+<g><title>/PanelEasterPrayEvent/Bgr/GroupButton/ButtonAction2/iconTypeExchangeItem/feeItemExchange</title><rect x="550.9" y="12.6" width="40.0" height="40.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PanelEasterPrayEvent/Bgr/GroupButton/ButtonAction2/TxtLimited</title><rect x="535.0" y="-46.0" width="150.0" height="55.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+<text x="540.0" y="-30.0" fill="#e2e8f0" font-size="12" font-family="sans-serif">TxtLimited</text>
 </g>
 <g><title>/PanelEasterPrayEvent/Bgr/PanelTop/TextFieldActiveItem | box_text_1</title><rect x="601.0" y="15.1" width="170.0" height="48.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
 <text x="606.0" y="31.1" fill="#e2e8f0" font-size="12" font-family="sans-serif">TextFieldActiveItem</text>
