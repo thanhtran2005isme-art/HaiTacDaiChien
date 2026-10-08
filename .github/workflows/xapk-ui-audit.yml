@@ -8,6 +8,8 @@ on:
       - 'tools/ui_hierarchy.py'
       - 'tools/ui_preview.py'
       - 'tools/ui_media_audit.py'
+      - 'tools/layout_spine_audit.py'
+      - 'tests/test_layout_spine_audit.py'
       - 'tests/test_ui_preview.py'
       - 'tools/il2cpp_refs.py'
       - 'tools/sprite_links.py'
@@ -99,6 +101,10 @@ jobs:
         run: python tools/ui_preview.py
       - name: Audit Sprite textures, atlas candidates and animations
         run: python tools/ui_media_audit.py
+      - name: Test CanvasScaler, Spine and null Sprite pointer classification
+        run: python -m unittest discover -s tests -p test_layout_spine_audit.py -v
+      - name: Verify CanvasScaler reference data and Spine metadata
+        run: python tools/layout_spine_audit.py
       - name: Upload analysis report
         if: always()
         uses: actions/upload-artifact@v4
