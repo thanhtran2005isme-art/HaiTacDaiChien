@@ -1,0 +1,53 @@
+{
+  "file": "Huyền+Thoại+Hải+Tặc_1.0.5_APKPure.xapk",
+  "bytes": 371296115,
+  "engines_suspected": [
+    "Unity"
+  ],
+  "archives": [
+    {
+      "name": "xapk",
+      "entries": 5
+    },
+    {
+      "name": "000_com.mobi389.murom.apk",
+      "entries": 757
+    },
+    {
+      "name": "001_config.arm64_v8a.apk",
+      "entries": 11
+    },
+    {
+      "name": "002_UnityDataAssetPack.apk",
+      "entries": 8
+    }
+  ],
+  "ui_resource_candidates": 662,
+  "extracted_bytes": 0,
+  "file_extensions": {
+    ".png": 421,
+    ".xml": 234,
+    ".version": 37,
+    ".properties": 37,
+    ".kotlin_builtins": 7,
+    "(none)": 6,
+    ".so": 6,
+    ".json": 5,
+    ".dat": 4,
+    ".apk": 3,
+    ".sf": 3,
+    ".rsa": 3,
+    ".mf": 3,
+    ".unity3d": 2,
+    ".dex": 2,
+    ".bin": 1,
+    ".build_fingerprint": 1,
+    ".coroutineexceptionhandler": 1,
+    ".maindispatcherfactory": 1,
+    ".config": 1,
+    ".binarypb": 1,
+    ".arsc": 1,
+    ".resource": 1
+  },
+  "note": "Candidate files are not necessarily UI. Encrypted and remote resources may be absent."
+}
