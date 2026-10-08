@@ -1,0 +1,28 @@
+{
+  "unresolved_images_audited": 2757,
+  "unresolved_image_reasons": {
+    "serialized_null_sprite_pointer": 2756,
+    "uncalibrated_offset": 1
+  },
+  "canvas_scaler_components": 76,
+  "canvas_scaler_linked_to_canvas": 76,
+  "canvas_scaler_readable_reference_resolution": 0,
+  "spine_component_counts": {
+    "Spine.Unity.SkeletonGraphic": 664,
+    "Spine.Unity.SpineAtlasAsset": 522,
+    "Spine.Unity.SkeletonDataAsset": 522,
+    "SpineObject": 383,
+    "Spine.Unity.SkeletonAnimation": 30,
+    "Spine.Unity.SkeletonUtilityBone": 4,
+    "Spine.Unity.AnimationReferenceAsset": 1
+  },
+  "spine_component_total": 2126,
+  "animation_clips": 47,
+  "notes": [
+    "CanvasScaler reference resolution is not physical runtime display resolution",
+    "A null Image m_Sprite reference does not prove runtime assignment",
+    "Spine component class counts do not prove animation playback",
+    "All findings derived from static XAPK without executing the game",
+    "No game graphics or proprietary source files exported"
+  ]
+}
