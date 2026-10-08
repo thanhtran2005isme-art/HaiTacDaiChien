@@ -6,6 +6,9 @@ on:
       - 'tools/analyze_xapk.py'
       - 'tools/unity_index.py'
       - 'tools/ui_hierarchy.py'
+      - 'tools/ui_preview.py'
+      - 'tools/ui_media_audit.py'
+      - 'tests/test_ui_preview.py'
       - 'tools/il2cpp_refs.py'
       - 'tools/sprite_links.py'
       - 'tests/test_sprite_links.py'
@@ -90,6 +93,12 @@ jobs:
         run: python -m unittest discover -s tests -p test_sprite_links.py -v
       - name: Resolve UI Image to Sprite metadata
         run: python tools/sprite_links.py
+      - name: Unit test RectTransform preview projections
+        run: python -m unittest discover -s tests -p test_ui_preview.py -v
+      - name: Build schematic SVG previews and classify unlinked Images
+        run: python tools/ui_preview.py
+      - name: Audit Sprite textures, atlas candidates and animations
+        run: python tools/ui_media_audit.py
       - name: Upload analysis report
         if: always()
         uses: actions/upload-artifact@v4
