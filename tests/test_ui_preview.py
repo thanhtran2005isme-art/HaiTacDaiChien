@@ -30,7 +30,7 @@ class LayoutTests(unittest.TestCase):
         self.assertEqual(output, [1,2])
     def test_unresolved_not_misclassified(self):
         grouped = {"f":{1:{"path":"/Canvas/Icon", "active":"0"}}}
-        paths = {("f",20):"/Canvas/Icon"}
+        paths = {("f",20):("/Canvas/Icon", 1)}
         kinds = {("f",20):{"ui_type":"Image","gameobject":"Icon"},
                  ("f",21):{"ui_type":"Button","gameobject":"Btn"}}
         unresolved = preview.missing_images(grouped, paths, kinds, {})
@@ -45,7 +45,7 @@ class LayoutTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as directory:
             path = Path(directory)/"preview.svg"
             preview.draw_svg(("f",1,"Root",2), {1:root_row,2:row},
-                {"/Root/UI<&":{"Button"}}, {}, {}, path)
+                {2:{"Button"}}, {}, {}, path)
             data = path.read_text()
             self.assertIn("UI&lt;&amp;",data)
             self.assertNotIn("UI<&",data)
