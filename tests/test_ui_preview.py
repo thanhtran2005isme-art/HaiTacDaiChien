@@ -37,7 +37,7 @@ class LayoutTests(unittest.TestCase):
         self.assertEqual(len(unresolved),1)
         self.assertEqual(unresolved[0]["finding"],"no_static_sprite_pptr_found")
     def test_svg_escapes_gameobject_name(self):
-        row = {"name":"UI<&", "parent_transform_id":"1", "path":"/Root/UI<&",
+        row = {"name":"UI<&", "gameobject_id":"2", "parent_transform_id":"1", "path":"/Root/UI<&",
                "anchor_min":".5,.5", "anchor_max":".5,.5", "pivot":".5,.5",
                "size_delta":"220,80", "anchored_position":"0,0",
                "scale":"1,1", "rotation_z":"0", "sibling_index":"0"}
