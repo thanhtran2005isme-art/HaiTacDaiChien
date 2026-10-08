@@ -54,7 +54,7 @@ def hierarchy_indices(folder):
             pass
     for row in rows(folder / "ui-components.csv"):
         try:
-            paths[(row["bundle"], int(row["component_id"]))] = row.get("ui_path", "")
+            paths[(row["bundle"], int(row["component_id"]))] = (row.get("ui_path", ""), int(row.get("gameobject_id", 0) or 0))
         except (KeyError, ValueError):
             pass
     kinds = {}
@@ -79,11 +79,11 @@ def missing_images(grouped, paths, kinds, links):
         if component.get("ui_type") != "Image" or key in links:
             continue
         bundle, cid = key
-        path = paths.get(key, "")
+        path, gid = paths.get(key, ("", 0))
         root = path.lstrip("/").split("/")[0] if path else ""
         result.append({"bundle": bundle, "component_id": cid, "ui_path": path,
                        "root": root, "gameobject": component.get("gameobject", ""),
-                       "active": active.get((bundle, path), "unknown"),
+                       "active": active.get((bundle, path), "unknown"), "gameobject_id": gid,
                        "finding": "no_static_sprite_pptr_found"})
     return result
 
@@ -154,8 +154,15 @@ def draw_svg(root, group, kinds, links, missing, output):
         if parent_id not in bounds:
             continue
         box = geometry(bounds[parent_id], node)
-        if box is None or box[2] <= 0 or box[3] <= 0:
+        if box is None:
             stats["invalid_rectangles"] += 1
+            continue
+        if box[2] <= 0 or box[3] <= 0:
+            # Zero-sized intermediate UI containers still have children. Their
+            # runtime dimensions may be assigned by LayoutGroup or scripts.
+            # Propagate the nearest parent viewport, without drawing this node.
+            bounds[node_id] = bounds[parent_id]
+            stats["zero_sized_parent_fallbacks"] += 1
             continue
         bounds[node_id] = box
         stats["nodes_geometry_estimated"] += 1
@@ -165,9 +172,10 @@ def draw_svg(root, group, kinds, links, missing, output):
         if any(abs(s-1) > .0001 for s in scale):
             stats["nonunit_scales_ignored"] += 1
         path = node["path"]
-        linked = links.get(path, [])
-        unresolved = missing.get(path, 0)
-        tags = kinds.get(path, set())
+        gid = int(node.get("gameobject_id") or 0)
+        linked = links.get(gid, [])
+        unresolved = missing.get(gid, 0)
+        tags = kinds.get(gid, set())
         if linked:
             stats["linked_images"] += len(linked)
         if unresolved:
@@ -228,21 +236,22 @@ def main():
     if len(links) + len(missing) != num_images:
         raise RuntimeError("Image linkage total differs from component inventory")
     export_csv(folder / "unresolved-ui-images.csv", missing,
-               ["bundle", "component_id", "ui_path", "root", "gameobject", "active", "finding"])
+               ["bundle", "component_id", "ui_path", "root", "gameobject", "active", "gameobject_id", "finding"])
     root_dir = folder / "wireframes"
     root_dir.mkdir(parents=True, exist_ok=True)
     typed = collections.defaultdict(lambda: collections.defaultdict(set))
     for key, record in components.items():
-        path = paths.get(key)
-        if path:
-            typed[key[0]][path].add(record["ui_type"])
+        path, gid = paths.get(key, ("", 0))
+        if gid:
+            typed[key[0]][gid].add(record["ui_type"])
     matched = collections.defaultdict(lambda: collections.defaultdict(list))
     for (bundle, cid), link in links.items():
-        if link.get("ui_path"):
-            matched[bundle][link["ui_path"]].append(link.get("sprite_name", ""))
+        path, gid = paths.get((bundle, cid), ("", 0))
+        if gid:
+            matched[bundle][gid].append(link.get("sprite_name", ""))
     unknown = collections.defaultdict(collections.Counter)
     for row in missing:
-        unknown[row["bundle"]][row["ui_path"]] += 1
+        unknown[row["bundle"]][int(row["gameobject_id"])] += 1
     reports = []
     for i, root in enumerate(choose_roots(folder, grouped), start=1):
         bundle, tid, name, count = root
@@ -264,6 +273,7 @@ def main():
                 "Uses anchors, pivot, sizeDelta and anchoredPosition, with parent references",
                 "Siblings ordered by serialized m_Children where available",
                 "Rotations, scaling, Unity layout groups, masks and runtime animation omitted",
+                "Nodes with zero-size rects forward the parent frame only for schematic child visibility",
                 "Unmatched Sprite pointers not assigned a cause (may be null/dynamic/missing)",
                 "No game image pixels, art assets or decompiled client code published"]}
     (folder / "ui-preview-summary.json").write_text(
