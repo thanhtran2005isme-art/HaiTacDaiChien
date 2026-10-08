@@ -4,6 +4,7 @@ on:
     paths:
       - '*.xapk'
       - 'tools/analyze_xapk.py'
+      - 'tools/unity_index.py'
       - '.github/workflows/xapk-ui-audit.yml'
   workflow_dispatch:
     inputs:
@@ -55,6 +56,21 @@ jobs:
             find output/apktool -type f | wc -l > reports/xapk/apktool_file_count.txt
           else
             echo "apktool unavailable" > reports/xapk/apktool_file_count.txt
+          fi
+      - name: Install Unity asset parser
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Index Unity bundles and optional sprite extraction
+        shell: bash
+        env:
+          EXPORT_RESOURCES: ${{ inputs.export_resources }}
+        run: |
+          python -m pip install -q UnityPy Pillow
+          if [[ "$GITHUB_EVENT_NAME" == "workflow_dispatch" && "$EXPORT_RESOURCES" == "true" ]]; then
+            python tools/unity_index.py --export-images output/resources/unity
+          else
+            python tools/unity_index.py
           fi
       - name: Upload analysis report
         if: always()
