@@ -5,6 +5,8 @@ on:
       - '*.xapk'
       - 'tools/analyze_xapk.py'
       - 'tools/unity_index.py'
+      - 'tools/ui_hierarchy.py'
+      - 'tests/test_ui_hierarchy.py'
       - '.github/workflows/xapk-ui-audit.yml'
   workflow_dispatch:
     inputs:
@@ -72,6 +74,10 @@ jobs:
           else
             python tools/unity_index.py
           fi
+      - name: Test Unity hierarchy parsing
+        run: python -m unittest discover -s tests -p test_ui_hierarchy.py -v
+      - name: Map Canvas, UI root candidates and sprite metadata
+        run: python tools/ui_hierarchy.py
       - name: Upload analysis report
         if: always()
         uses: actions/upload-artifact@v4
