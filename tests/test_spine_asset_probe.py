@@ -55,7 +55,8 @@ class TestSpinePointerProbe(unittest.TestCase):
         typed = {(id(f), 88): "Spine.Unity.SkeletonDataAsset",
                  (id(f), 99): "Spine.Unity.SpineAtlasAsset"}
         hits = probe.find_typed_targets(raw, "<", 0,
-            lambda f,p: (a if p==88 else b, "local"), typed)
+            lambda f,p: ((a, "local") if (f,p)==(0,88) else
+                         (b, "local") if (f,p)==(0,99) else (None, "invalid")), typed)
         self.assertEqual(len(hits), 2)
         self.assertEqual({h[2] for h in hits}, set(typed.values()))
 
