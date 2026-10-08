@@ -36,6 +36,22 @@ class LayoutTests(unittest.TestCase):
         unresolved = preview.missing_images(grouped, paths, kinds, {})
         self.assertEqual(len(unresolved),1)
         self.assertEqual(unresolved[0]["finding"],"no_static_sprite_pptr_found")
+    def test_reference_scene_mappings_unique_and_explicit(self):
+        references = preview.REFERENCE_ROOTS
+        self.assertEqual(len(references), 5)
+        self.assertEqual(len({r[0] for r in references}), len(references))
+        self.assertTrue(all(r[0].startswith("REF0") for r in references))
+        self.assertTrue(all(r[1].startswith("002_UnityDataAssetPack_datapack__file")
+                            for r in references))
+        self.assertIn(("REF01-ship-upgrade",
+                       "002_UnityDataAssetPack_datapack__file029",
+                       "Canvas", "strong_structural_candidate"), references)
+        self.assertIn(("REF02-hero-detail",
+                       "002_UnityDataAssetPack_datapack__file110",
+                       "PanelHeroInfo", "strong_structural_candidate"), references)
+        self.assertTrue(all(r[3].endswith("candidate") or
+                            r[3].endswith("variant") for r in references))
+
     def test_svg_escapes_gameobject_name(self):
         row = {"name":"UI<&", "gameobject_id":"2", "parent_transform_id":"1", "path":"/Root/UI<&",
                "anchor_min":".5,.5", "anchor_max":".5,.5", "pivot":".5,.5",
