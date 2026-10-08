@@ -6,6 +6,8 @@ on:
       - 'tools/analyze_xapk.py'
       - 'tools/unity_index.py'
       - 'tools/ui_hierarchy.py'
+      - 'tools/il2cpp_refs.py'
+      - 'tests/test_il2cpp_refs.py'
       - 'tests/test_ui_hierarchy.py'
       - '.github/workflows/xapk-ui-audit.yml'
   workflow_dispatch:
@@ -78,6 +80,10 @@ jobs:
         run: python -m unittest discover -s tests -p test_ui_hierarchy.py -v
       - name: Map Canvas, UI root candidates and sprite metadata
         run: python tools/ui_hierarchy.py
+      - name: Test IL2CPP metadata and cross-file resolver
+        run: python -m unittest discover -s tests -p test_il2cpp_refs.py -v
+      - name: Identify UI scripts and resolve cross-file pointers
+        run: python tools/il2cpp_refs.py
       - name: Upload analysis report
         if: always()
         uses: actions/upload-artifact@v4
