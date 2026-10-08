@@ -3,6 +3,7 @@
   "linked_images": 16886,
   "unresolved_images": 2757,
   "preview_roots": 13,
+  "reference_previews": 5,
   "unresolved_root_distribution": {
     "Canvas": 452,
     "PopupPlayerInfo3": 92,

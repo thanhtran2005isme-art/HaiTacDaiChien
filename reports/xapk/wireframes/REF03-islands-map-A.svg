@@ -1,0 +1,112 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 976" role="img" aria-label="Schematic of Unity UI layout">
+<rect width="1600" height="976" fill="#0f172a"/>
+<rect width="1600" height="900" fill="#1e293b"/>
+<text x="20" y="927" font-family="sans-serif" font-size="22" fill="#f8fafc">Canvas | 002_UnityDataAssetPack_datapack__file083</text>
+<text x="20" y="953" font-family="sans-serif" font-size="15" fill="#94a3b8">Metadata wireframe | hypothetical 1600x900 viewport | not the actual game screenshot</text>
+<g><title>/Canvas/Image</title><rect x="0.0" y="0.0" width="1600.0" height="900.0" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+<text x="5.0" y="16.0" fill="#e2e8f0" font-size="12" font-family="sans-serif">Image</text>
+</g>
+<g><title>/Canvas/ScrollView | Background</title><rect x="0.0" y="0.0" width="1600.0" height="900.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+<text x="5.0" y="16.0" fill="#e2e8f0" font-size="12" font-family="sans-serif">ScrollView</text>
+</g>
+<g><title>/Canvas/ScrollView/Viewport | UIMask</title><rect x="0.0" y="0.0" width="1600.0" height="900.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+<text x="5.0" y="16.0" fill="#e2e8f0" font-size="12" font-family="sans-serif">Viewport</text>
+</g>
+<g><title>/Canvas/ScrollView/Viewport/Content/ImageBgr | bgr_dummy_home</title><rect x="-700.0" y="465.0" width="1400.0" height="870.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+<text x="-695.0" y="481.0" fill="#e2e8f0" font-size="12" font-family="sans-serif">ImageBgr</text>
+</g>
+<g><title>/Canvas/ScrollView/Viewport/Content/ImageBgr/DumbIsland4 | dumb_island_3</title><rect x="-54.5" y="824.5" width="365.0" height="215.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+<text x="-49.5" y="840.5" fill="#e2e8f0" font-size="12" font-family="sans-serif">DumbIsland4</text>
+</g>
+<g><title>/Canvas/ScrollView/Viewport/Content/ImageBgr/DumbIsland4/TagName | tag_name_home</title><rect x="21.5" y="801.4" width="213.0" height="46.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+<text x="26.5" y="817.4" fill="#e2e8f0" font-size="12" font-family="sans-serif">TagName</text>
+</g>
+<g><title>/Canvas/ScrollView/Viewport/Content/ImageBgr/DumbIsland4/TagName/TextIsland</title><rect x="48.0" y="809.4" width="160.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+<text x="53.0" y="825.4" fill="#e2e8f0" font-size="12" font-family="sans-serif">TextIsland</text>
+</g>
+<g><title>/Canvas/ScrollView/Viewport/Content/ImageBgr/DumbIsland5 | dumb_island_10</title><rect x="-6.0" y="594.5" width="250.0" height="185.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+<text x="-1.0" y="610.5" fill="#e2e8f0" font-size="12" font-family="sans-serif">DumbIsland5</text>
+</g>
+<g><title>/Canvas/ScrollView/Viewport/Content/ImageBgr/DumbIsland5/TagName | tag_name_home</title><rect x="12.5" y="556.4" width="213.0" height="46.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+<text x="17.5" y="572.4" fill="#e2e8f0" font-size="12" font-family="sans-serif">TagName</text>
+</g>
+<g><title>/Canvas/ScrollView/Viewport/Content/ImageBgr/DumbIsland5/TagName/TextIsland</title><rect x="39.0" y="564.4" width="160.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+<text x="44.0" y="580.4" fill="#e2e8f0" font-size="12" font-family="sans-serif">TextIsland</text>
+</g>
+<g><title>/Canvas/ScrollView/Viewport/Content/ImageBgr/DumbIsland5/ImageLock | icon_lock_2</title><rect x="103.0" y="667.0" width="32.0" height="40.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/ScrollView/Viewport/Content/ImageBgr/DumbIsland7 | dumb_island_8</title><rect x="316.0" y="638.5" width="190.0" height="161.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+<text x="321.0" y="654.5" fill="#e2e8f0" font-size="12" font-family="sans-serif">DumbIsland7</text>
+</g>
+<g><title>/Canvas/ScrollView/Viewport/Content/ImageBgr/DumbIsland7/TagName | tag_name_home</title><rect x="304.5" y="588.4" width="213.0" height="46.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+<text x="309.5" y="604.4" fill="#e2e8f0" font-size="12" font-family="sans-serif">TagName</text>
+</g>
+<g><title>/Canvas/ScrollView/Viewport/Content/ImageBgr/DumbIsland7/TagName/TextIsland</title><rect x="331.0" y="596.4" width="160.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+<text x="336.0" y="612.4" fill="#e2e8f0" font-size="12" font-family="sans-serif">TextIsland</text>
+</g>
+<g><title>/Canvas/ScrollView/Viewport/Content/ImageBgr/DumbIsland7/ImageLock | icon_lock_2</title><rect x="395.0" y="699.0" width="32.0" height="40.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/ScrollView/Viewport/Content/ImageBgr/DumbIsland6 | dumb_island_6</title><rect x="320.0" y="814.0" width="284.0" height="182.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+<text x="325.0" y="830.0" fill="#e2e8f0" font-size="12" font-family="sans-serif">DumbIsland6</text>
+</g>
+<g><title>/Canvas/ScrollView/Viewport/Content/ImageBgr/DumbIsland6/TagName | tag_name_home</title><rect x="355.5" y="774.4" width="213.0" height="46.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+<text x="360.5" y="790.4" fill="#e2e8f0" font-size="12" font-family="sans-serif">TagName</text>
+</g>
+<g><title>/Canvas/ScrollView/Viewport/Content/ImageBgr/DumbIsland6/TagName/TextIsland</title><rect x="382.0" y="782.4" width="160.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+<text x="387.0" y="798.4" fill="#e2e8f0" font-size="12" font-family="sans-serif">TextIsland</text>
+</g>
+<g><title>/Canvas/ScrollView/Viewport/Content/ImageBgr/DumbIsland6/ImageLock | icon_lock_2</title><rect x="446.0" y="885.0" width="32.0" height="40.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/ScrollView/Viewport/Content/ImageBgr/GroupDecor/Image (2) | decor_1</title><rect x="531.0" y="653.5" width="152.0" height="91.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+<text x="536.0" y="669.5" fill="#e2e8f0" font-size="12" font-family="sans-serif">Image (2)</text>
+</g>
+<g><title>/Canvas/TopBar | bar_top</title><rect x="0.0" y="-1.0" width="1600.0" height="84.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+<text x="5.0" y="15.0" fill="#e2e8f0" font-size="12" font-family="sans-serif">TopBar</text>
+</g>
+<g><title>/Canvas/TopBar/AnchorTopLeft/TextFieldGem | box_field_1</title><rect x="329.5" y="19.0" width="165.0" height="40.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+<text x="334.5" y="35.0" fill="#e2e8f0" font-size="12" font-family="sans-serif">TextFieldGem</text>
+</g>
+<g><title>/Canvas/TopBar/AnchorTopLeft/TextFieldGem/IconGem | icon_gem</title><rect x="312.0" y="13.0" width="52.0" height="52.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/TopBar/AnchorTopLeft/TextFieldGem/TextGold</title><rect x="339.0" y="15.7" width="160.0" height="40.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+<text x="344.0" y="31.7" fill="#e2e8f0" font-size="12" font-family="sans-serif">TextGold</text>
+</g>
+<g><title>/Canvas/TopBar/AnchorTopLeft/TextFieldGold | box_field_1</title><rect x="143.5" y="19.0" width="165.0" height="40.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+<text x="148.5" y="35.0" fill="#e2e8f0" font-size="12" font-family="sans-serif">TextFieldGold</text>
+</g>
+<g><title>/Canvas/TopBar/AnchorTopLeft/TextFieldGold/IconGold | loot_gold</title><rect x="127.0" y="14.0" width="50.0" height="50.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/TopBar/AnchorTopLeft/TextFieldGold/TextGold</title><rect x="153.0" y="15.7" width="160.0" height="40.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+<text x="158.0" y="31.7" fill="#e2e8f0" font-size="12" font-family="sans-serif">TextGold</text>
+</g>
+<g><title>/Canvas/GroupRightButton/HorButtons/Setting | button_fk_setting</title><rect x="1516.2" y="12.9" width="65.0" height="68.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/GroupRightButton/HorButtons/Setting/Txt</title><rect x="1464.8" y="67.4" width="160.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+<text x="1469.8" y="83.4" fill="#e2e8f0" font-size="12" font-family="sans-serif">Txt</text>
+</g>
+<g><title>/Canvas/GroupRightButton/HorButtons/Mission | button_fk_quest</title><rect x="1426.7" y="16.0" width="73.0" height="65.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/GroupRightButton/HorButtons/Mission/Txt</title><rect x="1383.2" y="59.7" width="160.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+<text x="1388.2" y="75.7" fill="#e2e8f0" font-size="12" font-family="sans-serif">Txt</text>
+</g>
+<g><title>/Canvas/GroupRightButton/HorButtons/Shop | button_fk_shop</title><rect x="1427.2" y="7.3" width="73.0" height="74.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/GroupRightButton/HorButtons/Shop/Txt</title><rect x="1383.8" y="87.3" width="160.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+<text x="1388.8" y="103.3" fill="#e2e8f0" font-size="12" font-family="sans-serif">Txt</text>
+</g>
+<g><title>/Canvas/GroupRightButton/HorButtons/LuckySpin | button_fk_spin</title><rect x="1335.2" y="11.0" width="81.0" height="69.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/GroupRightButton/HorButtons/LuckySpin/Txt</title><rect x="1295.8" y="52.4" width="160.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+<text x="1300.8" y="68.4" fill="#e2e8f0" font-size="12" font-family="sans-serif">Txt</text>
+</g>
+<g><title>/Canvas/GroupRightButton/HorButtons/Boss | button_fk_boss</title><rect x="1242.2" y="12.3" width="80.0" height="68.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/GroupRightButton/HorButtons/Boss/Txt</title><rect x="1202.2" y="53.2" width="160.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+<text x="1207.2" y="69.2" fill="#e2e8f0" font-size="12" font-family="sans-serif">Txt</text>
+</g>
+<g><title>/Canvas/BottomLeftBar/ButtonHeroes | button_fk_heroes</title><rect x="35.5" y="777.0" width="115.0" height="94.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+<text x="40.5" y="793.0" fill="#e2e8f0" font-size="12" font-family="sans-serif">ButtonHeroes</text>
+</g>
+<g><title>/Canvas/BottomRightBar/ButtonFeedback | button_fk_feedback</title><rect x="1491.5" y="806.5" width="79.0" height="67.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+</svg>

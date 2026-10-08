@@ -1,0 +1,6 @@
+reference,bundle,root,root_id,tree_nodes,confidence,svg,linked_images,unresolved_images,notes
+REF01-ship-upgrade,002_UnityDataAssetPack_datapack__file029,Canvas,202,66,strong_structural_candidate,wireframes/REF01-ship-upgrade.svg,32,7,Hypothetical geometry; missing runtime art/Spine state
+REF02-hero-detail,002_UnityDataAssetPack_datapack__file110,PanelHeroInfo,54840,954,strong_structural_candidate,wireframes/REF02-hero-detail.svg,574,45,Hypothetical geometry; missing runtime art/Spine state
+REF03-islands-map-A,002_UnityDataAssetPack_datapack__file083,Canvas,213,70,candidate_unconfirmed_variant,wireframes/REF03-islands-map-A.svg,43,1,Hypothetical geometry; missing runtime art/Spine state
+REF03-islands-map-B,002_UnityDataAssetPack_datapack__file101,Canvas,233,77,candidate_unconfirmed_variant,wireframes/REF03-islands-map-B.svg,49,1,Hypothetical geometry; missing runtime art/Spine state
+REF04-home-crew,002_UnityDataAssetPack_datapack__file025,Canvas,1024,503,strong_structural_candidate,wireframes/REF04-home-crew.svg,265,34,Hypothetical geometry; missing runtime art/Spine state

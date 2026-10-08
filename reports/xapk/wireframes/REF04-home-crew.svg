@@ -1,0 +1,778 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 976" role="img" aria-label="Schematic of Unity UI layout">
+<rect width="1600" height="976" fill="#0f172a"/>
+<rect width="1600" height="900" fill="#1e293b"/>
+<text x="20" y="927" font-family="sans-serif" font-size="22" fill="#f8fafc">Canvas | 002_UnityDataAssetPack_datapack__file025</text>
+<text x="20" y="953" font-family="sans-serif" font-size="15" fill="#94a3b8">Metadata wireframe | hypothetical 1600x900 viewport | not the actual game screenshot</text>
+<g><title>/Canvas/Background/Layer2 | bgr_layer_2</title><rect x="96.0" y="-15.7" width="1408.0" height="583.8" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+<text x="101.0" y="0.3" fill="#e2e8f0" font-size="12" font-family="sans-serif">Layer2</text>
+</g>
+<g><title>/Canvas/Background/SpineChestCrossPuzz/SpineObject</title><rect x="809.0" y="310.0" width="100.0" height="100.0" stroke="#3b82f6" stroke-width="1.2" fill="#3b82f6" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/Background/Layer1 | bgr_layer_1</title><rect x="96.0" y="566.0" width="1408.0" height="355.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+<text x="101.0" y="582.0" fill="#e2e8f0" font-size="12" font-family="sans-serif">Layer1</text>
+</g>
+<g><title>/Canvas/Background/ImagePier | bgr_pier</title><rect x="300.0" y="392.0" width="266.0" height="98.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+<text x="305.0" y="408.0" fill="#e2e8f0" font-size="12" font-family="sans-serif">ImagePier</text>
+</g>
+<g><title>/Canvas/Background/ImageRock | bgr_rock</title><rect x="95.9" y="377.5" width="455.0" height="189.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+<text x="100.9" y="393.5" fill="#e2e8f0" font-size="12" font-family="sans-serif">ImageRock</text>
+</g>
+<g><title>/Canvas/PlayerHeroes/HeroHome2 (0)/GroupHero/CanvasHero/Mesh/Shadow/Image | hero_shadow</title><rect x="306.9" y="556.3" width="164.0" height="65.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+<text x="311.9" y="572.3" fill="#e2e8f0" font-size="12" font-family="sans-serif">Image</text>
+</g>
+<g><title>/Canvas/PlayerHeroes/HeroHome2 (0)/GroupHero/CanvasHero/ClickArea</title><rect x="295.1" y="370.4" width="182.0" height="234.9" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+<text x="300.1" y="386.4" fill="#e2e8f0" font-size="12" font-family="sans-serif">ClickArea</text>
+</g>
+<g><title>/Canvas/PlayerHeroes/HeroHome2 (0)/GroupHero/CanvasHero/SliderHp/Background | progress_buff_bgr</title><rect x="306.1" y="339.5" width="160.0" height="20.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PlayerHeroes/HeroHome2 (0)/GroupHero/CanvasHero/SliderHp/Fill Area/Fill | progress_hp</title><rect x="310.1" y="343.5" width="152.0" height="12.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PlayerHeroes/HeroHome2 (0)/GroupHero/GroupFactionLv/ImageFaction | faction_abyss</title><rect x="323.7" y="373.7" width="38.0" height="38.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PlayerHeroes/HeroHome2 (0)/GroupHero/GroupFactionLv/TextLevel</title><rect x="366.8" y="377.7" width="160.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+<text x="371.8" y="393.7" fill="#e2e8f0" font-size="12" font-family="sans-serif">TextLevel</text>
+</g>
+<g><title>/Canvas/PlayerHeroes/HeroHome2 (0)/GroupHero/GroupFactionLv/TextName</title><rect x="311.3" y="594.8" width="160.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+<text x="316.3" y="610.8" fill="#e2e8f0" font-size="12" font-family="sans-serif">TextName</text>
+</g>
+<g><title>/Canvas/PlayerHeroes/HeroHome2 (0)/GroupHero/GroupStars</title><rect x="336.1" y="299.9" width="100.0" height="100.0" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PlayerHeroes/HeroHome2 (0)/GroupHero/GroupStars/HeroStars/GroupStar1/Star1 | hero_star_1</title><rect x="311.1" y="333.4" width="30.0" height="30.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PlayerHeroes/HeroHome2 (0)/GroupHero/GroupStars/HeroStars/GroupStar1/Star2 | hero_star_1</title><rect x="341.1" y="333.4" width="30.0" height="30.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PlayerHeroes/HeroHome2 (0)/GroupHero/GroupStars/HeroStars/GroupStar1/Star3 | hero_star_1</title><rect x="371.1" y="333.4" width="30.0" height="30.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PlayerHeroes/HeroHome2 (0)/GroupHero/GroupStars/HeroStars/GroupStar1/Star4 | hero_star_1</title><rect x="401.1" y="333.4" width="30.0" height="30.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PlayerHeroes/HeroHome2 (0)/GroupHero/GroupStars/HeroStars/GroupStar1/Star5 | hero_star_1</title><rect x="431.1" y="333.4" width="30.0" height="30.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PlayerHeroes/HeroHome2 (0)/GroupHero/GroupStars/HeroStars/GroupStar6/Star6 | hero_star_2</title><rect x="326.1" y="333.4" width="30.0" height="30.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PlayerHeroes/HeroHome2 (0)/GroupHero/GroupStars/HeroStars/GroupStar6/Star7 | hero_star_2</title><rect x="356.1" y="333.4" width="30.0" height="30.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PlayerHeroes/HeroHome2 (0)/GroupHero/GroupStars/HeroStars/GroupStar6/Star8 | hero_star_2</title><rect x="386.1" y="333.4" width="30.0" height="30.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PlayerHeroes/HeroHome2 (0)/GroupHero/GroupStars/HeroStars/GroupStar6/Star9 | hero_star_2</title><rect x="416.1" y="333.4" width="30.0" height="30.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PlayerHeroes/HeroHome2 (0)/GroupHero/GroupStars/HeroStars/GroupStar10/Star10 | hero_star_3</title><rect x="371.1" y="334.9" width="30.0" height="30.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PlayerHeroes/HeroHome2 (0)/GroupHero/GroupStars/HeroStars/GroupStarE/IconE | star_e_bgr</title><rect x="307.1" y="328.9" width="158.0" height="59.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+<text x="312.1" y="344.9" fill="#e2e8f0" font-size="12" font-family="sans-serif">IconE</text>
+</g>
+<g><title>/Canvas/PlayerHeroes/HeroHome2 (0)/GroupHero/GroupStars/HeroStars/GroupStarE/StarE | hero_star_e</title><rect x="367.1" y="339.4" width="38.0" height="38.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PlayerHeroes/HeroHome2 (0)/GroupHero/GroupStars/HeroStars/GroupStarE/StarE/TextStarE</title><rect x="306.1" y="347.6" width="160.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+<text x="311.1" y="363.6" fill="#e2e8f0" font-size="12" font-family="sans-serif">TextStarE</text>
+</g>
+<g><title>/Canvas/PlayerHeroes/HeroHome2 (5)/GroupHero/CanvasHero/Mesh/Shadow/Image | hero_shadow</title><rect x="1139.8" y="556.3" width="164.0" height="65.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+<text x="1144.8" y="572.3" fill="#e2e8f0" font-size="12" font-family="sans-serif">Image</text>
+</g>
+<g><title>/Canvas/PlayerHeroes/HeroHome2 (5)/GroupHero/CanvasHero/ClickArea</title><rect x="1128.0" y="370.4" width="182.0" height="234.9" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+<text x="1133.0" y="386.4" fill="#e2e8f0" font-size="12" font-family="sans-serif">ClickArea</text>
+</g>
+<g><title>/Canvas/PlayerHeroes/HeroHome2 (5)/GroupHero/CanvasHero/SliderHp/Background | progress_buff_bgr</title><rect x="1139.0" y="339.5" width="160.0" height="20.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PlayerHeroes/HeroHome2 (5)/GroupHero/CanvasHero/SliderHp/Fill Area/Fill | progress_hp</title><rect x="1143.0" y="343.5" width="152.0" height="12.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PlayerHeroes/HeroHome2 (5)/GroupHero/GroupFactionLv/ImageFaction | faction_abyss</title><rect x="1156.6" y="373.7" width="38.0" height="38.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PlayerHeroes/HeroHome2 (5)/GroupHero/GroupFactionLv/TextLevel</title><rect x="1199.7" y="377.7" width="160.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+<text x="1204.7" y="393.7" fill="#e2e8f0" font-size="12" font-family="sans-serif">TextLevel</text>
+</g>
+<g><title>/Canvas/PlayerHeroes/HeroHome2 (5)/GroupHero/GroupFactionLv/TextName</title><rect x="1144.2" y="594.8" width="160.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+<text x="1149.2" y="610.8" fill="#e2e8f0" font-size="12" font-family="sans-serif">TextName</text>
+</g>
+<g><title>/Canvas/PlayerHeroes/HeroHome2 (5)/GroupHero/GroupStars</title><rect x="1169.0" y="299.9" width="100.0" height="100.0" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PlayerHeroes/HeroHome2 (5)/GroupHero/GroupStars/HeroStars/GroupStar1/Star1 | hero_star_1</title><rect x="1144.0" y="333.4" width="30.0" height="30.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PlayerHeroes/HeroHome2 (5)/GroupHero/GroupStars/HeroStars/GroupStar1/Star2 | hero_star_1</title><rect x="1174.0" y="333.4" width="30.0" height="30.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PlayerHeroes/HeroHome2 (5)/GroupHero/GroupStars/HeroStars/GroupStar1/Star3 | hero_star_1</title><rect x="1204.0" y="333.4" width="30.0" height="30.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PlayerHeroes/HeroHome2 (5)/GroupHero/GroupStars/HeroStars/GroupStar1/Star4 | hero_star_1</title><rect x="1234.0" y="333.4" width="30.0" height="30.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PlayerHeroes/HeroHome2 (5)/GroupHero/GroupStars/HeroStars/GroupStar1/Star5 | hero_star_1</title><rect x="1264.0" y="333.4" width="30.0" height="30.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PlayerHeroes/HeroHome2 (5)/GroupHero/GroupStars/HeroStars/GroupStar6/Star6 | hero_star_2</title><rect x="1159.0" y="333.4" width="30.0" height="30.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PlayerHeroes/HeroHome2 (5)/GroupHero/GroupStars/HeroStars/GroupStar6/Star7 | hero_star_2</title><rect x="1189.0" y="333.4" width="30.0" height="30.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PlayerHeroes/HeroHome2 (5)/GroupHero/GroupStars/HeroStars/GroupStar6/Star8 | hero_star_2</title><rect x="1219.0" y="333.4" width="30.0" height="30.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PlayerHeroes/HeroHome2 (5)/GroupHero/GroupStars/HeroStars/GroupStar6/Star9 | hero_star_2</title><rect x="1249.0" y="333.4" width="30.0" height="30.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PlayerHeroes/HeroHome2 (5)/GroupHero/GroupStars/HeroStars/GroupStar10/Star10 | hero_star_3</title><rect x="1204.0" y="334.9" width="30.0" height="30.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PlayerHeroes/HeroHome2 (5)/GroupHero/GroupStars/HeroStars/GroupStarE/IconE | star_e_bgr</title><rect x="1140.0" y="328.9" width="158.0" height="59.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+<text x="1145.0" y="344.9" fill="#e2e8f0" font-size="12" font-family="sans-serif">IconE</text>
+</g>
+<g><title>/Canvas/PlayerHeroes/HeroHome2 (5)/GroupHero/GroupStars/HeroStars/GroupStarE/StarE | hero_star_e</title><rect x="1200.0" y="339.4" width="38.0" height="38.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PlayerHeroes/HeroHome2 (5)/GroupHero/GroupStars/HeroStars/GroupStarE/StarE/TextStarE</title><rect x="1139.0" y="347.6" width="160.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+<text x="1144.0" y="363.6" fill="#e2e8f0" font-size="12" font-family="sans-serif">TextStarE</text>
+</g>
+<g><title>/Canvas/PlayerHeroes/HeroHome2 (1)/GroupHero/CanvasHero/Mesh/Shadow/Image | hero_shadow</title><rect x="469.8" y="574.1" width="164.0" height="65.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+<text x="474.8" y="590.1" fill="#e2e8f0" font-size="12" font-family="sans-serif">Image</text>
+</g>
+<g><title>/Canvas/PlayerHeroes/HeroHome2 (1)/GroupHero/CanvasHero/ClickArea</title><rect x="458.0" y="388.1" width="182.0" height="234.9" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+<text x="463.0" y="404.1" fill="#e2e8f0" font-size="12" font-family="sans-serif">ClickArea</text>
+</g>
+<g><title>/Canvas/PlayerHeroes/HeroHome2 (1)/GroupHero/CanvasHero/SliderHp/Background | progress_buff_bgr</title><rect x="469.0" y="357.3" width="160.0" height="20.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PlayerHeroes/HeroHome2 (1)/GroupHero/CanvasHero/SliderHp/Fill Area/Fill | progress_hp</title><rect x="473.0" y="361.3" width="152.0" height="12.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PlayerHeroes/HeroHome2 (1)/GroupHero/GroupFactionLv/ImageFaction | faction_abyss</title><rect x="486.6" y="391.5" width="38.0" height="38.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PlayerHeroes/HeroHome2 (1)/GroupHero/GroupFactionLv/TextLevel</title><rect x="529.7" y="395.5" width="160.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+<text x="534.7" y="411.5" fill="#e2e8f0" font-size="12" font-family="sans-serif">TextLevel</text>
+</g>
+<g><title>/Canvas/PlayerHeroes/HeroHome2 (1)/GroupHero/GroupFactionLv/TextName</title><rect x="474.2" y="612.6" width="160.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+<text x="479.2" y="628.6" fill="#e2e8f0" font-size="12" font-family="sans-serif">TextName</text>
+</g>
+<g><title>/Canvas/PlayerHeroes/HeroHome2 (1)/GroupHero/GroupStars</title><rect x="499.0" y="317.7" width="100.0" height="100.0" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PlayerHeroes/HeroHome2 (1)/GroupHero/GroupStars/HeroStars/GroupStar1/Star1 | hero_star_1</title><rect x="474.0" y="351.2" width="30.0" height="30.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PlayerHeroes/HeroHome2 (1)/GroupHero/GroupStars/HeroStars/GroupStar1/Star2 | hero_star_1</title><rect x="504.0" y="351.2" width="30.0" height="30.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PlayerHeroes/HeroHome2 (1)/GroupHero/GroupStars/HeroStars/GroupStar1/Star3 | hero_star_1</title><rect x="534.0" y="351.2" width="30.0" height="30.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PlayerHeroes/HeroHome2 (1)/GroupHero/GroupStars/HeroStars/GroupStar1/Star4 | hero_star_1</title><rect x="564.0" y="351.2" width="30.0" height="30.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PlayerHeroes/HeroHome2 (1)/GroupHero/GroupStars/HeroStars/GroupStar1/Star5 | hero_star_1</title><rect x="594.0" y="351.2" width="30.0" height="30.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PlayerHeroes/HeroHome2 (1)/GroupHero/GroupStars/HeroStars/GroupStar6/Star6 | hero_star_2</title><rect x="489.0" y="351.2" width="30.0" height="30.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PlayerHeroes/HeroHome2 (1)/GroupHero/GroupStars/HeroStars/GroupStar6/Star7 | hero_star_2</title><rect x="519.0" y="351.2" width="30.0" height="30.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PlayerHeroes/HeroHome2 (1)/GroupHero/GroupStars/HeroStars/GroupStar6/Star8 | hero_star_2</title><rect x="549.0" y="351.2" width="30.0" height="30.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PlayerHeroes/HeroHome2 (1)/GroupHero/GroupStars/HeroStars/GroupStar6/Star9 | hero_star_2</title><rect x="579.0" y="351.2" width="30.0" height="30.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PlayerHeroes/HeroHome2 (1)/GroupHero/GroupStars/HeroStars/GroupStar10/Star10 | hero_star_3</title><rect x="534.0" y="352.7" width="30.0" height="30.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PlayerHeroes/HeroHome2 (1)/GroupHero/GroupStars/HeroStars/GroupStarE/IconE | star_e_bgr</title><rect x="470.0" y="346.7" width="158.0" height="59.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+<text x="475.0" y="362.7" fill="#e2e8f0" font-size="12" font-family="sans-serif">IconE</text>
+</g>
+<g><title>/Canvas/PlayerHeroes/HeroHome2 (1)/GroupHero/GroupStars/HeroStars/GroupStarE/StarE | hero_star_e</title><rect x="530.0" y="357.2" width="38.0" height="38.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PlayerHeroes/HeroHome2 (1)/GroupHero/GroupStars/HeroStars/GroupStarE/StarE/TextStarE</title><rect x="469.0" y="365.4" width="160.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+<text x="474.0" y="381.4" fill="#e2e8f0" font-size="12" font-family="sans-serif">TextStarE</text>
+</g>
+<g><title>/Canvas/PlayerHeroes/HeroHome2 (4)/GroupHero/CanvasHero/Mesh/Shadow/Image | hero_shadow</title><rect x="970.8" y="574.1" width="164.0" height="65.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+<text x="975.8" y="590.1" fill="#e2e8f0" font-size="12" font-family="sans-serif">Image</text>
+</g>
+<g><title>/Canvas/PlayerHeroes/HeroHome2 (4)/GroupHero/CanvasHero/ClickArea</title><rect x="959.0" y="388.1" width="182.0" height="234.9" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+<text x="964.0" y="404.1" fill="#e2e8f0" font-size="12" font-family="sans-serif">ClickArea</text>
+</g>
+<g><title>/Canvas/PlayerHeroes/HeroHome2 (4)/GroupHero/CanvasHero/SliderHp/Background | progress_buff_bgr</title><rect x="970.0" y="357.3" width="160.0" height="20.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PlayerHeroes/HeroHome2 (4)/GroupHero/CanvasHero/SliderHp/Fill Area/Fill | progress_hp</title><rect x="974.0" y="361.3" width="152.0" height="12.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PlayerHeroes/HeroHome2 (4)/GroupHero/GroupFactionLv/ImageFaction | faction_abyss</title><rect x="987.6" y="391.5" width="38.0" height="38.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PlayerHeroes/HeroHome2 (4)/GroupHero/GroupFactionLv/TextLevel</title><rect x="1030.7" y="395.5" width="160.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+<text x="1035.7" y="411.5" fill="#e2e8f0" font-size="12" font-family="sans-serif">TextLevel</text>
+</g>
+<g><title>/Canvas/PlayerHeroes/HeroHome2 (4)/GroupHero/GroupFactionLv/TextName</title><rect x="975.2" y="612.6" width="160.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+<text x="980.2" y="628.6" fill="#e2e8f0" font-size="12" font-family="sans-serif">TextName</text>
+</g>
+<g><title>/Canvas/PlayerHeroes/HeroHome2 (4)/GroupHero/GroupStars</title><rect x="1000.0" y="317.7" width="100.0" height="100.0" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PlayerHeroes/HeroHome2 (4)/GroupHero/GroupStars/HeroStars/GroupStar1/Star1 | hero_star_1</title><rect x="975.0" y="351.2" width="30.0" height="30.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PlayerHeroes/HeroHome2 (4)/GroupHero/GroupStars/HeroStars/GroupStar1/Star2 | hero_star_1</title><rect x="1005.0" y="351.2" width="30.0" height="30.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PlayerHeroes/HeroHome2 (4)/GroupHero/GroupStars/HeroStars/GroupStar1/Star3 | hero_star_1</title><rect x="1035.0" y="351.2" width="30.0" height="30.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PlayerHeroes/HeroHome2 (4)/GroupHero/GroupStars/HeroStars/GroupStar1/Star4 | hero_star_1</title><rect x="1065.0" y="351.2" width="30.0" height="30.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PlayerHeroes/HeroHome2 (4)/GroupHero/GroupStars/HeroStars/GroupStar1/Star5 | hero_star_1</title><rect x="1095.0" y="351.2" width="30.0" height="30.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PlayerHeroes/HeroHome2 (4)/GroupHero/GroupStars/HeroStars/GroupStar6/Star6 | hero_star_2</title><rect x="990.0" y="351.2" width="30.0" height="30.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PlayerHeroes/HeroHome2 (4)/GroupHero/GroupStars/HeroStars/GroupStar6/Star7 | hero_star_2</title><rect x="1020.0" y="351.2" width="30.0" height="30.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PlayerHeroes/HeroHome2 (4)/GroupHero/GroupStars/HeroStars/GroupStar6/Star8 | hero_star_2</title><rect x="1050.0" y="351.2" width="30.0" height="30.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PlayerHeroes/HeroHome2 (4)/GroupHero/GroupStars/HeroStars/GroupStar6/Star9 | hero_star_2</title><rect x="1080.0" y="351.2" width="30.0" height="30.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PlayerHeroes/HeroHome2 (4)/GroupHero/GroupStars/HeroStars/GroupStar10/Star10 | hero_star_3</title><rect x="1035.0" y="352.7" width="30.0" height="30.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PlayerHeroes/HeroHome2 (4)/GroupHero/GroupStars/HeroStars/GroupStarE/IconE | star_e_bgr</title><rect x="971.0" y="346.7" width="158.0" height="59.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+<text x="976.0" y="362.7" fill="#e2e8f0" font-size="12" font-family="sans-serif">IconE</text>
+</g>
+<g><title>/Canvas/PlayerHeroes/HeroHome2 (4)/GroupHero/GroupStars/HeroStars/GroupStarE/StarE | hero_star_e</title><rect x="1031.0" y="357.2" width="38.0" height="38.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PlayerHeroes/HeroHome2 (4)/GroupHero/GroupStars/HeroStars/GroupStarE/StarE/TextStarE</title><rect x="970.0" y="365.4" width="160.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+<text x="975.0" y="381.4" fill="#e2e8f0" font-size="12" font-family="sans-serif">TextStarE</text>
+</g>
+<g><title>/Canvas/PlayerHeroes/HeroHome2 (3)/GroupHero/CanvasHero/Mesh/Shadow/Image | hero_shadow</title><rect x="794.8" y="580.8" width="164.0" height="65.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+<text x="799.8" y="596.8" fill="#e2e8f0" font-size="12" font-family="sans-serif">Image</text>
+</g>
+<g><title>/Canvas/PlayerHeroes/HeroHome2 (3)/GroupHero/CanvasHero/ClickArea</title><rect x="783.0" y="394.9" width="182.0" height="234.9" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+<text x="788.0" y="410.9" fill="#e2e8f0" font-size="12" font-family="sans-serif">ClickArea</text>
+</g>
+<g><title>/Canvas/PlayerHeroes/HeroHome2 (3)/GroupHero/CanvasHero/SliderHp/Background | progress_buff_bgr</title><rect x="794.0" y="364.0" width="160.0" height="20.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PlayerHeroes/HeroHome2 (3)/GroupHero/CanvasHero/SliderHp/Fill Area/Fill | progress_hp</title><rect x="798.0" y="368.0" width="152.0" height="12.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PlayerHeroes/HeroHome2 (3)/GroupHero/GroupFactionLv/ImageFaction | faction_abyss</title><rect x="811.6" y="398.2" width="38.0" height="38.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PlayerHeroes/HeroHome2 (3)/GroupHero/GroupFactionLv/TextLevel</title><rect x="854.7" y="402.2" width="160.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+<text x="859.7" y="418.2" fill="#e2e8f0" font-size="12" font-family="sans-serif">TextLevel</text>
+</g>
+<g><title>/Canvas/PlayerHeroes/HeroHome2 (3)/GroupHero/GroupFactionLv/TextName</title><rect x="799.2" y="619.3" width="160.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+<text x="804.2" y="635.3" fill="#e2e8f0" font-size="12" font-family="sans-serif">TextName</text>
+</g>
+<g><title>/Canvas/PlayerHeroes/HeroHome2 (3)/GroupHero/GroupStars</title><rect x="824.0" y="324.4" width="100.0" height="100.0" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PlayerHeroes/HeroHome2 (3)/GroupHero/GroupStars/HeroStars/GroupStar1/Star1 | hero_star_1</title><rect x="799.0" y="357.9" width="30.0" height="30.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PlayerHeroes/HeroHome2 (3)/GroupHero/GroupStars/HeroStars/GroupStar1/Star2 | hero_star_1</title><rect x="829.0" y="357.9" width="30.0" height="30.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PlayerHeroes/HeroHome2 (3)/GroupHero/GroupStars/HeroStars/GroupStar1/Star3 | hero_star_1</title><rect x="859.0" y="357.9" width="30.0" height="30.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PlayerHeroes/HeroHome2 (3)/GroupHero/GroupStars/HeroStars/GroupStar1/Star4 | hero_star_1</title><rect x="889.0" y="357.9" width="30.0" height="30.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PlayerHeroes/HeroHome2 (3)/GroupHero/GroupStars/HeroStars/GroupStar1/Star5 | hero_star_1</title><rect x="919.0" y="357.9" width="30.0" height="30.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PlayerHeroes/HeroHome2 (3)/GroupHero/GroupStars/HeroStars/GroupStar6/Star6 | hero_star_2</title><rect x="814.0" y="357.9" width="30.0" height="30.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PlayerHeroes/HeroHome2 (3)/GroupHero/GroupStars/HeroStars/GroupStar6/Star7 | hero_star_2</title><rect x="844.0" y="357.9" width="30.0" height="30.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PlayerHeroes/HeroHome2 (3)/GroupHero/GroupStars/HeroStars/GroupStar6/Star8 | hero_star_2</title><rect x="874.0" y="357.9" width="30.0" height="30.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PlayerHeroes/HeroHome2 (3)/GroupHero/GroupStars/HeroStars/GroupStar6/Star9 | hero_star_2</title><rect x="904.0" y="357.9" width="30.0" height="30.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PlayerHeroes/HeroHome2 (3)/GroupHero/GroupStars/HeroStars/GroupStar10/Star10 | hero_star_3</title><rect x="859.0" y="359.4" width="30.0" height="30.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PlayerHeroes/HeroHome2 (3)/GroupHero/GroupStars/HeroStars/GroupStarE/IconE | star_e_bgr</title><rect x="795.0" y="353.4" width="158.0" height="59.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+<text x="800.0" y="369.4" fill="#e2e8f0" font-size="12" font-family="sans-serif">IconE</text>
+</g>
+<g><title>/Canvas/PlayerHeroes/HeroHome2 (3)/GroupHero/GroupStars/HeroStars/GroupStarE/StarE | hero_star_e</title><rect x="855.0" y="363.9" width="38.0" height="38.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PlayerHeroes/HeroHome2 (3)/GroupHero/GroupStars/HeroStars/GroupStarE/StarE/TextStarE</title><rect x="794.0" y="372.1" width="160.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+<text x="799.0" y="388.1" fill="#e2e8f0" font-size="12" font-family="sans-serif">TextStarE</text>
+</g>
+<g><title>/Canvas/PlayerHeroes/HeroHome2 (2)/GroupHero/CanvasHero/Mesh/Shadow/Image | hero_shadow</title><rect x="629.8" y="579.8" width="164.0" height="65.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+<text x="634.8" y="595.8" fill="#e2e8f0" font-size="12" font-family="sans-serif">Image</text>
+</g>
+<g><title>/Canvas/PlayerHeroes/HeroHome2 (2)/GroupHero/CanvasHero/ClickArea</title><rect x="618.0" y="393.9" width="182.0" height="234.9" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+<text x="623.0" y="409.9" fill="#e2e8f0" font-size="12" font-family="sans-serif">ClickArea</text>
+</g>
+<g><title>/Canvas/PlayerHeroes/HeroHome2 (2)/GroupHero/CanvasHero/SliderHp/Background | progress_buff_bgr</title><rect x="629.0" y="363.0" width="160.0" height="20.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PlayerHeroes/HeroHome2 (2)/GroupHero/CanvasHero/SliderHp/Fill Area/Fill | progress_hp</title><rect x="633.0" y="367.0" width="152.0" height="12.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PlayerHeroes/HeroHome2 (2)/GroupHero/GroupFactionLv/ImageFaction | faction_abyss</title><rect x="646.6" y="397.2" width="38.0" height="38.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PlayerHeroes/HeroHome2 (2)/GroupHero/GroupFactionLv/TextLevel</title><rect x="689.7" y="401.2" width="160.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+<text x="694.7" y="417.2" fill="#e2e8f0" font-size="12" font-family="sans-serif">TextLevel</text>
+</g>
+<g><title>/Canvas/PlayerHeroes/HeroHome2 (2)/GroupHero/GroupFactionLv/TextName</title><rect x="634.2" y="618.3" width="160.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+<text x="639.2" y="634.3" fill="#e2e8f0" font-size="12" font-family="sans-serif">TextName</text>
+</g>
+<g><title>/Canvas/PlayerHeroes/HeroHome2 (2)/GroupHero/GroupStars</title><rect x="659.0" y="323.4" width="100.0" height="100.0" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PlayerHeroes/HeroHome2 (2)/GroupHero/GroupStars/HeroStars/GroupStar1/Star1 | hero_star_1</title><rect x="634.0" y="356.9" width="30.0" height="30.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PlayerHeroes/HeroHome2 (2)/GroupHero/GroupStars/HeroStars/GroupStar1/Star2 | hero_star_1</title><rect x="664.0" y="356.9" width="30.0" height="30.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PlayerHeroes/HeroHome2 (2)/GroupHero/GroupStars/HeroStars/GroupStar1/Star3 | hero_star_1</title><rect x="694.0" y="356.9" width="30.0" height="30.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PlayerHeroes/HeroHome2 (2)/GroupHero/GroupStars/HeroStars/GroupStar1/Star4 | hero_star_1</title><rect x="724.0" y="356.9" width="30.0" height="30.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PlayerHeroes/HeroHome2 (2)/GroupHero/GroupStars/HeroStars/GroupStar1/Star5 | hero_star_1</title><rect x="754.0" y="356.9" width="30.0" height="30.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PlayerHeroes/HeroHome2 (2)/GroupHero/GroupStars/HeroStars/GroupStar6/Star6 | hero_star_2</title><rect x="649.0" y="356.9" width="30.0" height="30.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PlayerHeroes/HeroHome2 (2)/GroupHero/GroupStars/HeroStars/GroupStar6/Star7 | hero_star_2</title><rect x="679.0" y="356.9" width="30.0" height="30.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PlayerHeroes/HeroHome2 (2)/GroupHero/GroupStars/HeroStars/GroupStar6/Star8 | hero_star_2</title><rect x="709.0" y="356.9" width="30.0" height="30.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PlayerHeroes/HeroHome2 (2)/GroupHero/GroupStars/HeroStars/GroupStar6/Star9 | hero_star_2</title><rect x="739.0" y="356.9" width="30.0" height="30.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PlayerHeroes/HeroHome2 (2)/GroupHero/GroupStars/HeroStars/GroupStar10/Star10 | hero_star_3</title><rect x="694.0" y="358.4" width="30.0" height="30.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PlayerHeroes/HeroHome2 (2)/GroupHero/GroupStars/HeroStars/GroupStarE/IconE | star_e_bgr</title><rect x="630.0" y="352.4" width="158.0" height="59.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+<text x="635.0" y="368.4" fill="#e2e8f0" font-size="12" font-family="sans-serif">IconE</text>
+</g>
+<g><title>/Canvas/PlayerHeroes/HeroHome2 (2)/GroupHero/GroupStars/HeroStars/GroupStarE/StarE | hero_star_e</title><rect x="690.0" y="362.9" width="38.0" height="38.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PlayerHeroes/HeroHome2 (2)/GroupHero/GroupStars/HeroStars/GroupStarE/StarE/TextStarE</title><rect x="629.0" y="371.1" width="160.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+<text x="634.0" y="387.1" fill="#e2e8f0" font-size="12" font-family="sans-serif">TextStarE</text>
+</g>
+<g><title>/Canvas/BarTop | bar_home2_top</title><rect x="0.0" y="-0.5" width="1600.0" height="33.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+<text x="5.0" y="15.5" fill="#e2e8f0" font-size="12" font-family="sans-serif">BarTop</text>
+</g>
+<g><title>/Canvas/TopResource/TextFieldGem | field_res_home</title><rect x="822.0" y="11.4" width="190.0" height="48.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+<text x="827.0" y="27.4" fill="#e2e8f0" font-size="12" font-family="sans-serif">TextFieldGem</text>
+</g>
+<g><title>/Canvas/TopResource/TextFieldGem/IconGem | icon_gem</title><rect x="802.0" y="10.4" width="50.0" height="50.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/TopResource/TextFieldGem/TextGem</title><rect x="832.0" y="17.4" width="150.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+<text x="837.0" y="33.4" fill="#e2e8f0" font-size="12" font-family="sans-serif">TextGem</text>
+</g>
+<g><title>/Canvas/TopResource/TextFieldGem/ButtonAddGem | btn_Action</title><rect x="819.7" y="10.4" width="190.0" height="49.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+<text x="824.7" y="26.4" fill="#e2e8f0" font-size="12" font-family="sans-serif">ButtonAddGem</text>
+</g>
+<g><title>/Canvas/TopResource/TextFieldGem/ButtonAddGem/Image | button_add_home</title><rect x="970.8" y="16.9" width="36.0" height="36.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/TopResource/TextFieldGold | field_res_home</title><rect x="595.0" y="11.4" width="190.0" height="48.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+<text x="600.0" y="27.4" fill="#e2e8f0" font-size="12" font-family="sans-serif">TextFieldGold</text>
+</g>
+<g><title>/Canvas/TopResource/TextFieldGold/IconGold | icon_gold</title><rect x="573.0" y="10.4" width="50.0" height="50.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/TopResource/TextFieldGold/TextGold</title><rect x="605.0" y="17.4" width="150.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+<text x="610.0" y="33.4" fill="#e2e8f0" font-size="12" font-family="sans-serif">TextGold</text>
+</g>
+<g><title>/Canvas/TopResource/TextFieldGold/ButtonAddGold | btn_Action</title><rect x="595.0" y="11.4" width="190.0" height="48.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+<text x="600.0" y="27.4" fill="#e2e8f0" font-size="12" font-family="sans-serif">ButtonAddGold</text>
+</g>
+<g><title>/Canvas/TopResource/TextFieldGold/ButtonAddGold/Image | button_add_home</title><rect x="742.7" y="17.4" width="36.0" height="36.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/TopResource/TextFieldGold/NotifyHandMidas | notify_dot</title><rect x="765.3" y="7.0" width="30.0" height="30.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PaneHomeCenter/GroupButtons/ButtonFirstPurchase | icon_nap_dau</title><rect x="263.0" y="126.0" width="74.0" height="78.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PaneHomeCenter/GroupButtons/ButtonFirstPurchase/TextButton</title><rect x="269.0" y="156.0" width="62.0" height="62.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PaneHomeCenter/GroupButtons/ButtonFirstPurchase/NotifyEvent | notify_dot</title><rect x="310.7" y="122.3" width="32.0" height="32.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PaneHomeCenter/GroupButtons/ButtonRollcall | home2_rollcall</title><rect x="263.0" y="126.0" width="74.0" height="78.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PaneHomeCenter/GroupButtons/ButtonRollcall/TextButton</title><rect x="269.0" y="156.0" width="62.0" height="62.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PaneHomeCenter/GroupButtons/ButtonRollcall/GoNotify | notify_dot</title><rect x="313.7" y="119.3" width="32.0" height="32.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PaneHomeCenter/GroupButtons/ButtonLuckySpin | home2_lucky</title><rect x="263.0" y="126.0" width="74.0" height="78.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PaneHomeCenter/GroupButtons/ButtonLuckySpin/TextButton</title><rect x="269.0" y="156.0" width="62.0" height="62.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PaneHomeCenter/GroupButtons/ButtonEvents | home2_events</title><rect x="263.0" y="126.0" width="74.0" height="78.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PaneHomeCenter/GroupButtons/ButtonEvents/TextButton</title><rect x="269.0" y="156.0" width="62.0" height="62.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PaneHomeCenter/GroupButtons/ButtonEvents/NotifyEvent | notify_dot</title><rect x="310.7" y="122.3" width="32.0" height="32.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PanelHomeTopLeft/PlayerInfo | home2_bar_info</title><rect x="55.7" y="10.9" width="290.0" height="82.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+<text x="60.7" y="26.9" fill="#e2e8f0" font-size="12" font-family="sans-serif">PlayerInfo</text>
+</g>
+<g><title>/Canvas/PanelHomeTopLeft/PlayerInfo/Board | board_player</title><rect x="51.5" y="8.8" width="244.0" height="91.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+<text x="56.5" y="24.8" fill="#e2e8f0" font-size="12" font-family="sans-serif">Board</text>
+</g>
+<g><title>/Canvas/PanelHomeTopLeft/PlayerInfo/GroupAvatar</title><rect x="6.1" y="5.2" width="100.0" height="100.0" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PanelHomeTopLeft/PlayerInfo/GroupAvatar/Mask | mask_item</title><rect x="10.1" y="9.2" width="92.0" height="92.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PanelHomeTopLeft/PlayerInfo/GroupAvatar/Mask/Background | bgr_avatar</title><rect x="11.1" y="10.2" width="90.0" height="90.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PanelHomeTopLeft/PlayerInfo/GroupAvatar/Mask/ImageAvatar | 123</title><rect x="11.1" y="10.2" width="90.0" height="90.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PanelHomeTopLeft/PlayerInfo/GroupAvatar/ImageFrame | home2_frame_avatar</title><rect x="6.1" y="5.2" width="100.0" height="100.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PanelHomeTopLeft/PlayerInfo/GroupAvatar/FrameVip | frame_vip</title><rect x="-12.2" y="15.3" width="129.0" height="95.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+<text x="-7.2" y="31.3" fill="#e2e8f0" font-size="12" font-family="sans-serif">FrameVip</text>
+</g>
+<g><title>/Canvas/PanelHomeTopLeft/PlayerInfo/GroupAvatar/FrameVip/TextVip</title><rect x="4.5" y="74.1" width="92.1" height="40.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PanelHomeTopLeft/PlayerInfo/TextPlayername</title><rect x="114.6" y="16.5" width="173.1" height="40.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+<text x="119.6" y="32.5" fill="#e2e8f0" font-size="12" font-family="sans-serif">TextPlayername</text>
+</g>
+<g><title>/Canvas/PanelHomeTopLeft/PlayerInfo/TextLv</title><rect x="118.8" y="49.9" width="92.1" height="40.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PanelHomeTopLeft/PanelHomeQuest/Content/ImageBox | box_home_quest</title><rect x="11.8" y="127.5" width="262.0" height="93.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+<text x="16.8" y="143.5" fill="#e2e8f0" font-size="12" font-family="sans-serif">ImageBox</text>
+</g>
+<g><title>/Canvas/PanelHomeTopLeft/PanelHomeQuest/Content/ItemWrapper/GameItem/ItemShardUI</title><rect x="-6.2" y="125.9" width="92.0" height="92.0" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PanelHomeTopLeft/PanelHomeQuest/Content/ItemWrapper/GameItem/ItemShardUI/Mask | bgr_light</title><rect x="-1.2" y="130.9" width="82.0" height="82.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PanelHomeTopLeft/PanelHomeQuest/Content/ItemWrapper/GameItem/ItemShardUI/Mask/ImageBgr | bgr_item_consumable</title><rect x="-5.2" y="126.9" width="90.0" height="90.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PanelHomeTopLeft/PanelHomeQuest/Content/ItemWrapper/GameItem/ItemShardUI/Mask/ImageItem | item_transparent</title><rect x="-2.2" y="129.9" width="84.0" height="84.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PanelHomeTopLeft/PanelHomeQuest/Content/ItemWrapper/GameItem/ItemShardUI/Mask/Check</title><rect x="-10.2" y="121.9" width="100.0" height="100.0" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PanelHomeTopLeft/PanelHomeQuest/Content/ItemWrapper/GameItem/ItemShardUI/Mask/Check/Image | tick_green</title><rect x="11.3" y="146.4" width="57.0" height="51.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PanelHomeTopLeft/PanelHomeQuest/Content/ItemWrapper/GameItem/ItemShardUI/ImageBorder | border_item</title><rect x="-5.2" y="126.9" width="90.0" height="90.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PanelHomeTopLeft/PanelHomeQuest/Content/ItemWrapper/GameItem/ItemShardUI/IconHeroFaction | faction_abyss</title><rect x="-3.7" y="128.0" width="30.0" height="30.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PanelHomeTopLeft/PanelHomeQuest/Content/ItemWrapper/GameItem/ItemShardUI/IconShard | icon_shard</title><rect x="57.1" y="128.1" width="28.0" height="28.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PanelHomeTopLeft/PanelHomeQuest/Content/ItemWrapper/GameItem/ItemShardUI/ShardStar/Star1 | hero_star_1</title><rect x="4.8" y="193.5" width="18.0" height="18.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PanelHomeTopLeft/PanelHomeQuest/Content/ItemWrapper/GameItem/ItemShardUI/ShardStar/Star1 | hero_star_1</title><rect x="17.8" y="193.5" width="18.0" height="18.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PanelHomeTopLeft/PanelHomeQuest/Content/ItemWrapper/GameItem/ItemShardUI/ShardStar/Star1 | hero_star_1</title><rect x="30.8" y="193.5" width="18.0" height="18.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PanelHomeTopLeft/PanelHomeQuest/Content/ItemWrapper/GameItem/ItemShardUI/ShardStar/Star1 | hero_star_1</title><rect x="43.8" y="193.5" width="18.0" height="18.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PanelHomeTopLeft/PanelHomeQuest/Content/ItemWrapper/GameItem/ItemShardUI/ShardStar/Star1 | hero_star_1</title><rect x="56.8" y="193.5" width="18.0" height="18.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PanelHomeTopLeft/PanelHomeQuest/Content/ItemWrapper/GameItem/ItemShardUI/TextNumber2</title><rect x="6.4" y="176.8" width="72.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PanelHomeTopLeft/PanelHomeQuest/Content/ItemWrapper/GameItem/ItemShardUI/Slider/Background | Background</title><rect x="-5.2" y="217.9" width="90.0" height="20.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PanelHomeTopLeft/PanelHomeQuest/Content/ItemWrapper/GameItem/ItemShardUI/Slider/Fill Area/Fill | UISprite</title><rect x="-5.2" y="217.9" width="90.0" height="20.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PanelHomeTopLeft/PanelHomeQuest/Content/ItemWrapper/GameItem/ItemShardUI/Slider/TextNumber</title><rect x="-0.2" y="217.1" width="80.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PanelHomeTopLeft/PanelHomeQuest/Content/ItemWrapper/GameItem/ItemAvatarUI</title><rect x="-6.2" y="125.9" width="92.0" height="92.0" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PanelHomeTopLeft/PanelHomeQuest/Content/ItemWrapper/GameItem/ItemAvatarUI/Mask | mask_item</title><rect x="-2.2" y="129.9" width="84.0" height="84.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PanelHomeTopLeft/PanelHomeQuest/Content/ItemWrapper/GameItem/ItemAvatarUI/Mask/ImageBgr | bgr_item_consumable</title><rect x="-2.2" y="129.9" width="84.0" height="84.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PanelHomeTopLeft/PanelHomeQuest/Content/ItemWrapper/GameItem/ItemAvatarUI/Mask/ImageAvatar | item_transparent</title><rect x="-2.2" y="129.9" width="84.0" height="84.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PanelHomeTopLeft/PanelHomeQuest/Content/ItemWrapper/GameItem/ItemAvatarUI/ImageBorder | border_item</title><rect x="-6.2" y="125.9" width="92.0" height="92.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PanelHomeTopLeft/PanelHomeQuest/Content/ItemWrapper/GameItem/ItemVipExpUI</title><rect x="-6.2" y="125.9" width="92.0" height="92.0" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PanelHomeTopLeft/PanelHomeQuest/Content/ItemWrapper/GameItem/ItemVipExpUI/Mask | mask_item</title><rect x="-2.2" y="129.9" width="84.0" height="84.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PanelHomeTopLeft/PanelHomeQuest/Content/ItemWrapper/GameItem/ItemVipExpUI/Mask/ImageBgr | bgr_item_consumable</title><rect x="-2.2" y="129.9" width="84.0" height="84.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PanelHomeTopLeft/PanelHomeQuest/Content/ItemWrapper/GameItem/ItemVipExpUI/Mask/ImageItem | icon_exp_vip</title><rect x="-0.2" y="131.9" width="80.0" height="80.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PanelHomeTopLeft/PanelHomeQuest/Content/ItemWrapper/GameItem/ItemVipExpUI/ImageBorder | border_item</title><rect x="-6.2" y="125.9" width="92.0" height="92.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PanelHomeTopLeft/PanelHomeQuest/Content/ItemWrapper/GameItem/ItemVipExpUI/TextNumber</title><rect x="7.0" y="187.2" width="72.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PanelHomeTopLeft/PanelHomeQuest/Content/ItemWrapper/GameItem/ItemArtifactUI</title><rect x="-6.2" y="125.9" width="92.0" height="92.0" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PanelHomeTopLeft/PanelHomeQuest/Content/ItemWrapper/GameItem/ItemArtifactUI/ImageFrame | frame_item</title><rect x="-5.2" y="126.9" width="90.0" height="90.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PanelHomeTopLeft/PanelHomeQuest/Content/ItemWrapper/GameItem/ItemArtifactUI/Mask | mask_item</title><rect x="1.8" y="133.9" width="76.0" height="76.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PanelHomeTopLeft/PanelHomeQuest/Content/ItemWrapper/GameItem/ItemArtifactUI/Mask/ImageBgr | bgr_equipment_2</title><rect x="-2.2" y="129.9" width="84.0" height="84.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PanelHomeTopLeft/PanelHomeQuest/Content/ItemWrapper/GameItem/ItemArtifactUI/Mask/ImageItem | item_transparent</title><rect x="-0.2" y="131.9" width="80.0" height="80.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PanelHomeTopLeft/PanelHomeQuest/Content/ItemWrapper/GameItem/ItemArtifactUI/Mask/Check</title><rect x="-10.2" y="121.9" width="100.0" height="100.0" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PanelHomeTopLeft/PanelHomeQuest/Content/ItemWrapper/GameItem/ItemArtifactUI/Mask/Check/Image | tick_green</title><rect x="11.3" y="146.4" width="57.0" height="51.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PanelHomeTopLeft/PanelHomeQuest/Content/ItemWrapper/GameItem/ItemArtifactUI/ImageBorder | border_equipment_2</title><rect x="-0.2" y="131.9" width="80.0" height="80.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PanelHomeTopLeft/PanelHomeQuest/Content/ItemWrapper/GameItem/ItemArtifactUI/TextNumber</title><rect x="25.3" y="183.1" width="51.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PanelHomeTopLeft/PanelHomeQuest/Content/ItemWrapper/GameItem/ItemArtifactUI/IconHeroFaction | faction_shadow</title><rect x="52.4" y="129.3" width="30.0" height="30.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PanelHomeTopLeft/PanelHomeQuest/Content/ItemWrapper/GameItem/ItemArtifactUI/ItemStar/Star1 | item_star</title><rect x="-5.3" y="198.7" width="18.0" height="18.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PanelHomeTopLeft/PanelHomeQuest/Content/ItemWrapper/GameItem/ItemArtifactUI/ItemStar/Star2 | item_star</title><rect x="-5.3" y="198.7" width="18.0" height="18.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PanelHomeTopLeft/PanelHomeQuest/Content/ItemWrapper/GameItem/ItemArtifactUI/ItemStar/Star3 | item_star</title><rect x="-5.3" y="198.7" width="18.0" height="18.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PanelHomeTopLeft/PanelHomeQuest/Content/ItemWrapper/GameItem/ItemArtifactUI/ItemStar/Star4 | item_star</title><rect x="-5.3" y="198.7" width="18.0" height="18.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PanelHomeTopLeft/PanelHomeQuest/Content/ItemWrapper/GameItem/ItemArtifactUI/ItemStar/Star5 | item_star</title><rect x="-5.3" y="198.7" width="18.0" height="18.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PanelHomeTopLeft/PanelHomeQuest/Content/ItemWrapper/GameItem/ItemArtifactUI/ItemStar/Star6 | item_star</title><rect x="-5.3" y="198.7" width="18.0" height="18.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PanelHomeTopLeft/PanelHomeQuest/Content/ItemWrapper/GameItem/ItemArtifactUI/MaskSpineBorder | UIMask</title><rect x="-20.2" y="111.9" width="120.0" height="120.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PanelHomeTopLeft/PanelHomeQuest/Content/ItemWrapper/GameItem/ItemConsumableUI</title><rect x="-6.2" y="125.9" width="92.0" height="92.0" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PanelHomeTopLeft/PanelHomeQuest/Content/ItemWrapper/GameItem/ItemConsumableUI/Mask | bgr_light</title><rect x="-1.2" y="130.9" width="82.0" height="82.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PanelHomeTopLeft/PanelHomeQuest/Content/ItemWrapper/GameItem/ItemConsumableUI/Mask/ImageBgr | bgr_item_consumable</title><rect x="-5.2" y="126.9" width="90.0" height="90.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PanelHomeTopLeft/PanelHomeQuest/Content/ItemWrapper/GameItem/ItemConsumableUI/Mask/ImageItem | item_transparent</title><rect x="-0.2" y="131.9" width="80.0" height="80.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PanelHomeTopLeft/PanelHomeQuest/Content/ItemWrapper/GameItem/ItemConsumableUI/Mask/Check</title><rect x="-10.2" y="121.9" width="100.0" height="100.0" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PanelHomeTopLeft/PanelHomeQuest/Content/ItemWrapper/GameItem/ItemConsumableUI/Mask/Check/Image | tick_green</title><rect x="11.3" y="146.4" width="57.0" height="51.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PanelHomeTopLeft/PanelHomeQuest/Content/ItemWrapper/GameItem/ItemConsumableUI/ImageBorder | border_item</title><rect x="-5.2" y="126.9" width="90.0" height="90.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PanelHomeTopLeft/PanelHomeQuest/Content/ItemWrapper/GameItem/ItemConsumableUI/TextNumber</title><rect x="5.2" y="183.8" width="72.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PanelHomeTopLeft/PanelHomeQuest/Content/ItemWrapper/GameItem/ItemEquipmentUI</title><rect x="-6.2" y="125.9" width="92.0" height="92.0" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PanelHomeTopLeft/PanelHomeQuest/Content/ItemWrapper/GameItem/ItemEquipmentUI/ImageFrame | frame_item</title><rect x="-5.2" y="126.9" width="90.0" height="90.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PanelHomeTopLeft/PanelHomeQuest/Content/ItemWrapper/GameItem/ItemEquipmentUI/Mask | mask_item</title><rect x="1.8" y="133.9" width="76.0" height="76.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PanelHomeTopLeft/PanelHomeQuest/Content/ItemWrapper/GameItem/ItemEquipmentUI/Mask/ImageBgr | bgr_equipment_1</title><rect x="-6.2" y="125.9" width="92.0" height="92.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PanelHomeTopLeft/PanelHomeQuest/Content/ItemWrapper/GameItem/ItemEquipmentUI/Mask/ImageItem | item_placeholder</title><rect x="-0.2" y="131.9" width="80.0" height="80.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PanelHomeTopLeft/PanelHomeQuest/Content/ItemWrapper/GameItem/ItemEquipmentUI/Mask/Check</title><rect x="-10.2" y="121.9" width="100.0" height="100.0" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PanelHomeTopLeft/PanelHomeQuest/Content/ItemWrapper/GameItem/ItemEquipmentUI/Mask/Check/Image | tick_green</title><rect x="11.3" y="146.4" width="57.0" height="51.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PanelHomeTopLeft/PanelHomeQuest/Content/ItemWrapper/GameItem/ItemEquipmentUI/ImageBorder | border_equipment_2</title><rect x="-0.2" y="131.9" width="80.0" height="80.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PanelHomeTopLeft/PanelHomeQuest/Content/ItemWrapper/GameItem/ItemEquipmentUI/TextNumber</title><rect x="22.3" y="183.9" width="53.7" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PanelHomeTopLeft/PanelHomeQuest/Content/ItemWrapper/GameItem/ItemEquipmentUI/ItemStar/Star1 | item_star</title><rect x="4.0" y="134.7" width="18.0" height="18.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PanelHomeTopLeft/PanelHomeQuest/Content/ItemWrapper/GameItem/ItemEquipmentUI/ItemStar/Star1 | item_star</title><rect x="4.0" y="145.7" width="18.0" height="18.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PanelHomeTopLeft/PanelHomeQuest/Content/ItemWrapper/GameItem/ItemEquipmentUI/ItemStar/Star1 | item_star</title><rect x="4.0" y="156.7" width="18.0" height="18.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PanelHomeTopLeft/PanelHomeQuest/Content/ItemWrapper/GameItem/ItemEquipmentUI/ItemStar/Star1 | item_star</title><rect x="4.0" y="167.7" width="18.0" height="18.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PanelHomeTopLeft/PanelHomeQuest/Content/ItemWrapper/GameItem/ItemEquipmentUI/ItemStar/Star1 | item_star</title><rect x="4.0" y="178.7" width="18.0" height="18.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PanelHomeTopLeft/PanelHomeQuest/Content/ItemWrapper/GameItem/ItemEquipmentUI/ItemStar/Star1 | item_star</title><rect x="4.0" y="189.7" width="18.0" height="18.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PanelHomeTopLeft/PanelHomeQuest/Content/ItemWrapper/GameItem/ItemEquipmentUI/MaskSpineBorder | UIMask</title><rect x="-35.2" y="96.9" width="150.0" height="150.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PanelHomeTopLeft/PanelHomeQuest/Content/ItemWrapper/GameItem/HeroHeadClickable</title><rect x="-6.2" y="125.9" width="92.0" height="92.0" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PanelHomeTopLeft/PanelHomeQuest/Content/ItemWrapper/GameItem/HeroHeadClickable/HeroHeadUI/ImageFrame | frame_item</title><rect x="-5.2" y="126.9" width="90.0" height="90.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PanelHomeTopLeft/PanelHomeQuest/Content/ItemWrapper/GameItem/HeroHeadClickable/HeroHeadUI/Mask | mask_item</title><rect x="1.8" y="133.9" width="76.0" height="76.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PanelHomeTopLeft/PanelHomeQuest/Content/ItemWrapper/GameItem/HeroHeadClickable/HeroHeadUI/Mask/ImageBgr | bgr_item_consumable</title><rect x="-5.2" y="126.9" width="90.0" height="90.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PanelHomeTopLeft/PanelHomeQuest/Content/ItemWrapper/GameItem/HeroHeadClickable/HeroHeadUI/Mask/ImageHead | hero_5_star</title><rect x="-5.2" y="126.9" width="90.0" height="90.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PanelHomeTopLeft/PanelHomeQuest/Content/ItemWrapper/GameItem/HeroHeadClickable/HeroHeadUI/Mask/ImageHidden | hero_head_hidden</title><rect x="-5.2" y="126.9" width="90.0" height="90.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PanelHomeTopLeft/PanelHomeQuest/Content/ItemWrapper/GameItem/HeroHeadClickable/HeroHeadUI/Mask/Check</title><rect x="-10.2" y="121.9" width="100.0" height="100.0" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PanelHomeTopLeft/PanelHomeQuest/Content/ItemWrapper/GameItem/HeroHeadClickable/HeroHeadUI/Mask/Check/Tick | tick_green</title><rect x="19.3" y="149.9" width="41.0" height="38.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PanelHomeTopLeft/PanelHomeQuest/Content/ItemWrapper/GameItem/HeroHeadClickable/HeroHeadUI/Mask/Lock</title><rect x="-10.2" y="121.9" width="100.0" height="100.0" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PanelHomeTopLeft/PanelHomeQuest/Content/ItemWrapper/GameItem/HeroHeadClickable/HeroHeadUI/Mask/Lock/Lock | icon_lock</title><rect x="21.8" y="150.9" width="36.0" height="36.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PanelHomeTopLeft/PanelHomeQuest/Content/ItemWrapper/GameItem/HeroHeadClickable/HeroHeadUI/Mask/Death</title><rect x="-10.2" y="121.9" width="100.0" height="100.0" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PanelHomeTopLeft/PanelHomeQuest/Content/ItemWrapper/GameItem/HeroHeadClickable/HeroHeadUI/Mask/Death/Tick | mark_death</title><rect x="-12.2" y="113.4" width="104.0" height="111.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PanelHomeTopLeft/PanelHomeQuest/Content/ItemWrapper/GameItem/HeroHeadClickable/HeroHeadUI/ImageBorder | hero_head_border</title><rect x="-0.2" y="131.9" width="80.0" height="80.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PanelHomeTopLeft/PanelHomeQuest/Content/ItemWrapper/GameItem/HeroHeadClickable/HeroHeadUI/ImageNotify | notify_dot</title><rect x="58.1" y="125.8" width="28.0" height="28.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PanelHomeTopLeft/PanelHomeQuest/Content/ItemWrapper/GameItem/HeroHeadClickable/HeroHeadUI/TextLevel</title><rect x="41.0" y="127.6" width="40.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PanelHomeTopLeft/PanelHomeQuest/Content/ItemWrapper/GameItem/HeroHeadClickable/HeroHeadUI/ImageFaction | faction_light</title><rect x="-4.9" y="127.2" width="30.0" height="30.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PanelHomeTopLeft/PanelHomeQuest/Content/ItemWrapper/GameItem/HeroHeadClickable/HeroHeadUI/HeroStar</title><rect x="-4.9" y="191.2" width="88.1" height="25.4" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PanelHomeTopLeft/PanelHomeQuest/Content/ItemWrapper/GameItem/HeroHeadClickable/HeroHeadUI/HeroStar/GroupStar1/Star1 | hero_star_1</title><rect x="-0.8" y="191.2" width="20.0" height="20.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PanelHomeTopLeft/PanelHomeQuest/Content/ItemWrapper/GameItem/HeroHeadClickable/HeroHeadUI/HeroStar/GroupStar1/Star1 | hero_star_1</title><rect x="14.2" y="191.2" width="20.0" height="20.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PanelHomeTopLeft/PanelHomeQuest/Content/ItemWrapper/GameItem/HeroHeadClickable/HeroHeadUI/HeroStar/GroupStar1/Star1 | hero_star_1</title><rect x="29.2" y="191.2" width="20.0" height="20.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PanelHomeTopLeft/PanelHomeQuest/Content/ItemWrapper/GameItem/HeroHeadClickable/HeroHeadUI/HeroStar/GroupStar1/Star1 | hero_star_1</title><rect x="44.2" y="191.2" width="20.0" height="20.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PanelHomeTopLeft/PanelHomeQuest/Content/ItemWrapper/GameItem/HeroHeadClickable/HeroHeadUI/HeroStar/GroupStar1/Star1 | hero_star_1</title><rect x="59.2" y="191.2" width="20.0" height="20.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PanelHomeTopLeft/PanelHomeQuest/Content/ItemWrapper/GameItem/HeroHeadClickable/HeroHeadUI/HeroStar/GroupStar6/Star6 | hero_star_2</title><rect x="1.2" y="191.2" width="22.0" height="22.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PanelHomeTopLeft/PanelHomeQuest/Content/ItemWrapper/GameItem/HeroHeadClickable/HeroHeadUI/HeroStar/GroupStar6/Star6 | hero_star_2</title><rect x="19.2" y="191.2" width="22.0" height="22.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PanelHomeTopLeft/PanelHomeQuest/Content/ItemWrapper/GameItem/HeroHeadClickable/HeroHeadUI/HeroStar/GroupStar6/Star6 | hero_star_2</title><rect x="37.2" y="191.2" width="22.0" height="22.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PanelHomeTopLeft/PanelHomeQuest/Content/ItemWrapper/GameItem/HeroHeadClickable/HeroHeadUI/HeroStar/GroupStar6/Star6 | hero_star_2</title><rect x="55.2" y="191.2" width="22.0" height="22.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PanelHomeTopLeft/PanelHomeQuest/Content/ItemWrapper/GameItem/HeroHeadClickable/HeroHeadUI/HeroStar/GroupStar10/Star10 | hero_star_3</title><rect x="28.1" y="189.1" width="22.0" height="22.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PanelHomeTopLeft/PanelHomeQuest/Content/ItemWrapper/GameItem/HeroHeadClickable/HeroHeadUI/HeroStar/GroupStarE/BgrStarE | star_e_bgr</title><rect x="-39.9" y="175.5" width="158.0" height="59.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PanelHomeTopLeft/PanelHomeQuest/Content/ItemWrapper/GameItem/HeroHeadClickable/HeroHeadUI/HeroStar/GroupStarE/StarE | hero_star_e</title><rect x="27.1" y="191.3" width="24.0" height="24.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PanelHomeTopLeft/PanelHomeQuest/Content/ItemWrapper/GameItem/HeroHeadClickable/HeroHeadUI/HeroStar/GroupStarE/TextStarE</title><rect x="-40.9" y="193.0" width="160.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PanelHomeTopLeft/PanelHomeQuest/Content/ItemWrapper/GameItem/HeroHeadClickable/HeroHeadUI/SliderHp/Background | progress_bgr</title><rect x="-5.2" y="215.8" width="90.0" height="17.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PanelHomeTopLeft/PanelHomeQuest/Content/ItemWrapper/GameItem/HeroHeadClickable/HeroHeadUI/SliderHp/Fill Area/Fill | progress_top_2</title><rect x="-4.2" y="215.8" width="88.0" height="17.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PanelHomeTopLeft/PanelHomeQuest/Content/ItemWrapper/GameItem/GroupDone/ImageCover | bgr_light</title><rect x="-6.2" y="125.9" width="92.0" height="92.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PanelHomeTopLeft/PanelHomeQuest/Content/ItemWrapper/GameItem/GroupDone/ImageCover/Image</title><rect x="-6.2" y="125.9" width="92.0" height="92.0" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PanelHomeTopLeft/PanelHomeQuest/Content/ItemWrapper/GameItem/GroupDone/tick | tick_green</title><rect x="19.3" y="152.9" width="41.0" height="38.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PanelHomeTopLeft/PanelHomeQuest/Content/ItemWrapper/GameItem/TextDesc</title><rect x="-6.2" y="217.1" width="92.0" height="20.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PanelHomeTopLeft/PanelHomeQuest/Content/ItemWrapper/GameItem/ActionClick | UISprite</title><rect x="-6.2" y="125.9" width="92.0" height="92.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PanelHomeTopLeft/PanelHomeQuest/Content/TagContent</title><rect x="0.5" y="137.8" width="262.0" height="72.5" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PanelHomeTopLeft/PanelHomeQuest/Content/ClickBox</title><rect x="0.5" y="134.2" width="273.3" height="79.8" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PanelHomeTopLeft/Warning18Plus | 18_plus</title><rect x="5.0" y="115.4" width="222.0" height="72.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PanelHomeTopLeft/Warning18Plus/Text</title><rect x="59.2" y="121.7" width="154.6" height="57.4" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PanelHomeTopRight/ButtonMail | home2_mail</title><rect x="1519.2" y="8.9" width="62.0" height="62.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PanelHomeTopRight/ButtonMail/TextButton</title><rect x="1519.2" y="36.9" width="62.0" height="62.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PanelHomeTopRight/ButtonMail/NotifyMail | notify_dot</title><rect x="1557.6" y="3.9" width="30.0" height="30.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PanelHomeTopRight/ButtonFriend | home2_friend</title><rect x="1437.6" y="8.9" width="62.0" height="62.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PanelHomeTopRight/ButtonFriend/TextButton</title><rect x="1437.6" y="36.9" width="62.0" height="62.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PanelHomeTopRight/ButtonFriend/NotifyFriend | notify_dot</title><rect x="1476.0" y="3.9" width="30.0" height="30.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PanelHomeTopRight/ButtonFb | home2_fb</title><rect x="1358.7" y="8.9" width="62.0" height="62.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PanelHomeTopRight/ButtonTest | home2_fb</title><rect x="1287.0" y="8.9" width="62.0" height="62.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PanelHomeBottomLeft/ButtonSkins | home2_skin</title><rect x="-27.4" y="845.0" width="62.0" height="62.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PanelHomeBottomLeft/ButtonSkins/TextButton</title><rect x="-27.4" y="873.0" width="62.0" height="62.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PanelHomeBottomLeft/ButtonAchievement | home2_achievement</title><rect x="-27.4" y="845.0" width="62.0" height="62.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PanelHomeBottomLeft/ButtonAchievement/TextButton</title><rect x="-27.4" y="873.0" width="62.0" height="62.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PanelHomeBottomLeft/ButtonAchievement/NotifyAchivement | notify_dot</title><rect x="19.6" y="844.0" width="30.0" height="30.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PanelHomeBottomLeft/ButtonQuest | home2_quest</title><rect x="-27.4" y="845.0" width="62.0" height="62.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PanelHomeBottomLeft/ButtonQuest/TextButton</title><rect x="-27.4" y="873.0" width="62.0" height="62.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PanelHomeBottomLeft/ButtonQuest/NotifySummon | notify_dot</title><rect x="19.6" y="844.0" width="30.0" height="30.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PanelHomeBottomLeft/18Plus</title><rect x="-27.4" y="856.0" width="62.0" height="40.0" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PanelHomeBottomLeft/18Plus/Image | icon_18_plus</title><rect x="-22.4" y="850.0" width="52.0" height="52.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PanelHomeBottomLeft/GroupChat/HotChat/BoxHotChat | rectangle</title><rect x="21.7" y="838.5" width="334.9" height="75.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PanelHomeBottomLeft/GroupChat/HotChat/BoxHotChat/GroupMessage | UIMask</title><rect x="54.6" y="843.0" width="282.9" height="66.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PanelHomeBottomLeft/GroupChat/HotChat/BoxHotChat/GroupMessage/CellMsg | UIMask</title><rect x="-87.4" y="896.0" width="284.0" height="26.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PanelHomeBottomLeft/GroupChat/HotChat/BoxHotChat/GroupMessage/CellMsg/Text</title><rect x="-87.4" y="896.0" width="284.0" height="26.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PanelHomeBottomLeft/GroupChat/HotChat/BoxHotChat/GroupMessage/CellMsg | UIMask</title><rect x="-87.4" y="896.0" width="284.0" height="26.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PanelHomeBottomLeft/GroupChat/HotChat/BoxHotChat/GroupMessage/CellMsg/Text (1)</title><rect x="-87.4" y="896.0" width="284.0" height="26.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PanelHomeBottomLeft/GroupChat/HotChat/BoxHotChat/GroupMessage/CellMsg | UIMask</title><rect x="-87.4" y="896.0" width="284.0" height="26.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PanelHomeBottomLeft/GroupChat/HotChat/BoxHotChat/GroupMessage/CellMsg/Text (2)</title><rect x="-87.4" y="896.0" width="284.0" height="26.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PanelHomeBottomLeft/GroupChat/ButtonChat | home2_chat</title><rect x="-27.4" y="845.0" width="62.0" height="62.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PanelHomeBottomLeft/GroupChat/ButtonChat/TextButton</title><rect x="-27.4" y="873.0" width="62.0" height="62.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PanelHomeBottomLeft/GroupChat/ButtonChat/NotifyChatAdmin/Bgr | round_rect_3</title><rect x="32.1" y="796.0" width="243.2" height="61.9" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PanelHomeBottomLeft/GroupChat/ButtonChat/NotifyChatAdmin/Bgr/Text</title><rect x="32.1" y="795.9" width="243.2" height="61.9" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PanelHomeBottomLeft/GroupChat/ButtonChat/NotifyChatAdmin/ImagePointer | pointer_chat</title><rect x="32.9" y="852.4" width="31.0" height="29.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PanelHomeBottom/GroupContent/ImageBgr | bar_home2_bottom</title><rect x="847.0" y="759.0" width="835.5" height="150.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PanelHomeBottom/GroupContent/ButtonCampaign | home2_world</title><rect x="1448.5" y="735.0" width="137.0" height="136.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PanelHomeBottom/GroupContent/ButtonCampaign/TextBottom</title><rect x="1462.0" y="775.5" width="110.0" height="80.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PanelHomeBottom/GroupContent/GroupButton/ButtonShop | home2_market</title><rect x="416.0" y="835.0" width="84.0" height="92.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PanelHomeBottom/GroupContent/GroupButton/ButtonShop/TagName | tag_button</title><rect x="409.0" y="899.0" width="98.0" height="30.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PanelHomeBottom/GroupContent/GroupButton/ButtonShop/TagName/TextBottom</title><rect x="403.0" y="845.0" width="110.0" height="80.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PanelHomeBottom/GroupContent/GroupButton/ButtonShip | home2_monster</title><rect x="416.0" y="835.0" width="84.0" height="92.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PanelHomeBottom/GroupContent/GroupButton/ButtonShip/TagName | tag_button</title><rect x="405.1" y="899.0" width="105.9" height="30.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PanelHomeBottom/GroupContent/GroupButton/ButtonShip/TagName/TextBottom</title><rect x="411.7" y="895.7" width="94.0" height="29.3" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PanelHomeBottom/GroupContent/GroupButton/ButtonShip/IconBlockPet | icon_lock_2</title><rect x="442.0" y="861.0" width="32.0" height="40.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PanelHomeBottom/GroupContent/GroupButton/ButtonSummon | home2_summon</title><rect x="416.0" y="835.0" width="84.0" height="92.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PanelHomeBottom/GroupContent/GroupButton/ButtonSummon/TagName | tag_button</title><rect x="409.0" y="899.0" width="98.0" height="30.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PanelHomeBottom/GroupContent/GroupButton/ButtonSummon/TagName/TextBottom</title><rect x="403.0" y="845.0" width="110.0" height="80.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PanelHomeBottom/GroupContent/GroupButton/ButtonSummon/BoxSelect/ClickArea</title><rect x="219.0" y="338.0" width="800.0" height="500.0" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PanelHomeBottom/GroupContent/GroupButton/ButtonSummon/BoxSelect/ImageBox | box_select</title><rect x="318.0" y="699.0" width="280.0" height="140.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PanelHomeBottom/GroupContent/GroupButton/ButtonSummon/BoxSelect/ButtonScroll | home2_button_bgr</title><rect x="340.0" y="708.6" width="100.0" height="100.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PanelHomeBottom/GroupContent/GroupButton/ButtonSummon/BoxSelect/ButtonScroll/IconButton | icon_scroll_heroic</title><rect x="355.0" y="723.6" width="70.0" height="70.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PanelHomeBottom/GroupContent/GroupButton/ButtonSummon/BoxSelect/ButtonScroll/TextBottom</title><rect x="335.0" y="722.6" width="110.0" height="80.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PanelHomeBottom/GroupContent/GroupButton/ButtonSummon/BoxSelect/ButtonScroll/NotifySummon | notify_dot</title><rect x="403.0" y="715.6" width="30.0" height="30.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PanelHomeBottom/GroupContent/GroupButton/ButtonSummon/BoxSelect/ButtonOrb | home2_button_bgr</title><rect x="472.0" y="708.6" width="100.0" height="100.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PanelHomeBottom/GroupContent/GroupButton/ButtonSummon/BoxSelect/ButtonOrb/IconButton | icon_prophet_orb</title><rect x="487.0" y="723.6" width="70.0" height="70.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PanelHomeBottom/GroupContent/GroupButton/ButtonSummon/BoxSelect/ButtonOrb/TextBottom</title><rect x="467.0" y="722.6" width="110.0" height="80.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PanelHomeBottom/GroupContent/GroupButton/ButtonSummon/NotifySummon | notify_dot</title><rect x="475.0" y="834.0" width="30.0" height="30.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PanelHomeBottom/GroupContent/GroupButton/ButtonHeroes | home2_hero</title><rect x="416.0" y="835.0" width="84.0" height="92.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PanelHomeBottom/GroupContent/GroupButton/ButtonHeroes/TagName | tag_button</title><rect x="407.2" y="899.0" width="105.7" height="30.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PanelHomeBottom/GroupContent/GroupButton/ButtonHeroes/TagName/TextBottom</title><rect x="405.1" y="845.0" width="110.0" height="80.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PanelHomeBottom/GroupContent/GroupButton/ButtonBag | home2_bag</title><rect x="416.0" y="835.0" width="84.0" height="92.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PanelHomeBottom/GroupContent/GroupButton/ButtonBag/TagName | tag_button</title><rect x="409.0" y="899.0" width="98.0" height="30.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PanelHomeBottom/GroupContent/GroupButton/ButtonBag/TagName/TextBottom</title><rect x="403.0" y="845.0" width="110.0" height="80.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/ButtonMenu | home2_menu_right</title><rect x="1029.0" y="453.5" width="84.0" height="92.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/ButtonMenu/ImageTag | tag_button</title><rect x="1022.0" y="522.5" width="98.0" height="30.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/ButtonMenu/ImageTag/TextButton</title><rect x="1040.0" y="504.2" width="62.0" height="62.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PanelMenu</title><rect x="771.0" y="528.2" width="600.0" height="600.0" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PanelMenu/ArchBgr | arch_menu</title><rect x="963.0" y="664.8" width="216.0" height="327.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PanelHomeBottomRight/ButtonForge | menu_home2_forge</title><rect x="1433.0" y="685.5" width="100.0" height="100.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PanelHomeBottomRight/ButtonForge/ImageIcon | menu_home2_forge</title><rect x="1433.0" y="685.5" width="100.0" height="100.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PanelHomeBottomRight/ButtonForge/ImageTag | tag_button</title><rect x="1434.0" y="758.4" width="98.0" height="30.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PanelHomeBottomRight/ButtonForge/ImageTag/TextButton</title><rect x="1433.0" y="759.5" width="100.0" height="27.8" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PanelHomeBottomRight/ButtonFuse | menu_home2_fuse</title><rect x="1433.0" y="685.5" width="100.0" height="100.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PanelHomeBottomRight/ButtonFuse/ImageIcon | menu_home2_fuse</title><rect x="1433.0" y="685.5" width="100.0" height="100.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PanelHomeBottomRight/ButtonFuse/ImageTag | tag_button</title><rect x="1430.2" y="758.4" width="106.1" height="30.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PanelHomeBottomRight/ButtonFuse/ImageTag/TextButton</title><rect x="1433.3" y="758.4" width="100.0" height="26.4" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PanelHomeBottomRight/ButtonFuse/IconBlockFusi | icon_lock_2</title><rect x="1467.0" y="715.5" width="32.0" height="40.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PanelHomeBottomRight/ButtonAltar | menu_home2_altar</title><rect x="1433.0" y="685.5" width="100.0" height="100.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PanelHomeBottomRight/ButtonAltar/ImageIcon | menu_home2_altar</title><rect x="1433.0" y="685.5" width="100.0" height="100.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PanelHomeBottomRight/ButtonAltar/ImageTag | tag_button</title><rect x="1434.0" y="765.2" width="98.0" height="30.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PanelHomeBottomRight/ButtonAltar/ImageTag/TextButton</title><rect x="1433.0" y="765.3" width="100.0" height="27.8" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PanelHomeBottomRight/ButtonAltar/IconBlockAltar | icon_lock_2</title><rect x="1467.0" y="715.5" width="32.0" height="40.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PanelHomeBottomRight/ButtonWorld | home2_campaign</title><rect x="1441.0" y="689.5" width="84.0" height="92.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PanelHomeBottomRight/ButtonWorld/ImageTag | tag_button</title><rect x="1434.0" y="758.5" width="98.0" height="30.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PanelHomeBottomRight/ButtonWorld/ImageTag/TextButton</title><rect x="1437.9" y="756.1" width="91.2" height="30.1" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PanelHomeBottomRight/ButtonWorld/IconBlockWorld | icon_lock_2</title><rect x="1467.0" y="715.5" width="32.0" height="40.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+</svg>

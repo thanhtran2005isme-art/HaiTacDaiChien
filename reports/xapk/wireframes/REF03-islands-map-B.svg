@@ -1,0 +1,139 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 976" role="img" aria-label="Schematic of Unity UI layout">
+<rect width="1600" height="976" fill="#0f172a"/>
+<rect width="1600" height="900" fill="#1e293b"/>
+<text x="20" y="927" font-family="sans-serif" font-size="22" fill="#f8fafc">Canvas | 002_UnityDataAssetPack_datapack__file101</text>
+<text x="20" y="953" font-family="sans-serif" font-size="15" fill="#94a3b8">Metadata wireframe | hypothetical 1600x900 viewport | not the actual game screenshot</text>
+<g><title>/Canvas/Image</title><rect x="0.0" y="0.0" width="1600.0" height="900.0" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+<text x="5.0" y="16.0" fill="#e2e8f0" font-size="12" font-family="sans-serif">Image</text>
+</g>
+<g><title>/Canvas/ScrollView | Background</title><rect x="0.0" y="0.0" width="1600.0" height="900.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+<text x="5.0" y="16.0" fill="#e2e8f0" font-size="12" font-family="sans-serif">ScrollView</text>
+</g>
+<g><title>/Canvas/ScrollView/Viewport | UIMask</title><rect x="0.0" y="0.0" width="1600.0" height="900.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+<text x="5.0" y="16.0" fill="#e2e8f0" font-size="12" font-family="sans-serif">Viewport</text>
+</g>
+<g><title>/Canvas/ScrollView/Viewport/Content/ImageBgr | bgr_dummy_home</title><rect x="-1023.0" y="465.0" width="2046.0" height="870.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+<text x="-1018.0" y="481.0" fill="#e2e8f0" font-size="12" font-family="sans-serif">ImageBgr</text>
+</g>
+<g><title>/Canvas/ScrollView/Viewport/Content/ImageBgr/GroupNewBgr/Part1 | world_bgr_1</title><rect x="-806.0" y="612.0" width="868.0" height="640.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+<text x="-801.0" y="628.0" fill="#e2e8f0" font-size="12" font-family="sans-serif">Part1</text>
+</g>
+<g><title>/Canvas/ScrollView/Viewport/Content/ImageBgr/GroupNewBgr/Part2 | world_bgr_2</title><rect x="57.0" y="612.0" width="712.0" height="640.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+<text x="62.0" y="628.0" fill="#e2e8f0" font-size="12" font-family="sans-serif">Part2</text>
+</g>
+<g><title>/Canvas/ScrollView/Viewport/Content/ImageBgr/DumbIsland3 | dummy_island_2_3</title><rect x="-188.0" y="673.0" width="300.0" height="280.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+<text x="-183.0" y="689.0" fill="#e2e8f0" font-size="12" font-family="sans-serif">DumbIsland3</text>
+</g>
+<g><title>/Canvas/ScrollView/Viewport/Content/ImageBgr/DumbIsland3/TagName | tag_name_island</title><rect x="-144.5" y="682.4" width="213.0" height="46.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+<text x="-139.5" y="698.4" fill="#e2e8f0" font-size="12" font-family="sans-serif">TagName</text>
+</g>
+<g><title>/Canvas/ScrollView/Viewport/Content/ImageBgr/DumbIsland3/TagName/TextIsland</title><rect x="-118.0" y="690.4" width="160.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+<text x="-113.0" y="706.4" fill="#e2e8f0" font-size="12" font-family="sans-serif">TextIsland</text>
+</g>
+<g><title>/Canvas/ScrollView/Viewport/Content/ImageBgr/DumbIsland4 | dummy_island_2_4</title><rect x="41.0" y="824.5" width="250.0" height="215.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+<text x="46.0" y="840.5" fill="#e2e8f0" font-size="12" font-family="sans-serif">DumbIsland4</text>
+</g>
+<g><title>/Canvas/ScrollView/Viewport/Content/ImageBgr/DumbIsland4/TagName | tag_name_island</title><rect x="59.5" y="801.4" width="213.0" height="46.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+<text x="64.5" y="817.4" fill="#e2e8f0" font-size="12" font-family="sans-serif">TagName</text>
+</g>
+<g><title>/Canvas/ScrollView/Viewport/Content/ImageBgr/DumbIsland4/TagName/TextIsland</title><rect x="86.0" y="809.4" width="160.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+<text x="91.0" y="825.4" fill="#e2e8f0" font-size="12" font-family="sans-serif">TextIsland</text>
+</g>
+<g><title>/Canvas/ScrollView/Viewport/Content/ImageBgr/DumbIsland5 | dummy_island_2_5</title><rect x="311.0" y="584.0" width="250.0" height="218.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+<text x="316.0" y="600.0" fill="#e2e8f0" font-size="12" font-family="sans-serif">DumbIsland5</text>
+</g>
+<g><title>/Canvas/ScrollView/Viewport/Content/ImageBgr/DumbIsland5/TagName | tag_name_island</title><rect x="329.5" y="562.4" width="213.0" height="46.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+<text x="334.5" y="578.4" fill="#e2e8f0" font-size="12" font-family="sans-serif">TagName</text>
+</g>
+<g><title>/Canvas/ScrollView/Viewport/Content/ImageBgr/DumbIsland5/TagName/TextIsland</title><rect x="356.0" y="570.4" width="160.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+<text x="361.0" y="586.4" fill="#e2e8f0" font-size="12" font-family="sans-serif">TextIsland</text>
+</g>
+<g><title>/Canvas/ScrollView/Viewport/Content/ImageBgr/DumbIsland5/ImageLock | icon_lock_3</title><rect x="420.0" y="673.0" width="32.0" height="40.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/ScrollView/Viewport/Content/ImageBgr/DumbIsland6 | dummy_island_2_6</title><rect x="460.0" y="787.5" width="250.0" height="235.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+<text x="465.0" y="803.5" fill="#e2e8f0" font-size="12" font-family="sans-serif">DumbIsland6</text>
+</g>
+<g><title>/Canvas/ScrollView/Viewport/Content/ImageBgr/DumbIsland6/TagName | tag_name_island</title><rect x="478.5" y="774.4" width="213.0" height="46.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+<text x="483.5" y="790.4" fill="#e2e8f0" font-size="12" font-family="sans-serif">TagName</text>
+</g>
+<g><title>/Canvas/ScrollView/Viewport/Content/ImageBgr/DumbIsland6/TagName/TextIsland</title><rect x="505.0" y="782.4" width="160.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+<text x="510.0" y="798.4" fill="#e2e8f0" font-size="12" font-family="sans-serif">TextIsland</text>
+</g>
+<g><title>/Canvas/ScrollView/Viewport/Content/ImageBgr/DumbIsland6/ImageLock | icon_lock_3</title><rect x="569.0" y="885.0" width="32.0" height="40.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/ScrollView/Viewport/Content/ImageBgr/DumbIsland7 | dummy_island_2_7</title><rect x="721.0" y="594.0" width="250.0" height="250.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+<text x="726.0" y="610.0" fill="#e2e8f0" font-size="12" font-family="sans-serif">DumbIsland7</text>
+</g>
+<g><title>/Canvas/ScrollView/Viewport/Content/ImageBgr/DumbIsland7/TagName | tag_name_island</title><rect x="739.5" y="588.4" width="213.0" height="46.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+<text x="744.5" y="604.4" fill="#e2e8f0" font-size="12" font-family="sans-serif">TagName</text>
+</g>
+<g><title>/Canvas/ScrollView/Viewport/Content/ImageBgr/DumbIsland7/TagName/TextIsland</title><rect x="766.0" y="596.4" width="160.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+<text x="771.0" y="612.4" fill="#e2e8f0" font-size="12" font-family="sans-serif">TextIsland</text>
+</g>
+<g><title>/Canvas/ScrollView/Viewport/Content/ImageBgr/DumbIsland7/ImageLock | icon_lock_3</title><rect x="830.0" y="699.0" width="32.0" height="40.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/ScrollView/Viewport/Content/ImageBgr/GroupDecor/Image (2) | decor_1</title><rect x="531.0" y="653.5" width="152.0" height="91.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+<text x="536.0" y="669.5" fill="#e2e8f0" font-size="12" font-family="sans-serif">Image (2)</text>
+</g>
+<g><title>/Canvas/TopBar | bar_top</title><rect x="0.0" y="-1.0" width="1600.0" height="84.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+<text x="5.0" y="15.0" fill="#e2e8f0" font-size="12" font-family="sans-serif">TopBar</text>
+</g>
+<g><title>/Canvas/TopBar/AnchorTopLeft/TextFieldGem | field_fk</title><rect x="252.5" y="19.0" width="165.0" height="40.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+<text x="257.5" y="35.0" fill="#e2e8f0" font-size="12" font-family="sans-serif">TextFieldGem</text>
+</g>
+<g><title>/Canvas/TopBar/AnchorTopLeft/TextFieldGem/IconGem | gem_icon</title><rect x="239.0" y="23.0" width="44.0" height="32.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/TopBar/AnchorTopLeft/TextFieldGem/TextGold</title><rect x="262.0" y="15.7" width="160.0" height="40.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+<text x="267.0" y="31.7" fill="#e2e8f0" font-size="12" font-family="sans-serif">TextGold</text>
+</g>
+<g><title>/Canvas/TopBar/AnchorTopLeft/TextFieldGold | field_fk</title><rect x="66.5" y="19.0" width="165.0" height="40.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+<text x="71.5" y="35.0" fill="#e2e8f0" font-size="12" font-family="sans-serif">TextFieldGold</text>
+</g>
+<g><title>/Canvas/TopBar/AnchorTopLeft/TextFieldGold/IconGold | gold_icon</title><rect x="52.5" y="16.5" width="45.0" height="45.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/TopBar/AnchorTopLeft/TextFieldGold/TextGold</title><rect x="76.0" y="15.7" width="160.0" height="40.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+<text x="81.0" y="31.7" fill="#e2e8f0" font-size="12" font-family="sans-serif">TextGold</text>
+</g>
+<g><title>/Canvas/GroupRightButton/HorButtons/Feedback | icon_feedback_fk</title><rect x="804.2" y="108.0" width="92.0" height="92.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/GroupRightButton/HorButtons/Feedback/TagFk | tag_icon_fk</title><rect x="780.2" y="171.0" width="140.0" height="44.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+<text x="785.2" y="187.0" fill="#e2e8f0" font-size="12" font-family="sans-serif">TagFk</text>
+</g>
+<g><title>/Canvas/GroupRightButton/HorButtons/Feedback/Txt</title><rect x="770.2" y="173.0" width="160.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+<text x="775.2" y="189.0" fill="#e2e8f0" font-size="12" font-family="sans-serif">Txt</text>
+</g>
+<g><title>/Canvas/GroupRightButton/HorButtons/Boss | icon_boss_fk</title><rect x="804.2" y="108.0" width="92.0" height="92.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/GroupRightButton/HorButtons/Boss/TagFk (1) | tag_icon_fk</title><rect x="780.2" y="171.0" width="140.0" height="44.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+<text x="785.2" y="187.0" fill="#e2e8f0" font-size="12" font-family="sans-serif">TagFk (1)</text>
+</g>
+<g><title>/Canvas/GroupRightButton/HorButtons/Boss/Txt</title><rect x="770.2" y="173.0" width="160.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+<text x="775.2" y="189.0" fill="#e2e8f0" font-size="12" font-family="sans-serif">Txt</text>
+</g>
+<g><title>/Canvas/GroupRightButton/HorButtons/Shop | icon_shop_fk</title><rect x="804.2" y="108.0" width="92.0" height="92.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/GroupRightButton/HorButtons/Shop/TagFk (2) | tag_icon_fk</title><rect x="780.2" y="171.0" width="140.0" height="44.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+<text x="785.2" y="187.0" fill="#e2e8f0" font-size="12" font-family="sans-serif">TagFk (2)</text>
+</g>
+<g><title>/Canvas/GroupRightButton/HorButtons/Shop/Txt</title><rect x="770.2" y="174.0" width="160.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+<text x="775.2" y="190.0" fill="#e2e8f0" font-size="12" font-family="sans-serif">Txt</text>
+</g>
+<g><title>/Canvas/GroupRightButton/HorButtons/Setting | icon_setting_fk</title><rect x="804.2" y="108.0" width="92.0" height="92.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/GroupRightButton/HorButtons/Setting/TagFk (3) | tag_icon_fk</title><rect x="780.2" y="171.0" width="140.0" height="44.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+<text x="785.2" y="187.0" fill="#e2e8f0" font-size="12" font-family="sans-serif">TagFk (3)</text>
+</g>
+<g><title>/Canvas/GroupRightButton/HorButtons/Setting/Txt</title><rect x="766.2" y="174.5" width="160.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+<text x="771.2" y="190.5" fill="#e2e8f0" font-size="12" font-family="sans-serif">Txt</text>
+</g>
+<g><title>/Canvas/BottomLeftBar/ButtonHeroes | icon_ally_fk</title><rect x="65.0" y="778.0" width="92.0" height="92.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/BottomLeftBar/ButtonHeroes/TagName | tag_icon_fk</title><rect x="26.0" y="828.5" width="170.0" height="55.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+<text x="31.0" y="844.5" fill="#e2e8f0" font-size="12" font-family="sans-serif">TagName</text>
+</g>
+<g><title>/Canvas/BottomLeftBar/ButtonHeroes/Text</title><rect x="31.0" y="837.0" width="160.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+<text x="36.0" y="853.0" fill="#e2e8f0" font-size="12" font-family="sans-serif">Text</text>
+</g>
+<g><title>/Canvas/BottomRightBar/ButtonFeedback | button_fk_feedback</title><rect x="1491.5" y="806.5" width="79.0" height="67.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+</svg>
