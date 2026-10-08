@@ -1,0 +1,680 @@
+{
+  "native_files": [
+    {
+      "apk": "000_com.mobi389.murom.apk",
+      "path": "assets/bin/Data/Managed/Metadata/global-metadata.dat",
+      "size": 8855528,
+      "sha256": "774eca206cc06ba31533d9b06de6366f65e34abfd13c9335a40babe7ebb642a5",
+      "metadata": {
+        "state": "standard_header",
+        "magic_matches": true,
+        "version": 31,
+        "header_offset_size_pairs_checked": 32,
+        "plausible_pairs": 32
+      }
+    },
+    {
+      "apk": "000_com.mobi389.murom.apk",
+      "path": "assets/bin/Data/ScriptingAssemblies.json",
+      "size": 3765,
+      "sha256": "007e3a75a256a362cf21f4a6f683680869e8c8fbf5375b63a2c5e3f808885bfd",
+      "assembly_count": 105,
+      "contains_assembly_csharp": true
+    },
+    {
+      "apk": "001_config.arm64_v8a.apk",
+      "path": "lib/arm64-v8a/libil2cpp.so",
+      "size": 48545552,
+      "sha256": "48043f036579b7bb9b3df76cdab65a2ef4429bce5ee7534491d1c11cf432f38a"
+    },
+    {
+      "apk": "001_config.arm64_v8a.apk",
+      "path": "lib/arm64-v8a/libunity.so",
+      "size": 19125752,
+      "sha256": "a6f1ef7d0517a51cf127becf965cde092c4d1323020fb582ce6e19b39ad001a6"
+    }
+  ],
+  "asset_reference_context": {
+    "serialized_files": 116,
+    "alias_keys": 116
+  },
+  "unity": {
+    "counts": {
+      "serialized_files": 116,
+      "unity_objects_indexed": 143957,
+      "external_aliases": 116,
+      "mono_script_indexed": 1897,
+      "mono_behaviours": 43879,
+      "ui_components_identified": 28895,
+      "sprite_renderers": 132,
+      "sprite_renderer_sprite_links": 118,
+      "mono_script_unresolved": 3
+    },
+    "ui_type_counts": {
+      "Image": 19643,
+      "Text": 4479,
+      "Button": 2876,
+      "Mask": 1203,
+      "Slider": 324,
+      "ScrollRect": 232,
+      "InputField": 109,
+      "Toggle": 17,
+      "Dropdown": 5,
+      "Scrollbar": 4,
+      "RawImage": 3
+    },
+    "top_script_classes": {
+      "UnityEngine.UI.Image": 19643,
+      "UnityEngine.UI.Text": 4479,
+      "UnityEngine.UI.Outline": 2944,
+      "UnityEngine.UI.Button": 2876,
+      "I2.Loc.Localize": 1423,
+      "TextLocalizeChecker": 1313,
+      "UnityEngine.UI.Mask": 1203,
+      "UnityEngine.UI.HorizontalLayoutGroup": 1082,
+      "Spine.Unity.SkeletonGraphic": 664,
+      "ButtonAutoSound": 596,
+      "Spine.Unity.SpineAtlasAsset": 522,
+      "Spine.Unity.SkeletonDataAsset": 522,
+      "UnityEngine.UI.LayoutElement": 428,
+      "UnityEngine.UI.ContentSizeFitter": 423,
+      "UnityEngine.UI.VerticalLayoutGroup": 383,
+      "SpineObject": 383,
+      "UnityEngine.UI.Slider": 324,
+      "I2.Loc.LocalizeTarget_UnityUI_Text": 242,
+      "UnityEngine.UI.ScrollRect": 232,
+      "TabButton": 184,
+      "HeroHeadUI": 162,
+      "HeroHeadClickable": 145,
+      "SafeAreaAdapter": 139,
+      "UnityEngine.UI.InputField": 109,
+      "AutoDisableImage": 108,
+      "ItemEquipmentUI": 94,
+      "UnityEngine.UI.GraphicRaycaster": 77,
+      "UnityEngine.UI.CanvasScaler": 76,
+      "VerticalPoolGroup": 76,
+      "AutoUpdateResource": 70
+    },
+    "resolution": {
+      "mono_script_external_resolved": 43872,
+      "ui_gameobject_local": 28895,
+      "image_typetree_unavailable": 19646,
+      "sprite_renderer_external_resolved": 61,
+      "sprite_renderer_local": 57,
+      "mono_script_local": 4,
+      "mono_script_null": 2,
+      "mono_script_external_file_missing": 1
+    },
+    "samples": {
+      "Image": [
+        {
+          "serialized_file": "000_com.mobi389.murom_data__file004",
+          "gameobject": "BlackBgr",
+          "class": "UnityEngine.UI.Image"
+        },
+        {
+          "serialized_file": "000_com.mobi389.murom_data__file004",
+          "gameobject": "ImageLogo",
+          "class": "UnityEngine.UI.Image"
+        },
+        {
+          "serialized_file": "000_com.mobi389.murom_data__file004",
+          "gameobject": "ImageBgr",
+          "class": "UnityEngine.UI.Image"
+        },
+        {
+          "serialized_file": "000_com.mobi389.murom_data__file004",
+          "gameobject": "LogoEn",
+          "class": "UnityEngine.UI.Image"
+        },
+        {
+          "serialized_file": "000_com.mobi389.murom_data__file004",
+          "gameobject": "ImageChar",
+          "class": "UnityEngine.UI.Image"
+        },
+        {
+          "serialized_file": "000_com.mobi389.murom_data__file004",
+          "gameobject": "ImageName",
+          "class": "UnityEngine.UI.Image"
+        },
+        {
+          "serialized_file": "000_com.mobi389.murom_data__file004",
+          "gameobject": "ImageBgr",
+          "class": "UnityEngine.UI.Image"
+        },
+        {
+          "serialized_file": "000_com.mobi389.murom_data__file004",
+          "gameobject": "LogoVn",
+          "class": "UnityEngine.UI.Image"
+        },
+        {
+          "serialized_file": "002_UnityDataAssetPack_datapack__file001",
+          "gameobject": "FieldPhone",
+          "class": "UnityEngine.UI.Image"
+        },
+        {
+          "serialized_file": "002_UnityDataAssetPack_datapack__file001",
+          "gameobject": "PanelLoadingAsset",
+          "class": "UnityEngine.UI.Image"
+        },
+        {
+          "serialized_file": "002_UnityDataAssetPack_datapack__file001",
+          "gameobject": "BoxLogin",
+          "class": "UnityEngine.UI.Image"
+        },
+        {
+          "serialized_file": "002_UnityDataAssetPack_datapack__file001",
+          "gameobject": "BoardTitle",
+          "class": "UnityEngine.UI.Image"
+        }
+      ],
+      "InputField": [
+        {
+          "serialized_file": "002_UnityDataAssetPack_datapack__file001",
+          "gameobject": "FieldPhone",
+          "class": "UnityEngine.UI.InputField"
+        },
+        {
+          "serialized_file": "002_UnityDataAssetPack_datapack__file001",
+          "gameobject": "FieldCMT",
+          "class": "UnityEngine.UI.InputField"
+        },
+        {
+          "serialized_file": "002_UnityDataAssetPack_datapack__file001",
+          "gameobject": "FieldPassword2",
+          "class": "UnityEngine.UI.InputField"
+        },
+        {
+          "serialized_file": "002_UnityDataAssetPack_datapack__file001",
+          "gameobject": "FieldBirth",
+          "class": "UnityEngine.UI.InputField"
+        },
+        {
+          "serialized_file": "002_UnityDataAssetPack_datapack__file001",
+          "gameobject": "FieldUsername",
+          "class": "UnityEngine.UI.InputField"
+        },
+        {
+          "serialized_file": "002_UnityDataAssetPack_datapack__file001",
+          "gameobject": "FieldGosuID",
+          "class": "UnityEngine.UI.InputField"
+        },
+        {
+          "serialized_file": "002_UnityDataAssetPack_datapack__file001",
+          "gameobject": "FieldEmail",
+          "class": "UnityEngine.UI.InputField"
+        },
+        {
+          "serialized_file": "002_UnityDataAssetPack_datapack__file001",
+          "gameobject": "FieldPassword1",
+          "class": "UnityEngine.UI.InputField"
+        },
+        {
+          "serialized_file": "002_UnityDataAssetPack_datapack__file001",
+          "gameobject": "FieldUsername",
+          "class": "UnityEngine.UI.InputField"
+        },
+        {
+          "serialized_file": "002_UnityDataAssetPack_datapack__file001",
+          "gameobject": "FieldPassword",
+          "class": "UnityEngine.UI.InputField"
+        },
+        {
+          "serialized_file": "002_UnityDataAssetPack_datapack__file001",
+          "gameobject": "FieldFullname",
+          "class": "UnityEngine.UI.InputField"
+        },
+        {
+          "serialized_file": "002_UnityDataAssetPack_datapack__file003",
+          "gameobject": "InputField0",
+          "class": "UnityEngine.UI.InputField"
+        }
+      ],
+      "Text": [
+        {
+          "serialized_file": "002_UnityDataAssetPack_datapack__file001",
+          "gameobject": "Placeholder",
+          "class": "UnityEngine.UI.Text"
+        },
+        {
+          "serialized_file": "002_UnityDataAssetPack_datapack__file001",
+          "gameobject": "Placeholder",
+          "class": "UnityEngine.UI.Text"
+        },
+        {
+          "serialized_file": "002_UnityDataAssetPack_datapack__file001",
+          "gameobject": "Text",
+          "class": "UnityEngine.UI.Text"
+        },
+        {
+          "serialized_file": "002_UnityDataAssetPack_datapack__file001",
+          "gameobject": "Text",
+          "class": "UnityEngine.UI.Text"
+        },
+        {
+          "serialized_file": "002_UnityDataAssetPack_datapack__file001",
+          "gameobject": "Text",
+          "class": "UnityEngine.UI.Text"
+        },
+        {
+          "serialized_file": "002_UnityDataAssetPack_datapack__file001",
+          "gameobject": "TextProgress",
+          "class": "UnityEngine.UI.Text"
+        },
+        {
+          "serialized_file": "002_UnityDataAssetPack_datapack__file001",
+          "gameobject": "Placeholder",
+          "class": "UnityEngine.UI.Text"
+        },
+        {
+          "serialized_file": "002_UnityDataAssetPack_datapack__file001",
+          "gameobject": "Text",
+          "class": "UnityEngine.UI.Text"
+        },
+        {
+          "serialized_file": "002_UnityDataAssetPack_datapack__file001",
+          "gameobject": "Text",
+          "class": "UnityEngine.UI.Text"
+        },
+        {
+          "serialized_file": "002_UnityDataAssetPack_datapack__file001",
+          "gameobject": "Text",
+          "class": "UnityEngine.UI.Text"
+        },
+        {
+          "serialized_file": "002_UnityDataAssetPack_datapack__file001",
+          "gameobject": "TextCMT",
+          "class": "UnityEngine.UI.Text"
+        },
+        {
+          "serialized_file": "002_UnityDataAssetPack_datapack__file001",
+          "gameobject": "TextPassword",
+          "class": "UnityEngine.UI.Text"
+        }
+      ],
+      "Slider": [
+        {
+          "serialized_file": "002_UnityDataAssetPack_datapack__file001",
+          "gameobject": "SliderProgress",
+          "class": "UnityEngine.UI.Slider"
+        },
+        {
+          "serialized_file": "002_UnityDataAssetPack_datapack__file001",
+          "gameobject": "SliderProgress",
+          "class": "UnityEngine.UI.Slider"
+        },
+        {
+          "serialized_file": "002_UnityDataAssetPack_datapack__file007",
+          "gameobject": "SliderHp",
+          "class": "UnityEngine.UI.Slider"
+        },
+        {
+          "serialized_file": "002_UnityDataAssetPack_datapack__file007",
+          "gameobject": "SliderHp",
+          "class": "UnityEngine.UI.Slider"
+        },
+        {
+          "serialized_file": "002_UnityDataAssetPack_datapack__file007",
+          "gameobject": "SliderHp",
+          "class": "UnityEngine.UI.Slider"
+        },
+        {
+          "serialized_file": "002_UnityDataAssetPack_datapack__file007",
+          "gameobject": "SliderHp",
+          "class": "UnityEngine.UI.Slider"
+        },
+        {
+          "serialized_file": "002_UnityDataAssetPack_datapack__file007",
+          "gameobject": "SliderHp",
+          "class": "UnityEngine.UI.Slider"
+        },
+        {
+          "serialized_file": "002_UnityDataAssetPack_datapack__file007",
+          "gameobject": "SliderHp",
+          "class": "UnityEngine.UI.Slider"
+        },
+        {
+          "serialized_file": "002_UnityDataAssetPack_datapack__file007",
+          "gameobject": "SliderHp",
+          "class": "UnityEngine.UI.Slider"
+        },
+        {
+          "serialized_file": "002_UnityDataAssetPack_datapack__file007",
+          "gameobject": "SliderHp",
+          "class": "UnityEngine.UI.Slider"
+        },
+        {
+          "serialized_file": "002_UnityDataAssetPack_datapack__file007",
+          "gameobject": "SliderHp",
+          "class": "UnityEngine.UI.Slider"
+        },
+        {
+          "serialized_file": "002_UnityDataAssetPack_datapack__file007",
+          "gameobject": "SliderHp",
+          "class": "UnityEngine.UI.Slider"
+        }
+      ],
+      "Button": [
+        {
+          "serialized_file": "002_UnityDataAssetPack_datapack__file001",
+          "gameobject": "FieldServer",
+          "class": "UnityEngine.UI.Button"
+        },
+        {
+          "serialized_file": "002_UnityDataAssetPack_datapack__file001",
+          "gameobject": "ButtonRegister",
+          "class": "UnityEngine.UI.Button"
+        },
+        {
+          "serialized_file": "002_UnityDataAssetPack_datapack__file001",
+          "gameobject": "ButtonTest1",
+          "class": "UnityEngine.UI.Button"
+        },
+        {
+          "serialized_file": "002_UnityDataAssetPack_datapack__file001",
+          "gameobject": "ButtonRegister",
+          "class": "UnityEngine.UI.Button"
+        },
+        {
+          "serialized_file": "002_UnityDataAssetPack_datapack__file001",
+          "gameobject": "ButtonEnter",
+          "class": "UnityEngine.UI.Button"
+        },
+        {
+          "serialized_file": "002_UnityDataAssetPack_datapack__file001",
+          "gameobject": "ButtonTest2",
+          "class": "UnityEngine.UI.Button"
+        },
+        {
+          "serialized_file": "002_UnityDataAssetPack_datapack__file001",
+          "gameobject": "ButtonLogin",
+          "class": "UnityEngine.UI.Button"
+        },
+        {
+          "serialized_file": "002_UnityDataAssetPack_datapack__file001",
+          "gameobject": "ButtonInfo",
+          "class": "UnityEngine.UI.Button"
+        },
+        {
+          "serialized_file": "002_UnityDataAssetPack_datapack__file001",
+          "gameobject": "ButtonLoginGosu",
+          "class": "UnityEngine.UI.Button"
+        },
+        {
+          "serialized_file": "002_UnityDataAssetPack_datapack__file001",
+          "gameobject": "ButtonBack",
+          "class": "UnityEngine.UI.Button"
+        },
+        {
+          "serialized_file": "002_UnityDataAssetPack_datapack__file001",
+          "gameobject": "ButtonClearAsset",
+          "class": "UnityEngine.UI.Button"
+        },
+        {
+          "serialized_file": "002_UnityDataAssetPack_datapack__file001",
+          "gameobject": "ButtonBack",
+          "class": "UnityEngine.UI.Button"
+        }
+      ],
+      "ScrollRect": [
+        {
+          "serialized_file": "002_UnityDataAssetPack_datapack__file001",
+          "gameobject": "PanelFieldRegister",
+          "class": "UnityEngine.UI.ScrollRect"
+        },
+        {
+          "serialized_file": "002_UnityDataAssetPack_datapack__file003",
+          "gameobject": "Template",
+          "class": "UnityEngine.UI.ScrollRect"
+        },
+        {
+          "serialized_file": "002_UnityDataAssetPack_datapack__file003",
+          "gameobject": "Template",
+          "class": "UnityEngine.UI.ScrollRect"
+        },
+        {
+          "serialized_file": "002_UnityDataAssetPack_datapack__file003",
+          "gameobject": "ScrollView",
+          "class": "UnityEngine.UI.ScrollRect"
+        },
+        {
+          "serialized_file": "002_UnityDataAssetPack_datapack__file003",
+          "gameobject": "ScrollView",
+          "class": "UnityEngine.UI.ScrollRect"
+        },
+        {
+          "serialized_file": "002_UnityDataAssetPack_datapack__file003",
+          "gameobject": "ScrollView",
+          "class": "UnityEngine.UI.ScrollRect"
+        },
+        {
+          "serialized_file": "002_UnityDataAssetPack_datapack__file003",
+          "gameobject": "ScrollView",
+          "class": "UnityEngine.UI.ScrollRect"
+        },
+        {
+          "serialized_file": "002_UnityDataAssetPack_datapack__file007",
+          "gameobject": "Template",
+          "class": "UnityEngine.UI.ScrollRect"
+        },
+        {
+          "serialized_file": "002_UnityDataAssetPack_datapack__file009",
+          "gameobject": "ScrollTop",
+          "class": "UnityEngine.UI.ScrollRect"
+        },
+        {
+          "serialized_file": "002_UnityDataAssetPack_datapack__file011",
+          "gameobject": "ScrollView",
+          "class": "UnityEngine.UI.ScrollRect"
+        },
+        {
+          "serialized_file": "002_UnityDataAssetPack_datapack__file011",
+          "gameobject": "ScrollView",
+          "class": "UnityEngine.UI.ScrollRect"
+        },
+        {
+          "serialized_file": "002_UnityDataAssetPack_datapack__file013",
+          "gameobject": "ScrollView",
+          "class": "UnityEngine.UI.ScrollRect"
+        }
+      ],
+      "Mask": [
+        {
+          "serialized_file": "002_UnityDataAssetPack_datapack__file001",
+          "gameobject": "Viewport",
+          "class": "UnityEngine.UI.Mask"
+        },
+        {
+          "serialized_file": "002_UnityDataAssetPack_datapack__file003",
+          "gameobject": "Mask",
+          "class": "UnityEngine.UI.Mask"
+        },
+        {
+          "serialized_file": "002_UnityDataAssetPack_datapack__file003",
+          "gameobject": "Viewport",
+          "class": "UnityEngine.UI.Mask"
+        },
+        {
+          "serialized_file": "002_UnityDataAssetPack_datapack__file003",
+          "gameobject": "Mask",
+          "class": "UnityEngine.UI.Mask"
+        },
+        {
+          "serialized_file": "002_UnityDataAssetPack_datapack__file003",
+          "gameobject": "Viewport",
+          "class": "UnityEngine.UI.Mask"
+        },
+        {
+          "serialized_file": "002_UnityDataAssetPack_datapack__file003",
+          "gameobject": "Viewport",
+          "class": "UnityEngine.UI.Mask"
+        },
+        {
+          "serialized_file": "002_UnityDataAssetPack_datapack__file003",
+          "gameobject": "Viewport",
+          "class": "UnityEngine.UI.Mask"
+        },
+        {
+          "serialized_file": "002_UnityDataAssetPack_datapack__file003",
+          "gameobject": "Viewport",
+          "class": "UnityEngine.UI.Mask"
+        },
+        {
+          "serialized_file": "002_UnityDataAssetPack_datapack__file003",
+          "gameobject": "Viewport",
+          "class": "UnityEngine.UI.Mask"
+        },
+        {
+          "serialized_file": "002_UnityDataAssetPack_datapack__file003",
+          "gameobject": "Mask",
+          "class": "UnityEngine.UI.Mask"
+        },
+        {
+          "serialized_file": "002_UnityDataAssetPack_datapack__file003",
+          "gameobject": "Mask",
+          "class": "UnityEngine.UI.Mask"
+        },
+        {
+          "serialized_file": "002_UnityDataAssetPack_datapack__file007",
+          "gameobject": "Viewport",
+          "class": "UnityEngine.UI.Mask"
+        }
+      ],
+      "Toggle": [
+        {
+          "serialized_file": "002_UnityDataAssetPack_datapack__file003",
+          "gameobject": "Item",
+          "class": "UnityEngine.UI.Toggle"
+        },
+        {
+          "serialized_file": "002_UnityDataAssetPack_datapack__file003",
+          "gameobject": "ToggleDebug",
+          "class": "UnityEngine.UI.Toggle"
+        },
+        {
+          "serialized_file": "002_UnityDataAssetPack_datapack__file003",
+          "gameobject": "ToggleBook",
+          "class": "UnityEngine.UI.Toggle"
+        },
+        {
+          "serialized_file": "002_UnityDataAssetPack_datapack__file003",
+          "gameobject": "Item",
+          "class": "UnityEngine.UI.Toggle"
+        },
+        {
+          "serialized_file": "002_UnityDataAssetPack_datapack__file003",
+          "gameobject": "ToggleOldInput",
+          "class": "UnityEngine.UI.Toggle"
+        },
+        {
+          "serialized_file": "002_UnityDataAssetPack_datapack__file003",
+          "gameobject": "Toggle",
+          "class": "UnityEngine.UI.Toggle"
+        },
+        {
+          "serialized_file": "002_UnityDataAssetPack_datapack__file003",
+          "gameobject": "Toggle",
+          "class": "UnityEngine.UI.Toggle"
+        },
+        {
+          "serialized_file": "002_UnityDataAssetPack_datapack__file007",
+          "gameobject": "Item",
+          "class": "UnityEngine.UI.Toggle"
+        },
+        {
+          "serialized_file": "002_UnityDataAssetPack_datapack__file110",
+          "gameobject": "Item",
+          "class": "UnityEngine.UI.Toggle"
+        },
+        {
+          "serialized_file": "002_UnityDataAssetPack_datapack__file110",
+          "gameobject": "ToggleLock",
+          "class": "UnityEngine.UI.Toggle"
+        },
+        {
+          "serialized_file": "002_UnityDataAssetPack_datapack__file110",
+          "gameobject": "CheckSelected",
+          "class": "UnityEngine.UI.Toggle"
+        },
+        {
+          "serialized_file": "002_UnityDataAssetPack_datapack__file110",
+          "gameobject": "Toggle",
+          "class": "UnityEngine.UI.Toggle"
+        }
+      ],
+      "Scrollbar": [
+        {
+          "serialized_file": "002_UnityDataAssetPack_datapack__file003",
+          "gameobject": "Scrollbar",
+          "class": "UnityEngine.UI.Scrollbar"
+        },
+        {
+          "serialized_file": "002_UnityDataAssetPack_datapack__file003",
+          "gameobject": "Scrollbar",
+          "class": "UnityEngine.UI.Scrollbar"
+        },
+        {
+          "serialized_file": "002_UnityDataAssetPack_datapack__file007",
+          "gameobject": "Scrollbar",
+          "class": "UnityEngine.UI.Scrollbar"
+        },
+        {
+          "serialized_file": "002_UnityDataAssetPack_datapack__file110",
+          "gameobject": "Scrollbar",
+          "class": "UnityEngine.UI.Scrollbar"
+        }
+      ],
+      "Dropdown": [
+        {
+          "serialized_file": "002_UnityDataAssetPack_datapack__file003",
+          "gameobject": "DropdownPet1",
+          "class": "UnityEngine.UI.Dropdown"
+        },
+        {
+          "serialized_file": "002_UnityDataAssetPack_datapack__file003",
+          "gameobject": "DropdownPet1",
+          "class": "UnityEngine.UI.Dropdown"
+        },
+        {
+          "serialized_file": "002_UnityDataAssetPack_datapack__file007",
+          "gameobject": "Dropdown",
+          "class": "UnityEngine.UI.Dropdown"
+        },
+        {
+          "serialized_file": "002_UnityDataAssetPack_datapack__file110",
+          "gameobject": "DropdownPet1",
+          "class": "UnityEngine.UI.Dropdown"
+        },
+        {
+          "serialized_file": "002_UnityDataAssetPack_datapack__file110",
+          "gameobject": "Dropdown",
+          "class": "UnityEngine.UI.Dropdown"
+        }
+      ],
+      "RawImage": [
+        {
+          "serialized_file": "002_UnityDataAssetPack_datapack__file005",
+          "gameobject": "BgrSea",
+          "class": "UnityEngine.UI.RawImage"
+        },
+        {
+          "serialized_file": "002_UnityDataAssetPack_datapack__file073",
+          "gameobject": "ButtonClick",
+          "class": "UnityEngine.UI.RawImage"
+        },
+        {
+          "serialized_file": "002_UnityDataAssetPack_datapack__file073",
+          "gameobject": "ButtonClick",
+          "class": "UnityEngine.UI.RawImage"
+        }
+      ]
+    }
+  },
+  "limits": [
+    "Classifications are inferred from linked MonoScript class names only.",
+    "This does not recover method implementations or proprietary UI source.",
+    "Unity UI.Image m_Sprite needs a serialized typetree or verified class layout.",
+    "Ambiguous file aliases remain unresolved, not guessed.",
+    "No runtime-fetched assets included, no binaries exported or modified."
+  ]
+}
