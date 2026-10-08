@@ -40,7 +40,7 @@ class TestSpriteLinks(unittest.TestCase):
 
     def test_big_endian_is_explicit(self):
         data = b"\x00" * 4 + struct.pack(">iq", 1, 55)
-        hits = mod.raw_pointer_candidates(data, ">", 1, lambda f,p: (ref("Sprite"), "ok"))
+        hits = mod.raw_pointer_candidates(data, ">", 1, lambda f,p: (ref("Sprite"), "ok") if (f,p) == (1,55) else (None, "invalid"))
         self.assertEqual(hits[0]["offset"], 4)
         with self.assertRaises(ValueError):
             mod.raw_pointer_candidates(data, "unknown", 1, lambda *_: (None, "missing"))
