@@ -12,6 +12,8 @@ on:
       - 'tests/test_layout_spine_audit.py'
       - 'tools/scene_visual_inventory.py'
       - 'tests/test_scene_visual_inventory.py'
+      - 'tools/spine_asset_probe.py'
+      - 'tests/test_spine_asset_probe.py'
       - 'tests/test_ui_preview.py'
       - 'tools/il2cpp_refs.py'
       - 'tools/sprite_links.py'
@@ -115,6 +117,10 @@ jobs:
         run: python -m unittest discover -s tests -p test_scene_visual_inventory.py -v
       - name: Build scene visual dependency report
         run: python tools/scene_visual_inventory.py
+      - name: Test Spine skeleton/atlas candidate reference scanner
+        run: python -m unittest discover -s tests -p test_spine_asset_probe.py -v
+      - name: Trace Spine assets for selected reference scenes
+        run: python tools/spine_asset_probe.py
       - name: Upload analysis report
         if: always()
         uses: actions/upload-artifact@v4
