@@ -7,6 +7,8 @@ on:
       - 'tools/unity_index.py'
       - 'tools/ui_hierarchy.py'
       - 'tools/il2cpp_refs.py'
+      - 'tools/sprite_links.py'
+      - 'tests/test_sprite_links.py'
       - 'tests/test_il2cpp_refs.py'
       - 'tests/test_ui_hierarchy.py'
       - '.github/workflows/xapk-ui-audit.yml'
@@ -84,6 +86,10 @@ jobs:
         run: python -m unittest discover -s tests -p test_il2cpp_refs.py -v
       - name: Identify UI scripts and resolve cross-file pointers
         run: python tools/il2cpp_refs.py
+      - name: Test Sprite pointer scanner
+        run: python -m unittest discover -s tests -p test_sprite_links.py -v
+      - name: Resolve UI Image to Sprite metadata
+        run: python tools/sprite_links.py
       - name: Upload analysis report
         if: always()
         uses: actions/upload-artifact@v4
