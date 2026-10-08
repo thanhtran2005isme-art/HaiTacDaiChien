@@ -1,0 +1,47 @@
+reference,ui_path,class,component_id,gameobject_id,typetree_status,skin_status
+REF01-ship-upgrade,/Canvas/BoxPet/CellPet3/SpineMonster,Spine.Unity.SkeletonGraphic,248,23,unavailable,unknown_not_proven_from_static_metadata
+REF01-ship-upgrade,/Canvas/BoxPet/CellPet2/SpineMonster,Spine.Unity.SkeletonGraphic,296,49,unavailable,unknown_not_proven_from_static_metadata
+REF01-ship-upgrade,/Canvas/BoxPet/CellPet1/SpineMonster,Spine.Unity.SkeletonGraphic,302,53,unavailable,unknown_not_proven_from_static_metadata
+REF02-hero-detail,/PanelHeroInfo/RightPart/BoxInfo/PanelEquipment/SlotStone/SpineUnlock,Spine.Unity.SkeletonGraphic,83447,10976,unavailable,unknown_not_proven_from_static_metadata
+REF02-hero-detail,/PanelHeroInfo/HeroBox/ImageBoard/SpineFaction/Skeleton,Spine.Unity.SkeletonGraphic,84761,22200,unavailable,unknown_not_proven_from_static_metadata
+REF02-hero-detail,/PanelHeroInfo/HeroBox/EffectHeroUp/Spine,Spine.Unity.SkeletonGraphic,85998,21068,unavailable,unknown_not_proven_from_static_metadata
+REF02-hero-detail,/PanelHeroInfo/RightPart/BoxInfo/PanelEquipment/SlotArtifact/ItemArtifactUI/MaskSpineBorder/SpineBoder/Skeleton,Spine.Unity.SkeletonGraphic,86619,18126,unavailable,unknown_not_proven_from_static_metadata
+REF02-hero-detail,/PanelHeroInfo/HeroBox/EffectHeroAwake/Spine,Spine.Unity.SkeletonGraphic,89008,16539,unavailable,unknown_not_proven_from_static_metadata
+REF02-hero-detail,/PanelHeroInfo/HeroBox/EffectHeroAwake,SpineObject,89815,18661,unavailable,unknown_not_proven_from_static_metadata
+REF02-hero-detail,/PanelHeroInfo/HeroBox/ImageBoard/SpineRank/Skeleton,Spine.Unity.SkeletonGraphic,90188,29186,unavailable,unknown_not_proven_from_static_metadata
+REF02-hero-detail,/PanelHeroInfo/HeroBox/ImageBoard/SpineFaction,SpineObject,92729,23852,unavailable,unknown_not_proven_from_static_metadata
+REF02-hero-detail,/PanelHeroInfo/RightPart/BoxInfo/PanelEquipment/SlotArtifact/ItemArtifactUI/MaskSpineBorder/SpineBoder,SpineObject,93389,26901,unavailable,unknown_not_proven_from_static_metadata
+REF02-hero-detail,/PanelHeroInfo/RightPart/BoxInfo/PanelEquipment/SlotShoes/ItemEquipmentUI/MaskSpineBorder/SpineBoder,SpineObject,96485,23800,unavailable,unknown_not_proven_from_static_metadata
+REF02-hero-detail,/PanelHeroInfo/RightPart/BoxInfo/PanelEquipment/SlotAccessory/ItemEquipmentUI/MaskSpineBorder/SpineBoder/Skeleton,Spine.Unity.SkeletonGraphic,98091,15718,unavailable,unknown_not_proven_from_static_metadata
+REF02-hero-detail,/PanelHeroInfo/RightPart/BoxInfo/PanelEquipment/SlotWeapon/ItemEquipmentUI/MaskSpineBorder/SpineBoder/Skeleton,Spine.Unity.SkeletonGraphic,98584,16591,unavailable,unknown_not_proven_from_static_metadata
+REF02-hero-detail,/PanelHeroInfo/HeroBox/ImageBoard/SpineRank,SpineObject,99273,28490,unavailable,unknown_not_proven_from_static_metadata
+REF02-hero-detail,/PanelHeroInfo/HeroBox/EffectHeroUp,SpineObject,101441,22847,unavailable,unknown_not_proven_from_static_metadata
+REF02-hero-detail,/PanelHeroInfo/RightPart/BoxInfo/PanelEquipment/SlotArmor/ItemEquipmentUI/MaskSpineBorder/SpineBoder,SpineObject,101443,20303,unavailable,unknown_not_proven_from_static_metadata
+REF02-hero-detail,/PanelHeroInfo/RightPart/BoxInfo/PanelEquipment/SlotAccessory/ItemEquipmentUI/MaskSpineBorder/SpineBoder,SpineObject,102069,19607,unavailable,unknown_not_proven_from_static_metadata
+REF02-hero-detail,/PanelHeroInfo/RightPart/BoxInfo/PanelEquipment/SlotWeapon/ItemEquipmentUI/MaskSpineBorder/SpineBoder,SpineObject,102262,19466,unavailable,unknown_not_proven_from_static_metadata
+REF02-hero-detail,/PanelHeroInfo/RightPart/BoxInfo/PanelEquipment/SlotShoes/ItemEquipmentUI/MaskSpineBorder/SpineBoder/Skeleton,Spine.Unity.SkeletonGraphic,103540,20262,unavailable,unknown_not_proven_from_static_metadata
+REF02-hero-detail,/PanelHeroInfo/RightPart/BoxInfo/PanelEquipment/SlotArmor/ItemEquipmentUI/MaskSpineBorder/SpineBoder/Skeleton,Spine.Unity.SkeletonGraphic,105805,23808,unavailable,unknown_not_proven_from_static_metadata
+REF03-islands-map-A,/Canvas/ScrollView/Viewport/Content/ImageBgr/DumbIsland1/HandTut/HandTutorial/Skeleton,Spine.Unity.SkeletonGraphic,328,74,unavailable,unknown_not_proven_from_static_metadata
+REF03-islands-map-B,/Canvas/ScrollView/Viewport/Content/ImageBgr/DumbIsland1/HandTut/HandTutorial/Skeleton,Spine.Unity.SkeletonGraphic,352,81,unavailable,unknown_not_proven_from_static_metadata
+REF04-home-crew,/Canvas/Background/SpineShip1/Ship,Spine.Unity.SkeletonGraphic,1440,1,unavailable,unknown_not_proven_from_static_metadata
+REF04-home-crew,/Canvas/Background/SpineFlag/Flag,Spine.Unity.SkeletonGraphic,1441,2,unavailable,unknown_not_proven_from_static_metadata
+REF04-home-crew,/Canvas/Background/SpineWave/Wave,Spine.Unity.SkeletonGraphic,1471,22,unavailable,unknown_not_proven_from_static_metadata
+REF04-home-crew,/Canvas/Background/SpineShipPlayer/SkeletonWave,Spine.Unity.SkeletonGraphic,1472,25,unavailable,unknown_not_proven_from_static_metadata
+REF04-home-crew,/Canvas/PanelHomeTopLeft/PanelHomeQuest/Content/EffectCompleted/Spine,Spine.Unity.SkeletonGraphic,1515,49,unavailable,unknown_not_proven_from_static_metadata
+REF04-home-crew,/Canvas/Background/SpineChestCrossPuzz/SpineObject,Spine.Unity.SkeletonGraphic,1518,51,unavailable,unknown_not_proven_from_static_metadata
+REF04-home-crew,/Canvas/Background/SpineChestCrossPuzz,SpineObject,1633,110,unavailable,unknown_not_proven_from_static_metadata
+REF04-home-crew,/Canvas/Background/SpineShipPlayer/SkeletonShipPlayer,Spine.Unity.SkeletonGraphic,1662,126,unavailable,unknown_not_proven_from_static_metadata
+REF04-home-crew,/Canvas/PanelHomeTopLeft/PanelHomeQuest/Content/EffectCompleted,SpineObject,1691,137,unavailable,unknown_not_proven_from_static_metadata
+REF04-home-crew,/Canvas/Background/SpineCloud/Cloud,Spine.Unity.SkeletonGraphic,1692,138,unavailable,unknown_not_proven_from_static_metadata
+REF04-home-crew,/Canvas/PanelHomeTopLeft/PanelHomeQuest/Content/ItemWrapper/GameItem/ItemArtifactUI/MaskSpineBorder/SpineBoder/Skeleton,Spine.Unity.SkeletonGraphic,1751,234,unavailable,unknown_not_proven_from_static_metadata
+REF04-home-crew,/Canvas/PanelHomeTopLeft/PanelHomeQuest/Content/ItemWrapper/GameItem/ItemEquipmentUI/MaskSpineBorder/SpineBoder/Skeleton,Spine.Unity.SkeletonGraphic,1792,469,unavailable,unknown_not_proven_from_static_metadata
+REF04-home-crew,/Canvas/PanelHomeTopLeft/PanelHomeQuest/Content/ItemWrapper/GameItem/SpineHighlight/Skeleton,Spine.Unity.SkeletonGraphic,1830,235,unavailable,unknown_not_proven_from_static_metadata
+REF04-home-crew,/Canvas/PlayerHeroes/HeroHome2 (5)/GroupHero/CanvasHero/Mesh/Skeleton,Spine.Unity.SkeletonGraphic,1933,288,unavailable,unknown_not_proven_from_static_metadata
+REF04-home-crew,/Canvas/PlayerHeroes/HeroHome2 (0)/GroupHero/CanvasHero/Mesh/Skeleton,Spine.Unity.SkeletonGraphic,1934,285,unavailable,unknown_not_proven_from_static_metadata
+REF04-home-crew,/Canvas/PlayerHeroes/HeroHome2 (1)/GroupHero/CanvasHero/Mesh/Skeleton,Spine.Unity.SkeletonGraphic,1935,286,unavailable,unknown_not_proven_from_static_metadata
+REF04-home-crew,/Canvas/PlayerHeroes/HeroHome2 (3)/GroupHero/CanvasHero/Mesh/Skeleton,Spine.Unity.SkeletonGraphic,1936,287,unavailable,unknown_not_proven_from_static_metadata
+REF04-home-crew,/Canvas/PlayerHeroes/HeroHome2 (2)/GroupHero/CanvasHero/Mesh/Skeleton,Spine.Unity.SkeletonGraphic,1937,284,unavailable,unknown_not_proven_from_static_metadata
+REF04-home-crew,/Canvas/PlayerHeroes/HeroHome2 (4)/GroupHero/CanvasHero/Mesh/Skeleton,Spine.Unity.SkeletonGraphic,1938,283,unavailable,unknown_not_proven_from_static_metadata
+REF04-home-crew,/Canvas/PanelHomeTopLeft/PanelHomeQuest/Content/ItemWrapper/GameItem/ItemEquipmentUI/MaskSpineBorder/SpineBoder,SpineObject,1951,361,unavailable,unknown_not_proven_from_static_metadata
+REF04-home-crew,/Canvas/PanelHomeTopLeft/PanelHomeQuest/Content/ItemWrapper/GameItem/ItemArtifactUI/MaskSpineBorder/SpineBoder,SpineObject,1958,466,unavailable,unknown_not_proven_from_static_metadata
+REF04-home-crew,/Canvas/PanelHomeTopLeft/PanelHomeQuest/Content/ItemWrapper/GameItem/SpineHighlight,SpineObject,2074,258,unavailable,unknown_not_proven_from_static_metadata

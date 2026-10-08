@@ -1,0 +1,90 @@
+reference,ui_path,component_id,gameobject,active,classification
+REF01-ship-upgrade,/Canvas/DotIndicator/DotObject/ImageOff,214,ImageOff,True,serialized_null_sprite_pointer
+REF01-ship-upgrade,/Canvas/BoxPet/CellPet3/ImageName,215,ImageName,True,serialized_null_sprite_pointer
+REF01-ship-upgrade,/Canvas/BoxPet/CellPet3,254,CellPet3,True,serialized_null_sprite_pointer
+REF01-ship-upgrade,/Canvas/BoxPet/CellPet2/ImageName,271,ImageName,True,serialized_null_sprite_pointer
+REF01-ship-upgrade,/Canvas/BoxPet/CellPet2,294,CellPet2,True,serialized_null_sprite_pointer
+REF01-ship-upgrade,/Canvas/BoxPet/CellPet1/ImageName,301,ImageName,True,serialized_null_sprite_pointer
+REF01-ship-upgrade,/Canvas/BoxPet/CellPet1,305,CellPet1,True,serialized_null_sprite_pointer
+REF02-hero-detail,/PanelHeroInfo/RightPart/BoxInfo/PanelEnable/BoxEnable/SlotMaterial/HeroMaterial4/TagName,76527,TagName,True,serialized_null_sprite_pointer
+REF02-hero-detail,/PanelHeroInfo/RightPart/BoxInfo/PanelEnable/BoxEnable/SlotMaterial/HeroMaterial4/HeroStar,76531,HeroStar,True,serialized_null_sprite_pointer
+REF02-hero-detail,/PanelHeroInfo/RightPart/BoxInfo/PanelEquipment/SlotStone/HeroStoneUI,77350,HeroStoneUI,False,serialized_null_sprite_pointer
+REF02-hero-detail,/PanelHeroInfo/RightPart/BoxInfo/Tabs,78563,Tabs,True,serialized_null_sprite_pointer
+REF02-hero-detail,/PanelHeroInfo/PanelHeroList/PanelFilter/TabClass5,79763,TabClass5,True,serialized_null_sprite_pointer
+REF02-hero-detail,/PanelHeroInfo/BoxShare,80321,BoxShare,False,serialized_null_sprite_pointer
+REF02-hero-detail,/PanelHeroInfo,80817,PanelHeroInfo,True,serialized_null_sprite_pointer
+REF02-hero-detail,/PanelHeroInfo/PanelHeroList/PanelFilter/TabClass1,81833,TabClass1,True,serialized_null_sprite_pointer
+REF02-hero-detail,/PanelHeroInfo/PanelHeroList/PanelFilter/TabClass3,82604,TabClass3,True,serialized_null_sprite_pointer
+REF02-hero-detail,/PanelHeroInfo/PanelHeroList/PanelFilter/TabClass2,82886,TabClass2,True,serialized_null_sprite_pointer
+REF02-hero-detail,/PanelHeroInfo/RightPart/BoxInfo/PanelEquipment/SlotStone/HeroStoneUI/Mask/ImageBgr,82968,ImageBgr,True,serialized_null_sprite_pointer
+REF02-hero-detail,/PanelHeroInfo/PanelHeroList/PanelFilter/TabClass6,83153,TabClass6,True,serialized_null_sprite_pointer
+REF02-hero-detail,/PanelHeroInfo/PanelHeroList/PanelFilter/TabClass4,83402,TabClass4,True,serialized_null_sprite_pointer
+REF02-hero-detail,/PanelHeroInfo/RightPart/BoxInfo/PanelEquipment/SlotArtifact/ItemArtifactUI,87126,ItemArtifactUI,True,serialized_null_sprite_pointer
+REF02-hero-detail,/PanelHeroInfo/RightPart/BoxInfo/PanelEquipment/SlotArtifact/ItemArtifactUI/Mask/Check,87143,Check,False,serialized_null_sprite_pointer
+REF02-hero-detail,/PanelHeroInfo/RightPart/BoxInfo/PanelAwaken/BoxAwaken/SlotMaterial/HeroMaterial1/TagName,87205,TagName,True,serialized_null_sprite_pointer
+REF02-hero-detail,/PanelHeroInfo/RightPart/BoxInfo/PanelAwaken/BoxAwaken/SlotMaterial/HeroMaterial1/HeroStar,87208,HeroStar,True,serialized_null_sprite_pointer
+REF02-hero-detail,/PanelHeroInfo/HeroBox/ImageHero,87310,ImageHero,True,serialized_null_sprite_pointer
+REF02-hero-detail,/PanelHeroInfo/RightPart/BoxInfo/PanelPoint/BoxSkillDesc,90723,BoxSkillDesc,False,serialized_null_sprite_pointer
+REF02-hero-detail,/PanelHeroInfo/RightPart/BoxInfo/PanelBreakthrough/SlotMaterial/HeroMaterial2/HeroStar,90826,HeroStar,True,serialized_null_sprite_pointer
+REF02-hero-detail,/PanelHeroInfo/RightPart/BoxInfo/PanelBreakthrough/SlotMaterial/HeroMaterial2/TagName,90827,TagName,True,serialized_null_sprite_pointer
+REF02-hero-detail,/PanelHeroInfo/RightPart/BoxInfo/PanelEquipment/SlotAccessory/ItemEquipmentUI/Mask/Check,98210,Check,False,serialized_null_sprite_pointer
+REF02-hero-detail,/PanelHeroInfo/RightPart/BoxInfo/PanelEquipment/SlotAccessory/ItemEquipmentUI,98211,ItemEquipmentUI,True,serialized_null_sprite_pointer
+REF02-hero-detail,/PanelHeroInfo/RightPart/BoxInfo/PanelEnable/BoxEnable/SlotMaterial/HeroMaterial1/TagName,98502,TagName,True,serialized_null_sprite_pointer
+REF02-hero-detail,/PanelHeroInfo/RightPart/BoxInfo/PanelEnable/BoxEnable/SlotMaterial/HeroMaterial1/HeroStar,98506,HeroStar,True,serialized_null_sprite_pointer
+REF02-hero-detail,/PanelHeroInfo/RightPart/BoxInfo/PanelEquipment/SlotWeapon/ItemEquipmentUI/Mask/Check,98577,Check,False,serialized_null_sprite_pointer
+REF02-hero-detail,/PanelHeroInfo/RightPart/BoxInfo/PanelEquipment/SlotWeapon/ItemEquipmentUI,98578,ItemEquipmentUI,True,serialized_null_sprite_pointer
+REF02-hero-detail,/PanelHeroInfo/RightPart/BoxInfo/PanelBreakthrough/SlotMaterial/HeroMaterial1/HeroStar,99435,HeroStar,True,serialized_null_sprite_pointer
+REF02-hero-detail,/PanelHeroInfo/RightPart/BoxInfo/PanelBreakthrough/SlotMaterial/HeroMaterial1/TagName,99436,TagName,True,serialized_null_sprite_pointer
+REF02-hero-detail,/PanelHeroInfo/RightPart/BoxInfo/PanelBreakthrough/SlotMaterial/HeroMaterial3/TagName,99706,TagName,True,serialized_null_sprite_pointer
+REF02-hero-detail,/PanelHeroInfo/RightPart/BoxInfo/PanelBreakthrough/SlotMaterial/HeroMaterial3/HeroStar,99710,HeroStar,True,serialized_null_sprite_pointer
+REF02-hero-detail,/PanelHeroInfo/RightPart/BoxInfo/PanelAwaken/BoxAwaken/SlotMaterial/HeroMaterial2/HeroStar,100272,HeroStar,True,serialized_null_sprite_pointer
+REF02-hero-detail,/PanelHeroInfo/RightPart/BoxInfo/PanelAwaken/BoxAwaken/SlotMaterial/HeroMaterial2/TagName,100276,TagName,True,serialized_null_sprite_pointer
+REF02-hero-detail,/PanelHeroInfo/RightPart/BoxInfo/PanelSpecialEquip/Bgr/GroupContent/SideAttack/GroupImage/IconClass,100480,IconClass,True,serialized_null_sprite_pointer
+REF02-hero-detail,/PanelHeroInfo/RightPart/BoxInfo/PanelEnable/BoxEnable/SlotMaterial/HeroMaterial2/HeroStar,101061,HeroStar,True,serialized_null_sprite_pointer
+REF02-hero-detail,/PanelHeroInfo/RightPart/BoxInfo/PanelEnable/BoxEnable/SlotMaterial/HeroMaterial2/TagName,101066,TagName,True,serialized_null_sprite_pointer
+REF02-hero-detail,/PanelHeroInfo/RightPart/BoxInfo/PanelSpecialEquip/Bgr/GroupContent/SideHP/GroupImage/IconTier,101819,IconTier,True,serialized_null_sprite_pointer
+REF02-hero-detail,/PanelHeroInfo/RightPart/BoxInfo/Test,102022,Test,False,serialized_null_sprite_pointer
+REF02-hero-detail,/PanelHeroInfo/RightPart/BoxInfo/PanelEquipment/SlotShoes/ItemEquipmentUI,103392,ItemEquipmentUI,True,serialized_null_sprite_pointer
+REF02-hero-detail,/PanelHeroInfo/RightPart/BoxInfo/PanelEquipment/SlotShoes/ItemEquipmentUI/Mask/Check,103393,Check,False,serialized_null_sprite_pointer
+REF02-hero-detail,/PanelHeroInfo/RightPart/BoxInfo/PanelEquipment/SlotArmor/ItemEquipmentUI,105746,ItemEquipmentUI,True,serialized_null_sprite_pointer
+REF02-hero-detail,/PanelHeroInfo/RightPart/BoxInfo/PanelEquipment/SlotArmor/ItemEquipmentUI/Mask/Check,105747,Check,False,serialized_null_sprite_pointer
+REF02-hero-detail,/PanelHeroInfo/RightPart/BoxInfo/PanelEnable/BoxEnable/SlotMaterial/HeroMaterial3/TagName,106268,TagName,True,serialized_null_sprite_pointer
+REF02-hero-detail,/PanelHeroInfo/RightPart/BoxInfo/PanelEnable/BoxEnable/SlotMaterial/HeroMaterial3/HeroStar,106270,HeroStar,True,serialized_null_sprite_pointer
+REF02-hero-detail,/PanelHeroInfo/RightPart/BoxInfo/PanelAwaken/BoxAwaken/SlotMaterial/HeroMaterial3/TagName,106963,TagName,True,serialized_null_sprite_pointer
+REF02-hero-detail,/PanelHeroInfo/RightPart/BoxInfo/PanelAwaken/BoxAwaken/SlotMaterial/HeroMaterial3/HeroStar,106964,HeroStar,True,serialized_null_sprite_pointer
+REF03-islands-map-A,/Canvas/Image,253,Image,True,serialized_null_sprite_pointer
+REF03-islands-map-B,/Canvas/Image,277,Image,True,serialized_null_sprite_pointer
+REF04-home-crew,/Canvas/PanelHomeBottom/GroupContent/GroupButton/ButtonSummon/BoxSelect/ClickArea,1578,ClickArea,True,serialized_null_sprite_pointer
+REF04-home-crew,/Canvas/PanelHomeTopLeft/PlayerInfo/GroupAvatar,1586,GroupAvatar,True,serialized_null_sprite_pointer
+REF04-home-crew,/Canvas/PanelMenu,1644,PanelMenu,False,serialized_null_sprite_pointer
+REF04-home-crew,/Canvas/PanelHomeTopLeft/PanelHomeQuest/Content/TagContent,1664,TagContent,True,serialized_null_sprite_pointer
+REF04-home-crew,/Canvas/PanelHomeTopLeft/PanelHomeQuest/Content/ClickBox,1706,ClickBox,True,serialized_null_sprite_pointer
+REF04-home-crew,/Canvas/PanelHomeBottomLeft/18Plus,1732,18Plus,True,serialized_null_sprite_pointer
+REF04-home-crew,/Canvas/PanelHomeTopLeft/PanelHomeQuest/Content/ItemWrapper/GameItem/HeroHeadClickable/HeroHeadUI/Mask/Lock,1761,Lock,False,serialized_null_sprite_pointer
+REF04-home-crew,/Canvas/PanelHomeTopLeft/PanelHomeQuest/Content/ItemWrapper/GameItem/HeroHeadClickable/HeroHeadUI/HeroStar,1764,HeroStar,True,serialized_null_sprite_pointer
+REF04-home-crew,/Canvas/PanelHomeTopLeft/PanelHomeQuest/Content/ItemWrapper/GameItem/HeroHeadClickable/HeroHeadUI/Mask/Check,1785,Check,False,serialized_null_sprite_pointer
+REF04-home-crew,/Canvas/PanelHomeTopLeft/PanelHomeQuest/Content/ItemWrapper/GameItem/HeroHeadClickable/HeroHeadUI/Mask/Death,1791,Death,False,serialized_null_sprite_pointer
+REF04-home-crew,/Canvas/PanelHomeTopLeft/PanelHomeQuest/Content/ItemWrapper/GameItem/ItemEquipmentUI,1803,ItemEquipmentUI,False,serialized_null_sprite_pointer
+REF04-home-crew,/Canvas/PanelHomeTopLeft/PanelHomeQuest/Content/ItemWrapper/GameItem/ItemEquipmentUI/Mask/Check,1804,Check,False,serialized_null_sprite_pointer
+REF04-home-crew,/Canvas/PanelHomeTopLeft/PanelHomeQuest/Content/ItemWrapper/GameItem/HeroHeadClickable,1820,HeroHeadClickable,False,serialized_null_sprite_pointer
+REF04-home-crew,/Canvas/PanelHomeTopLeft/PanelHomeQuest/Content/ItemWrapper/GameItem/ItemArtifactUI,1835,ItemArtifactUI,True,serialized_null_sprite_pointer
+REF04-home-crew,/Canvas/PanelHomeTopLeft/PanelHomeQuest/Content/ItemWrapper/GameItem/ItemArtifactUI/Mask/Check,1837,Check,False,serialized_null_sprite_pointer
+REF04-home-crew,/Canvas/PanelHomeTopLeft/PanelHomeQuest/Content/ItemWrapper/GameItem/GroupDone/ImageCover/Image,1876,Image,True,serialized_null_sprite_pointer
+REF04-home-crew,/Canvas/PlayerHeroes/HeroHome2 (2)/GroupHero/GroupStars,1881,GroupStars,True,serialized_null_sprite_pointer
+REF04-home-crew,/Canvas/PlayerHeroes/HeroHome2 (4)/GroupHero/GroupStars,1892,GroupStars,True,serialized_null_sprite_pointer
+REF04-home-crew,/Canvas/PlayerHeroes/HeroHome2 (5)/GroupHero/GroupStars,1897,GroupStars,True,serialized_null_sprite_pointer
+REF04-home-crew,/Canvas/PlayerHeroes/HeroHome2 (1)/GroupHero/GroupStars,1902,GroupStars,True,serialized_null_sprite_pointer
+REF04-home-crew,/Canvas/PlayerHeroes/HeroHome2 (3)/GroupHero/GroupStars,1907,GroupStars,True,serialized_null_sprite_pointer
+REF04-home-crew,/Canvas/PlayerHeroes/HeroHome2 (0)/GroupHero/GroupStars,1908,GroupStars,True,serialized_null_sprite_pointer
+REF04-home-crew,/Canvas/PlayerHeroes/HeroHome2 (0)/GroupHero/CanvasHero/ClickArea,1939,ClickArea,True,serialized_null_sprite_pointer
+REF04-home-crew,/Canvas/PlayerHeroes/HeroHome2 (3)/GroupHero/CanvasHero/ClickArea,1940,ClickArea,True,serialized_null_sprite_pointer
+REF04-home-crew,/Canvas/PlayerHeroes/HeroHome2 (1)/GroupHero/CanvasHero/ClickArea,1941,ClickArea,True,serialized_null_sprite_pointer
+REF04-home-crew,/Canvas/PlayerHeroes/HeroHome2 (5)/GroupHero/CanvasHero/ClickArea,1942,ClickArea,True,serialized_null_sprite_pointer
+REF04-home-crew,/Canvas/PlayerHeroes/HeroHome2 (4)/GroupHero/CanvasHero/ClickArea,1943,ClickArea,True,serialized_null_sprite_pointer
+REF04-home-crew,/Canvas/PlayerHeroes/HeroHome2 (2)/GroupHero/CanvasHero/ClickArea,1944,ClickArea,True,serialized_null_sprite_pointer
+REF04-home-crew,/Canvas/PanelHomeTopLeft/PanelHomeQuest/Content/ItemWrapper/GameItem/ItemVipExpUI,1959,ItemVipExpUI,False,serialized_null_sprite_pointer
+REF04-home-crew,/Canvas/PanelHomeTopLeft/PanelHomeQuest/Content/ItemWrapper/GameItem/ItemAvatarUI,1973,ItemAvatarUI,True,serialized_null_sprite_pointer
+REF04-home-crew,/Canvas/PanelHomeTopLeft/PanelHomeQuest/Content/ItemWrapper/GameItem/ItemConsumableUI,2079,ItemConsumableUI,False,serialized_null_sprite_pointer
+REF04-home-crew,/Canvas/PanelHomeTopLeft/PanelHomeQuest/Content/ItemWrapper/GameItem/ItemConsumableUI/Mask/Check,2086,Check,False,serialized_null_sprite_pointer
+REF04-home-crew,/Canvas/PanelHomeTopLeft/PanelHomeQuest/Content/ItemWrapper/GameItem/ItemShardUI/Mask/Check,2103,Check,False,serialized_null_sprite_pointer
+REF04-home-crew,/Canvas/PanelHomeTopLeft/PanelHomeQuest/Content/ItemWrapper/GameItem/ItemShardUI,2105,ItemShardUI,False,serialized_null_sprite_pointer

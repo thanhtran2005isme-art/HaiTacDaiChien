@@ -1,0 +1,129 @@
+{
+  "references": [
+    {
+      "reference": "REF01-ship-upgrade",
+      "bundle": "002_UnityDataAssetPack_datapack__file029",
+      "root": "Canvas",
+      "root_id": "202",
+      "confidence": "strong_structural_candidate",
+      "linked_image_components": 32,
+      "unique_sprite_targets": 17,
+      "unique_texture_targets": 17,
+      "missing_texture_metadata": 0,
+      "spine_visual_component_count": 3,
+      "spine_visual_class_counts": {
+        "Spine.Unity.SkeletonGraphic": 3
+      },
+      "unlinked_image_components": 7,
+      "unlinked_pointer_classes": {
+        "serialized_null_sprite_pointer": 7
+      },
+      "runtime_spine_skin": null,
+      "runtime_animation_track": null,
+      "physical_canvas_size": null
+    },
+    {
+      "reference": "REF02-hero-detail",
+      "bundle": "002_UnityDataAssetPack_datapack__file110",
+      "root": "PanelHeroInfo",
+      "root_id": "54840",
+      "confidence": "strong_structural_candidate",
+      "linked_image_components": 574,
+      "unique_sprite_targets": 113,
+      "unique_texture_targets": 113,
+      "missing_texture_metadata": 0,
+      "spine_visual_component_count": 19,
+      "spine_visual_class_counts": {
+        "Spine.Unity.SkeletonGraphic": 10,
+        "SpineObject": 9
+      },
+      "unlinked_image_components": 46,
+      "unlinked_pointer_classes": {
+        "serialized_null_sprite_pointer": 46
+      },
+      "runtime_spine_skin": null,
+      "runtime_animation_track": null,
+      "physical_canvas_size": null
+    },
+    {
+      "reference": "REF03-islands-map-A",
+      "bundle": "002_UnityDataAssetPack_datapack__file083",
+      "root": "Canvas",
+      "root_id": "213",
+      "confidence": "candidate_unconfirmed_variant",
+      "linked_image_components": 43,
+      "unique_sprite_targets": 30,
+      "unique_texture_targets": 30,
+      "missing_texture_metadata": 0,
+      "spine_visual_component_count": 1,
+      "spine_visual_class_counts": {
+        "Spine.Unity.SkeletonGraphic": 1
+      },
+      "unlinked_image_components": 1,
+      "unlinked_pointer_classes": {
+        "serialized_null_sprite_pointer": 1
+      },
+      "runtime_spine_skin": null,
+      "runtime_animation_track": null,
+      "physical_canvas_size": null
+    },
+    {
+      "reference": "REF03-islands-map-B",
+      "bundle": "002_UnityDataAssetPack_datapack__file101",
+      "root": "Canvas",
+      "root_id": "233",
+      "confidence": "candidate_unconfirmed_variant",
+      "linked_image_components": 49,
+      "unique_sprite_targets": 32,
+      "unique_texture_targets": 32,
+      "missing_texture_metadata": 0,
+      "spine_visual_component_count": 1,
+      "spine_visual_class_counts": {
+        "Spine.Unity.SkeletonGraphic": 1
+      },
+      "unlinked_image_components": 1,
+      "unlinked_pointer_classes": {
+        "serialized_null_sprite_pointer": 1
+      },
+      "runtime_spine_skin": null,
+      "runtime_animation_track": null,
+      "physical_canvas_size": null
+    },
+    {
+      "reference": "REF04-home-crew",
+      "bundle": "002_UnityDataAssetPack_datapack__file025",
+      "root": "Canvas",
+      "root_id": "1024",
+      "confidence": "strong_structural_candidate",
+      "linked_image_components": 265,
+      "unique_sprite_targets": 88,
+      "unique_texture_targets": 88,
+      "missing_texture_metadata": 0,
+      "spine_visual_component_count": 22,
+      "spine_visual_class_counts": {
+        "Spine.Unity.SkeletonGraphic": 17,
+        "SpineObject": 5
+      },
+      "unlinked_image_components": 34,
+      "unlinked_pointer_classes": {
+        "serialized_null_sprite_pointer": 34
+      },
+      "runtime_spine_skin": null,
+      "runtime_animation_track": null,
+      "physical_canvas_size": null
+    }
+  ],
+  "totals": {
+    "reference_candidates": 5,
+    "linked_images": 963,
+    "spine_visual_components": 46,
+    "unlinked_images": 89
+  },
+  "limitations": [
+    "Scene associations derive from four user screenshots and are not pixel verified.",
+    "Spine classes do not prove animation state, default skin, or rendering.",
+    "Null Image Sprite pointer does not prove a runtime assignment.",
+    "Neither actual Canvas size nor Unity reference resolution has been recovered.",
+    "No proprietary game artwork or source code was exported."
+  ]
+}
