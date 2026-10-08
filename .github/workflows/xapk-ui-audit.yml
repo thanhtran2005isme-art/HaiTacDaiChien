@@ -132,5 +132,16 @@ jobs:
           git add reports/xapk/
           if ! git diff --cached --quiet; then
             git commit -m "docs: record XAPK UI resource inventory"
-            git push
+            # The metadata job may start before a documentation commit lands.
+            # Rebase its report-only commit rather than force-pushing main.
+            for attempt in 1 2 3; do
+              git fetch origin main
+              git rebase origin/main
+              if git push origin HEAD:main; then
+                exit 0
+              fi
+              echo "Push raced with another update; retrying (${attempt}/3)"
+            done
+            echo "Could not publish fresh reports after 3 attempts"
+            exit 1
           fi
