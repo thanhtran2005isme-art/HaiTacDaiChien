@@ -1,0 +1,511 @@
+{
+  "totals": {
+    "serialized_files": 116,
+    "image_components_from_prior_audit": 19643,
+    "no_usable_image_typetree": 19643,
+    "total_resolved_sprite_candidate_pointers": 16886,
+    "images_without_matching_sprite": 2757,
+    "images_with_one_candidate": 16886,
+    "confidence_unresolved": 2757,
+    "confidence_probable_m_sprite": 16885,
+    "confidence_unconfirmed_sprite_pointer": 1
+  },
+  "linked_rows": 16886,
+  "offset_calibration": [
+    {
+      "serialized_file": "000_com.mobi389.murom_data__file004",
+      "leading_offsets": [
+        {
+          "byte_offset": 88,
+          "single_matches": 7
+        }
+      ]
+    },
+    {
+      "serialized_file": "002_UnityDataAssetPack_datapack__file001",
+      "leading_offsets": [
+        {
+          "byte_offset": 88,
+          "single_matches": 48
+        }
+      ]
+    },
+    {
+      "serialized_file": "002_UnityDataAssetPack_datapack__file003",
+      "leading_offsets": [
+        {
+          "byte_offset": 88,
+          "single_matches": 183
+        }
+      ]
+    },
+    {
+      "serialized_file": "002_UnityDataAssetPack_datapack__file005",
+      "leading_offsets": [
+        {
+          "byte_offset": 88,
+          "single_matches": 31
+        }
+      ]
+    },
+    {
+      "serialized_file": "002_UnityDataAssetPack_datapack__file007",
+      "leading_offsets": [
+        {
+          "byte_offset": 88,
+          "single_matches": 219
+        }
+      ]
+    },
+    {
+      "serialized_file": "002_UnityDataAssetPack_datapack__file009",
+      "leading_offsets": [
+        {
+          "byte_offset": 88,
+          "single_matches": 48
+        }
+      ]
+    },
+    {
+      "serialized_file": "002_UnityDataAssetPack_datapack__file011",
+      "leading_offsets": [
+        {
+          "byte_offset": 88,
+          "single_matches": 302
+        }
+      ]
+    },
+    {
+      "serialized_file": "002_UnityDataAssetPack_datapack__file013",
+      "leading_offsets": [
+        {
+          "byte_offset": 88,
+          "single_matches": 63
+        }
+      ]
+    },
+    {
+      "serialized_file": "002_UnityDataAssetPack_datapack__file015",
+      "leading_offsets": [
+        {
+          "byte_offset": 88,
+          "single_matches": 28
+        }
+      ]
+    },
+    {
+      "serialized_file": "002_UnityDataAssetPack_datapack__file017",
+      "leading_offsets": [
+        {
+          "byte_offset": 88,
+          "single_matches": 67
+        }
+      ]
+    },
+    {
+      "serialized_file": "002_UnityDataAssetPack_datapack__file019",
+      "leading_offsets": [
+        {
+          "byte_offset": 88,
+          "single_matches": 22
+        }
+      ]
+    },
+    {
+      "serialized_file": "002_UnityDataAssetPack_datapack__file021",
+      "leading_offsets": [
+        {
+          "byte_offset": 88,
+          "single_matches": 21
+        }
+      ]
+    },
+    {
+      "serialized_file": "002_UnityDataAssetPack_datapack__file023",
+      "leading_offsets": [
+        {
+          "byte_offset": 88,
+          "single_matches": 27
+        }
+      ]
+    },
+    {
+      "serialized_file": "002_UnityDataAssetPack_datapack__file025",
+      "leading_offsets": [
+        {
+          "byte_offset": 88,
+          "single_matches": 265
+        }
+      ]
+    },
+    {
+      "serialized_file": "002_UnityDataAssetPack_datapack__file027",
+      "leading_offsets": [
+        {
+          "byte_offset": 88,
+          "single_matches": 93
+        }
+      ]
+    },
+    {
+      "serialized_file": "002_UnityDataAssetPack_datapack__file029",
+      "leading_offsets": [
+        {
+          "byte_offset": 88,
+          "single_matches": 32
+        }
+      ]
+    },
+    {
+      "serialized_file": "002_UnityDataAssetPack_datapack__file031",
+      "leading_offsets": [
+        {
+          "byte_offset": 88,
+          "single_matches": 38
+        }
+      ]
+    },
+    {
+      "serialized_file": "002_UnityDataAssetPack_datapack__file035",
+      "leading_offsets": [
+        {
+          "byte_offset": 88,
+          "single_matches": 168
+        }
+      ]
+    },
+    {
+      "serialized_file": "002_UnityDataAssetPack_datapack__file037",
+      "leading_offsets": [
+        {
+          "byte_offset": 88,
+          "single_matches": 82
+        }
+      ]
+    },
+    {
+      "serialized_file": "002_UnityDataAssetPack_datapack__file039",
+      "leading_offsets": [
+        {
+          "byte_offset": 88,
+          "single_matches": 41
+        }
+      ]
+    },
+    {
+      "serialized_file": "002_UnityDataAssetPack_datapack__file041",
+      "leading_offsets": [
+        {
+          "byte_offset": 88,
+          "single_matches": 75
+        }
+      ]
+    },
+    {
+      "serialized_file": "002_UnityDataAssetPack_datapack__file043",
+      "leading_offsets": [
+        {
+          "byte_offset": 88,
+          "single_matches": 89
+        }
+      ]
+    },
+    {
+      "serialized_file": "002_UnityDataAssetPack_datapack__file045",
+      "leading_offsets": [
+        {
+          "byte_offset": 88,
+          "single_matches": 169
+        }
+      ]
+    },
+    {
+      "serialized_file": "002_UnityDataAssetPack_datapack__file047",
+      "leading_offsets": [
+        {
+          "byte_offset": 88,
+          "single_matches": 90
+        }
+      ]
+    },
+    {
+      "serialized_file": "002_UnityDataAssetPack_datapack__file049",
+      "leading_offsets": [
+        {
+          "byte_offset": 88,
+          "single_matches": 46
+        }
+      ]
+    },
+    {
+      "serialized_file": "002_UnityDataAssetPack_datapack__file051",
+      "leading_offsets": [
+        {
+          "byte_offset": 88,
+          "single_matches": 34
+        }
+      ]
+    },
+    {
+      "serialized_file": "002_UnityDataAssetPack_datapack__file053",
+      "leading_offsets": [
+        {
+          "byte_offset": 88,
+          "single_matches": 141
+        }
+      ]
+    },
+    {
+      "serialized_file": "002_UnityDataAssetPack_datapack__file055",
+      "leading_offsets": [
+        {
+          "byte_offset": 88,
+          "single_matches": 62
+        }
+      ]
+    },
+    {
+      "serialized_file": "002_UnityDataAssetPack_datapack__file059",
+      "leading_offsets": [
+        {
+          "byte_offset": 88,
+          "single_matches": 66
+        }
+      ]
+    },
+    {
+      "serialized_file": "002_UnityDataAssetPack_datapack__file061",
+      "leading_offsets": [
+        {
+          "byte_offset": 88,
+          "single_matches": 120
+        }
+      ]
+    },
+    {
+      "serialized_file": "002_UnityDataAssetPack_datapack__file063",
+      "leading_offsets": [
+        {
+          "byte_offset": 88,
+          "single_matches": 2
+        }
+      ]
+    },
+    {
+      "serialized_file": "002_UnityDataAssetPack_datapack__file065",
+      "leading_offsets": [
+        {
+          "byte_offset": 88,
+          "single_matches": 41
+        }
+      ]
+    },
+    {
+      "serialized_file": "002_UnityDataAssetPack_datapack__file067",
+      "leading_offsets": [
+        {
+          "byte_offset": 88,
+          "single_matches": 23
+        }
+      ]
+    },
+    {
+      "serialized_file": "002_UnityDataAssetPack_datapack__file069",
+      "leading_offsets": [
+        {
+          "byte_offset": 88,
+          "single_matches": 101
+        }
+      ]
+    },
+    {
+      "serialized_file": "002_UnityDataAssetPack_datapack__file071",
+      "leading_offsets": [
+        {
+          "byte_offset": 88,
+          "single_matches": 265
+        }
+      ]
+    },
+    {
+      "serialized_file": "002_UnityDataAssetPack_datapack__file073",
+      "leading_offsets": [
+        {
+          "byte_offset": 88,
+          "single_matches": 39
+        }
+      ]
+    },
+    {
+      "serialized_file": "002_UnityDataAssetPack_datapack__file075",
+      "leading_offsets": [
+        {
+          "byte_offset": 88,
+          "single_matches": 38
+        }
+      ]
+    },
+    {
+      "serialized_file": "002_UnityDataAssetPack_datapack__file077",
+      "leading_offsets": [
+        {
+          "byte_offset": 88,
+          "single_matches": 63
+        }
+      ]
+    },
+    {
+      "serialized_file": "002_UnityDataAssetPack_datapack__file079",
+      "leading_offsets": [
+        {
+          "byte_offset": 88,
+          "single_matches": 54
+        }
+      ]
+    },
+    {
+      "serialized_file": "002_UnityDataAssetPack_datapack__file081",
+      "leading_offsets": [
+        {
+          "byte_offset": 88,
+          "single_matches": 153
+        }
+      ]
+    },
+    {
+      "serialized_file": "002_UnityDataAssetPack_datapack__file083",
+      "leading_offsets": [
+        {
+          "byte_offset": 88,
+          "single_matches": 43
+        }
+      ]
+    },
+    {
+      "serialized_file": "002_UnityDataAssetPack_datapack__file085",
+      "leading_offsets": [
+        {
+          "byte_offset": 88,
+          "single_matches": 94
+        }
+      ]
+    },
+    {
+      "serialized_file": "002_UnityDataAssetPack_datapack__file087",
+      "leading_offsets": [
+        {
+          "byte_offset": 88,
+          "single_matches": 6
+        }
+      ]
+    },
+    {
+      "serialized_file": "002_UnityDataAssetPack_datapack__file089",
+      "leading_offsets": [
+        {
+          "byte_offset": 88,
+          "single_matches": 39
+        }
+      ]
+    },
+    {
+      "serialized_file": "002_UnityDataAssetPack_datapack__file091",
+      "leading_offsets": [
+        {
+          "byte_offset": 88,
+          "single_matches": 11
+        }
+      ]
+    },
+    {
+      "serialized_file": "002_UnityDataAssetPack_datapack__file093",
+      "leading_offsets": [
+        {
+          "byte_offset": 88,
+          "single_matches": 19
+        }
+      ]
+    },
+    {
+      "serialized_file": "002_UnityDataAssetPack_datapack__file095",
+      "leading_offsets": [
+        {
+          "byte_offset": 88,
+          "single_matches": 24
+        }
+      ]
+    },
+    {
+      "serialized_file": "002_UnityDataAssetPack_datapack__file097",
+      "leading_offsets": [
+        {
+          "byte_offset": 88,
+          "single_matches": 42
+        }
+      ]
+    },
+    {
+      "serialized_file": "002_UnityDataAssetPack_datapack__file099",
+      "leading_offsets": [
+        {
+          "byte_offset": 88,
+          "single_matches": 94
+        }
+      ]
+    },
+    {
+      "serialized_file": "002_UnityDataAssetPack_datapack__file101",
+      "leading_offsets": [
+        {
+          "byte_offset": 88,
+          "single_matches": 49
+        }
+      ]
+    },
+    {
+      "serialized_file": "002_UnityDataAssetPack_datapack__file103",
+      "leading_offsets": [
+        {
+          "byte_offset": 88,
+          "single_matches": 1
+        }
+      ]
+    },
+    {
+      "serialized_file": "002_UnityDataAssetPack_datapack__file107",
+      "leading_offsets": [
+        {
+          "byte_offset": 88,
+          "single_matches": 81
+        }
+      ]
+    },
+    {
+      "serialized_file": "002_UnityDataAssetPack_datapack__file109",
+      "leading_offsets": [
+        {
+          "byte_offset": 88,
+          "single_matches": 72
+        }
+      ]
+    },
+    {
+      "serialized_file": "002_UnityDataAssetPack_datapack__file110",
+      "leading_offsets": [
+        {
+          "byte_offset": 88,
+          "single_matches": 12855
+        }
+      ]
+    }
+  ],
+  "issues": [],
+  "interpretation": [
+    "verified_typetree: explicit serialized m_Sprite field points to Sprite.",
+    "probable_m_sprite: one type-checked Sprite PPtr with repeated offset within same file.",
+    "unconfirmed_sprite_pointer: a single matching Sprite PPtr without offset corroboration.",
+    "ambiguous matches excluded, null sprites are not counted as recovered.",
+    "This is a static inferred link; complete source/prefab functionality is not recovered.",
+    "Only metadata and object names, not game images or bundles, are published."
+  ]
+}
