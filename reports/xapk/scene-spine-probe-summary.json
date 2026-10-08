@@ -1,0 +1,16 @@
+{
+  "totals": {
+    "scene_spine_components": 46,
+    "direct_candidate_links": 22,
+    "scene_components_without_direct_targets": 24,
+    "skeleton_to_atlas_candidate_links": 17,
+    "known_asset_target_components": 1044
+  },
+  "rows": 39,
+  "limits": [
+    "Candidate pointers resolve to typed Spine assets, but serialized field offset is unverified.",
+    "One scene component can contain multiple typed pointers; do not pick one arbitrarily.",
+    "Default skin, selected character, active animation and texture pixels are not known.",
+    "No binaries, game artwork or private screenshots exported."
+  ]
+}
