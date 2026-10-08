@@ -24,6 +24,9 @@ on:
         type: boolean
         required: false
         default: false
+concurrency:
+  group: xapk-ui-audit-${{ github.ref }}
+  cancel-in-progress: true
 permissions:
   contents: write
 jobs:
@@ -53,7 +56,8 @@ jobs:
           else
             python3 tools/analyze_xapk.py "$XAPK"
           fi
-      - name: Decode Android resource XML with apktool
+      - name: Decode Android resource XML with apktool (manual export only)
+        if: ${{ github.event_name == 'workflow_dispatch' && inputs.export_resources }}
         shell: bash
         run: |
           sudo apt-get update -qq
