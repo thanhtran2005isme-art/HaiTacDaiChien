@@ -17,6 +17,16 @@ W, H = 1600, 900
 TARGETS = ["PanelHeroInfo", "PopupShop", "PopupDailyQuest", "PopupFormationTest",
            "PopupPlayerInfo3", "PopupTowerLevelInfo", "PopupEventMonopoly",
            "PopupGuildWarPlayerInfo", "PanelEasterPrayEvent"]
+# Manual mappings from user-supplied visual references to serialized UI roots.
+# A screenshot is not proof of exact scene identity. Images are not stored.
+REFERENCE_ROOTS = [
+    ("REF01-ship-upgrade", "002_UnityDataAssetPack_datapack__file029", "Canvas", "strong_structural_candidate"),
+    ("REF02-hero-detail", "002_UnityDataAssetPack_datapack__file110", "PanelHeroInfo", "strong_structural_candidate"),
+    ("REF03-islands-map-A", "002_UnityDataAssetPack_datapack__file083", "Canvas", "candidate_unconfirmed_variant"),
+    ("REF03-islands-map-B", "002_UnityDataAssetPack_datapack__file101", "Canvas", "candidate_unconfirmed_variant"),
+    ("REF04-home-crew", "002_UnityDataAssetPack_datapack__file025", "Canvas", "strong_structural_candidate"),
+]
+
 
 def rows(path):
     with path.open("r", encoding="utf-8", newline="") as f:
@@ -262,8 +272,37 @@ def main():
         reports.append({"root": name, "bundle": bundle, "id": tid,
                         "nodes": count, "svg": "wireframes/" + filename,
                         **dict(summary)})
+
+    # Retain existing wireframe filenames for compatibility. These additional
+    # reference previews use stable, human-readable names and no image pixels.
+    reference_roots = {(row["bundle"], row["name"]): row
+                       for row in rows(folder / "ui-root-candidates.csv")}
+    reference_reports = []
+    for title, expected_bundle, expected_name, confidence in REFERENCE_ROOTS:
+        ref = reference_roots.get((expected_bundle, expected_name))
+        if ref is None:
+            raise RuntimeError("Missing expected serialized UI reference: " + title)
+        root = (expected_bundle, int(ref["transform_id"]), expected_name,
+                int(ref["subtree_size"]))
+        svg_filename = title + ".svg"
+        metrics = draw_svg(root, grouped[expected_bundle],
+                           typed[expected_bundle], matched[expected_bundle],
+                           unknown[expected_bundle], root_dir / svg_filename)
+        reference_reports.append({
+            "reference": title, "bundle": expected_bundle, "root": expected_name,
+            "root_id": root[1], "tree_nodes": root[3], "confidence": confidence,
+            "svg": "wireframes/" + svg_filename,
+            "linked_images": metrics.get("linked_images", 0),
+            "unresolved_images": metrics.get("unresolved_images", 0),
+            "notes": "Hypothetical geometry; missing runtime art/Spine state",
+        })
+    export_csv(folder / "ui-screenshot-reference-previews.csv", reference_reports,
+               ["reference", "bundle", "root", "root_id", "tree_nodes",
+                "confidence", "svg", "linked_images", "unresolved_images",
+                "notes"])
     stat = {"total_images": num_images, "linked_images": len(links),
             "unresolved_images": len(missing), "preview_roots": len(reports),
+            "reference_previews": len(reference_reports),
             "unresolved_root_distribution":
                 dict(collections.Counter(r["root"] for r in missing).most_common(30)),
             "unresolved_active":
@@ -289,6 +328,14 @@ def main():
     for r in reports:
         lines.append(f"| {r['root']} | {r['nodes']} | {r.get('linked_images',0)} "
                      f"| {r.get('unresolved_images',0)} | [view]({r['svg']}) |")
+    lines.extend(["", "## Screenshot-reference wireframes (user references, no uploaded pixels)", "",
+                  "| User reference | Serialized root | Matched Image | Unresolved Image | Schematic |",
+                  "|---|---|---:|---:|---|"])
+    for r in reference_reports:
+        lines.append("| " + r["reference"] + " | " + r["root"] + " @ " +
+                     r["bundle"] + " | " + str(r["linked_images"]) +
+                     " | " + str(r["unresolved_images"]) +
+                     " | [SVG](" + r["svg"] + ") |")
     lines.extend(["", "See unresolved-ui-images.csv for the missing Image inventory.",
                   "Root/Canvas size, rotations, CanvasScaler, masks, animation and actual display ordering are not reconstructed.", ""])
     (folder / "UI_PREVIEW_REPORT.md").write_text("\n".join(lines), encoding="utf-8")
