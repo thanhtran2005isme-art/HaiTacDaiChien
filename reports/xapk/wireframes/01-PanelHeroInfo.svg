@@ -1,0 +1,1555 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 976" role="img" aria-label="Schematic of Unity UI layout">
+<rect width="1600" height="976" fill="#0f172a"/>
+<rect width="1600" height="900" fill="#1e293b"/>
+<text x="20" y="927" font-family="sans-serif" font-size="22" fill="#f8fafc">PanelHeroInfo | 002_UnityDataAssetPack_datapack__file110</text>
+<text x="20" y="953" font-family="sans-serif" font-size="15" fill="#94a3b8">Metadata wireframe | hypothetical 1600x900 viewport | not the actual game screenshot</text>
+<g><title>/PanelHeroInfo/ImageBgr | bgr_0003_nuoc</title><rect x="96.0" y="20.0" width="1408.0" height="860.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+<text x="101.0" y="36.0" fill="#e2e8f0" font-size="12" font-family="sans-serif">ImageBgr</text>
+</g>
+<g><title>/PanelHeroInfo/HeroBox/ImageHero</title><rect x="196.0" y="226.0" width="640.0" height="512.0" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+<text x="201.0" y="242.0" fill="#e2e8f0" font-size="12" font-family="sans-serif">ImageHero</text>
+</g>
+<g><title>/PanelHeroInfo/HeroBox/ImageBoard | board_hero_name</title><rect x="341.0" y="626.5" width="350.0" height="131.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+<text x="346.0" y="642.5" fill="#e2e8f0" font-size="12" font-family="sans-serif">ImageBoard</text>
+</g>
+<g><title>/PanelHeroInfo/HeroBox/ImageBoard/HeroStars/GroupStar1/Star1 | hero_star_1</title><rect x="441.0" y="713.5" width="30.0" height="30.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/HeroBox/ImageBoard/HeroStars/GroupStar1/Star2 | hero_star_1</title><rect x="471.0" y="713.5" width="30.0" height="30.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/HeroBox/ImageBoard/HeroStars/GroupStar1/Star3 | hero_star_1</title><rect x="501.0" y="713.5" width="30.0" height="30.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/HeroBox/ImageBoard/HeroStars/GroupStar1/Star4 | hero_star_1</title><rect x="531.0" y="713.5" width="30.0" height="30.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/HeroBox/ImageBoard/HeroStars/GroupStar1/Star5 | hero_star_1</title><rect x="561.0" y="713.5" width="30.0" height="30.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/HeroBox/ImageBoard/HeroStars/GroupStar6/Star6 | hero_star_2</title><rect x="456.0" y="713.5" width="30.0" height="30.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/HeroBox/ImageBoard/HeroStars/GroupStar6/Star7 | hero_star_2</title><rect x="486.0" y="713.5" width="30.0" height="30.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/HeroBox/ImageBoard/HeroStars/GroupStar6/Star8 | hero_star_2</title><rect x="516.0" y="713.5" width="30.0" height="30.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/HeroBox/ImageBoard/HeroStars/GroupStar6/Star9 | hero_star_2</title><rect x="546.0" y="713.5" width="30.0" height="30.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/HeroBox/ImageBoard/HeroStars/GroupStar10/Star10 | hero_star_3</title><rect x="501.0" y="715.0" width="30.0" height="30.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/HeroBox/ImageBoard/HeroStars/GroupStarE/IconE | star_e_bgr</title><rect x="437.0" y="709.0" width="158.0" height="59.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+<text x="442.0" y="725.0" fill="#e2e8f0" font-size="12" font-family="sans-serif">IconE</text>
+</g>
+<g><title>/PanelHeroInfo/HeroBox/ImageBoard/HeroStars/GroupStarE/StarE | hero_star_e</title><rect x="497.0" y="719.5" width="38.0" height="38.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/HeroBox/ImageBoard/HeroStars/GroupStarE/StarE/TextStarE</title><rect x="436.0" y="727.7" width="160.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+<text x="441.0" y="743.7" fill="#e2e8f0" font-size="12" font-family="sans-serif">TextStarE</text>
+</g>
+<g><title>/PanelHeroInfo/HeroBox/ImageBoard/TextHeroName</title><rect x="487.5" y="665.0" width="69.0" height="50.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/HeroBox/HeroPointFlyUp/GroupText/TextPoint</title><rect x="407.1" y="382.0" width="217.8" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+<text x="412.1" y="398.0" fill="#e2e8f0" font-size="12" font-family="sans-serif">TextPoint</text>
+</g>
+<g><title>/PanelHeroInfo/HeroBox/HeroPointFlyDown/GroupText/TextPoint</title><rect x="407.1" y="451.0" width="217.8" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+<text x="412.1" y="467.0" fill="#e2e8f0" font-size="12" font-family="sans-serif">TextPoint</text>
+</g>
+<g><title>/PanelHeroInfo/ButtonShare | button_share</title><rect x="689.0" y="205.7" width="54.0" height="54.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/ButtonLocked | hero_locked</title><rect x="689.0" y="147.8" width="54.0" height="54.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/ButtonNoLock | hero_unlock</title><rect x="689.0" y="146.8" width="54.0" height="54.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/ButtonSkin | button_skin</title><rect x="689.0" y="266.0" width="54.0" height="54.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/BoxShare</title><rect x="247.7" y="136.2" width="1107.7" height="586.5" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+<text x="252.7" y="152.2" fill="#e2e8f0" font-size="12" font-family="sans-serif">BoxShare</text>
+</g>
+<g><title>/PanelHeroInfo/BoxShare/MenuShare | round_rect9</title><rect x="546.6" y="260.0" width="201.9" height="123.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+<text x="551.6" y="276.0" fill="#e2e8f0" font-size="12" font-family="sans-serif">MenuShare</text>
+</g>
+<g><title>/PanelHeroInfo/BoxShare/MenuShare/ButtonShareGuild | UISprite</title><rect x="557.5" y="273.1" width="180.0" height="45.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+<text x="562.5" y="289.1" fill="#e2e8f0" font-size="12" font-family="sans-serif">ButtonShareGuild</text>
+</g>
+<g><title>/PanelHeroInfo/BoxShare/MenuShare/ButtonShareGuild/Text</title><rect x="557.5" y="273.1" width="180.0" height="45.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+<text x="562.5" y="289.1" fill="#e2e8f0" font-size="12" font-family="sans-serif">Text</text>
+</g>
+<g><title>/PanelHeroInfo/BoxShare/MenuShare/ButtonShareWorld | UISprite</title><rect x="557.5" y="323.9" width="180.0" height="45.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+<text x="562.5" y="339.9" fill="#e2e8f0" font-size="12" font-family="sans-serif">ButtonShareWorld</text>
+</g>
+<g><title>/PanelHeroInfo/BoxShare/MenuShare/ButtonShareWorld/Text</title><rect x="557.5" y="323.9" width="180.0" height="45.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+<text x="562.5" y="339.9" fill="#e2e8f0" font-size="12" font-family="sans-serif">Text</text>
+</g>
+<g><title>/PanelHeroInfo/RightPart/FieldGold | box_field_1</title><rect x="798.0" y="136.0" width="190.0" height="48.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+<text x="803.0" y="152.0" fill="#e2e8f0" font-size="12" font-family="sans-serif">FieldGold</text>
+</g>
+<g><title>/PanelHeroInfo/RightPart/FieldGold/IconGold | icon_gold</title><rect x="789.9" y="135.0" width="50.0" height="50.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/FieldGold/TextGold</title><rect x="839.9" y="141.0" width="123.8" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+<text x="844.9" y="157.0" fill="#e2e8f0" font-size="12" font-family="sans-serif">TextGold</text>
+</g>
+<g><title>/PanelHeroInfo/RightPart/FieldSpirit | box_field_1</title><rect x="1049.0" y="136.0" width="190.0" height="48.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+<text x="1054.0" y="152.0" fill="#e2e8f0" font-size="12" font-family="sans-serif">FieldSpirit</text>
+</g>
+<g><title>/PanelHeroInfo/RightPart/FieldSpirit/IconSpirit | icon_spirit</title><rect x="1039.9" y="131.8" width="50.0" height="50.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/FieldSpirit/TextSpirit</title><rect x="1097.3" y="141.0" width="120.8" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+<text x="1102.3" y="157.0" fill="#e2e8f0" font-size="12" font-family="sans-serif">TextSpirit</text>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo | popup_notitle_2</title><rect x="765.0" y="198.9" width="490.0" height="558.1" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+<text x="770.0" y="214.9" fill="#e2e8f0" font-size="12" font-family="sans-serif">BoxInfo</text>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelEquipment/TitleBar | tag_title</title><rect x="877.0" y="225.9" width="266.0" height="45.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+<text x="882.0" y="241.9" fill="#e2e8f0" font-size="12" font-family="sans-serif">TitleBar</text>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelEquipment/TitleBar/TextEquipment</title><rect x="930.0" y="230.8" width="160.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+<text x="935.0" y="246.8" fill="#e2e8f0" font-size="12" font-family="sans-serif">TextEquipment</text>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelEquipment/ImageStar | bgr_equipment</title><rect x="857.5" y="318.9" width="305.0" height="304.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+<text x="862.5" y="334.9" fill="#e2e8f0" font-size="12" font-family="sans-serif">ImageStar</text>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelEquipment/SlotWeapon | slot_weapon</title><rect x="1103.6" y="359.9" width="92.0" height="92.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelEquipment/SlotWeapon/ItemEquipmentUI</title><rect x="1103.6" y="359.9" width="92.0" height="92.0" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelEquipment/SlotWeapon/ItemEquipmentUI/ImageFrame | frame_item</title><rect x="1104.6" y="360.9" width="90.0" height="90.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelEquipment/SlotWeapon/ItemEquipmentUI/Mask | mask_item</title><rect x="1111.6" y="367.9" width="76.0" height="76.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelEquipment/SlotWeapon/ItemEquipmentUI/Mask/ImageBgr | bgr_equipment_1</title><rect x="1103.6" y="359.9" width="92.0" height="92.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelEquipment/SlotWeapon/ItemEquipmentUI/Mask/ImageItem | item_placeholder</title><rect x="1109.6" y="365.9" width="80.0" height="80.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelEquipment/SlotWeapon/ItemEquipmentUI/Mask/Check</title><rect x="1099.6" y="355.9" width="100.0" height="100.0" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelEquipment/SlotWeapon/ItemEquipmentUI/Mask/Check/Image | tick_green</title><rect x="1121.1" y="380.4" width="57.0" height="51.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelEquipment/SlotWeapon/ItemEquipmentUI/ImageBorder | border_equipment_2</title><rect x="1109.6" y="365.9" width="80.0" height="80.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelEquipment/SlotWeapon/ItemEquipmentUI/TextNumber</title><rect x="1132.1" y="417.9" width="53.7" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelEquipment/SlotWeapon/ItemEquipmentUI/ItemStar/Star1 | item_star, item_star, item_star</title><rect x="1113.8" y="368.7" width="18.0" height="18.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelEquipment/SlotWeapon/ItemEquipmentUI/ItemStar/Star1 | item_star, item_star, item_star</title><rect x="1113.8" y="379.7" width="18.0" height="18.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelEquipment/SlotWeapon/ItemEquipmentUI/ItemStar/Star1 | item_star, item_star, item_star</title><rect x="1113.8" y="390.7" width="18.0" height="18.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelEquipment/SlotWeapon/ItemEquipmentUI/ItemStar/Star1 | item_star, item_star, item_star</title><rect x="1113.8" y="401.7" width="18.0" height="18.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelEquipment/SlotWeapon/ItemEquipmentUI/ItemStar/Star1 | item_star, item_star, item_star</title><rect x="1113.8" y="412.7" width="18.0" height="18.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelEquipment/SlotWeapon/ItemEquipmentUI/ItemStar/Star1 | item_star, item_star, item_star</title><rect x="1113.8" y="423.7" width="18.0" height="18.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelEquipment/SlotWeapon/ItemEquipmentUI/MaskSpineBorder | UIMask</title><rect x="1074.6" y="330.9" width="150.0" height="150.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+<text x="1079.6" y="346.9" fill="#e2e8f0" font-size="12" font-family="sans-serif">MaskSpineBorder</text>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelEquipment/SlotWeapon/GoNotifyEquipment | notify_dot</title><rect x="1165.6" y="421.9" width="30.0" height="30.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelEquipment/SlotArmor | slot_armor</title><rect x="820.4" y="359.9" width="92.0" height="92.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelEquipment/SlotArmor/ItemEquipmentUI</title><rect x="820.4" y="359.9" width="92.0" height="92.0" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelEquipment/SlotArmor/ItemEquipmentUI/ImageFrame | frame_item</title><rect x="821.4" y="360.9" width="90.0" height="90.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelEquipment/SlotArmor/ItemEquipmentUI/Mask | mask_item</title><rect x="828.4" y="367.9" width="76.0" height="76.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelEquipment/SlotArmor/ItemEquipmentUI/Mask/ImageBgr | bgr_equipment_1</title><rect x="820.4" y="359.9" width="92.0" height="92.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelEquipment/SlotArmor/ItemEquipmentUI/Mask/ImageItem | item_placeholder</title><rect x="826.4" y="365.9" width="80.0" height="80.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelEquipment/SlotArmor/ItemEquipmentUI/Mask/Check</title><rect x="816.4" y="355.9" width="100.0" height="100.0" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelEquipment/SlotArmor/ItemEquipmentUI/Mask/Check/Image | tick_green</title><rect x="837.9" y="380.4" width="57.0" height="51.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelEquipment/SlotArmor/ItemEquipmentUI/ImageBorder | border_equipment_2</title><rect x="826.4" y="365.9" width="80.0" height="80.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelEquipment/SlotArmor/ItemEquipmentUI/TextNumber</title><rect x="848.9" y="417.9" width="53.7" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelEquipment/SlotArmor/ItemEquipmentUI/ItemStar/Star1 | item_star, item_star, item_star</title><rect x="830.6" y="368.7" width="18.0" height="18.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelEquipment/SlotArmor/ItemEquipmentUI/ItemStar/Star1 | item_star, item_star, item_star</title><rect x="830.6" y="379.7" width="18.0" height="18.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelEquipment/SlotArmor/ItemEquipmentUI/ItemStar/Star1 | item_star, item_star, item_star</title><rect x="830.6" y="390.7" width="18.0" height="18.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelEquipment/SlotArmor/ItemEquipmentUI/ItemStar/Star1 | item_star, item_star, item_star</title><rect x="830.6" y="401.7" width="18.0" height="18.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelEquipment/SlotArmor/ItemEquipmentUI/ItemStar/Star1 | item_star, item_star, item_star</title><rect x="830.6" y="412.7" width="18.0" height="18.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelEquipment/SlotArmor/ItemEquipmentUI/ItemStar/Star1 | item_star, item_star, item_star</title><rect x="830.6" y="423.7" width="18.0" height="18.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelEquipment/SlotArmor/ItemEquipmentUI/MaskSpineBorder | UIMask</title><rect x="791.4" y="330.9" width="150.0" height="150.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+<text x="796.4" y="346.9" fill="#e2e8f0" font-size="12" font-family="sans-serif">MaskSpineBorder</text>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelEquipment/SlotArmor/GoNotifyEquipment | notify_dot</title><rect x="882.4" y="421.9" width="30.0" height="30.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelEquipment/SlotShoes | slot_shoes</title><rect x="964.0" y="548.9" width="92.0" height="92.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelEquipment/SlotShoes/ItemEquipmentUI</title><rect x="964.0" y="548.9" width="92.0" height="92.0" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelEquipment/SlotShoes/ItemEquipmentUI/ImageFrame | frame_item</title><rect x="965.0" y="549.9" width="90.0" height="90.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelEquipment/SlotShoes/ItemEquipmentUI/Mask | mask_item</title><rect x="972.0" y="556.9" width="76.0" height="76.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelEquipment/SlotShoes/ItemEquipmentUI/Mask/ImageBgr | bgr_equipment_1</title><rect x="964.0" y="548.9" width="92.0" height="92.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelEquipment/SlotShoes/ItemEquipmentUI/Mask/ImageItem | item_placeholder</title><rect x="970.0" y="554.9" width="80.0" height="80.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelEquipment/SlotShoes/ItemEquipmentUI/Mask/Check</title><rect x="960.0" y="544.9" width="100.0" height="100.0" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelEquipment/SlotShoes/ItemEquipmentUI/Mask/Check/Image | tick_green</title><rect x="981.5" y="569.4" width="57.0" height="51.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelEquipment/SlotShoes/ItemEquipmentUI/ImageBorder | border_equipment_2</title><rect x="970.0" y="554.9" width="80.0" height="80.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelEquipment/SlotShoes/ItemEquipmentUI/TextNumber</title><rect x="992.5" y="606.9" width="53.7" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelEquipment/SlotShoes/ItemEquipmentUI/ItemStar/Star1 | item_star, item_star, item_star</title><rect x="974.2" y="557.7" width="18.0" height="18.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelEquipment/SlotShoes/ItemEquipmentUI/ItemStar/Star1 | item_star, item_star, item_star</title><rect x="974.2" y="568.7" width="18.0" height="18.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelEquipment/SlotShoes/ItemEquipmentUI/ItemStar/Star1 | item_star, item_star, item_star</title><rect x="974.2" y="579.7" width="18.0" height="18.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelEquipment/SlotShoes/ItemEquipmentUI/ItemStar/Star1 | item_star, item_star, item_star</title><rect x="974.2" y="590.7" width="18.0" height="18.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelEquipment/SlotShoes/ItemEquipmentUI/ItemStar/Star1 | item_star, item_star, item_star</title><rect x="974.2" y="601.7" width="18.0" height="18.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelEquipment/SlotShoes/ItemEquipmentUI/ItemStar/Star1 | item_star, item_star, item_star</title><rect x="974.2" y="612.7" width="18.0" height="18.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelEquipment/SlotShoes/ItemEquipmentUI/MaskSpineBorder | UIMask</title><rect x="935.0" y="519.9" width="150.0" height="150.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+<text x="940.0" y="535.9" fill="#e2e8f0" font-size="12" font-family="sans-serif">MaskSpineBorder</text>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelEquipment/SlotShoes/GoNotifyEquipment | notify_dot</title><rect x="1026.0" y="610.9" width="30.0" height="30.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelEquipment/SlotAccessory | slot_helmet</title><rect x="964.0" y="289.9" width="92.0" height="92.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelEquipment/SlotAccessory/ItemEquipmentUI</title><rect x="964.0" y="289.9" width="92.0" height="92.0" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelEquipment/SlotAccessory/ItemEquipmentUI/ImageFrame | frame_item</title><rect x="965.0" y="290.9" width="90.0" height="90.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelEquipment/SlotAccessory/ItemEquipmentUI/Mask | mask_item</title><rect x="972.0" y="297.9" width="76.0" height="76.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelEquipment/SlotAccessory/ItemEquipmentUI/Mask/ImageBgr | bgr_equipment_1</title><rect x="964.0" y="289.9" width="92.0" height="92.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelEquipment/SlotAccessory/ItemEquipmentUI/Mask/ImageItem | item_placeholder</title><rect x="970.0" y="295.9" width="80.0" height="80.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelEquipment/SlotAccessory/ItemEquipmentUI/Mask/Check</title><rect x="960.0" y="285.9" width="100.0" height="100.0" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelEquipment/SlotAccessory/ItemEquipmentUI/Mask/Check/Image | tick_green</title><rect x="981.5" y="310.4" width="57.0" height="51.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelEquipment/SlotAccessory/ItemEquipmentUI/ImageBorder | border_equipment_2</title><rect x="970.0" y="295.9" width="80.0" height="80.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelEquipment/SlotAccessory/ItemEquipmentUI/TextNumber</title><rect x="992.5" y="347.9" width="53.7" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelEquipment/SlotAccessory/ItemEquipmentUI/ItemStar/Star1 | item_star, item_star, item_star</title><rect x="974.2" y="298.7" width="18.0" height="18.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelEquipment/SlotAccessory/ItemEquipmentUI/ItemStar/Star1 | item_star, item_star, item_star</title><rect x="974.2" y="309.7" width="18.0" height="18.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelEquipment/SlotAccessory/ItemEquipmentUI/ItemStar/Star1 | item_star, item_star, item_star</title><rect x="974.2" y="320.7" width="18.0" height="18.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelEquipment/SlotAccessory/ItemEquipmentUI/ItemStar/Star1 | item_star, item_star, item_star</title><rect x="974.2" y="331.7" width="18.0" height="18.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelEquipment/SlotAccessory/ItemEquipmentUI/ItemStar/Star1 | item_star, item_star, item_star</title><rect x="974.2" y="342.7" width="18.0" height="18.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelEquipment/SlotAccessory/ItemEquipmentUI/ItemStar/Star1 | item_star, item_star, item_star</title><rect x="974.2" y="353.7" width="18.0" height="18.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelEquipment/SlotAccessory/ItemEquipmentUI/MaskSpineBorder | UIMask</title><rect x="935.0" y="260.9" width="150.0" height="150.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+<text x="940.0" y="276.9" fill="#e2e8f0" font-size="12" font-family="sans-serif">MaskSpineBorder</text>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelEquipment/SlotAccessory/GoNotifyEquipment | notify_dot</title><rect x="1026.0" y="351.9" width="30.0" height="30.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelEquipment/SlotArtifact | slot_artifact</title><rect x="1104.0" y="486.9" width="92.0" height="92.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelEquipment/SlotArtifact/ItemArtifactUI</title><rect x="1104.0" y="486.9" width="92.0" height="92.0" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelEquipment/SlotArtifact/ItemArtifactUI/ImageFrame | frame_item</title><rect x="1105.0" y="487.9" width="90.0" height="90.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelEquipment/SlotArtifact/ItemArtifactUI/Mask | mask_item</title><rect x="1112.0" y="494.9" width="76.0" height="76.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelEquipment/SlotArtifact/ItemArtifactUI/Mask/ImageBgr | bgr_equipment_2</title><rect x="1108.0" y="490.9" width="84.0" height="84.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelEquipment/SlotArtifact/ItemArtifactUI/Mask/ImageItem | item_transparent</title><rect x="1110.0" y="492.9" width="80.0" height="80.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelEquipment/SlotArtifact/ItemArtifactUI/Mask/Check</title><rect x="1100.0" y="482.9" width="100.0" height="100.0" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelEquipment/SlotArtifact/ItemArtifactUI/Mask/Check/Image | tick_green</title><rect x="1121.5" y="507.4" width="57.0" height="51.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelEquipment/SlotArtifact/ItemArtifactUI/ImageBorder | border_equipment_2</title><rect x="1110.0" y="492.9" width="80.0" height="80.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelEquipment/SlotArtifact/ItemArtifactUI/TextNumber</title><rect x="1135.5" y="544.1" width="51.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelEquipment/SlotArtifact/ItemArtifactUI/IconHeroFaction | faction_shadow</title><rect x="1162.6" y="490.3" width="30.0" height="30.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelEquipment/SlotArtifact/ItemArtifactUI/ItemStar/Star1 | item_star</title><rect x="1113.9" y="495.7" width="18.0" height="18.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelEquipment/SlotArtifact/ItemArtifactUI/ItemStar/Star2 | item_star</title><rect x="1113.9" y="506.7" width="18.0" height="18.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelEquipment/SlotArtifact/ItemArtifactUI/ItemStar/Star3 | item_star</title><rect x="1113.9" y="517.7" width="18.0" height="18.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelEquipment/SlotArtifact/ItemArtifactUI/ItemStar/Star4 | item_star</title><rect x="1113.9" y="528.7" width="18.0" height="18.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelEquipment/SlotArtifact/ItemArtifactUI/ItemStar/Star5 | item_star</title><rect x="1113.9" y="539.7" width="18.0" height="18.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelEquipment/SlotArtifact/ItemArtifactUI/ItemStar/Star6 | item_star</title><rect x="1113.9" y="550.7" width="18.0" height="18.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelEquipment/SlotArtifact/ItemArtifactUI/MaskSpineBorder | UIMask</title><rect x="1090.0" y="472.9" width="120.0" height="120.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+<text x="1095.0" y="488.9" fill="#e2e8f0" font-size="12" font-family="sans-serif">MaskSpineBorder</text>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelEquipment/SlotArtifact/GoNotifyEquipment | notify_dot</title><rect x="1166.0" y="548.9" width="30.0" height="30.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelEquipment/SlotStone | slot_empty</title><rect x="820.5" y="486.9" width="92.0" height="92.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelEquipment/SlotStone/ImageLock | stone_lock_1</title><rect x="846.0" y="509.4" width="41.0" height="47.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelEquipment/SlotStone/HeroStoneUI</title><rect x="820.5" y="486.9" width="92.0" height="92.0" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelEquipment/SlotStone/HeroStoneUI/ImageFrame | frame_item</title><rect x="821.5" y="487.9" width="90.0" height="90.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelEquipment/SlotStone/HeroStoneUI/Mask | mask_item</title><rect x="828.5" y="494.9" width="76.0" height="76.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelEquipment/SlotStone/HeroStoneUI/Mask/ImageBgr</title><rect x="824.5" y="490.9" width="84.0" height="84.0" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelEquipment/SlotStone/HeroStoneUI/Mask/ImageStone | hero_stone_1</title><rect x="825.5" y="491.9" width="82.0" height="82.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelEquipment/SlotStone/HeroStoneUI/ImageBorder | border_equipment_2</title><rect x="826.5" y="492.9" width="80.0" height="80.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelEquipment/SlotStone/HeroStoneUI/ItemStar/Star1 | item_star</title><rect x="830.5" y="493.8" width="18.0" height="18.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelEquipment/SlotStone/HeroStoneUI/ItemStar/Star2 | item_star</title><rect x="830.5" y="505.8" width="18.0" height="18.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelEquipment/SlotStone/HeroStoneUI/ItemStar/Star3 | item_star</title><rect x="830.5" y="517.8" width="18.0" height="18.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelEquipment/SlotStone/HeroStoneUI/ItemStar/Star4 | item_star</title><rect x="830.5" y="529.8" width="18.0" height="18.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelEquipment/SlotStone/HeroStoneUI/ItemStar/Star5 | item_star</title><rect x="830.5" y="541.8" width="18.0" height="18.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelEquipment/SlotStone/HeroStoneUI/ItemStar/Star6 | item_star</title><rect x="830.5" y="553.8" width="18.0" height="18.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelEquipment/ButtonQuickEquip | button_green</title><rect x="821.7" y="663.9" width="180.0" height="62.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+<text x="826.7" y="679.9" fill="#e2e8f0" font-size="12" font-family="sans-serif">ButtonQuickEquip</text>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelEquipment/ButtonQuickEquip/Text</title><rect x="821.7" y="663.9" width="180.0" height="62.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+<text x="826.7" y="679.9" fill="#e2e8f0" font-size="12" font-family="sans-serif">Text</text>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelEquipment/ButtonUnEquip | button_yellow</title><rect x="1023.1" y="663.4" width="160.0" height="62.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+<text x="1028.1" y="679.4" fill="#e2e8f0" font-size="12" font-family="sans-serif">ButtonUnEquip</text>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelEquipment/ButtonUnEquip/Text</title><rect x="1023.1" y="663.4" width="160.0" height="62.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+<text x="1028.1" y="679.4" fill="#e2e8f0" font-size="12" font-family="sans-serif">Text</text>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelPoint/ImagePower | icon_power</title><rect x="804.0" y="242.9" width="42.0" height="42.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelPoint/ImagePower/TextPower</title><rect x="853.4" y="248.4" width="92.7" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelPoint/TextLvCaption</title><rect x="1067.7" y="246.9" width="132.6" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+<text x="1072.7" y="262.9" fill="#e2e8f0" font-size="12" font-family="sans-serif">TextLvCaption</text>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelPoint/TextLvCaption/TextLv</title><rect x="1114.0" y="246.6" width="101.1" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelPoint/TextTierCaption</title><rect x="810.1" y="308.9" width="48.2" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelPoint/TextTierCaption/HorizontalSlotPoint/ToggleTier/ItemOff | slot_tier</title><rect x="876.8" y="309.0" width="32.0" height="33.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelPoint/TextTierCaption/HorizontalSlotPoint/ToggleTier/ItemOn | gem_tier</title><rect x="876.8" y="309.0" width="32.0" height="33.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelPoint/TextTierCaption/ButtonUpTier | button_up</title><rect x="1105.4" y="300.4" width="48.0" height="52.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelPoint/GroupUpgrade/BoxUpMaxLevel | round_rect2</title><rect x="918.0" y="371.5" width="184.1" height="50.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+<text x="923.0" y="387.5" fill="#e2e8f0" font-size="12" font-family="sans-serif">BoxUpMaxLevel</text>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelPoint/GroupUpgrade/BoxUpMaxLevel/TextMax</title><rect x="958.9" y="380.6" width="103.8" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelPoint/GroupUpgrade/BoxUpRequire | round_rect_3</title><rect x="779.7" y="373.5" width="351.1" height="46.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+<text x="784.7" y="389.5" fill="#e2e8f0" font-size="12" font-family="sans-serif">BoxUpRequire</text>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelPoint/GroupUpgrade/BoxUpRequire/ImgGold | icon_gold</title><rect x="786.2" y="376.5" width="40.0" height="40.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelPoint/GroupUpgrade/BoxUpRequire/ImgGold/TextGold</title><rect x="830.6" y="377.9" width="160.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+<text x="835.6" y="393.9" fill="#e2e8f0" font-size="12" font-family="sans-serif">TextGold</text>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelPoint/GroupUpgrade/BoxUpRequire/ImgSpirit | icon_spirit</title><rect x="970.4" y="376.5" width="40.0" height="40.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelPoint/GroupUpgrade/BoxUpRequire/ImgSpirit/TextSpirit</title><rect x="1012.2" y="377.9" width="160.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+<text x="1017.2" y="393.9" fill="#e2e8f0" font-size="12" font-family="sans-serif">TextSpirit</text>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelPoint/GroupUpgrade/BoxUpRequire/ButtonUpLevel | button_up</title><rect x="1130.8" y="371.4" width="48.0" height="52.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelPoint/GroupUpgrade/BoxUpRequire/ButtonUpLevelX10 | button_up</title><rect x="1186.2" y="371.4" width="48.0" height="52.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelPoint/GroupUpgrade/BoxUpRequire/ButtonUpLevelX10/Text</title><rect x="1190.2" y="339.1" width="40.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelPoint/BoxPoint | round_rect_3</title><rect x="780.0" y="434.6" width="460.0" height="191.6" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+<text x="785.0" y="450.6" fill="#e2e8f0" font-size="12" font-family="sans-serif">BoxPoint</text>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelPoint/BoxPoint/PointHp | round_rect_16</title><rect x="1044.2" y="509.4" width="180.0" height="34.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+<text x="1049.2" y="525.4" fill="#e2e8f0" font-size="12" font-family="sans-serif">PointHp</text>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelPoint/BoxPoint/PointHp/Icon | icon_hp</title><rect x="1034.2" y="506.4" width="40.0" height="40.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelPoint/BoxPoint/PointHp/TextHp</title><rect x="1075.7" y="508.4" width="140.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+<text x="1080.7" y="524.4" fill="#e2e8f0" font-size="12" font-family="sans-serif">TextHp</text>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelPoint/BoxPoint/PointAttack | round_rect_16</title><rect x="804.0" y="509.4" width="180.0" height="34.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+<text x="809.0" y="525.4" fill="#e2e8f0" font-size="12" font-family="sans-serif">PointAttack</text>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelPoint/BoxPoint/PointAttack/Icon | icon_attack</title><rect x="794.5" y="505.9" width="39.0" height="41.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelPoint/BoxPoint/PointAttack/TextAttak</title><rect x="830.0" y="508.4" width="140.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+<text x="835.0" y="524.4" fill="#e2e8f0" font-size="12" font-family="sans-serif">TextAttak</text>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelPoint/BoxPoint/PointArmor | round_rect_16</title><rect x="805.0" y="565.4" width="180.0" height="34.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+<text x="810.0" y="581.4" fill="#e2e8f0" font-size="12" font-family="sans-serif">PointArmor</text>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelPoint/BoxPoint/PointArmor/Icon | icon_armor</title><rect x="795.5" y="561.9" width="39.0" height="41.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelPoint/BoxPoint/PointArmor/TextArmor</title><rect x="831.0" y="564.4" width="140.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+<text x="836.0" y="580.4" fill="#e2e8f0" font-size="12" font-family="sans-serif">TextArmor</text>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelPoint/BoxPoint/PointSpeed | round_rect_16</title><rect x="1046.5" y="565.4" width="180.0" height="34.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+<text x="1051.5" y="581.4" fill="#e2e8f0" font-size="12" font-family="sans-serif">PointSpeed</text>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelPoint/BoxPoint/PointSpeed/Icon | icon_speed</title><rect x="1037.0" y="561.9" width="39.0" height="41.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelPoint/BoxPoint/PointSpeed/TextSpeed</title><rect x="1072.5" y="564.4" width="140.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+<text x="1077.5" y="580.4" fill="#e2e8f0" font-size="12" font-family="sans-serif">TextSpeed</text>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelPoint/BoxPoint/ButtonPointDetail | button_info</title><rect x="1189.0" y="447.5" width="36.0" height="36.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelPoint/BoxPoint/GroupClass/ImageClass | class_warrior</title><rect x="803.2" y="450.4" width="38.0" height="38.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelPoint/BoxPoint/GroupClass/TextClass</title><rect x="849.2" y="454.4" width="86.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelPoint/GroupSkill/ButtonSkill1/SpriteOn | skill_default</title><rect x="822.0" y="648.9" width="76.0" height="76.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelPoint/GroupSkill/ButtonSkill1/SpriteOff | skill_default</title><rect x="822.0" y="648.9" width="76.0" height="76.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelPoint/GroupSkill/ButtonSkill1/ImgLevel | tag_number</title><rect x="864.0" y="640.9" width="40.0" height="40.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelPoint/GroupSkill/ButtonSkill1/ImgLevel/TextLevel</title><rect x="869.0" y="644.6" width="30.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelPoint/GroupSkill/ButtonSkill2/SpriteOn | skill_default</title><rect x="922.0" y="648.9" width="76.0" height="76.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelPoint/GroupSkill/ButtonSkill2/SpriteOff | skill_default</title><rect x="922.0" y="648.9" width="76.0" height="76.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelPoint/GroupSkill/ButtonSkill2/ImgLevel | tag_number</title><rect x="964.0" y="640.9" width="40.0" height="40.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelPoint/GroupSkill/ButtonSkill2/ImgLevel/TextLevel</title><rect x="969.0" y="644.6" width="30.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelPoint/GroupSkill/ButtonSkill3/SpriteOn | skill_default</title><rect x="1022.0" y="648.9" width="76.0" height="76.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelPoint/GroupSkill/ButtonSkill3/SpriteOff | skill_default</title><rect x="1022.0" y="648.9" width="76.0" height="76.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelPoint/GroupSkill/ButtonSkill3/ImgLevel | tag_number</title><rect x="1064.0" y="640.9" width="40.0" height="40.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelPoint/GroupSkill/ButtonSkill3/ImgLevel/TextLevel</title><rect x="1069.0" y="644.6" width="30.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelPoint/GroupSkill/ButtonSkill4/SpriteOn | skill_default</title><rect x="1122.0" y="648.9" width="76.0" height="76.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelPoint/GroupSkill/ButtonSkill4/SpriteOff | skill_default</title><rect x="1122.0" y="648.9" width="76.0" height="76.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelPoint/GroupSkill/ButtonSkill4/ImgLevel | tag_number</title><rect x="1164.0" y="640.9" width="40.0" height="40.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelPoint/GroupSkill/ButtonSkill4/ImgLevel/TextLevel</title><rect x="1169.0" y="644.6" width="30.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelPoint/BoxSkillDesc</title><rect x="471.5" y="317.2" width="1080.0" height="323.4" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+<text x="476.5" y="333.2" fill="#e2e8f0" font-size="12" font-family="sans-serif">BoxSkillDesc</text>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelPoint/BoxSkillDesc/Content | round_rect_8</title><rect x="822.4" y="511.6" width="379.9" height="134.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+<text x="827.4" y="527.6" fill="#e2e8f0" font-size="12" font-family="sans-serif">Content</text>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelPoint/BoxSkillDesc/Content/SkillTitle/SkillIcon | skill_default</title><rect x="840.9" y="527.6" width="60.0" height="60.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelPoint/BoxSkillDesc/Content/SkillTitle/TextName</title><rect x="906.9" y="541.6" width="160.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+<text x="911.9" y="557.6" fill="#e2e8f0" font-size="12" font-family="sans-serif">TextName</text>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelPoint/BoxSkillDesc/Content/TextDesc</title><rect x="842.4" y="596.6" width="342.9" height="29.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelBreakthrough/BoxStar | round_rect_3</title><rect x="809.8" y="247.2" width="399.2" height="161.1" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelBreakthrough/BoxStar/StarCurrent/GroupStar1/Star1 | hero_star_1</title><rect x="829.0" y="354.2" width="30.0" height="30.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelBreakthrough/BoxStar/StarCurrent/GroupStar1/Star2 | hero_star_1</title><rect x="859.0" y="354.2" width="30.0" height="30.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelBreakthrough/BoxStar/StarCurrent/GroupStar1/Star3 | hero_star_1</title><rect x="889.0" y="354.2" width="30.0" height="30.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelBreakthrough/BoxStar/StarCurrent/GroupStar1/Star4 | hero_star_1</title><rect x="919.0" y="354.2" width="30.0" height="30.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelBreakthrough/BoxStar/StarCurrent/GroupStar1/Star5 | hero_star_1</title><rect x="949.0" y="354.2" width="30.0" height="30.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelBreakthrough/BoxStar/StarCurrent/GroupStar6/Star6 | hero_star_2</title><rect x="844.0" y="354.2" width="30.0" height="30.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelBreakthrough/BoxStar/StarCurrent/GroupStar6/Star7 | hero_star_2</title><rect x="874.0" y="354.2" width="30.0" height="30.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelBreakthrough/BoxStar/StarCurrent/GroupStar6/Star8 | hero_star_2</title><rect x="904.0" y="354.2" width="30.0" height="30.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelBreakthrough/BoxStar/StarCurrent/GroupStar6/Star9 | hero_star_2</title><rect x="934.0" y="354.2" width="30.0" height="30.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelBreakthrough/BoxStar/StarCurrent/GroupStar10/Star10 | hero_star_3</title><rect x="889.0" y="355.7" width="30.0" height="30.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelBreakthrough/BoxStar/StarNext/GroupStar1/Star1 | hero_star_1</title><rect x="1028.0" y="353.2" width="30.0" height="30.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelBreakthrough/BoxStar/StarNext/GroupStar1/Star2 | hero_star_1</title><rect x="1058.0" y="353.2" width="30.0" height="30.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelBreakthrough/BoxStar/StarNext/GroupStar1/Star3 | hero_star_1</title><rect x="1088.0" y="353.2" width="30.0" height="30.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelBreakthrough/BoxStar/StarNext/GroupStar1/Star4 | hero_star_1</title><rect x="1118.0" y="353.2" width="30.0" height="30.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelBreakthrough/BoxStar/StarNext/GroupStar1/Star5 | hero_star_1</title><rect x="1148.0" y="353.2" width="30.0" height="30.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelBreakthrough/BoxStar/StarNext/GroupStar6/Star6 | hero_star_2</title><rect x="1043.0" y="354.2" width="30.0" height="30.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelBreakthrough/BoxStar/StarNext/GroupStar6/Star7 | hero_star_2</title><rect x="1073.0" y="354.2" width="30.0" height="30.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelBreakthrough/BoxStar/StarNext/GroupStar6/Star8 | hero_star_2</title><rect x="1103.0" y="354.2" width="30.0" height="30.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelBreakthrough/BoxStar/StarNext/GroupStar6/Star9 | hero_star_2</title><rect x="1133.0" y="354.2" width="30.0" height="30.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelBreakthrough/BoxStar/StarNext/GroupStar10/Star10 | hero_star_3</title><rect x="1088.0" y="355.7" width="30.0" height="30.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelBreakthrough/BoxStar/Arrow1 | arrow_next</title><rect x="980.9" y="349.2" width="44.0" height="44.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelBreakthrough/BoxStar/TextLevelCap</title><rect x="929.4" y="264.0" width="160.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelBreakthrough/BoxStar/TextSkill</title><rect x="929.4" y="303.9" width="160.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelBreakthrough/TextMaterial</title><rect x="930.0" y="432.1" width="160.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelBreakthrough/SlotMaterial/HeroMaterial1</title><rect x="822.7" y="513.9" width="92.0" height="92.0" stroke="#3b82f6" stroke-width="1.2" fill="#3b82f6" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelBreakthrough/SlotMaterial/HeroMaterial1/HeroHead/Mask | mask_item</title><rect x="825.7" y="516.9" width="86.0" height="86.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelBreakthrough/SlotMaterial/HeroMaterial1/HeroHead/Mask/ImageBgr | bgr_item_consumable</title><rect x="822.7" y="513.9" width="92.0" height="92.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelBreakthrough/SlotMaterial/HeroMaterial1/HeroHead/Mask/ImageHead | item_transparent</title><rect x="826.7" y="517.9" width="84.0" height="84.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelBreakthrough/SlotMaterial/HeroMaterial1/HeroHead/Mask/ImageHeadBw | item_transparent</title><rect x="826.7" y="517.9" width="84.0" height="84.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelBreakthrough/SlotMaterial/HeroMaterial1/HeroHead/Border | border_item</title><rect x="822.7" y="513.9" width="92.0" height="92.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelBreakthrough/SlotMaterial/HeroMaterial1/HeroHead/ImageFaction | faction_forest</title><rect x="826.5" y="517.1" width="30.0" height="30.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelBreakthrough/SlotMaterial/HeroMaterial1/HeroHead/TextHeroKey</title><rect x="788.7" y="555.9" width="160.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelBreakthrough/SlotMaterial/HeroMaterial1/TextNumber</title><rect x="788.7" y="606.9" width="160.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelBreakthrough/SlotMaterial/HeroMaterial1/HeroStar</title><rect x="828.7" y="583.1" width="80.0" height="20.0" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelBreakthrough/SlotMaterial/HeroMaterial1/HeroStar/GroupStar1/Star1 | hero_star_1, hero_star_1, hero_star_1</title><rect x="818.7" y="593.1" width="20.0" height="20.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelBreakthrough/SlotMaterial/HeroMaterial1/HeroStar/GroupStar1/Star1 | hero_star_1, hero_star_1, hero_star_1</title><rect x="818.7" y="593.1" width="20.0" height="20.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelBreakthrough/SlotMaterial/HeroMaterial1/HeroStar/GroupStar1/Star1 | hero_star_1, hero_star_1, hero_star_1</title><rect x="818.7" y="593.1" width="20.0" height="20.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelBreakthrough/SlotMaterial/HeroMaterial1/HeroStar/GroupStar1/Star1 | hero_star_1, hero_star_1, hero_star_1</title><rect x="818.7" y="593.1" width="20.0" height="20.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelBreakthrough/SlotMaterial/HeroMaterial1/HeroStar/GroupStar1/Star1 | hero_star_1, hero_star_1, hero_star_1</title><rect x="818.7" y="593.1" width="20.0" height="20.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelBreakthrough/SlotMaterial/HeroMaterial1/HeroStar/GroupStar6/Star6 | hero_star_2, hero_star_2, hero_star_2</title><rect x="835.7" y="581.1" width="18.0" height="18.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelBreakthrough/SlotMaterial/HeroMaterial1/HeroStar/GroupStar6/Star6 | hero_star_2, hero_star_2, hero_star_2</title><rect x="851.7" y="581.1" width="18.0" height="18.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelBreakthrough/SlotMaterial/HeroMaterial1/HeroStar/GroupStar6/Star6 | hero_star_2, hero_star_2, hero_star_2</title><rect x="867.7" y="581.1" width="18.0" height="18.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelBreakthrough/SlotMaterial/HeroMaterial1/HeroStar/GroupStar6/Star6 | hero_star_2, hero_star_2, hero_star_2</title><rect x="883.7" y="581.1" width="18.0" height="18.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelBreakthrough/SlotMaterial/HeroMaterial1/HeroStar/GroupStar10/Star10 | hero_star_3</title><rect x="859.7" y="581.1" width="18.0" height="18.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelBreakthrough/SlotMaterial/HeroMaterial1/HeroStar/GroupStarE/BgrStarE | star_e_bgr</title><rect x="789.7" y="568.1" width="158.0" height="59.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelBreakthrough/SlotMaterial/HeroMaterial1/HeroStar/GroupStarE/StarE | hero_star_e</title><rect x="848.2" y="577.1" width="41.0" height="39.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelBreakthrough/SlotMaterial/HeroMaterial1/HeroStar/GroupStarE/TextStarE</title><rect x="788.7" y="584.6" width="160.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelBreakthrough/SlotMaterial/HeroMaterial1/TagName</title><rect x="818.7" y="445.1" width="100.0" height="100.0" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelBreakthrough/SlotMaterial/HeroMaterial1/TagName/TextHeroName</title><rect x="803.7" y="480.1" width="130.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelBreakthrough/SlotMaterial/HeroMaterial1/IconPlus | icon_plus</title><rect x="881.6" y="518.0" width="30.0" height="30.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelBreakthrough/SlotMaterial/HeroMaterial2</title><rect x="960.7" y="513.9" width="92.0" height="92.0" stroke="#3b82f6" stroke-width="1.2" fill="#3b82f6" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelBreakthrough/SlotMaterial/HeroMaterial2/HeroHead/Mask | mask_item</title><rect x="963.7" y="516.9" width="86.0" height="86.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelBreakthrough/SlotMaterial/HeroMaterial2/HeroHead/Mask/ImageBgr | bgr_item_consumable</title><rect x="960.7" y="513.9" width="92.0" height="92.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelBreakthrough/SlotMaterial/HeroMaterial2/HeroHead/Mask/ImageHead | item_transparent</title><rect x="964.7" y="517.9" width="84.0" height="84.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelBreakthrough/SlotMaterial/HeroMaterial2/HeroHead/Mask/ImageHeadBw | item_transparent</title><rect x="964.7" y="517.9" width="84.0" height="84.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelBreakthrough/SlotMaterial/HeroMaterial2/HeroHead/Border | border_item</title><rect x="960.7" y="513.9" width="92.0" height="92.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelBreakthrough/SlotMaterial/HeroMaterial2/HeroHead/ImageFaction | faction_forest</title><rect x="964.5" y="517.1" width="30.0" height="30.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelBreakthrough/SlotMaterial/HeroMaterial2/HeroHead/TextHeroKey</title><rect x="926.7" y="555.9" width="160.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelBreakthrough/SlotMaterial/HeroMaterial2/TextNumber</title><rect x="926.7" y="606.9" width="160.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelBreakthrough/SlotMaterial/HeroMaterial2/HeroStar</title><rect x="966.7" y="583.1" width="80.0" height="20.0" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelBreakthrough/SlotMaterial/HeroMaterial2/HeroStar/GroupStar1/Star1 | hero_star_1, hero_star_1, hero_star_1</title><rect x="956.7" y="593.1" width="20.0" height="20.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelBreakthrough/SlotMaterial/HeroMaterial2/HeroStar/GroupStar1/Star1 | hero_star_1, hero_star_1, hero_star_1</title><rect x="956.7" y="593.1" width="20.0" height="20.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelBreakthrough/SlotMaterial/HeroMaterial2/HeroStar/GroupStar1/Star1 | hero_star_1, hero_star_1, hero_star_1</title><rect x="956.7" y="593.1" width="20.0" height="20.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelBreakthrough/SlotMaterial/HeroMaterial2/HeroStar/GroupStar1/Star1 | hero_star_1, hero_star_1, hero_star_1</title><rect x="956.7" y="593.1" width="20.0" height="20.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelBreakthrough/SlotMaterial/HeroMaterial2/HeroStar/GroupStar1/Star1 | hero_star_1, hero_star_1, hero_star_1</title><rect x="956.7" y="593.1" width="20.0" height="20.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelBreakthrough/SlotMaterial/HeroMaterial2/HeroStar/GroupStar6/Star6 | hero_star_2, hero_star_2, hero_star_2</title><rect x="973.7" y="581.1" width="18.0" height="18.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelBreakthrough/SlotMaterial/HeroMaterial2/HeroStar/GroupStar6/Star6 | hero_star_2, hero_star_2, hero_star_2</title><rect x="989.7" y="581.1" width="18.0" height="18.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelBreakthrough/SlotMaterial/HeroMaterial2/HeroStar/GroupStar6/Star6 | hero_star_2, hero_star_2, hero_star_2</title><rect x="1005.7" y="581.1" width="18.0" height="18.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelBreakthrough/SlotMaterial/HeroMaterial2/HeroStar/GroupStar6/Star6 | hero_star_2, hero_star_2, hero_star_2</title><rect x="1021.7" y="581.1" width="18.0" height="18.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelBreakthrough/SlotMaterial/HeroMaterial2/HeroStar/GroupStar10/Star10 | hero_star_3</title><rect x="997.7" y="581.1" width="18.0" height="18.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelBreakthrough/SlotMaterial/HeroMaterial2/HeroStar/GroupStarE/BgrStarE | star_e_bgr</title><rect x="927.7" y="568.1" width="158.0" height="59.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelBreakthrough/SlotMaterial/HeroMaterial2/HeroStar/GroupStarE/StarE | hero_star_e</title><rect x="986.2" y="577.1" width="41.0" height="39.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelBreakthrough/SlotMaterial/HeroMaterial2/HeroStar/GroupStarE/TextStarE</title><rect x="926.7" y="584.6" width="160.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelBreakthrough/SlotMaterial/HeroMaterial2/TagName</title><rect x="956.7" y="445.1" width="100.0" height="100.0" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelBreakthrough/SlotMaterial/HeroMaterial2/TagName/TextHeroName</title><rect x="941.7" y="480.1" width="130.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelBreakthrough/SlotMaterial/HeroMaterial2/IconPlus | icon_plus</title><rect x="1019.6" y="518.0" width="30.0" height="30.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelBreakthrough/SlotMaterial/HeroMaterial3</title><rect x="1098.7" y="513.9" width="92.0" height="92.0" stroke="#3b82f6" stroke-width="1.2" fill="#3b82f6" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelBreakthrough/SlotMaterial/HeroMaterial3/HeroHead/Mask | mask_item</title><rect x="1101.7" y="516.9" width="86.0" height="86.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelBreakthrough/SlotMaterial/HeroMaterial3/HeroHead/Mask/ImageBgr | bgr_item_consumable</title><rect x="1098.7" y="513.9" width="92.0" height="92.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelBreakthrough/SlotMaterial/HeroMaterial3/HeroHead/Mask/ImageHead | item_transparent</title><rect x="1102.7" y="517.9" width="84.0" height="84.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelBreakthrough/SlotMaterial/HeroMaterial3/HeroHead/Mask/ImageHeadBw | item_transparent</title><rect x="1102.7" y="517.9" width="84.0" height="84.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelBreakthrough/SlotMaterial/HeroMaterial3/HeroHead/Border | border_item</title><rect x="1098.7" y="513.9" width="92.0" height="92.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelBreakthrough/SlotMaterial/HeroMaterial3/HeroHead/ImageFaction | faction_forest</title><rect x="1102.5" y="517.1" width="30.0" height="30.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelBreakthrough/SlotMaterial/HeroMaterial3/HeroHead/TextHeroKey</title><rect x="1064.7" y="555.9" width="160.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelBreakthrough/SlotMaterial/HeroMaterial3/TextNumber</title><rect x="1064.7" y="606.9" width="160.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelBreakthrough/SlotMaterial/HeroMaterial3/HeroStar</title><rect x="1104.7" y="583.1" width="80.0" height="20.0" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelBreakthrough/SlotMaterial/HeroMaterial3/HeroStar/GroupStar1/Star1 | hero_star_1, hero_star_1, hero_star_1</title><rect x="1094.7" y="593.1" width="20.0" height="20.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelBreakthrough/SlotMaterial/HeroMaterial3/HeroStar/GroupStar1/Star1 | hero_star_1, hero_star_1, hero_star_1</title><rect x="1094.7" y="593.1" width="20.0" height="20.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelBreakthrough/SlotMaterial/HeroMaterial3/HeroStar/GroupStar1/Star1 | hero_star_1, hero_star_1, hero_star_1</title><rect x="1094.7" y="593.1" width="20.0" height="20.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelBreakthrough/SlotMaterial/HeroMaterial3/HeroStar/GroupStar1/Star1 | hero_star_1, hero_star_1, hero_star_1</title><rect x="1094.7" y="593.1" width="20.0" height="20.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelBreakthrough/SlotMaterial/HeroMaterial3/HeroStar/GroupStar1/Star1 | hero_star_1, hero_star_1, hero_star_1</title><rect x="1094.7" y="593.1" width="20.0" height="20.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelBreakthrough/SlotMaterial/HeroMaterial3/HeroStar/GroupStar6/Star6 | hero_star_2, hero_star_2, hero_star_2</title><rect x="1111.7" y="581.1" width="18.0" height="18.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelBreakthrough/SlotMaterial/HeroMaterial3/HeroStar/GroupStar6/Star6 | hero_star_2, hero_star_2, hero_star_2</title><rect x="1127.7" y="581.1" width="18.0" height="18.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelBreakthrough/SlotMaterial/HeroMaterial3/HeroStar/GroupStar6/Star6 | hero_star_2, hero_star_2, hero_star_2</title><rect x="1143.7" y="581.1" width="18.0" height="18.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelBreakthrough/SlotMaterial/HeroMaterial3/HeroStar/GroupStar6/Star6 | hero_star_2, hero_star_2, hero_star_2</title><rect x="1159.7" y="581.1" width="18.0" height="18.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelBreakthrough/SlotMaterial/HeroMaterial3/HeroStar/GroupStar10/Star10 | hero_star_3</title><rect x="1135.7" y="581.1" width="18.0" height="18.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelBreakthrough/SlotMaterial/HeroMaterial3/HeroStar/GroupStarE/BgrStarE | star_e_bgr</title><rect x="1065.7" y="568.1" width="158.0" height="59.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelBreakthrough/SlotMaterial/HeroMaterial3/HeroStar/GroupStarE/StarE | hero_star_e</title><rect x="1124.2" y="577.1" width="41.0" height="39.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelBreakthrough/SlotMaterial/HeroMaterial3/HeroStar/GroupStarE/TextStarE</title><rect x="1064.7" y="584.6" width="160.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelBreakthrough/SlotMaterial/HeroMaterial3/TagName</title><rect x="1094.7" y="445.1" width="100.0" height="100.0" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelBreakthrough/SlotMaterial/HeroMaterial3/TagName/TextHeroName</title><rect x="1079.7" y="480.1" width="130.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelBreakthrough/SlotMaterial/HeroMaterial3/IconPlus | icon_plus</title><rect x="1157.6" y="518.0" width="30.0" height="30.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelBreakthrough/ButtonBreak | button_yellow</title><rect x="929.0" y="660.9" width="160.0" height="60.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelBreakthrough/ButtonBreak/Text</title><rect x="929.0" y="660.9" width="160.0" height="60.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelAwaken/BoxAwaken/TextMaterial</title><rect x="930.0" y="424.3" width="160.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelAwaken/BoxAwaken/FieldStone | round_rect_3</title><rect x="886.5" y="624.4" width="246.9" height="45.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelAwaken/BoxAwaken/FieldStone/IconStone | icon_promotion_stone</title><rect x="894.0" y="626.9" width="40.0" height="40.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelAwaken/BoxAwaken/FieldStone/TextStone</title><rect x="924.0" y="628.9" width="203.9" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelAwaken/BoxAwaken/SlotMaterial/HeroMaterial1</title><rect x="828.7" y="491.9" width="92.0" height="92.0" stroke="#3b82f6" stroke-width="1.2" fill="#3b82f6" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelAwaken/BoxAwaken/SlotMaterial/HeroMaterial1/HeroHead/Mask | mask_item</title><rect x="831.7" y="494.9" width="86.0" height="86.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelAwaken/BoxAwaken/SlotMaterial/HeroMaterial1/HeroHead/Mask/ImageBgr | bgr_item_consumable</title><rect x="828.7" y="491.9" width="92.0" height="92.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelAwaken/BoxAwaken/SlotMaterial/HeroMaterial1/HeroHead/Mask/ImageHead | item_transparent</title><rect x="832.7" y="495.9" width="84.0" height="84.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelAwaken/BoxAwaken/SlotMaterial/HeroMaterial1/HeroHead/Mask/ImageHeadBw | item_transparent</title><rect x="832.7" y="495.9" width="84.0" height="84.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelAwaken/BoxAwaken/SlotMaterial/HeroMaterial1/HeroHead/Border | border_item</title><rect x="828.7" y="491.9" width="92.0" height="92.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelAwaken/BoxAwaken/SlotMaterial/HeroMaterial1/HeroHead/ImageFaction | faction_forest</title><rect x="832.5" y="495.1" width="30.0" height="30.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelAwaken/BoxAwaken/SlotMaterial/HeroMaterial1/HeroHead/TextHeroKey</title><rect x="794.7" y="533.9" width="160.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelAwaken/BoxAwaken/SlotMaterial/HeroMaterial1/TextNumber</title><rect x="794.7" y="584.9" width="160.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelAwaken/BoxAwaken/SlotMaterial/HeroMaterial1/HeroStar</title><rect x="834.7" y="561.1" width="80.0" height="20.0" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelAwaken/BoxAwaken/SlotMaterial/HeroMaterial1/HeroStar/GroupStar1/Star1 | hero_star_1, hero_star_1, hero_star_1</title><rect x="834.7" y="561.1" width="20.0" height="20.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelAwaken/BoxAwaken/SlotMaterial/HeroMaterial1/HeroStar/GroupStar1/Star1 | hero_star_1, hero_star_1, hero_star_1</title><rect x="849.7" y="561.1" width="20.0" height="20.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelAwaken/BoxAwaken/SlotMaterial/HeroMaterial1/HeroStar/GroupStar1/Star1 | hero_star_1, hero_star_1, hero_star_1</title><rect x="864.7" y="561.1" width="20.0" height="20.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelAwaken/BoxAwaken/SlotMaterial/HeroMaterial1/HeroStar/GroupStar1/Star1 | hero_star_1, hero_star_1, hero_star_1</title><rect x="879.7" y="561.1" width="20.0" height="20.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelAwaken/BoxAwaken/SlotMaterial/HeroMaterial1/HeroStar/GroupStar1/Star1 | hero_star_1, hero_star_1, hero_star_1</title><rect x="894.7" y="561.1" width="20.0" height="20.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelAwaken/BoxAwaken/SlotMaterial/HeroMaterial1/HeroStar/GroupStar6/Star6 | hero_star_2, hero_star_2, hero_star_2</title><rect x="841.7" y="559.1" width="18.0" height="18.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelAwaken/BoxAwaken/SlotMaterial/HeroMaterial1/HeroStar/GroupStar6/Star6 | hero_star_2, hero_star_2, hero_star_2</title><rect x="857.7" y="559.1" width="18.0" height="18.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelAwaken/BoxAwaken/SlotMaterial/HeroMaterial1/HeroStar/GroupStar6/Star6 | hero_star_2, hero_star_2, hero_star_2</title><rect x="873.7" y="559.1" width="18.0" height="18.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelAwaken/BoxAwaken/SlotMaterial/HeroMaterial1/HeroStar/GroupStar6/Star6 | hero_star_2, hero_star_2, hero_star_2</title><rect x="889.7" y="559.1" width="18.0" height="18.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelAwaken/BoxAwaken/SlotMaterial/HeroMaterial1/HeroStar/GroupStar10/Star10 | hero_star_3</title><rect x="865.7" y="559.1" width="18.0" height="18.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelAwaken/BoxAwaken/SlotMaterial/HeroMaterial1/HeroStar/GroupStarE/BgrStarE | star_e_bgr</title><rect x="795.7" y="546.1" width="158.0" height="59.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelAwaken/BoxAwaken/SlotMaterial/HeroMaterial1/HeroStar/GroupStarE/StarE | hero_star_e</title><rect x="854.2" y="555.1" width="41.0" height="39.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelAwaken/BoxAwaken/SlotMaterial/HeroMaterial1/HeroStar/GroupStarE/TextStarE</title><rect x="794.7" y="562.6" width="160.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelAwaken/BoxAwaken/SlotMaterial/HeroMaterial1/TagName</title><rect x="824.7" y="423.1" width="100.0" height="100.0" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelAwaken/BoxAwaken/SlotMaterial/HeroMaterial1/TagName/TextHeroName</title><rect x="809.7" y="458.1" width="130.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelAwaken/BoxAwaken/SlotMaterial/HeroMaterial1/IconPlus | icon_plus</title><rect x="887.6" y="496.0" width="30.0" height="30.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelAwaken/BoxAwaken/SlotMaterial/HeroMaterial2</title><rect x="960.7" y="491.9" width="92.0" height="92.0" stroke="#3b82f6" stroke-width="1.2" fill="#3b82f6" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelAwaken/BoxAwaken/SlotMaterial/HeroMaterial2/HeroHead/Mask | mask_item</title><rect x="963.7" y="494.9" width="86.0" height="86.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelAwaken/BoxAwaken/SlotMaterial/HeroMaterial2/HeroHead/Mask/ImageBgr | bgr_item_consumable</title><rect x="960.7" y="491.9" width="92.0" height="92.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelAwaken/BoxAwaken/SlotMaterial/HeroMaterial2/HeroHead/Mask/ImageHead | item_transparent</title><rect x="964.7" y="495.9" width="84.0" height="84.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelAwaken/BoxAwaken/SlotMaterial/HeroMaterial2/HeroHead/Mask/ImageHeadBw | item_transparent</title><rect x="964.7" y="495.9" width="84.0" height="84.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelAwaken/BoxAwaken/SlotMaterial/HeroMaterial2/HeroHead/Border | border_item</title><rect x="960.7" y="491.9" width="92.0" height="92.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelAwaken/BoxAwaken/SlotMaterial/HeroMaterial2/HeroHead/ImageFaction | faction_forest</title><rect x="964.5" y="495.1" width="30.0" height="30.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelAwaken/BoxAwaken/SlotMaterial/HeroMaterial2/HeroHead/TextHeroKey</title><rect x="926.7" y="533.9" width="160.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelAwaken/BoxAwaken/SlotMaterial/HeroMaterial2/TextNumber</title><rect x="926.7" y="584.9" width="160.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelAwaken/BoxAwaken/SlotMaterial/HeroMaterial2/HeroStar</title><rect x="966.7" y="561.1" width="80.0" height="20.0" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelAwaken/BoxAwaken/SlotMaterial/HeroMaterial2/HeroStar/GroupStar1/Star1 | hero_star_1, hero_star_1, hero_star_1</title><rect x="966.7" y="561.1" width="20.0" height="20.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelAwaken/BoxAwaken/SlotMaterial/HeroMaterial2/HeroStar/GroupStar1/Star1 | hero_star_1, hero_star_1, hero_star_1</title><rect x="981.7" y="561.1" width="20.0" height="20.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelAwaken/BoxAwaken/SlotMaterial/HeroMaterial2/HeroStar/GroupStar1/Star1 | hero_star_1, hero_star_1, hero_star_1</title><rect x="996.7" y="561.1" width="20.0" height="20.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelAwaken/BoxAwaken/SlotMaterial/HeroMaterial2/HeroStar/GroupStar1/Star1 | hero_star_1, hero_star_1, hero_star_1</title><rect x="1011.7" y="561.1" width="20.0" height="20.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelAwaken/BoxAwaken/SlotMaterial/HeroMaterial2/HeroStar/GroupStar1/Star1 | hero_star_1, hero_star_1, hero_star_1</title><rect x="1026.7" y="561.1" width="20.0" height="20.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelAwaken/BoxAwaken/SlotMaterial/HeroMaterial2/HeroStar/GroupStar6/Star6 | hero_star_2, hero_star_2, hero_star_2</title><rect x="973.7" y="559.1" width="18.0" height="18.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelAwaken/BoxAwaken/SlotMaterial/HeroMaterial2/HeroStar/GroupStar6/Star6 | hero_star_2, hero_star_2, hero_star_2</title><rect x="989.7" y="559.1" width="18.0" height="18.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelAwaken/BoxAwaken/SlotMaterial/HeroMaterial2/HeroStar/GroupStar6/Star6 | hero_star_2, hero_star_2, hero_star_2</title><rect x="1005.7" y="559.1" width="18.0" height="18.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelAwaken/BoxAwaken/SlotMaterial/HeroMaterial2/HeroStar/GroupStar6/Star6 | hero_star_2, hero_star_2, hero_star_2</title><rect x="1021.7" y="559.1" width="18.0" height="18.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelAwaken/BoxAwaken/SlotMaterial/HeroMaterial2/HeroStar/GroupStar10/Star10 | hero_star_3</title><rect x="997.7" y="559.1" width="18.0" height="18.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelAwaken/BoxAwaken/SlotMaterial/HeroMaterial2/HeroStar/GroupStarE/BgrStarE | star_e_bgr</title><rect x="927.7" y="546.1" width="158.0" height="59.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelAwaken/BoxAwaken/SlotMaterial/HeroMaterial2/HeroStar/GroupStarE/StarE | hero_star_e</title><rect x="986.2" y="555.1" width="41.0" height="39.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelAwaken/BoxAwaken/SlotMaterial/HeroMaterial2/HeroStar/GroupStarE/TextStarE</title><rect x="926.7" y="562.6" width="160.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelAwaken/BoxAwaken/SlotMaterial/HeroMaterial2/TagName</title><rect x="956.7" y="423.1" width="100.0" height="100.0" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelAwaken/BoxAwaken/SlotMaterial/HeroMaterial2/TagName/TextHeroName</title><rect x="941.7" y="458.1" width="130.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelAwaken/BoxAwaken/SlotMaterial/HeroMaterial2/IconPlus | icon_plus</title><rect x="1019.6" y="496.0" width="30.0" height="30.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelAwaken/BoxAwaken/SlotMaterial/HeroMaterial3</title><rect x="1092.7" y="491.9" width="92.0" height="92.0" stroke="#3b82f6" stroke-width="1.2" fill="#3b82f6" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelAwaken/BoxAwaken/SlotMaterial/HeroMaterial3/HeroHead/Mask | mask_item</title><rect x="1095.7" y="494.9" width="86.0" height="86.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelAwaken/BoxAwaken/SlotMaterial/HeroMaterial3/HeroHead/Mask/ImageBgr | bgr_item_consumable</title><rect x="1092.7" y="491.9" width="92.0" height="92.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelAwaken/BoxAwaken/SlotMaterial/HeroMaterial3/HeroHead/Mask/ImageHead | item_transparent</title><rect x="1096.7" y="495.9" width="84.0" height="84.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelAwaken/BoxAwaken/SlotMaterial/HeroMaterial3/HeroHead/Mask/ImageHeadBw | item_transparent</title><rect x="1096.7" y="495.9" width="84.0" height="84.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelAwaken/BoxAwaken/SlotMaterial/HeroMaterial3/HeroHead/Border | border_item</title><rect x="1092.7" y="491.9" width="92.0" height="92.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelAwaken/BoxAwaken/SlotMaterial/HeroMaterial3/HeroHead/ImageFaction | faction_forest</title><rect x="1096.5" y="495.1" width="30.0" height="30.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelAwaken/BoxAwaken/SlotMaterial/HeroMaterial3/HeroHead/TextHeroKey</title><rect x="1058.7" y="533.9" width="160.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelAwaken/BoxAwaken/SlotMaterial/HeroMaterial3/TextNumber</title><rect x="1058.7" y="584.9" width="160.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelAwaken/BoxAwaken/SlotMaterial/HeroMaterial3/HeroStar</title><rect x="1098.7" y="561.1" width="80.0" height="20.0" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelAwaken/BoxAwaken/SlotMaterial/HeroMaterial3/HeroStar/GroupStar1/Star1 | hero_star_1, hero_star_1, hero_star_1</title><rect x="1098.7" y="561.1" width="20.0" height="20.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelAwaken/BoxAwaken/SlotMaterial/HeroMaterial3/HeroStar/GroupStar1/Star1 | hero_star_1, hero_star_1, hero_star_1</title><rect x="1113.7" y="561.1" width="20.0" height="20.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelAwaken/BoxAwaken/SlotMaterial/HeroMaterial3/HeroStar/GroupStar1/Star1 | hero_star_1, hero_star_1, hero_star_1</title><rect x="1128.7" y="561.1" width="20.0" height="20.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelAwaken/BoxAwaken/SlotMaterial/HeroMaterial3/HeroStar/GroupStar1/Star1 | hero_star_1, hero_star_1, hero_star_1</title><rect x="1143.7" y="561.1" width="20.0" height="20.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelAwaken/BoxAwaken/SlotMaterial/HeroMaterial3/HeroStar/GroupStar1/Star1 | hero_star_1, hero_star_1, hero_star_1</title><rect x="1158.7" y="561.1" width="20.0" height="20.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelAwaken/BoxAwaken/SlotMaterial/HeroMaterial3/HeroStar/GroupStar6/Star6 | hero_star_2, hero_star_2, hero_star_2</title><rect x="1105.7" y="559.1" width="18.0" height="18.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelAwaken/BoxAwaken/SlotMaterial/HeroMaterial3/HeroStar/GroupStar6/Star6 | hero_star_2, hero_star_2, hero_star_2</title><rect x="1121.7" y="559.1" width="18.0" height="18.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelAwaken/BoxAwaken/SlotMaterial/HeroMaterial3/HeroStar/GroupStar6/Star6 | hero_star_2, hero_star_2, hero_star_2</title><rect x="1137.7" y="559.1" width="18.0" height="18.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelAwaken/BoxAwaken/SlotMaterial/HeroMaterial3/HeroStar/GroupStar6/Star6 | hero_star_2, hero_star_2, hero_star_2</title><rect x="1153.7" y="559.1" width="18.0" height="18.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelAwaken/BoxAwaken/SlotMaterial/HeroMaterial3/HeroStar/GroupStar10/Star10 | hero_star_3</title><rect x="1129.7" y="559.1" width="18.0" height="18.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelAwaken/BoxAwaken/SlotMaterial/HeroMaterial3/HeroStar/GroupStarE/BgrStarE | star_e_bgr</title><rect x="1059.7" y="546.1" width="158.0" height="59.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelAwaken/BoxAwaken/SlotMaterial/HeroMaterial3/HeroStar/GroupStarE/StarE | hero_star_e</title><rect x="1118.2" y="555.1" width="41.0" height="39.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelAwaken/BoxAwaken/SlotMaterial/HeroMaterial3/HeroStar/GroupStarE/TextStarE</title><rect x="1058.7" y="562.6" width="160.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelAwaken/BoxAwaken/SlotMaterial/HeroMaterial3/TagName</title><rect x="1088.7" y="423.1" width="100.0" height="100.0" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelAwaken/BoxAwaken/SlotMaterial/HeroMaterial3/TagName/TextHeroName</title><rect x="1073.7" y="458.1" width="130.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelAwaken/BoxAwaken/SlotMaterial/HeroMaterial3/IconPlus | icon_plus</title><rect x="1151.6" y="496.0" width="30.0" height="30.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelAwaken/BoxAwaken/GroupAction/ButtonAwake | button_yellow</title><rect x="930.0" y="674.9" width="160.0" height="60.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelAwaken/BoxAwaken/GroupAction/ButtonAwake/Text</title><rect x="930.0" y="674.9" width="160.0" height="60.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelAwaken/BoxAwaken/BoxStar | round_rect_3</title><rect x="789.4" y="238.4" width="440.0" height="173.1" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelAwaken/BoxAwaken/BoxStar/StarCurrent/GroupStar1/Star1 | hero_star_1</title><rect x="829.0" y="304.9" width="30.0" height="30.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelAwaken/BoxAwaken/BoxStar/StarCurrent/GroupStar1/Star2 | hero_star_1</title><rect x="859.0" y="304.9" width="30.0" height="30.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelAwaken/BoxAwaken/BoxStar/StarCurrent/GroupStar1/Star3 | hero_star_1</title><rect x="889.0" y="304.9" width="30.0" height="30.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelAwaken/BoxAwaken/BoxStar/StarCurrent/GroupStar1/Star4 | hero_star_1</title><rect x="919.0" y="304.9" width="30.0" height="30.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelAwaken/BoxAwaken/BoxStar/StarCurrent/GroupStar1/Star5 | hero_star_1</title><rect x="949.0" y="304.9" width="30.0" height="30.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelAwaken/BoxAwaken/BoxStar/StarCurrent/GroupStar6/Star6 | hero_star_2</title><rect x="844.0" y="305.9" width="30.0" height="30.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelAwaken/BoxAwaken/BoxStar/StarCurrent/GroupStar6/Star7 | hero_star_2</title><rect x="874.0" y="305.9" width="30.0" height="30.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelAwaken/BoxAwaken/BoxStar/StarCurrent/GroupStar6/Star8 | hero_star_2</title><rect x="904.0" y="305.9" width="30.0" height="30.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelAwaken/BoxAwaken/BoxStar/StarCurrent/GroupStar6/Star9 | hero_star_2</title><rect x="934.0" y="305.9" width="30.0" height="30.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelAwaken/BoxAwaken/BoxStar/StarCurrent/GroupStar10/Star10 | hero_star_3</title><rect x="889.0" y="307.4" width="30.0" height="30.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelAwaken/BoxAwaken/BoxStar/StarNext/GroupStar1/Star1 | hero_star_1</title><rect x="1028.0" y="304.9" width="30.0" height="30.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelAwaken/BoxAwaken/BoxStar/StarNext/GroupStar1/Star2 | hero_star_1</title><rect x="1058.0" y="304.9" width="30.0" height="30.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelAwaken/BoxAwaken/BoxStar/StarNext/GroupStar1/Star3 | hero_star_1</title><rect x="1088.0" y="304.9" width="30.0" height="30.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelAwaken/BoxAwaken/BoxStar/StarNext/GroupStar1/Star4 | hero_star_1</title><rect x="1118.0" y="304.9" width="30.0" height="30.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelAwaken/BoxAwaken/BoxStar/StarNext/GroupStar1/Star5 | hero_star_1</title><rect x="1148.0" y="304.9" width="30.0" height="30.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelAwaken/BoxAwaken/BoxStar/StarNext/GroupStar6/Star6 | hero_star_2</title><rect x="1043.0" y="305.9" width="30.0" height="30.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelAwaken/BoxAwaken/BoxStar/StarNext/GroupStar6/Star7 | hero_star_2</title><rect x="1073.0" y="305.9" width="30.0" height="30.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelAwaken/BoxAwaken/BoxStar/StarNext/GroupStar6/Star8 | hero_star_2</title><rect x="1103.0" y="305.9" width="30.0" height="30.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelAwaken/BoxAwaken/BoxStar/StarNext/GroupStar6/Star9 | hero_star_2</title><rect x="1133.0" y="305.9" width="30.0" height="30.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelAwaken/BoxAwaken/BoxStar/StarNext/GroupStar10/Star10 | hero_star_3</title><rect x="1088.0" y="307.4" width="30.0" height="30.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelAwaken/BoxAwaken/BoxStar/Arrow1 | arrow_next</title><rect x="980.9" y="304.8" width="44.0" height="44.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelAwaken/BoxAwaken/BoxStar/Arrow2 | arrow_next</title><rect x="981.4" y="347.6" width="44.0" height="44.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelAwaken/BoxAwaken/BoxStar/ButtonSkill1/SpriteOn | skill_default</title><rect x="868.0" y="326.0" width="88.0" height="88.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelAwaken/BoxAwaken/BoxStar/ButtonSkill1/SpriteOff | skill_default</title><rect x="868.0" y="326.0" width="88.0" height="88.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelAwaken/BoxAwaken/BoxStar/ButtonSkill1/ImgLevel | tag_number</title><rect x="919.9" y="321.0" width="40.0" height="40.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelAwaken/BoxAwaken/BoxStar/ButtonSkill1/ImgLevel/TextLevel</title><rect x="924.9" y="324.7" width="30.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelAwaken/BoxAwaken/BoxStar/ButtonSkill2/SpriteOn | skill_default</title><rect x="1061.4" y="326.0" width="88.0" height="88.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelAwaken/BoxAwaken/BoxStar/ButtonSkill2/SpriteOff | skill_default</title><rect x="1061.4" y="326.0" width="88.0" height="88.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelAwaken/BoxAwaken/BoxStar/ButtonSkill2/ImgLevel | tag_number</title><rect x="1110.8" y="321.0" width="40.0" height="40.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelAwaken/BoxAwaken/BoxStar/ButtonSkill2/ImgLevel/TextLevel</title><rect x="1115.8" y="324.7" width="30.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelAwaken/BoxAwaken/BoxStar/BoxSkillDesc | round_rect_8</title><rect x="822.4" y="406.9" width="379.9" height="134.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelAwaken/BoxAwaken/BoxStar/BoxSkillDesc/SkillTitle/SkillIcon | skill_default</title><rect x="840.9" y="422.9" width="60.0" height="60.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelAwaken/BoxAwaken/BoxStar/BoxSkillDesc/SkillTitle/TextName</title><rect x="906.9" y="436.9" width="160.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelAwaken/BoxAwaken/BoxStar/BoxSkillDesc/TextDesc</title><rect x="842.4" y="491.9" width="342.9" height="29.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelAwaken/BoxAwaken/BoxStar/TextPowerUp</title><rect x="929.4" y="242.8" width="160.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelAwaken/BoxAwaken/BoxStar/TextLevelCap</title><rect x="929.4" y="275.0" width="160.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelAwaken/BoxMaxStar/GroupMaxStar | round_rect2</title><rect x="798.5" y="241.8" width="423.0" height="167.2" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelAwaken/BoxMaxStar/GroupMaxStar/TextMax</title><rect x="818.8" y="310.4" width="386.5" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelEnable/BoxEnable/TextMaterial</title><rect x="930.0" y="423.9" width="160.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelEnable/BoxEnable/SlotMaterial/HeroMaterial1</title><rect x="817.4" y="493.9" width="92.0" height="92.0" stroke="#3b82f6" stroke-width="1.2" fill="#3b82f6" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelEnable/BoxEnable/SlotMaterial/HeroMaterial1/HeroHead/Mask | mask_item</title><rect x="820.4" y="496.9" width="86.0" height="86.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelEnable/BoxEnable/SlotMaterial/HeroMaterial1/HeroHead/Mask/ImageBgr | bgr_item_consumable</title><rect x="817.4" y="493.9" width="92.0" height="92.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelEnable/BoxEnable/SlotMaterial/HeroMaterial1/HeroHead/Mask/ImageHead | item_transparent</title><rect x="821.4" y="497.9" width="84.0" height="84.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelEnable/BoxEnable/SlotMaterial/HeroMaterial1/HeroHead/Mask/ImageHeadBw | item_transparent</title><rect x="821.4" y="497.9" width="84.0" height="84.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelEnable/BoxEnable/SlotMaterial/HeroMaterial1/HeroHead/Border | border_item</title><rect x="817.4" y="493.9" width="92.0" height="92.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelEnable/BoxEnable/SlotMaterial/HeroMaterial1/HeroHead/ImageFaction | faction_forest</title><rect x="821.2" y="497.1" width="30.0" height="30.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelEnable/BoxEnable/SlotMaterial/HeroMaterial1/HeroHead/TextHeroKey</title><rect x="783.4" y="535.9" width="160.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelEnable/BoxEnable/SlotMaterial/HeroMaterial1/TextNumber</title><rect x="783.4" y="586.9" width="160.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelEnable/BoxEnable/SlotMaterial/HeroMaterial1/HeroStar</title><rect x="823.4" y="563.1" width="80.0" height="20.0" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelEnable/BoxEnable/SlotMaterial/HeroMaterial1/HeroStar/GroupStar1/Star1 | hero_star_1, hero_star_1, hero_star_1</title><rect x="823.4" y="563.1" width="20.0" height="20.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelEnable/BoxEnable/SlotMaterial/HeroMaterial1/HeroStar/GroupStar1/Star1 | hero_star_1, hero_star_1, hero_star_1</title><rect x="838.4" y="563.1" width="20.0" height="20.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelEnable/BoxEnable/SlotMaterial/HeroMaterial1/HeroStar/GroupStar1/Star1 | hero_star_1, hero_star_1, hero_star_1</title><rect x="853.4" y="563.1" width="20.0" height="20.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelEnable/BoxEnable/SlotMaterial/HeroMaterial1/HeroStar/GroupStar1/Star1 | hero_star_1, hero_star_1, hero_star_1</title><rect x="868.4" y="563.1" width="20.0" height="20.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelEnable/BoxEnable/SlotMaterial/HeroMaterial1/HeroStar/GroupStar1/Star1 | hero_star_1, hero_star_1, hero_star_1</title><rect x="883.4" y="563.1" width="20.0" height="20.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelEnable/BoxEnable/SlotMaterial/HeroMaterial1/HeroStar/GroupStar6/Star6 | hero_star_2, hero_star_2, hero_star_2</title><rect x="830.4" y="561.1" width="18.0" height="18.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelEnable/BoxEnable/SlotMaterial/HeroMaterial1/HeroStar/GroupStar6/Star6 | hero_star_2, hero_star_2, hero_star_2</title><rect x="846.4" y="561.1" width="18.0" height="18.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelEnable/BoxEnable/SlotMaterial/HeroMaterial1/HeroStar/GroupStar6/Star6 | hero_star_2, hero_star_2, hero_star_2</title><rect x="862.4" y="561.1" width="18.0" height="18.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelEnable/BoxEnable/SlotMaterial/HeroMaterial1/HeroStar/GroupStar6/Star6 | hero_star_2, hero_star_2, hero_star_2</title><rect x="878.4" y="561.1" width="18.0" height="18.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelEnable/BoxEnable/SlotMaterial/HeroMaterial1/HeroStar/GroupStar10/Star10 | hero_star_3</title><rect x="854.4" y="561.1" width="18.0" height="18.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelEnable/BoxEnable/SlotMaterial/HeroMaterial1/HeroStar/GroupStarE/BgrStarE | star_e_bgr</title><rect x="784.4" y="548.1" width="158.0" height="59.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelEnable/BoxEnable/SlotMaterial/HeroMaterial1/HeroStar/GroupStarE/StarE | hero_star_e</title><rect x="842.9" y="557.1" width="41.0" height="39.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelEnable/BoxEnable/SlotMaterial/HeroMaterial1/HeroStar/GroupStarE/TextStarE</title><rect x="783.4" y="564.6" width="160.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelEnable/BoxEnable/SlotMaterial/HeroMaterial1/TagName</title><rect x="813.4" y="425.1" width="100.0" height="100.0" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelEnable/BoxEnable/SlotMaterial/HeroMaterial1/TagName/TextHeroName</title><rect x="798.4" y="460.1" width="130.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelEnable/BoxEnable/SlotMaterial/HeroMaterial1/IconPlus | icon_plus</title><rect x="876.3" y="498.0" width="30.0" height="30.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelEnable/BoxEnable/SlotMaterial/HeroMaterial2</title><rect x="919.4" y="493.9" width="92.0" height="92.0" stroke="#3b82f6" stroke-width="1.2" fill="#3b82f6" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelEnable/BoxEnable/SlotMaterial/HeroMaterial2/HeroHead/Mask | mask_item</title><rect x="922.4" y="496.9" width="86.0" height="86.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelEnable/BoxEnable/SlotMaterial/HeroMaterial2/HeroHead/Mask/ImageBgr | bgr_item_consumable</title><rect x="919.4" y="493.9" width="92.0" height="92.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelEnable/BoxEnable/SlotMaterial/HeroMaterial2/HeroHead/Mask/ImageHead | item_transparent</title><rect x="923.4" y="497.9" width="84.0" height="84.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelEnable/BoxEnable/SlotMaterial/HeroMaterial2/HeroHead/Mask/ImageHeadBw | item_transparent</title><rect x="923.4" y="497.9" width="84.0" height="84.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelEnable/BoxEnable/SlotMaterial/HeroMaterial2/HeroHead/Border | border_item</title><rect x="919.4" y="493.9" width="92.0" height="92.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelEnable/BoxEnable/SlotMaterial/HeroMaterial2/HeroHead/ImageFaction | faction_forest</title><rect x="923.2" y="497.1" width="30.0" height="30.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelEnable/BoxEnable/SlotMaterial/HeroMaterial2/HeroHead/TextHeroKey</title><rect x="885.4" y="535.9" width="160.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelEnable/BoxEnable/SlotMaterial/HeroMaterial2/TextNumber</title><rect x="885.4" y="586.9" width="160.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelEnable/BoxEnable/SlotMaterial/HeroMaterial2/HeroStar</title><rect x="925.4" y="563.1" width="80.0" height="20.0" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelEnable/BoxEnable/SlotMaterial/HeroMaterial2/HeroStar/GroupStar1/Star1 | hero_star_1, hero_star_1, hero_star_1</title><rect x="925.4" y="563.1" width="20.0" height="20.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelEnable/BoxEnable/SlotMaterial/HeroMaterial2/HeroStar/GroupStar1/Star1 | hero_star_1, hero_star_1, hero_star_1</title><rect x="940.4" y="563.1" width="20.0" height="20.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelEnable/BoxEnable/SlotMaterial/HeroMaterial2/HeroStar/GroupStar1/Star1 | hero_star_1, hero_star_1, hero_star_1</title><rect x="955.4" y="563.1" width="20.0" height="20.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelEnable/BoxEnable/SlotMaterial/HeroMaterial2/HeroStar/GroupStar1/Star1 | hero_star_1, hero_star_1, hero_star_1</title><rect x="970.4" y="563.1" width="20.0" height="20.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelEnable/BoxEnable/SlotMaterial/HeroMaterial2/HeroStar/GroupStar1/Star1 | hero_star_1, hero_star_1, hero_star_1</title><rect x="985.4" y="563.1" width="20.0" height="20.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelEnable/BoxEnable/SlotMaterial/HeroMaterial2/HeroStar/GroupStar6/Star6 | hero_star_2, hero_star_2, hero_star_2</title><rect x="932.4" y="561.1" width="18.0" height="18.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelEnable/BoxEnable/SlotMaterial/HeroMaterial2/HeroStar/GroupStar6/Star6 | hero_star_2, hero_star_2, hero_star_2</title><rect x="948.4" y="561.1" width="18.0" height="18.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelEnable/BoxEnable/SlotMaterial/HeroMaterial2/HeroStar/GroupStar6/Star6 | hero_star_2, hero_star_2, hero_star_2</title><rect x="964.4" y="561.1" width="18.0" height="18.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelEnable/BoxEnable/SlotMaterial/HeroMaterial2/HeroStar/GroupStar6/Star6 | hero_star_2, hero_star_2, hero_star_2</title><rect x="980.4" y="561.1" width="18.0" height="18.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelEnable/BoxEnable/SlotMaterial/HeroMaterial2/HeroStar/GroupStar10/Star10 | hero_star_3</title><rect x="956.4" y="561.1" width="18.0" height="18.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelEnable/BoxEnable/SlotMaterial/HeroMaterial2/HeroStar/GroupStarE/BgrStarE | star_e_bgr</title><rect x="886.4" y="548.1" width="158.0" height="59.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelEnable/BoxEnable/SlotMaterial/HeroMaterial2/HeroStar/GroupStarE/StarE | hero_star_e</title><rect x="944.9" y="557.1" width="41.0" height="39.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelEnable/BoxEnable/SlotMaterial/HeroMaterial2/HeroStar/GroupStarE/TextStarE</title><rect x="885.4" y="564.6" width="160.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelEnable/BoxEnable/SlotMaterial/HeroMaterial2/TagName</title><rect x="915.4" y="425.1" width="100.0" height="100.0" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelEnable/BoxEnable/SlotMaterial/HeroMaterial2/TagName/TextHeroName</title><rect x="900.4" y="460.1" width="130.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelEnable/BoxEnable/SlotMaterial/HeroMaterial2/IconPlus | icon_plus</title><rect x="978.3" y="498.0" width="30.0" height="30.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelEnable/BoxEnable/SlotMaterial/HeroMaterial3</title><rect x="1021.4" y="493.9" width="92.0" height="92.0" stroke="#3b82f6" stroke-width="1.2" fill="#3b82f6" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelEnable/BoxEnable/SlotMaterial/HeroMaterial3/HeroHead/Mask | mask_item</title><rect x="1024.4" y="496.9" width="86.0" height="86.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelEnable/BoxEnable/SlotMaterial/HeroMaterial3/HeroHead/Mask/ImageBgr | bgr_item_consumable</title><rect x="1021.4" y="493.9" width="92.0" height="92.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelEnable/BoxEnable/SlotMaterial/HeroMaterial3/HeroHead/Mask/ImageHead | item_transparent</title><rect x="1025.4" y="497.9" width="84.0" height="84.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelEnable/BoxEnable/SlotMaterial/HeroMaterial3/HeroHead/Mask/ImageHeadBw | item_transparent</title><rect x="1025.4" y="497.9" width="84.0" height="84.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelEnable/BoxEnable/SlotMaterial/HeroMaterial3/HeroHead/Border | border_item</title><rect x="1021.4" y="493.9" width="92.0" height="92.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelEnable/BoxEnable/SlotMaterial/HeroMaterial3/HeroHead/ImageFaction | faction_forest</title><rect x="1025.2" y="497.1" width="30.0" height="30.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelEnable/BoxEnable/SlotMaterial/HeroMaterial3/HeroHead/TextHeroKey</title><rect x="987.4" y="535.9" width="160.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelEnable/BoxEnable/SlotMaterial/HeroMaterial3/TextNumber</title><rect x="987.4" y="586.9" width="160.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelEnable/BoxEnable/SlotMaterial/HeroMaterial3/HeroStar</title><rect x="1027.4" y="563.1" width="80.0" height="20.0" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelEnable/BoxEnable/SlotMaterial/HeroMaterial3/HeroStar/GroupStar1/Star1 | hero_star_1, hero_star_1, hero_star_1</title><rect x="1027.4" y="563.1" width="20.0" height="20.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelEnable/BoxEnable/SlotMaterial/HeroMaterial3/HeroStar/GroupStar1/Star1 | hero_star_1, hero_star_1, hero_star_1</title><rect x="1042.4" y="563.1" width="20.0" height="20.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelEnable/BoxEnable/SlotMaterial/HeroMaterial3/HeroStar/GroupStar1/Star1 | hero_star_1, hero_star_1, hero_star_1</title><rect x="1057.4" y="563.1" width="20.0" height="20.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelEnable/BoxEnable/SlotMaterial/HeroMaterial3/HeroStar/GroupStar1/Star1 | hero_star_1, hero_star_1, hero_star_1</title><rect x="1072.4" y="563.1" width="20.0" height="20.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelEnable/BoxEnable/SlotMaterial/HeroMaterial3/HeroStar/GroupStar1/Star1 | hero_star_1, hero_star_1, hero_star_1</title><rect x="1087.4" y="563.1" width="20.0" height="20.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelEnable/BoxEnable/SlotMaterial/HeroMaterial3/HeroStar/GroupStar6/Star6 | hero_star_2, hero_star_2, hero_star_2</title><rect x="1034.4" y="561.1" width="18.0" height="18.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelEnable/BoxEnable/SlotMaterial/HeroMaterial3/HeroStar/GroupStar6/Star6 | hero_star_2, hero_star_2, hero_star_2</title><rect x="1050.4" y="561.1" width="18.0" height="18.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelEnable/BoxEnable/SlotMaterial/HeroMaterial3/HeroStar/GroupStar6/Star6 | hero_star_2, hero_star_2, hero_star_2</title><rect x="1066.4" y="561.1" width="18.0" height="18.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelEnable/BoxEnable/SlotMaterial/HeroMaterial3/HeroStar/GroupStar6/Star6 | hero_star_2, hero_star_2, hero_star_2</title><rect x="1082.4" y="561.1" width="18.0" height="18.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelEnable/BoxEnable/SlotMaterial/HeroMaterial3/HeroStar/GroupStar10/Star10 | hero_star_3</title><rect x="1058.4" y="561.1" width="18.0" height="18.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelEnable/BoxEnable/SlotMaterial/HeroMaterial3/HeroStar/GroupStarE/BgrStarE | star_e_bgr</title><rect x="988.4" y="548.1" width="158.0" height="59.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelEnable/BoxEnable/SlotMaterial/HeroMaterial3/HeroStar/GroupStarE/StarE | hero_star_e</title><rect x="1046.9" y="557.1" width="41.0" height="39.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelEnable/BoxEnable/SlotMaterial/HeroMaterial3/HeroStar/GroupStarE/TextStarE</title><rect x="987.4" y="564.6" width="160.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelEnable/BoxEnable/SlotMaterial/HeroMaterial3/TagName</title><rect x="1017.4" y="425.1" width="100.0" height="100.0" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelEnable/BoxEnable/SlotMaterial/HeroMaterial3/TagName/TextHeroName</title><rect x="1002.4" y="460.1" width="130.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelEnable/BoxEnable/SlotMaterial/HeroMaterial3/IconPlus | icon_plus</title><rect x="1080.3" y="498.0" width="30.0" height="30.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelEnable/BoxEnable/SlotMaterial/HeroMaterial4</title><rect x="1123.4" y="493.9" width="92.0" height="92.0" stroke="#3b82f6" stroke-width="1.2" fill="#3b82f6" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelEnable/BoxEnable/SlotMaterial/HeroMaterial4/HeroHead/Mask | mask_item</title><rect x="1126.4" y="496.9" width="86.0" height="86.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelEnable/BoxEnable/SlotMaterial/HeroMaterial4/HeroHead/Mask/ImageBgr | bgr_item_consumable</title><rect x="1123.4" y="493.9" width="92.0" height="92.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelEnable/BoxEnable/SlotMaterial/HeroMaterial4/HeroHead/Mask/ImageHead | item_transparent</title><rect x="1127.4" y="497.9" width="84.0" height="84.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelEnable/BoxEnable/SlotMaterial/HeroMaterial4/HeroHead/Mask/ImageHeadBw | item_transparent</title><rect x="1127.4" y="497.9" width="84.0" height="84.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelEnable/BoxEnable/SlotMaterial/HeroMaterial4/HeroHead/Border | border_item</title><rect x="1123.4" y="493.9" width="92.0" height="92.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelEnable/BoxEnable/SlotMaterial/HeroMaterial4/HeroHead/ImageFaction | faction_forest</title><rect x="1127.2" y="497.1" width="30.0" height="30.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelEnable/BoxEnable/SlotMaterial/HeroMaterial4/HeroHead/TextHeroKey</title><rect x="1089.4" y="535.9" width="160.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelEnable/BoxEnable/SlotMaterial/HeroMaterial4/TextNumber</title><rect x="1089.4" y="586.9" width="160.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelEnable/BoxEnable/SlotMaterial/HeroMaterial4/HeroStar</title><rect x="1129.4" y="563.1" width="80.0" height="20.0" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelEnable/BoxEnable/SlotMaterial/HeroMaterial4/HeroStar/GroupStar1/Star1 | hero_star_1, hero_star_1, hero_star_1</title><rect x="1129.4" y="563.1" width="20.0" height="20.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelEnable/BoxEnable/SlotMaterial/HeroMaterial4/HeroStar/GroupStar1/Star1 | hero_star_1, hero_star_1, hero_star_1</title><rect x="1144.4" y="563.1" width="20.0" height="20.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelEnable/BoxEnable/SlotMaterial/HeroMaterial4/HeroStar/GroupStar1/Star1 | hero_star_1, hero_star_1, hero_star_1</title><rect x="1159.4" y="563.1" width="20.0" height="20.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelEnable/BoxEnable/SlotMaterial/HeroMaterial4/HeroStar/GroupStar1/Star1 | hero_star_1, hero_star_1, hero_star_1</title><rect x="1174.4" y="563.1" width="20.0" height="20.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelEnable/BoxEnable/SlotMaterial/HeroMaterial4/HeroStar/GroupStar1/Star1 | hero_star_1, hero_star_1, hero_star_1</title><rect x="1189.4" y="563.1" width="20.0" height="20.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelEnable/BoxEnable/SlotMaterial/HeroMaterial4/HeroStar/GroupStar6/Star6 | hero_star_2, hero_star_2, hero_star_2</title><rect x="1136.4" y="561.1" width="18.0" height="18.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelEnable/BoxEnable/SlotMaterial/HeroMaterial4/HeroStar/GroupStar6/Star6 | hero_star_2, hero_star_2, hero_star_2</title><rect x="1152.4" y="561.1" width="18.0" height="18.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelEnable/BoxEnable/SlotMaterial/HeroMaterial4/HeroStar/GroupStar6/Star6 | hero_star_2, hero_star_2, hero_star_2</title><rect x="1168.4" y="561.1" width="18.0" height="18.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelEnable/BoxEnable/SlotMaterial/HeroMaterial4/HeroStar/GroupStar6/Star6 | hero_star_2, hero_star_2, hero_star_2</title><rect x="1184.4" y="561.1" width="18.0" height="18.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelEnable/BoxEnable/SlotMaterial/HeroMaterial4/HeroStar/GroupStar10/Star10 | hero_star_3</title><rect x="1160.4" y="561.1" width="18.0" height="18.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelEnable/BoxEnable/SlotMaterial/HeroMaterial4/HeroStar/GroupStarE/BgrStarE | star_e_bgr</title><rect x="1090.4" y="548.1" width="158.0" height="59.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelEnable/BoxEnable/SlotMaterial/HeroMaterial4/HeroStar/GroupStarE/StarE | hero_star_e</title><rect x="1148.9" y="557.1" width="41.0" height="39.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelEnable/BoxEnable/SlotMaterial/HeroMaterial4/HeroStar/GroupStarE/TextStarE</title><rect x="1089.4" y="564.6" width="160.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelEnable/BoxEnable/SlotMaterial/HeroMaterial4/TagName</title><rect x="1119.4" y="425.1" width="100.0" height="100.0" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelEnable/BoxEnable/SlotMaterial/HeroMaterial4/TagName/TextHeroName</title><rect x="1104.4" y="460.1" width="130.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelEnable/BoxEnable/SlotMaterial/HeroMaterial4/IconPlus | icon_plus</title><rect x="1182.3" y="498.0" width="30.0" height="30.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelEnable/BoxEnable/GroupAction/ButtonRegress1 | button_green</title><rect x="840.0" y="673.9" width="160.0" height="60.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelEnable/BoxEnable/GroupAction/ButtonRegress1/Text</title><rect x="840.0" y="673.9" width="160.0" height="60.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelEnable/BoxEnable/GroupAction/ButtonAwake | button_yellow</title><rect x="1020.0" y="673.9" width="160.0" height="60.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelEnable/BoxEnable/GroupAction/ButtonAwake/Text</title><rect x="1020.0" y="673.9" width="160.0" height="60.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelEnable/BoxEnable/FieldStone | round_rect_3</title><rect x="886.5" y="620.4" width="246.9" height="45.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelEnable/BoxEnable/FieldStone/IconStone | icon_promotion_stone</title><rect x="894.0" y="622.9" width="40.0" height="40.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelEnable/BoxEnable/FieldStone/TextStone</title><rect x="924.0" y="625.7" width="203.9" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelEnable/BoxEnable/BoxBlockEnable/Image | round_rect2</title><rect x="807.7" y="506.9" width="404.6" height="100.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelEnable/BoxEnable/BoxBlockEnable/Image/TextLocked</title><rect x="834.9" y="541.9" width="350.2" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelEnable/BoxEnable/BoxStar | round_rect_3</title><rect x="790.0" y="236.9" width="440.0" height="172.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelEnable/BoxEnable/BoxStar/StarNext/GroupStar1/Star1 | hero_star_1</title><rect x="935.0" y="249.0" width="30.0" height="30.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelEnable/BoxEnable/BoxStar/StarNext/GroupStar1/Star2 | hero_star_1</title><rect x="965.0" y="249.0" width="30.0" height="30.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelEnable/BoxEnable/BoxStar/StarNext/GroupStar1/Star3 | hero_star_1</title><rect x="995.0" y="249.0" width="30.0" height="30.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelEnable/BoxEnable/BoxStar/StarNext/GroupStar1/Star4 | hero_star_1</title><rect x="1025.0" y="249.0" width="30.0" height="30.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelEnable/BoxEnable/BoxStar/StarNext/GroupStar1/Star5 | hero_star_1</title><rect x="1055.0" y="249.0" width="30.0" height="30.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelEnable/BoxEnable/BoxStar/StarNext/GroupStar6/Star6 | hero_star_2</title><rect x="950.0" y="250.0" width="30.0" height="30.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelEnable/BoxEnable/BoxStar/StarNext/GroupStar6/Star7 | hero_star_2</title><rect x="980.0" y="250.0" width="30.0" height="30.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelEnable/BoxEnable/BoxStar/StarNext/GroupStar6/Star8 | hero_star_2</title><rect x="1010.0" y="250.0" width="30.0" height="30.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelEnable/BoxEnable/BoxStar/StarNext/GroupStar6/Star9 | hero_star_2</title><rect x="1040.0" y="250.0" width="30.0" height="30.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelEnable/BoxEnable/BoxStar/StarNext/GroupStar10/Star10 | hero_star_3</title><rect x="995.0" y="251.5" width="30.0" height="30.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelEnable/BoxEnable/BoxStar/StarNext/GroupStarE/IconE | star_e_bgr</title><rect x="931.0" y="237.0" width="158.0" height="59.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelEnable/BoxEnable/BoxStar/StarNext/GroupStarE/StarE | hero_star_e</title><rect x="991.0" y="248.0" width="38.0" height="37.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelEnable/BoxEnable/BoxStar/StarNext/GroupStarE/StarE/TextStar</title><rect x="930.0" y="256.2" width="160.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelEnable/BoxEnable/BoxStar/Line | line_1</title><rect x="810.0" y="292.4" width="400.0" height="4.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelEnable/BoxEnable/BoxStar/TextUnlock</title><rect x="1067.7" y="294.6" width="136.9" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelEnable/BoxEnable/BoxStar/ButtonSkillE/SpriteSkillE | skill_default</title><rect x="1084.8" y="312.2" width="100.0" height="100.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelEnable/BoxEnable/BoxStar/ButtonSkillE/Frame | skill_selected</title><rect x="1079.8" y="307.2" width="110.0" height="110.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelEnable/BoxEnable/BoxStar/BoxSkillDesc | round_rect_8</title><rect x="823.0" y="397.9" width="379.9" height="134.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelEnable/BoxEnable/BoxStar/BoxSkillDesc/SkillTitle/SkillIcon | skill_default</title><rect x="841.4" y="413.9" width="60.0" height="60.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelEnable/BoxEnable/BoxStar/BoxSkillDesc/SkillTitle/SkillIcon/ImageFrame | skill_frame</title><rect x="838.9" y="411.4" width="65.0" height="65.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelEnable/BoxEnable/BoxStar/BoxSkillDesc/SkillTitle/TextName</title><rect x="907.4" y="427.9" width="160.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelEnable/BoxEnable/BoxStar/BoxSkillDesc/TextDesc</title><rect x="843.0" y="482.9" width="342.9" height="29.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelEnable/BoxEnable/BoxStar/TextLevelMaxCap</title><rect x="814.0" y="297.4" width="160.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelEnable/BoxEnable/BoxStar/TextLevelMaxCap/TextLevelMax</title><rect x="992.2" y="297.4" width="83.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelEnable/BoxEnable/BoxStar/TextHpUpCap</title><rect x="814.0" y="329.9" width="160.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelEnable/BoxEnable/BoxStar/TextHpUpCap/TextHpUp</title><rect x="983.7" y="329.9" width="83.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelEnable/BoxEnable/BoxStar/TextAttackUpCap</title><rect x="814.0" y="361.8" width="160.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelEnable/BoxEnable/BoxStar/TextAttackUpCap/TextAttackUp</title><rect x="983.7" y="361.8" width="83.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelEnable/BoxEnable/GroupActionBlock/ButtonRegress2 | button_green</title><rect x="930.0" y="615.9" width="160.0" height="60.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelEnable/BoxEnable/GroupActionBlock/ButtonRegress2/Text</title><rect x="930.0" y="615.9" width="160.0" height="60.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelEnable/BoxMaxStar/GroupMaxStar | round_rect2</title><rect x="798.5" y="288.8" width="423.0" height="167.2" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelEnable/BoxMaxStar/GroupMaxStar/TextMax</title><rect x="820.7" y="357.4" width="378.6" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelEnable/BoxMaxStar/ButtonRegress2 | button_green</title><rect x="930.0" y="660.9" width="160.0" height="60.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelEnable/BoxMaxStar/ButtonRegress2/Text</title><rect x="930.0" y="657.9" width="160.0" height="60.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelEnable/BoxBeyondMax/GroupBeyondMax | round_rect2</title><rect x="790.0" y="267.9" width="440.0" height="328.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelEnable/BoxBeyondMax/GroupBeyondMax/ImageStar | star_beyond_max</title><rect x="874.5" y="302.5" width="271.0" height="271.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelEnable/BoxBeyondMax/GroupBeyondMax/ButtonSkill1 | skill_beyon_max_1</title><rect x="971.0" y="289.0" width="78.0" height="78.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelEnable/BoxBeyondMax/GroupBeyondMax/ButtonSkill2 | skill_beyond_max_2</title><rect x="862.7" y="366.0" width="78.0" height="78.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelEnable/BoxBeyondMax/GroupBeyondMax/ButtonSkill3 | skill_beyon_max_1</title><rect x="903.6" y="492.9" width="78.0" height="78.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelEnable/BoxBeyondMax/GroupBeyondMax/ButtonSkill4 | skill_beyond_max_2</title><rect x="1032.0" y="493.6" width="78.0" height="78.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelEnable/BoxBeyondMax/GroupBeyondMax/ButtonSkill5 | skill_beyond_max_3</title><rect x="1081.0" y="366.0" width="78.0" height="78.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelEnable/BoxBeyondMax/ButtonRegress3 | button_green</title><rect x="930.0" y="618.9" width="160.0" height="60.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelEnable/BoxBeyondMax/ButtonRegress3/Text</title><rect x="930.0" y="615.9" width="160.0" height="60.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelESkill/GroupEnable | round_rect2</title><rect x="798.5" y="290.6" width="423.0" height="314.7" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelESkill/GroupEnable/ImageBgr | medition_man</title><rect x="837.0" y="289.4" width="346.0" height="317.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelESkill/GroupEnable/Line1 | light</title><rect x="905.4" y="346.6" width="202.5" height="17.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelESkill/GroupEnable/Line2 | light</title><rect x="817.7" y="444.9" width="181.9" height="17.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelESkill/GroupEnable/Line3 | light</title><rect x="928.6" y="545.7" width="179.2" height="17.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelESkill/GroupEnable/Line4 | light</title><rect x="1008.2" y="475.3" width="160.1" height="17.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelESkill/GroupEnable/Line5 | light</title><rect x="1055.7" y="360.1" width="90.1" height="17.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelESkill/GroupEnable/ButtonESkill1</title><rect x="1079.1" y="284.3" width="100.0" height="100.0" stroke="#3b82f6" stroke-width="1.2" fill="#3b82f6" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelESkill/GroupEnable/ButtonESkill1/ImageSkill | skill_default</title><rect x="1089.1" y="294.3" width="80.0" height="80.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelESkill/GroupEnable/ButtonESkill1/ImageCover | round_mask</title><rect x="1079.9" y="285.1" width="100.0" height="100.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelESkill/GroupEnable/ButtonESkill1/Frame | skill_frame</title><rect x="1082.1" y="287.3" width="94.0" height="94.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelESkill/GroupEnable/ButtonESkill1/FrameSelected | skill_selected</title><rect x="1082.1" y="287.3" width="94.0" height="94.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelESkill/GroupEnable/ButtonESkill1/IconLock | icon_lock_2</title><rect x="1113.1" y="314.3" width="32.0" height="40.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelESkill/GroupEnable/ButtonESkill2</title><rect x="828.4" y="328.8" width="100.0" height="100.0" stroke="#3b82f6" stroke-width="1.2" fill="#3b82f6" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelESkill/GroupEnable/ButtonESkill2/ImageSkill | skill_default</title><rect x="838.4" y="338.8" width="80.0" height="80.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelESkill/GroupEnable/ButtonESkill2/ImageCover | round_mask</title><rect x="829.2" y="329.6" width="100.0" height="100.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelESkill/GroupEnable/ButtonESkill2/Frame | skill_frame</title><rect x="831.4" y="331.8" width="94.0" height="94.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelESkill/GroupEnable/ButtonESkill2/FrameSelected | skill_selected</title><rect x="831.4" y="331.8" width="94.0" height="94.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelESkill/GroupEnable/ButtonESkill2/IconLock | icon_lock_2</title><rect x="862.4" y="358.8" width="32.0" height="40.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelESkill/GroupEnable/ButtonESkill3</title><rect x="880.0" y="495.9" width="100.0" height="100.0" stroke="#3b82f6" stroke-width="1.2" fill="#3b82f6" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelESkill/GroupEnable/ButtonESkill3/ImageSkill | skill_default</title><rect x="890.0" y="505.9" width="80.0" height="80.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelESkill/GroupEnable/ButtonESkill3/ImageCover | round_mask</title><rect x="880.8" y="496.7" width="100.0" height="100.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelESkill/GroupEnable/ButtonESkill3/Frame | skill_frame</title><rect x="883.0" y="498.9" width="94.0" height="94.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelESkill/GroupEnable/ButtonESkill3/FrameSelected | skill_selected</title><rect x="883.0" y="498.9" width="94.0" height="94.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelESkill/GroupEnable/ButtonESkill3/IconLock | icon_lock_2</title><rect x="914.0" y="525.9" width="32.0" height="40.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelESkill/GroupEnable/ButtonESkill4</title><rect x="1060.0" y="514.9" width="100.0" height="100.0" stroke="#3b82f6" stroke-width="1.2" fill="#3b82f6" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelESkill/GroupEnable/ButtonESkill4/ImageSkill | skill_default</title><rect x="1070.0" y="524.9" width="80.0" height="80.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelESkill/GroupEnable/ButtonESkill4/ImageCover | round_mask</title><rect x="1060.8" y="515.7" width="100.0" height="100.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelESkill/GroupEnable/ButtonESkill4/Frame | skill_frame</title><rect x="1063.0" y="517.9" width="94.0" height="94.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelESkill/GroupEnable/ButtonESkill4/FrameSelected | skill_selected</title><rect x="1063.0" y="517.9" width="94.0" height="94.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelESkill/GroupEnable/ButtonESkill4/IconLock | icon_lock_2</title><rect x="1094.0" y="544.9" width="32.0" height="40.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelESkill/GroupEnable/ButtonESkill5</title><rect x="1019.0" y="358.9" width="100.0" height="100.0" stroke="#3b82f6" stroke-width="1.2" fill="#3b82f6" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelESkill/GroupEnable/ButtonESkill5/ImageSkill | skill_default</title><rect x="1029.0" y="368.9" width="80.0" height="80.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelESkill/GroupEnable/ButtonESkill5/ImageCover | round_mask</title><rect x="1019.8" y="359.7" width="100.0" height="100.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelESkill/GroupEnable/ButtonESkill5/Frame | skill_frame</title><rect x="1022.0" y="361.9" width="94.0" height="94.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelESkill/GroupEnable/ButtonESkill5/FrameSelected | skill_selected</title><rect x="1022.0" y="361.9" width="94.0" height="94.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelESkill/GroupEnable/ButtonESkill5/IconLock | icon_lock_2</title><rect x="1053.0" y="388.9" width="32.0" height="40.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelESkill/ButtonSwitchSkill | button_green</title><rect x="930.0" y="639.9" width="160.0" height="60.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelESkill/ButtonSwitchSkill/Text</title><rect x="930.0" y="639.9" width="160.0" height="60.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelESkill/PanelESkillDetail | Background</title><rect x="784.0" y="248.2" width="448.0" height="447.4" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelESkill/PanelESkillDetail/Background | round_rect_8</title><rect x="784.0" y="339.9" width="448.0" height="264.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelESkill/PanelESkillDetail/Background/GroupTitle/SkillIcon | skill_default</title><rect x="816.2" y="365.9" width="88.0" height="88.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelESkill/PanelESkillDetail/Background/GroupTitle/SkillIcon/Frame | skill_frame</title><rect x="813.2" y="362.9" width="94.0" height="94.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelESkill/PanelESkillDetail/Background/GroupTitle/TextName</title><rect x="926.0" y="394.9" width="160.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelESkill/PanelESkillDetail/Background/TextDescription</title><rect x="814.0" y="469.9" width="392.3" height="34.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelESkill/PanelESkillDetail/Background/GroupAction/ButtonActivate | button_green</title><rect x="930.1" y="518.9" width="160.0" height="60.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelESkill/PanelESkillDetail/Background/GroupAction/ButtonActivate/Text</title><rect x="930.1" y="518.9" width="160.0" height="60.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/Test</title><rect x="197.0" y="202.9" width="1136.0" height="640.0" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelSpecialEquip/Bgr | popup_notitle_2</title><rect x="765.0" y="199.5" width="490.0" height="557.9" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelSpecialEquip/Bgr/bgrTitile | bg_23</title><rect x="875.1" y="228.5" width="265.5" height="48.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelSpecialEquip/Bgr/bgrTitile/Title</title><rect x="927.8" y="234.0" width="160.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelSpecialEquip/Bgr/ButtonInfo | button_help_2</title><rect x="1161.6" y="229.9" width="44.0" height="44.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelSpecialEquip/Bgr/GroupContent | rect_26</title><rect x="811.5" y="299.4" width="399.5" height="404.7" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelSpecialEquip/Bgr/GroupContent/SideAttack/BgrTitle | title_12</title><rect x="820.9" y="314.1" width="175.0" height="34.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelSpecialEquip/Bgr/GroupContent/SideAttack/BgrTitle/TextRole</title><rect x="828.6" y="314.3" width="160.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelSpecialEquip/Bgr/GroupContent/SideAttack/GroupImage/ImageCricle | E_45</title><rect x="855.5" y="361.9" width="112.0" height="52.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelSpecialEquip/Bgr/GroupContent/SideAttack/GroupImage/BgrInfo | rect_50</title><rect x="815.2" y="395.1" width="187.0" height="293.3" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelSpecialEquip/Bgr/GroupContent/SideAttack/GroupImage/Mask | mask_e4</title><rect x="860.5" y="367.9" width="100.0" height="100.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelSpecialEquip/Bgr/GroupContent/SideAttack/GroupImage/Mask/Image | bg_e4</title><rect x="860.5" y="367.9" width="100.0" height="100.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelSpecialEquip/Bgr/GroupContent/SideAttack/GroupImage/Mask/Image/ImageCricle_2 | E_4</title><rect x="855.2" y="361.7" width="112.0" height="112.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelSpecialEquip/Bgr/GroupContent/SideAttack/GroupImage/IconClass</title><rect x="861.4" y="366.9" width="100.0" height="100.0" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelSpecialEquip/Bgr/GroupContent/SideAttack/GroupImage/ButtonLock | hero_locked</title><rect x="881.5" y="386.4" width="60.0" height="60.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelSpecialEquip/Bgr/GroupContent/SideAttack/GroupImage/ImageNotify | notify_dot</title><rect x="972.2" y="401.3" width="32.0" height="32.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelSpecialEquip/Bgr/GroupContent/SideAttack/GroupImage/GroupStarAtk/Image | bg_12</title><rect x="850.8" y="448.2" width="123.0" height="27.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelSpecialEquip/Bgr/GroupContent/SideAttack/GroupImage/ImageNotify (1) | notify_dot</title><rect x="976.3" y="401.3" width="32.0" height="32.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelSpecialEquip/Bgr/GroupContent/SideAttack/LineImg | title_13</title><rect x="818.1" y="480.4" width="185.0" height="38.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelSpecialEquip/Bgr/GroupContent/SideAttack/LineImg/TextCommad</title><rect x="830.2" y="480.8" width="160.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelSpecialEquip/Bgr/GroupContent/SideAttack/BgrLevel | bg_12</title><rect x="847.3" y="527.7" width="126.0" height="29.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelSpecialEquip/Bgr/GroupContent/SideAttack/BgrLevel/TextCommad</title><rect x="828.1" y="525.5" width="160.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelSpecialEquip/Bgr/GroupContent/SideAttack/Content</title><rect x="842.8" y="597.7" width="160.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelSpecialEquip/Bgr/GroupContent/SideHP/BgrTitle | title_12</title><rect x="1022.9" y="314.1" width="175.0" height="34.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelSpecialEquip/Bgr/GroupContent/SideHP/BgrTitle/TextRole</title><rect x="1030.6" y="314.3" width="160.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelSpecialEquip/Bgr/GroupContent/SideHP/GroupImage/ImageCricle | E_45</title><rect x="1057.5" y="361.9" width="112.0" height="52.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelSpecialEquip/Bgr/GroupContent/SideHP/GroupImage/BgrInfo | rect_50</title><rect x="1017.2" y="395.1" width="187.0" height="293.3" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelSpecialEquip/Bgr/GroupContent/SideHP/GroupImage/Mask | mask_e4</title><rect x="1062.5" y="367.9" width="100.0" height="100.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelSpecialEquip/Bgr/GroupContent/SideHP/GroupImage/Mask/Image | bg_e4</title><rect x="1062.5" y="367.9" width="100.0" height="100.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelSpecialEquip/Bgr/GroupContent/SideHP/GroupImage/Mask/Image/ImageCricle_2 | E_4</title><rect x="1057.2" y="361.7" width="112.0" height="112.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelSpecialEquip/Bgr/GroupContent/SideHP/GroupImage/IconTier</title><rect x="1063.3" y="363.0" width="100.0" height="100.0" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelSpecialEquip/Bgr/GroupContent/SideHP/GroupImage/ButtonLock | hero_locked</title><rect x="1083.3" y="386.4" width="60.0" height="60.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelSpecialEquip/Bgr/GroupContent/SideHP/GroupImage/ImageNotify | notify_dot</title><rect x="1177.4" y="401.3" width="32.0" height="32.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelSpecialEquip/Bgr/GroupContent/SideHP/GroupImage/GroupStarHp/Image | bg_12</title><rect x="1049.8" y="448.2" width="123.0" height="27.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelSpecialEquip/Bgr/GroupContent/SideHP/LineImg | title_13</title><rect x="1020.1" y="480.8" width="185.0" height="38.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelSpecialEquip/Bgr/GroupContent/SideHP/LineImg/TextCommad</title><rect x="1032.2" y="481.2" width="160.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelSpecialEquip/Bgr/GroupContent/SideHP/BgrLevel | bg_12</title><rect x="1049.3" y="527.7" width="126.0" height="29.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelSpecialEquip/Bgr/GroupContent/SideHP/BgrLevel/TextCommad</title><rect x="1030.1" y="525.5" width="160.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelSpecialEquip/Bgr/GroupContent/SideHP/Content</title><rect x="1044.8" y="597.7" width="160.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/Tabs</title><rect x="1249.1" y="229.4" width="71.9" height="177.0" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/Tabs/TabPoint | UISprite</title><rect x="1210.6" y="361.4" width="77.0" height="90.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/Tabs/TabPoint/SpriteOn | tab_point</title><rect x="1210.1" y="361.4" width="78.0" height="90.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/Tabs/TabPoint/SpriteOff | tab_point2</title><rect x="1210.1" y="361.4" width="78.0" height="90.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/Tabs/TabEquipment | UISprite</title><rect x="1210.6" y="361.4" width="77.0" height="90.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/Tabs/TabEquipment/SpriteOn | tab_equipment</title><rect x="1210.1" y="361.4" width="78.0" height="90.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/Tabs/TabEquipment/SpriteOff | tab_equipment2</title><rect x="1210.1" y="361.4" width="78.0" height="90.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/Tabs/TabAwaken | UISprite</title><rect x="1210.6" y="361.4" width="77.0" height="90.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/Tabs/TabAwaken/SpriteOn | tab_star_up</title><rect x="1210.1" y="361.4" width="78.0" height="90.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/Tabs/TabAwaken/SpriteOff | tab_star_up2</title><rect x="1210.1" y="361.4" width="78.0" height="90.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/Tabs/TabBreakthrough | UISprite</title><rect x="1210.6" y="361.4" width="77.0" height="90.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/Tabs/TabBreakthrough/SpriteOn | tab_star_up</title><rect x="1210.1" y="361.4" width="78.0" height="90.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/Tabs/TabBreakthrough/SpriteOff | tab_star_up2</title><rect x="1210.1" y="361.4" width="78.0" height="90.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/Tabs/TabEnable | UISprite</title><rect x="1210.6" y="361.4" width="77.0" height="90.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/Tabs/TabEnable/SpriteOn | tab_star_up</title><rect x="1210.1" y="361.4" width="78.0" height="90.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/Tabs/TabEnable/SpriteOff | tab_star_up2</title><rect x="1210.1" y="361.4" width="78.0" height="90.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/Tabs/TabESkill | UISprite</title><rect x="1210.6" y="361.4" width="77.0" height="90.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/Tabs/TabESkill/SpriteOn | tab_e_skill</title><rect x="1210.1" y="361.4" width="78.0" height="90.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/Tabs/TabESkill/SpriteOff | tab_e_skill2</title><rect x="1210.1" y="361.4" width="78.0" height="90.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/Tabs/TabSpecialEquip | UISprite</title><rect x="1210.6" y="361.4" width="77.0" height="90.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/Tabs/TabSpecialEquip/SpriteOn | tab</title><rect x="1210.1" y="361.4" width="78.0" height="90.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/Tabs/TabSpecialEquip/SpriteOff | taba</title><rect x="1210.1" y="361.4" width="78.0" height="90.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelPointDetail/BoxPoint | round_rect_8</title><rect x="816.0" y="254.4" width="390.0" height="437.1" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelPointDetail/BoxPoint/PointAttack/TextName</title><rect x="852.0" y="284.5" width="160.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelPointDetail/BoxPoint/PointAttack/TextAttack</title><rect x="1012.0" y="284.5" width="160.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelPointDetail/BoxPoint/PointHp/TextName</title><rect x="852.0" y="314.5" width="160.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelPointDetail/BoxPoint/PointHp/TextHp</title><rect x="1012.0" y="314.5" width="160.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelPointDetail/BoxPoint/PointArmor/TextName</title><rect x="852.0" y="344.0" width="160.0" height="31.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelPointDetail/BoxPoint/PointArmor/TextArmor</title><rect x="1012.0" y="344.5" width="160.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelPointDetail/BoxPoint/PointSpeed/TextName</title><rect x="852.0" y="374.5" width="160.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelPointDetail/BoxPoint/PointSpeed/TextSpeed</title><rect x="1012.0" y="374.5" width="160.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelPointDetail/BoxPoint/PointSkillDmg/TextName</title><rect x="852.0" y="404.5" width="160.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelPointDetail/BoxPoint/PointSkillDmg/TextSkillDmg</title><rect x="1012.0" y="404.5" width="160.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelPointDetail/BoxPoint/PointPrecision/TextName</title><rect x="852.0" y="434.5" width="160.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelPointDetail/BoxPoint/PointPrecision/TextPrecision</title><rect x="1012.0" y="434.5" width="160.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelPointDetail/BoxPoint/PointBlock/TextName</title><rect x="852.0" y="464.5" width="160.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelPointDetail/BoxPoint/PointBlock/TextBlock</title><rect x="1012.0" y="464.5" width="160.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelPointDetail/BoxPoint/PointCrit/TextName</title><rect x="852.0" y="494.5" width="160.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelPointDetail/BoxPoint/PointCrit/TextCrit</title><rect x="1012.0" y="494.5" width="160.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelPointDetail/BoxPoint/PointCritDmg/TextName</title><rect x="852.0" y="524.5" width="160.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelPointDetail/BoxPoint/PointCritDmg/TextCritDmg</title><rect x="1012.0" y="524.5" width="160.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelPointDetail/BoxPoint/PointArmorBreak/TextName</title><rect x="852.0" y="554.5" width="160.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelPointDetail/BoxPoint/PointArmorBreak/TextArmorBreak</title><rect x="1012.0" y="554.5" width="160.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelPointDetail/BoxPoint/PointCcImmune/TextName</title><rect x="852.0" y="584.5" width="193.1" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelPointDetail/BoxPoint/PointCcImmune/TextCcImmune</title><rect x="1012.0" y="584.5" width="160.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelPointDetail/BoxPoint/PointReduceDmg/TextName</title><rect x="852.0" y="614.5" width="160.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelPointDetail/BoxPoint/PointReduceDmg/TextReduceImg</title><rect x="1012.0" y="614.5" width="160.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelPointDetail/BoxPoint/PointHolyDmg/TextName</title><rect x="852.0" y="644.5" width="160.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelPointDetail/BoxPoint/PointHolyDmg/TextHolyDmg</title><rect x="1012.0" y="644.5" width="160.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/RightPart/BoxInfo/PanelPointDetail/ButtonClose | button_close</title><rect x="1170.5" y="230.4" width="57.0" height="57.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/PanelHeroList | rect_13</title><rect x="278.2" y="643.2" width="989.5" height="129.5" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/PanelHeroList/ScrollView | Background</title><rect x="295.2" y="655.5" width="851.9" height="106.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/PanelHeroList/ScrollView/Viewport | UIMask</title><rect x="295.2" y="655.5" width="851.9" height="106.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/PanelHeroList/ButtonFilter | button_filter</title><rect x="1160.9" y="662.5" width="88.0" height="91.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/PanelHeroList/PanelFilter | roun_rect6</title><rect x="1123.0" y="228.0" width="112.0" height="415.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/PanelHeroList/PanelFilter/TabClass1</title><rect x="1149.0" y="243.0" width="60.0" height="60.0" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/PanelHeroList/PanelFilter/TabClass1/ImageOn | faction_light</title><rect x="1149.0" y="243.0" width="60.0" height="60.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/PanelHeroList/PanelFilter/TabClass1/ImageOff | faction_light_ia</title><rect x="1149.0" y="243.0" width="60.0" height="60.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/PanelHeroList/PanelFilter/TabClass2</title><rect x="1149.0" y="308.0" width="60.0" height="60.0" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/PanelHeroList/PanelFilter/TabClass2/ImageOn | faction_dark</title><rect x="1149.0" y="308.0" width="60.0" height="60.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/PanelHeroList/PanelFilter/TabClass2/ImageOff | faction_dark_ia</title><rect x="1149.0" y="308.0" width="60.0" height="60.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/PanelHeroList/PanelFilter/TabClass3</title><rect x="1149.0" y="373.0" width="60.0" height="60.0" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/PanelHeroList/PanelFilter/TabClass3/ImageOn | faction_shadow</title><rect x="1149.0" y="373.0" width="60.0" height="60.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/PanelHeroList/PanelFilter/TabClass3/ImageOff | faction_shadow_ia</title><rect x="1149.0" y="373.0" width="60.0" height="60.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/PanelHeroList/PanelFilter/TabClass4</title><rect x="1149.0" y="438.0" width="60.0" height="60.0" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/PanelHeroList/PanelFilter/TabClass4/ImageOn | faction_forest</title><rect x="1149.0" y="438.0" width="60.0" height="60.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/PanelHeroList/PanelFilter/TabClass4/ImageOff | faction_forest_ia</title><rect x="1149.0" y="438.0" width="60.0" height="60.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/PanelHeroList/PanelFilter/TabClass5</title><rect x="1149.0" y="503.0" width="60.0" height="60.0" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/PanelHeroList/PanelFilter/TabClass5/ImageOn | faction_abyss</title><rect x="1149.0" y="503.0" width="60.0" height="60.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/PanelHeroList/PanelFilter/TabClass5/ImageOff | faction_abyss_ia</title><rect x="1149.0" y="503.0" width="60.0" height="60.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/PanelHeroList/PanelFilter/TabClass6</title><rect x="1149.0" y="568.0" width="60.0" height="60.0" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/PanelHeroList/PanelFilter/TabClass6/ImageOn | faction_fortress</title><rect x="1149.0" y="568.0" width="60.0" height="60.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/PanelHeroList/PanelFilter/TabClass6/ImageOff | faction_fortress_ia</title><rect x="1149.0" y="568.0" width="60.0" height="60.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/GroupTopLeft/ButtonBack | button_back</title><rect x="14.5" y="14.5" width="91.0" height="91.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/ButtonNext | arrow_right</title><rect x="707.4" y="414.0" width="44.0" height="72.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelHeroInfo/ButtonPrev | arrow_left</title><rect x="251.0" y="414.0" width="44.0" height="72.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+</svg>

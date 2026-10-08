@@ -1,0 +1,19 @@
+{
+  "counts": {
+    "objects_Sprite": 3706,
+    "sprite_texture_resolved": 3706,
+    "objects_Animator": 67,
+    "objects_AnimationClip": 47,
+    "objects_AnimatorController": 39,
+    "total_sprites": 3706,
+    "distinct_linked_textures": 3688,
+    "shared_texture_groups": 4,
+    "sprites_on_shared_textures": 22
+  },
+  "limitations": [
+    "Sprites sharing a Texture2D are atlas candidates; this does not prove a SpriteAtlas asset exists.",
+    "AnimationClip names and Animator ownership are indexed; no animation keyframes or visual playback reconstructed.",
+    "Canvas sorting order and sibling order are metadata; runtime render order is not verified.",
+    "No actual copyrighted images exported."
+  ]
+}

@@ -1,0 +1,392 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 976" role="img" aria-label="Schematic of Unity UI layout">
+<rect width="1600" height="976" fill="#0f172a"/>
+<rect width="1600" height="900" fill="#1e293b"/>
+<text x="20" y="927" font-family="sans-serif" font-size="22" fill="#f8fafc">PopupShop | 002_UnityDataAssetPack_datapack__file110</text>
+<text x="20" y="953" font-family="sans-serif" font-size="15" fill="#94a3b8">Metadata wireframe | hypothetical 1600x900 viewport | not the actual game screenshot</text>
+<g><title>/PopupShop/Background | bgr_shop2</title><rect x="133.0" y="75.0" width="1334.0" height="750.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+<text x="138.0" y="91.0" fill="#e2e8f0" font-size="12" font-family="sans-serif">Background</text>
+</g>
+<g><title>/PopupShop/ImageNami | bgr_shop</title><rect x="-129.0" y="235.1" width="652.0" height="488.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+<text x="-124.0" y="251.1" fill="#e2e8f0" font-size="12" font-family="sans-serif">ImageNami</text>
+</g>
+<g><title>/PopupShop/Image</title><rect x="232.0" y="130.0" width="1136.0" height="640.0" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+<text x="237.0" y="146.0" fill="#e2e8f0" font-size="12" font-family="sans-serif">Image</text>
+</g>
+<g><title>/PopupShop/AnchorTopLeft/ImageBar | bgr_back</title><rect x="-69.7" y="0.0" width="448.0" height="104.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+<text x="-64.7" y="16.0" fill="#e2e8f0" font-size="12" font-family="sans-serif">ImageBar</text>
+</g>
+<g><title>/PopupShop/AnchorTopLeft/TextTitle</title><rect x="158.9" y="6.4" width="160.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+<text x="163.9" y="22.4" fill="#e2e8f0" font-size="12" font-family="sans-serif">TextTitle</text>
+</g>
+<g><title>/PopupShop/AnchorTopLeft/ButtonBack | button_back</title><rect x="10.0" y="3.9" width="91.0" height="91.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupShop/Mask | bg_s1</title><rect x="0.0" y="413.8" width="1600.0" height="486.2" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+<text x="5.0" y="429.8" fill="#e2e8f0" font-size="12" font-family="sans-serif">Mask</text>
+</g>
+<g><title>/PopupShop/Content/bgr | popup_notitle_2</title><rect x="598.5" y="199.9" width="612.6" height="532.6" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+<text x="603.5" y="215.9" fill="#e2e8f0" font-size="12" font-family="sans-serif">bgr</text>
+</g>
+<g><title>/PopupShop/Content/bgr/child_bgr | bgr_11</title><rect x="625.1" y="233.4" width="557.5" height="461.4" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+<text x="630.1" y="249.4" fill="#e2e8f0" font-size="12" font-family="sans-serif">child_bgr</text>
+</g>
+<g><title>/PopupShop/Content/bgr/child_bgr/CellPopupShop/Left | shelves1</title><rect x="612.6" y="318.8" width="288.4" height="52.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+<text x="617.6" y="334.8" fill="#e2e8f0" font-size="12" font-family="sans-serif">Left</text>
+</g>
+<g><title>/PopupShop/Content/bgr/child_bgr/CellPopupShop/Right | shelves1</title><rect x="610.1" y="318.8" width="290.8" height="52.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+<text x="615.1" y="334.8" fill="#e2e8f0" font-size="12" font-family="sans-serif">Right</text>
+</g>
+<g><title>/PopupShop/Content/bgr/child_bgr/CellPopupShop/ShopItem</title><rect x="621.7" y="233.5" width="160.0" height="150.0" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+<text x="626.7" y="249.5" fill="#e2e8f0" font-size="12" font-family="sans-serif">ShopItem</text>
+</g>
+<g><title>/PopupShop/Content/bgr/child_bgr/CellPopupShop/ShopItem/Shadow | shadow_shop</title><rect x="649.7" y="322.7" width="104.0" height="16.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupShop/Content/bgr/child_bgr/CellPopupShop/ShopItem/Item/GameItem/ItemShardUI</title><rect x="656.3" y="241.1" width="92.0" height="92.0" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+</g>
+<g><title>/PopupShop/Content/bgr/child_bgr/CellPopupShop/ShopItem/Item/GameItem/ItemShardUI/Mask | bgr_light</title><rect x="661.3" y="246.1" width="82.0" height="82.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupShop/Content/bgr/child_bgr/CellPopupShop/ShopItem/Item/GameItem/ItemShardUI/Mask/ImageBgr | bgr_item_consumable</title><rect x="657.3" y="242.1" width="90.0" height="90.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupShop/Content/bgr/child_bgr/CellPopupShop/ShopItem/Item/GameItem/ItemShardUI/Mask/ImageItem | item_transparent</title><rect x="660.3" y="245.1" width="84.0" height="84.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupShop/Content/bgr/child_bgr/CellPopupShop/ShopItem/Item/GameItem/ItemShardUI/Mask/Check</title><rect x="652.3" y="237.1" width="100.0" height="100.0" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+</g>
+<g><title>/PopupShop/Content/bgr/child_bgr/CellPopupShop/ShopItem/Item/GameItem/ItemShardUI/Mask/Check/Image | tick_green</title><rect x="673.8" y="261.6" width="57.0" height="51.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupShop/Content/bgr/child_bgr/CellPopupShop/ShopItem/Item/GameItem/ItemShardUI/ImageBorder | border_item</title><rect x="657.3" y="242.1" width="90.0" height="90.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupShop/Content/bgr/child_bgr/CellPopupShop/ShopItem/Item/GameItem/ItemShardUI/IconHeroFaction | faction_abyss</title><rect x="658.8" y="243.2" width="30.0" height="30.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupShop/Content/bgr/child_bgr/CellPopupShop/ShopItem/Item/GameItem/ItemShardUI/IconShard | icon_shard</title><rect x="719.6" y="243.3" width="28.0" height="28.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupShop/Content/bgr/child_bgr/CellPopupShop/ShopItem/Item/GameItem/ItemShardUI/ShardStar/Star1 | hero_star_1, hero_star_1, hero_star_1</title><rect x="667.3" y="308.7" width="18.0" height="18.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupShop/Content/bgr/child_bgr/CellPopupShop/ShopItem/Item/GameItem/ItemShardUI/ShardStar/Star1 | hero_star_1, hero_star_1, hero_star_1</title><rect x="680.3" y="308.7" width="18.0" height="18.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupShop/Content/bgr/child_bgr/CellPopupShop/ShopItem/Item/GameItem/ItemShardUI/ShardStar/Star1 | hero_star_1, hero_star_1, hero_star_1</title><rect x="693.3" y="308.7" width="18.0" height="18.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupShop/Content/bgr/child_bgr/CellPopupShop/ShopItem/Item/GameItem/ItemShardUI/ShardStar/Star1 | hero_star_1, hero_star_1, hero_star_1</title><rect x="706.3" y="308.7" width="18.0" height="18.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupShop/Content/bgr/child_bgr/CellPopupShop/ShopItem/Item/GameItem/ItemShardUI/ShardStar/Star1 | hero_star_1, hero_star_1, hero_star_1</title><rect x="719.3" y="308.7" width="18.0" height="18.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupShop/Content/bgr/child_bgr/CellPopupShop/ShopItem/Item/GameItem/ItemShardUI/TextNumber2</title><rect x="668.9" y="292.0" width="72.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PopupShop/Content/bgr/child_bgr/CellPopupShop/ShopItem/Item/GameItem/ItemShardUI/Slider/Background | Background</title><rect x="657.3" y="333.1" width="90.0" height="20.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupShop/Content/bgr/child_bgr/CellPopupShop/ShopItem/Item/GameItem/ItemShardUI/Slider/Fill Area/Fill | UISprite</title><rect x="657.3" y="333.1" width="90.0" height="20.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupShop/Content/bgr/child_bgr/CellPopupShop/ShopItem/Item/GameItem/ItemShardUI/Slider/TextNumber</title><rect x="662.3" y="332.3" width="80.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PopupShop/Content/bgr/child_bgr/CellPopupShop/ShopItem/Item/GameItem/ItemAvatarUI</title><rect x="656.3" y="241.1" width="92.0" height="92.0" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+</g>
+<g><title>/PopupShop/Content/bgr/child_bgr/CellPopupShop/ShopItem/Item/GameItem/ItemAvatarUI/Mask | mask_item</title><rect x="660.3" y="245.1" width="84.0" height="84.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupShop/Content/bgr/child_bgr/CellPopupShop/ShopItem/Item/GameItem/ItemAvatarUI/Mask/ImageBgr | bgr_item_consumable</title><rect x="660.3" y="245.1" width="84.0" height="84.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupShop/Content/bgr/child_bgr/CellPopupShop/ShopItem/Item/GameItem/ItemAvatarUI/Mask/ImageAvatar | item_transparent</title><rect x="660.3" y="245.1" width="84.0" height="84.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupShop/Content/bgr/child_bgr/CellPopupShop/ShopItem/Item/GameItem/ItemAvatarUI/ImageBorder | border_item</title><rect x="656.3" y="241.1" width="92.0" height="92.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupShop/Content/bgr/child_bgr/CellPopupShop/ShopItem/Item/GameItem/ItemVipExpUI</title><rect x="656.3" y="241.1" width="92.0" height="92.0" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+</g>
+<g><title>/PopupShop/Content/bgr/child_bgr/CellPopupShop/ShopItem/Item/GameItem/ItemVipExpUI/Mask | mask_item</title><rect x="660.3" y="245.1" width="84.0" height="84.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupShop/Content/bgr/child_bgr/CellPopupShop/ShopItem/Item/GameItem/ItemVipExpUI/Mask/ImageBgr | bgr_item_consumable</title><rect x="660.3" y="245.1" width="84.0" height="84.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupShop/Content/bgr/child_bgr/CellPopupShop/ShopItem/Item/GameItem/ItemVipExpUI/Mask/ImageItem | icon_exp_vip</title><rect x="662.3" y="247.1" width="80.0" height="80.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupShop/Content/bgr/child_bgr/CellPopupShop/ShopItem/Item/GameItem/ItemVipExpUI/ImageBorder | border_item</title><rect x="656.3" y="241.1" width="92.0" height="92.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupShop/Content/bgr/child_bgr/CellPopupShop/ShopItem/Item/GameItem/ItemVipExpUI/TextNumber</title><rect x="669.5" y="302.4" width="72.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PopupShop/Content/bgr/child_bgr/CellPopupShop/ShopItem/Item/GameItem/ItemArtifactUI</title><rect x="656.3" y="241.1" width="92.0" height="92.0" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+</g>
+<g><title>/PopupShop/Content/bgr/child_bgr/CellPopupShop/ShopItem/Item/GameItem/ItemArtifactUI/ImageFrame | frame_item</title><rect x="657.3" y="242.1" width="90.0" height="90.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupShop/Content/bgr/child_bgr/CellPopupShop/ShopItem/Item/GameItem/ItemArtifactUI/Mask | mask_item</title><rect x="664.3" y="249.1" width="76.0" height="76.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupShop/Content/bgr/child_bgr/CellPopupShop/ShopItem/Item/GameItem/ItemArtifactUI/Mask/ImageBgr | bgr_equipment_2</title><rect x="660.3" y="245.1" width="84.0" height="84.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupShop/Content/bgr/child_bgr/CellPopupShop/ShopItem/Item/GameItem/ItemArtifactUI/Mask/ImageItem | item_transparent</title><rect x="662.3" y="247.1" width="80.0" height="80.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupShop/Content/bgr/child_bgr/CellPopupShop/ShopItem/Item/GameItem/ItemArtifactUI/Mask/Check</title><rect x="652.3" y="237.1" width="100.0" height="100.0" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+</g>
+<g><title>/PopupShop/Content/bgr/child_bgr/CellPopupShop/ShopItem/Item/GameItem/ItemArtifactUI/Mask/Check/Image | tick_green</title><rect x="673.8" y="261.6" width="57.0" height="51.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupShop/Content/bgr/child_bgr/CellPopupShop/ShopItem/Item/GameItem/ItemArtifactUI/ImageBorder | border_equipment_2</title><rect x="662.3" y="247.1" width="80.0" height="80.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupShop/Content/bgr/child_bgr/CellPopupShop/ShopItem/Item/GameItem/ItemArtifactUI/TextNumber</title><rect x="687.8" y="298.3" width="51.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PopupShop/Content/bgr/child_bgr/CellPopupShop/ShopItem/Item/GameItem/ItemArtifactUI/IconHeroFaction | faction_shadow</title><rect x="714.9" y="244.5" width="30.0" height="30.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupShop/Content/bgr/child_bgr/CellPopupShop/ShopItem/Item/GameItem/ItemArtifactUI/ItemStar/Star1 | item_star</title><rect x="666.2" y="249.9" width="18.0" height="18.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupShop/Content/bgr/child_bgr/CellPopupShop/ShopItem/Item/GameItem/ItemArtifactUI/ItemStar/Star2 | item_star</title><rect x="666.2" y="260.9" width="18.0" height="18.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupShop/Content/bgr/child_bgr/CellPopupShop/ShopItem/Item/GameItem/ItemArtifactUI/ItemStar/Star3 | item_star</title><rect x="666.2" y="271.9" width="18.0" height="18.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupShop/Content/bgr/child_bgr/CellPopupShop/ShopItem/Item/GameItem/ItemArtifactUI/ItemStar/Star4 | item_star</title><rect x="666.2" y="282.9" width="18.0" height="18.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupShop/Content/bgr/child_bgr/CellPopupShop/ShopItem/Item/GameItem/ItemArtifactUI/ItemStar/Star5 | item_star</title><rect x="666.2" y="293.9" width="18.0" height="18.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupShop/Content/bgr/child_bgr/CellPopupShop/ShopItem/Item/GameItem/ItemArtifactUI/ItemStar/Star6 | item_star</title><rect x="666.2" y="304.9" width="18.0" height="18.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupShop/Content/bgr/child_bgr/CellPopupShop/ShopItem/Item/GameItem/ItemArtifactUI/MaskSpineBorder | UIMask</title><rect x="642.3" y="227.1" width="120.0" height="120.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+<text x="647.3" y="243.1" fill="#e2e8f0" font-size="12" font-family="sans-serif">MaskSpineBorder</text>
+</g>
+<g><title>/PopupShop/Content/bgr/child_bgr/CellPopupShop/ShopItem/Item/GameItem/ItemConsumableUI</title><rect x="656.3" y="241.1" width="92.0" height="92.0" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+</g>
+<g><title>/PopupShop/Content/bgr/child_bgr/CellPopupShop/ShopItem/Item/GameItem/ItemConsumableUI/Mask | bgr_light</title><rect x="661.3" y="246.1" width="82.0" height="82.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupShop/Content/bgr/child_bgr/CellPopupShop/ShopItem/Item/GameItem/ItemConsumableUI/Mask/ImageBgr | bgr_item_consumable</title><rect x="657.3" y="242.1" width="90.0" height="90.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupShop/Content/bgr/child_bgr/CellPopupShop/ShopItem/Item/GameItem/ItemConsumableUI/Mask/ImageItem | item_transparent</title><rect x="662.3" y="247.1" width="80.0" height="80.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupShop/Content/bgr/child_bgr/CellPopupShop/ShopItem/Item/GameItem/ItemConsumableUI/Mask/Check</title><rect x="652.3" y="237.1" width="100.0" height="100.0" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+</g>
+<g><title>/PopupShop/Content/bgr/child_bgr/CellPopupShop/ShopItem/Item/GameItem/ItemConsumableUI/Mask/Check/Image | tick_green</title><rect x="673.8" y="261.6" width="57.0" height="51.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupShop/Content/bgr/child_bgr/CellPopupShop/ShopItem/Item/GameItem/ItemConsumableUI/ImageBorder | border_item</title><rect x="657.3" y="242.1" width="90.0" height="90.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupShop/Content/bgr/child_bgr/CellPopupShop/ShopItem/Item/GameItem/ItemConsumableUI/TextNumber</title><rect x="667.7" y="299.0" width="72.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PopupShop/Content/bgr/child_bgr/CellPopupShop/ShopItem/Item/GameItem/ItemEquipmentUI</title><rect x="656.3" y="241.1" width="92.0" height="92.0" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+</g>
+<g><title>/PopupShop/Content/bgr/child_bgr/CellPopupShop/ShopItem/Item/GameItem/ItemEquipmentUI/ImageFrame | frame_item</title><rect x="657.3" y="242.1" width="90.0" height="90.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupShop/Content/bgr/child_bgr/CellPopupShop/ShopItem/Item/GameItem/ItemEquipmentUI/Mask | mask_item</title><rect x="664.3" y="249.1" width="76.0" height="76.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupShop/Content/bgr/child_bgr/CellPopupShop/ShopItem/Item/GameItem/ItemEquipmentUI/Mask/ImageBgr | bgr_equipment_1</title><rect x="656.3" y="241.1" width="92.0" height="92.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupShop/Content/bgr/child_bgr/CellPopupShop/ShopItem/Item/GameItem/ItemEquipmentUI/Mask/ImageItem | item_placeholder</title><rect x="662.3" y="247.1" width="80.0" height="80.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupShop/Content/bgr/child_bgr/CellPopupShop/ShopItem/Item/GameItem/ItemEquipmentUI/Mask/Check</title><rect x="652.3" y="237.1" width="100.0" height="100.0" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+</g>
+<g><title>/PopupShop/Content/bgr/child_bgr/CellPopupShop/ShopItem/Item/GameItem/ItemEquipmentUI/Mask/Check/Image | tick_green</title><rect x="673.8" y="261.6" width="57.0" height="51.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupShop/Content/bgr/child_bgr/CellPopupShop/ShopItem/Item/GameItem/ItemEquipmentUI/ImageBorder | border_equipment_2</title><rect x="662.3" y="247.1" width="80.0" height="80.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupShop/Content/bgr/child_bgr/CellPopupShop/ShopItem/Item/GameItem/ItemEquipmentUI/TextNumber</title><rect x="684.8" y="299.1" width="53.7" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PopupShop/Content/bgr/child_bgr/CellPopupShop/ShopItem/Item/GameItem/ItemEquipmentUI/ItemStar/Star1 | item_star, item_star, item_star</title><rect x="666.5" y="249.9" width="18.0" height="18.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupShop/Content/bgr/child_bgr/CellPopupShop/ShopItem/Item/GameItem/ItemEquipmentUI/ItemStar/Star1 | item_star, item_star, item_star</title><rect x="666.5" y="260.9" width="18.0" height="18.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupShop/Content/bgr/child_bgr/CellPopupShop/ShopItem/Item/GameItem/ItemEquipmentUI/ItemStar/Star1 | item_star, item_star, item_star</title><rect x="666.5" y="271.9" width="18.0" height="18.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupShop/Content/bgr/child_bgr/CellPopupShop/ShopItem/Item/GameItem/ItemEquipmentUI/ItemStar/Star1 | item_star, item_star, item_star</title><rect x="666.5" y="282.9" width="18.0" height="18.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupShop/Content/bgr/child_bgr/CellPopupShop/ShopItem/Item/GameItem/ItemEquipmentUI/ItemStar/Star1 | item_star, item_star, item_star</title><rect x="666.5" y="293.9" width="18.0" height="18.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupShop/Content/bgr/child_bgr/CellPopupShop/ShopItem/Item/GameItem/ItemEquipmentUI/ItemStar/Star1 | item_star, item_star, item_star</title><rect x="666.5" y="304.9" width="18.0" height="18.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupShop/Content/bgr/child_bgr/CellPopupShop/ShopItem/Item/GameItem/ItemEquipmentUI/MaskSpineBorder | UIMask</title><rect x="627.3" y="212.1" width="150.0" height="150.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+<text x="632.3" y="228.1" fill="#e2e8f0" font-size="12" font-family="sans-serif">MaskSpineBorder</text>
+</g>
+<g><title>/PopupShop/Content/bgr/child_bgr/CellPopupShop/ShopItem/Item/GameItem/HeroHeadClickable</title><rect x="656.3" y="241.1" width="92.0" height="92.0" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+</g>
+<g><title>/PopupShop/Content/bgr/child_bgr/CellPopupShop/ShopItem/Item/GameItem/HeroHeadClickable/HeroHeadUI/ImageFrame | frame_item</title><rect x="657.3" y="242.1" width="90.0" height="90.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupShop/Content/bgr/child_bgr/CellPopupShop/ShopItem/Item/GameItem/HeroHeadClickable/HeroHeadUI/Mask | mask_item</title><rect x="664.3" y="249.1" width="76.0" height="76.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupShop/Content/bgr/child_bgr/CellPopupShop/ShopItem/Item/GameItem/HeroHeadClickable/HeroHeadUI/Mask/ImageBgr | bgr_item_consumable</title><rect x="657.3" y="242.1" width="90.0" height="90.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupShop/Content/bgr/child_bgr/CellPopupShop/ShopItem/Item/GameItem/HeroHeadClickable/HeroHeadUI/Mask/ImageHead | hero_5_star</title><rect x="657.3" y="242.1" width="90.0" height="90.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupShop/Content/bgr/child_bgr/CellPopupShop/ShopItem/Item/GameItem/HeroHeadClickable/HeroHeadUI/Mask/ImageHidden | hero_head_hidden</title><rect x="657.3" y="242.1" width="90.0" height="90.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupShop/Content/bgr/child_bgr/CellPopupShop/ShopItem/Item/GameItem/HeroHeadClickable/HeroHeadUI/Mask/Check</title><rect x="652.3" y="237.1" width="100.0" height="100.0" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+</g>
+<g><title>/PopupShop/Content/bgr/child_bgr/CellPopupShop/ShopItem/Item/GameItem/HeroHeadClickable/HeroHeadUI/Mask/Check/Tick | tick_green</title><rect x="681.8" y="265.1" width="41.0" height="38.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupShop/Content/bgr/child_bgr/CellPopupShop/ShopItem/Item/GameItem/HeroHeadClickable/HeroHeadUI/Mask/Lock</title><rect x="652.3" y="237.1" width="100.0" height="100.0" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+</g>
+<g><title>/PopupShop/Content/bgr/child_bgr/CellPopupShop/ShopItem/Item/GameItem/HeroHeadClickable/HeroHeadUI/Mask/Lock/Lock | icon_lock</title><rect x="684.3" y="266.1" width="36.0" height="36.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupShop/Content/bgr/child_bgr/CellPopupShop/ShopItem/Item/GameItem/HeroHeadClickable/HeroHeadUI/Mask/Death</title><rect x="652.3" y="237.1" width="100.0" height="100.0" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+</g>
+<g><title>/PopupShop/Content/bgr/child_bgr/CellPopupShop/ShopItem/Item/GameItem/HeroHeadClickable/HeroHeadUI/Mask/Death/Tick | mark_death</title><rect x="650.3" y="228.6" width="104.0" height="111.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupShop/Content/bgr/child_bgr/CellPopupShop/ShopItem/Item/GameItem/HeroHeadClickable/HeroHeadUI/ImageBorder | hero_head_border</title><rect x="662.3" y="247.1" width="80.0" height="80.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupShop/Content/bgr/child_bgr/CellPopupShop/ShopItem/Item/GameItem/HeroHeadClickable/HeroHeadUI/ImageNotify | notify_dot</title><rect x="720.6" y="241.0" width="28.0" height="28.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupShop/Content/bgr/child_bgr/CellPopupShop/ShopItem/Item/GameItem/HeroHeadClickable/HeroHeadUI/TextLevel</title><rect x="703.5" y="242.8" width="40.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PopupShop/Content/bgr/child_bgr/CellPopupShop/ShopItem/Item/GameItem/HeroHeadClickable/HeroHeadUI/ImageFaction | faction_light</title><rect x="657.6" y="242.4" width="30.0" height="30.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupShop/Content/bgr/child_bgr/CellPopupShop/ShopItem/Item/GameItem/HeroHeadClickable/HeroHeadUI/HeroStar</title><rect x="657.6" y="306.4" width="88.1" height="25.4" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+</g>
+<g><title>/PopupShop/Content/bgr/child_bgr/CellPopupShop/ShopItem/Item/GameItem/HeroHeadClickable/HeroHeadUI/HeroStar/GroupStar1/Star1 | hero_star_1, hero_star_1, hero_star_1</title><rect x="661.7" y="306.4" width="20.0" height="20.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupShop/Content/bgr/child_bgr/CellPopupShop/ShopItem/Item/GameItem/HeroHeadClickable/HeroHeadUI/HeroStar/GroupStar1/Star1 | hero_star_1, hero_star_1, hero_star_1</title><rect x="676.7" y="306.4" width="20.0" height="20.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupShop/Content/bgr/child_bgr/CellPopupShop/ShopItem/Item/GameItem/HeroHeadClickable/HeroHeadUI/HeroStar/GroupStar1/Star1 | hero_star_1, hero_star_1, hero_star_1</title><rect x="691.7" y="306.4" width="20.0" height="20.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupShop/Content/bgr/child_bgr/CellPopupShop/ShopItem/Item/GameItem/HeroHeadClickable/HeroHeadUI/HeroStar/GroupStar1/Star1 | hero_star_1, hero_star_1, hero_star_1</title><rect x="706.7" y="306.4" width="20.0" height="20.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupShop/Content/bgr/child_bgr/CellPopupShop/ShopItem/Item/GameItem/HeroHeadClickable/HeroHeadUI/HeroStar/GroupStar1/Star1 | hero_star_1, hero_star_1, hero_star_1</title><rect x="721.7" y="306.4" width="20.0" height="20.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupShop/Content/bgr/child_bgr/CellPopupShop/ShopItem/Item/GameItem/HeroHeadClickable/HeroHeadUI/HeroStar/GroupStar6/Star6 | hero_star_2, hero_star_2, hero_star_2</title><rect x="663.7" y="306.4" width="22.0" height="22.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupShop/Content/bgr/child_bgr/CellPopupShop/ShopItem/Item/GameItem/HeroHeadClickable/HeroHeadUI/HeroStar/GroupStar6/Star6 | hero_star_2, hero_star_2, hero_star_2</title><rect x="681.7" y="306.4" width="22.0" height="22.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupShop/Content/bgr/child_bgr/CellPopupShop/ShopItem/Item/GameItem/HeroHeadClickable/HeroHeadUI/HeroStar/GroupStar6/Star6 | hero_star_2, hero_star_2, hero_star_2</title><rect x="699.7" y="306.4" width="22.0" height="22.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupShop/Content/bgr/child_bgr/CellPopupShop/ShopItem/Item/GameItem/HeroHeadClickable/HeroHeadUI/HeroStar/GroupStar6/Star6 | hero_star_2, hero_star_2, hero_star_2</title><rect x="717.7" y="306.4" width="22.0" height="22.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupShop/Content/bgr/child_bgr/CellPopupShop/ShopItem/Item/GameItem/HeroHeadClickable/HeroHeadUI/HeroStar/GroupStar10/Star10 | hero_star_3</title><rect x="690.7" y="304.3" width="22.0" height="22.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupShop/Content/bgr/child_bgr/CellPopupShop/ShopItem/Item/GameItem/HeroHeadClickable/HeroHeadUI/HeroStar/GroupStarE/BgrStarE | star_e_bgr</title><rect x="622.7" y="290.7" width="158.0" height="59.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+<text x="627.7" y="306.7" fill="#e2e8f0" font-size="12" font-family="sans-serif">BgrStarE</text>
+</g>
+<g><title>/PopupShop/Content/bgr/child_bgr/CellPopupShop/ShopItem/Item/GameItem/HeroHeadClickable/HeroHeadUI/HeroStar/GroupStarE/StarE | hero_star_e</title><rect x="689.7" y="306.5" width="24.0" height="24.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupShop/Content/bgr/child_bgr/CellPopupShop/ShopItem/Item/GameItem/HeroHeadClickable/HeroHeadUI/HeroStar/GroupStarE/TextStarE</title><rect x="621.7" y="308.2" width="160.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+<text x="626.7" y="324.2" fill="#e2e8f0" font-size="12" font-family="sans-serif">TextStarE</text>
+</g>
+<g><title>/PopupShop/Content/bgr/child_bgr/CellPopupShop/ShopItem/Item/GameItem/HeroHeadClickable/HeroHeadUI/SliderHp/Background | progress_bgr</title><rect x="657.3" y="331.0" width="90.0" height="17.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupShop/Content/bgr/child_bgr/CellPopupShop/ShopItem/Item/GameItem/HeroHeadClickable/HeroHeadUI/SliderHp/Fill Area/Fill | progress_top_2</title><rect x="658.3" y="331.0" width="88.0" height="17.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupShop/Content/bgr/child_bgr/CellPopupShop/ShopItem/Item/GameItem/GroupDone/ImageCover | bgr_light</title><rect x="656.3" y="241.1" width="92.0" height="92.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupShop/Content/bgr/child_bgr/CellPopupShop/ShopItem/Item/GameItem/GroupDone/ImageCover/Image</title><rect x="656.3" y="241.1" width="92.0" height="92.0" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+</g>
+<g><title>/PopupShop/Content/bgr/child_bgr/CellPopupShop/ShopItem/Item/GameItem/GroupDone/tick | tick_green</title><rect x="681.8" y="268.1" width="41.0" height="38.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupShop/Content/bgr/child_bgr/CellPopupShop/ShopItem/Item/GameItem/TextDesc</title><rect x="656.3" y="332.3" width="92.0" height="20.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PopupShop/Content/bgr/child_bgr/CellPopupShop/ShopItem/Item/GameItem/ActionClick | UISprite</title><rect x="656.3" y="241.1" width="92.0" height="92.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupShop/Content/bgr/child_bgr/CellPopupShop/ShopItem/Price | button_yellow</title><rect x="650.2" y="336.6" width="105.3" height="46.9" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupShop/Content/bgr/child_bgr/CellPopupShop/ShopItem/Price/IconPrice | icon_gem</title><rect x="649.3" y="335.3" width="50.0" height="50.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupShop/Content/bgr/child_bgr/CellPopupShop/ShopItem/Price/TextPrice</title><rect x="652.7" y="343.7" width="120.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+<text x="657.7" y="359.7" fill="#e2e8f0" font-size="12" font-family="sans-serif">TextPrice</text>
+</g>
+<g><title>/PopupShop/Content/bgr/child_bgr/CellPopupShop/ShopItem/PriceInactive | bar_price</title><rect x="645.7" y="340.4" width="120.0" height="34.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+<text x="650.7" y="356.4" fill="#e2e8f0" font-size="12" font-family="sans-serif">PriceInactive</text>
+</g>
+<g><title>/PopupShop/Content/bgr/child_bgr/CellPopupShop/ShopItem/PriceInactive/IconPrice | icon_gem</title><rect x="627.8" y="332.4" width="50.0" height="50.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupShop/Content/bgr/child_bgr/CellPopupShop/ShopItem/PriceInactive/TextPrice</title><rect x="650.4" y="337.8" width="120.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+<text x="655.4" y="353.8" fill="#e2e8f0" font-size="12" font-family="sans-serif">TextPrice</text>
+</g>
+<g><title>/PopupShop/Content/ItemContainer | round_rect_5</title><rect x="560.0" y="222.2" width="684.0" height="321.5" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+<text x="565.0" y="238.2" fill="#e2e8f0" font-size="12" font-family="sans-serif">ItemContainer</text>
+</g>
+<g><title>/PopupShop/Content/Scroll View | Background</title><rect x="610.9" y="232.6" width="585.4" height="454.7" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+<text x="615.9" y="248.6" fill="#e2e8f0" font-size="12" font-family="sans-serif">Scroll View</text>
+</g>
+<g><title>/PopupShop/Content/Scroll View/Viewport | UIMask</title><rect x="610.9" y="232.6" width="585.4" height="454.7" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+<text x="615.9" y="248.6" fill="#e2e8f0" font-size="12" font-family="sans-serif">Viewport</text>
+</g>
+<g><title>/PopupShop/Content/GroupAsset/FieldGem | box_field_1</title><rect x="633.1" y="14.0" width="200.0" height="48.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+<text x="638.1" y="30.0" fill="#e2e8f0" font-size="12" font-family="sans-serif">FieldGem</text>
+</g>
+<g><title>/PopupShop/Content/GroupAsset/FieldGem/IconAsset | icon_gem</title><rect x="621.1" y="13.0" width="50.0" height="50.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupShop/Content/GroupAsset/FieldGem/TextValue</title><rect x="647.6" y="21.0" width="171.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+<text x="652.6" y="37.0" fill="#e2e8f0" font-size="12" font-family="sans-serif">TextValue</text>
+</g>
+<g><title>/PopupShop/Content/GroupAsset/FieldGold | box_field_1</title><rect x="863.1" y="14.0" width="200.0" height="48.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+<text x="868.1" y="30.0" fill="#e2e8f0" font-size="12" font-family="sans-serif">FieldGold</text>
+</g>
+<g><title>/PopupShop/Content/GroupAsset/FieldGold/IconAsset | icon_gold</title><rect x="851.1" y="13.0" width="50.0" height="50.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupShop/Content/GroupAsset/FieldGold/TextValue</title><rect x="877.6" y="21.0" width="171.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+<text x="882.6" y="37.0" fill="#e2e8f0" font-size="12" font-family="sans-serif">TextValue</text>
+</g>
+<g><title>/PopupShop/Content/GroupAsset/FieldSoulCoin | box_field_1</title><rect x="863.1" y="14.0" width="200.0" height="48.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+<text x="868.1" y="30.0" fill="#e2e8f0" font-size="12" font-family="sans-serif">FieldSoulCoin</text>
+</g>
+<g><title>/PopupShop/Content/GroupAsset/FieldSoulCoin/IconAsset | icon_soul_coin</title><rect x="851.1" y="13.0" width="50.0" height="50.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupShop/Content/GroupAsset/FieldSoulCoin/TextValue</title><rect x="877.6" y="21.0" width="171.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+<text x="882.6" y="37.0" fill="#e2e8f0" font-size="12" font-family="sans-serif">TextValue</text>
+</g>
+<g><title>/PopupShop/Content/GroupAsset/FieldBraveCoin | box_field_1</title><rect x="1093.1" y="14.0" width="200.0" height="48.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+<text x="1098.1" y="30.0" fill="#e2e8f0" font-size="12" font-family="sans-serif">FieldBraveCoin</text>
+</g>
+<g><title>/PopupShop/Content/GroupAsset/FieldBraveCoin/IconAsset | icon_brave_coin</title><rect x="1081.1" y="13.0" width="50.0" height="50.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupShop/Content/GroupAsset/FieldBraveCoin/TextValue</title><rect x="1107.6" y="21.0" width="171.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+<text x="1112.6" y="37.0" fill="#e2e8f0" font-size="12" font-family="sans-serif">TextValue</text>
+</g>
+<g><title>/PopupShop/Content/GroupAsset/FieldLuckCoin | box_field_1</title><rect x="748.1" y="14.0" width="200.0" height="48.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+<text x="753.1" y="30.0" fill="#e2e8f0" font-size="12" font-family="sans-serif">FieldLuckCoin</text>
+</g>
+<g><title>/PopupShop/Content/GroupAsset/FieldLuckCoin/IconAsset | icon_luck_coin</title><rect x="736.1" y="13.0" width="50.0" height="50.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupShop/Content/GroupAsset/FieldLuckCoin/TextValue</title><rect x="762.6" y="21.0" width="171.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+<text x="767.6" y="37.0" fill="#e2e8f0" font-size="12" font-family="sans-serif">TextValue</text>
+</g>
+<g><title>/PopupShop/Content/GroupAsset/FieldArenaCoin | box_field_1</title><rect x="748.1" y="14.0" width="200.0" height="48.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+<text x="753.1" y="30.0" fill="#e2e8f0" font-size="12" font-family="sans-serif">FieldArenaCoin</text>
+</g>
+<g><title>/PopupShop/Content/GroupAsset/FieldArenaCoin/IconAsset | 19</title><rect x="736.1" y="13.0" width="50.0" height="50.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupShop/Content/GroupAsset/FieldArenaCoin/TextValue</title><rect x="762.6" y="21.0" width="171.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+<text x="767.6" y="37.0" fill="#e2e8f0" font-size="12" font-family="sans-serif">TextValue</text>
+</g>
+<g><title>/PopupShop/Content/GroupAsset/FieldGuildCoin | box_field_1</title><rect x="1208.1" y="14.0" width="200.0" height="48.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+<text x="1213.1" y="30.0" fill="#e2e8f0" font-size="12" font-family="sans-serif">FieldGuildCoin</text>
+</g>
+<g><title>/PopupShop/Content/GroupAsset/FieldGuildCoin/IconAsset | icon_guild_coin</title><rect x="1195.3" y="13.0" width="50.0" height="50.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupShop/Content/GroupAsset/FieldGuildCoin/TextValue</title><rect x="1222.6" y="21.0" width="171.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+<text x="1227.6" y="37.0" fill="#e2e8f0" font-size="12" font-family="sans-serif">TextValue</text>
+</g>
+<g><title>/PopupShop/Content/GroupAsset/FieldBirdFeather | box_field_1</title><rect x="978.1" y="14.0" width="200.0" height="48.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+<text x="983.1" y="30.0" fill="#e2e8f0" font-size="12" font-family="sans-serif">FieldBirdFeather</text>
+</g>
+<g><title>/PopupShop/Content/GroupAsset/FieldBirdFeather/IconAsset | icon_bird_feather</title><rect x="966.1" y="13.0" width="50.0" height="50.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupShop/Content/GroupAsset/FieldBirdFeather/TextValue</title><rect x="992.6" y="21.0" width="171.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+<text x="997.6" y="37.0" fill="#e2e8f0" font-size="12" font-family="sans-serif">TextValue</text>
+</g>
+<g><title>/PopupShop/Content/GroupAsset/FieldVoSongCoin | box_field_1</title><rect x="748.1" y="14.0" width="200.0" height="48.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+<text x="753.1" y="30.0" fill="#e2e8f0" font-size="12" font-family="sans-serif">FieldVoSongCoin</text>
+</g>
+<g><title>/PopupShop/Content/GroupAsset/FieldVoSongCoin/IconAsset | icon_all_stars_coin</title><rect x="736.1" y="13.0" width="50.0" height="50.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupShop/Content/GroupAsset/FieldVoSongCoin/TextValue</title><rect x="762.6" y="21.0" width="171.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+<text x="767.6" y="37.0" fill="#e2e8f0" font-size="12" font-family="sans-serif">TextValue</text>
+</g>
+<g><title>/PopupShop/Content/GroupAsset/FieldMarinefordCoin | box_field_1</title><rect x="573.6" y="16.0" width="210.0" height="44.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+<text x="578.6" y="32.0" fill="#e2e8f0" font-size="12" font-family="sans-serif">FieldMarinefordCoin</text>
+</g>
+<g><title>/PopupShop/Content/GroupAsset/FieldMarinefordCoin/IconAsset | icon_marineford_coin</title><rect x="566.6" y="13.0" width="50.0" height="50.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupShop/Content/GroupAsset/FieldMarinefordCoin/TextValue</title><rect x="601.5" y="21.0" width="171.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+<text x="606.5" y="37.0" fill="#e2e8f0" font-size="12" font-family="sans-serif">TextValue</text>
+</g>
+<g><title>/PopupShop/Content/GroupAsset/FieldSealBookNormal | box_field_1</title><rect x="460.0" y="50.0" width="200.0" height="48.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+<text x="465.0" y="66.0" fill="#e2e8f0" font-size="12" font-family="sans-serif">FieldSealBookNormal</text>
+</g>
+<g><title>/PopupShop/Content/GroupAsset/FieldSealBookNormal/IconAsset | icon_seal_book_normal</title><rect x="445.5" y="46.5" width="55.0" height="55.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupShop/Content/GroupAsset/FieldSealBookNormal/TextValue</title><rect x="474.5" y="57.0" width="171.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+<text x="479.5" y="73.0" fill="#e2e8f0" font-size="12" font-family="sans-serif">TextValue</text>
+</g>
+<g><title>/PopupShop/Content/GroupAsset/FieldSealBookDL | box_field_1</title><rect x="460.0" y="50.0" width="200.0" height="48.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+<text x="465.0" y="66.0" fill="#e2e8f0" font-size="12" font-family="sans-serif">FieldSealBookDL</text>
+</g>
+<g><title>/PopupShop/Content/GroupAsset/FieldSealBookDL/IconAsset | icon_seal_book_dl</title><rect x="444.0" y="45.0" width="58.0" height="58.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupShop/Content/GroupAsset/FieldSealBookDL/TextValue</title><rect x="474.5" y="57.0" width="171.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+<text x="479.5" y="73.0" fill="#e2e8f0" font-size="12" font-family="sans-serif">TextValue</text>
+</g>
+<g><title>/PopupShop/Content/TabManager/ButtonTabShop</title><rect x="1127.3" y="620.9" width="140.0" height="72.0" stroke="#3b82f6" stroke-width="1.2" fill="#3b82f6" fill-opacity=".12"/>
+<text x="1132.3" y="636.9" fill="#e2e8f0" font-size="12" font-family="sans-serif">ButtonTabShop</text>
+</g>
+<g><title>/PopupShop/Content/TabManager/ButtonTabShop/ImageOn | 1_on</title><rect x="1127.3" y="620.9" width="140.0" height="72.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+<text x="1132.3" y="636.9" fill="#e2e8f0" font-size="12" font-family="sans-serif">ImageOn</text>
+</g>
+<g><title>/PopupShop/Content/TabManager/ButtonTabShop/ImageOff | 1_off</title><rect x="1127.3" y="620.9" width="140.0" height="72.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+<text x="1132.3" y="636.9" fill="#e2e8f0" font-size="12" font-family="sans-serif">ImageOff</text>
+</g>
+<g><title>/PopupShop/Content/TabManager/ButtonTabShop/Text</title><rect x="1175.2" y="629.0" width="81.7" height="53.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+</svg>

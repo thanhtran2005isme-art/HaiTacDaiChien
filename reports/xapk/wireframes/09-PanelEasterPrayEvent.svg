@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 976" role="img" aria-label="Schematic of Unity UI layout">
+<rect width="1600" height="976" fill="#0f172a"/>
+<rect width="1600" height="900" fill="#1e293b"/>
+<text x="20" y="927" font-family="sans-serif" font-size="22" fill="#f8fafc">PanelEasterPrayEvent | 002_UnityDataAssetPack_datapack__file110</text>
+<text x="20" y="953" font-family="sans-serif" font-size="15" fill="#94a3b8">Metadata wireframe | hypothetical 1600x900 viewport | not the actual game screenshot</text>
+<g><title>/PanelEasterPrayEvent/Bgr/TimeCountdown</title><rect x="750.0" y="410.4" width="100.0" height="40.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PanelEasterPrayEvent/Bgr/ButtonNext | arrow_right</title><rect x="1009.0" y="194.0" width="44.0" height="72.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelEasterPrayEvent/Bgr/ButtonPrev | arrow_left</title><rect x="547.0" y="194.0" width="44.0" height="72.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelEasterPrayEvent/Bgr/PanelTop/TextFieldActiveItem | box_text_1</title><rect x="601.0" y="15.1" width="170.0" height="48.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+<text x="606.0" y="31.1" fill="#e2e8f0" font-size="12" font-family="sans-serif">TextFieldActiveItem</text>
+</g>
+<g><title>/PanelEasterPrayEvent/Bgr/PanelTop/TextFieldActiveItem/IconKey | icon_gold</title><rect x="591.0" y="14.1" width="50.0" height="50.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelEasterPrayEvent/Bgr/PanelTop/TextFieldActiveItem/TextKey</title><rect x="607.0" y="23.1" width="160.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+<text x="612.0" y="39.1" fill="#e2e8f0" font-size="12" font-family="sans-serif">TextKey</text>
+</g>
+<g><title>/PanelEasterPrayEvent/Bgr/PanelTop/TextFieldActiveItem/ButtonAddKey | btn_Action</title><rect x="582.0" y="15.1" width="170.0" height="48.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+<text x="587.0" y="31.1" fill="#e2e8f0" font-size="12" font-family="sans-serif">ButtonAddKey</text>
+</g>
+<g><title>/PanelEasterPrayEvent/Bgr/PanelTop/TextFieldActiveItem/ButtonAddKey/Image | button_add</title><rect x="739.4" y="14.1" width="50.0" height="50.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelEasterPrayEvent/Bgr/PanelTop/TextFieldItemExchange | box_text_1</title><rect x="829.0" y="15.1" width="170.0" height="48.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+<text x="834.0" y="31.1" fill="#e2e8f0" font-size="12" font-family="sans-serif">TextFieldItemExchange</text>
+</g>
+<g><title>/PanelEasterPrayEvent/Bgr/PanelTop/TextFieldItemExchange/IconItemExchange | icon_gold</title><rect x="819.0" y="14.1" width="50.0" height="50.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PanelEasterPrayEvent/Bgr/PanelTop/TextFieldItemExchange/TextItemExchange</title><rect x="835.0" y="23.1" width="160.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+<text x="840.0" y="39.1" fill="#e2e8f0" font-size="12" font-family="sans-serif">TextItemExchange</text>
+</g>
+<g><title>/PanelEasterPrayEvent/Bgr/PanelTop/TextFieldItemExchange/ButtonAddKey | btn_Action</title><rect x="810.0" y="15.1" width="170.0" height="48.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+<text x="815.0" y="31.1" fill="#e2e8f0" font-size="12" font-family="sans-serif">ButtonAddKey</text>
+</g>
+<g><title>/PanelEasterPrayEvent/Bgr/PanelTop/TextFieldItemExchange/ButtonAddKey/Image | button_add</title><rect x="967.4" y="14.1" width="50.0" height="50.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+</svg>

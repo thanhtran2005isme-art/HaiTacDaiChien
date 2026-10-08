@@ -1,0 +1,50 @@
+{
+  "total_images": 19643,
+  "linked_images": 16886,
+  "unresolved_images": 2757,
+  "preview_roots": 13,
+  "unresolved_root_distribution": {
+    "Canvas": 452,
+    "PopupPlayerInfo3": 92,
+    "PopupGuildWarPlayerInfo": 67,
+    "PopupTowerLevelInfo": 66,
+    "PanelEasterPrayEvent": 54,
+    "GGEasterPrayEvent": 52,
+    "PopupSelectReward": 49,
+    "PanelHeroInfo": 46,
+    "PopupMasteringHero": 41,
+    "PopupGuildBossTopDmg": 34,
+    "PopupBravePlayer": 34,
+    "PopupPrepareGuildWar": 34,
+    "PopupGuildMill": 34,
+    "PopupBravePlayerNew": 34,
+    "PopupMFStage": 33,
+    "PopupDailyQuest": 33,
+    "PopupGuildBossRewards": 33,
+    "PopupPlayerInfo": 32,
+    "PanelEventMiniGame": 32,
+    "CellGameChallenge": 32,
+    "CellRaidChallenge": 32,
+    "CellDailyQuest": 32,
+    "PopupDungeonStageHero": 31,
+    "HeroesLineup": 30,
+    "PopupUpgradeArtifact": 29,
+    "GGEquipmentExchangeEvent": 26,
+    "PanelCheckinEvent": 25,
+    "PopupCheckin": 24,
+    "Popup7DaysEvent": 24,
+    "PopupShop": 19
+  },
+  "unresolved_active": {
+    "True": 1571,
+    "False": 1186
+  },
+  "assumptions": [
+    "1600x900 viewport arbitrary, not read from CanvasScaler",
+    "Uses anchors, pivot, sizeDelta and anchoredPosition, with parent references",
+    "Siblings ordered by serialized m_Children where available",
+    "Rotations, scaling, Unity layout groups, masks and runtime animation omitted",
+    "Unmatched Sprite pointers not assigned a cause (may be null/dynamic/missing)",
+    "No game image pixels, art assets or decompiled client code published"
+  ]
+}

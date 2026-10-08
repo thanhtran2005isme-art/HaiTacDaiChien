@@ -1,0 +1,293 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 976" role="img" aria-label="Schematic of Unity UI layout">
+<rect width="1600" height="976" fill="#0f172a"/>
+<rect width="1600" height="900" fill="#1e293b"/>
+<text x="20" y="927" font-family="sans-serif" font-size="22" fill="#f8fafc">Canvas | 002_UnityDataAssetPack_datapack__file001</text>
+<text x="20" y="953" font-family="sans-serif" font-size="15" fill="#94a3b8">Metadata wireframe | hypothetical 1600x900 viewport | not the actual game screenshot</text>
+<g><title>/Canvas/BgrContainer/DefaultBgr/ImageBgr | bgr_login_new</title><rect x="232.0" y="130.0" width="1136.0" height="640.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+<text x="237.0" y="146.0" fill="#e2e8f0" font-size="12" font-family="sans-serif">ImageBgr</text>
+</g>
+<g><title>/Canvas/PanelInitData | Background</title><rect x="-5.0" y="0.0" width="1610.0" height="900.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+<text x="0.0" y="16.0" fill="#e2e8f0" font-size="12" font-family="sans-serif">PanelInitData</text>
+</g>
+<g><title>/Canvas/PanelInitData/BgrBar</title><rect x="-9.0" y="855.8" width="1618.0" height="46.4" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+<text x="-4.0" y="871.8" fill="#e2e8f0" font-size="12" font-family="sans-serif">BgrBar</text>
+</g>
+<g><title>/Canvas/PanelInitData/SliderProgress/Background | loading_bgr</title><rect x="-5.0" y="890.0" width="1610.0" height="10.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PanelInitData/SliderProgress/TextProgress</title><rect x="720.0" y="853.0" width="160.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+<text x="725.0" y="869.0" fill="#e2e8f0" font-size="12" font-family="sans-serif">TextProgress</text>
+</g>
+<g><title>/Canvas/PanelLoadingAsset | UISprite</title><rect x="0.0" y="6.0" width="1600.0" height="900.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+<text x="5.0" y="22.0" fill="#e2e8f0" font-size="12" font-family="sans-serif">PanelLoadingAsset</text>
+</g>
+<g><title>/Canvas/PanelLoadingAsset/SliderProgress/Background | progress_bgr_1</title><rect x="400.0" y="719.5" width="800.0" height="40.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+<text x="405.0" y="735.5" fill="#e2e8f0" font-size="12" font-family="sans-serif">Background</text>
+</g>
+<g><title>/Canvas/PanelLoadingAsset/SliderProgress/Fill Area/Fill | progress_1</title><rect x="407.0" y="726.5" width="415.8" height="26.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+<text x="412.0" y="742.5" fill="#e2e8f0" font-size="12" font-family="sans-serif">Fill</text>
+</g>
+<g><title>/Canvas/PanelLoadingAsset/SliderProgress/TextProgress</title><rect x="720.0" y="721.9" width="160.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+<text x="725.0" y="737.9" fill="#e2e8f0" font-size="12" font-family="sans-serif">TextProgress</text>
+</g>
+<g><title>/Canvas/PanelLoadingAsset/SliderProgress/FrameHead | progress_head_1</title><rect x="396.0" y="712.5" width="32.0" height="54.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PanelLoadingAsset/SliderProgress/FrameTail | progress_head_1</title><rect x="1175.0" y="712.5" width="32.0" height="54.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PanelLoadingAsset/SliderProgress/TextTitle</title><rect x="720.0" y="679.4" width="160.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+<text x="725.0" y="695.4" fill="#e2e8f0" font-size="12" font-family="sans-serif">TextTitle</text>
+</g>
+<g><title>/Canvas/PanelTopRight/TextVersion</title><rect x="1428.1" y="5.0" width="160.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+<text x="1433.1" y="21.0" fill="#e2e8f0" font-size="12" font-family="sans-serif">TextVersion</text>
+</g>
+<g><title>/Canvas/PanelTopRight/TextBuild</title><rect x="1428.1" y="46.0" width="160.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+<text x="1433.1" y="62.0" fill="#e2e8f0" font-size="12" font-family="sans-serif">TextBuild</text>
+</g>
+<g><title>/Canvas/PanelTopRight/ButtonInfo | button_info_2</title><rect x="1517.0" y="88.0" width="60.0" height="60.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/PanelTopRight/ButtonClearAsset | button_fix</title><rect x="1517.0" y="158.0" width="60.0" height="60.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/BoxRegister | box_login</title><rect x="545.8" y="230.4" width="508.4" height="523.3" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+<text x="550.8" y="246.4" fill="#e2e8f0" font-size="12" font-family="sans-serif">BoxRegister</text>
+</g>
+<g><title>/Canvas/BoxRegister/BoardTitle | board_title_2</title><rect x="638.5" y="135.5" width="323.0" height="145.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+<text x="643.5" y="151.5" fill="#e2e8f0" font-size="12" font-family="sans-serif">BoardTitle</text>
+</g>
+<g><title>/Canvas/BoxRegister/BoardTitle/TextTitle</title><rect x="720.0" y="218.0" width="160.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+<text x="725.0" y="234.0" fill="#e2e8f0" font-size="12" font-family="sans-serif">TextTitle</text>
+</g>
+<g><title>/Canvas/BoxRegister/PanelFieldRegister/Viewport</title><rect x="572.5" y="288.4" width="455.0" height="355.0" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+<text x="577.5" y="304.4" fill="#e2e8f0" font-size="12" font-family="sans-serif">Viewport</text>
+</g>
+<g><title>/Canvas/BoxRegister/PanelFieldRegister/Viewport/Layout/FieldUserName/TextUsn</title><rect x="623.1" y="285.1" width="160.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+<text x="628.1" y="301.1" fill="#e2e8f0" font-size="12" font-family="sans-serif">TextUsn</text>
+</g>
+<g><title>/Canvas/BoxRegister/PanelFieldRegister/Viewport/Layout/FieldUserName/TextUsn/FieldUsername | rect_25</title><rect x="619.5" y="317.1" width="360.7" height="48.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+<text x="624.5" y="333.1" fill="#e2e8f0" font-size="12" font-family="sans-serif">FieldUsername</text>
+</g>
+<g><title>/Canvas/BoxRegister/PanelFieldRegister/Viewport/Layout/FieldUserName/TextUsn/FieldUsername/Placeholder</title><rect x="629.5" y="324.1" width="340.7" height="35.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+<text x="634.5" y="340.1" fill="#e2e8f0" font-size="12" font-family="sans-serif">Placeholder</text>
+</g>
+<g><title>/Canvas/BoxRegister/PanelFieldRegister/Viewport/Layout/FieldUserName/TextUsn/FieldUsername/Text</title><rect x="629.5" y="324.1" width="340.7" height="35.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+<text x="634.5" y="340.1" fill="#e2e8f0" font-size="12" font-family="sans-serif">Text</text>
+</g>
+<g><title>/Canvas/BoxRegister/PanelFieldRegister/Viewport/Layout/FieldPassword1/TextPassword1</title><rect x="623.1" y="375.1" width="160.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+<text x="628.1" y="391.1" fill="#e2e8f0" font-size="12" font-family="sans-serif">TextPassword1</text>
+</g>
+<g><title>/Canvas/BoxRegister/PanelFieldRegister/Viewport/Layout/FieldPassword1/TextPassword1/FieldPassword1 | rect_25</title><rect x="619.5" y="407.1" width="360.7" height="48.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+<text x="624.5" y="423.1" fill="#e2e8f0" font-size="12" font-family="sans-serif">FieldPassword1</text>
+</g>
+<g><title>/Canvas/BoxRegister/PanelFieldRegister/Viewport/Layout/FieldPassword1/TextPassword1/FieldPassword1/Placeholder</title><rect x="629.5" y="414.1" width="340.7" height="35.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+<text x="634.5" y="430.1" fill="#e2e8f0" font-size="12" font-family="sans-serif">Placeholder</text>
+</g>
+<g><title>/Canvas/BoxRegister/PanelFieldRegister/Viewport/Layout/FieldPassword1/TextPassword1/FieldPassword1/Text</title><rect x="629.5" y="414.1" width="340.7" height="35.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+<text x="634.5" y="430.1" fill="#e2e8f0" font-size="12" font-family="sans-serif">Text</text>
+</g>
+<g><title>/Canvas/BoxRegister/PanelFieldRegister/Viewport/Layout/FieldPassword2/TextPassword2</title><rect x="623.1" y="465.1" width="160.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+<text x="628.1" y="481.1" fill="#e2e8f0" font-size="12" font-family="sans-serif">TextPassword2</text>
+</g>
+<g><title>/Canvas/BoxRegister/PanelFieldRegister/Viewport/Layout/FieldPassword2/TextPassword2/FieldPassword2 | rect_25</title><rect x="619.5" y="497.0" width="360.7" height="48.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+<text x="624.5" y="513.0" fill="#e2e8f0" font-size="12" font-family="sans-serif">FieldPassword2</text>
+</g>
+<g><title>/Canvas/BoxRegister/PanelFieldRegister/Viewport/Layout/FieldPassword2/TextPassword2/FieldPassword2/Placeholder</title><rect x="629.5" y="504.0" width="340.7" height="35.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+<text x="634.5" y="520.0" fill="#e2e8f0" font-size="12" font-family="sans-serif">Placeholder</text>
+</g>
+<g><title>/Canvas/BoxRegister/PanelFieldRegister/Viewport/Layout/FieldPassword2/TextPassword2/FieldPassword2/Text</title><rect x="629.5" y="504.0" width="340.7" height="35.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+<text x="634.5" y="520.0" fill="#e2e8f0" font-size="12" font-family="sans-serif">Text</text>
+</g>
+<g><title>/Canvas/BoxRegister/PanelFieldRegister/Viewport/Layout/FieldPhone/TextPhone</title><rect x="623.1" y="555.0" width="160.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+<text x="628.1" y="571.0" fill="#e2e8f0" font-size="12" font-family="sans-serif">TextPhone</text>
+</g>
+<g><title>/Canvas/BoxRegister/PanelFieldRegister/Viewport/Layout/FieldPhone/TextPhone/FieldPhone | rect_25</title><rect x="619.5" y="587.0" width="360.7" height="48.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+<text x="624.5" y="603.0" fill="#e2e8f0" font-size="12" font-family="sans-serif">FieldPhone</text>
+</g>
+<g><title>/Canvas/BoxRegister/PanelFieldRegister/Viewport/Layout/FieldPhone/TextPhone/FieldPhone/Placeholder</title><rect x="629.5" y="594.0" width="340.7" height="35.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+<text x="634.5" y="610.0" fill="#e2e8f0" font-size="12" font-family="sans-serif">Placeholder</text>
+</g>
+<g><title>/Canvas/BoxRegister/PanelFieldRegister/Viewport/Layout/FieldPhone/TextPhone/FieldPhone/Text</title><rect x="629.5" y="594.0" width="340.7" height="35.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+<text x="634.5" y="610.0" fill="#e2e8f0" font-size="12" font-family="sans-serif">Text</text>
+</g>
+<g><title>/Canvas/BoxRegister/PanelFieldRegister/Viewport/Layout/FieldFullName/TextFullName</title><rect x="623.1" y="645.0" width="160.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+<text x="628.1" y="661.0" fill="#e2e8f0" font-size="12" font-family="sans-serif">TextFullName</text>
+</g>
+<g><title>/Canvas/BoxRegister/PanelFieldRegister/Viewport/Layout/FieldFullName/TextFullName/FieldFullname | rect_25</title><rect x="619.5" y="677.0" width="360.7" height="48.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+<text x="624.5" y="693.0" fill="#e2e8f0" font-size="12" font-family="sans-serif">FieldFullname</text>
+</g>
+<g><title>/Canvas/BoxRegister/PanelFieldRegister/Viewport/Layout/FieldFullName/TextFullName/FieldFullname/Placeholder</title><rect x="629.5" y="684.0" width="340.7" height="35.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+<text x="634.5" y="700.0" fill="#e2e8f0" font-size="12" font-family="sans-serif">Placeholder</text>
+</g>
+<g><title>/Canvas/BoxRegister/PanelFieldRegister/Viewport/Layout/FieldFullName/TextFullName/FieldFullname/Text</title><rect x="629.5" y="684.0" width="340.7" height="35.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+<text x="634.5" y="700.0" fill="#e2e8f0" font-size="12" font-family="sans-serif">Text</text>
+</g>
+<g><title>/Canvas/BoxRegister/PanelFieldRegister/Viewport/Layout/FieldCMT/TextCMT</title><rect x="623.1" y="735.0" width="160.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+<text x="628.1" y="751.0" fill="#e2e8f0" font-size="12" font-family="sans-serif">TextCMT</text>
+</g>
+<g><title>/Canvas/BoxRegister/PanelFieldRegister/Viewport/Layout/FieldCMT/TextCMT/FieldCMT | rect_25</title><rect x="619.5" y="767.0" width="360.7" height="48.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+<text x="624.5" y="783.0" fill="#e2e8f0" font-size="12" font-family="sans-serif">FieldCMT</text>
+</g>
+<g><title>/Canvas/BoxRegister/PanelFieldRegister/Viewport/Layout/FieldCMT/TextCMT/FieldCMT/Placeholder</title><rect x="629.5" y="774.0" width="340.7" height="35.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+<text x="634.5" y="790.0" fill="#e2e8f0" font-size="12" font-family="sans-serif">Placeholder</text>
+</g>
+<g><title>/Canvas/BoxRegister/PanelFieldRegister/Viewport/Layout/FieldCMT/TextCMT/FieldCMT/Text</title><rect x="629.5" y="774.0" width="340.7" height="35.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+<text x="634.5" y="790.0" fill="#e2e8f0" font-size="12" font-family="sans-serif">Text</text>
+</g>
+<g><title>/Canvas/BoxRegister/PanelFieldRegister/Viewport/Layout/FieldBirth/TextBirth</title><rect x="623.1" y="825.1" width="160.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+<text x="628.1" y="841.1" fill="#e2e8f0" font-size="12" font-family="sans-serif">TextBirth</text>
+</g>
+<g><title>/Canvas/BoxRegister/PanelFieldRegister/Viewport/Layout/FieldBirth/TextBirth/FieldBirth | rect_25</title><rect x="619.5" y="857.1" width="360.7" height="48.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+<text x="624.5" y="873.1" fill="#e2e8f0" font-size="12" font-family="sans-serif">FieldBirth</text>
+</g>
+<g><title>/Canvas/BoxRegister/PanelFieldRegister/Viewport/Layout/FieldBirth/TextBirth/FieldBirth/Placeholder</title><rect x="629.5" y="864.1" width="340.7" height="35.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+<text x="634.5" y="880.1" fill="#e2e8f0" font-size="12" font-family="sans-serif">Placeholder</text>
+</g>
+<g><title>/Canvas/BoxRegister/PanelFieldRegister/Viewport/Layout/FieldBirth/TextBirth/FieldBirth/Text</title><rect x="629.5" y="864.1" width="340.7" height="35.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+<text x="634.5" y="880.1" fill="#e2e8f0" font-size="12" font-family="sans-serif">Text</text>
+</g>
+<g><title>/Canvas/BoxRegister/ButtonBack | button_yellow</title><rect x="572.4" y="675.0" width="200.0" height="70.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+<text x="577.4" y="691.0" fill="#e2e8f0" font-size="12" font-family="sans-serif">ButtonBack</text>
+</g>
+<g><title>/Canvas/BoxRegister/ButtonBack/Text</title><rect x="572.4" y="675.0" width="200.0" height="70.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+<text x="577.4" y="691.0" fill="#e2e8f0" font-size="12" font-family="sans-serif">Text</text>
+</g>
+<g><title>/Canvas/BoxRegister/ButtonRegister | button_green</title><rect x="820.0" y="675.0" width="200.0" height="70.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+<text x="825.0" y="691.0" fill="#e2e8f0" font-size="12" font-family="sans-serif">ButtonRegister</text>
+</g>
+<g><title>/Canvas/BoxRegister/ButtonRegister/Text</title><rect x="820.0" y="675.0" width="200.0" height="70.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+<text x="825.0" y="691.0" fill="#e2e8f0" font-size="12" font-family="sans-serif">Text</text>
+</g>
+<g><title>/Canvas/BoxLogin | box_login</title><rect x="522.0" y="210.9" width="556.0" height="503.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+<text x="527.0" y="226.9" fill="#e2e8f0" font-size="12" font-family="sans-serif">BoxLogin</text>
+</g>
+<g><title>/Canvas/BoxLogin/BoardTitle | board_title_2</title><rect x="638.5" y="118.9" width="323.0" height="145.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+<text x="643.5" y="134.9" fill="#e2e8f0" font-size="12" font-family="sans-serif">BoardTitle</text>
+</g>
+<g><title>/Canvas/BoxLogin/BoardTitle/TextTitle</title><rect x="720.0" y="202.4" width="160.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+<text x="725.0" y="218.4" fill="#e2e8f0" font-size="12" font-family="sans-serif">TextTitle</text>
+</g>
+<g><title>/Canvas/BoxLogin/TabMng/ButtonTabGrep | tab_active</title><rect x="607.3" y="263.4" width="181.0" height="72.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+<text x="612.3" y="279.4" fill="#e2e8f0" font-size="12" font-family="sans-serif">ButtonTabGrep</text>
+</g>
+<g><title>/Canvas/BoxLogin/TabMng/ButtonTabGrep/ImageOn | tab_active</title><rect x="607.3" y="263.4" width="181.0" height="72.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+<text x="612.3" y="279.4" fill="#e2e8f0" font-size="12" font-family="sans-serif">ImageOn</text>
+</g>
+<g><title>/Canvas/BoxLogin/TabMng/ButtonTabGrep/ImageOff | tab_inactive</title><rect x="607.3" y="263.4" width="181.0" height="72.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+<text x="612.3" y="279.4" fill="#e2e8f0" font-size="12" font-family="sans-serif">ImageOff</text>
+</g>
+<g><title>/Canvas/BoxLogin/TabMng/ButtonTabGrep/Text</title><rect x="607.3" y="263.4" width="181.0" height="72.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+<text x="612.3" y="279.4" fill="#e2e8f0" font-size="12" font-family="sans-serif">Text</text>
+</g>
+<g><title>/Canvas/BoxLogin/TabMng/ButtonTabGosu | tab_active</title><rect x="797.4" y="263.4" width="181.0" height="72.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+<text x="802.4" y="279.4" fill="#e2e8f0" font-size="12" font-family="sans-serif">ButtonTabGosu</text>
+</g>
+<g><title>/Canvas/BoxLogin/TabMng/ButtonTabGosu/ImageOn | tab_active</title><rect x="797.4" y="263.4" width="181.0" height="72.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+<text x="802.4" y="279.4" fill="#e2e8f0" font-size="12" font-family="sans-serif">ImageOn</text>
+</g>
+<g><title>/Canvas/BoxLogin/TabMng/ButtonTabGosu/ImageOff | tab_inactive</title><rect x="797.4" y="263.4" width="181.0" height="72.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+<text x="802.4" y="279.4" fill="#e2e8f0" font-size="12" font-family="sans-serif">ImageOff</text>
+</g>
+<g><title>/Canvas/BoxLogin/TabMng/ButtonTabGosu/Text</title><rect x="797.4" y="263.4" width="181.0" height="72.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+<text x="802.4" y="279.4" fill="#e2e8f0" font-size="12" font-family="sans-serif">Text</text>
+</g>
+<g><title>/Canvas/BoxLogin/ImageBgr | round_rect_14</title><rect x="579.4" y="330.0" width="426.7" height="290.8" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+<text x="584.4" y="346.0" fill="#e2e8f0" font-size="12" font-family="sans-serif">ImageBgr</text>
+</g>
+<g><title>/Canvas/BoxLogin/BoxGosu/TextGosuId</title><rect x="623.5" y="411.7" width="160.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+<text x="628.5" y="427.7" fill="#e2e8f0" font-size="12" font-family="sans-serif">TextGosuId</text>
+</g>
+<g><title>/Canvas/BoxLogin/BoxGosu/FieldGosuID | rect_25</title><rect x="619.6" y="454.7" width="360.7" height="48.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+<text x="624.6" y="470.7" fill="#e2e8f0" font-size="12" font-family="sans-serif">FieldGosuID</text>
+</g>
+<g><title>/Canvas/BoxLogin/BoxGosu/FieldGosuID/Placeholder</title><rect x="629.6" y="461.7" width="340.7" height="35.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+<text x="634.6" y="477.7" fill="#e2e8f0" font-size="12" font-family="sans-serif">Placeholder</text>
+</g>
+<g><title>/Canvas/BoxLogin/BoxGosu/FieldGosuID/Text</title><rect x="629.6" y="461.7" width="340.7" height="35.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+<text x="634.6" y="477.7" fill="#e2e8f0" font-size="12" font-family="sans-serif">Text</text>
+</g>
+<g><title>/Canvas/BoxLogin/BoxGosu/ButtonLoginGosu | button_yellow</title><rect x="700.0" y="636.7" width="200.0" height="62.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+<text x="705.0" y="652.7" fill="#e2e8f0" font-size="12" font-family="sans-serif">ButtonLoginGosu</text>
+</g>
+<g><title>/Canvas/BoxLogin/BoxGosu/ButtonLoginGosu/Text</title><rect x="700.0" y="636.7" width="200.0" height="60.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+<text x="705.0" y="652.7" fill="#e2e8f0" font-size="12" font-family="sans-serif">Text</text>
+</g>
+<g><title>/Canvas/BoxLogin/BoxGrep/TextUsn</title><rect x="619.0" y="376.5" width="160.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+<text x="624.0" y="392.5" fill="#e2e8f0" font-size="12" font-family="sans-serif">TextUsn</text>
+</g>
+<g><title>/Canvas/BoxLogin/BoxGrep/TextUsn/FieldUsername | rect_25</title><rect x="615.4" y="414.9" width="360.7" height="48.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+<text x="620.4" y="430.9" fill="#e2e8f0" font-size="12" font-family="sans-serif">FieldUsername</text>
+</g>
+<g><title>/Canvas/BoxLogin/BoxGrep/TextUsn/FieldUsername/Placeholder</title><rect x="625.4" y="421.9" width="340.7" height="35.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+<text x="630.4" y="437.9" fill="#e2e8f0" font-size="12" font-family="sans-serif">Placeholder</text>
+</g>
+<g><title>/Canvas/BoxLogin/BoxGrep/TextUsn/FieldUsername/Text</title><rect x="625.4" y="421.9" width="340.7" height="35.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+<text x="630.4" y="437.9" fill="#e2e8f0" font-size="12" font-family="sans-serif">Text</text>
+</g>
+<g><title>/Canvas/BoxLogin/BoxGrep/TextPassword</title><rect x="619.0" y="475.4" width="160.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+<text x="624.0" y="491.4" fill="#e2e8f0" font-size="12" font-family="sans-serif">TextPassword</text>
+</g>
+<g><title>/Canvas/BoxLogin/BoxGrep/TextPassword/FieldPassword | rect_25</title><rect x="615.4" y="513.8" width="360.7" height="48.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+<text x="620.4" y="529.8" fill="#e2e8f0" font-size="12" font-family="sans-serif">FieldPassword</text>
+</g>
+<g><title>/Canvas/BoxLogin/BoxGrep/TextPassword/FieldPassword/Placeholder</title><rect x="625.4" y="520.8" width="340.7" height="35.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+<text x="630.4" y="536.8" fill="#e2e8f0" font-size="12" font-family="sans-serif">Placeholder</text>
+</g>
+<g><title>/Canvas/BoxLogin/BoxGrep/TextPassword/FieldPassword/Text</title><rect x="625.4" y="520.8" width="340.7" height="35.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+<text x="630.4" y="536.8" fill="#e2e8f0" font-size="12" font-family="sans-serif">Text</text>
+</g>
+<g><title>/Canvas/BoxLogin/BoxGrep/ButtonLogin | button_yellow</title><rect x="562.0" y="632.4" width="200.0" height="70.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+<text x="567.0" y="648.4" fill="#e2e8f0" font-size="12" font-family="sans-serif">ButtonLogin</text>
+</g>
+<g><title>/Canvas/BoxLogin/BoxGrep/ButtonLogin/Text</title><rect x="562.0" y="632.4" width="200.0" height="70.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+<text x="567.0" y="648.4" fill="#e2e8f0" font-size="12" font-family="sans-serif">Text</text>
+</g>
+<g><title>/Canvas/BoxLogin/BoxGrep/ButtonRegister | button_green</title><rect x="824.6" y="632.4" width="200.0" height="70.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+<text x="829.6" y="648.4" fill="#e2e8f0" font-size="12" font-family="sans-serif">ButtonRegister</text>
+</g>
+<g><title>/Canvas/BoxLogin/BoxGrep/ButtonRegister/Text</title><rect x="824.6" y="632.4" width="200.0" height="70.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+<text x="829.6" y="648.4" fill="#e2e8f0" font-size="12" font-family="sans-serif">Text</text>
+</g>
+<g><title>/Canvas/BoxServers | popup</title><rect x="562.0" y="409.5" width="476.0" height="355.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+<text x="567.0" y="425.5" fill="#e2e8f0" font-size="12" font-family="sans-serif">BoxServers</text>
+</g>
+<g><title>/Canvas/BoxServers/FieldServer | rect_20</title><rect x="562.0" y="539.2" width="476.0" height="65.6" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+<text x="567.0" y="555.2" fill="#e2e8f0" font-size="12" font-family="sans-serif">FieldServer</text>
+</g>
+<g><title>/Canvas/BoxServers/FieldServer/TextServerName</title><rect x="631.0" y="557.0" width="160.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+<text x="636.0" y="573.0" fill="#e2e8f0" font-size="12" font-family="sans-serif">TextServerName</text>
+</g>
+<g><title>/Canvas/BoxServers/FieldServer/TextSelect</title><rect x="865.0" y="556.0" width="160.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+<text x="870.0" y="572.0" fill="#e2e8f0" font-size="12" font-family="sans-serif">TextSelect</text>
+</g>
+<g><title>/Canvas/BoxServers/FieldServer/ImageLine | bar_vertical</title><rect x="851.5" y="547.0" width="5.0" height="50.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/BoxServers/FieldServer/TagNew | tag_new</title><rect x="554.0" y="520.8" width="60.0" height="60.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/Canvas/BoxServers/ButtonEnter | button_yellow</title><rect x="564.0" y="623.0" width="200.0" height="70.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+<text x="569.0" y="639.0" fill="#e2e8f0" font-size="12" font-family="sans-serif">ButtonEnter</text>
+</g>
+<g><title>/Canvas/BoxServers/ButtonEnter/Text</title><rect x="564.0" y="623.0" width="200.0" height="70.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+<text x="569.0" y="639.0" fill="#e2e8f0" font-size="12" font-family="sans-serif">Text</text>
+</g>
+<g><title>/Canvas/BoxServers/ButtonBack | button_green</title><rect x="831.0" y="623.9" width="200.0" height="70.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+<text x="836.0" y="639.9" fill="#e2e8f0" font-size="12" font-family="sans-serif">ButtonBack</text>
+</g>
+<g><title>/Canvas/BoxServers/ButtonBack/Text</title><rect x="831.0" y="623.9" width="200.0" height="70.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+<text x="836.0" y="639.9" fill="#e2e8f0" font-size="12" font-family="sans-serif">Text</text>
+</g>
+<g><title>/Canvas/ButtonTest1 | button_yellow</title><rect x="1098.0" y="246.0" width="160.0" height="60.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+<text x="1103.0" y="262.0" fill="#e2e8f0" font-size="12" font-family="sans-serif">ButtonTest1</text>
+</g>
+<g><title>/Canvas/ButtonTest1/Text</title><rect x="1098.0" y="246.0" width="160.0" height="60.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+<text x="1103.0" y="262.0" fill="#e2e8f0" font-size="12" font-family="sans-serif">Text</text>
+</g>
+<g><title>/Canvas/ButtonTest2 | button_yellow</title><rect x="1098.0" y="319.0" width="160.0" height="60.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+<text x="1103.0" y="335.0" fill="#e2e8f0" font-size="12" font-family="sans-serif">ButtonTest2</text>
+</g>
+<g><title>/Canvas/ButtonTest2/Text</title><rect x="1098.0" y="319.0" width="160.0" height="60.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+<text x="1103.0" y="335.0" fill="#e2e8f0" font-size="12" font-family="sans-serif">Text</text>
+</g>
+<g><title>/Canvas/logo_18 | logo 18+</title><rect x="-14.0" y="-12.5" width="257.0" height="107.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+<text x="-9.0" y="3.5" fill="#e2e8f0" font-size="12" font-family="sans-serif">logo_18</text>
+</g>
+<g><title>/Canvas/PanelBlock</title><rect x="0.0" y="0.0" width="1600.0" height="900.0" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+<text x="5.0" y="16.0" fill="#e2e8f0" font-size="12" font-family="sans-serif">PanelBlock</text>
+</g>
+</svg>

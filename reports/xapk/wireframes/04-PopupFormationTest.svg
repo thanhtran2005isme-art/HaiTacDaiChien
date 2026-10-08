@@ -1,0 +1,357 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 976" role="img" aria-label="Schematic of Unity UI layout">
+<rect width="1600" height="976" fill="#0f172a"/>
+<rect width="1600" height="900" fill="#1e293b"/>
+<text x="20" y="927" font-family="sans-serif" font-size="22" fill="#f8fafc">PopupFormationTest | 002_UnityDataAssetPack_datapack__file110</text>
+<text x="20" y="953" font-family="sans-serif" font-size="15" fill="#94a3b8">Metadata wireframe | hypothetical 1600x900 viewport | not the actual game screenshot</text>
+<g><title>/PopupFormationTest/PanelTop/TitleBar | popup_title</title><rect x="256.4" y="189.0" width="537.3" height="58.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+<text x="261.4" y="205.0" fill="#e2e8f0" font-size="12" font-family="sans-serif">TitleBar</text>
+</g>
+<g><title>/PopupFormationTest/PanelTop/Body | popup_body</title><rect x="256.4" y="243.0" width="537.3" height="400.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+<text x="261.4" y="259.0" fill="#e2e8f0" font-size="12" font-family="sans-serif">Body</text>
+</g>
+<g><title>/PopupFormationTest/PanelTop/PanelFormation | bgr_brown</title><rect x="286.4" y="248.0" width="477.3" height="305.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+<text x="291.4" y="264.0" fill="#e2e8f0" font-size="12" font-family="sans-serif">PanelFormation</text>
+</g>
+<g><title>/PopupFormationTest/PanelTop/PanelFormation/IconPower | icon_power</title><rect x="318.3" y="198.8" width="40.0" height="40.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupFormationTest/PanelTop/PanelFormation/IconPower/TextPower</title><rect x="367.3" y="199.8" width="160.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+<text x="372.3" y="215.8" fill="#e2e8f0" font-size="12" font-family="sans-serif">TextPower</text>
+</g>
+<g><title>/PopupFormationTest/PanelTop/PanelFormation/TextFront</title><rect x="320.6" y="263.4" width="71.5" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PopupFormationTest/PanelTop/PanelFormation/TextBack</title><rect x="318.6" y="405.0" width="71.5" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PopupFormationTest/PanelTop/PanelFormation/Slots/SlotHero1 | slot_hero</title><rect x="416.6" y="301.9" width="94.0" height="94.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupFormationTest/PanelTop/PanelFormation/Slots/SlotHero2 | slot_hero</title><rect x="521.4" y="301.9" width="94.0" height="94.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupFormationTest/PanelTop/PanelFormation/Slots/SlotHero3 | slot_hero</title><rect x="314.4" y="442.0" width="94.0" height="94.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupFormationTest/PanelTop/PanelFormation/Slots/SlotHero4 | slot_hero</title><rect x="417.6" y="441.0" width="94.0" height="94.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupFormationTest/PanelTop/PanelFormation/Slots/SlotHero5 | slot_hero</title><rect x="522.4" y="441.0" width="94.0" height="94.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupFormationTest/PanelTop/PanelFormation/Slots/SlotHero6 | slot_hero</title><rect x="633.4" y="441.0" width="94.0" height="94.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupFormationTest/PanelTop/PanelFormation/DropdownPet1 | UISprite</title><rect x="624.2" y="255.5" width="127.6" height="30.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+<text x="629.2" y="271.5" fill="#e2e8f0" font-size="12" font-family="sans-serif">DropdownPet1</text>
+</g>
+<g><title>/PopupFormationTest/PanelTop/PanelFormation/DropdownPet1/Mask | item_none</title><rect x="643.0" y="303.5" width="90.0" height="90.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupFormationTest/PanelTop/PanelFormation/DropdownPet1/Mask/Image | item_none</title><rect x="638.0" y="298.5" width="100.0" height="100.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupFormationTest/PanelTop/PanelFormation/DropdownPet1/Label</title><rect x="634.2" y="262.5" width="92.6" height="17.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PopupFormationTest/PanelTop/PanelFormation/DropdownPet1/Arrow | DropdownArrow</title><rect x="726.8" y="260.5" width="20.0" height="20.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupFormationTest/PanelTop/PanelFormation/DropdownPet1/Template | UISprite</title><rect x="624.2" y="283.5" width="127.6" height="150.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+<text x="629.2" y="299.5" fill="#e2e8f0" font-size="12" font-family="sans-serif">Template</text>
+</g>
+<g><title>/PopupFormationTest/PanelTop/PanelFormation/DropdownPet1/Template/Viewport | UIMask</title><rect x="624.2" y="283.5" width="110.6" height="150.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+<text x="629.2" y="299.5" fill="#e2e8f0" font-size="12" font-family="sans-serif">Viewport</text>
+</g>
+<g><title>/PopupFormationTest/PanelTop/PanelFormation/DropdownPet1/Template/Viewport/Content/Item/Item Background</title><rect x="624.2" y="287.5" width="110.6" height="20.0" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+</g>
+<g><title>/PopupFormationTest/PanelTop/PanelFormation/DropdownPet1/Template/Viewport/Content/Item/Item Checkmark | Checkmark</title><rect x="624.2" y="287.5" width="20.0" height="20.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupFormationTest/PanelTop/PanelFormation/DropdownPet1/Template/Viewport/Content/Item/Item Label</title><rect x="644.2" y="289.5" width="80.6" height="17.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PopupFormationTest/PanelTop/PanelFormation/DropdownPet1/Template/Scrollbar | Background</title><rect x="731.8" y="283.5" width="20.0" height="150.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupFormationTest/PanelTop/InputFieldSearch | box_text_3</title><rect x="289.0" y="571.7" width="160.0" height="38.7" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+<text x="294.0" y="587.7" fill="#e2e8f0" font-size="12" font-family="sans-serif">InputFieldSearch</text>
+</g>
+<g><title>/PopupFormationTest/PanelTop/InputFieldSearch/Placeholder</title><rect x="299.0" y="578.7" width="140.0" height="25.7" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PopupFormationTest/PanelTop/InputFieldSearch/Text</title><rect x="299.0" y="578.7" width="140.0" height="25.7" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PopupFormationTest/PanelTop/PanelRelics/ButtonRelics | button_green</title><rect x="598.3" y="565.3" width="115.4" height="45.4" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+<text x="603.3" y="581.3" fill="#e2e8f0" font-size="12" font-family="sans-serif">ButtonRelics</text>
+</g>
+<g><title>/PopupFormationTest/PanelTop/PanelRelics/ButtonRelics/Text</title><rect x="598.3" y="565.3" width="115.4" height="38.3" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+<text x="603.3" y="581.3" fill="#e2e8f0" font-size="12" font-family="sans-serif">Text</text>
+</g>
+<g><title>/PopupFormationTest/PanelHeroList | bgr_chat</title><rect x="264.4" y="644.8" width="521.3" height="122.5" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+<text x="269.4" y="660.8" fill="#e2e8f0" font-size="12" font-family="sans-serif">PanelHeroList</text>
+</g>
+<g><title>/PopupFormationTest/PanelHeroList/ScrollView | Background</title><rect x="284.4" y="654.4" width="485.3" height="101.1" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+<text x="289.4" y="670.4" fill="#e2e8f0" font-size="12" font-family="sans-serif">ScrollView</text>
+</g>
+<g><title>/PopupFormationTest/PanelHeroList/ScrollView/Viewport | UIMask</title><rect x="284.4" y="654.4" width="485.3" height="101.1" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+<text x="289.4" y="670.4" fill="#e2e8f0" font-size="12" font-family="sans-serif">Viewport</text>
+</g>
+<g><title>/PopupFormationTest/PanelHeroList/ButtonFilter | button_yellow</title><rect x="875.0" y="666.0" width="120.0" height="80.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+<text x="880.0" y="682.0" fill="#e2e8f0" font-size="12" font-family="sans-serif">ButtonFilter</text>
+</g>
+<g><title>/PopupFormationTest/PanelHeroList/ButtonFilter/Text</title><rect x="875.0" y="661.0" width="120.0" height="80.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+<text x="880.0" y="677.0" fill="#e2e8f0" font-size="12" font-family="sans-serif">Text</text>
+</g>
+<g><title>/PopupFormationTest/PanelHeroList/PanelFilter</title><rect x="875.0" y="433.0" width="112.0" height="210.0" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+<text x="880.0" y="449.0" fill="#e2e8f0" font-size="12" font-family="sans-serif">PanelFilter</text>
+</g>
+<g><title>/PopupFormationTest/PanelHeroList/PanelFilter/TabClass1</title><rect x="901.0" y="443.0" width="60.0" height="60.0" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+</g>
+<g><title>/PopupFormationTest/PanelHeroList/PanelFilter/TabClass1/ImageOn | faction_light</title><rect x="901.0" y="443.0" width="60.0" height="60.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupFormationTest/PanelHeroList/PanelFilter/TabClass1/ImageOff | faction_light_ia</title><rect x="901.0" y="443.0" width="60.0" height="60.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupFormationTest/PanelHeroList/PanelFilter/TabClass2</title><rect x="901.0" y="508.0" width="60.0" height="60.0" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+</g>
+<g><title>/PopupFormationTest/PanelHeroList/PanelFilter/TabClass2/ImageOn | faction_dark</title><rect x="901.0" y="508.0" width="60.0" height="60.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupFormationTest/PanelHeroList/PanelFilter/TabClass2/ImageOff | faction_dark_ia</title><rect x="901.0" y="508.0" width="60.0" height="60.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupFormationTest/PanelHeroList/PanelFilter/TabClass3</title><rect x="901.0" y="573.0" width="60.0" height="60.0" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+</g>
+<g><title>/PopupFormationTest/PanelHeroList/PanelFilter/TabClass3/ImageOn | faction_forest</title><rect x="901.0" y="573.0" width="60.0" height="60.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupFormationTest/PanelHeroList/PanelFilter/TabClass3/ImageOff | faction_forest_ia</title><rect x="901.0" y="573.0" width="60.0" height="60.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupFormationTest/PopupStat/TitleBar | popup_title</title><rect x="800.5" y="138.2" width="474.9" height="58.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+<text x="805.5" y="154.2" fill="#e2e8f0" font-size="12" font-family="sans-serif">TitleBar</text>
+</g>
+<g><title>/PopupFormationTest/PopupStat/Body | popup_body</title><rect x="800.5" y="176.2" width="474.9" height="591.5" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+<text x="805.5" y="192.2" fill="#e2e8f0" font-size="12" font-family="sans-serif">Body</text>
+</g>
+<g><title>/PopupFormationTest/PopupStat/HeroName</title><rect x="861.0" y="140.6" width="355.5" height="38.1" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+<text x="866.0" y="156.6" fill="#e2e8f0" font-size="12" font-family="sans-serif">HeroName</text>
+</g>
+<g><title>/PopupFormationTest/PopupStat/ButtonRemove | button_red</title><rect x="1140.3" y="246.3" width="115.4" height="45.4" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+<text x="1145.3" y="262.3" fill="#e2e8f0" font-size="12" font-family="sans-serif">ButtonRemove</text>
+</g>
+<g><title>/PopupFormationTest/PopupStat/ButtonRemove/Text</title><rect x="1140.3" y="246.3" width="115.4" height="38.3" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+<text x="1145.3" y="262.3" fill="#e2e8f0" font-size="12" font-family="sans-serif">Text</text>
+</g>
+<g><title>/PopupFormationTest/PopupStat/ButtonMode | button_green</title><rect x="1140.3" y="196.3" width="115.4" height="45.4" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+<text x="1145.3" y="212.3" fill="#e2e8f0" font-size="12" font-family="sans-serif">ButtonMode</text>
+</g>
+<g><title>/PopupFormationTest/PopupStat/ButtonMode/Text</title><rect x="1140.3" y="196.3" width="115.4" height="38.3" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+<text x="1145.3" y="212.3" fill="#e2e8f0" font-size="12" font-family="sans-serif">Text</text>
+</g>
+<g><title>/PopupFormationTest/PopupStat/Detail/InputFieldStar | InputFieldBackground</title><rect x="988.0" y="205.6" width="120.0" height="38.7" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+<text x="993.0" y="221.6" fill="#e2e8f0" font-size="12" font-family="sans-serif">InputFieldStar</text>
+</g>
+<g><title>/PopupFormationTest/PopupStat/Detail/InputFieldStar/Placeholder</title><rect x="998.0" y="212.6" width="100.0" height="25.7" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PopupFormationTest/PopupStat/Detail/InputFieldStar/Text</title><rect x="998.0" y="212.6" width="100.0" height="25.7" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PopupFormationTest/PopupStat/Detail/InputFieldStar/Label</title><rect x="880.0" y="212.6" width="100.0" height="25.7" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PopupFormationTest/PopupStat/Detail/InputFieldTier | InputFieldBackground</title><rect x="988.0" y="252.9" width="120.0" height="38.7" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+<text x="993.0" y="268.9" fill="#e2e8f0" font-size="12" font-family="sans-serif">InputFieldTier</text>
+</g>
+<g><title>/PopupFormationTest/PopupStat/Detail/InputFieldTier/Placeholder</title><rect x="998.0" y="259.9" width="100.0" height="25.7" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PopupFormationTest/PopupStat/Detail/InputFieldTier/Text</title><rect x="998.0" y="259.9" width="100.0" height="25.7" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PopupFormationTest/PopupStat/Detail/InputFieldTier/Label</title><rect x="880.0" y="259.9" width="100.0" height="25.7" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PopupFormationTest/PopupStat/Detail/InputField0 | InputFieldBackground</title><rect x="909.0" y="307.7" width="120.0" height="38.7" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+<text x="914.0" y="323.7" fill="#e2e8f0" font-size="12" font-family="sans-serif">InputField0</text>
+</g>
+<g><title>/PopupFormationTest/PopupStat/Detail/InputField0/Placeholder</title><rect x="919.0" y="314.7" width="100.0" height="25.7" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PopupFormationTest/PopupStat/Detail/InputField0/Text</title><rect x="919.0" y="314.7" width="100.0" height="25.7" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PopupFormationTest/PopupStat/Detail/InputField0/Label</title><rect x="801.0" y="314.7" width="100.0" height="25.7" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PopupFormationTest/PopupStat/Detail/InputField1 | InputFieldBackground</title><rect x="1118.0" y="307.7" width="120.0" height="38.7" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+<text x="1123.0" y="323.7" fill="#e2e8f0" font-size="12" font-family="sans-serif">InputField1</text>
+</g>
+<g><title>/PopupFormationTest/PopupStat/Detail/InputField1/Placeholder</title><rect x="1128.0" y="314.7" width="100.0" height="25.7" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PopupFormationTest/PopupStat/Detail/InputField1/Text</title><rect x="1128.0" y="314.7" width="100.0" height="25.7" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PopupFormationTest/PopupStat/Detail/InputField1/Label</title><rect x="1010.0" y="314.7" width="100.0" height="25.7" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PopupFormationTest/PopupStat/Detail/InputField2 | InputFieldBackground</title><rect x="909.0" y="353.7" width="120.0" height="38.7" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+<text x="914.0" y="369.7" fill="#e2e8f0" font-size="12" font-family="sans-serif">InputField2</text>
+</g>
+<g><title>/PopupFormationTest/PopupStat/Detail/InputField2/Placeholder</title><rect x="919.0" y="360.7" width="100.0" height="25.7" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PopupFormationTest/PopupStat/Detail/InputField2/Text</title><rect x="919.0" y="360.7" width="100.0" height="25.7" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PopupFormationTest/PopupStat/Detail/InputField2/Label</title><rect x="801.0" y="360.7" width="100.0" height="25.7" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PopupFormationTest/PopupStat/Detail/InputField3 | InputFieldBackground</title><rect x="1118.0" y="405.7" width="120.0" height="38.7" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+<text x="1123.0" y="421.7" fill="#e2e8f0" font-size="12" font-family="sans-serif">InputField3</text>
+</g>
+<g><title>/PopupFormationTest/PopupStat/Detail/InputField3/Placeholder</title><rect x="1128.0" y="412.7" width="100.0" height="25.7" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PopupFormationTest/PopupStat/Detail/InputField3/Text</title><rect x="1128.0" y="412.7" width="100.0" height="25.7" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PopupFormationTest/PopupStat/Detail/InputField3/Label</title><rect x="1010.0" y="412.7" width="100.0" height="25.7" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PopupFormationTest/PopupStat/Detail/InputField4 | InputFieldBackground</title><rect x="909.0" y="404.7" width="120.0" height="38.7" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+<text x="914.0" y="420.7" fill="#e2e8f0" font-size="12" font-family="sans-serif">InputField4</text>
+</g>
+<g><title>/PopupFormationTest/PopupStat/Detail/InputField4/Placeholder</title><rect x="919.0" y="411.7" width="100.0" height="25.7" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PopupFormationTest/PopupStat/Detail/InputField4/Text</title><rect x="919.0" y="411.7" width="100.0" height="25.7" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PopupFormationTest/PopupStat/Detail/InputField4/Label</title><rect x="801.0" y="411.7" width="100.0" height="25.7" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PopupFormationTest/PopupStat/Detail/InputField5 | InputFieldBackground</title><rect x="907.0" y="646.7" width="120.0" height="38.7" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+<text x="912.0" y="662.7" fill="#e2e8f0" font-size="12" font-family="sans-serif">InputField5</text>
+</g>
+<g><title>/PopupFormationTest/PopupStat/Detail/InputField5/Placeholder</title><rect x="917.0" y="653.7" width="100.0" height="25.7" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PopupFormationTest/PopupStat/Detail/InputField5/Text</title><rect x="917.0" y="653.7" width="100.0" height="25.7" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PopupFormationTest/PopupStat/Detail/InputField5/Label</title><rect x="799.0" y="653.7" width="100.0" height="25.7" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PopupFormationTest/PopupStat/Detail/InputField6 | InputFieldBackground</title><rect x="909.0" y="450.7" width="120.0" height="38.7" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+<text x="914.0" y="466.7" fill="#e2e8f0" font-size="12" font-family="sans-serif">InputField6</text>
+</g>
+<g><title>/PopupFormationTest/PopupStat/Detail/InputField6/Placeholder</title><rect x="919.0" y="457.7" width="100.0" height="25.7" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PopupFormationTest/PopupStat/Detail/InputField6/Text</title><rect x="919.0" y="457.7" width="100.0" height="25.7" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PopupFormationTest/PopupStat/Detail/InputField6/Label</title><rect x="801.0" y="457.7" width="100.0" height="25.7" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PopupFormationTest/PopupStat/Detail/InputField7 | InputFieldBackground</title><rect x="1118.0" y="450.7" width="120.0" height="38.7" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+<text x="1123.0" y="466.7" fill="#e2e8f0" font-size="12" font-family="sans-serif">InputField7</text>
+</g>
+<g><title>/PopupFormationTest/PopupStat/Detail/InputField7/Placeholder</title><rect x="1128.0" y="457.7" width="100.0" height="25.7" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PopupFormationTest/PopupStat/Detail/InputField7/Text</title><rect x="1128.0" y="457.7" width="100.0" height="25.7" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PopupFormationTest/PopupStat/Detail/InputField7/Label</title><rect x="1010.0" y="457.7" width="100.0" height="25.7" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PopupFormationTest/PopupStat/Detail/InputField8 | InputFieldBackground</title><rect x="909.0" y="500.7" width="120.0" height="38.7" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+<text x="914.0" y="516.7" fill="#e2e8f0" font-size="12" font-family="sans-serif">InputField8</text>
+</g>
+<g><title>/PopupFormationTest/PopupStat/Detail/InputField8/Placeholder</title><rect x="919.0" y="507.7" width="100.0" height="25.7" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PopupFormationTest/PopupStat/Detail/InputField8/Text</title><rect x="919.0" y="507.7" width="100.0" height="25.7" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PopupFormationTest/PopupStat/Detail/InputField8/Label</title><rect x="801.0" y="507.7" width="100.0" height="25.7" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PopupFormationTest/PopupStat/Detail/InputField9 | InputFieldBackground</title><rect x="1118.0" y="500.7" width="120.0" height="38.7" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+<text x="1123.0" y="516.7" fill="#e2e8f0" font-size="12" font-family="sans-serif">InputField9</text>
+</g>
+<g><title>/PopupFormationTest/PopupStat/Detail/InputField9/Placeholder</title><rect x="1128.0" y="507.7" width="100.0" height="25.7" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PopupFormationTest/PopupStat/Detail/InputField9/Text</title><rect x="1128.0" y="507.7" width="100.0" height="25.7" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PopupFormationTest/PopupStat/Detail/InputField9/Label</title><rect x="1010.0" y="507.7" width="100.0" height="25.7" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PopupFormationTest/PopupStat/Detail/InputField10 | InputFieldBackground</title><rect x="909.0" y="551.7" width="120.0" height="38.7" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+<text x="914.0" y="567.7" fill="#e2e8f0" font-size="12" font-family="sans-serif">InputField10</text>
+</g>
+<g><title>/PopupFormationTest/PopupStat/Detail/InputField10/Placeholder</title><rect x="919.0" y="558.7" width="100.0" height="25.7" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PopupFormationTest/PopupStat/Detail/InputField10/Text</title><rect x="919.0" y="558.7" width="100.0" height="25.7" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PopupFormationTest/PopupStat/Detail/InputField10/Label</title><rect x="801.0" y="558.7" width="100.0" height="25.7" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PopupFormationTest/PopupStat/Detail/InputField11 | InputFieldBackground</title><rect x="1118.0" y="551.7" width="120.0" height="38.7" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+<text x="1123.0" y="567.7" fill="#e2e8f0" font-size="12" font-family="sans-serif">InputField11</text>
+</g>
+<g><title>/PopupFormationTest/PopupStat/Detail/InputField11/Placeholder</title><rect x="1128.0" y="558.7" width="100.0" height="25.7" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PopupFormationTest/PopupStat/Detail/InputField11/Text</title><rect x="1128.0" y="558.7" width="100.0" height="25.7" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PopupFormationTest/PopupStat/Detail/InputField11/Label</title><rect x="1010.0" y="558.7" width="100.0" height="25.7" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PopupFormationTest/PopupStat/Detail/InputField12 | InputFieldBackground</title><rect x="909.0" y="597.7" width="120.0" height="38.7" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+<text x="914.0" y="613.7" fill="#e2e8f0" font-size="12" font-family="sans-serif">InputField12</text>
+</g>
+<g><title>/PopupFormationTest/PopupStat/Detail/InputField12/Placeholder</title><rect x="919.0" y="604.7" width="100.0" height="25.7" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PopupFormationTest/PopupStat/Detail/InputField12/Text</title><rect x="919.0" y="604.7" width="100.0" height="25.7" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PopupFormationTest/PopupStat/Detail/InputField12/Label</title><rect x="801.0" y="604.7" width="100.0" height="25.7" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PopupFormationTest/PopupStat/Detail/InputField13 | InputFieldBackground</title><rect x="1118.0" y="597.7" width="120.0" height="38.7" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+<text x="1123.0" y="613.7" fill="#e2e8f0" font-size="12" font-family="sans-serif">InputField13</text>
+</g>
+<g><title>/PopupFormationTest/PopupStat/Detail/InputField13/Placeholder</title><rect x="1128.0" y="604.7" width="100.0" height="25.7" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PopupFormationTest/PopupStat/Detail/InputField13/Text</title><rect x="1128.0" y="604.7" width="100.0" height="25.7" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PopupFormationTest/PopupStat/Detail/InputField13/Label</title><rect x="1010.0" y="604.7" width="100.0" height="25.7" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PopupFormationTest/PopupStat/Detail/InputField16 | InputFieldBackground</title><rect x="1119.0" y="354.7" width="120.0" height="38.7" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+<text x="1124.0" y="370.7" fill="#e2e8f0" font-size="12" font-family="sans-serif">InputField16</text>
+</g>
+<g><title>/PopupFormationTest/PopupStat/Detail/InputField16/Placeholder</title><rect x="1129.0" y="361.7" width="100.0" height="25.7" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PopupFormationTest/PopupStat/Detail/InputField16/Text</title><rect x="1129.0" y="361.7" width="100.0" height="25.7" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PopupFormationTest/PopupStat/Detail/InputField16/Label</title><rect x="1011.0" y="361.7" width="100.0" height="25.7" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PopupFormationTest/PopupStat/Detail/IconHero</title><rect x="829.0" y="192.0" width="100.0" height="100.0" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+</g>
+<g><title>/PopupFormationTest/PopupStat/Detail/InputField97 | InputFieldBackground</title><rect x="1119.0" y="647.7" width="120.0" height="38.7" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+<text x="1124.0" y="663.7" fill="#e2e8f0" font-size="12" font-family="sans-serif">InputField97</text>
+</g>
+<g><title>/PopupFormationTest/PopupStat/Detail/InputField97/Placeholder</title><rect x="1129.0" y="654.7" width="100.0" height="25.7" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PopupFormationTest/PopupStat/Detail/InputField97/Text</title><rect x="1129.0" y="654.7" width="100.0" height="25.7" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PopupFormationTest/PopupStat/Detail/InputField97/Label</title><rect x="1011.0" y="654.7" width="100.0" height="25.7" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PopupFormationTest/PopupStat/Preview | hero_ground</title><rect x="922.0" y="470.0" width="242.0" height="160.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+<text x="927.0" y="486.0" fill="#e2e8f0" font-size="12" font-family="sans-serif">Preview</text>
+</g>
+<g><title>/PopupFormationTest/PopupStat/Preview/GroupSkill/ButtonSkill1/SpriteOn | skill_default</title><rect x="852.5" y="656.0" width="88.0" height="88.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupFormationTest/PopupStat/Preview/GroupSkill/ButtonSkill1/SpriteOff | skill_default</title><rect x="852.5" y="656.0" width="88.0" height="88.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupFormationTest/PopupStat/Preview/GroupSkill/ButtonSkill1/ImgLevel | slot_tier</title><rect x="898.5" y="652.0" width="44.0" height="44.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupFormationTest/PopupStat/Preview/GroupSkill/ButtonSkill1/ImgLevel/TextLevel</title><rect x="905.5" y="656.2" width="30.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PopupFormationTest/PopupStat/Preview/GroupSkill/ButtonSkill2/SpriteOn | skill_default</title><rect x="947.5" y="656.0" width="88.0" height="88.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupFormationTest/PopupStat/Preview/GroupSkill/ButtonSkill2/SpriteOff | skill_default</title><rect x="947.5" y="656.0" width="88.0" height="88.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupFormationTest/PopupStat/Preview/GroupSkill/ButtonSkill2/ImgLevel | slot_tier</title><rect x="993.5" y="652.0" width="44.0" height="44.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupFormationTest/PopupStat/Preview/GroupSkill/ButtonSkill2/ImgLevel/TextLevel</title><rect x="1000.5" y="656.2" width="30.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PopupFormationTest/PopupStat/Preview/GroupSkill/ButtonSkill3/SpriteOn | skill_default</title><rect x="1042.5" y="656.0" width="88.0" height="88.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupFormationTest/PopupStat/Preview/GroupSkill/ButtonSkill3/SpriteOff | skill_default</title><rect x="1042.5" y="656.0" width="88.0" height="88.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupFormationTest/PopupStat/Preview/GroupSkill/ButtonSkill3/ImgLevel | slot_tier</title><rect x="1088.5" y="652.0" width="44.0" height="44.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupFormationTest/PopupStat/Preview/GroupSkill/ButtonSkill3/ImgLevel/TextLevel</title><rect x="1095.5" y="656.2" width="30.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PopupFormationTest/PopupStat/Preview/GroupSkill/ButtonSkill4/SpriteOn | skill_default</title><rect x="1137.5" y="656.0" width="88.0" height="88.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupFormationTest/PopupStat/Preview/GroupSkill/ButtonSkill4/SpriteOff | skill_default</title><rect x="1137.5" y="656.0" width="88.0" height="88.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupFormationTest/PopupStat/Preview/GroupSkill/ButtonSkill4/ImgLevel | slot_tier</title><rect x="1183.5" y="652.0" width="44.0" height="44.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupFormationTest/PopupStat/Preview/GroupSkill/ButtonSkill4/ImgLevel/TextLevel</title><rect x="1190.5" y="656.2" width="30.0" height="30.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PopupFormationTest/PopupRelics/Bgr</title><rect x="0.0" y="0.0" width="1600.0" height="900.0" stroke="#d97706" stroke-width="1.2" fill="#d97706" fill-opacity=".12"/>
+<text x="5.0" y="16.0" fill="#e2e8f0" font-size="12" font-family="sans-serif">Bgr</text>
+</g>
+<g><title>/PopupFormationTest/PopupRelics/Content | bgr_chat</title><rect x="443.2" y="201.8" width="713.5" height="496.5" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+<text x="448.2" y="217.8" fill="#e2e8f0" font-size="12" font-family="sans-serif">Content</text>
+</g>
+<g><title>/PopupFormationTest/PopupRelics/Content/ButtonClose | button_close</title><rect x="1085.8" y="204.8" width="60.0" height="60.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupFormationTest/PopupRelics/Content/ScrollView | Background</title><rect x="500.0" y="274.0" width="600.0" height="352.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+<text x="505.0" y="290.0" fill="#e2e8f0" font-size="12" font-family="sans-serif">ScrollView</text>
+</g>
+<g><title>/PopupFormationTest/PopupRelics/Content/ScrollView/Viewport | UIMask</title><rect x="500.0" y="274.0" width="600.0" height="352.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+<text x="505.0" y="290.0" fill="#e2e8f0" font-size="12" font-family="sans-serif">Viewport</text>
+</g>
+<g><title>/PopupFormationTest/PopupRelics/Content/InputFieldSearch | box_text_3</title><rect x="506.0" y="222.7" width="160.0" height="38.7" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+<text x="511.0" y="238.7" fill="#e2e8f0" font-size="12" font-family="sans-serif">InputFieldSearch</text>
+</g>
+<g><title>/PopupFormationTest/PopupRelics/Content/InputFieldSearch/Placeholder</title><rect x="516.0" y="229.7" width="140.0" height="25.7" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PopupFormationTest/PopupRelics/Content/InputFieldSearch/Text</title><rect x="516.0" y="229.7" width="140.0" height="25.7" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+<g><title>/PopupFormationTest/PopupRelics/Toggle/Background | UISprite</title><rect x="719.0" y="224.5" width="35.0" height="35.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupFormationTest/PopupRelics/Toggle/Background/Checkmark | Checkmark</title><rect x="726.5" y="232.0" width="20.0" height="20.0" stroke="#0d9488" stroke-width="1.2" fill="#0d9488" fill-opacity=".12"/>
+</g>
+<g><title>/PopupFormationTest/PopupRelics/Toggle/Label</title><rect x="760.2" y="234.0" width="131.0" height="17.0" stroke="#a78bfa" stroke-width="1.2" fill="#a78bfa" fill-opacity=".12"/>
+</g>
+</svg>
