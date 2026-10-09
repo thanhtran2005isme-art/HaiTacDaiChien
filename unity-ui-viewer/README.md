@@ -57,9 +57,20 @@ The reconstructed prefab importer assigns original **Sprite border and
 pixels-per-unit only when the source Sprite rectangle matches the PNG** and
 all uses of a texture agree. The `SpineReferenceEvidence` and
 `UiComponentEvidence` components in each GameObject's Inspector retain the
-component's provenance/verification status. No arbitrary characters are placed
+component's provenance/verification status. The Editor also imports matched
+Spine 3.8 skeleton JSON, atlas text and atlas page textures locally into
+`Assets/LocalReconstruction/SpinePacks/`, and attaches source asset references
+to the original GameObjects via `SpineReferenceEvidence`. This does not create
+a running SkeletonGraphic without a compatible Spine-Unity runtime.
+No arbitrary characters are placed
 at empty team positions. Original Image Sliced/Tiled settings remain unknown,
 so a border alone does not force a different Image.Type.
+
+For REF04, the content-based export found **eight original source packs**:
+BlackFlag, Cloud, Fx_mission, home, Home_chest, Ship1, Shiphome_2 and wave_ship.
+They are primarily ship/scene/effect assets, **not proof of six player-selected
+crew characters**. The static XAPK scene does not establish player lineup,
+selected skin or active animation.
 
 For the provided XAPK, 826 Sprite references have readable rectangle/border
 metadata and 32 scene SkeletonGraphic nodes were audited. Only 13 candidates
