@@ -31,16 +31,37 @@ if errorlevel 1 (
     exit /b 1
 )
 echo [3/4] Giai ma Sprite UI vao output\local-ui-art
+set "SPRITE_STATE=FAILED"
 %PY% tools\export_local_ui_art.py
-if errorlevel 1 echo [WARN] Sprite export that bai. Kiem tra XAPK/APK.
+if not errorlevel 1 set "SPRITE_STATE=PASS"
+if /I "%SPRITE_STATE%"=="FAILED" (
+    echo [ERROR] Chua tao duoc Sprite UI. Xem output\local-ui-art\export-status.json.
+    echo [ERROR] Khi mo web, local-art/manifest.json se khong co.
+)
 echo [4/4] Giai ma Spine 3.8 JSON, atlas, texture vao output\local-spine
+set "SPINE_STATE=FAILED"
 %PY% tools\export_local_spine.py --limit 12
-if errorlevel 1 echo [WARN] Chua du bo Spine hop le. Xem thong bao ben tren.
+if not errorlevel 1 set "SPINE_STATE=PASS"
+if /I "%SPINE_STATE%"=="FAILED" echo [WARN] Chua du bo Spine hop le. Xem thong bao ben tren.
 echo.
 echo Trinh phat animation chua di kem: can Spine Player 3.8 hop phap.
 echo Sao chep spine-player.js, spine-player.css vao output\local-spine-runtime.
 echo CHAY_UI_OFFLINE.bat mo Web UI; link Animation Spine mo thu vien offline.
 echo.
-call "%~dp0CAI_SPINE_PLAYER_38.bat"
+if not exist "%~dp0output\local-spine-runtime\spine-player.js" (
+    call "%~dp0CAI_SPINE_PLAYER_38.bat"
+) else (
+    echo [OK] Spine Player 3.8 da co tren may.
+)
+echo.
+echo ======================= KET QUA =======================
+echo Sprite UI: %SPRITE_STATE%
+echo Spine pack: %SPINE_STATE%
+echo Spine Player: can kiem tra tai trang /spine-viewer
+echo =======================================================
+if /I "%SPRITE_STATE%"=="FAILED" (
+    echo [ERROR] Cac khung UI van se la wireframe cho den khi Sprite export PASS.
+    echo [ERROR] Gui noi dung output\local-ui-art\export-status.json de kiem tra.
+)
 pause
 endlocal
