@@ -65,10 +65,14 @@ if not errorlevel 1 set "SPINE_LINK_STATE=PASS"
 if /I "%SPINE_LINK_STATE%"=="FAILED" (
     echo [WARN] Chua xac minh duoc chuoi Spine; khong tu chon nhan vat hay animation.
 )
-echo [4/4] Giai ma Spine 3.8 JSON, atlas, texture vao output\local-spine
+echo [4/4] Giai ma Spine 3.8 theo dung lien ket REF04 da xac minh...
 set "SPINE_STATE=FAILED"
-%PY% tools\export_local_spine.py --limit 12
-if not errorlevel 1 set "SPINE_STATE=PASS"
+if /I "%SPINE_LINK_STATE%"=="PASS" (
+    %PY% tools\export_local_spine.py --from-evidence REF04-home-crew --limit 12
+    if not errorlevel 1 set "SPINE_STATE=PASS"
+) else (
+    echo [WARN] Chua co du bang chung de chon pack REF04. Khong tu doan nhan vat.
+)
 if /I "%SPINE_STATE%"=="FAILED" echo [WARN] Chua du bo Spine hop le. Xem thong bao ben tren.
 echo.
 echo Trinh phat animation chua di kem: can Spine Player 3.8 hop phap.
