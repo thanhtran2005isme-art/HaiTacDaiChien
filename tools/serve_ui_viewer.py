@@ -18,6 +18,7 @@ ALLOWED = {
     "/": (ROOT / "web-ui-viewer/index.html", "text/html; charset=utf-8"),
     "/index.html": (ROOT / "web-ui-viewer/index.html", "text/html; charset=utf-8"),
     "/app.js": (ROOT / "web-ui-viewer/app.js", "text/javascript; charset=utf-8"),
+    "/asset-matching.js": (ROOT / "web-ui-viewer/asset-matching.js", "text/javascript; charset=utf-8"),
     "/style.css": (ROOT / "web-ui-viewer/style.css", "text/css; charset=utf-8"),
     "/ui-scenes.json": (
         ROOT / "unity-ui-viewer/Assets/StreamingAssets/ui-scenes.json",
@@ -47,7 +48,7 @@ class ViewerHandler(BaseHTTPRequestHandler):
         self.send_header("Content-Security-Policy",
                          "default-src 'self'; style-src 'self'; "
                          "script-src 'self'; connect-src 'self'; "
-                         "img-src 'none'; object-src 'none'; frame-ancestors 'none'")
+                         "img-src 'self' blob:; object-src 'none'; frame-ancestors 'none'")
         self.end_headers()
         self.wfile.write(data)
 
