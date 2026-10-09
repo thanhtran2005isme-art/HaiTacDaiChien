@@ -11,6 +11,7 @@ import zipfile
 ROOT = pathlib.Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "tools"))
 import recover_managed_ui_fields as binary
+import probe_xapk_typetree_backends as probe
 
 
 def pointer(pid, file_id=0):
@@ -73,6 +74,26 @@ def make_xapk(path, *, duplicate=False, elf=True, version=31):
 
 
 class BinaryProofTests(unittest.TestCase):
+    def test_backend_probe_selects_only_source_proven_monoscripts(self):
+        scenes=[{"components": [
+            {"className": "UnityEngine.UI.Image",
+             "assembly": "UnityEngine.UI",
+             "scriptResolution": "GLOBAL_XAPK_EXACT_FILE_ALIAS_PATHID"},
+            {"className": "UnityEngine.UI.CanvasScaler",
+             "assembly": "UnityEngine.UI",
+             "scriptResolution": "LOCAL_PATHID"},
+            {"className": "UnityEngine.UI.Mask",
+             "assembly": "UnityEngine.UI",
+             "scriptResolution": "GUESSED_CLASS_NAME"},
+            {"className": "Other.Type", "assembly": "UnityEngine.UI",
+             "scriptResolution": "LOCAL_PATHID"},
+        ]}]
+        names = probe.select_source_classes(scenes)
+        self.assertEqual([(asm, cls) for asm,cls,_ in names],[
+            ("UnityEngine.UI", "UnityEngine.UI.Image"),
+            ("UnityEngine.UI", "UnityEngine.UI.CanvasScaler")
+        ])
+
     def test_source_pair_generator_and_provenance_hashes(self):
         with tempfile.TemporaryDirectory() as folder:
             xapk = pathlib.Path(folder) / "authorized.xapk"
