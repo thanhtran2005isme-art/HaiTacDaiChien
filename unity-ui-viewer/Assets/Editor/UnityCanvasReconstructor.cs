@@ -136,6 +136,7 @@ namespace HaiTac.OfflineViewer.Editor
             public int componentId;
             public string className;
             public string status;
+            public string fieldsSummary;
         }
 
         [Serializable] private class SpineLinkDatabase
@@ -805,10 +806,10 @@ namespace HaiTac.OfflineViewer.Editor
                         note.originalComponentId = component.componentId.ToString();
                         note.originalClass = component.className;
                         note.evidenceStatus = component.status;
-                        note.serializedFields = component.status == "serialized_fields_available"
-                            ? "Original fields available in local JSON; runtime reproduction " +
-                              "must respect type-specific material and layout dependencies."
-                            : "Original fields unavailable in the IL2CPP typetree; no layout guessed.";
+                        note.serializedFields =
+                            component.status == "serialized_fields_available" ?
+                            component.fieldsSummary :
+                            "Original fields unavailable in IL2CPP typetree; no layout guessed.";
                     }
                 }
                 foreach (var row in spine)
