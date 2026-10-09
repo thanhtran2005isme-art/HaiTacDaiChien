@@ -67,7 +67,7 @@ Repo hiện dùng GitHub connector không có quyền thay đổi thiết lập 
 
 ## 6. Lưu ý riêng: metadata tự sinh
 
-Workflow `.github/workflows/unity-offline-viewer.yml` **không tự push thẳng `main`**. Nếu dữ liệu Unity `ui-scenes.json` thay đổi vì generator, chạy `python tools/build_unity_viewer_data.py --repo-root .` trên nhánh chức năng rồi commit kết quả vào PR. Không dùng bot để ghi đè main.
+Hai workflow `.github/workflows/unity-offline-viewer.yml` và `.github/workflows/xapk-ui-audit.yml` **không tự push thẳng `main`**. Nếu dữ liệu Unity `ui-scenes.json` thay đổi vì generator, chạy `python tools/build_unity_viewer_data.py --repo-root .` trên nhánh chức năng rồi commit kết quả vào PR. Không dùng bot để ghi đè main.
 
 ## 7. ChatGPT phiên sau
 
