@@ -6,6 +6,7 @@
   <meta name="color-scheme" content="dark">
   <title>Hải Tặc · Offline UI Viewer</title>
   <link rel="stylesheet" href="/style.css">
+  <script defer src="/asset-matching.js"></script>
   <script defer src="/app.js"></script>
 </head>
 <body>
@@ -17,6 +18,16 @@
     <aside class="sidebar">
       <div class="aside-title"><strong>Màn hình</strong><span id="scene-count">5 ứng viên</span></div>
       <div id="scene-list" class="scene-list" aria-label="Chọn màn hình"></div>
+      <section class="assets-box" aria-labelledby="assets-head">
+        <div class="assets-head"><strong id="assets-head">Ảnh của bạn</strong><span>Chỉ trên máy này</span></div>
+        <p>Nạp ảnh PNG/JPG/WebP có quyền sử dụng. File trùng tên Sprite sẽ tự ghép, không gửi lên máy chủ.</p>
+        <label class="asset-select" for="asset-folder">Chọn thư mục ảnh</label>
+        <input id="asset-folder" type="file" webkitdirectory directory multiple accept="image/png,image/jpeg,image/webp" aria-label="Chọn thư mục ảnh">
+        <label class="asset-select secondary" for="asset-files">Hoặc chọn vài ảnh</label>
+        <input id="asset-files" type="file" multiple accept=".png,.jpg,.jpeg,.webp,image/png,image/jpeg,image/webp" aria-label="Chọn các ảnh">
+        <div id="asset-status" class="asset-status" aria-live="polite">Chưa nạp ảnh. Hiển thị wireframe.</div>
+        <button id="asset-clear" type="button" class="asset-clear">Xóa ảnh khỏi phiên xem</button>
+      </section>
       <div class="aside-break"></div>
       <label class="field-label" for="search">Tìm nút giao diện</label>
       <input id="search" type="search" placeholder="GameObject, đường dẫn, Sprite…" autocomplete="off">
@@ -42,18 +53,20 @@
         </div>
         <div class="controls">
           <label class="checkbox"><input type="checkbox" id="show-inactive" checked> Nút ẩn</label>
+          <label class="checkbox"><input type="checkbox" id="show-bounds"> Viền kiểm tra</label>
           <button id="zoom-out" title="Thu nhỏ" aria-label="Thu nhỏ">−</button>
           <span id="zoom-label">100%</span>
           <button id="zoom-in" title="Phóng to" aria-label="Phóng to">+</button>
           <button id="zoom-reset" title="Đặt lại">Vừa khung</button>
         </div>
       </div>
-      <div class="canvas-frame" id="canvas-frame" aria-label="Bản xem trước wireframe từ RectTransform">
+      <div class="visual-info" id="visual-info">Không có ảnh. Chọn thư mục ảnh được phép sử dụng ở thanh bên trái.</div>
+      <div class="canvas-frame" id="canvas-frame" aria-label="Bản xem trước ảnh và RectTransform">
         <div id="stage" class="stage">
-          <div class="stage-note">1600 × 900 giả định<br>KHÔNG CÓ ARTWORK GAME</div>
+          <div class="stage-note">1600 × 900 giả định<br>ẢNH NẠP TỪ MÁY CỦA BẠN</div>
           <div id="node-layer"></div>
         </div>
-        <div class="stage-tag">BẢN XEM TRƯỚC · KHÔNG PHẢI ẢNH GAME THẬT</div>
+        <div class="stage-tag">BỐ CỤC ƯỚC TÍNH · ẢNH TỰ CHỌN · KHÔNG PHẢI CLIENT GỐC</div>
       </div>
       <div class="legend">
         <span><i class="swatch image"></i>Sprite ứng viên</span>
@@ -70,6 +83,14 @@
     <aside class="details">
       <div class="details-title"><strong>Thông tin thành phần</strong><span>Inspector</span></div>
       <div id="inspector" class="inspector" aria-live="polite">Chọn một vùng trên bản xem trước.</div>
+      <div class="manual-assets">
+        <strong>Gán ảnh thủ công</strong>
+        <p>Chọn một nút UI, rồi chọn ảnh cho đúng nút đó.</p>
+        <label class="asset-select secondary" for="node-image">Chọn ảnh cho nút</label>
+        <input id="node-image" type="file" accept=".png,.jpg,.jpeg,.webp,image/png,image/jpeg,image/webp" disabled>
+        <button id="node-image-clear" type="button" disabled>Bỏ ảnh gán cho nút</button>
+        <span id="node-asset-status" class="asset-status">Chưa chọn nút.</span>
+      </div>
       <div class="missing-panel"><strong>Các Image chưa liên kết</strong><span id="missing-list" class="missing-list">Đang tải…</span></div>
     </aside>
   </div>
