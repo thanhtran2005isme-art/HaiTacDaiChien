@@ -141,6 +141,7 @@ def verified_scene(scene, readers, image_rows):
                 value = get(obj, source)
                 if isinstance(value, (bool, int)):
                     details[dest] = value
+                    details["has" + dest[0].upper() + dest[1:]] = True
             canvases.append(details)
         except Exception:
             failure["canvas_read_failure"] += 1
@@ -175,9 +176,11 @@ def verified_scene(scene, readers, image_rows):
                     number = real(tree[raw])
                     if number is not None:
                         result[output] = tree[raw]
+                        result["has" + output[0].upper() + output[1:]] = True
             color = valid_color(tree.get("m_Color"))
             if color is not None:
                 result["color"] = color
+                result["hasColor"] = True
             if len(result) > 1:
                 images.append(result)
             else:
