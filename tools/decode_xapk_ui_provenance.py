@@ -20,6 +20,7 @@ import audit_local_ui_components as ui
 import audit_original_unity_graph as graph_tool
 import export_local_ui_layout as layout
 import il2cpp_refs as refs
+import recover_managed_ui_fields as binary
 
 ROOT = layout.ROOT
 UI_FIELDS = ui.FIELDS
@@ -172,10 +173,15 @@ def inspect_scene(scene, original, groups, registry):
         if row.get("className") in UI_FIELDS:
             counts["recognizedUIClasses"] += 1
             counts["class:" + row["className"]] += 1
-            if row["status"] == "SERIALIZED_FIELDS_VERIFIED":
+            if row["status"] in (
+                        "SERIALIZED_FIELDS_VERIFIED",
+                        "GENERATED_TYPETREE_SOURCE_VERIFIED"):
                 counts["verifiedManagedFields"] += len(row["fields"])
+    # The version must originate from the exact SerializedFile, not the local Editor.
+    representative = next(iter(by_id.values()))
+    version = str(getattr(representative.assets_file, "unity_version", "") or "")
     return {"sceneId": scene["id"], "sourceFile": scene["source"],
-            "components": results, "stats": dict(counts)}
+            "unityVersion": version, "components": results, "stats": dict(counts)}
 
 
 def resolve_cross_bundle_scripts(xapk, scenes, unitypy=None):
@@ -366,7 +372,69 @@ def summarize(scenes):
             "sceneCounts": {x["sceneId"]: x["stats"] for x in scenes}}
 
 
-def build(root=ROOT, xapk=None, unitypy=None):
+
+def recover_generated_managed_fields(root, xapk, scenes, analyzed, unitypy):
+    """Optional SECOND source pass after cross-bundle MonoScript identity is proven.
+
+    Never edits XAPK or prefab. Keep every failure as UNKNOWN, not guessed data.
+    """
+    version = binary.exact_unity_version(analyzed)
+    generator, proof = binary.source_generator(xapk, version)
+    by_scene = {x["sceneId"]: x for x in analyzed}
+    visited = set()
+    attempts = collections.Counter()
+
+    class Recheck:
+        def load(self, buffer):
+            env = unitypy.load(buffer)
+            groups = collections.defaultdict(dict)
+            for reader in env.objects:
+                groups[id(reader.assets_file)][int(reader.path_id)] = reader
+            for scene in scenes:
+                name = scene["id"]
+                if name in visited:
+                    continue
+                try:
+                    source = layout.choose_serialized_file(scene, groups)
+                except ValueError:
+                    continue
+                expected_version = by_scene[name]["unityVersion"]
+                actual_version = str(getattr(
+                    next(iter(source.values())).assets_file,
+                    "unity_version", "") or "")
+                if actual_version != expected_version:
+                    raise binary.RecoveryBlocked("Source Unity version changed during recheck")
+                for row in by_scene[name]["components"]:
+                    if (row.get("className") not in UI_FIELDS or
+                            row.get("status") not in
+                            ("NO_MANAGED_TYPETREE", "TYPE_TREE_RECHECK_REQUIRED")):
+                        continue
+                    reader = source.get(int(row["pathId"]))
+                    if reader is None:
+                        raise binary.RecoveryBlocked("Source component vanished on recheck")
+                    attempts["attempted"] += 1
+                    try:
+                        fields, record = binary.verified_fields(reader, row, generator)
+                    except binary.RecoveryBlocked as exc:
+                        row["binaryRecovery"] = "BLOCKED: " + str(exc)[:180]
+                        attempts["blocked"] += 1
+                        continue
+                    row["fields"] = fields
+                    row["binaryProof"] = record
+                    row["status"] = "GENERATED_TYPETREE_SOURCE_VERIFIED"
+                    attempts["verifiedComponents"] += 1
+                    attempts["verifiedFields"] += len(fields)
+                visited.add(name)
+            return env
+
+    layout.build(root=root, xapk=xapk, unitypy=Recheck())
+    if len(visited) != 5:
+        raise binary.RecoveryBlocked("Binary recheck did not revisit all five source scenes")
+    return {**proof, "verification": dict(attempts),
+            "policy": "Local source-derived full-object checked, no prefab changes"}
+
+
+def build(root=ROOT, xapk=None, unitypy=None, recover_managed=False):
     if unitypy is None:
         import UnityPy as unitypy
     original_path = root / "output/original-unity-graph.json"
@@ -409,6 +477,10 @@ def build(root=ROOT, xapk=None, unitypy=None):
     if canonical_xapk is None:
         raise FileNotFoundError("Canonical XAPK not found")
     cross = resolve_cross_bundle_scripts(canonical_xapk, analyzed, unitypy)
+    binary_proof = None
+    if recover_managed:
+        binary_proof = recover_generated_managed_fields(
+            root, canonical_xapk, scenes, analyzed, unitypy)
     # Recompute class counts AFTER global source MonoScript resolution.
     for item in analyzed:
         stats = collections.Counter()
@@ -425,13 +497,17 @@ def build(root=ROOT, xapk=None, unitypy=None):
         raise ValueError("Exact source component count mismatch")
     return {
         "schemaVersion": 1,
-        "status": "VERIFIED_POINTER_AUDIT_NOT_FIELD_OFFSET_RECOVERY",
+        "status": ("SOURCE_GENERATED_TYPETREE_RECHECK_COMPLETE"
+                   if recover_managed else
+                   "VERIFIED_POINTER_AUDIT_NOT_FIELD_OFFSET_RECOVERY"),
         "scenes": sorted(analyzed, key=lambda x: x["sceneId"]),
         "stats": summary,
         "globalMonoScriptResolution": cross,
+        "generatedBinaryProof": binary_proof,
         "il2cpp": inspect_il2cpp_header(root / "output/apks", canonical_xapk),
         "warning": "Never synthesize masked UI/layout or interpret arbitrary "
-                   "IL2CPP metadata strings as serialized component values."
+                   "IL2CPP metadata strings as serialized component values; "
+                   "generated tree success is not an Editor/Play Mode test."
     }
 
 
@@ -457,6 +533,15 @@ def render_report(data):
                      data["stats"]["verifiedManagedFields"].items())
     else:
         lines.append("No target managed field values verified via typetree.")
+    if data.get("generatedBinaryProof"):
+        proof = data["generatedBinaryProof"]
+        lines += ["", "## Opt-in generated TypeTree verification", "",
+                  "- Source game Unity version: " + proof["gameUnityVersion"],
+                  "- Source libil2cpp.so SHA256: " + proof["library"]["sha256"],
+                  "- Source global-metadata.dat SHA256: " +
+                  proof["metadata"]["sha256"],
+                  "- Results: " + json.dumps(proof["verification"], sort_keys=True),
+                  "- No Unity Prefab changes or Play Mode verification.", ""]
     lines += ["", "## Remaining blockers", "",
               "- MonoScript class links are PPtr-based and may remain unresolved "
               "if the referenced SerializedFile is unavailable.",
@@ -474,10 +559,14 @@ def main():
     ap = argparse.ArgumentParser(description=__doc__)
     ap.add_argument("--root", type=Path, default=ROOT)
     ap.add_argument("--xapk", type=Path)
+    ap.add_argument("--recover-managed-fields", action="store_true",
+                    help="Opt in to local exact-XAPK IL2CPP TypeTree generation; "
+                         "requires TypeTreeGeneratorAPI, source Unity version")
     args = ap.parse_args()
     root = args.root.resolve()
     try:
-        data = build(root=root, xapk=args.xapk)
+        data = build(root=root, xapk=args.xapk,
+                     recover_managed=args.recover_managed_fields)
     except (OSError, ValueError, KeyError, TypeError) as exc:
         ap.exit(1, "BLOCKED: " + str(exc)[:400] + "\n")
     folder = root / "output"
@@ -497,7 +586,8 @@ def main():
         "status": data["status"], "components": data["stats"]["componentCount"],
         "managedFieldNames": data["stats"]["verifiedManagedFields"],
         "metadataFiles": len(data["il2cpp"]["files"]),
-        "globalMonoScripts": data["globalMonoScriptResolution"]
+        "globalMonoScripts": data["globalMonoScriptResolution"],
+        "generatedBinaryProof": data["generatedBinaryProof"]
     }, ensure_ascii=False))
 
 
