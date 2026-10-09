@@ -1,3 +1,10 @@
+## 2026-10-10 — Phase 3B: native Unity MonoBehaviour header + managed IL2CPP source schema
+
+- **Bằng chứng:** Unity nguồn 2022.3.51f1, IL2CPP metadata v31. `AssetsTools` fail 1.201/1.201 lúc sinh schema; `AssetStudio` và `AssetRipper` tạo schema từ cùng cặp binary nhưng phát sinh sai khác ở native MonoBehaviour header.
+- **Lựa chọn:** lấy native MonoBehaviour header từ UnityPy TypeTree đúng version của file nguồn, ghép với **managed TypeTree sinh từ IL2CPP**, chỉ chấp nhận khi parse hết object (`check_read=True`), kiểm tra GameObject/MonoScript PPtr, enabled và mọi field type/range.
+- **Kết quả lần đầu:** AssetStudio 1.201 component / 8.102 field values; AssetRipper 1.108 / 7.451. 93 LayoutGroup chỉ AssetStudio parse strict thành công; giữ source provenance riêng cho từng backend.
+- **Quyết định an toàn:** cross-verify trên từng (scene, component PathID, field), source SHA và PPtr qua hai backend; CI phải FAIL nếu bất đồng. Tài nguyên nhị phân không upload GitHub. Không tự áp dụng UI values vào Prefab trước visual/Unity Editor audit.
+
 # Quyết định kỹ thuật đang áp dụng
 
 > Mỗi quyết định mới ghi **ngày, vấn đề, lựa chọn, hệ quả**; chi tiết triển khai ở PR/commit. Không dùng file này để ghi mọi lần chỉnh text.
