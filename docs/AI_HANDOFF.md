@@ -21,6 +21,8 @@ Khảo sát tài nguyên Unity trong XAPK Hải Tặc (được phép sử dụn
 
 - **Safe Mode khi kiểm tra PR #3:** Nhánh source graph tạo từ `main` trước khi PR #2 về modules Spine merge, làm `Packages/manifest.json` mất 5 module Unity built-in và có thể gây `CS1069` khi mở Editor. Đã chép lại cấu hình `animation/physics/physics2d/audio/particlesystem` và regression test vào **chính nhánh PR #3**; CI chỉ xác minh manifest, vẫn cần Console Unity xác nhận loại lỗi thực tế. Không được khẳng định Safe Mode chỉ có một nguyên nhân khi chưa đọc mã CSxxxx.
 
+- **Sửa render Image (stacked branch `fix/ref04-source-image-render-state`, chưa merge):** đổi ánh xạ Sprite theo **Image component ID → GameObject ID → RectTransform ID** thay vì đường dẫn trùng tên. Kết quả CI XAPK: **963 liên kết** (từ 826, +137; REF04 giữ 265), **11 Image m_Enabled=false** (REF04: 1). Layout schema 2, Unity plan schema 2 đối chiếu ID gốc; Web manifest version 1 giữ tương thích và thêm nodeBindings theo ID. Mã Unity áp dụng Image.enabled từ XAPK và Image.Type nếu thật sự đọc được. **0 Image typetree gốc đọc được**, nên REF04 vẫn chưa khớp pixel/runtime/Spine; chưa chạy Unity Editor thực tế. Xem `docs/XAPK_IMAGE_RENDER_CORRECTION.md`.
+
 ## Vấn đề còn lại / giới hạn chứng cứ
 1. Unity project hiện dùng **2022.3**, trong khi spine-unity 3.8 chính thức hỗ trợ đến Unity 2020.3. Thử runtime trong **bản sao project**; không coi Python CI là chứng cứ tương thích Unity Editor.
 2. Chưa xác minh skin/animation đang chạy và sáu nhân vật được chọn ở REF04; **không tự lấp vị trí bằng nhân vật đoán**.
