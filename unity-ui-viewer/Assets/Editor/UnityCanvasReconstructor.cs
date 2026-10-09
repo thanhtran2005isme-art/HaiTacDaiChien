@@ -672,7 +672,11 @@ namespace HaiTac.OfflineViewer.Editor
                 if (!EditorSceneManager.SaveScene(newScene, SceneFolder + "/" + filename + ".unity"))
                     throw new IOException("Could not save local scene " + filename);
                 Debug.Log("[HaiTac] Saved local scene " + filename + " with " +
-                    spriteCount + " source-linked Sprite Images and 1 preview Camera.");
+                    spriteCount + " source-linked Sprite Images and 1 preview Camera. " +
+                    (layout == null ? "No optional XAPK layout evidence; using legacy XY." :
+                    "Verified source transforms=" + layout.nodes.Length +
+                    ", Canvas records=" + layout.canvases.Length +
+                    ", Image typetrees=" + layout.images.Length + "."));
             }
             finally
             {
