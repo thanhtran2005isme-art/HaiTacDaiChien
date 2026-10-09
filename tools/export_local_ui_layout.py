@@ -147,9 +147,15 @@ def verified_scene(scene, readers, image_rows):
             if node_id is None:
                 continue
             details = {"nodeId": node_id}
+            # Built-in Canvas fields are readable independently of the
+            # managed uGUI Image typetree. Preserve only fields actually
+            # serialized in this Unity version.
             for source, dest in (("m_SortingOrder", "sortingOrder"),
                                  ("m_OverrideSorting", "overrideSorting"),
-                                 ("m_PixelPerfect", "pixelPerfect")):
+                                 ("m_PixelPerfect", "pixelPerfect"),
+                                 ("m_Enabled", "enabled"),
+                                 ("m_RenderMode", "renderMode"),
+                                 ("m_TargetDisplay", "targetDisplay")):
                 value = get(obj, source)
                 if isinstance(value, (bool, int)):
                     details[dest] = value
@@ -305,6 +311,12 @@ def build(root=ROOT, xapk=None, unitypy=None):
                   s["imageBindings"] if row.get("hasEnabled") and not row["enabled"]),
              "unknownImageEnabled": sum(1 for s in result for row in
                   s["imageBindings"] if not row.get("hasEnabled")),
+             "canvasWithEnabledEvidence": sum(1 for s in result for c in
+                  s["canvases"] if c.get("hasEnabled")),
+             "disabledCanvases": sum(1 for s in result for c in
+                  s["canvases"] if c.get("hasEnabled") and not c["enabled"]),
+             "canvasWithRenderModeEvidence": sum(1 for s in result for c in
+                  s["canvases"] if c.get("hasRenderMode")),
              "imageBindingsByScene": {
                  s["sceneId"]: len(s["imageBindings"]) for s in result
              },
