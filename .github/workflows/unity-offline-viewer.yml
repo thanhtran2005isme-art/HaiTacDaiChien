@@ -1,0 +1,73 @@
+name: Build Offline Unity UI Viewer Data
+
+on:
+  push:
+    paths:
+      - 'tools/build_unity_viewer_data.py'
+      - 'tests/test_build_unity_viewer_data.py'
+      - 'unity-ui-viewer/Assets/Scripts/**'
+      - 'unity-ui-viewer/Assets/Editor/**'
+      - 'unity-ui-viewer/Packages/**'
+      - 'unity-ui-viewer/ProjectSettings/**'
+      - '.github/workflows/unity-offline-viewer.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: unity-ui-viewer-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build-offline-data:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Checkout tracked metadata only (no XAPK download)
+        uses: actions/checkout@v4
+        with:
+          lfs: false
+          fetch-depth: 0
+
+      - name: Python stdlib data integrity tests
+        run: python3 -m unittest discover -s tests -p test_build_unity_viewer_data.py -v
+
+      - name: Generate self-contained Unity StreamingAssets JSON
+        run: python3 tools/build_unity_viewer_data.py --repo-root .
+
+      - name: Check JSON schema and required references
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+          p = Path("unity-ui-viewer/Assets/StreamingAssets/ui-scenes.json")
+          db = json.loads(p.read_text(encoding="utf-8"))
+          assert db["schemaVersion"] == 1
+          assert len(db["scenes"]) == 5
+          assert len({s["id"] for s in db["scenes"]}) == 5
+          assert sum(len(s["nodes"]) for s in db["scenes"]) > 1000
+          print("PASS scenes=5 nodes=", sum(len(s["nodes"]) for s in db["scenes"]))
+          print("No LFS data or game artwork were copied into the Unity project.")
+          PY
+
+      - name: Commit generated metadata only
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add unity-ui-viewer/Assets/StreamingAssets/ui-scenes.json
+          if ! git diff --cached --quiet; then
+            git commit -m "data: rebuild offline Unity viewer scenes from audited metadata"
+            for attempt in 1 2 3; do
+              git fetch origin main
+              git rebase origin/main
+              if git push origin HEAD:main; then
+                exit 0
+              fi
+              echo "Retrying metadata-only push"
+            done
+            exit 1
+          fi
