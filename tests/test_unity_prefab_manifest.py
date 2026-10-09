@@ -53,6 +53,29 @@ class TestUnityReconstructionPlan(unittest.TestCase):
         with self.assertRaises(ValueError):
             module.prepare(scenes, art, comps, candidates)
 
+    def test_source_canvas_root_scale_is_not_a_child_transform(self):
+        # Four serialized Canvas roots have (0,0), while the hero-detail root
+        # has (1,1). Rebuilding a duplicate child with the raw root scale
+        # hides all descendants in Unity. Guard the source evidence and fix.
+        import json
+        project_root = path.parents[1]
+        data = json.loads((project_root / "unity-ui-viewer/Assets/StreamingAssets/ui-scenes.json")
+                          .read_text(encoding="utf-8"))
+        zero_roots = {scene["id"] for scene in data["scenes"]
+                      if scene["nodes"][0]["scale"] == [0, 0]}
+        self.assertEqual(zero_roots, {
+            "REF01-ship-upgrade", "REF03-islands-map-A",
+            "REF03-islands-map-B", "REF04-home-crew",
+        })
+        source = (project_root / "unity-ui-viewer/Assets/Editor/UnityCanvasReconstructor.cs"
+                  ).read_text(encoding="utf-8")
+        self.assertIn("if (node.id == scene.rootTransform)", source)
+        self.assertIn("map.Add(node.id, rect);", source)
+        self.assertIn("continue;", source)
+        self.assertIn("Local Preview Camera", source)
+        self.assertIn("Zero-scale reconstructed Canvas", source)
+        self.assertIn("Audit 5 generated Canvas scenes", source)
+
     def test_reject_private_image_paths(self):
         scenes, art, comps, candidates = self.fixture()
         art["files"] = ["../../private.png"]
