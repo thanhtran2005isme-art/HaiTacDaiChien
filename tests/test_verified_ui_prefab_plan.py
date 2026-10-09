@@ -96,6 +96,15 @@ class TestExactManagedStudyPlan(unittest.TestCase):
     def setUp(self):
         self.studio, self.ripper, self.graph = fixture()
 
+    def test_private_review_ledger_never_contains_field_values(self):
+        with (mock.patch.object(plan, "EXPECTED_EXCLUDED", 0),
+              mock.patch.object(plan, "EXPECTED_EXCLUDED_FIELDS", 0)):
+            review = plan.single_backend_review(self.studio, self.ripper)
+        self.assertEqual(review["componentCount"], 0)
+        self.assertEqual(review["excludedFieldValues"], 0)
+        self.assertNotIn("fields", review)
+        self.assertIn("NOT_FOR_PREFAB_IMPORT", review["classification"])
+
     def test_source_bound_verified_image_fields(self):
         actual = minimal(self.studio, self.ripper, self.graph)
         self.assertEqual(actual["classification"],
