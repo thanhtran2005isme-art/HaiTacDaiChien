@@ -190,6 +190,8 @@ Trên source thật trước bước cross-backend gate:
 | AssetRipper | 1.108 / 1.201 | 7.451 |
 | AssetRipper bị chặn | 93 | 0 |
 
+**Cổng cross-backend thực tế đã PASS:** so sánh 5.346 source component và 2.320 MonoScript links từ cùng game/XAPK; **1.108 component, 7.451 giá trị field khớp tuyệt đối** giữa AssetStudio và AssetRipper, không có khác biệt phát hiện được. **93 component, 651 field values chỉ AssetStudio đọc được** (các Horizontal/VerticalLayoutGroup); không tuyên bố 651 values có kiểm chứng chéo. Workflow [run 37966647257](https://github.com/thanhtran2005isme-art/HaiTacDaiChien/actions/runs/37966647257) Linux/Windows PASS, bước so trùng binary source/fields là gate (không có continue-on-error).
+
 **Lưu ý:** `AssetRipper` còn 93 LayoutGroup lỗi strict parser; không được tự bỏ điều kiện để đồng nhất số lượng. `AssetStudio` đọc được các trường LayoutGroup còn thiếu của AssetRipper nhưng vẫn cần Unity Editor visual verification trước khi đưa vào Prefab.
 
 Quy trình kiểm chứng chéo bắt buộc trong CI: `tools/compare_managed_ui_backends.py` so đúng **source identity, GameObject, MonoScript PPtr, Unity version, SHA256 của cặp IL2CPP binary**, rồi đối chiếu giá trị serialized đã qua strict check bằng **hai backend riêng**. Nếu bất kỳ field chung nào lệch, CI FAIL; những field chỉ AssetStudio đọc được tiếp tục mang bằng chứng `single-backend`, không được ghi nhãn được hai bộ đọc xác minh.
