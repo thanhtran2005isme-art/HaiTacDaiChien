@@ -50,6 +50,47 @@ def local_art_resource(pathname):
         return None
     return (image, "image/png")
 
+def local_art_status():
+    """Public diagnostic counts only; never expose private local filenames or paths."""
+    result = {"version": 1, "status": "missing", "sprite_count": 0,
+              "mapped_nodes": 0, "file_count": 0}
+    manifest_path = ART_ROOT / "manifest.json"
+    if not manifest_path.is_file() or manifest_path.is_symlink():
+        status_path = ART_ROOT / "export-status.json"
+        if status_path.is_file() and not status_path.is_symlink():
+            try:
+                state = json.loads(status_path.read_text(encoding="utf-8"))
+                if state.get("status") in ("BLOCKED", "NO_DECODED_ART"):
+                    result["status"] = "export_failed"
+            except (OSError, UnicodeError, ValueError):
+                pass
+        return result
+    try:
+        info = json.loads(manifest_path.read_text(encoding="utf-8"))
+        files = info.get("files")
+        if info.get("version") != 1 or not isinstance(files, list) or (
+            not files or len(files) > 2000
+        ) or any(not isinstance(name, str) or not ART_NAME.fullmatch(name)
+                 for name in files):
+            result["status"] = "invalid_manifest"
+            return result
+        if any(not (ART_ROOT / name).is_file() or (ART_ROOT / name).is_symlink()
+               for name in files):
+            result["status"] = "missing_png"
+            return result
+        scenes = info.get("scenes")
+        stats = info.get("stats", {})
+        if not isinstance(scenes, dict) or not isinstance(stats, dict):
+            result["status"] = "invalid_manifest"
+            return result
+        mapped = sum(len(nodes) for nodes in scenes.values() if isinstance(nodes, dict))
+        result.update(status="ready", sprite_count=stats.get("sprite_images_exported", 0),
+                      mapped_nodes=mapped, file_count=len(files))
+    except (OSError, UnicodeError, ValueError, TypeError):
+        result["status"] = "invalid_manifest"
+    return result
+
+
 SPINE_ROOT = ROOT / "output/local-spine"
 SPINE_RUNTIME_ROOT = ROOT / "output/local-spine-runtime"
 SPINE_FILE = re.compile(r"[0-9a-f]{24}/[A-Za-z0-9][A-Za-z0-9_.-]{0,124}\.(?:png|webp|atlas|json)", re.I)
@@ -107,6 +148,16 @@ class ViewerHandler(BaseHTTPRequestHandler):
     def do_GET(self):
         # Never expose the repo, user's files, local XAPK, or arbitrary paths.
         pathname = self.path.split("?", 1)[0]
+        if pathname == "/local-art/status.json":
+            payload = json.dumps(local_art_status(), ensure_ascii=False).encode("utf-8")
+            self.send_response(200)
+            self.send_header("Content-Type", "application/json; charset=utf-8")
+            self.send_header("Content-Length", str(len(payload)))
+            self.send_header("Cache-Control", "no-store")
+            self.send_header("X-Content-Type-Options", "nosniff")
+            self.end_headers()
+            self.wfile.write(payload)
+            return
         asset = ALLOWED.get(pathname) or local_art_resource(pathname) or local_spine_resource(pathname)
         if asset is None:
             self.send_error(404, "Not available")
