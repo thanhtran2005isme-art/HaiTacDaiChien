@@ -23,6 +23,42 @@ py tools/build_unity_viewer_data.py --repo-root .
 5. Unity menu → **Tools → HaiTac Offline UI Viewer → Create or Open Demo Scene**.
 6. Press **Play**. Pick a scene in the left sidebar, use **Left/Right** arrow keys to switch, and click any colored region to inspect its underlying Unity metadata.
 
+## Reconstruct local Canvas hierarchy and original Sprite pixels (new)
+
+This is a **clean-room reconstruction from verified XAPK metadata**, not the Unity game developer's original prefab files or gameplay source. You do **not** need screenshots to get started.
+
+### Prepare on Windows
+
+Run in CMD in repository root:
+
+```cmd
+git pull origin main
+CHUAN_BI_DO_HOA.bat
+py -3 tools\build_unity_prefab_manifest.py
+```
+
+The tools create local-only `output/local-ui-art/` (Sprite PNGs) and `output/unity-prefab-map.json` (explicit Image-to-Transform mappings and Spine evidence). All artwork stays on your computer, not GitHub.
+
+Open **unity-ui-viewer/** as a Unity 2022.3 LTS project. Then use:
+
+**Tools → HaiTac Offline UI Viewer → Reconstruct 5 local Canvas prefabs**
+
+The importer creates:
+
+- `Assets/LocalReconstruction/Sprites/` — only the decoded Sprite PNGs referenced by verified UI components
+- `Assets/LocalReconstruction/Prefabs/` — five separate source-derived Canvas/uGUI prefab reconstructions
+- `Assets/LocalReconstruction/Scenes/` — five local Unity scenes you can open in the Editor directly
+
+Every original scene's RectTransform ancestry, anchors, pivots, sizes, positions, recorded local XY scale and sibling order are retained. Unity `Image` components reference the imported Sprite pixels; source `RectMask2D` indicators are reconstructed when present. The generated scenes have **no colored wireframe placeholder rectangles** or fabricated character art.
+
+**Important technical limits:** Scene selection reflects structurally matched candidates, not proof of the game's live UI state. The imported Canvas uses an explicitly provisional **1600×900** scaler. The hierarchy inventory currently lacks full quaternion rotations, LayoutGroup results, verified Sprite 9-slice settings, nested Canvas sorting, and Text content. Buttons do not call the original game's proprietary code. Inactive GameObjects remain inactive as serialized, though the live game may activate them dynamically.
+
+A `SpineReferenceEvidence` component on the corresponding UI GameObject records the **original SkeletonGraphic class and component ID**, plus the number of typed pointer candidates. Candidate pointers **do not validate skeleton bindings**: no skin, hero, ship or animation is auto-assigned from uncertain references. `output/local-spine/` and the separate offline Spine gallery can preview locally extracted, version-compatible Spine 3.8 packs, but cannot yet be automatically embedded into the correct scene GameObject without a verified binding.
+
+**Privacy:** `Assets/LocalReconstruction/` is Git-ignored. Do not force-add this generated folder, XAPK, Spine runtime, or artwork to the public repository. The importer copies only local PNGs into your own Unity Editor project and never contacts a game server.
+
+**Validation:** The Python reconstruction manifest and actual XAPK Sprite mappings are tested in GitHub Actions. Unity Editor compilation and rendered screenshot/pixel fidelity require a local Unity installation and are **not proven by those CI checks**.
+
 ## Offline features
 
 - Five scene candidates for four screenshots: ship upgrade, hero detail, island map A/B, and home/crew.
