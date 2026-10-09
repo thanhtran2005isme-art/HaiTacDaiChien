@@ -80,6 +80,23 @@ class TestSpine38PreviewContract(unittest.TestCase):
         self.assertNotIn("ImportRecursive", reimport)
         self.assertIn("FolderFor(note)", reimport)
 
+    def test_local_atlas_audit_is_read_only_and_checks_real_links(self):
+        audit = (ROOT / "unity-ui-viewer/Assets/Editor/LocalSpineAtlasAudit.cs"
+                 ).read_text(encoding="utf-8")
+        self.assertIn("Audit all local AtlasAsset links (read only)", audit)
+        self.assertIn('ObjectField(data, "atlasFile")', audit)
+        self.assertIn('data.FindProperty("materials")', audit)
+        self.assertIn("mat.mainTexture as Texture2D", audit)
+        self.assertIn('ObjectField(data, "skeletonJSON")', audit)
+        self.assertIn('data.FindProperty("atlasAssets")', audit)
+        self.assertIn("GetSubFolders(PacksRoot)", audit)
+        self.assertIn("allLinksVerified=", audit)
+        for forbidden in ("AssetDatabase.DeleteAsset(", "AssetDatabase.CreateAsset(",
+                          "AssetDatabase.ImportAsset(", "EditorUtility.SetDirty(",
+                          "AssetDatabase.SaveAssets(", "File.WriteAllText("):
+            self.assertNotIn(forbidden, audit)
+        self.assertIn("PLAYBACK NOT TESTED", audit)
+
     def test_previews_are_isolated_and_not_source_modifications(self):
         self.assertIn('Root + "/SpinePreviews"', self.editor)
         self.assertIn("EditorSceneManager.NewScene(NewSceneSetup.EmptyScene",
