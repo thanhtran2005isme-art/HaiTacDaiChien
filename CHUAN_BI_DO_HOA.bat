@@ -43,6 +43,14 @@ if /I "%SPRITE_STATE%"=="PASS" (
     %PY% tools\build_unity_prefab_manifest.py
     if errorlevel 1 echo [WARN] Chua tao duoc Unity reconstruction plan.
 )
+echo [INFO] Trich xuat bo cuc goc duoc xac minh tu XAPK...
+set "LAYOUT_STATE=FAILED"
+%PY% tools\export_local_ui_layout.py
+if not errorlevel 1 set "LAYOUT_STATE=PASS"
+if /I "%LAYOUT_STATE%"=="FAILED" (
+    echo [WARN] Khong doc duoc bo cuc goc. Unity tiep tuc dung du lieu cu.
+    echo [WARN] Thu chay: %PY% tools\export_local_ui_layout.py
+)
 echo [4/4] Giai ma Spine 3.8 JSON, atlas, texture vao output\local-spine
 set "SPINE_STATE=FAILED"
 %PY% tools\export_local_spine.py --limit 12
@@ -61,6 +69,7 @@ if not exist "%~dp0output\local-spine-runtime\spine-player.js" (
 echo.
 echo ======================= KET QUA =======================
 echo Sprite UI: %SPRITE_STATE%
+echo Unity verified layout: %LAYOUT_STATE%
 echo Spine pack: %SPINE_STATE%
 echo Spine Player: can kiem tra tai trang /spine-viewer
 echo =======================================================
