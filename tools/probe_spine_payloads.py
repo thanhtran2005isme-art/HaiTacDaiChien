@@ -71,7 +71,17 @@ def inspect_bundle(path, unitypy, counts, examples):
         counts["bundle_unreadable"] += 1
         return
     for obj in env.objects:
-        if getattr(getattr(obj, "type", None), "name", "") != "TextAsset":
+        kind_name = getattr(getattr(obj, "type", None), "name", "")
+        if kind_name == "Texture2D":
+            try:
+                name = str(getattr(obj.read(), "m_Name", "") or "")
+                counts["textures_total"] += 1
+                if name:
+                    examples["_texture_names"].append(name)
+            except Exception:
+                counts["texture_read_error"] += 1
+            continue
+        if kind_name != "TextAsset":
             continue
         counts["textasset_total"] += 1
         try:
@@ -83,6 +93,20 @@ def inspect_bundle(path, unitypy, counts, examples):
                 continue
             kind = classify_payload(name, raw)
             counts[kind] += 1
+            if kind == "spine_json_verified":
+                try:
+                    skeleton = json.loads(raw.decode("utf-8-sig"))
+                    version = str(skeleton.get("skeleton", {}).get("spine", "unknown"))[:16]
+                    counts["version_" + version] += 1
+                except (ValueError, UnicodeDecodeError, AttributeError):
+                    counts["version_unreadable"] += 1
+                examples["_skeleton_names"].append(name)
+            if kind == "atlas_text_candidate":
+                examples["_atlas_names"].append(name.removesuffix(".atlas"))
+                atlas = raw.decode("utf-8", errors="replace")
+                pages = [line.strip() for line in atlas.splitlines()
+                         if line.strip().lower().endswith((".png", ".webp"))]
+                examples["_atlas_pages"].extend(pages[:8])
             if kind != "other" and len(examples[kind]) < 5:
                 examples[kind].append({
                     "name": name[:90],
@@ -140,6 +164,17 @@ def inspect(xapk, root=ROOT, unitypy=None):
                     inspect_apk(apk, temp, unitypy, counts, examples)
                 finally:
                     apk.unlink(missing_ok=True)
+    skeleton_names = set(examples.pop("_skeleton_names", []))
+    atlas_names = set(examples.pop("_atlas_names", []))
+    tex_names = set(examples.pop("_texture_names", []))
+    atlas_pages = set(examples.pop("_atlas_pages", []))
+    counts["skeleton_atlas_same_name"] = len(skeleton_names & atlas_names)
+    counts["atlas_pages_matching_texture_name"] = sum(
+        1 for p in atlas_pages if p in tex_names or Path(p).stem in tex_names
+    )
+    counts["unique_atlas_page_names"] = len(atlas_pages)
+    examples["pair_examples"] = sorted(skeleton_names & atlas_names)[:10]
+    examples["atlas_page_examples"] = sorted(atlas_pages)[:10]
     return {"schema": 1, "counts": dict(sorted(counts.items())),
             "examples": dict(examples), "status": "inspected_no_animation_claim",
             "caveat": "TextAsset inventory alone does not prove Spine animation can be rendered."}
