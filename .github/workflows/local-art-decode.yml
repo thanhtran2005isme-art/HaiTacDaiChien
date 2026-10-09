@@ -264,6 +264,35 @@ jobs:
           python tools/probe_xapk_typetree_backends.py --backend AssetStudio
           python tools/probe_xapk_typetree_backends.py --backend AssetRipper
 
+
+      - name: Verify AssetStudio-managed fields against exact XAPK (informational)
+        continue-on-error: true
+        timeout-minutes: 10
+        run: |
+          python tools/decode_xapk_ui_provenance.py --recover-managed-fields --binary-backend AssetStudio
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          d=json.loads(Path("output/deep-ui-source-evidence.json").read_text(encoding="utf-8"))
+          print("ASSETSTUDIO STRICT VERIFIED FIELD COUNTS:",d["stats"]["verifiedManagedFields"])
+          print("ASSETSTUDIO STRICT COMPONENT OUTCOMES:",
+                d["generatedBinaryProof"]["verification"])
+          PY
+
+      - name: Verify AssetRipper-managed fields against exact XAPK (informational)
+        continue-on-error: true
+        timeout-minutes: 10
+        run: |
+          python tools/decode_xapk_ui_provenance.py --recover-managed-fields --binary-backend AssetRipper
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          d=json.loads(Path("output/deep-ui-source-evidence.json").read_text(encoding="utf-8"))
+          print("ASSETRIPPER STRICT VERIFIED FIELD COUNTS:",d["stats"]["verifiedManagedFields"])
+          print("ASSETRIPPER STRICT COMPONENT OUTCOMES:",
+                d["generatedBinaryProof"]["verification"])
+          PY
+
   windows-decode:
     runs-on: windows-latest
     timeout-minutes: 30
