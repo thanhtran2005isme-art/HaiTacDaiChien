@@ -48,6 +48,27 @@ class TestSpine38PreviewContract(unittest.TestCase):
         self.assertIn("anim.stringValue = chosenAnimation;", self.editor)
         self.assertNotIn('anim.stringValue = "idle"', self.editor)
 
+    def test_spine_import_stages_atlas_pages_then_atlas_then_skeleton(self):
+        # Spine 3.8 opens "Could not automatically set the AtlasAsset"
+        # when skeleton.json imports before the corresponding atlas is ready.
+        source = self.rebuilder.split(
+            "private static Dictionary<string, ImportedSpinePack> "
+            "ImportSpineSourcePacks(", 1)[1].split(
+            "private static void ApplyOriginalSpriteGeometry(", 1)[0]
+        p_pages = source.index("var textures = pack.pages.Select(")
+        p_atlas = source.index("string atlasPath = CopySource(pack.atlas, true);")
+        p_atlas_import = source.index("AssetDatabase.ImportAsset(atlasPath,")
+        p_skeleton = source.index("string skeletonPath = CopySource(pack.skeleton, false);")
+        p_skeleton_import = source.index("AssetDatabase.ImportAsset(skeletonPath,")
+        self.assertLess(p_pages, p_atlas)
+        self.assertLess(p_atlas, p_atlas_import)
+        self.assertLess(p_atlas_import, p_skeleton)
+        self.assertLess(p_skeleton, p_skeleton_import)
+        # The same exact source files are retained; no guessed artwork.
+        self.assertIn('string destinationName = atlas ? name + ".txt" : name;', source)
+        self.assertIn("textures.Any(tex => tex == null)", source)
+        self.assertIn("ForceSynchronousImport", source)
+
     def test_previews_are_isolated_and_not_source_modifications(self):
         self.assertIn('Root + "/SpinePreviews"', self.editor)
         self.assertIn("EditorSceneManager.NewScene(NewSceneSetup.EmptyScene",
