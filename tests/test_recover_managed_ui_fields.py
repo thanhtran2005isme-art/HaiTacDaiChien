@@ -163,6 +163,24 @@ class BinaryProofTests(unittest.TestCase):
         self.assertTrue(proof["exactSourcePointerChecked"])
         self.assertEqual(proof["method"], "SOURCE_IL2CPP_GENERATED_TYPETREE")
 
+    def test_native_unitypy_node_reconstruction_without_copying_extension(self):
+        try:
+            from UnityPy.helpers.TypeTreeNode import TypeTreeNode
+        except ImportError:
+            self.skipTest("UnityPy optional")
+        derived = TypeTreeNode(0, "Image", "Base", 0, 0)
+        native = TypeTreeNode(0, "MonoBehaviour", "Base", 0, 0)
+        for name in ("m_GameObject", "m_Enabled", "m_Script", "m_Name", "m_Type"):
+            derived.m_Children.append(TypeTreeNode(1, "int", name, 0, 0))
+        for name in ("m_GameObject", "m_Enabled", "m_Script", "m_Name"):
+            native.m_Children.append(TypeTreeNode(1, "int", name, 0, 0))
+        merged = binary.verified_native_header_root(derived, native)
+        self.assertIsNot(merged, derived)
+        self.assertEqual(merged.m_Type, "Image")
+        self.assertEqual([x.m_Name for x in merged.m_Children],
+                         ["m_GameObject", "m_Enabled", "m_Script", "m_Name", "m_Type"])
+        self.assertEqual(len(derived.m_Children), 5)
+
     def test_native_header_recombination_uses_version_source_nodes_only(self):
         derived = Root(root_type="Image", fields=(
             "m_GameObject", "m_Enabled", "m_Script", "m_Name",
