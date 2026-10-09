@@ -69,6 +69,17 @@ class TestSpine38PreviewContract(unittest.TestCase):
         self.assertIn("textures.Any(tex => tex == null)", source)
         self.assertIn("ForceSynchronousImport", source)
 
+    def test_spine_reimport_uses_exact_page_atlas_skeleton_order(self):
+        reimport = self.editor.split(
+            "private static void Reimport(SpineReferenceEvidence note)", 1)[1].split(
+            "private void OnGUI()", 1)[0]
+        self.assertLess(reimport.index("foreach (var page in note.sourceAtlasTextures)"),
+                        reimport.index("GetAssetPath(note.sourceAtlasText)"))
+        self.assertLess(reimport.index("GetAssetPath(note.sourceAtlasText)"),
+                        reimport.index("GetAssetPath(note.sourceSkeletonJson)"))
+        self.assertNotIn("ImportRecursive", reimport)
+        self.assertIn("FolderFor(note)", reimport)
+
     def test_previews_are_isolated_and_not_source_modifications(self):
         self.assertIn('Root + "/SpinePreviews"', self.editor)
         self.assertIn("EditorSceneManager.NewScene(NewSceneSetup.EmptyScene",
