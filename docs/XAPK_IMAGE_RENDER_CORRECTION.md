@@ -46,9 +46,10 @@ trên **cùng nodeId**; nếu không, Unity dừng Reconstruct thay vì ghép nh
 - `CanvasScaler.referenceResolution` và trạng thái runtime của người
   chơi/đội hình không đọc được. Root 1600×900 vẫn là **preview giả định**,
   không được gọi chính xác 100%.
-- REF04 được **thêm định danh chắc chắn**, không tăng số sprite từ 265 vì
-  265 component ở REF04 đã có đường dẫn duy nhất. Khác biệt render ở
-  REF04 được xác minh từ bước này là **1 Image nguồn bị tắt**.
+- **REF04 phục hồi thêm 23 liên kết Image bị bỏ qua vì trùng path**, tăng
+  từ 242 lên **265 liên kết nguồn**, và xác minh **1 Image phải tắt**.
+  Điều này sửa trực tiếp dữ liệu hiển thị, nhưng không tự khôi phục
+  nhân vật động, text hay bố cục runtime.
 
 ## Cách kiểm tra trên Windows
 
