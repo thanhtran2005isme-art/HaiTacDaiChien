@@ -20,3 +20,7 @@ __pycache__/
 # Private local images for authorized preview: NEVER publish commercially-owned art
 /private-ui-art/
 /web-ui-viewer/local-art/
+
+# Unity Editor imports/reconstructed local scenes: contain XAPK art, NEVER publish
+/unity-ui-viewer/Assets/LocalReconstruction/
+/unity-ui-viewer/Assets/LocalReconstruction.meta
