@@ -2,6 +2,11 @@
 
 > Mỗi quyết định mới ghi **ngày, vấn đề, lựa chọn, hệ quả**; chi tiết triển khai ở PR/commit. Không dùng file này để ghi mọi lần chỉnh text.
 
+## 2026-10-09 — Ghép Sprite bằng source component ID, không bằng path string
+- **Vấn đề:** 137 Image thuộc các nút trùng tên bị bỏ qua; Image bị tắt trong serialized data được preview vô tình hiện.
+- **Lựa chọn:** xác minh Image component → GameObject → RectTransform qua ID gốc; kế hoạch dựng và bằng chứng layout phải có component ID trùng nhau. Áp dụng m_Enabled khi đọc được; không suy luận Image Type/CanvasScaler khi thiếu IL2CPP typetree.
+- **Hệ quả:** sửa được liên kết và một phần render, nhưng không tuyên bố UI 100%; cần runtime evidence.
+
 ## 2026-10-09 — Dừng coi Canvas preview là UI gốc
 - **Vấn đề:** bản xem thử đang đặt root `(1,1,1)`, CanvasScaler `1600×900`, Image `Simple`, thiếu các trường được serialize và runtime Spine.
 - **Quyết định:** trích xuất trực tiếp GameObject/Component/Transform/PPtr, kiểm kê bằng chứng Prefab/Scene; tạo riêng **Prefab nghiên cứu cấu trúc**, giữ nguyên giá trị gốc kể cả root zero-scale; KHÔNG tự gắn Image, Mask, CanvasScaler, Text hay Spine giả. Năm scene tham chiếu vẫn là **ứng viên**, chưa được chứng minh là file Editor gốc.
