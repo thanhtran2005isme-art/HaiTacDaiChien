@@ -23,6 +23,29 @@ py tools/build_unity_viewer_data.py --repo-root .
 5. Unity menu → **Tools → HaiTac Offline UI Viewer → Create or Open Demo Scene**.
 6. Press **Play**. Pick a scene in the left sidebar, use **Left/Right** arrow keys to switch, and click any colored region to inspect its underlying Unity metadata.
 
+## Unity warning: Missing (Mono Script) or source Spine packs=0
+
+A generated scene from an older revision could include `Missing (Mono Script)`
+for evidence components. In the old implementation, three MonoBehaviour types
+shared `ReconstructionEvidence.cs`. Unity prefab serialization requires each
+persistent MonoBehaviour to have a reliably resolvable MonoScript asset.
+These components are now in individual same-named files:
+`ReconstructionEvidence.cs`, `SpineReferenceEvidence.cs`,
+`UiComponentEvidence.cs`.
+
+Close Unity Editor, `git pull origin main`, then reopen via Unity Hub.
+**Do not re-extract the XAPK** if `CHUAN_BI_DO_HOA.bat` already reported PASS.
+In the Editor, choose **Tools → HaiTac Offline UI Viewer → Reconstruct 5 local
+Canvas prefabs** (this overwrites only generated local scenes and prefabs).
+Then run **Audit 5 generated Canvas scenes** and reopen REF04. The updated
+audit logs `Spine components`, `content-matched`, `imported source packs`,
+and `missing Mono Scripts` separately so a zero can be diagnosed correctly.
+
+If `missing Mono Scripts` is nonzero, inspect `Window → General → Console`
+for compile errors and include the full text when reporting it. Do not
+remove or alter the original project source or XAPK. The reconstruction data
+remain under gitignored `Assets/LocalReconstruction`.
+
 ## Deep XAPK UI evidence and Spine chains (Phase 1 continuation / Phase 2 research)
 
 This is a **source-verified UI investigation**, not a claim that the reconstructed
