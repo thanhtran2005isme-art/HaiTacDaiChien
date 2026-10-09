@@ -163,6 +163,53 @@ class BinaryProofTests(unittest.TestCase):
         self.assertTrue(proof["exactSourcePointerChecked"])
         self.assertEqual(proof["method"], "SOURCE_IL2CPP_GENERATED_TYPETREE")
 
+    def test_native_header_recombination_uses_version_source_nodes_only(self):
+        derived = Root(root_type="Image", fields=(
+            "m_GameObject", "m_Enabled", "m_Script", "m_Name",
+            "m_Type", "m_PreserveAspect"))
+        native = Root(fields=(
+            "m_ObjectHideFlags", "m_GameObject", "m_Enabled", "m_Script", "m_Name"))
+        merged = binary.verified_native_header_root(derived, native)
+        self.assertEqual([x.m_Name for x in merged.m_Children], [
+            "m_ObjectHideFlags", "m_GameObject", "m_Enabled", "m_Script", "m_Name",
+            "m_Type", "m_PreserveAspect"])
+        self.assertEqual([x.m_Name for x in derived.m_Children][0],
+                         "m_GameObject", "Input generator must not be mutated")
+
+    def test_source_native_header_path_keeps_strict_guards(self):
+        class DerivedGenerator:
+            def get_nodes_up(self, assembly, cls):
+                return Root(root_type="Image", fields=(
+                    "m_GameObject", "m_Enabled", "m_Script", "m_Name",
+                    "m_Type", "m_PreserveAspect"))
+        reader = StrictReader()
+        fields, proof = binary.verified_fields(
+            reader, ROW, DerivedGenerator(), use_unitypy_native_header=True,
+            native_root=Root(fields=(
+                "m_GameObject", "m_Enabled", "m_Script", "m_Name")))
+        self.assertTrue(reader.strict)
+        self.assertEqual(fields["m_Type"], 2)
+        self.assertEqual(proof["nativeHeaderMethod"],
+                         "UNITYPY_EXACT_SOURCE_UNITY_VERSION")
+        reader.tree["m_Script"] = pointer(555, 1)
+        with self.assertRaises(binary.RecoveryBlocked) as failure:
+            binary.verified_fields(
+                reader, ROW, DerivedGenerator(), use_unitypy_native_header=True,
+                native_root=Root(fields=(
+                    "m_GameObject", "m_Enabled", "m_Script", "m_Name")))
+        self.assertEqual(failure.exception.code, "MONOSCRIPT_POINTER_MISMATCH")
+
+    def test_reject_missing_or_ambiguous_native_header_nodes(self):
+        derived = Root(root_type="Image", fields=(
+            "m_GameObject", "m_Script", "m_Enabled", "m_Type"))
+        with self.assertRaises(binary.RecoveryBlocked):
+            binary.verified_native_header_root(
+                derived, Root(fields=("m_GameObject", "m_Script", "m_Type")))
+        with self.assertRaises(binary.RecoveryBlocked):
+            binary.verified_native_header_root(
+                derived, Root(fields=("m_GameObject", "m_Script", "m_Enabled",
+                                       "m_Enabled")))
+
     def test_derived_image_root_with_exact_native_header_is_valid(self):
         class DerivedGenerator:
             def get_nodes_up(self, assembly, cls):
