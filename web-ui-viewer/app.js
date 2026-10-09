@@ -9,6 +9,8 @@ const state = {
   database: null, scene: 0, filter: "all", showInactive: true,
   zoom: 1, selectedId: null, demoLevel: 1,
   geometry: new Map(), elements: new Map(),
+  assets: null, manualAssets: new Map(), objectUrls: new Map(),
+  boundsVisible: false,
 };
 
 const sceneList = $("scene-list");
@@ -16,6 +18,105 @@ const stage = $("stage");
 const layer = $("node-layer");
 const frame = $("canvas-frame");
 const inspector = $("inspector");
+
+
+/* Local File objects are kept only in browser memory. Files never hit HTTP. */
+function nodeAssetId(node) {
+  if (!node || !state.database) return null;
+  return sceneData().id + ":" + node.id;
+}
+
+function imageFileFor(node) {
+  return state.manualAssets.get(nodeAssetId(node)) ||
+    window.AssetMatcher.find(node, state.assets);
+}
+
+function imageUrlFor(file) {
+  if (!state.objectUrls.has(file))
+    state.objectUrls.set(file, URL.createObjectURL(file));
+  return state.objectUrls.get(file);
+}
+
+function revokeImages() {
+  for (const url of state.objectUrls.values()) URL.revokeObjectURL(url);
+  state.objectUrls.clear();
+}
+
+function updateVisualStatus(drawn = null) {
+  if (!state.database) return;
+  const scene = sceneData();
+  let matched = 0;
+  for (const node of scene.nodes) if (imageFileFor(node)) matched++;
+  const summary = state.assets;
+  const parts = [matched + " nút có ảnh trong scene"];
+  if (drawn !== null) parts.push(drawn + " vùng hiển thị");
+  if (summary) {
+    parts.push(summary.accepted + " ảnh đã chọn");
+    if (summary.collisions.size) parts.push(summary.collisions.size + " tên trùng đã bỏ qua");
+    if (summary.rejected) parts.push(summary.rejected + " file không hợp lệ/vượt giới hạn");
+  }
+  $("visual-info").textContent = matched ?
+    "Đang hiển thị ảnh được nạp từ máy. " + parts.join(" · ") +
+      ". Bố cục vẫn là ước tính từ RectTransform." :
+    "Chưa ghép được ảnh trong scene này. " + parts.join(" · ") +
+      ". Tên file phải trùng tên Sprite; hoặc chọn nút để gán ảnh thủ công.";
+}
+
+function refreshArt() {
+  if (!state.database) return;
+  renderNodes();
+  const node = sceneData().nodes.find(n => n.id === state.selectedId);
+  selectNode(node || null);
+}
+
+function handleSelectedFolder(event) {
+  const files = event.target.files;
+  if (!files?.length) return;
+  // Replacing the folder explicitly resets temporary assignments, by design.
+  revokeImages();
+  state.manualAssets.clear();
+  state.assets = window.AssetMatcher.buildIndex(files);
+  $("asset-status").textContent =
+    "Đã nhận " + state.assets.accepted + " ảnh hợp lệ; " +
+    state.assets.byKey.size + " tên Sprite không trùng. " +
+    (state.assets.collisions.size ? "Bỏ qua " + state.assets.collisions.size + " tên trùng. " : "") +
+    (state.assets.rejected ? state.assets.rejected + " file bị bỏ qua. " : "") +
+    "Không gửi ảnh lên máy chủ.";
+  event.target.value = "";
+  refreshArt();
+}
+
+function clearAssets() {
+  revokeImages();
+  state.assets = null;
+  state.manualAssets.clear();
+  $("asset-status").textContent = "Chưa nạp ảnh. Hiển thị wireframe.";
+  refreshArt();
+}
+
+function handleManualImage(event) {
+  const file = event.target.files?.[0];
+  const node = sceneData()?.nodes.find(n => n.id === state.selectedId);
+  event.target.value = "";
+  if (!node || !file) return;
+  if (!window.AssetMatcher.supported(file) || file.size <= 0 ||
+      file.size > window.AssetMatcher.MAX_EACH_BYTES) {
+    $("node-asset-status").textContent =
+      "Chỉ nhận PNG/JPG/WebP nhỏ hơn 20 MB cho mỗi ảnh.";
+    return;
+  }
+  revokeImages();
+  state.manualAssets.set(nodeAssetId(node), file);
+  refreshArt();
+}
+
+function clearManualImage() {
+  const node = sceneData()?.nodes.find(n => n.id === state.selectedId);
+  if (!node) return;
+  revokeImages();
+  state.manualAssets.delete(nodeAssetId(node));
+  refreshArt();
+}
 
 function v2(value, fallback) {
   return Array.isArray(value) && value.length === 2 &&
@@ -79,7 +180,7 @@ function fitStage() {
 function updateStats(scene) {
   $("scene-title").textContent = scene.title;
   $("scene-description").textContent = scene.confidence +
-    "  ·  " + scene.source + "  ·  khung tham chiếu 1600×900 (giả định)";
+    " · " + scene.source + " · khung 1600×900 giả định";
   $("stat-nodes").textContent = scene.nodeCount.toLocaleString("vi-VN");
   $("stat-sprite").textContent = scene.linkedImageEntries.toLocaleString("vi-VN");
   $("stat-missing").textContent = scene.unlinkedImageEntries.toLocaleString("vi-VN");
@@ -148,7 +249,8 @@ function renderNodes() {
       continue;
     }
     state.geometry.set(node.id, rect);
-    const type = classify(node);
+    const file = imageFileFor(node);
+    const type = classify(node) || (file ? "image" : null);
     if (!type || !filterMatches(node)) continue;
     if (rect.w < 2 || rect.h < 2 ||
         rect.x > VIRTUAL_W || rect.y > VIRTUAL_H ||
@@ -166,6 +268,16 @@ function renderNodes() {
     box.title = node.path + (node.sprites?.length ?
       " | " + node.sprites.join(", ") : "");
     box.setAttribute("aria-label", node.name + " — " + type);
+    if (file) {
+      const img = document.createElement("img");
+      img.src = imageUrlFor(file);
+      img.alt = "";
+      img.decoding = "async";
+      box.classList.add("asset-loaded");
+      if (/bgr|background|backdrop|wallpaper|scenery/i.test(node.name))
+        box.classList.add("cover");
+      box.appendChild(img);
+    }
     if (rect.w > 115 && rect.h > 26 && drawn < 175) {
       const caption = document.createElement("span");
       caption.textContent = node.name.slice(0, 37);
@@ -179,7 +291,7 @@ function renderNodes() {
     fragment.appendChild(box);
   }
   layer.replaceChildren(fragment);
-  $("scene-description").textContent += "  ·  " + drawn + " vùng được hiển thị";
+  updateVisualStatus(drawn);
 }
 
 function selectNode(node) {
@@ -204,6 +316,12 @@ function inspectorRow(label, value) {
 function showInspector(node) {
   inspector.replaceChildren();
   const scene = sceneData();
+  $("node-image").disabled = !node;
+  $("node-image-clear").disabled = !node || !state.manualAssets.has(nodeAssetId(node));
+  $("node-asset-status").textContent = node ?
+    (state.manualAssets.has(nodeAssetId(node)) ?
+      "Đang dùng ảnh gán thủ công: " + state.manualAssets.get(nodeAssetId(node)).name :
+      "Có thể chọn ảnh PNG/JPG/WebP cho nút này.") : "Chưa chọn nút.";
   inspector.append(
     inspectorRow("Màn hình", scene.title),
     inspectorRow("Trạng thái", scene.confidence),
@@ -233,6 +351,7 @@ function showInspector(node) {
     inspectorRow("Active trong asset", node.active ? "Có" : "Không"),
     inspectorRow("Component", node.types),
     inspectorRow("Sprite ứng viên", node.sprites),
+    inspectorRow("Ảnh máy đang ghép", imageFileFor(node)?.name || "Chưa có ảnh"),
     inspectorRow("Spine class", node.spine),
     inspectorRow("Image thiếu", node.missingImages),
     inspectorRow("Anchor min/max", JSON.stringify([node.a0, node.a1])),
@@ -298,6 +417,15 @@ function updateSearch() {
 
 function registerEvents() {
   $("search").addEventListener("input", updateSearch);
+  $("asset-folder").addEventListener("change", handleSelectedFolder);
+  $("asset-files").addEventListener("change", handleSelectedFolder);
+  $("asset-clear").addEventListener("click", clearAssets);
+  $("node-image").addEventListener("change", handleManualImage);
+  $("node-image-clear").addEventListener("click", clearManualImage);
+  $("show-bounds").addEventListener("change", event => {
+    state.boundsVisible = event.target.checked;
+    stage.classList.toggle("no-bounds", !state.boundsVisible);
+  });
   $("show-inactive").addEventListener("change", event => {
     state.showInactive = event.target.checked;
     renderNodes();
@@ -345,6 +473,7 @@ function registerEvents() {
 
 async function bootstrap() {
   registerEvents();
+  stage.classList.add("no-bounds");
   const response = await fetch("/ui-scenes.json", { cache: "no-store" });
   if (!response.ok) throw new Error("Không lấy được ui-scenes.json (" + response.status + ")");
   const db = await response.json();
