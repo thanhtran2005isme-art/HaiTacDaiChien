@@ -18,8 +18,7 @@ class TestSerializedGraphUnityContract(unittest.TestCase):
         self.assertIn("SetSiblingIndex",code)
         self.assertIn("localScale = new Vector3",code)
         self.assertIn("new Quaternion(",code)
-        self.assertIn('NOT original game',code) if 'NOT original game' in code else self.assertIn(
-            "NOT original",code)
+        self.assertIn("NOT recovered original .prefab/.unity sources",code)
         for prohibited in ("new Vector2(1600, 900)",
                            "AddComponent<Image>", "AddComponent<Canvas>",
                            "AddComponent<RectMask2D>", "AddComponent<SkeletonGraphic>",
