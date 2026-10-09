@@ -13,6 +13,8 @@ import collections
 import json
 import math
 import re
+import shutil
+import tempfile
 import zipfile
 from pathlib import Path
 
@@ -225,29 +227,36 @@ def build(root=ROOT, xapk=None, unitypy=None):
     for scene in scenes:
         pending[scene_bundle_prefix(scene)].append(scene)
     result, examined = [], 0
-    with zipfile.ZipFile(xapk) as outer:
-        for index, member in enumerate(outer.infolist()):
-            if member.is_dir() or not member.filename.lower().endswith(".apk"):
-                continue
-            if member.file_size > MAX_ARCHIVE:
-                raise ValueError("Oversized APK encountered")
-            stem = Path(member.filename).stem
-            with outer.open(member) as source, zipfile.ZipFile(source) as apk:
-                for asset in apk.infolist():
-                    if asset.is_dir() or not asset.filename.lower().endswith(
-                        (".unity3d", ".bundle", ".assetbundle")
-                    ):
-                        continue
-                    label = f"{index:03}_{stem}_{Path(asset.filename).stem}"
-                    if label not in pending:
-                        continue
-                    if asset.file_size > MAX_BUNDLE:
-                        raise ValueError("Oversized Unity bundle: " + label)
-                    with apk.open(asset) as stream:
-                        blob = stream.read()
-                    examined += 1
-                    result.extend(scan_bundle(blob, pending.pop(label), links, unitypy))
-                    del blob
+    with tempfile.TemporaryDirectory(prefix="haitac_layout_") as temporary:
+        with zipfile.ZipFile(xapk) as outer:
+            for index, member in enumerate(outer.infolist()):
+                if member.is_dir() or not member.filename.lower().endswith(".apk"):
+                    continue
+                if member.file_size > MAX_ARCHIVE:
+                    raise ValueError("Oversized APK encountered")
+                stem = Path(member.filename).stem
+                apk_path = Path(temporary) / (str(index) + ".apk")
+                with outer.open(member) as source, apk_path.open("wb") as destination:
+                    shutil.copyfileobj(source, destination)
+                try:
+                    with zipfile.ZipFile(apk_path) as apk:
+                        for asset in apk.infolist():
+                            if asset.is_dir() or not asset.filename.lower().endswith(
+                                (".unity3d", ".bundle", ".assetbundle")
+                            ):
+                                continue
+                            label = f"{index:03}_{stem}_{Path(asset.filename).stem}"
+                            if label not in pending:
+                                continue
+                            if asset.file_size > MAX_BUNDLE:
+                                raise ValueError("Oversized Unity bundle: " + label)
+                            with apk.open(asset) as stream:
+                                blob = stream.read()
+                            examined += 1
+                            result.extend(scan_bundle(blob, pending.pop(label), links, unitypy))
+                            del blob
+                finally:
+                    apk_path.unlink(missing_ok=True)
     if pending or len(result) != 5:
         raise ValueError("Missing scene asset bundle(s): " + ", ".join(sorted(pending)))
     stats = {"scenes": len(result), "bundlesRead": examined,
