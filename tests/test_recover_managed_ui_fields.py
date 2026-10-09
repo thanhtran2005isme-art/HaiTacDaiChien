@@ -102,7 +102,7 @@ class BinaryProofTests(unittest.TestCase):
                 def __init__(self, version):
                     self.version = version
                 def load_il2cpp(self, lib, meta):
-                    assert lib.startswith(b"\\x7fELF")
+                    assert lib.startswith(b"\x7fELF")
             for backend in ("AssetsTools", "AssetStudio", "AssetRipper"):
                 _, proof = binary.source_generator(
                     xapk, "2022.3.51f1", factory=Stub, backend=backend)
