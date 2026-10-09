@@ -1,0 +1,29 @@
+name: Audit local Spine source payloads (metadata only)
+on:
+  push:
+    paths:
+      - 'tools/probe_spine_payloads.py'
+      - 'tests/test_spine_payloads.py'
+      - '.github/workflows/local-spine-audit.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          lfs: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install UnityPy Pillow
+      - run: python -m unittest discover -s tests -p test_spine_payloads.py -v
+      - name: Count Spine skeleton and atlas candidates in real XAPK
+        run: python tools/probe_spine_payloads.py
+      - name: Verify no proprietary binaries committed or uploaded
+        run: |
+          test -s output/local-spine-audit.json
+          test -z "$(git status --porcelain --untracked-files=normal)"
