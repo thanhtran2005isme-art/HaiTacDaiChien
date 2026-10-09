@@ -352,6 +352,12 @@ jobs:
           assert len(p['scenes'])==5
           assert sum(len(x['components']) for x in p['scenes'])==1108
           assert sum(len(c['fields']) for s in p['scenes'] for c in s['components'])==7451
+          review=json.loads(Path('output/single-backend-layout-review.json').read_text(encoding='utf-8'))
+          assert review['classification']=='SINGLE_BACKEND_UI_FIELDS_NOT_FOR_PREFAB_IMPORT'
+          assert review['componentCount']==93 and review['excludedFieldValues']==651
+          assert sum(x['fieldCount'] for x in review['components'])==651
+          assert all(x['prefabImportAllowed'] is False and 'fields' not in x
+                     for x in review['components'])
           assert all(c['className'] not in ('UnityEngine.UI.HorizontalLayoutGroup',
                     'UnityEngine.UI.VerticalLayoutGroup')
                      for sc in p['scenes'] for c in sc['components'])
