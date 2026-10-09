@@ -7,6 +7,8 @@ Serves only HTML/CSS/JS and pre-generated text JSON over 127.0.0.1.
 from __future__ import annotations
 
 import argparse
+import json
+import re
 from functools import partial
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
@@ -14,6 +16,40 @@ import threading
 import webbrowser
 
 ROOT = Path(__file__).resolve().parents[1]
+# Generated images remain ignored by Git. Only manifest-enumerated PNGs are exposed.
+ART_ROOT = ROOT / "output/local-ui-art"
+ART_NAME = re.compile(r"[0-9a-f]{32}\\.png")
+
+
+def local_art_resource(pathname):
+    """Opt-in generated-art bridge: never serve arbitrary local files."""
+    if not pathname.startswith("/local-art/"):
+        return None
+    manifest_path = ART_ROOT / "manifest.json"
+    if not manifest_path.is_file() or manifest_path.is_symlink():
+        return None
+    try:
+        manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+        if manifest.get("version") != 1 or not isinstance(manifest.get("files"), list):
+            return None
+        names = manifest["files"]
+        if len(names) > 2000 or any(
+            not isinstance(name, str) or not ART_NAME.fullmatch(name)
+            for name in names
+        ):
+            return None
+    except (OSError, ValueError, UnicodeError):
+        return None
+    if pathname == "/local-art/manifest.json":
+        return (manifest_path, "application/json; charset=utf-8")
+    name = pathname.removeprefix("/local-art/")
+    if not ART_NAME.fullmatch(name) or name not in names:
+        return None
+    image = ART_ROOT / name
+    if not image.is_file() or image.is_symlink():
+        return None
+    return (image, "image/png")
+
 ALLOWED = {
     "/": (ROOT / "web-ui-viewer/index.html", "text/html; charset=utf-8"),
     "/index.html": (ROOT / "web-ui-viewer/index.html", "text/html; charset=utf-8"),
@@ -30,7 +66,7 @@ class ViewerHandler(BaseHTTPRequestHandler):
     def do_GET(self):
         # Never expose the repo, user's files, local XAPK, or arbitrary paths.
         pathname = self.path.split("?", 1)[0]
-        asset = ALLOWED.get(pathname)
+        asset = ALLOWED.get(pathname) or local_art_resource(pathname)
         if asset is None:
             self.send_error(404, "Not available")
             return
@@ -45,6 +81,7 @@ class ViewerHandler(BaseHTTPRequestHandler):
         self.send_header("Content-Length", str(len(data)))
         self.send_header("Cache-Control", "no-store")
         self.send_header("X-Content-Type-Options", "nosniff")
+        self.send_header("Cross-Origin-Resource-Policy", "same-origin")
         self.send_header("Content-Security-Policy",
                          "default-src 'self'; style-src 'self'; "
                          "script-src 'self'; connect-src 'self'; "
