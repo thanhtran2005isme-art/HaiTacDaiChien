@@ -18,6 +18,8 @@ on:
       - 'tools/decode_xapk_ui_provenance.py'
       - 'tools/recover_managed_ui_fields.py'
       - 'tools/probe_xapk_typetree_backends.py'
+      - 'tools/compare_managed_ui_backends.py'
+      - 'tests/test_compare_managed_ui_backends.py'
       - 'tests/test_decode_xapk_ui_provenance.py'
       - 'tests/test_recover_managed_ui_fields.py'
       - 'tests/test_original_unity_gaps.py'
@@ -294,8 +296,10 @@ jobs:
           PY
 
 
-      - name: Strict AssetStudio with exact Unity-version native header (informational)
-        continue-on-error: true
+      - name: Strict cross-backend source-proven field agreement tests
+        run: python -m unittest discover -s tests -p test_compare_managed_ui_backends.py -v
+
+      - name: Strict AssetStudio with exact Unity-version native header
         timeout-minutes: 10
         run: |
           python tools/decode_xapk_ui_provenance.py --recover-managed-fields --binary-backend AssetStudio --unity-native-header
@@ -306,9 +310,9 @@ jobs:
           print("ASSETSTUDIO NATIVE-HEADER FIELDS:",d["stats"]["verifiedManagedFields"])
           print("ASSETSTUDIO NATIVE-HEADER OUTCOMES:",d["generatedBinaryProof"]["verification"])
           PY
+          cp output/deep-ui-source-evidence.json output/phase3b-assetstudio.json
 
-      - name: Strict AssetRipper with exact Unity-version native header (informational)
-        continue-on-error: true
+      - name: Strict AssetRipper with exact Unity-version native header
         timeout-minutes: 10
         run: |
           python tools/decode_xapk_ui_provenance.py --recover-managed-fields --binary-backend AssetRipper --unity-native-header
@@ -319,6 +323,11 @@ jobs:
           print("ASSETRIPPER NATIVE-HEADER FIELDS:",d["stats"]["verifiedManagedFields"])
           print("ASSETRIPPER NATIVE-HEADER OUTCOMES:",d["generatedBinaryProof"]["verification"])
           PY
+
+      - name: Require independently agreeing field values across source backends
+        run: |
+          python tools/compare_managed_ui_backends.py output/phase3b-assetstudio.json output/deep-ui-source-evidence.json
+
 
   windows-decode:
     runs-on: windows-latest
