@@ -1,0 +1,45 @@
+name: Verify real Spine 3.8 source packs (private)
+on:
+  push:
+    paths:
+      - 'tools/export_local_spine.py'
+      - 'tests/test_local_spine.py'
+      - '.github/workflows/local-spine-packs.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  packs:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          lfs: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install UnityPy Pillow
+      - run: python -m unittest discover -s tests -p test_local_spine.py -v
+      - name: Export one exact Spine 3.8 test pack from real XAPK
+        run: python tools/export_local_spine.py --name Ace --limit 1
+      - name: Verify private skeleton, atlas and atlas page PNGs
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import json
+          from PIL import Image
+          root = Path('output/local-spine')
+          m = json.loads((root / 'manifest.json').read_text(encoding='utf-8'))
+          assert len(m['packages']) == 1
+          p = m['packages'][0]
+          assert p['name'] == 'Ace' and p['version'].startswith('3.8.')
+          assert p['animations'] and p['pages']
+          assert all((root / f).is_file() for f in p['files'])
+          for f in p['pages']:
+              with Image.open(root / f) as image:
+                  image.verify()
+          print("PASS: real Spine 3.8 skeleton + atlas + page images:", p['name'], len(p['pages']))
+          PY
+      - name: Do not publish artwork
+        run: test -z "$(git status --porcelain --untracked-files=normal)"
