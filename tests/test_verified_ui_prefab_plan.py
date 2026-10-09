@@ -86,7 +86,8 @@ def fixture():
 def minimal(studio, ripper, graph):
     with mock.patch.object(plan, "EXPECTED_CLASSES", {"UnityEngine.UI.Image": 1}), \
          mock.patch.object(plan, "EXPECTED_FIELDS", 7), \
-         mock.patch.object(plan, "EXPECTED_EXCLUDED", 0):
+         mock.patch.object(plan, "EXPECTED_EXCLUDED", 0), \
+         mock.patch.object(plan, "EXPECTED_EXCLUDED_FIELDS", 0):
         return plan.prepare(studio, ripper, graph, "c" * 64)
 
 
