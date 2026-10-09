@@ -1,6 +1,29 @@
 name: XAPK UI audit
 on:
   push:
+    branches: [main]
+    paths:
+      - '*.xapk'
+      - 'tools/analyze_xapk.py'
+      - 'tools/unity_index.py'
+      - 'tools/ui_hierarchy.py'
+      - 'tools/ui_preview.py'
+      - 'tools/ui_media_audit.py'
+      - 'tools/layout_spine_audit.py'
+      - 'tests/test_layout_spine_audit.py'
+      - 'tools/scene_visual_inventory.py'
+      - 'tests/test_scene_visual_inventory.py'
+      - 'tools/spine_asset_probe.py'
+      - 'tests/test_spine_asset_probe.py'
+      - 'tests/test_ui_preview.py'
+      - 'tools/il2cpp_refs.py'
+      - 'tools/sprite_links.py'
+      - 'tests/test_sprite_links.py'
+      - 'tests/test_il2cpp_refs.py'
+      - 'tests/test_ui_hierarchy.py'
+      - '.github/workflows/xapk-ui-audit.yml'
+  pull_request:
+    branches: [main]
     paths:
       - '*.xapk'
       - 'tools/analyze_xapk.py'
@@ -32,7 +55,7 @@ concurrency:
   group: xapk-ui-audit-${{ github.ref }}
   cancel-in-progress: true
 permissions:
-  contents: write
+  contents: read
 jobs:
   inspect:
     runs-on: ubuntu-latest
@@ -136,24 +159,15 @@ jobs:
           path: output/resources/
           retention-days: 3
           if-no-files-found: warn
-      - name: Commit report only
+      - name: Verify report changes are reviewed in a feature PR
         if: success()
+        shell: bash
         run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add reports/xapk/
-          if ! git diff --cached --quiet; then
-            git commit -m "docs: record XAPK UI resource inventory"
-            # The metadata job may start before a documentation commit lands.
-            # Rebase its report-only commit rather than force-pushing main.
-            for attempt in 1 2 3; do
-              git fetch origin main
-              git rebase origin/main
-              if git push origin HEAD:main; then
-                exit 0
-              fi
-              echo "Push raced with another update; retrying (${attempt}/3)"
-            done
-            echo "Could not publish fresh reports after 3 attempts"
+          set -euo pipefail
+          if ! git diff --exit-code -- reports/xapk/; then
+            echo "::error::Reports generated from XAPK differ from tracked files."
+            echo "Run the audit on a feature branch, add changed reports and open a PR."
+            echo "GitHub Actions will not push report changes directly to main."
             exit 1
           fi
+          echo "PASS: tracked XAPK reports are reproducible; no automatic main push"

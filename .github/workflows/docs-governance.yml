@@ -1,0 +1,48 @@
+name: AI handoff and PR documentation checks
+
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+    paths:
+      - 'AGENTS.md'
+      - 'docs/**'
+      - 'tools/refresh_commit_history.py'
+      - 'tests/test_project_docs.py'
+      - '.github/PULL_REQUEST_TEMPLATE.md'
+      - '.github/workflows/docs-governance.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify-docs:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Checkout with Git history but no XAPK binaries
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          lfs: false
+      - name: Validate documentation structure and branch policy
+        run: python3 -m unittest discover -s tests -p test_project_docs.py -v
+      - name: Require handoff update in each PR
+        if: github.event_name == 'pull_request'
+        shell: bash
+        env:
+          BASE_REF: ${{ github.base_ref }}
+        run: |
+          set -euo pipefail
+          git fetch --no-tags origin "$BASE_REF"
+          echo "Changed files against origin/$BASE_REF:"
+          git diff --name-only "origin/$BASE_REF...HEAD"
+          if ! git diff --name-only "origin/$BASE_REF...HEAD" |
+             grep -qx 'docs/AI_HANDOFF.md'; then
+            echo "::error::Every feature/fix/docs PR must update docs/AI_HANDOFF.md."
+            echo "Record scope, tests, blockers and next step before requesting merge."
+            exit 1
+          fi
+          echo "PASS: this PR updates the handoff"
