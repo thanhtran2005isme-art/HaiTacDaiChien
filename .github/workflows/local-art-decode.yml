@@ -293,6 +293,33 @@ jobs:
                 d["generatedBinaryProof"]["verification"])
           PY
 
+
+      - name: Strict AssetStudio with exact Unity-version native header (informational)
+        continue-on-error: true
+        timeout-minutes: 10
+        run: |
+          python tools/decode_xapk_ui_provenance.py --recover-managed-fields --binary-backend AssetStudio --unity-native-header
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          d=json.loads(Path("output/deep-ui-source-evidence.json").read_text(encoding="utf-8"))
+          print("ASSETSTUDIO NATIVE-HEADER FIELDS:",d["stats"]["verifiedManagedFields"])
+          print("ASSETSTUDIO NATIVE-HEADER OUTCOMES:",d["generatedBinaryProof"]["verification"])
+          PY
+
+      - name: Strict AssetRipper with exact Unity-version native header (informational)
+        continue-on-error: true
+        timeout-minutes: 10
+        run: |
+          python tools/decode_xapk_ui_provenance.py --recover-managed-fields --binary-backend AssetRipper --unity-native-header
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          d=json.loads(Path("output/deep-ui-source-evidence.json").read_text(encoding="utf-8"))
+          print("ASSETRIPPER NATIVE-HEADER FIELDS:",d["stats"]["verifiedManagedFields"])
+          print("ASSETRIPPER NATIVE-HEADER OUTCOMES:",d["generatedBinaryProof"]["verification"])
+          PY
+
   windows-decode:
     runs-on: windows-latest
     timeout-minutes: 30
