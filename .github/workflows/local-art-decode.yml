@@ -17,6 +17,7 @@ on:
       - 'tools/summarize_original_unity_gaps.py'
       - 'tools/decode_xapk_ui_provenance.py'
       - 'tools/recover_managed_ui_fields.py'
+      - 'tools/probe_xapk_typetree_backends.py'
       - 'tests/test_decode_xapk_ui_provenance.py'
       - 'tests/test_recover_managed_ui_fields.py'
       - 'tests/test_original_unity_gaps.py'
@@ -254,6 +255,14 @@ jobs:
                     "CODE",reason[1],"FRAME",reason[2])
           print("No binary/art payloads are uploaded; no Prefab changes.")
           PY
+
+
+      - name: Compare exact-XAPK AssetStudio and AssetRipper generator backends (informational)
+        continue-on-error: true
+        timeout-minutes: 8
+        run: |
+          python tools/probe_xapk_typetree_backends.py --backend AssetStudio
+          python tools/probe_xapk_typetree_backends.py --backend AssetRipper
 
   windows-decode:
     runs-on: windows-latest
