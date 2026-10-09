@@ -37,6 +37,26 @@ Công cụ mở **các serialized Unity file thực tế trong AssetBundle**, đ
 Không xuất binary, managed script nguồn, texture hoặc XAPK lên GitHub. CI chạy
 cùng bộ kiểm tra trên XAPK nhưng chỉ in số liệu tổng hợp, không upload artifact.
 
+## Kết quả kiểm tra XAPK thật trên CI (2026-10-09)
+
+| Cây ứng viên | RectTransform | Component tham chiếu |
+|---|---:|---:|
+| REF01 ship upgrade | 66 | 244 |
+| REF02 hero detail | 954 | 3.043 |
+| REF03 islands A | 70 | 239 |
+| REF03 islands B | 77 | 256 |
+| REF04 home crew | 503 | 1.564 |
+| **Tổng** | **1.670** | **5.346** |
+
+- 0 component ID thiếu trong năm cây sau khi so khớp `GameObject.m_Component`.
+- 2.212 component managed không thể giải mã trường qua typetree trong bản build hiện tại.
+- **0 đối tượng thuộc kiểu `Prefab`, `PrefabInstance`, `SceneAsset` trong đúng năm
+  serialized file đã chọn**. Điều này **không** chứng minh các file khác
+  trong XAPK không có Prefab, và cũng **không** biến các cây UI hiện tại
+  thành file nguồn `.prefab/.unity` của Unity Editor.
+- Các con số xác nhận **quan hệ serialized**, không xác nhận skin,
+  CanvasScaler runtime hay giao diện pixel-perfect.
+
 ## Thử tạo Prefab/Scene từ cây serialized thật (không bịa UI)
 
 Trong Unity Editor:
