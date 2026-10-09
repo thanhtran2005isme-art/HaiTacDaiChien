@@ -50,10 +50,51 @@ def local_art_resource(pathname):
         return None
     return (image, "image/png")
 
+SPINE_ROOT = ROOT / "output/local-spine"
+SPINE_RUNTIME_ROOT = ROOT / "output/local-spine-runtime"
+SPINE_FILE = re.compile(r"[0-9a-f]{24}/[A-Za-z0-9][A-Za-z0-9_.-]{0,124}\.(?:png|webp|atlas|json)", re.I)
+
+
+def local_spine_resource(pathname):
+    """Serve only packaged skeleton/atlas/textures listed by a validated local manifest."""
+    if not pathname.startswith("/local-spine/"):
+        return None
+    manifest_path = SPINE_ROOT / "manifest.json"
+    if not manifest_path.is_file() or manifest_path.is_symlink():
+        return None
+    try:
+        manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+        files = manifest.get("files")
+        if manifest.get("version") != 1 or not isinstance(files, list) or len(files) > 2500:
+            return None
+        if any(not isinstance(name, str) or not SPINE_FILE.fullmatch(name) for name in files):
+            return None
+    except (OSError, UnicodeError, ValueError):
+        return None
+    if pathname == "/local-spine/manifest.json":
+        return manifest_path, "application/json; charset=utf-8"
+    path = pathname.removeprefix("/local-spine/")
+    if path not in files or not SPINE_FILE.fullmatch(path):
+        return None
+    target = SPINE_ROOT / path
+    if target.parent.is_symlink() or target.is_symlink() or not target.is_file():
+        return None
+    mime = ("application/json; charset=utf-8" if path.endswith(".json") else
+            "text/plain; charset=utf-8" if path.endswith(".atlas") else
+            "image/webp" if path.endswith(".webp") else "image/png")
+    return target, mime
+
+
 ALLOWED = {
     "/": (ROOT / "web-ui-viewer/index.html", "text/html; charset=utf-8"),
     "/index.html": (ROOT / "web-ui-viewer/index.html", "text/html; charset=utf-8"),
     "/app.js": (ROOT / "web-ui-viewer/app.js", "text/javascript; charset=utf-8"),
+    "/spine-viewer": (ROOT / "web-ui-viewer/spine-viewer.html", "text/html; charset=utf-8"),
+    "/spine-viewer.js": (ROOT / "web-ui-viewer/spine-viewer.js", "text/javascript; charset=utf-8"),
+    "/spine-viewer.css": (ROOT / "web-ui-viewer/spine-viewer.css", "text/css; charset=utf-8"),
+    # Optional licensed Spine Player 3.8 runtime, supplied by the user locally.
+    "/spine-player.js": (SPINE_RUNTIME_ROOT / "spine-player.js", "text/javascript; charset=utf-8"),
+    "/spine-player.css": (SPINE_RUNTIME_ROOT / "spine-player.css", "text/css; charset=utf-8"),
     "/asset-matching.js": (ROOT / "web-ui-viewer/asset-matching.js", "text/javascript; charset=utf-8"),
     "/style.css": (ROOT / "web-ui-viewer/style.css", "text/css; charset=utf-8"),
     "/ui-scenes.json": (
@@ -66,7 +107,7 @@ class ViewerHandler(BaseHTTPRequestHandler):
     def do_GET(self):
         # Never expose the repo, user's files, local XAPK, or arbitrary paths.
         pathname = self.path.split("?", 1)[0]
-        asset = ALLOWED.get(pathname) or local_art_resource(pathname)
+        asset = ALLOWED.get(pathname) or local_art_resource(pathname) or local_spine_resource(pathname)
         if asset is None:
             self.send_error(404, "Not available")
             return
