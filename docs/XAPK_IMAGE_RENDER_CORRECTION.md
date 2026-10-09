@@ -36,6 +36,7 @@ trên **cùng nodeId**; nếu không, Unity dừng Reconstruct thay vì ghép nh
 - **11 Image bị tắt ngay trong asset**: REF01=0, REF02=9, REF03A=0,
   REF03B=1, REF04=1. Trạng thái `m_Enabled` lấy từ chính serialized
   `MonoBehaviour` header, **không phụ thuộc IL2CPP typetree**.
+- **4 Canvas native có trường `m_Enabled` và `m_RenderMode` đọc được**, cả 4 đều đang enabled trong serialized XAPK. Unity áp dụng giá trị enabled gốc, giữ sorting/pixelPerfect khi đọc được. `m_RenderMode` được ghi để kiểm kê, **chưa áp dụng** chế độ camera/world-space do thiếu liên kết camera và CanvasScaler runtime; không tuyên bố đây là vị trí Game View ban đầu.
 - **0/963 Image có managed typetree khả dụng**: chưa thể lấy `Image.Type`,
   `Color`, `Fill`, `PreserveAspect`, raycast và các field này từ
   serialized dữ liệu. Bản dựng vẫn phải dùng giá trị preview cho các
