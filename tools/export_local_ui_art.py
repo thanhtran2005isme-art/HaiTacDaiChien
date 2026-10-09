@@ -158,7 +158,9 @@ def extract(root, xapk=None, apk_dir=None, out=None, unitypy=None):
                 xapk = next(iter(root.glob("*.xapk")), None)
             if not xapk or not xapk.is_file():
                 raise RuntimeError("No real XAPK/APKs found. Run git lfs pull first.")
-            if xapk.read_bytes()[:48].startswith(b"version https://git-lfs.github.com/"):
+            with xapk.open("rb") as stream:
+                is_pointer = stream.read(48).startswith(b"version https://git-lfs.github.com/")
+            if is_pointer:
                 raise RuntimeError("XAPK is an LFS pointer. Run git lfs pull first.")
             if not zipfile.is_zipfile(xapk):
                 raise RuntimeError("XAPK is not a valid ZIP archive.")
