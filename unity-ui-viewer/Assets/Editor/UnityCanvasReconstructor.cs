@@ -300,6 +300,12 @@ namespace HaiTac.OfflineViewer.Editor
                         .Where(c => c.enabled && c.gameObject.activeInHierarchy).ToArray();
                     int art = roots.Sum(go => go.GetComponentsInChildren<Image>(true)
                         .Count(image => image.sprite != null));
+                    int sourceSpinePacks = roots.Sum(go => go
+                        .GetComponentsInChildren<SpineReferenceEvidence>(true)
+                        .Count(note => note.sourceSkeletonJson != null &&
+                                       note.sourceAtlasText != null &&
+                                       note.sourceAtlasTextures != null &&
+                                       note.sourceAtlasTextures.Length > 0));
                     bool zeroRoot = canvases.Any(c => c.transform.localScale.x == 0f ||
                                                       c.transform.localScale.y == 0f);
                     if (cameras == 0) issues.Add(sceneInfo.id + ": no preview Camera");
@@ -308,7 +314,8 @@ namespace HaiTac.OfflineViewer.Editor
                     if (art == 0) issues.Add(sceneInfo.id + ": no decoded Sprite Images");
                     Debug.Log("[HaiTac scene audit] " + sceneInfo.id + ": " + cameras +
                         " Cameras, " + canvases.Length + " active Canvases, " + art +
-                        " Sprite Images, zero-root=" + zeroRoot);
+                        " Sprite Images, source Spine packs=" + sourceSpinePacks +
+                        ", zero-root=" + zeroRoot);
                 }
             }
             catch (Exception error)
