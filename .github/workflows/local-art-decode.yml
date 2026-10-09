@@ -1,0 +1,45 @@
+name: Verify local Unity Sprite decoding (no art uploads)
+on:
+  push:
+    paths:
+      - 'tools/export_local_ui_art.py'
+      - 'tests/test_local_ui_art.py'
+      - '.github/workflows/local-art-decode.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  decode:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - name: Checkout real XAPK via Git LFS
+        uses: actions/checkout@v4
+        with:
+          lfs: true
+      - name: Prepare Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install Unity sprite decoding tools
+        run: python -m pip install UnityPy Pillow
+      - name: Extract local-only Sprite PNGs
+        run: python tools/export_local_ui_art.py
+      - name: Verify decoded PNGs and mapped scene paths
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          from PIL import Image
+          root = Path("output/local-ui-art")
+          info = json.loads((root / "manifest.json").read_text(encoding="utf-8"))
+          assert info["version"] == 1
+          print("Sprite images exported:", info["stats"]["sprite_images_exported"])
+          print("UI nodes mapped:", info["stats"]["ui_nodes_mapped"])
+          assert info["stats"]["sprite_images_exported"] > 0, "No Sprite could be decoded"
+          assert info["stats"]["ui_nodes_mapped"] > 0, "No Image→Sprite mapping produced"
+          for name in info["files"]:
+              with Image.open(root / name) as image:
+                  image.verify()
+          print("PASS: local Sprite files verified, no artwork uploaded")
+          PY
