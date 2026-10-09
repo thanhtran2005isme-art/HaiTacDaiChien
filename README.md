@@ -1,3 +1,5 @@
+> **AI/ChatGPT tiếp tục dự án:** đọc [AGENTS.md](AGENTS.md) → [docs/AI_HANDOFF.md](docs/AI_HANDOFF.md) → [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md). Lịch sử: [docs/history/2026-10.md](docs/history/2026-10.md). Mọi chức năng mới sửa trong **nhánh riêng → PR → kiểm thử/xác nhận → merge main** theo [quy trình Git](docs/WORKFLOW.md).
+
 # Hải Tặc — UI Viewer chạy offline không cần Unity
 
 Có hai bản xem trước UI cùng dùng dữ liệu Unity đã trích xuất:
