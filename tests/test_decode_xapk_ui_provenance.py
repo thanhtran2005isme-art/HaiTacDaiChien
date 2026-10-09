@@ -88,6 +88,24 @@ class SourceUIProvenance(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "Component type differs"):
             mod.inspect_component(self.behaviour, "Canvas", 200, self.ctx)
 
+    def test_metadata_is_read_from_canonical_xapk_when_unpacked_apks_missing(self):
+        import io
+        with tempfile.TemporaryDirectory() as folder:
+            root = pathlib.Path(folder)
+            nested = io.BytesIO()
+            with zipfile.ZipFile(nested, "w") as apk:
+                apk.writestr(
+                    "assets/bin/Data/Managed/Metadata/global-metadata.dat",
+                    struct.pack("<II", mod.refs.IL2CPP_MAGIC, 31) +
+                    b"\x00" * 256 + b"m_Type\x00")
+            with zipfile.ZipFile(root / "game.xapk", "w") as xapk:
+                xapk.writestr("base.apk", nested.getvalue())
+            result = mod.inspect_il2cpp_header(root / "output/apks",
+                                               root / "game.xapk")
+            self.assertEqual(len(result["files"]), 1)
+            self.assertEqual(result["files"][0]["version"], 31)
+            self.assertTrue(result["files"][0]["fieldNameHints"]["m_Type"])
+
     def test_il2cpp_v31_string_presence_is_only_a_hint(self):
         with tempfile.TemporaryDirectory() as temp:
             path = pathlib.Path(temp) / "source.apk"
