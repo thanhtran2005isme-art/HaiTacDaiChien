@@ -140,8 +140,10 @@ class TestExactManagedStudyPlan(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "Invalid source field value/range"):
             minimal(self.studio, self.ripper, self.graph)
         self.studio, self.ripper, self.graph = fixture()
-        self.studio["scenes"][0]["components"][0]["fields"]["m_Fake"] = 1
-        self.ripper["scenes"][0]["components"][0]["fields"]["m_Fake"] = 1
+        for data in (self.studio, self.ripper):
+            field_map = data["scenes"][0]["components"][0]["fields"]
+            field_map.pop("m_Type")
+            field_map["m_Fake"] = 1
         with self.assertRaisesRegex(ValueError, "Missing or unexpected"):
             minimal(self.studio, self.ripper, self.graph)
 
