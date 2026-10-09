@@ -38,6 +38,24 @@ class TestUnityReconstructionPlan(unittest.TestCase):
         }]
         return scenes, art, comps, candidates
 
+    def test_new_manifest_uses_unique_image_component_and_transform_ids(self):
+        scenes, art, components, candidates = self.fixture()
+        art["nodeBindings"] = [{
+            "sceneId": "REF01-ship-upgrade", "nodeId": 13,
+            "imageComponentId": 220, "spriteFile": art["files"][0]
+        }, {
+            "sceneId": "REF01-ship-upgrade", "nodeId": 14,
+            "imageComponentId": 221, "spriteFile": art["files"][0]
+        }]
+        result = module.prepare(scenes, art, components, candidates)
+        self.assertEqual(result["schemaVersion"], 2)
+        self.assertEqual(len(result["sprites"]), 2)
+        self.assertEqual({x["sourceImageComponentId"] for x in result["sprites"]},
+                         {220, 221})
+        art["nodeBindings"].append(dict(art["nodeBindings"][0]))
+        with self.assertRaisesRegex(ValueError, "Multiple Image components"):
+            module.prepare(scenes, art, components, candidates)
+
     def test_exact_mapping_and_no_fake_spine_binding(self):
         result = module.prepare(*self.fixture())
         self.assertEqual(len(result["sprites"]), 1)
