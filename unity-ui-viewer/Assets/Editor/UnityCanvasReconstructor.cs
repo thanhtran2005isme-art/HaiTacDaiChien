@@ -258,6 +258,18 @@ namespace HaiTac.OfflineViewer.Editor
                     throw new IOException("Could not save local prefab " + prefabPath);
                 var newScene = EditorSceneManager.NewScene(NewSceneSetup.EmptyScene,
                                                             NewSceneMode.Single);
+                // Even ScreenSpaceOverlay UI benefits from a scene Camera: without
+                // one Unity Game View reports "No cameras rendering" in Edit Mode.
+                // It is a LOCAL preview camera, not evidence of the game's camera.
+                var cameraObject = new GameObject("Local Preview Camera", typeof(Camera));
+                cameraObject.tag = "MainCamera";
+                cameraObject.transform.position = new Vector3(0f, 0f, -10f);
+                var previewCamera = cameraObject.GetComponent<Camera>();
+                previewCamera.orthographic = true;
+                previewCamera.clearFlags = CameraClearFlags.SolidColor;
+                previewCamera.backgroundColor = new Color(.045f, .075f, .115f);
+                previewCamera.nearClipPlane = .1f;
+                previewCamera.farClipPlane = 100f;
                 PrefabUtility.InstantiatePrefab(prefab, newScene);
                 if (!EditorSceneManager.SaveScene(newScene, SceneFolder + "/" + filename + ".unity"))
                     throw new IOException("Could not save local scene " + filename);
