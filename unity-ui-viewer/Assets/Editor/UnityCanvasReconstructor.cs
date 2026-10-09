@@ -180,9 +180,127 @@ namespace HaiTac.OfflineViewer.Editor
             }
             string summary = checkedScenes + "/5 generated scenes audited. " +
                 (issues.Count == 0 ? "No structural rendering blockers found." :
-                    string.Join("\\n", issues.ToArray()));
+                    string.Join("\n", issues.ToArray()));
             if (issues.Count > 0) Debug.LogError("[HaiTac scene audit] " + summary);
             EditorUtility.DisplayDialog("HaiTac reconstructed scene audit", summary, "OK");
+        }
+
+        private static bool HasWorkingCamera(Scene scene)
+        {
+            return scene.GetRootGameObjects().SelectMany(root =>
+                root.GetComponentsInChildren<Camera>(true)).Any(camera =>
+                camera.enabled && camera.gameObject.activeInHierarchy);
+        }
+
+        private static Camera EnsurePreviewCamera(Scene scene)
+        {
+            var existing = scene.GetRootGameObjects().SelectMany(root =>
+                root.GetComponentsInChildren<Camera>(true)).FirstOrDefault(camera =>
+                camera.enabled && camera.gameObject.activeInHierarchy);
+            if (existing != null) return existing;
+
+            var cameraObject = new GameObject("Local Preview Camera", typeof(Camera));
+            if (cameraObject.scene != scene)
+                SceneManager.MoveGameObjectToScene(cameraObject, scene);
+            cameraObject.tag = "MainCamera";
+            cameraObject.transform.position = new Vector3(0f, 0f, -10f);
+            cameraObject.transform.rotation = Quaternion.identity;
+            cameraObject.transform.localScale = Vector3.one;
+            cameraObject.SetActive(true);
+            var camera = cameraObject.GetComponent<Camera>();
+            camera.enabled = true;
+            camera.orthographic = true;
+            camera.clearFlags = CameraClearFlags.SolidColor;
+            camera.backgroundColor = new Color(.045f, .075f, .115f);
+            camera.nearClipPlane = .1f;
+            camera.farClipPlane = 100f;
+            return camera;
+        }
+
+        [MenuItem("Tools/HaiTac Offline UI Viewer/Repair existing 5 scenes (Camera + Canvas scale)")]
+        public static void RepairExistingScenes()
+        {
+            if (EditorApplication.isPlaying)
+            {
+                EditorUtility.DisplayDialog("HaiTac repair",
+                    "Stop Play Mode before repairing generated scenes.", "OK");
+                return;
+            }
+            if (!EditorSceneManager.SaveCurrentModifiedScenesIfUserWantsTo()) return;
+            var originalPath = EditorSceneManager.GetActiveScene().path;
+            var errors = new List<string>();
+            int repaired = 0;
+            try
+            {
+                string metadata = Path.Combine(Application.dataPath, "StreamingAssets",
+                                               "ui-scenes.json");
+                var db = JsonUtility.FromJson<ViewerDatabase>(File.ReadAllText(metadata));
+                if (db == null || db.scenes == null || db.scenes.Length != 5)
+                    throw new InvalidDataException("Expected 5 Unity scene candidates.");
+                foreach (var candidate in db.scenes)
+                {
+                    try
+                    {
+                        if (!SafeSceneId.IsMatch(candidate.id))
+                            throw new InvalidDataException("Invalid candidate scene ID.");
+                        string path = SceneFolder + "/" + candidate.id + ".unity";
+                        if (!File.Exists(path))
+                            throw new FileNotFoundException("Generated Unity scene missing: " + path);
+                        var opened = EditorSceneManager.OpenScene(path, OpenSceneMode.Single);
+                        var canvas = opened.GetRootGameObjects().SelectMany(root =>
+                            root.GetComponentsInChildren<Canvas>(true))
+                            .FirstOrDefault(x => x.GetComponent<ReconstructionEvidence>() != null);
+                        if (canvas == null)
+                            throw new InvalidDataException("No reconstructed Canvas found.");
+                        // Old generated scenes contain a duplicate zero-scale Canvas
+                        // child, which hides all 4 affected scenes. Correct only the
+                        // direct child whose name matches the serialized root.
+                        var root = canvas.transform;
+                        root.localScale = Vector3.one;
+                        if (candidate.nodes != null && candidate.nodes.Length > 0)
+                        {
+                            string sourceRoot = candidate.nodes[0].name;
+                            foreach (Transform child in root)
+                            {
+                                if (child.name == sourceRoot &&
+                                    (Mathf.Approximately(child.localScale.x, 0f) ||
+                                     Mathf.Approximately(child.localScale.y, 0f)))
+                                {
+                                    child.localScale = Vector3.one;
+                                }
+                            }
+                        }
+                        EnsurePreviewCamera(opened);
+                        if (!HasWorkingCamera(opened))
+                            throw new InvalidDataException("Could not create active preview Camera.");
+                        EditorSceneManager.MarkSceneDirty(opened);
+                        if (!EditorSceneManager.SaveScene(opened, path))
+                            throw new IOException("Failed to save scene " + path);
+                        repaired++;
+                        Debug.Log("[HaiTac repair] " + candidate.id +
+                            ": Canvas root scale normalized, preview Camera present.");
+                    }
+                    catch (Exception error)
+                    {
+                        errors.Add(candidate.id + ": " + error.Message);
+                        Debug.LogException(error);
+                    }
+                }
+            }
+            catch (Exception error)
+            {
+                errors.Add(error.Message);
+                Debug.LogException(error);
+            }
+            finally
+            {
+                if (!string.IsNullOrEmpty(originalPath) && File.Exists(originalPath))
+                    EditorSceneManager.OpenScene(originalPath, OpenSceneMode.Single);
+            }
+            var result = "Saved " + repaired + "/5 repaired scenes." +
+                (errors.Count > 0 ? "\n" + string.Join("\n", errors.ToArray()) :
+                "\nAll saved scenes now have a Camera and nonzero preview Canvas root.");
+            EditorUtility.DisplayDialog("HaiTac scene repair", result, "OK");
         }
 
         private static void EnsureFolder(string parent, string name)
@@ -254,6 +372,13 @@ namespace HaiTac.OfflineViewer.Editor
             try
             {
                 var rect = go.GetComponent<RectTransform>();
+                // Explicitly set an identity root transform. A newly constructed
+                // Unity UI RectTransform can serialize scale=(0,0,0) on some
+                // Editor versions, even if source-root duplication is removed.
+                // The 4 source Canvas roots with zero XY scale are NOT usable
+                // directly as a standalone preview Canvas.
+                rect.localScale = Vector3.one;
+                rect.localRotation = Quaternion.identity;
                 rect.sizeDelta = new Vector2(1600, 900); // Provisional, NOT original runtime resolution.
                 var canvas = go.GetComponent<Canvas>();
                 canvas.renderMode = RenderMode.ScreenSpaceOverlay;
@@ -336,6 +461,9 @@ namespace HaiTac.OfflineViewer.Editor
                     note.bindingStatus = row.bindingStatus;
                     note.possibleSkeletonDataAssets = row.candidateCount;
                 }
+                // Ensure the root identity survives all intermediate UI
+                // component creation and is serialized into the prefab asset.
+                rect.localScale = Vector3.one;
                 string filename = scene.id;
                 string prefabPath = PrefabFolder + "/" + filename + ".prefab";
                 var prefab = PrefabUtility.SaveAsPrefabAsset(go, prefabPath);
@@ -343,21 +471,15 @@ namespace HaiTac.OfflineViewer.Editor
                     throw new IOException("Could not save local prefab " + prefabPath);
                 var newScene = EditorSceneManager.NewScene(NewSceneSetup.EmptyScene,
                                                             NewSceneMode.Single);
-                // Even ScreenSpaceOverlay UI benefits from a scene Camera: without
-                // one Unity Game View reports "No cameras rendering" in Edit Mode.
-                // It is a LOCAL preview camera, not evidence of the game's camera.
-                var cameraObject = new GameObject("Local Preview Camera", typeof(Camera));
-                cameraObject.tag = "MainCamera";
-                cameraObject.transform.position = new Vector3(0f, 0f, -10f);
-                var previewCamera = cameraObject.GetComponent<Camera>();
-                previewCamera.orthographic = true;
-                previewCamera.clearFlags = CameraClearFlags.SolidColor;
-                previewCamera.backgroundColor = new Color(.045f, .075f, .115f);
-                previewCamera.nearClipPlane = .1f;
-                previewCamera.farClipPlane = 100f;
+                // Create Camera in the destination scene rather than assuming
+                // the last-open scene will receive new GameObjects.
+                EnsurePreviewCamera(newScene);
                 var instance = PrefabUtility.InstantiatePrefab(prefab, newScene) as GameObject;
                 if (instance == null || instance.GetComponent<Canvas>() == null)
                     throw new InvalidDataException("Canvas prefab not instantiated: " + filename);
+                // The prefab and instance may be independently normalized when
+                // Unity restores serialized scene references.
+                instance.transform.localScale = Vector3.one;
                 // Fail fast before saving a broken scene; see both inactive and
                 // active Image nodes, since original runtime activation is unknown.
                 int spriteCount = instance.GetComponentsInChildren<Image>(true)
@@ -369,9 +491,7 @@ namespace HaiTac.OfflineViewer.Editor
                 if (instance.transform.localScale.x == 0f ||
                     instance.transform.localScale.y == 0f)
                     throw new InvalidDataException("Zero-scale reconstructed Canvas: " + filename);
-                if (!newScene.GetRootGameObjects().SelectMany(root =>
-                      root.GetComponentsInChildren<Camera>(true)).Any(camera =>
-                      camera.enabled && camera.gameObject.activeInHierarchy))
+                if (!HasWorkingCamera(newScene))
                     throw new InvalidDataException("Missing working preview Camera: " + filename);
                 if (!EditorSceneManager.SaveScene(newScene, SceneFolder + "/" + filename + ".unity"))
                     throw new IOException("Could not save local scene " + filename);
