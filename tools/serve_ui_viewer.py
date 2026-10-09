@@ -2,7 +2,7 @@
 """Local-only offline UI viewer with a strict allowlist of public metadata files.
 
 No network download, authentication, game server, APK or Unity installation.
-Serves only HTML/CSS/JS and pre-generated text JSON over 127.0.0.1.
+Serves only allowlisted UI metadata and locally generated Sprite PNGs over 127.0.0.1.
 """
 from __future__ import annotations
 
@@ -18,7 +18,7 @@ import webbrowser
 ROOT = Path(__file__).resolve().parents[1]
 # Generated images remain ignored by Git. Only manifest-enumerated PNGs are exposed.
 ART_ROOT = ROOT / "output/local-ui-art"
-ART_NAME = re.compile(r"[0-9a-f]{32}\\.png")
+ART_NAME = re.compile(r"[0-9a-f]{32}\.png")
 
 
 def local_art_resource(pathname):
