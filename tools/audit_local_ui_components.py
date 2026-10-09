@@ -91,6 +91,11 @@ def sprite_details(reader):
         pixels = layout.real(layout.get(obj, "m_PixelsToUnits"))
         rect = layout.get(obj, "m_Rect")
         size = layout.vector(layout.get(rect, "size"), ("x", "y"))
+        if size is None:
+            size = [layout.real(layout.get(rect, "width")),
+                    layout.real(layout.get(rect, "height"))]
+            if None in size:
+                size = None
         # Unity m_Border order = left, bottom, right, top.
         result = {}
         if border is not None and size and (
@@ -156,6 +161,17 @@ def audit_scene(scene, groups, sprite_links):
         except (KeyError, ValueError, IndexError, TypeError):
             counters["sprite_object_not_found"] += 1
     ids = {node["id"] for node in scene["nodes"]}
+    go_map = {}
+    for node in scene["nodes"]:
+        rect = readers.get(node["id"])
+        if rect is None:
+            continue
+        try:
+            go_id = layout.local_id(layout.get(rect.read(), "m_GameObject"))
+            if go_id:
+                go_map[go_id] = node["id"]
+        except Exception:
+            continue
     for reader in readers.values():
         if reader.type.name != "MonoBehaviour":
             continue
@@ -165,14 +181,7 @@ def audit_scene(scene, groups, sprite_links):
         try:
             head = reader.parse_monobehaviour_head()
             go_id = layout.local_id(layout.get(head, "m_GameObject"))
-            node_id = None
-            for node in scene["nodes"]:
-                rect = readers.get(node["id"])
-                if rect is None:
-                    continue
-                if layout.local_id(layout.get(rect.read(), "m_GameObject")) == go_id:
-                    node_id = node["id"]
-                    break
+            node_id = go_map.get(go_id)
             if node_id not in ids:
                 continue
             record = {"nodeId": node_id, "componentId": int(reader.path_id),
