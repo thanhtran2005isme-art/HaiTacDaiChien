@@ -235,6 +235,7 @@ def _valid_field(name, value):
         "m_Type": 3, "m_UiScaleMode": 2, "m_ScreenMatchMode": 2,
         "m_FillMethod": 4, "m_StartCorner": 3, "m_StartAxis": 1,
         "m_ChildAlignment": 8, "m_Constraint": 2, "m_AspectMode": 5,
+        "m_FillOrigin": 3, "m_HorizontalFit": 2, "m_VerticalFit": 2,
     }
     if name in enums:
         return type(value) is int and 0 <= value <= enums[name]
@@ -254,8 +255,10 @@ def _valid_field(name, value):
                 and all(type(v) in (int, float) and math.isfinite(v)
                         and 0 <= v <= 4 for v in value.values()))
     if name == "m_Padding":
-        return (isinstance(value, dict) and bool(value) and
-                set(value).issubset({"m_Left", "m_Right", "m_Top", "m_Bottom"}))
+        return (isinstance(value, dict) and
+                set(value) == {"m_Left", "m_Right", "m_Top", "m_Bottom"} and
+                all(type(v) is int and -32768 <= v <= 32768
+                    for v in value.values()))
     if name in ("m_CellSize", "m_Softness"):
         return (isinstance(value, dict) and set(value) == {"x", "y"} and
                 all(type(v) in (int, float) and math.isfinite(v)
