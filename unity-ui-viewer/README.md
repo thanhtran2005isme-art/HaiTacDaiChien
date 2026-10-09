@@ -23,6 +23,48 @@ py tools/build_unity_viewer_data.py --repo-root .
 5. Unity menu → **Tools → HaiTac Offline UI Viewer → Create or Open Demo Scene**.
 6. Press **Play**. Pick a scene in the left sidebar, use **Left/Right** arrow keys to switch, and click any colored region to inspect its underlying Unity metadata.
 
+## Phase 1 — verified serialized Unity UI layout from XAPK
+
+**Goal:** read full RectTransform quaternion/3D placement, Canvas sorting and any
+Image properties available through verified Unity typetrees. Do not generate
+hand-drawn positions from screenshots or invent missing runtime values.
+
+After updating `main`, run from CMD **in the repository root**:
+
+```cmd
+git pull origin main
+py -3 tools\export_local_ui_layout.py
+py -3 tools\build_unity_prefab_manifest.py
+```
+
+Alternatively, run `CHUAN_BI_DO_HOA.bat` to prepare Sprite, layout evidence,
+and Spine data together. The layout evidence file is
+`output/local-ui-layout.json` (ignored by Git). Each serialized file must
+uniquely match at least 80% of source Transform IDs. Component bindings are
+validated using GameObject pointers and parent relationships, never asset names.
+
+Next use **Tools → HaiTac Offline UI Viewer → Reconstruct 5 local Canvas prefabs**
+in Unity Editor, then **Audit 5 generated Canvas scenes** and open the scene again.
+Old scenes are not updated automatically by Git pull. Stale or mismatched layout
+evidence is rejected rather than mapped to arbitrary UI nodes.
+
+Reported counters:
+- `verifiedTransforms`: 1670 serialized Transform IDs expected across 5 scenes
+- `verifiedCanvases`: serialized Canvas objects linked to verified GameObjects
+- `imageTypetrees`: Image properties readable through Unity type trees
+- `unavailable`: precise counters for properties that cannot be decoded
+
+**Still unverified:** physical/CanvasScaler runtime resolution, LayoutGroup
+layout results, Mask stencil behavior, 9-slice borders, device-dependent scaling,
+text/font material, live player state, original prefab source, and Spine
+skin/animation bindings. The 1600×900 root resolution is only a provisional
+preview setting; it is **not** known to be the game's original CanvasScaler.
+Sliced and Tiled Image modes are not guessed when borders are missing.
+
+**Testing:** tests and CI check Python extraction against real XAPK bytes and
+ID matching. These tests do **not compile the Unity C# scripts or prove the
+visual fidelity** of a rendered Game View. Check in your installed Unity Editor.
+
 ## Reconstruct local Canvas hierarchy and original Sprite pixels (new)
 
 This is a **clean-room reconstruction from verified XAPK metadata**, not the Unity game developer's original prefab files or gameplay source. You do **not** need screenshots to get started.
@@ -80,7 +122,7 @@ The importer creates:
 
 Every original scene's RectTransform ancestry, anchors, pivots, sizes, positions, recorded local XY scale and sibling order are retained. Unity `Image` components reference the imported Sprite pixels; source `RectMask2D` indicators are reconstructed when present. The generated scenes have **no colored wireframe placeholder rectangles** or fabricated character art.
 
-**Important technical limits:** Scene selection reflects structurally matched candidates, not proof of the game's live UI state. The imported Canvas uses an explicitly provisional **1600×900** scaler. The hierarchy inventory currently lacks full quaternion rotations, LayoutGroup results, verified Sprite 9-slice settings, nested Canvas sorting, and Text content. Buttons do not call the original game's proprietary code. Inactive GameObjects remain inactive as serialized, though the live game may activate them dynamically.
+**Important technical limits:** Scene selection reflects structurally matched candidates, not proof of the game's live UI state. The imported Canvas uses an explicitly provisional **1600×900** scaler. Without optional layout evidence, only the existing XY geometry is available. With verified layout evidence, full quaternion rotations and available Canvas sorting/Image settings are used, while LayoutGroups, 9-slice borders, CanvasScaler and Text remain unverified. Buttons do not call the original game's proprietary code. Inactive GameObjects remain inactive as serialized, though the live game may activate them dynamically.
 
 A `SpineReferenceEvidence` component on the corresponding UI GameObject records the **original SkeletonGraphic class and component ID**, plus the number of typed pointer candidates. Candidate pointers **do not validate skeleton bindings**: no skin, hero, ship or animation is auto-assigned from uncertain references. `output/local-spine/` and the separate offline Spine gallery can preview locally extracted, version-compatible Spine 3.8 packs, but cannot yet be automatically embedded into the correct scene GameObject without a verified binding.
 
