@@ -74,22 +74,39 @@ def make_manifest(links, scenes, exported):
     }
 
 
+def resolve_bundle_label(apk_label, inner_path, expected):
+    """Match existing report bundle IDs even when outer XAPK APK order changes."""
+    direct = apk_label + "_" + Path(inner_path).stem
+    prefixes = {key[0].split("__", 1)[0] for key in expected}
+    if direct in prefixes:
+        return direct
+    plain_apk = re.sub(r"^\d+_", "", apk_label)
+    suffix = "_" + plain_apk + "_" + Path(inner_path).stem
+    matches = sorted(prefix for prefix in prefixes if prefix.endswith(suffix))
+    return matches[0] if len(matches) == 1 else None
+
+
 def export_bundle(path, bundle_label, expected, output, exported, issues, unitypy):
     try:
         env = unitypy.load(str(path))
     except Exception as exc:
         issues.append("Cannot read Unity bundle: " + str(exc)[:160])
         return
+    sprite_objects, matched, sample = 0, 0, []
     for obj in env.objects:
         if getattr(getattr(obj, "type", None), "name", "") != "Sprite":
             continue
+        sprite_objects += 1
         asset_file = getattr(obj, "assets_file", None)
         source_name = str(getattr(asset_file, "name", "")).replace("\\", "/").split("/")[-1]
         if not source_name:
             continue
+        if len(sample) < 3:
+            sample.append(source_name)
         key = key_of(bundle_label + "__" + source_name, obj.path_id)
         if key not in expected or key in exported:
             continue
+        matched += 1
         try:
             image = obj.read().image  # UnityPy handles Sprite rectangle / atlas extraction.
             if image is None or image.width * image.height > MAX_PIXELS:
@@ -105,6 +122,10 @@ def export_bundle(path, bundle_label, expected, output, exported, issues, unityp
             exported[key] = name
         except Exception as exc:
             issues.append("Cannot decode matched Sprite: " + str(exc)[:160])
+    if not matched:
+        issues.append("No Sprite ID match in " + bundle_label +
+                      " (objects=" + str(sprite_objects) + ", serialized=" +
+                      ",".join(sample) + ")")
 
 
 def scan_apk(apk, apk_label, expected, output, exported, issues, unitypy, work):
@@ -115,8 +136,10 @@ def scan_apk(apk, apk_label, expected, output, exported, issues, unitypy, work):
                     (".unity3d", ".bundle", ".assetbundle")
                 ):
                     continue
-                label = apk_label + "_" + Path(item.filename).stem
-                if not any(key[0].startswith(label + "__") for key in expected):
+                label = resolve_bundle_label(apk_label, item.filename, expected)
+                if label is None:
+                    issues.append("No matching metadata bundle for " + apk_label +
+                                  "/" + Path(item.filename).name)
                     continue
                 if item.file_size > 1024 * 1024 * 1024:
                     issues.append("Oversized bundle skipped")
@@ -168,7 +191,8 @@ def extract(root, xapk=None, apk_dir=None, out=None, unitypy=None):
                 apks = [i for i in outer.infolist() if i.filename.lower().endswith(".apk")]
                 for i, member in enumerate(apks):
                     label = str(i).zfill(3) + "_" + Path(member.filename).stem
-                    if not any(key[0].startswith(label + "_") for key in expected):
+                    plain_stem = Path(member.filename).stem
+                    if not any("_" + plain_stem + "_" in key[0] for key in expected):
                         continue
                     apk = work / (label + ".apk")
                     with outer.open(member) as src, apk.open("wb") as dst:
@@ -182,9 +206,13 @@ def extract(root, xapk=None, apk_dir=None, out=None, unitypy=None):
     for old in output.glob("*.png"):
         if FILE_RE.fullmatch(old.name) and old.name not in set(manifest["files"]):
             old.unlink()
-    (output / "manifest.json").write_text(
-        json.dumps(manifest, ensure_ascii=False, indent=2) + "\n", encoding="utf-8"
-    )
+    manifest_path = output / "manifest.json"
+    if manifest["files"]:
+        manifest_path.write_text(
+            json.dumps(manifest, ensure_ascii=False, indent=2) + "\n", encoding="utf-8"
+        )
+    else:
+        manifest_path.unlink(missing_ok=True)
     result = {"status": "PASS" if manifest["files"] else "NO_DECODED_ART",
               **manifest["stats"], "issues": issues[:20],
               "manifest": str(output / "manifest.json")}
@@ -202,6 +230,8 @@ def main():
     except (OSError, ValueError, RuntimeError, zipfile.BadZipFile) as exc:
         parser.exit(1, "BLOCKED: " + str(exc) + "\n")
     print(json.dumps(result, ensure_ascii=False, indent=2))
+    if result["status"] != "PASS":
+        raise SystemExit(1)
 
 
 if __name__ == "__main__":
