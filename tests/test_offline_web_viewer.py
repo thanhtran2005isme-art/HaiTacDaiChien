@@ -3,6 +3,8 @@ from __future__ import annotations
 
 import importlib.util
 import json
+import tempfile
+from unittest.mock import patch
 import pathlib
 import threading
 import unittest
@@ -72,6 +74,40 @@ class TestOfflineWebViewer(unittest.TestCase):
                 with self.assertRaises(HTTPError) as ctx:
                     self.request(path)
                 self.assertEqual(ctx.exception.code, 404)
+
+    def test_generated_art_only_from_manifest(self):
+        with tempfile.TemporaryDirectory() as temp, patch.object(serve, "ART_ROOT", pathlib.Path(temp)):
+            allowed = "a" * 32 + ".png"
+            other = "b" * 32 + ".png"
+            (pathlib.Path(temp) / allowed).write_bytes(b"valid-dummy-art")
+            (pathlib.Path(temp) / other).write_bytes(b"never-serve")
+            (pathlib.Path(temp) / "manifest.json").write_text(json.dumps({
+                "version": 1, "files": [allowed],
+                "scenes": {"REF01": {"/Canvas/Bg": allowed}}
+            }), encoding="utf-8")
+            status, headers, body = self.request("/local-art/" + allowed)
+            self.assertEqual(status, 200)
+            self.assertEqual(body, b"valid-dummy-art")
+            self.assertEqual(headers.get("Cross-Origin-Resource-Policy"), "same-origin")
+            status, _, body = self.request("/local-art/manifest.json")
+            self.assertEqual(status, 200)
+            self.assertEqual(json.loads(body)["version"], 1)
+            for url in ["/local-art/" + other, "/local-art/../manifest.json",
+                        "/output/local-ui-art/" + allowed,
+                        "/local-art/private.png", "/local-art/%2e%2e/manifest.json"]:
+                with self.subTest(url=url):
+                    with self.assertRaises(HTTPError) as ctx:
+                        self.request(url)
+                    self.assertEqual(ctx.exception.code, 404)
+
+    def test_reject_malformed_generated_art_manifest(self):
+        with tempfile.TemporaryDirectory() as temp, patch.object(serve, "ART_ROOT", pathlib.Path(temp)):
+            (pathlib.Path(temp) / "manifest.json").write_text(json.dumps({
+                "version": 1, "files": ["../secret.png"]
+            }), encoding="utf-8")
+            with self.assertRaises(HTTPError) as ctx:
+                self.request("/local-art/manifest.json")
+            self.assertEqual(ctx.exception.code, 404)
 
     def test_repo_and_arbitrary_files_not_exposed(self):
         for path in [
