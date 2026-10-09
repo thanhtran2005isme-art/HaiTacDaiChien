@@ -26,7 +26,6 @@ namespace HaiTac.OfflineViewer.Editor
 
             var scene = EditorSceneManager.NewScene(NewSceneSetup.DefaultGameObjects,
                 NewSceneMode.Single);
-            scene.name = "OfflineDemo";
             var mainCamera = Camera.main;
             if (mainCamera != null)
             {
