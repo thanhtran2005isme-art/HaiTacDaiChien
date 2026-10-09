@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark">
+  <title>Hải Tặc · Offline UI Viewer</title>
+  <link rel="stylesheet" href="/style.css">
+  <script defer src="/app.js"></script>
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand"><span class="brand-mark">H</span><div><strong>Hải Tặc · UI Viewer</strong><small>Offline · Metadata only</small></div></div>
+    <div class="topbar-right"><span class="connection"><span class="dot"></span>Localhost</span><span class="build">Unity không bắt buộc</span></div>
+  </header>
+  <div class="workspace">
+    <aside class="sidebar">
+      <div class="aside-title"><strong>Màn hình</strong><span id="scene-count">5 ứng viên</span></div>
+      <div id="scene-list" class="scene-list" aria-label="Chọn màn hình"></div>
+      <div class="aside-break"></div>
+      <label class="field-label" for="search">Tìm nút giao diện</label>
+      <input id="search" type="search" placeholder="GameObject, đường dẫn, Sprite…" autocomplete="off">
+      <div id="search-results" class="search-results" aria-live="polite"></div>
+      <div class="sidebar-foot">Mọi scene là <strong>ứng viên cấu trúc</strong> từ XAPK. Chưa xác nhận đúng màn hình runtime.</div>
+    </aside>
+    <main class="main">
+      <div class="main-head">
+        <div><h1 id="scene-title">Đang tải dữ liệu…</h1><p id="scene-description">Không kết nối máy chủ game</p></div>
+        <div class="scene-stats">
+          <div><b id="stat-nodes">—</b><span>Nút UI</span></div>
+          <div><b id="stat-sprite">—</b><span>Image có Sprite</span></div>
+          <div><b id="stat-missing">—</b><span>Image thiếu</span></div>
+        </div>
+      </div>
+      <div class="toolbar">
+        <div class="filters" aria-label="Lọc thành phần">
+          <button type="button" class="filter active" data-filter="all">Tất cả</button>
+          <button type="button" class="filter" data-filter="image">Sprite</button>
+          <button type="button" class="filter" data-filter="button">Button</button>
+          <button type="button" class="filter" data-filter="spine">Spine</button>
+          <button type="button" class="filter" data-filter="missing">Thiếu ảnh</button>
+        </div>
+        <div class="controls">
+          <label class="checkbox"><input type="checkbox" id="show-inactive" checked> Nút ẩn</label>
+          <button id="zoom-out" title="Thu nhỏ" aria-label="Thu nhỏ">−</button>
+          <span id="zoom-label">100%</span>
+          <button id="zoom-in" title="Phóng to" aria-label="Phóng to">+</button>
+          <button id="zoom-reset" title="Đặt lại">Vừa khung</button>
+        </div>
+      </div>
+      <div class="canvas-frame" id="canvas-frame" aria-label="Bản xem trước wireframe từ RectTransform">
+        <div id="stage" class="stage">
+          <div class="stage-note">1600 × 900 giả định<br>KHÔNG CÓ ARTWORK GAME</div>
+          <div id="node-layer"></div>
+        </div>
+        <div class="stage-tag">BẢN XEM TRƯỚC · KHÔNG PHẢI ẢNH GAME THẬT</div>
+      </div>
+      <div class="legend">
+        <span><i class="swatch image"></i>Sprite ứng viên</span>
+        <span><i class="swatch missing"></i>Ảnh chưa xác định</span>
+        <span><i class="swatch button"></i>Button</span>
+        <span><i class="swatch spine"></i>Spine / Text</span>
+        <span class="legend-note">Click vào vùng màu để xem metadata · ← → chuyển scene</span>
+      </div>
+      <div class="bottom-row">
+        <div><strong>Mô phỏng offline</strong><p>Chỉ thử tương tác UI; không phải cơ chế nâng cấp của game gốc.</p></div>
+        <div class="demo-actions"><span id="demo-level">Tàu cấp thử nghiệm: 1</span><button id="demo-upgrade">Tăng cấp +1</button><button id="demo-reset" class="secondary">Đặt lại</button></div>
+      </div>
+    </main>
+    <aside class="details">
+      <div class="details-title"><strong>Thông tin thành phần</strong><span>Inspector</span></div>
+      <div id="inspector" class="inspector" aria-live="polite">Chọn một vùng trên bản xem trước.</div>
+      <div class="missing-panel"><strong>Các Image chưa liên kết</strong><span id="missing-list" class="missing-list">Đang tải…</span></div>
+    </aside>
+  </div>
+  <div id="error-box" role="alert" hidden></div>
+  <footer>Demo độc lập · Không dùng server GOSU · Không tải tài nguyên gốc · Không chứa chức năng chơi game</footer>
+</body>
+</html>
