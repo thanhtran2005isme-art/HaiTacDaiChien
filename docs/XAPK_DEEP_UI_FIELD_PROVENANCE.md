@@ -205,3 +205,34 @@ type output\deep-ui-source-evidence.md
 ```
 
 **Không tự động đưa dữ liệu vào Prefab.** Bước sau cần chuyển các fields đã so chéo từ private `output/` sang importer một cách có kiểm soát, kiểm tra màn hình thật/Editor riêng, xác minh Image mask/raycast/sorting và gỡ các fallback tạm. Vẫn chưa chứng minh được editor Prefab gốc hoặc runtime screen 100%.
+
+
+## Giai đoạn 3C — Đưa duy nhất giá trị cross-verified vào Prefab nghiên cứu
+
+**Giới hạn:** Năm file `SourceGraphPrefabs` giữ nguyên. Importer mới **không khôi phục được Editor Prefab gốc** mà tạo 5 bản sao `VerifiedManagedFieldPrefabs/*_VERIFIED_FIELDS_STUDY.prefab` cùng 5 Scene nghiên cứu riêng; chỉ gắn component có đúng MonoBehaviour PPtr, owner GameObject và RectTransform PathID. Canvas/CanvasRenderer chỉ được tạo nếu loại native tương ứng có trong source graph; các thuộc tính chưa đọc hoặc mặc định do Unity tự khởi tạo không phải nguồn được xác minh.
+
+**Nguyên tắc áp dụng:** chỉ 1.108 component / 7.451 field values **trùng tuyệt đối** qua AssetStudio và AssetRipper. Gồm Image (1.052), CanvasScaler (4), Mask (41), ContentSizeFitter (11). 93 Horizontal/VerticalLayoutGroup / 651 values chỉ AssetStudio đọc được bị loại khỏi plan. Sprite, Canvas native settings, raycast target, material, Spine, runtime animation và những fields chưa xác minh cũng **không được đoán**.
+
+Trên Windows CMD ở thư mục repository (file `output/` chỉ nằm máy cục bộ):
+
+```cmd
+py -3 -m pip install UnityPy Pillow TypeTreeGeneratorAPI
+py -3 tools\audit_original_unity_graph.py
+py -3 tools\decode_xapk_ui_provenance.py --recover-managed-fields --binary-backend AssetStudio --unity-native-header
+copy /Y output\deep-ui-source-evidence.json output\phase3b-assetstudio.json
+py -3 tools\decode_xapk_ui_provenance.py --recover-managed-fields --binary-backend AssetRipper --unity-native-header
+py -3 tools\compare_managed_ui_backends.py output\phase3b-assetstudio.json output\deep-ui-source-evidence.json
+py -3 tools\build_verified_ui_prefab_plan.py
+```
+
+Chỉ khi `build_verified_ui_prefab_plan.py` hoàn tất mới mở **Unity Hub** vào `unity-ui-viewer/`. Ở Unity Editor chọn lần lượt:
+
+1. `Tools > HaiTac Offline UI Viewer > Source XAPK > Build evidence-only serialized graph prefabs`
+2. `Tools > HaiTac Offline UI Viewer > Source XAPK > Apply cross-verified fields to study prefab copies`
+3. `Tools > HaiTac Offline UI Viewer > Source XAPK > Audit 5 verified field study prefabs`
+
+Sau đó mở các Scene trong `Assets/LocalReconstruction/VerifiedManagedFieldScenes/` để kiểm tra trực tiếp component và Inspector. Trên từng màn hình cần xác minh quan sát được: Canvas có đúng render mode + reference size; sprite có đúng componentID và nội dung nguồn; Image Type/Sliced, Fill, Mask stencil, raycast; ContentSizeFitter; lớp phụ thuộc Unity tự tạo; tỷ lệ zoom và Game View; mọi lỗi Console và Play Mode. **Chưa được kết luận giống runtime gốc khi thiếu ảnh tham chiếu/trạng thái runtime**. Prefab nghiên cứu có thể chưa render đúng do native Canvas, kích thước root hoặc assets chưa được tái lập — không sửa bằng cách bịa giá trị mặc định. Các đặc tính này phải qua luồng kiểm chứng nguồn riêng.
+
+**Bảo vệ thao tác:** Script Python xuất `output/verified-ui-prefab-plan.json` private, buộc khớp SHA-256 graph, hash binary, 5 scene, đủ 1.108 object / 7.451 field, đúng 4 class cho phép, so `m_GameObject`, `m_Script`, `rawObjectSha256` và status strict đọc đủ byte. Unity Editor preflight kiểm tra class, Enum/type/range, OriginalSerializedEvidence và từng component pathID; nếu đã tồn tại study Prefab sẽ không ghi đè. Khi xảy ra lỗi trong quá trình tạo, chỉ các study outputs mới được dọn; source graph assets không đổi. Sau khi tạo có menu Audit đọc lại giá trị serialized từ chính Prefab copy.
+
+**Lưu ý phiên bản:** Unity source là `2022.3.51f1`, dự án viewer tracked trong `ProjectVersion.txt` là `2022.3.21f1`. Để so giao diện chính xác cần mở bản sao viewer với Unity 2022.3.51f1 và ghi rõ version đã kiểm chứng, tránh mặc định coi hai patch là tương đương. CI chạy Python/contract tests, **không mở Unity Editor, không chứng thực Play Mode hay ảnh dựng**.
