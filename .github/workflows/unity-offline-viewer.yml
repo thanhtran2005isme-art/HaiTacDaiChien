@@ -2,6 +2,7 @@ name: Build Offline Unity UI Viewer Data
 
 on:
   push:
+    branches: [main]
     paths:
       - 'tools/build_unity_viewer_data.py'
       - 'tests/test_build_unity_viewer_data.py'
@@ -10,10 +11,21 @@ on:
       - 'unity-ui-viewer/Packages/**'
       - 'unity-ui-viewer/ProjectSettings/**'
       - '.github/workflows/unity-offline-viewer.yml'
+  pull_request:
+    branches: [main]
+    paths:
+      - 'tools/build_unity_viewer_data.py'
+      - 'tests/test_build_unity_viewer_data.py'
+      - 'unity-ui-viewer/Assets/Scripts/**'
+      - 'unity-ui-viewer/Assets/Editor/**'
+      - 'unity-ui-viewer/Packages/**'
+      - 'unity-ui-viewer/ProjectSettings/**'
+      - 'unity-ui-viewer/Assets/StreamingAssets/ui-scenes.json'
+      - '.github/workflows/unity-offline-viewer.yml'
   workflow_dispatch:
 
 permissions:
-  contents: write
+  contents: read
 
 concurrency:
   group: unity-ui-viewer-${{ github.ref }}
@@ -52,22 +64,14 @@ jobs:
           print("No LFS data or game artwork were copied into the Unity project.")
           PY
 
-      - name: Commit generated metadata only
+      - name: Verify generated metadata is committed in the feature branch
         shell: bash
         run: |
           set -euo pipefail
-          git config user.name 'github-actions[bot]'
-          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add unity-ui-viewer/Assets/StreamingAssets/ui-scenes.json
-          if ! git diff --cached --quiet; then
-            git commit -m "data: rebuild offline Unity viewer scenes from audited metadata"
-            for attempt in 1 2 3; do
-              git fetch origin main
-              git rebase origin/main
-              if git push origin HEAD:main; then
-                exit 0
-              fi
-              echo "Retrying metadata-only push"
-            done
+          if ! git diff --exit-code -- unity-ui-viewer/Assets/StreamingAssets/ui-scenes.json; then
+            echo "::error::ui-scenes.json differs from generated data."
+            echo "Run python tools/build_unity_viewer_data.py --repo-root . on your feature branch."
+            echo "Commit the generated metadata to that branch and use a pull request."
             exit 1
           fi
+          echo "PASS: generated Unity metadata is reproducible; no direct push to main"
