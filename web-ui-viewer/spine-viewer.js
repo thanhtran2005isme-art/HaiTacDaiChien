@@ -36,6 +36,7 @@ function play() {
   }
   const pack = selectedPack();
   if (!pack) return;
+  if (player && typeof player.stopRendering === "function") player.stopRendering();
   if (player && typeof player.dispose === "function") player.dispose();
   $("player-stage").replaceChildren();
   try {
