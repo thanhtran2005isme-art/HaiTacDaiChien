@@ -165,10 +165,6 @@ def verified_scene(scene, readers, image_rows):
         paths[node["path"]].append(int(node["id"]))
     bindings_by_node = collections.defaultdict(dict)
     for item in image_rows:
-        ids = paths.get(item["ui_path"], [])
-        if len(ids) != 1:
-            failure["ambiguous_image_ui_path"] += 1
-            continue
         try:
             reader = readers.get(int(item["component_id"]))
             if reader is None or reader.type.name != "MonoBehaviour":
@@ -176,29 +172,33 @@ def verified_scene(scene, readers, image_rows):
                 continue
             head = reader.parse_monobehaviour_head()
             owner = local_id(get(head, "m_GameObject"))
-            if go_to_node.get(owner) != ids[0]:
+            resolved_node = go_to_node.get(owner)
+            # Duplicate paths/names are normal in Unity; the original
+            # MonoBehaviour.m_GameObject pointer disambiguates safely.
+            # Still require that the source path lists this exact node.
+            if resolved_node is None or resolved_node not in paths.get(item["ui_path"], []):
                 failure["image_gameobject_mismatch"] += 1
                 continue
             # The original MonoBehaviour header carries m_Enabled even when
             # IL2CPP strips the managed Image typetree.
             cid = int(item["component_id"])
             enabled = get(head, "m_Enabled")
-            binding = {"nodeId": ids[0], "componentId": cid,
+            binding = {"nodeId": resolved_node, "componentId": cid,
                        "gameObjectId": owner}
             if isinstance(enabled, (int, bool)) and enabled in (0, 1):
                 binding.update(hasEnabled=True, enabled=bool(enabled))
             else:
                 binding["hasEnabled"] = False
                 failure["image_enabled_unavailable"] += 1
-            previous = bindings_by_node[ids[0]].get(cid)
+            previous = bindings_by_node[resolved_node].get(cid)
             if previous is not None and previous != binding:
                 raise ValueError("Conflicting serialized Image header: " + str(cid))
-            bindings_by_node[ids[0]][cid] = binding
+            bindings_by_node[resolved_node][cid] = binding
             tree = reader.read_typetree()
             if not isinstance(tree, dict):
                 failure["image_typetree_unavailable"] += 1
                 continue
-            result = {"nodeId": ids[0]}
+            result = {"nodeId": resolved_node}
             for raw, output in IMAGE_FIELDS.items():
                 if raw in tree and isinstance(tree[raw], (bool, float, int)):
                     number = real(tree[raw])
