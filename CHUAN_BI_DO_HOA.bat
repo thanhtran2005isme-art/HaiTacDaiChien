@@ -59,6 +59,10 @@ if /I "%LAYOUT_STATE%"=="PASS" (
 )
 if /I "%SOURCE_GRAPH_STATE%"=="FAILED" (
     echo [WARN] Chua kiem chung duoc Scene/Prefab goc, khong duoc doan.
+) else (
+    echo [INFO] Tao danh sach component con thieu theo ID goc...
+    %PY% tools\summarize_original_unity_gaps.py
+    if errorlevel 1 echo [WARN] Danh sach component con thieu chua tao duoc.
 )
 echo [INFO] Kiem ke Sprite border, CanvasScaler, Mask, LayoutGroup tu XAPK...
 set "UI_DEEP_STATE=FAILED"
