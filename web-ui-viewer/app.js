@@ -9,7 +9,7 @@ const state = {
   database: null, scene: 0, filter: "all", showInactive: true,
   zoom: 1, selectedId: null, demoLevel: 1,
   geometry: new Map(), elements: new Map(),
-  assets: null, manualAssets: new Map(), referenceImages: new Map(),
+  assets: null, autoArt: null, manualAssets: new Map(), referenceImages: new Map(),
   objectUrls: new Map(),
   boundsVisible: false,
 };
@@ -32,6 +32,13 @@ function imageFileFor(node) {
     window.AssetMatcher.find(node, state.assets);
 }
 
+function autoArtFor(node) {
+  if (!node || !state.database) return null;
+  const name = state.autoArt?.scenes?.[sceneData().id]?.[node.path];
+  return typeof name === "string" && /^[0-9a-f]{32}\.png$/.test(name) &&
+    state.autoArt.files?.includes(name) ? name : null;
+}
+
 function imageUrlFor(file) {
   if (!state.objectUrls.has(file))
     state.objectUrls.set(file, URL.createObjectURL(file));
@@ -46,10 +53,13 @@ function revokeImages() {
 function updateVisualStatus(drawn = null) {
   if (!state.database) return;
   const scene = sceneData();
-  let matched = 0;
-  for (const node of scene.nodes) if (imageFileFor(node)) matched++;
+  let matched = 0, automatic = 0;
+  for (const node of scene.nodes) {
+    if (imageFileFor(node)) matched++;
+    else if (autoArtFor(node)) automatic++;
+  }
   const summary = state.assets;
-  const parts = [matched + " nút có ảnh trong scene"];
+  const parts = [automatic + " nút ghép tự động", matched + " nút dùng ảnh đã chọn"];
   if (state.referenceImages.has(scene.id)) parts.push("Đã gắn ảnh chụp nền");
   if (drawn !== null) parts.push(drawn + " vùng hiển thị");
   if (summary) {
@@ -57,10 +67,10 @@ function updateVisualStatus(drawn = null) {
     if (summary.collisions.size) parts.push(summary.collisions.size + " tên trùng đã bỏ qua");
     if (summary.rejected) parts.push(summary.rejected + " file không hợp lệ/vượt giới hạn");
   }
-  $("visual-info").textContent = matched ?
-    "Đang hiển thị ảnh được nạp từ máy. " + parts.join(" · ") +
+  $("visual-info").textContent = (matched + automatic) ?
+    "Đang hiển thị ảnh từ dữ liệu local. " + parts.join(" · ") +
       ". Bố cục vẫn là ước tính từ RectTransform." :
-    "Chưa ghép được ảnh trong scene này. " + parts.join(" · ") +
+    "Chưa có ảnh tự động cho scene này. " + parts.join(" · ") +
       ". Tên file phải trùng tên Sprite; hoặc chọn nút để gán ảnh thủ công.";
 }
 
@@ -292,7 +302,8 @@ function renderNodes() {
     }
     state.geometry.set(node.id, rect);
     const file = imageFileFor(node);
-    const type = classify(node) || (file ? "image" : null);
+    const generated = autoArtFor(node);
+    const type = classify(node) || (file || generated ? "image" : null);
     if (!type || !filterMatches(node)) continue;
     if (rect.w < 2 || rect.h < 2 ||
         rect.x > VIRTUAL_W || rect.y > VIRTUAL_H ||
@@ -310,9 +321,9 @@ function renderNodes() {
     box.title = node.path + (node.sprites?.length ?
       " | " + node.sprites.join(", ") : "");
     box.setAttribute("aria-label", node.name + " — " + type);
-    if (file) {
+    if (file || generated) {
       const img = document.createElement("img");
-      img.src = imageUrlFor(file);
+      img.src = file ? imageUrlFor(file) : "/local-art/" + generated;
       img.alt = "";
       img.decoding = "async";
       box.classList.add("asset-loaded");
@@ -393,7 +404,7 @@ function showInspector(node) {
     inspectorRow("Active trong asset", node.active ? "Có" : "Không"),
     inspectorRow("Component", node.types),
     inspectorRow("Sprite ứng viên", node.sprites),
-    inspectorRow("Ảnh máy đang ghép", imageFileFor(node)?.name || "Chưa có ảnh"),
+    inspectorRow("Ảnh đang ghép", imageFileFor(node)?.name || (autoArtFor(node) ? "Sprite tự giải mã trên máy" : "Chưa có ảnh")),
     inspectorRow("Spine class", node.spine),
     inspectorRow("Image thiếu", node.missingImages),
     inspectorRow("Anchor min/max", JSON.stringify([node.a0, node.a1])),
@@ -529,6 +540,19 @@ async function bootstrap() {
       throw new Error("Cây UI không hợp lệ: " + scene.id);
   }
   state.database = db;
+  try {
+    const artResponse = await fetch("/local-art/manifest.json", {cache: "no-store"});
+    if (artResponse.ok) {
+      const manifest = await artResponse.json();
+      if (manifest.version === 1 && Array.isArray(manifest.files) &&
+          manifest.scenes && typeof manifest.scenes === "object") {
+        state.autoArt = manifest;
+        stage.classList.add("has-auto-art");
+      }
+    }
+  } catch (_) {
+    // No local extraction yet: retain the existing wireframe and manual picker.
+  }
   makeSceneMenu();
   switchScene(0);
 }
