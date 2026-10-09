@@ -12,6 +12,8 @@ ROOT = Path(__file__).resolve().parents[1]
 MANIFEST = ROOT / "unity-ui-viewer" / "Packages" / "manifest.json"
 REQUIRED = {
     "com.unity.modules.animation": "1.0.0",   # Animator, AnimationClip
+    "com.unity.modules.audio": "1.0.0",       # AudioSource, AudioClip (Spine Examples)
+    "com.unity.modules.particlesystem": "1.0.0",  # ParticleSystem (Spine Examples)
     "com.unity.modules.physics": "1.0.0",     # Rigidbody
     "com.unity.modules.physics2d": "1.0.0",   # Rigidbody2D, PolygonCollider2D
 }
