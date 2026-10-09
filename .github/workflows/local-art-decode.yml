@@ -151,6 +151,9 @@ jobs:
           assert len(plan['sprites'])==963
           assert layout['stats']['exactImageBindings']==963
           assert layout['stats']['disabledSourceImages']==11
+          assert layout['stats']['canvasWithEnabledEvidence']==4
+          assert layout['stats']['canvasWithRenderModeEvidence']==4
+          assert layout['stats']['disabledCanvases']==0
           bindings={(s['sceneId'],b['nodeId'],b['componentId'])
                     for s in layout['scenes'] for b in s['imageBindings']}
           assert len(bindings)==963
@@ -236,7 +239,7 @@ jobs:
         run: python tools/export_local_ui_layout.py
       - name: Check 963 source Image bindings and 11 disabled Images on Windows
         run: |
-          python -c "import json; from pathlib import Path; d=json.loads(Path('output/local-ui-layout.json').read_text(encoding='utf-8')); assert d['version']==2 and d['stats']['exactImageBindings']==963 and d['stats']['disabledSourceImages']==11; print('WINDOWS VERIFIED UI IMAGE STATUS:',d['stats']['disabledImagesByScene'])"
+          python -c "import json; from pathlib import Path; d=json.loads(Path('output/local-ui-layout.json').read_text(encoding='utf-8')); assert d['version']==2 and d['stats']['exactImageBindings']==963 and d['stats']['disabledSourceImages']==11 and d['stats']['canvasWithEnabledEvidence']==4 and d['stats']['disabledCanvases']==0; print('WINDOWS VERIFIED UI IMAGE STATUS:',d['stats']['disabledImagesByScene'])"
       - name: Verify Windows evidence and no fake CanvasScaler claims
         run: |
           python -c "import json; from pathlib import Path; p=Path('output/local-ui-layout.json'); d=json.loads(p.read_text(encoding='utf-8')); assert d['stats']['verifiedTransforms']==1670; print('WINDOWS LAYOUT PASS:', d['stats'])"
