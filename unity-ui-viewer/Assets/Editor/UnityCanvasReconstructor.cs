@@ -68,6 +68,16 @@ namespace HaiTac.OfflineViewer.Editor
             public LayoutNode[] nodes;
             public LayoutCanvas[] canvases;
             public LayoutImage[] images;
+            public LayoutImageBinding[] imageBindings;
+        }
+
+        [Serializable] private class LayoutImageBinding
+        {
+            public int nodeId;
+            public int componentId;
+            public int gameObjectId;
+            public bool hasEnabled;
+            public bool enabled;
         }
 
         [Serializable] private class LayoutNode
@@ -761,7 +771,7 @@ namespace HaiTac.OfflineViewer.Editor
                 return evidence;
             }
             var db = JsonUtility.FromJson<LayoutDatabase>(File.ReadAllText(filename));
-            if (db == null || db.version != 1 || db.scenes == null ||
+            if (db == null || db.version != 2 || db.scenes == null ||
                 db.scenes.Length != source.scenes.Length)
                 throw new InvalidDataException("Layout evidence has wrong version or scene count.");
             var expected = source.scenes.ToDictionary(scene => scene.id);
@@ -770,6 +780,7 @@ namespace HaiTac.OfflineViewer.Editor
                 if (item == null || !expected.TryGetValue(item.sceneId, out var original) ||
                     item.nodes == null || item.nodes.Length != original.nodes.Length ||
                     item.canvases == null || item.images == null ||
+                    item.imageBindings == null ||
                     evidence.ContainsKey(item.sceneId))
                     throw new InvalidDataException("Stale or incomplete layout evidence: " +
                                                    (item == null ? "(null)" : item.sceneId));
@@ -777,7 +788,11 @@ namespace HaiTac.OfflineViewer.Editor
                 if (item.nodes.Select(node => node.nodeId).Distinct().Count() != ids.Count ||
                     item.nodes.Any(node => !ids.Contains(node.nodeId)) ||
                     item.canvases.Any(canvas => !ids.Contains(canvas.nodeId)) ||
-                    item.images.Any(image => !ids.Contains(image.nodeId)))
+                    item.images.Any(image => !ids.Contains(image.nodeId)) ||
+                    item.imageBindings.Any(binding => !ids.Contains(binding.nodeId) ||
+                        binding.componentId <= 0 || binding.gameObjectId <= 0) ||
+                    item.imageBindings.Select(binding => binding.nodeId).Distinct().Count() !=
+                    item.imageBindings.Length)
                     throw new InvalidDataException("Layout evidence transform ID mismatch: " +
                                                    item.sceneId);
                 evidence.Add(item.sceneId, item);
@@ -813,9 +828,10 @@ namespace HaiTac.OfflineViewer.Editor
                                         record.color[2], record.color[3]);
             if (record.hasPreserveAspect) image.preserveAspect = record.preserveAspect;
             if (record.hasRaycastTarget) image.raycastTarget = record.raycastTarget;
-            // Sliced/Tiled need original sprite border/pixels-per-unit metadata,
-            // which PNG extraction does not preserve. Never simulate their sizes.
-            if (record.hasType && (record.type == 0 || record.type == 3))
+            // Image Type is only applied when the original Image managed
+            // typetree actually supplies its numeric value. Borders/PPU are
+            // recovered independently from original Sprite data where verified.
+            if (record.hasType && record.type >= 0 && record.type <= 3)
                 image.type = (Image.Type)record.type;
             if (image.type == Image.Type.Filled)
             {
@@ -827,6 +843,21 @@ namespace HaiTac.OfflineViewer.Editor
                     image.fillAmount = record.fillAmount;
                 if (record.hasFillClockwise) image.fillClockwise = record.fillClockwise;
             }
+        }
+
+        private static void ApplyExactImageEnabled(
+            int nodeId, Image image, Dictionary<int, LayoutImageBinding> bindings,
+            ref int disabled, ref int unknown)
+        {
+            if (!bindings.TryGetValue(nodeId, out var binding) ||
+                !binding.hasEnabled)
+            {
+                // The preview's default Image.enabled is NOT original-state evidence.
+                unknown++;
+                return;
+            }
+            image.enabled = binding.enabled;
+            if (!binding.enabled) disabled++;
         }
 
         private static Vector2 ReadVector(float[] value, Vector2 fallback)
@@ -879,6 +910,11 @@ namespace HaiTac.OfflineViewer.Editor
                 var mappedLayout = layout == null
                     ? new Dictionary<int, LayoutNode>()
                     : layout.nodes.ToDictionary(record => record.nodeId);
+                var exactImage = layout == null
+                    ? new Dictionary<int, LayoutImageBinding>()
+                    : layout.imageBindings.ToDictionary(binding => binding.nodeId);
+                int sourceDisabledImages = 0;
+                int sourceUnverifiedImages = 0;
                 var mappedImage = layout == null
                     ? new Dictionary<int, LayoutImage>()
                     : layout.images.GroupBy(record => record.nodeId)
@@ -909,6 +945,8 @@ namespace HaiTac.OfflineViewer.Editor
                             image.raycastTarget = false;
                             if (mappedImage.TryGetValue(node.id, out var originalRootImage))
                                 ApplyImageSettings(image, originalRootImage);
+                            ApplyExactImageEnabled(node.id, image, exactImage,
+                                ref sourceDisabledImages, ref sourceUnverifiedImages);
                         }
                         continue;
                     }
@@ -951,11 +989,17 @@ namespace HaiTac.OfflineViewer.Editor
                         image.type = Image.Type.Simple; // Original 9-slice unknown.
                         if (mappedImage.TryGetValue(node.id, out var originalImage))
                             ApplyImageSettings(image, originalImage);
+                        ApplyExactImageEnabled(node.id, image, exactImage,
+                            ref sourceDisabledImages, ref sourceUnverifiedImages);
                     }
                     if (HasType(node, "RectMask2D"))
                         child.AddComponent<RectMask2D>();
                     // No callbacks or business behavior are inferred for Button/Text.
                 }
+                Debug.Log("[HaiTac Image state] " + scene.id +
+                    ": disabled source Image components=" + sourceDisabledImages +
+                    ", enabled state unknown=" + sourceUnverifiedImages +
+                    ". Legacy preview CanvasScaler remains provisional.");
                 // Restore recorded sibling order for each direct parent, not global Z sorting.
                 foreach (var group in scene.nodes.GroupBy(n => n.parent))
                 {
