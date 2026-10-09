@@ -25,6 +25,8 @@ Khảo sát tài nguyên Unity trong XAPK Hải Tặc (được phép sử dụn
 
 - **Spine AtlasAsset popup (2026-10-09, PR #4):** Unity-Editor hiện `Could not automatically set the AtlasAsset for "skeleton"` sau khi chạy rebuild. Đã truy mã thấy `ImportSpineSourcePacks` import JSON trước PNG/Atlas; sửa thứ tự **import PNG → `skeleton.atlas.txt` → `skeleton.json`**, bổ sung regression test. **Chưa test import lại trên Unity Editor thực tế**, nếu vẫn lỗi cần xem atlas generated materials, page names và Console. Không chọn atlas của pack khác hoặc import SkeletonDataAsset thiếu atlas để giả lập animation.
 
+- **Đối chiếu AtlasAsset trên Unity máy người dùng (2026-10-09, PR #4):** CMD trên nhánh `fix/ref04-source-image-render-state` tại commit `15fb196` liệt kê **8 file `skeleton_Atlas.asset` trong 8 pack**. Chứng minh importer tạo asset atlas, **không** chứng minh có `materials`/`Texture2D` hoặc `SkeletonDataAsset.atlasAssets`. Bổ sung menu kiểm tra **read-only** `Tools → HaiTac Offline UI Viewer → Spine 3.8 → Audit all local AtlasAsset links (read only)`, log từng pack và tổng `packsWithIssues`; không thay đổi artwork/vendor assets. Chưa chạy trực tiếp Unity Editor, cần người dùng pull nhánh và gửi Console trước khi sửa mối liên kết cụ thể hoặc merge.
+
 ## Vấn đề còn lại / giới hạn chứng cứ
 1. Unity project hiện dùng **2022.3**, trong khi spine-unity 3.8 chính thức hỗ trợ đến Unity 2020.3. Thử runtime trong **bản sao project**; không coi Python CI là chứng cứ tương thích Unity Editor.
 2. Chưa xác minh skin/animation đang chạy và sáu nhân vật được chọn ở REF04; **không tự lấp vị trí bằng nhân vật đoán**.
