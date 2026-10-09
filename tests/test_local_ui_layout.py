@@ -34,6 +34,7 @@ class TestLayoutEvidence(unittest.TestCase):
     def source(self):
         scene = {
             "id": "REF01-ship-upgrade", "rootTransform": 10,
+            "source": "002_UnityDataAssetPack_datapack__file000",
             "nodes": [
                 {"id": 10, "parent": 0, "path": "/Canvas"},
                 {"id": 11, "parent": 10, "path": "/Canvas/Panel"},
@@ -88,10 +89,17 @@ class TestLayoutEvidence(unittest.TestCase):
         self.assertEqual(out["images"], [])
         self.assertEqual(out["limitations"]["image_typetree_unavailable"], 1)
 
-    def test_ambiguous_serialized_file_rejected(self):
+    def test_duplicate_ids_are_resolved_using_original_serialized_file_order(self):
         scene, objects = self.source()
-        with self.assertRaisesRegex(ValueError, "Expected one"):
-            module.choose_serialized_file(scene, {1: objects, 2: dict(objects)})
+        # Different SerializedFiles can use identical path IDs.
+        first = {10: objects[10], 11: objects[11]}
+        second = dict(objects)
+        scene["source"] = "002_UnityDataAssetPack_datapack__file001"
+        found = module.choose_serialized_file(scene, {1: first, 2: second})
+        self.assertIs(found, second)
+        scene["source"] = "002_UnityDataAssetPack_datapack__file002"
+        with self.assertRaisesRegex(ValueError, "out of range"):
+            module.choose_serialized_file(scene, {1: first, 2: second})
 
     def test_cross_file_gameobject_reference_rejected(self):
         scene, objects = self.source()
