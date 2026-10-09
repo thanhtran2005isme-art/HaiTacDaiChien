@@ -38,7 +38,7 @@ Unity: Unity Hub → `unity-ui-viewer` → Tools → HaiTac Offline UI Viewer �
 **Kiểm thử:** `.github/workflows/`, `tests/`; xem **CI của đúng SHA trong PR**. Không nói `PASS Unity animation` nếu mới qua unit test/CI không chứa Unity Editor.
 
 ## Ưu tiên công việc kế tiếp
-1. Hoàn thiện và duyệt **PR docs/ai-handoff-feature-pr-workflow**, xác nhận thay đổi docs và CI không còn tự push main.
+1. Hoàn thiện và duyệt **PR docs/ai-handoff-feature-pr-workflow**, xác nhận thay đổi docs và cả hai workflow sinh metadata/reports không còn tự push main.
 2. Trong **nhánh tính năng mới**, thử Spine-Unity 3.8 hợp pháp trên bản sao project tương thích; thu Console/Play Mode và ảnh render nếu người dùng đồng ý.
 3. Tìm dữ liệu runtime/binding đủ tin cậy để xác định chính xác GameObject và animation; cập nhật kết quả có căn cứ.
 4. Cập nhật file này sau khi merge mỗi PR; chuyển chi tiết commit vào [history](history/2026-10.md).
