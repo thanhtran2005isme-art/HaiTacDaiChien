@@ -86,6 +86,26 @@ class TestUnityReconstructionPlan(unittest.TestCase):
         self.assertIn("EditorSceneManager.SaveScene(opened, path)", source)
         self.assertIn("camera.enabled = true;", source)
 
+    def test_deep_evidence_bound_only_to_verified_gameobject(self):
+        """Source pack JSON/atlas/texture cannot be attached by sprite name."""
+        source = (path.parents[1] / "unity-ui-viewer/Assets/Editor/UnityCanvasReconstructor.cs"
+                  ).read_text(encoding="utf-8")
+        evidence = (path.parents[1] / "unity-ui-viewer/Assets/Scripts/ReconstructionEvidence.cs"
+                    ).read_text(encoding="utf-8")
+        self.assertIn("ApplyOriginalSpriteGeometry(plan.sprites, componentEvidence, sprites);",
+                      source)
+        self.assertIn("ReadSpineEvidence(root, plan)", source)
+        self.assertIn("ReadDeepUiEvidence(root, scenes)", source)
+        self.assertIn("ImportSpineSourcePacks(root, spineEvidence)", source)
+        self.assertIn("link.status == \"content_chain_verified_field_unverified\"", source)
+        self.assertIn("scene.id + \"/\" + row.nodeId + \"/\" + row.componentId", source)
+        self.assertIn("SafePackId.IsMatch(pack.id", source)
+        self.assertIn("originalFiles.Contains(pack.skeleton)", source)
+        self.assertIn("note.sourceSkeletonJson = originals.skeleton;", source)
+        self.assertIn("note.sourceAtlasTextures = originals.pages;", source)
+        self.assertIn("sourceSkeletonJson", evidence)
+        self.assertIn("UiComponentEvidence", evidence)
+
     def test_reject_private_image_paths(self):
         scenes, art, comps, candidates = self.fixture()
         art["files"] = ["../../private.png"]
