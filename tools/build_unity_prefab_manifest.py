@@ -59,7 +59,7 @@ def prepare(scene_data, art, components, candidates):
             if ident != scene["rootTransform"] and int(node["parent"]) not in ordered:
                 raise ValueError("Parent must precede child: " + scene_id)
             ordered.add(ident)
-        if art["version"] == 2:
+        if isinstance(art.get("nodeBindings"), list) and art["nodeBindings"]:
             if not isinstance(art.get("nodeBindings"), list):
                 raise ValueError("Exact Image ID bindings missing from Sprite manifest")
             for entry in art["nodeBindings"]:
