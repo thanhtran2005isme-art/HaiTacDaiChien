@@ -42,6 +42,7 @@ namespace HaiTac.OfflineViewer.Editor
             public string sceneId;
             public int nodeId;
             public string spriteFile;
+            public int sourceImageComponentId;
         }
 
         [Serializable] private class SpineEntry
@@ -214,12 +215,27 @@ namespace HaiTac.OfflineViewer.Editor
                 var scenes = JsonUtility.FromJson<ViewerDatabase>(File.ReadAllText(sceneFile));
                 var plan = JsonUtility.FromJson<Plan>(File.ReadAllText(planFile));
                 if (scenes == null || scenes.schemaVersion != 1 || scenes.scenes == null ||
-                    plan == null || plan.schemaVersion != 1 || plan.sprites == null ||
+                    plan == null || plan.schemaVersion != 2 || plan.sprites == null ||
                     plan.spine == null)
                     throw new InvalidDataException("Invalid reconstruction input schema.");
                 // Strict validation: do not silently bind stale evidence to
                 // GameObjects whose IDs have changed in a different XAPK.
                 var verifiedLayout = ReadLayoutEvidence(root, scenes);
+                if (verifiedLayout.Count != scenes.scenes.Length)
+                    throw new InvalidDataException("Verified Image ownership layout version 2 " +
+                        "required. Rerun CHUAN_BI_DO_HOA.bat and rebuild art manifest.");
+                foreach (var entry in plan.sprites)
+                {
+                    if (!verifiedLayout.TryGetValue(entry.sceneId, out var sourceScene) ||
+                        entry.sourceImageComponentId <= 0 ||
+                        !sourceScene.imageBindings.Any(binding =>
+                            binding.nodeId == entry.nodeId &&
+                            binding.componentId == entry.sourceImageComponentId))
+                        throw new InvalidDataException(
+                            "Sprite owner/component ID not verified in original XAPK: " +
+                            entry.sceneId + "/" + entry.nodeId + "/" +
+                            entry.sourceImageComponentId);
+                }
                 var componentEvidence = ReadDeepUiEvidence(root, scenes);
                 var spineEvidence = ReadSpineEvidence(root, plan);
                 EnsureFolders();
