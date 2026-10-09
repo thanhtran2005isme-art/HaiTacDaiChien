@@ -40,5 +40,7 @@ echo.
 echo Trinh phat animation chua di kem: can Spine Player 3.8 hop phap.
 echo Sao chep spine-player.js, spine-player.css vao output\local-spine-runtime.
 echo CHAY_UI_OFFLINE.bat mo Web UI; link Animation Spine mo thu vien offline.
+echo.
+call "%~dp0CAI_SPINE_PLAYER_38.bat"
 pause
 endlocal
