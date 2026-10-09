@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 namespace HaiTac.OfflineViewer
@@ -74,7 +75,14 @@ namespace HaiTac.OfflineViewer
         [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.AfterSceneLoad)]
         private static void Init()
         {
-            if (FindObjectOfType<OfflineUiViewer>() != null)
+            // A reconstructed Canvas scene is not the metadata demo: do not put
+            // the demo's colored wireframe/shell over the actual imported sprites.
+            var active = SceneManager.GetActiveScene();
+            if (active.path.Replace('\\', '/').StartsWith(
+                    "Assets/LocalReconstruction/Scenes/", StringComparison.Ordinal))
+                return;
+            if (FindObjectOfType<ReconstructionEvidence>() != null ||
+                FindObjectOfType<OfflineUiViewer>() != null)
                 return;
             new GameObject("Offline UI Viewer (metadata only)").AddComponent<OfflineUiViewer>();
         }
