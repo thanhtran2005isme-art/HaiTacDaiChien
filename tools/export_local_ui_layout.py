@@ -123,6 +123,7 @@ def verified_scene(scene, readers, image_rows):
                 evidence["localScale"] = local_scale
             if local_position is not None:
                 evidence["localPositionZ"] = local_position[2]
+                evidence["hasLocalPositionZ"] = True
             if len(evidence) > 1:
                 nodes.append(evidence)
         except (ValueError, TypeError, AttributeError) as exc:
