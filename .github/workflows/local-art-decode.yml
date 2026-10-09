@@ -229,6 +229,32 @@ jobs:
           print("PASS: local Sprite files verified, no artwork uploaded")
           PY
 
+
+      - name: Diagnose generated IL2CPP TypeTree against exact XAPK (informational)
+        continue-on-error: true
+        timeout-minutes: 12
+        run: |
+          python -m pip install TypeTreeGeneratorAPI
+          python tools/decode_xapk_ui_provenance.py --recover-managed-fields
+          python - <<'PY'
+          import collections
+          import json
+          from pathlib import Path
+          data=json.loads(Path("output/deep-ui-source-evidence.json").read_text(encoding="utf-8"))
+          summary=data.get("generatedBinaryProof",{}).get("verification",{})
+          print("Phase 3B exact-source run:",summary)
+          errors=collections.Counter(
+              (row.get("binaryRecoveryPhase","unknown"),
+               row.get("binaryRecoveryCode","unknown"),
+               row.get("binaryRecoveryFrame","unknown"))
+              for scene in data["scenes"] for row in scene["components"]
+              if "binaryRecoveryCode" in row)
+          for reason,count in errors.most_common(12):
+              print("BLOCKED_COUNT",count,"PHASE",reason[0],
+                    "CODE",reason[1],"FRAME",reason[2])
+          print("No binary/art payloads are uploaded; no Prefab changes.")
+          PY
+
   windows-decode:
     runs-on: windows-latest
     timeout-minutes: 30
