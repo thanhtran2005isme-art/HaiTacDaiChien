@@ -1,0 +1,33 @@
+name: Offline Web UI Viewer Smoke Tests
+on:
+  push:
+    paths:
+      - 'web-ui-viewer/**'
+      - 'tools/serve_ui_viewer.py'
+      - 'tests/test_offline_web_viewer.py'
+      - 'CHAY_UI_OFFLINE.bat'
+      - '.github/workflows/offline-web-ui.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  offline-web:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - name: Checkout without XAPK binaries
+        uses: actions/checkout@v4
+        with:
+          lfs: false
+      - name: Verify browser JavaScript syntax
+        run: node --check web-ui-viewer/app.js
+      - name: Test local HTTP server and 5 real UI scenes
+        run: python3 -m unittest discover -s tests -p test_offline_web_viewer.py -v
+      - name: Verify bat entrypoint and privacy requirements
+        shell: bash
+        run: |
+          test -f CHAY_UI_OFFLINE.bat
+          grep -q 'tools\\serve_ui_viewer.py' CHAY_UI_OFFLINE.bat
+          grep -q '127.0.0.1' tools/serve_ui_viewer.py
+          ! grep -Eq 'https?://' web-ui-viewer/app.js
+          echo "PASS: offline web viewer is local-only"
