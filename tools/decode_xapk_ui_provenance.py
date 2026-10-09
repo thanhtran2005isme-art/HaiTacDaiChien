@@ -374,7 +374,8 @@ def summarize(scenes):
 
 
 def recover_generated_managed_fields(root, xapk, scenes, analyzed, unitypy,
-                                     backend="AssetsTools"):
+                                     backend="AssetsTools",
+                                     use_unitypy_native_header=False):
     """Optional SECOND source pass after cross-bundle MonoScript identity is proven.
 
     Never edits XAPK or prefab. Keep every failure as UNKNOWN, not guessed data.
@@ -415,7 +416,9 @@ def recover_generated_managed_fields(root, xapk, scenes, analyzed, unitypy,
                         raise binary.RecoveryBlocked("Source component vanished on recheck")
                     attempts["attempted"] += 1
                     try:
-                        fields, record = binary.verified_fields(reader, row, generator)
+                        fields, record = binary.verified_fields(
+                            reader, row, generator,
+                            use_unitypy_native_header=use_unitypy_native_header)
                     except binary.RecoveryBlocked as exc:
                         row["binaryRecovery"] = "BLOCKED: " + str(exc)[:180]
                         row["binaryRecoveryPhase"] = exc.phase
@@ -439,11 +442,12 @@ def recover_generated_managed_fields(root, xapk, scenes, analyzed, unitypy,
     if len(visited) != 5:
         raise binary.RecoveryBlocked("Binary recheck did not revisit all five source scenes")
     return {**proof, "verification": dict(attempts),
+            "unityPyNativeHeader": use_unitypy_native_header,
             "policy": "Local source-derived full-object checked, no prefab changes"}
 
 
 def build(root=ROOT, xapk=None, unitypy=None, recover_managed=False,
-          binary_backend="AssetsTools"):
+          binary_backend="AssetsTools", use_unitypy_native_header=False):
     if unitypy is None:
         import UnityPy as unitypy
     original_path = root / "output/original-unity-graph.json"
@@ -490,7 +494,8 @@ def build(root=ROOT, xapk=None, unitypy=None, recover_managed=False,
     if recover_managed:
         binary_proof = recover_generated_managed_fields(
             root, canonical_xapk, scenes, analyzed, unitypy,
-            backend=binary_backend)
+            backend=binary_backend,
+            use_unitypy_native_header=use_unitypy_native_header)
     # Recompute class counts AFTER global source MonoScript resolution.
     for item in analyzed:
         stats = collections.Counter()
@@ -548,6 +553,8 @@ def render_report(data):
         lines += ["", "## Opt-in generated TypeTree verification", "",
                   "- Source game Unity version: " + proof["gameUnityVersion"],
                   "- TypeTree backend: " + proof["backend"],
+                  "- Verified engine-version native header: " +
+                  str(proof.get("unityPyNativeHeader", False)),
                   "- Source libil2cpp.so SHA256: " + proof["library"]["sha256"],
                   "- Source global-metadata.dat SHA256: " +
                   proof["metadata"]["sha256"],
@@ -603,12 +610,19 @@ def main():
                     help="Choose strict exact-XAPK TypeTree generator. "
                          "AssetStudio/AssetRipper may support builds "
                          "rejected by AssetsTools; no fallback guessing.")
+    ap.add_argument("--unity-native-header", action="store_true",
+                    help="Opt-in exact Unity-version MonoBehaviour native header "
+                         "from UnityPy, then require strict entire object parse "
+                         "plus original GameObject/MonoScript pointers")
     args = ap.parse_args()
+    if args.unity_native_header and not args.recover_managed_fields:
+        ap.error("--unity-native-header requires --recover-managed-fields")
     root = args.root.resolve()
     try:
         data = build(root=root, xapk=args.xapk,
                      recover_managed=args.recover_managed_fields,
-                     binary_backend=args.binary_backend)
+                     binary_backend=args.binary_backend,
+                     use_unitypy_native_header=args.unity_native_header)
     except (OSError, ValueError, KeyError, TypeError) as exc:
         ap.exit(1, "BLOCKED: " + str(exc)[:400] + "\n")
     folder = root / "output"
