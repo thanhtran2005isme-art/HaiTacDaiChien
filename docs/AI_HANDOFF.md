@@ -4,7 +4,7 @@
 **Repo:** [thanhtran2005isme-art/HaiTacDaiChien](https://github.com/thanhtran2005isme-art/HaiTacDaiChien)  
 **Nhánh ổn định:** `main`  
 **HEAD của main lúc lập handoff:** [8b4c3ac6](https://github.com/thanhtran2005isme-art/HaiTacDaiChien/commit/8b4c3ac6c11779fc7f4b88fd2c485be72d9bfafc)  
-**Việc đang triển khai:** chuẩn hóa `docs/`, quy trình feature branch/PR; xem PR đang mở và `git log` trước khi tiếp tục. Khi PR đã merge, HEAD ở trên chỉ là **mốc lịch sử**, không phải HEAD mới nhất.
+**Đợt bàn giao hiện tại:** cấu trúc docs và quy trình PR được thực hiện tại [PR #1](https://github.com/thanhtran2005isme-art/HaiTacDaiChien/pull/1). **Kiểm tra trạng thái merged của PR #1 và HEAD `main` trước khi làm tiếp**; SHA bên trên là mốc trước PR, không tự coi là HEAD mới nhất.
 
 ## Mục tiêu và giới hạn
 
@@ -38,7 +38,7 @@ Unity: Unity Hub → `unity-ui-viewer` → Tools → HaiTac Offline UI Viewer �
 **Kiểm thử:** `.github/workflows/`, `tests/`; xem **CI của đúng SHA trong PR**. Không nói `PASS Unity animation` nếu mới qua unit test/CI không chứa Unity Editor.
 
 ## Ưu tiên công việc kế tiếp
-1. Hoàn thiện và duyệt **PR docs/ai-handoff-feature-pr-workflow**, xác nhận thay đổi docs và cả hai workflow sinh metadata/reports không còn tự push main.
+1. Đối chiếu trạng thái [PR #1](https://github.com/thanhtran2005isme-art/HaiTacDaiChien/pull/1): nếu đã merge, bắt đầu chức năng mới **từ `origin/main`**, xác nhận hai workflow metadata/reports không còn tự push main.
 2. Trong **nhánh tính năng mới**, thử Spine-Unity 3.8 hợp pháp trên bản sao project tương thích; thu Console/Play Mode và ảnh render nếu người dùng đồng ý.
 3. Tìm dữ liệu runtime/binding đủ tin cậy để xác định chính xác GameObject và animation; cập nhật kết quả có căn cứ.
 4. Cập nhật file này sau khi merge mỗi PR; chuyển chi tiết commit vào [history](history/2026-10.md).
