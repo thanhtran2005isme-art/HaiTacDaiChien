@@ -23,6 +23,34 @@ Không biến mục (1) hoặc (3) thành giá trị CanvasScaler/Image/Mask/Lay
 - `tools/il2cpp_refs.py` đã thống kê MonoScript classes toàn XAPK
   nhưng chưa ghép tên lớp và trạng thái field tới **từng component của 5 cây**.
 
+## Kết quả xác minh trên XAPK thật (Linux và Windows)
+
+Bộ quét đã kiểm tra 5 cây với **5.346 component** và truy nguyên
+**2.320/2.320 MonoScript liên kết xuyên file** bằng duy nhất 2
+AssetBundle chứa nguồn MonoScript phù hợp. Không còn liên kết
+MonoScript ambiguous trong phạm vi này.
+
+| Phân loại | Component |
+|---|---:|
+| Native fields | 1.674 |
+| UI MonoBehaviour đã xác định class nhưng thiếu managed typetree | 1.201 |
+| Script/component khác | 2.471 |
+| **Tổng** | **5.346** |
+
+- Đã xác nhận `global-metadata.dat` với IL2CPP **v31** từ **APK lồng
+  trong XAPK**, kiểm tra magic/version và dấu vết tên field.
+- **0 managed UI field values** có thể đọc được bằng UnityPy typetree
+  trong 1.201 component UI; đây là giới hạn kỹ thuật còn lại,
+  **không phải bằng chứng XAPK không lưu dữ liệu**.
+- Các class được định danh bằng file-alias + PathID cùng nguồn; không
+  suy diễn thành Image Type, kích thước Mask, CanvasScaler resolution,
+  LayoutGroup spacing hay chữ/đội hình của game.
+- Mọi ID chi tiết được xuất vào `output/` tại máy chạy, không push Git.
+
+**Chưa có kết quả sửa bố cục REF04 từ phase này.** Để có giá trị trường
+managed phải bổ sung decoder binary theo schema **xác minh của đúng build**,
+rồi kiểm tra nhiều mẫu serialized trước khi đưa vào Unity.
+
 ## Bản sửa giai đoạn này
 
 `tools/decode_xapk_ui_provenance.py` chạy sau
