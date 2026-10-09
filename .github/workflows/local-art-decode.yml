@@ -8,6 +8,9 @@ on:
       - 'tests/test_unity_prefab_manifest.py'
       - 'tools/export_local_ui_layout.py'
       - 'tests/test_local_ui_layout.py'
+      - 'tools/audit_local_ui_components.py'
+      - 'tools/trace_local_spine_links.py'
+      - 'tests/test_xapk_deep_evidence.py'
       - '.github/workflows/local-art-decode.yml'
   workflow_dispatch:
 permissions:
@@ -46,6 +49,25 @@ jobs:
           assert all(row['bindingStatus'] in ('pointer_candidates_unverified','unresolved') for row in m['spine'])
           assert next(x['mappedSprites'] for x in m['scenes'] if x['sceneId']=='REF01-ship-upgrade') == 32
           print('PASS: Unity reconstructed source map',len(m['sprites']),'sprite assignments',len(m['spine']),'Spine nodes')
+          PY
+      - name: Verify deep UI/Spine parsing without XAPK
+        run: python -m unittest discover -s tests -p test_xapk_deep_evidence.py -v
+      - name: Probe Sprite borders, CanvasScaler, Mask, LayoutGroup from XAPK
+        run: python tools/audit_local_ui_components.py
+      - name: Trace original Spine component to TextAssets (field still unverified)
+        run: python tools/trace_local_spine_links.py
+      - name: Validate deep evidence counts and zero false binding claims
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          u = json.loads(Path('output/local-ui-components.json').read_text(encoding='utf-8'))
+          s = json.loads(Path('output/local-spine-link-evidence.json').read_text(encoding='utf-8'))
+          assert len(u['scenes']) == 5
+          assert s['records']
+          assert all(not x['fieldVerified'] and not x['skinVerified'] and
+                     not x['activeAnimationVerified'] for x in s['records'])
+          print('DEEP EVIDENCE PASS:', u['stats'], s['stats'])
           PY
       - name: Extract verified RectTransform and Canvas evidence from real XAPK
         run: python tools/export_local_ui_layout.py
@@ -99,6 +121,12 @@ jobs:
         run: python -m unittest discover -s tests -p test_local_ui_art.py -v
       - name: Extract actual game Sprite PNGs from XAPK on Windows
         run: python tools/export_local_ui_art.py
+      - name: Verify deep evidence unit tests on Windows
+        run: python -m unittest discover -s tests -p test_xapk_deep_evidence.py -v
+      - name: Probe UI fields and original Sprite borders on Windows
+        run: python tools/audit_local_ui_components.py
+      - name: Trace Spine to local TextAsset content on Windows
+        run: python tools/trace_local_spine_links.py
       - name: Extract exact XAPK layout evidence on Windows
         run: python tools/export_local_ui_layout.py
       - name: Verify Windows evidence and no fake CanvasScaler claims
