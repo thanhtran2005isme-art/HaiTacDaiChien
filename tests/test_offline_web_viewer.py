@@ -75,6 +75,34 @@ class TestOfflineWebViewer(unittest.TestCase):
                     self.request(path)
                 self.assertEqual(ctx.exception.code, 404)
 
+    def test_local_art_status_no_private_paths(self):
+        with tempfile.TemporaryDirectory() as temp, patch.object(serve, "ART_ROOT", pathlib.Path(temp)):
+            status, _, body = self.request("/local-art/status.json")
+            state = json.loads(body)
+            self.assertEqual(status, 200)
+            self.assertEqual(state["status"], "missing")
+            self.assertNotIn("path", state)
+            (pathlib.Path(temp) / "export-status.json").write_text(
+                json.dumps({"status": "BLOCKED", "reason": "D:/private/game.xapk"}),
+                encoding="utf-8")
+            _, _, body = self.request("/local-art/status.json")
+            self.assertEqual(json.loads(body)["status"], "export_failed")
+            self.assertNotIn(b"private", body)
+            image = "f" * 32 + ".png"
+            (pathlib.Path(temp) / image).write_bytes(b"test-image")
+            (pathlib.Path(temp) / "manifest.json").write_text(json.dumps({
+                "version": 1, "files": [image],
+                "stats": {"sprite_images_exported": 1},
+                "scenes": {"REF01": {"/Canvas/Image": image}},
+            }), encoding="utf-8")
+            _, _, body = self.request("/local-art/status.json")
+            self.assertEqual(json.loads(body)["status"], "ready")
+            self.assertEqual(json.loads(body)["mapped_nodes"], 1)
+            self.assertNotIn(image.encode("utf-8"), body)
+            (pathlib.Path(temp) / image).unlink()
+            _, _, body = self.request("/local-art/status.json")
+            self.assertEqual(json.loads(body)["status"], "missing_png")
+
     def test_generated_art_only_from_manifest(self):
         with tempfile.TemporaryDirectory() as temp, patch.object(serve, "ART_ROOT", pathlib.Path(temp)):
             allowed = "a" * 32 + ".png"
