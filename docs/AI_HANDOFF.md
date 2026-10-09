@@ -17,6 +17,7 @@ Khảo sát tài nguyên Unity trong XAPK Hải Tặc (được phép sử dụn
 - **Kiểm kê đã báo cáo:** 1.670 RectTransform qua 5 scene; 826 vị trí Sprite, 230 ảnh Sprite nguồn, 32 `SkeletonGraphic` ứng viên; 13 chuỗi nội dung skeleton/atlas có bằng chứng, trong đó REF04 có 8 gói local có thể liên kết. Các con số này thuộc báo cáo XAPK/kiểm thử, **không chứng minh pixel fidelity**.
 - **Ảnh Unity do người sử dụng thử ngày 2026-10-09:** REF04 hiển thị 242 Sprite, 1 Camera, 1 Canvas; Audit báo `missing Mono Scripts=0`, `content-matched=8`, `imported source packs=8`. Đây là kết quả trên môi trường local lúc đó, **không phải kiểm thử tự động đa máy**.
 - **Giai đoạn 2B:** mã để phát hiện Spine-Unity 3.8 và tạo scene thử animation riêng trong `Assets/Editor/OfflineSpine38Preview.cs`, cùng `SpinePreviewProbe.cs`; chưa có bằng chứng animation thực tế đã render thành công trong Unity.
+- **Kiểm kê serialized gốc (nhánh `feat/xapk-native-prefab-scene-inventory`, chưa merge):** `tools/audit_original_unity_graph.py` kiểm tra GameObject/Component trực tiếp trong XAPK. CI Linux/Windows đã xác minh **5 cây, 1.670 RectTransform, 5.346 component refs, 0 object refs thiếu, 2.212 managed fields chưa đọc được**. Không có type `Prefab`, `PrefabInstance`, `SceneAsset` trong **năm serialized file được chọn**: không được gọi 5 ứng viên là file Editor Prefab/Scene gốc. JSON local `output/original-unity-graph.json`. Script Unity `OriginalSerializedGraphImporter.cs` có thể dựng **riêng** các cây structural evidence vào `LocalReconstruction/SourceGraph...`, không thêm Canvas 1600×900 hay Image giả; **chưa được kiểm thử Unity Editor thực tế**. Xem `docs/XAPK_NATIVE_SCENE_PREFAB_RECOVERY.md`.
 
 ## Vấn đề còn lại / giới hạn chứng cứ
 1. Unity project hiện dùng **2022.3**, trong khi spine-unity 3.8 chính thức hỗ trợ đến Unity 2020.3. Thử runtime trong **bản sao project**; không coi Python CI là chứng cứ tương thích Unity Editor.
@@ -40,7 +41,7 @@ Unity: Unity Hub → `unity-ui-viewer` → Tools → HaiTac Offline UI Viewer �
 ## Ưu tiên công việc kế tiếp
 1. Đối chiếu trạng thái [PR #1](https://github.com/thanhtran2005isme-art/HaiTacDaiChien/pull/1): nếu đã merge, bắt đầu chức năng mới **từ `origin/main`**, xác nhận hai workflow metadata/reports không còn tự push main.
 2. Trong **nhánh tính năng mới**, thử Spine-Unity 3.8 hợp pháp trên bản sao project tương thích; thu Console/Play Mode và ảnh render nếu người dùng đồng ý.
-3. Tìm dữ liệu runtime/binding đủ tin cậy để xác định chính xác GameObject và animation; cập nhật kết quả có căn cứ.
+3. Kiểm tra PR nhánh `feat/xapk-native-prefab-scene-inventory`, chạy Unity menu `Source XAPK → Build evidence-only serialized graph prefabs` và gửi Console; xác minh đâu là component có đủ managed fields; **không** coi file prefab dựng nghiên cứu là prefab Editor gốc. Sau đó mới xử lý runtime binding.
 4. Cập nhật file này sau khi merge mỗi PR; chuyển chi tiết commit vào [history](history/2026-10.md).
 
 **Quy tắc phiên sau:** Trước khi bắt đầu hãy xem PR mở, HEAD `main`, `git status`, file này và `AGENTS.md`; ưu tiên vấn đề đang được xác minh thay vì làm lại bước đã PASS.
