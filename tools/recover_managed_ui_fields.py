@@ -229,7 +229,12 @@ def verified_fields(reader, row, generator):
     shape = _tree_summary(nodes)
     # The known Unity MonoBehaviour native header must be represented as part
     # of a complete generated root. An incomplete root is not a serialized layout.
-    if (shape["rootType"] != "MonoBehaviour" or
+    # TypeTreeGeneratorAPI may legitimately replace the root's m_Type with
+    # the derived script type ("Image", "CanvasScaler", etc.) while retaining
+    # the genuine native MonoBehaviour header. Never require the literal name.
+    allowed_roots = {"MonoBehaviour", row["className"],
+                     row["className"].rsplit(".", 1)[-1]}
+    if (shape["rootType"] not in allowed_roots or
             shape["rootLevel"] != 0 or shape["childCount"] is None or
             set(shape["headerNodes"]) !=
             {"m_GameObject", "m_Script", "m_Enabled"}):
