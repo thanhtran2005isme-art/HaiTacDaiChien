@@ -185,7 +185,7 @@ def audit_scene(scene, groups, sprite_links, canvas_inventory=None):
             if node_id not in ids:
                 continue
             record = {"nodeId": node_id, "componentId": int(reader.path_id),
-                      "class": cls, "status": "fields_unavailable"}
+                      "className": cls, "status": "fields_unavailable"}
             try:
                 tree = reader.read_typetree()
                 if isinstance(tree, dict):
@@ -215,7 +215,7 @@ def audit_scene(scene, groups, sprite_links, canvas_inventory=None):
             if row["class"] != "UnityEngine.UI.CanvasScaler":
                 continue
             references.append({"nodeId": matched[0], "componentId": component_id,
-                               "class": row["class"], "status": "fields_unavailable"})
+                               "className": row["class"], "status": "fields_unavailable"})
             recorded.add(component_id)
         except (ValueError, KeyError):
             continue
@@ -224,7 +224,7 @@ def audit_scene(scene, groups, sprite_links, canvas_inventory=None):
             if class_name not in (node.get("types") or []):
                 continue
             references.append({"nodeId": node["id"], "componentId": 0,
-                               "class": "UnityEngine.UI." + class_name,
+                               "className": "UnityEngine.UI." + class_name,
                                "status": "class_only_fields_unavailable"})
     return {"sceneId": scene["id"], "spriteGeometry": sprites,
             "components": references, "unavailable": dict(counters)}
