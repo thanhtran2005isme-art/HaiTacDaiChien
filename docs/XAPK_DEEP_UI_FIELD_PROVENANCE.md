@@ -126,3 +126,31 @@ Hoặc chạy `CHUAN_BI_DO_HOA.bat`; dòng kết quả mới:
 
 Mọi tài nguyên XAPK, asset Spine, field ID chi tiết nằm tại output/
 (Git ignored). Đây là công cụ đọc và phân tích, không sửa game.
+
+
+## Giai đoạn 3B — Kiểm tra TypeTree binary từ đúng XAPK (opt-in)
+
+**Trạng thái:** đã có mã và regression tests; **chưa có bằng chứng khôi phục bất kỳ managed field nào từ XAPK thật tại HEAD PR**. Giai đoạn 3A chạy mặc định vẫn giữ số liệu 0 field.
+
+Vấn đề kỹ thuật: IL2CPP metadata **v31 là phiên bản metadata runtime**, không phải phiên bản TypeTree hay bảng serialized field offsets. Offset trường trong bộ nhớ đối tượng IL2CPP **không tự động** là offset trong Unity SerializedFile. Không áp dụng tìm chuỗi, heuristic byte pattern, hay căn chỉnh tọa độ theo ảnh.
+
+Đường giải mã có điều kiện:
+
+1. Từ XAPK gốc hợp lệ, đọc duy nhất `global-metadata.dat` (magic + v31) và `libil2cpp.so` (ELF) trong các APK lồng; tính SHA256 và không lưu/export nhị phân.
+2. Lấy đúng `unity_version` từ năm SerializedFile chứa cây UI (không sử dụng version của Unity Editor local). Nếu bị strip về `0.0.0`, có nhiều version mâu thuẫn hoặc thiếu library thì **BLOCKED**.
+3. Trên máy riêng đã cài `UnityPy` và gói **tùy chọn** `TypeTreeGeneratorAPI`, tạo TypeTree từ cặp binary nguồn và phiên bản Unity chính xác. Không tải TypeTree bên ngoài dựa trên tên class đơn lẻ.
+4. Chỉ giải mã các MonoBehaviour đã liên kết `Component PathID → GameObject → MonoScript PPtr → class + assembly` thực tế. `read_typetree(nodes=..., check_read=True)` phải tiêu thụ đúng kích thước object và đồng nhất `m_GameObject`, `m_Script`, `m_Enabled` với nguồn đã kiểm chứng.
+5. Nếu giải mã thành công, chỉ xuất các trường UI allowlist có kiểu/giá trị hợp lệ, cùng hash nguồn + hash serialized object, trạng thái `GENERATED_TYPETREE_SOURCE_VERIFIED`. Bất kỳ bước nào lỗi giữ `NO_MANAGED_TYPETREE`/UNKNOWN và thông tin BLOCKED, không tạo giá trị fallback.
+
+Chạy từ thư mục root (sau khi hoàn tất bước kiểm kê XAPK):
+
+```cmd
+py -3 -m pip install UnityPy Pillow TypeTreeGeneratorAPI
+py -3 tools\audit_original_unity_graph.py
+py -3 tools\decode_xapk_ui_provenance.py --recover-managed-fields
+type output\deep-ui-source-evidence.md
+```
+
+`--recover-managed-fields` không bật trong CI thật mặc định: CI kiểm tra thuật toán fail-closed bằng dữ liệu tổng hợp, còn việc tạo TypeTree bằng parser tùy chọn có thể không hỗ trợ IL2CPP v31/build này. Báo cáo nằm trong `output/` bị ignore. Không tạo hay sửa `Assets/LocalReconstruction` trong bước này, và **không tự đưa fields vào Prefab Unity** trước khi xem kết quả có chứng cứ, test Editor và duyệt thay đổi importer riêng.
+
+**Các trường cần kiểm chứng tiếp:** Image.Type/Color/Fill/PreserveAspect; CanvasScaler scale mode/reference resolution; Mask/RectMask2D; LayoutGroup spacing, padding, child-alignment, grid constraints. Giá trị chưa lấy được phải ghi UNKNOWN. Kết quả binary phase 3B không đồng nghĩa UI REF04/Spine/game state đã được khôi phục.
