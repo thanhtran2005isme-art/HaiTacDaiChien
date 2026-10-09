@@ -1,0 +1,150 @@
+"""Synthetic-only safety tests: do not require proprietary game binaries."""
+import io
+import pathlib
+import struct
+import sys
+import tempfile
+import types
+import unittest
+import zipfile
+
+ROOT = pathlib.Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT / "tools"))
+import recover_managed_ui_fields as binary
+
+
+def pointer(pid, file_id=0):
+    return {"m_FileID": file_id, "m_PathID": pid}
+
+
+class StrictReader:
+    def __init__(self, result=None):
+        self.tree = result or {
+            "m_GameObject": pointer(42), "m_Script": pointer(77, 1),
+            "m_Enabled": False, "m_Type": 2, "m_PreserveAspect": True}
+        self.strict = False
+    def get_raw_data(self):
+        return b"source-serialized-object"
+    def read_typetree(self, nodes, check_read=False):
+        assert nodes == "original-class-layout"
+        self.strict = check_read
+        return self.tree
+
+
+class Generator:
+    def get_nodes_up(self, assembly, cls):
+        assert assembly == "UnityEngine.UI"
+        assert cls == "UnityEngine.UI.Image"
+        return "original-class-layout"
+
+
+ROW = {
+    "kind": "MonoBehaviour", "className": "UnityEngine.UI.Image",
+    "assembly": "UnityEngine.UI", "scriptResolution": "GLOBAL_XAPK_EXACT_FILE_ALIAS_PATHID",
+    "gameObjectId": 42, "scriptPointer": {"fileId": 1, "pathId": 77},
+    "nativeEnabled": False
+}
+
+
+def make_xapk(path, *, duplicate=False, elf=True, version=31):
+    def apk(name, data):
+        b = io.BytesIO()
+        with zipfile.ZipFile(b, "w") as arc:
+            arc.writestr(name, data)
+        return b.getvalue()
+    metadata = struct.pack("<II", binary.refs.IL2CPP_MAGIC, version) + b"\x00" * 256
+    with zipfile.ZipFile(path, "w") as outer:
+        outer.writestr("base.apk", apk(
+            "assets/bin/Data/Managed/Metadata/global-metadata.dat", metadata))
+        outer.writestr("config.arm64.apk", apk(
+            "lib/arm64-v8a/libil2cpp.so", b"\x7fELFbinary" if elf else b"notanelf"))
+        if duplicate:
+            outer.writestr("other.apk", apk(
+                "lib/x86/libil2cpp.so", b"\x7fELFduplicate"))
+
+
+class BinaryProofTests(unittest.TestCase):
+    def test_source_pair_generator_and_provenance_hashes(self):
+        with tempfile.TemporaryDirectory() as folder:
+            xapk = pathlib.Path(folder) / "authorized.xapk"
+            make_xapk(xapk)
+            class Stub:
+                def __init__(self, version):
+                    self.version = version
+                def load_il2cpp(self, lib, meta):
+                    assert lib.startswith(b"\x7fELF")
+                    assert struct.unpack_from("<I", meta, 4)[0] == 31
+            gen, proof = binary.source_generator(
+                xapk, "2020.3.48f1", factory=Stub)
+            self.assertEqual(gen.version, "2020.3.48f1")
+            self.assertEqual(proof["metadata"]["byteLength"], 264)
+            self.assertEqual(len(proof["library"]["sha256"]), 64)
+
+    def test_duplicate_lib_rejected_not_arbitrarily_selected(self):
+        with tempfile.TemporaryDirectory() as folder:
+            xapk = pathlib.Path(folder) / "game.xapk"
+            make_xapk(xapk, duplicate=True)
+            with self.assertRaisesRegex(binary.RecoveryBlocked, "duplicate"):
+                binary.read_source_pair(xapk)
+
+    def test_wrong_il2cpp_version_or_elf_rejected(self):
+        with tempfile.TemporaryDirectory() as folder:
+            xapk = pathlib.Path(folder) / "game.xapk"
+            make_xapk(xapk, version=30)
+            with self.assertRaisesRegex(binary.RecoveryBlocked, "v31"):
+                binary.read_source_pair(xapk)
+            make_xapk(xapk, elf=False)
+            with self.assertRaisesRegex(binary.RecoveryBlocked, "ELF"):
+                binary.read_source_pair(xapk)
+
+    def test_only_exact_serialized_unity_version(self):
+        self.assertEqual(binary.exact_unity_version(
+            [{"unityVersion": "2020.3.48f1\n2"}]), "2020.3.48f1")
+        with self.assertRaises(binary.RecoveryBlocked):
+            binary.exact_unity_version([{"unityVersion": "0.0.0\n2"}])
+        with self.assertRaises(binary.RecoveryBlocked):
+            binary.exact_unity_version([
+                {"unityVersion": "2020.3.1f1"}, {"unityVersion": "2022.3.21f1"}])
+
+    def test_generated_typetree_checked_for_full_object_and_source(self):
+        reader = StrictReader()
+        fields, proof = binary.verified_fields(reader, ROW, Generator())
+        self.assertEqual(fields, {"m_Type": 2, "m_PreserveAspect": True})
+        self.assertTrue(reader.strict)
+        self.assertTrue(proof["exactSourcePointerChecked"])
+        self.assertEqual(proof["method"], "SOURCE_IL2CPP_GENERATED_TYPETREE")
+
+    def test_reject_mismatch_to_gameobject_script_or_enabled(self):
+        for key, value in (
+            ("m_GameObject", pointer(999)),
+            ("m_Script", pointer(77, 0)),
+            ("m_Enabled", True),
+        ):
+            reader = StrictReader()
+            reader.tree[key] = value
+            with self.subTest(key=key), self.assertRaises(binary.RecoveryBlocked):
+                binary.verified_fields(reader, ROW, Generator())
+
+    def test_invalid_enum_and_synthetic_fallback_rejected(self):
+        reader = StrictReader()
+        reader.tree["m_Type"] = 999
+        with self.assertRaisesRegex(binary.RecoveryBlocked, "Invalid"):
+            binary.verified_fields(reader, ROW, Generator())
+        reader = StrictReader()
+        reader.tree.pop("m_Type")
+        reader.tree.pop("m_PreserveAspect")
+        with self.assertRaisesRegex(binary.RecoveryBlocked, "No target"):
+            binary.verified_fields(reader, ROW, Generator())
+
+    def test_unverified_class_and_missing_bytes_rejected(self):
+        row = dict(ROW, scriptResolution="GUESSED_CLASS_NAME")
+        with self.assertRaises(binary.RecoveryBlocked):
+            binary.verified_fields(StrictReader(), row, Generator())
+        reader = StrictReader()
+        reader.get_raw_data = lambda: b""
+        with self.assertRaises(binary.RecoveryBlocked):
+            binary.verified_fields(reader, ROW, Generator())
+
+
+if __name__ == "__main__":
+    unittest.main()
