@@ -108,7 +108,7 @@ class TestRealGraph(unittest.TestCase):
     def test_invalid_parent_is_rejected(self):
         scene, readers = self.fixture()
         scene["nodes"][1]["parent"] = 75
-        with self.assertRaisesRegex(ValueError, "parent mismatch"):
+        with self.assertRaisesRegex(ValueError, "(parent mismatch|parent/child pointers disagree)"):
             native.records_for_scene(scene, readers, {})
 
     def test_missing_transform_on_gameobject_is_rejected(self):
