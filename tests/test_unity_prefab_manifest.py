@@ -106,6 +106,24 @@ class TestUnityReconstructionPlan(unittest.TestCase):
         self.assertIn("sourceSkeletonJson", evidence)
         self.assertIn("UiComponentEvidence", evidence)
 
+    def test_each_serializable_evidence_monobehaviour_has_matching_script_file(self):
+        import re
+        scripts = path.parents[1] / "unity-ui-viewer/Assets/Scripts"
+        for name in ("ReconstructionEvidence", "SpineReferenceEvidence",
+                     "UiComponentEvidence"):
+            contents = (scripts / (name + ".cs")).read_text(encoding="utf-8")
+            classes = re.findall(r"public\\s+sealed\\s+class\\s+(\\w+)\\s*:\\s*MonoBehaviour",
+                                 contents)
+            self.assertEqual(classes, [name], name)
+        reconstructor = (path.parents[1] /
+                         "unity-ui-viewer/Assets/Editor/UnityCanvasReconstructor.cs"
+                         ).read_text(encoding="utf-8")
+        self.assertIn("GameObjectUtility.GetMonoBehavioursWithMissingScriptCount",
+                      reconstructor)
+        self.assertIn("Missing (Mono Script) component(s)", reconstructor)
+        self.assertIn("Spine components=", reconstructor)
+        self.assertIn("imported source packs=", reconstructor)
+
     def test_reject_private_image_paths(self):
         scenes, art, comps, candidates = self.fixture()
         art["files"] = ["../../private.png"]
