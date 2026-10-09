@@ -277,7 +277,7 @@ def main():
         json.loads(ripper.read_text(encoding="utf-8")))
     review_path = root / "output/single-backend-layout-review.json"
     review_tmp = review_path.with_suffix(".tmp")
-    review_tmp.write_text(json.dumps(review, ensure_ascii=False, indent=2) + "\\n",
+    review_tmp.write_text(json.dumps(review, ensure_ascii=False, indent=2) + "\n",
                           encoding="utf-8")
     review_tmp.replace(review_path)
     print(json.dumps({
