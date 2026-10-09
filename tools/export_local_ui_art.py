@@ -93,6 +93,10 @@ def export_bundle(path, bundle_label, expected, output, exported, issues, unityp
         issues.append("Cannot read Unity bundle: " + str(exc)[:160])
         return
     sprite_objects, matched, sample = 0, 0, []
+    ids_in_bundle = collections.defaultdict(set)
+    for sprite_key in expected:
+        if sprite_key[0].startswith(bundle_label + "__"):
+            ids_in_bundle[sprite_key[1]].add(sprite_key)
     for obj in env.objects:
         if getattr(getattr(obj, "type", None), "name", "") != "Sprite":
             continue
@@ -104,11 +108,27 @@ def export_bundle(path, bundle_label, expected, output, exported, issues, unityp
         if len(sample) < 3:
             sample.append(source_name)
         key = key_of(bundle_label + "__" + source_name, obj.path_id)
-        if key not in expected or key in exported:
+        if key not in expected:
+            # UnityPy may expose the actual serialized file as "resources.assets",
+            # while the static inventory calls it "file110". Never trust a
+            # filename-only or name-only match: require unique path ID and name.
+            possible = ids_in_bundle.get(str(obj.path_id), set())
+            if len(possible) != 1:
+                continue
+            key = next(iter(possible))
+            alias = True
+        else:
+            alias = False
+        if key in exported:
             continue
-        matched += 1
         try:
-            image = obj.read().image  # UnityPy handles Sprite rectangle / atlas extraction.
+            sprite = obj.read()
+            real_name = str(getattr(sprite, "m_Name", "") or "")
+            names = expected[key]
+            if alias and (not names or real_name not in names):
+                continue
+            matched += 1
+            image = sprite.image  # UnityPy handles Sprite rectangle / atlas extraction.
             if image is None or image.width * image.height > MAX_PIXELS:
                 raise ValueError("Sprite image unavailable or exceeds pixel limit")
             stream = io.BytesIO()
@@ -161,7 +181,9 @@ def extract(root, xapk=None, apk_dir=None, out=None, unitypy=None):
     scenes = json.loads((root / "unity-ui-viewer/Assets/StreamingAssets/ui-scenes.json").read_text(
         encoding="utf-8"
     ))
-    expected = {key_of(row["sprite_file"], row["sprite_id"]) for row in links}
+    expected = collections.defaultdict(set)
+    for row in links:
+        expected[key_of(row["sprite_file"], row["sprite_id"])].add(row["sprite_name"])
     if unitypy is None:
         try:
             import UnityPy as unitypy
