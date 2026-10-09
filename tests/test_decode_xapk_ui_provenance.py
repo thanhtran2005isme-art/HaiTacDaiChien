@@ -102,7 +102,7 @@ class SourceUIProvenance(unittest.TestCase):
         self.assertEqual(entry["status"], "V31_HEADER_VALIDATED_NAME_HINTS_ONLY")
         self.assertTrue(entry["fieldNameHints"]["m_Type"])
         self.assertFalse(entry["fieldNameHints"]["m_Color"])
-        self.assertIn("NOT", result["limitation"])
+        self.assertIn("do not establish", result["limitation"])
 
 
 if __name__ == "__main__":
