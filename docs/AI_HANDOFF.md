@@ -61,3 +61,5 @@ Unity: Unity Hub → `unity-ui-viewer` → Tools → HaiTac Offline UI Viewer �
 4. Cập nhật file này sau khi merge mỗi PR; chuyển chi tiết commit vào [history](history/2026-10.md).
 
 **Quy tắc phiên sau:** Trước khi bắt đầu hãy xem PR mở, HEAD `main`, `git status`, file này và `AGENTS.md`; ưu tiên vấn đề đang được xác minh thay vì làm lại bước đã PASS.
+
+- **Phase 3B diagnostic (2026-10-10):** Windows user reported `attempted=1201, blocked=1201`, identical `Generated TypeTree failed strict object parsing: AssertionError`. The old exception handler conflated `get_nodes_up()` with strict parser. Commit on PR #5 now classifies failure as `generate_nodes`, `validate_root`, or `strict_parse`, includes safe Python function location and root header summary in ignored reports. It **does not** accept incomplete TypeTrees or suppress `check_read=True`. Run `py -3 tools\\decode_xapk_ui_provenance.py --recover-managed-fields` after pull; look at `## Binary decoder blockers by phase` in `output/deep-ui-source-evidence.md`. No verified fields yet; do not update Prefabs.
