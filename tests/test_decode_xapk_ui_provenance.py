@@ -88,6 +88,38 @@ class SourceUIProvenance(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "Component type differs"):
             mod.inspect_component(self.behaviour, "Canvas", 200, self.ctx)
 
+    def test_cross_bundle_monoscript_resolves_exact_source_alias_and_pathid(self):
+        import io
+        af = types.SimpleNamespace(name="shared.assets", externals=[])
+        src = Fake("MonoScript", 31, {
+            "m_ClassName": "CanvasScaler", "m_Namespace": "UnityEngine.UI",
+            "m_AssemblyName": "UnityEngine.UI"}, af)
+        env = types.SimpleNamespace(objects=[src],
+                                    files={"shared.assets": af})
+        engine = types.SimpleNamespace(load=lambda blob: env)
+        row = {
+            "pathId": 35, "kind": "MonoBehaviour",
+            "status": "SOURCE_SCRIPT_UNRESOLVED",
+            "externalScriptAlias": "shared.assets",
+            "scriptPointer": {"fileId": 1, "pathId": 31},
+            "graphFieldStatus": "managed_fields_unavailable",
+        }
+        scene = {"components": [row]}
+        with tempfile.TemporaryDirectory() as folder:
+            apk_bytes = io.BytesIO()
+            with zipfile.ZipFile(apk_bytes, "w") as apk:
+                apk.writestr("assets/ui.unity3d", b"mock bundle")
+            xapk_file = pathlib.Path(folder) / "game.xapk"
+            with zipfile.ZipFile(xapk_file, "w") as xapk:
+                xapk.writestr("base.apk", apk_bytes.getvalue())
+            audit = mod.resolve_cross_bundle_scripts(xapk_file, [scene], engine)
+        self.assertEqual(audit["resolved"], 1)
+        self.assertEqual(row["className"], "UnityEngine.UI.CanvasScaler")
+        self.assertEqual(row["status"], "NO_MANAGED_TYPETREE")
+        self.assertEqual(row["scriptResolution"],
+                         "GLOBAL_XAPK_EXACT_FILE_ALIAS_PATHID")
+        self.assertNotIn("fields", row)
+
     def test_metadata_is_read_from_canonical_xapk_when_unpacked_apks_missing(self):
         import io
         with tempfile.TemporaryDirectory() as folder:
