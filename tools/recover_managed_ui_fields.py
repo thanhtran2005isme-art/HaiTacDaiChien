@@ -125,10 +125,13 @@ def source_generator(xapk, version, factory=None):
 
 def _valid_field(name, value):
     """Conservative field validation; never coerce an invalid layout into UI."""
-    if name in ("m_Type", "m_UiScaleMode", "m_ScreenMatchMode",
-                "m_FillMethod", "m_StartCorner", "m_StartAxis",
-                "m_ChildAlignment", "m_Constraint", "m_AspectMode"):
-        return type(value) is int and 0 <= value <= 12
+    enums = {
+        "m_Type": 3, "m_UiScaleMode": 2, "m_ScreenMatchMode": 2,
+        "m_FillMethod": 4, "m_StartCorner": 3, "m_StartAxis": 1,
+        "m_ChildAlignment": 8, "m_Constraint": 2, "m_AspectMode": 5,
+    }
+    if name in enums:
+        return type(value) is int and 0 <= value <= enums[name]
     if name in ("m_PreserveAspect", "m_FillClockwise", "m_ShowMaskGraphic",
                 "m_ChildControlWidth", "m_ChildControlHeight",
                 "m_ChildForceExpandWidth", "m_ChildForceExpandHeight"):
