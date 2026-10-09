@@ -300,21 +300,34 @@ namespace HaiTac.OfflineViewer.Editor
                         .Where(c => c.enabled && c.gameObject.activeInHierarchy).ToArray();
                     int art = roots.Sum(go => go.GetComponentsInChildren<Image>(true)
                         .Count(image => image.sprite != null));
-                    int sourceSpinePacks = roots.Sum(go => go
-                        .GetComponentsInChildren<SpineReferenceEvidence>(true)
-                        .Count(note => note.sourceSkeletonJson != null &&
-                                       note.sourceAtlasText != null &&
-                                       note.sourceAtlasTextures != null &&
-                                       note.sourceAtlasTextures.Length > 0));
+                    var allSpineNotes = roots.SelectMany(go =>
+                        go.GetComponentsInChildren<SpineReferenceEvidence>(true)).ToArray();
+                    int sourceSpinePacks = allSpineNotes.Count(note =>
+                        note.sourceSkeletonJson != null &&
+                        note.sourceAtlasText != null &&
+                        note.sourceAtlasTextures != null &&
+                        note.sourceAtlasTextures.Length > 0 &&
+                        note.sourceAtlasTextures.All(texture => texture != null));
+                    int contentMatches = allSpineNotes.Count(note =>
+                        note.contentEvidenceStatus == "content_chain_verified_field_unverified");
+                    int missingScripts = roots.SelectMany(go =>
+                        go.GetComponentsInChildren<Transform>(true)).Sum(transform =>
+                        GameObjectUtility.GetMonoBehavioursWithMissingScriptCount(transform.gameObject));
                     bool zeroRoot = canvases.Any(c => c.transform.localScale.x == 0f ||
                                                       c.transform.localScale.y == 0f);
                     if (cameras == 0) issues.Add(sceneInfo.id + ": no preview Camera");
                     if (canvases.Length == 0) issues.Add(sceneInfo.id + ": no active Canvas");
                     if (zeroRoot) issues.Add(sceneInfo.id + ": collapsed zero-scale Canvas root");
                     if (art == 0) issues.Add(sceneInfo.id + ": no decoded Sprite Images");
+                    if (missingScripts > 0)
+                        issues.Add(sceneInfo.id + ": " + missingScripts +
+                            " Missing (Mono Script) component(s). Rebuild with updated C# scripts.");
                     Debug.Log("[HaiTac scene audit] " + sceneInfo.id + ": " + cameras +
                         " Cameras, " + canvases.Length + " active Canvases, " + art +
-                        " Sprite Images, source Spine packs=" + sourceSpinePacks +
+                        " Sprite Images, Spine components=" + allSpineNotes.Length +
+                        ", content-matched=" + contentMatches +
+                        ", imported source packs=" + sourceSpinePacks +
+                        ", missing Mono Scripts=" + missingScripts +
                         ", zero-root=" + zeroRoot);
                 }
             }
@@ -989,6 +1002,13 @@ namespace HaiTac.OfflineViewer.Editor
                     throw new InvalidDataException("Zero-scale reconstructed Canvas: " + filename);
                 if (!HasWorkingCamera(newScene))
                     throw new InvalidDataException("Missing working preview Camera: " + filename);
+                int missingComponents = newScene.GetRootGameObjects().SelectMany(root =>
+                    root.GetComponentsInChildren<Transform>(true)).Sum(transform =>
+                    GameObjectUtility.GetMonoBehavioursWithMissingScriptCount(transform.gameObject));
+                if (missingComponents > 0)
+                    throw new InvalidDataException("Generated " + filename + " has " +
+                        missingComponents + " unresolved Mono Script(s). Check Console and " +
+                        "ensure each MonoBehaviour uses its own matching .cs filename.");
                 if (!EditorSceneManager.SaveScene(newScene, SceneFolder + "/" + filename + ".unity"))
                     throw new IOException("Could not save local scene " + filename);
                 Debug.Log("[HaiTac] Saved local scene " + filename + " with " +
