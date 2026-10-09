@@ -108,6 +108,55 @@ namespace HaiTac.OfflineViewer.Editor
             public float[] color;
         }
 
+        [Serializable] private class DeepUiDatabase
+        {
+            public int version;
+            public DeepUiScene[] scenes;
+        }
+
+        [Serializable] private class DeepUiScene
+        {
+            public string sceneId;
+            public DeepSprite[] spriteGeometry;
+            public DeepUiComponent[] components;
+        }
+
+        [Serializable] private class DeepSprite
+        {
+            public int nodeId;
+            public int spriteId;
+            public float[] border;
+            public float pixelsPerUnit;
+            public float[] sourceRectSize;
+        }
+
+        [Serializable] private class DeepUiComponent
+        {
+            public int nodeId;
+            public int componentId;
+            public string @class;
+            public string status;
+        }
+
+        [Serializable] private class SpineLinkDatabase
+        {
+            public int version;
+            public SpineLink[] records;
+        }
+
+        [Serializable] private class SpineLink
+        {
+            public string sceneId;
+            public int nodeId;
+            public string componentId;
+            public string status;
+            public string skeletonName;
+            public string atlasName;
+            public string spineVersion;
+            public string localPackId;
+            public string[] animationNames;
+        }
+
         [MenuItem("Tools/HaiTac Offline UI Viewer/Reconstruct 5 local Canvas prefabs")]
         public static void ReconstructFromLocalXapk()
         {
@@ -134,8 +183,11 @@ namespace HaiTac.OfflineViewer.Editor
                 // Strict validation: do not silently bind stale evidence to
                 // GameObjects whose IDs have changed in a different XAPK.
                 var verifiedLayout = ReadLayoutEvidence(root, scenes);
+                var componentEvidence = ReadDeepUiEvidence(root, scenes);
+                var spineEvidence = ReadSpineEvidence(root, plan);
                 EnsureFolders();
                 var sprites = ImportSprites(plan.sprites, artFolder);
+                ApplyOriginalSpriteGeometry(plan.sprites, componentEvidence, sprites);
                 var art = new Dictionary<string, Dictionary<int, Sprite>>();
                 foreach (var entry in plan.sprites)
                 {
@@ -159,7 +211,9 @@ namespace HaiTac.OfflineViewer.Editor
                     var sceneSpine = plan.spine.Where(e => e.sceneId == scene.id).ToArray();
                     art.TryGetValue(scene.id, out var sceneArt);
                     verifiedLayout.TryGetValue(scene.id, out var nativeLayout);
-                    BuildPrefabAndScene(scene, sceneArt, sceneSpine, nativeLayout);
+                    componentEvidence.TryGetValue(scene.id, out var sceneComponents);
+                    BuildPrefabAndScene(scene, sceneArt, sceneSpine, nativeLayout,
+                                        sceneComponents, spineEvidence);
                     generated++;
                 }
                 AssetDatabase.SaveAssets();
@@ -412,6 +466,118 @@ namespace HaiTac.OfflineViewer.Editor
             return output;
         }
 
+        private static Dictionary<string, DeepUiScene> ReadDeepUiEvidence(
+            string root, ViewerDatabase source)
+        {
+            var output = new Dictionary<string, DeepUiScene>();
+            string file = Path.Combine(root, "output", "local-ui-components.json");
+            if (!File.Exists(file))
+            {
+                Debug.LogWarning("[HaiTac] No deep UI component evidence. " +
+                    "Run py -3 tools/audit_local_ui_components.py.");
+                return output;
+            }
+            var evidence = JsonUtility.FromJson<DeepUiDatabase>(File.ReadAllText(file));
+            if (evidence == null || evidence.version != 1 || evidence.scenes == null ||
+                evidence.scenes.Length != source.scenes.Length)
+                throw new InvalidDataException("Deep UI evidence version/scene count mismatch.");
+            foreach (var scene in evidence.scenes)
+            {
+                var expected = source.scenes.FirstOrDefault(x => x.id == scene.sceneId);
+                if (expected == null || scene.spriteGeometry == null || scene.components == null ||
+                    output.ContainsKey(scene.sceneId))
+                    throw new InvalidDataException("Unknown or duplicate deep evidence scene.");
+                var ids = new HashSet<int>(expected.nodes.Select(x => x.id));
+                if (scene.spriteGeometry.Any(x => !ids.Contains(x.nodeId)) ||
+                    scene.components.Any(x => !ids.Contains(x.nodeId)))
+                    throw new InvalidDataException("Stale deep evidence node ID: " + scene.sceneId);
+                output.Add(scene.sceneId, scene);
+            }
+            return output;
+        }
+
+        private static Dictionary<string, SpineLink> ReadSpineEvidence(
+            string root, Plan plan)
+        {
+            var output = new Dictionary<string, SpineLink>(StringComparer.Ordinal);
+            string file = Path.Combine(root, "output", "local-spine-link-evidence.json");
+            if (!File.Exists(file)) return output;
+            var evidence = JsonUtility.FromJson<SpineLinkDatabase>(File.ReadAllText(file));
+            if (evidence == null || evidence.version != 1 || evidence.records == null)
+                throw new InvalidDataException("Spine link evidence invalid.");
+            var possible = new HashSet<string>(plan.spine.Select(s =>
+                s.sceneId + "/" + s.nodeId + "/" + s.componentId));
+            foreach (var item in evidence.records)
+            {
+                var key = item.sceneId + "/" + item.nodeId + "/" + item.componentId;
+                if (!possible.Contains(key) || output.ContainsKey(key))
+                    throw new InvalidDataException("Stale or duplicate Spine component evidence: " + key);
+                output.Add(key, item);
+            }
+            Debug.Log("[HaiTac] Read " + output.Count +
+                " exact GameObject-linked Spine evidence rows. " +
+                "Binding and default animation remain unverified.");
+            return output;
+        }
+
+        private static void ApplyOriginalSpriteGeometry(
+            SpriteEntry[] plan, Dictionary<string, DeepUiScene> evidence,
+            Dictionary<string, Sprite> sprites)
+        {
+            var names = plan.ToDictionary(row => row.sceneId + "/" + row.nodeId,
+                                          row => row.spriteFile);
+            var patches = new Dictionary<string, List<DeepSprite>>();
+            foreach (var scene in evidence.Values)
+            {
+                foreach (var record in scene.spriteGeometry)
+                {
+                    if (!names.TryGetValue(scene.sceneId + "/" + record.nodeId,
+                                           out var filename)) continue;
+                    if (!patches.TryGetValue(filename, out var list))
+                    {
+                        list = new List<DeepSprite>();
+                        patches.Add(filename, list);
+                    }
+                    list.Add(record);
+                }
+            }
+            int changed = 0;
+            foreach (var entry in patches)
+            {
+                if (!sprites.TryGetValue(entry.Key, out var sprite)) continue;
+                var variants = entry.Value;
+                if (variants.Count == 0 || variants.Any(v => v.border == null ||
+                    v.border.Length != 4 || v.sourceRectSize == null ||
+                    v.sourceRectSize.Length != 2))
+                    continue;
+                var sample = variants[0];
+                if (variants.Any(v => !v.border.SequenceEqual(sample.border) ||
+                      !v.sourceRectSize.SequenceEqual(sample.sourceRectSize) ||
+                      Mathf.Abs(v.pixelsPerUnit - sample.pixelsPerUnit) > 0.001f))
+                    continue;
+                if (Mathf.Abs(sprite.rect.width - sample.sourceRectSize[0]) > 1f ||
+                    Mathf.Abs(sprite.rect.height - sample.sourceRectSize[1]) > 1f)
+                    continue; // PNG geometry differs from serialized Sprite rectangle.
+                var importer = AssetImporter.GetAtPath(SpriteFolder + "/" + entry.Key)
+                               as TextureImporter;
+                if (importer == null) continue;
+                var border = new Vector4(sample.border[0], sample.border[1],
+                                         sample.border[2], sample.border[3]);
+                if (sample.pixelsPerUnit < 0.001f || sample.pixelsPerUnit > 10000f ||
+                    border.x + border.z > sprite.rect.width ||
+                    border.y + border.w > sprite.rect.height)
+                    continue;
+                importer.spriteBorder = border;
+                importer.spritePixelsPerUnit = sample.pixelsPerUnit;
+                importer.SaveAndReimport();
+                sprites[entry.Key] =
+                    AssetDatabase.LoadAssetAtPath<Sprite>(SpriteFolder + "/" + entry.Key);
+                changed++;
+            }
+            Debug.Log("[HaiTac] Applied original verified Sprite border/PPU to " +
+                changed + " local imported Sprite(s); unavailable variants untouched.");
+        }
+
         private static Dictionary<string, LayoutScene> ReadLayoutEvidence(
             string root, ViewerDatabase source)
         {
@@ -507,7 +673,8 @@ namespace HaiTac.OfflineViewer.Editor
 
         private static void BuildPrefabAndScene(
             ViewerScene scene, Dictionary<int, Sprite> art, SpineEntry[] spine,
-            LayoutScene layout)
+            LayoutScene layout, DeepUiScene deepUi,
+            Dictionary<string, SpineLink> spineLinks)
         {
             var go = new GameObject("ReconstructedCandidate_" + scene.id,
                 typeof(RectTransform), typeof(Canvas), typeof(CanvasScaler),
@@ -627,6 +794,23 @@ namespace HaiTac.OfflineViewer.Editor
                             map.TryGetValue(node.id, out var transform))
                             transform.SetSiblingIndex(index++);
                 }
+                if (deepUi != null)
+                {
+                    foreach (var component in deepUi.components)
+                    {
+                        if (!map.TryGetValue(component.nodeId, out var target))
+                            throw new InvalidDataException("UI evidence node missing: " +
+                                                           component.nodeId);
+                        var note = target.gameObject.AddComponent<UiComponentEvidence>();
+                        note.originalComponentId = component.componentId.ToString();
+                        note.originalClass = component.@class;
+                        note.evidenceStatus = component.status;
+                        note.serializedFields = component.status == "serialized_fields_available"
+                            ? "Original fields available in local JSON; runtime reproduction " +
+                              "must respect type-specific material and layout dependencies."
+                            : "Original fields unavailable in the IL2CPP typetree; no layout guessed.";
+                    }
+                }
                 foreach (var row in spine)
                 {
                     if (!map.TryGetValue(row.nodeId, out var target))
@@ -636,6 +820,19 @@ namespace HaiTac.OfflineViewer.Editor
                     note.originalComponentId = row.componentId;
                     note.bindingStatus = row.bindingStatus;
                     note.possibleSkeletonDataAssets = row.candidateCount;
+                    var key = scene.id + "/" + row.nodeId + "/" + row.componentId;
+                    if (spineLinks.TryGetValue(key, out var link))
+                    {
+                        note.contentEvidenceStatus = link.status;
+                        note.candidateSkeletonName = link.skeletonName;
+                        note.candidateAtlasName = link.atlasName;
+                        note.candidateSpineVersion = link.spineVersion;
+                        note.localPackId = link.localPackId;
+                        note.availableAnimationCount =
+                            link.animationNames == null ? 0 : link.animationNames.Length;
+                        note.knownAnimationNames =
+                            link.animationNames == null ? "" : string.Join(", ", link.animationNames);
+                    }
                 }
                 // Ensure the root identity survives all intermediate UI
                 // component creation and is serialized into the prefab asset.
