@@ -15,6 +15,8 @@ on:
       - 'tools/audit_original_unity_graph.py'
       - 'tests/test_original_unity_graph.py'
       - 'tools/summarize_original_unity_gaps.py'
+      - 'tools/decode_xapk_ui_provenance.py'
+      - 'tests/test_decode_xapk_ui_provenance.py'
       - 'tests/test_original_unity_gaps.py'
       - '.github/workflows/local-art-decode.yml'
   workflow_dispatch:
@@ -102,6 +104,29 @@ jobs:
         run: python -m unittest discover -s tests -p test_original_unity_graph.py -v
       - name: Audit original serialized GameObject/component graph from XAPK
         run: python tools/audit_original_unity_graph.py
+      - name: Test source-linked IL2CPP and UI field evidence
+        run: python -m unittest discover -s tests -p test_decode_xapk_ui_provenance.py -v
+      - name: Audit exact MonoScript, UI managed fields and IL2CPP metadata locally
+        run: python tools/decode_xapk_ui_provenance.py
+      - name: Require deep UI evidence preserves source component identities
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          d=json.loads(Path('output/deep-ui-source-evidence.json').read_text(encoding='utf-8'))
+          assert d['schemaVersion']==1
+          assert d['status']=='VERIFIED_POINTER_AUDIT_NOT_FIELD_OFFSET_RECOVERY'
+          assert len(d['scenes'])==5 and d['stats']['componentCount']==5346
+          assert d['il2cpp']['files']
+          assert all(len({x['pathId'] for x in s['components']})==len(s['components'])
+                     for s in d['scenes'])
+          assert all(x['status']!='SERIALIZED_FIELDS_VERIFIED' or
+                     (x.get('className') and x.get('fields'))
+                     for s in d['scenes'] for x in s['components'])
+          print('PASS source-linked deep audit', d['stats']['statuses'])
+          print('Verified managed UI fields:',d['stats']['verifiedManagedFields'])
+          print('IL2CPP metadata:',[(x['version'],x['status']) for x in d['il2cpp']['files']])
+          PY
       - name: Test exact per-component missing managed-field report
         run: python -m unittest discover -s tests -p test_original_unity_gaps.py -v
       - name: Generate local component-by-component recovery checklist
@@ -225,6 +250,13 @@ jobs:
         run: python -m unittest discover -s tests -p test_original_unity_graph.py -v
       - name: Check original serialized scene/prefab candidate inventory on Windows
         run: python tools/audit_original_unity_graph.py
+      - name: Test source-linked IL2CPP and UI field evidence on Windows
+        run: python -m unittest discover -s tests -p test_decode_xapk_ui_provenance.py -v
+      - name: Audit native MonoScript and managed UI source field IDs on Windows
+        run: python tools/decode_xapk_ui_provenance.py
+      - name: Require 5346 original component records in Windows deep audit
+        run: |
+          python -c "import json; from pathlib import Path; d=json.loads(Path('output/deep-ui-source-evidence.json').read_text(encoding='utf-8')); assert len(d['scenes'])==5 and d['stats']['componentCount']==5346; print('DEEP XAPK WINDOWS PASS:',d['stats']['statuses'])"
       - name: Test local component gap reporter on Windows
         run: python -m unittest discover -s tests -p test_original_unity_gaps.py -v
       - name: Report full component gaps on Windows
