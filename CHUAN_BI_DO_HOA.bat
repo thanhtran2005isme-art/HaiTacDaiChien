@@ -72,6 +72,13 @@ if /I "%SOURCE_GRAPH_STATE%"=="FAILED" (
     %PY% tools\summarize_original_unity_gaps.py
     if errorlevel 1 echo [WARN] Danh sach component con thieu chua tao duoc.
 )
+set "IL2CPP_UI_PROVENANCE=FAILED"
+if /I "%SOURCE_GRAPH_STATE%"=="PASS" (
+    echo [INFO] Doi chieu MonoScript - MonoBehaviour - metadata IL2CPP theo ID goc...
+    %PY% tools\decode_xapk_ui_provenance.py
+    if not errorlevel 1 set "IL2CPP_UI_PROVENANCE=PASS"
+)
+if /I "%IL2CPP_UI_PROVENANCE%"=="FAILED" echo [WARN] Chua du bang chung typetree / MonoScript. Khong tu giai ma offsets.
 echo [INFO] Kiem ke Sprite border, CanvasScaler, Mask, LayoutGroup tu XAPK...
 set "UI_DEEP_STATE=FAILED"
 %PY% tools\audit_local_ui_components.py
@@ -111,6 +118,7 @@ echo Sprite UI: %SPRITE_STATE%
 echo Unity verified layout: %LAYOUT_STATE%
 echo Original Image owner/state: %SOURCE_IMAGE_STATE%
 echo Original Unity source graph: %SOURCE_GRAPH_STATE%
+echo IL2CPP UI source provenance: %IL2CPP_UI_PROVENANCE%
 echo UI component evidence: %UI_DEEP_STATE%
 echo Spine reference evidence: %SPINE_LINK_STATE%
 echo Spine pack: %SPINE_STATE%
