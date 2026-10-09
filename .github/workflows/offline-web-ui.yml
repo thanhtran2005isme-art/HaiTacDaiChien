@@ -4,7 +4,9 @@ on:
     paths:
       - 'web-ui-viewer/**'
       - 'tools/serve_ui_viewer.py'
+      - 'tools/export_local_ui_art.py'
       - 'tests/test_offline_web_viewer.py'
+      - 'tests/test_local_ui_art.py'
       - 'tests/test_asset_matching.cjs'
       - 'CHAY_UI_OFFLINE.bat'
       - '.github/workflows/offline-web-ui.yml'
@@ -27,6 +29,8 @@ jobs:
           node tests/test_asset_matching.cjs
       - name: Test local HTTP server and 5 real UI scenes
         run: python3 -m unittest discover -s tests -p test_offline_web_viewer.py -v
+      - name: Test exact offline Sprite manifest mapping (no UnityPy required)
+        run: python3 -m unittest discover -s tests -p test_local_ui_art.py -v
       - name: Verify bat entrypoint and privacy requirements
         shell: bash
         run: |
