@@ -16,3 +16,7 @@
 /output/
 __pycache__/
 *.pyc
+
+# Private local images for authorized preview: NEVER publish commercially-owned art
+/private-ui-art/
+/web-ui-viewer/local-art/
