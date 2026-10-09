@@ -94,6 +94,25 @@ class BinaryProofTests(unittest.TestCase):
             ("UnityEngine.UI", "UnityEngine.UI.CanvasScaler")
         ])
 
+    def test_source_generator_explicit_backend_is_source_bound(self):
+        with tempfile.TemporaryDirectory() as folder:
+            xapk = pathlib.Path(folder) / "authorized.xapk"
+            make_xapk(xapk)
+            class Stub:
+                def __init__(self, version):
+                    self.version = version
+                def load_il2cpp(self, lib, meta):
+                    assert lib.startswith(b"\\x7fELF")
+            for backend in ("AssetsTools", "AssetStudio", "AssetRipper"):
+                _, proof = binary.source_generator(
+                    xapk, "2022.3.51f1", factory=Stub, backend=backend)
+                self.assertEqual(proof["backend"], backend)
+                self.assertEqual(proof["gameUnityVersion"], "2022.3.51f1")
+            with self.assertRaises(binary.RecoveryBlocked):
+                binary.source_generator(
+                    xapk, "2022.3.51f1", factory=Stub,
+                    backend="FAKE_OR_INFERRED")
+
     def test_source_pair_generator_and_provenance_hashes(self):
         with tempfile.TemporaryDirectory() as folder:
             xapk = pathlib.Path(folder) / "authorized.xapk"
