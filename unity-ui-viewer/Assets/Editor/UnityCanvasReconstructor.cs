@@ -24,6 +24,9 @@ namespace HaiTac.OfflineViewer.Editor
         private const string SpriteFolder = LocalRoot + "/Sprites";
         private const string PrefabFolder = LocalRoot + "/Prefabs";
         private const string SceneFolder = LocalRoot + "/Scenes";
+        private const string SpineFolder = LocalRoot + "/SpinePacks";
+        private static readonly Regex SafePackId = new Regex(@"^[0-9a-f]{24}$");
+        private static readonly Regex SafePackFile = new Regex(@"^[A-Za-z0-9][A-Za-z0-9_.-]{0,124}$");
         private static readonly Regex SafePng = new Regex(@"^[0-9a-f]{32}\.png$");
         private static readonly Regex SafeSceneId = new Regex(@"^REF[0-9A-Za-z-]+$");
 
@@ -139,6 +142,29 @@ namespace HaiTac.OfflineViewer.Editor
             public string fieldsSummary;
         }
 
+        [Serializable] private class SpinePackManifest
+        {
+            public int version;
+            public SpinePackage[] packages;
+        }
+
+        [Serializable] private class SpinePackage
+        {
+            public string id;
+            public string name;
+            public string skeleton;
+            public string atlas;
+            public string[] pages;
+            public string[] files;
+        }
+
+        private sealed class ImportedSpinePack
+        {
+            public TextAsset skeleton;
+            public TextAsset atlas;
+            public Texture2D[] pages;
+        }
+
         [Serializable] private class SpineLinkDatabase
         {
             public int version;
@@ -187,6 +213,7 @@ namespace HaiTac.OfflineViewer.Editor
                 var componentEvidence = ReadDeepUiEvidence(root, scenes);
                 var spineEvidence = ReadSpineEvidence(root, plan);
                 EnsureFolders();
+                var actualSpinePacks = ImportSpineSourcePacks(root, spineEvidence);
                 var sprites = ImportSprites(plan.sprites, artFolder);
                 ApplyOriginalSpriteGeometry(plan.sprites, componentEvidence, sprites);
                 var art = new Dictionary<string, Dictionary<int, Sprite>>();
@@ -214,7 +241,7 @@ namespace HaiTac.OfflineViewer.Editor
                     verifiedLayout.TryGetValue(scene.id, out var nativeLayout);
                     componentEvidence.TryGetValue(scene.id, out var sceneComponents);
                     BuildPrefabAndScene(scene, sceneArt, sceneSpine, nativeLayout,
-                                        sceneComponents, spineEvidence);
+                                        sceneComponents, spineEvidence, actualSpinePacks);
                     generated++;
                 }
                 AssetDatabase.SaveAssets();
@@ -432,6 +459,7 @@ namespace HaiTac.OfflineViewer.Editor
             EnsureFolder(LocalRoot, "Sprites");
             EnsureFolder(LocalRoot, "Prefabs");
             EnsureFolder(LocalRoot, "Scenes");
+            EnsureFolder(LocalRoot, "SpinePacks");
         }
 
         private static Dictionary<string, Sprite> ImportSprites(SpriteEntry[] entries, string source)
@@ -519,6 +547,72 @@ namespace HaiTac.OfflineViewer.Editor
                 " exact GameObject-linked Spine evidence rows. " +
                 "Binding and default animation remain unverified.");
             return output;
+        }
+
+        private static Dictionary<string, ImportedSpinePack> ImportSpineSourcePacks(
+            string root, Dictionary<string, SpineLink> links)
+        {
+            var result = new Dictionary<string, ImportedSpinePack>(StringComparer.Ordinal);
+            string local = Path.Combine(root, "output", "local-spine");
+            string file = Path.Combine(local, "manifest.json");
+            if (!File.Exists(file)) return result;
+            var manifest = JsonUtility.FromJson<SpinePackManifest>(File.ReadAllText(file));
+            if (manifest == null || manifest.version != 1 || manifest.packages == null ||
+                manifest.packages.Length > 100)
+                throw new InvalidDataException("Invalid private local Spine package manifest.");
+            var needed = new HashSet<string>(links.Values.Where(link =>
+                link.status == "content_chain_verified_field_unverified" &&
+                !string.IsNullOrEmpty(link.localPackId)).Select(link => link.localPackId));
+            foreach (var pack in manifest.packages)
+            {
+                if (pack == null || !SafePackId.IsMatch(pack.id ?? "") ||
+                    !needed.Contains(pack.id) || pack.pages == null ||
+                    pack.pages.Length == 0 || pack.pages.Length > 12 ||
+                    pack.files == null || pack.files.Length > 16)
+                    continue;
+                var originalFiles = new HashSet<string>(pack.files);
+                string prefix = pack.id + "/";
+                bool Valid(string name) =>
+                    !string.IsNullOrEmpty(name) && name.StartsWith(prefix,
+                        StringComparison.Ordinal) && SafePackFile.IsMatch(
+                        name.Substring(prefix.Length));
+                if (!Valid(pack.skeleton) || !Valid(pack.atlas) ||
+                    !originalFiles.Contains(pack.skeleton) ||
+                    !originalFiles.Contains(pack.atlas) ||
+                    pack.pages.Any(p => !Valid(p) || !originalFiles.Contains(p)))
+                    continue;
+                EnsureFolder(SpineFolder, pack.id);
+                string dstFolder = SpineFolder + "/" + pack.id;
+                string absoluteDestination = Path.Combine(Application.dataPath,
+                    "LocalReconstruction", "SpinePacks", pack.id);
+                string CopySource(string source, bool atlas)
+                {
+                    string name = source.Substring(prefix.Length);
+                    string destinationName = atlas ? name + ".txt" : name;
+                    string sourceFile = Path.Combine(local, pack.id, name);
+                    if (!File.Exists(sourceFile)) throw new FileNotFoundException(
+                        "Missing local Spine asset: " + name, sourceFile);
+                    string target = Path.Combine(absoluteDestination, destinationName);
+                    File.Copy(sourceFile, target, true);
+                    string asset = dstFolder + "/" + destinationName;
+                    AssetDatabase.ImportAsset(asset, ImportAssetOptions.ForceSynchronousImport);
+                    return asset;
+                }
+                string skeletonPath = CopySource(pack.skeleton, false);
+                string atlasPath = CopySource(pack.atlas, true);
+                var textures = pack.pages.Select(page =>
+                    AssetDatabase.LoadAssetAtPath<Texture2D>(CopySource(page, false))).ToArray();
+                var skeleton = AssetDatabase.LoadAssetAtPath<TextAsset>(skeletonPath);
+                var atlas = AssetDatabase.LoadAssetAtPath<TextAsset>(atlasPath);
+                if (skeleton == null || atlas == null || textures.Any(tex => tex == null))
+                    throw new InvalidDataException("Spine source import incomplete: " + pack.id);
+                result.Add(pack.id, new ImportedSpinePack {
+                    skeleton = skeleton, atlas = atlas, pages = textures
+                });
+            }
+            Debug.Log("[HaiTac] Imported " + result.Count +
+                " verified Spine source packs locally, NOT Spine runtime or active characters.");
+            return result;
         }
 
         private static void ApplyOriginalSpriteGeometry(
@@ -675,7 +769,8 @@ namespace HaiTac.OfflineViewer.Editor
         private static void BuildPrefabAndScene(
             ViewerScene scene, Dictionary<int, Sprite> art, SpineEntry[] spine,
             LayoutScene layout, DeepUiScene deepUi,
-            Dictionary<string, SpineLink> spineLinks)
+            Dictionary<string, SpineLink> spineLinks,
+            Dictionary<string, ImportedSpinePack> importedPacks)
         {
             var go = new GameObject("ReconstructedCandidate_" + scene.id,
                 typeof(RectTransform), typeof(Canvas), typeof(CanvasScaler),
@@ -829,6 +924,14 @@ namespace HaiTac.OfflineViewer.Editor
                         note.candidateAtlasName = link.atlasName;
                         note.candidateSpineVersion = link.spineVersion;
                         note.localPackId = link.localPackId;
+                        if (link.status == "content_chain_verified_field_unverified" &&
+                            importedPacks.TryGetValue(link.localPackId ?? "",
+                                                      out var originals))
+                        {
+                            note.sourceSkeletonJson = originals.skeleton;
+                            note.sourceAtlasText = originals.atlas;
+                            note.sourceAtlasTextures = originals.pages;
+                        }
                         note.availableAnimationCount =
                             link.animationNames == null ? 0 : link.animationNames.Length;
                         note.knownAnimationNames =
