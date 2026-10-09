@@ -51,6 +51,20 @@ if /I "%LAYOUT_STATE%"=="FAILED" (
     echo [WARN] Khong doc duoc bo cuc goc. Unity tiep tuc dung du lieu cu.
     echo [WARN] Thu chay: %PY% tools\export_local_ui_layout.py
 )
+echo [INFO] Kiem ke Sprite border, CanvasScaler, Mask, LayoutGroup tu XAPK...
+set "UI_DEEP_STATE=FAILED"
+%PY% tools\audit_local_ui_components.py
+if not errorlevel 1 set "UI_DEEP_STATE=PASS"
+if /I "%UI_DEEP_STATE%"=="FAILED" (
+    echo [WARN] XAPK UI deep evidence khong du. Khong thay the du lieu goc bang gia lap.
+)
+echo [INFO] Truy nguyen con tro Spine va TextAsset theo GameObject...
+set "SPINE_LINK_STATE=FAILED"
+%PY% tools\trace_local_spine_links.py
+if not errorlevel 1 set "SPINE_LINK_STATE=PASS"
+if /I "%SPINE_LINK_STATE%"=="FAILED" (
+    echo [WARN] Chua xac minh duoc chuoi Spine; khong tu chon nhan vat hay animation.
+)
 echo [4/4] Giai ma Spine 3.8 JSON, atlas, texture vao output\local-spine
 set "SPINE_STATE=FAILED"
 %PY% tools\export_local_spine.py --limit 12
@@ -70,6 +84,8 @@ echo.
 echo ======================= KET QUA =======================
 echo Sprite UI: %SPRITE_STATE%
 echo Unity verified layout: %LAYOUT_STATE%
+echo UI component evidence: %UI_DEEP_STATE%
+echo Spine reference evidence: %SPINE_LINK_STATE%
 echo Spine pack: %SPINE_STATE%
 echo Spine Player: can kiem tra tai trang /spine-viewer
 echo =======================================================
