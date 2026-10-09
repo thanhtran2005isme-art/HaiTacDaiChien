@@ -53,6 +53,7 @@ class TestLayoutEvidence(unittest.TestCase):
             21: reader("Canvas", {
                 "m_GameObject": pointer(100),
                 "m_SortingOrder": 12, "m_OverrideSorting": True,
+                "m_Enabled": 0, "m_RenderMode": 1, "m_TargetDisplay": 0,
             }),
             55: reader("MonoBehaviour", {
                        "m_GameObject": pointer(101), "m_Enabled": 0},
@@ -74,6 +75,11 @@ class TestLayoutEvidence(unittest.TestCase):
         self.assertEqual(out["nodes"][1]["localPositionZ"], -3)
         self.assertEqual(out["canvases"][0]["sortingOrder"], 12)
         self.assertTrue(out["canvases"][0]["hasSortingOrder"])
+        self.assertTrue(out["canvases"][0]["hasEnabled"])
+        self.assertEqual(out["canvases"][0]["enabled"], 0)
+        self.assertTrue(out["canvases"][0]["hasRenderMode"])
+        self.assertEqual(out["canvases"][0]["renderMode"], 1)
+        self.assertTrue(out["canvases"][0]["hasTargetDisplay"])
         image = out["images"][0]
         self.assertEqual(image["nodeId"], 11)
         self.assertTrue(image["hasType"])
@@ -84,6 +90,22 @@ class TestLayoutEvidence(unittest.TestCase):
             "nodeId": 11, "componentId": 55, "gameObjectId": 101,
             "hasEnabled": True, "enabled": False
         }])
+
+    def test_canvas_missing_native_fields_are_not_guessed(self):
+        scene, objects = self.source()
+        objects[21] = reader("Canvas", {"m_GameObject": pointer(100)})
+        result = module.verified_scene(scene, objects, [])
+        canvas = result["canvases"][0]
+        self.assertNotIn("hasEnabled", canvas)
+        self.assertNotIn("hasRenderMode", canvas)
+        self.assertNotIn("hasTargetDisplay", canvas)
+
+    def test_unity_canvas_importer_never_switches_to_unverified_camera(self):
+        csharp = (ROOT / "unity-ui-viewer/Assets/Editor/UnityCanvasReconstructor.cs"
+                  ).read_text(encoding="utf-8")
+        self.assertIn("if (record.hasEnabled) canvas.enabled = record.enabled", csharp)
+        self.assertIn("sourceCanvasesWithRenderMode", csharp)
+        self.assertNotIn("canvas.renderMode = (RenderMode)record.renderMode", csharp)
 
     def test_missing_typetree_does_not_invent_properties(self):
         scene, objects = self.source()
