@@ -4,6 +4,8 @@ on:
     paths:
       - 'tools/export_local_ui_art.py'
       - 'tests/test_local_ui_art.py'
+      - 'tools/build_unity_prefab_manifest.py'
+      - 'tests/test_unity_prefab_manifest.py'
       - '.github/workflows/local-art-decode.yml'
   workflow_dispatch:
 permissions:
@@ -29,6 +31,20 @@ jobs:
           printf "stale apk" > output/apks/old.apk
       - name: Extract local-only Sprite PNGs from canonical XAPK
         run: python tools/export_local_ui_art.py
+      - name: Construct exact Unity Canvas import plan
+        run: python tools/build_unity_prefab_manifest.py
+      - name: Validate 5 scene mapping counts and Spine reference status
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          m = json.loads(Path('output/unity-prefab-map.json').read_text(encoding='utf-8'))
+          assert len(m['scenes']) == 5
+          assert m['sprites'] and m['spine']
+          assert all(row['bindingStatus'] in ('pointer_candidates_unverified','unresolved') for row in m['spine'])
+          assert next(x['mappedSprites'] for x in m['scenes'] if x['sceneId']=='REF01-ship-upgrade') == 32
+          print('PASS: Unity reconstructed source map',len(m['sprites']),'sprite assignments',len(m['spine']),'Spine nodes')
+          PY
       - name: Verify decoded PNGs and mapped scene paths
         run: |
           python - <<'PY'
@@ -66,6 +82,8 @@ jobs:
         run: python -m unittest discover -s tests -p test_local_ui_art.py -v
       - name: Extract actual game Sprite PNGs from XAPK on Windows
         run: python tools/export_local_ui_art.py
+      - name: Prepare Windows Unity Canvas import plan from real XAPK Sprite art
+        run: python tools/build_unity_prefab_manifest.py
       - name: Verify generated Sprite manifest, status and scene coverage
         run: |
           python -c "import json; from pathlib import Path; d=Path('output/local-ui-art'); m=json.loads((d/'manifest.json').read_text(encoding='utf-8')); s=json.loads((d/'export-status.json').read_text(encoding='utf-8')); assert s['status']=='PASS'; assert m['stats']['sprite_images_exported'] > 0; assert m['stats']['scene_nodes_mapped']['REF01-ship-upgrade'] > 0; assert all((d/f).is_file() for f in m['files']); print('WINDOWS PASS:',s['sprite_images_exported'],'Sprite PNGs,',s['ui_nodes_mapped'],'nodes')"
