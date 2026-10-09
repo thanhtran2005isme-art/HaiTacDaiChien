@@ -373,13 +373,14 @@ def summarize(scenes):
 
 
 
-def recover_generated_managed_fields(root, xapk, scenes, analyzed, unitypy):
+def recover_generated_managed_fields(root, xapk, scenes, analyzed, unitypy,
+                                     backend="AssetsTools"):
     """Optional SECOND source pass after cross-bundle MonoScript identity is proven.
 
     Never edits XAPK or prefab. Keep every failure as UNKNOWN, not guessed data.
     """
     version = binary.exact_unity_version(analyzed)
-    generator, proof = binary.source_generator(xapk, version)
+    generator, proof = binary.source_generator(xapk, version, backend=backend)
     by_scene = {x["sceneId"]: x for x in analyzed}
     visited = set()
     attempts = collections.Counter()
@@ -441,7 +442,8 @@ def recover_generated_managed_fields(root, xapk, scenes, analyzed, unitypy):
             "policy": "Local source-derived full-object checked, no prefab changes"}
 
 
-def build(root=ROOT, xapk=None, unitypy=None, recover_managed=False):
+def build(root=ROOT, xapk=None, unitypy=None, recover_managed=False,
+          binary_backend="AssetsTools"):
     if unitypy is None:
         import UnityPy as unitypy
     original_path = root / "output/original-unity-graph.json"
@@ -487,7 +489,8 @@ def build(root=ROOT, xapk=None, unitypy=None, recover_managed=False):
     binary_proof = None
     if recover_managed:
         binary_proof = recover_generated_managed_fields(
-            root, canonical_xapk, scenes, analyzed, unitypy)
+            root, canonical_xapk, scenes, analyzed, unitypy,
+            backend=binary_backend)
     # Recompute class counts AFTER global source MonoScript resolution.
     for item in analyzed:
         stats = collections.Counter()
@@ -544,6 +547,7 @@ def render_report(data):
         proof = data["generatedBinaryProof"]
         lines += ["", "## Opt-in generated TypeTree verification", "",
                   "- Source game Unity version: " + proof["gameUnityVersion"],
+                  "- TypeTree backend: " + proof["backend"],
                   "- Source libil2cpp.so SHA256: " + proof["library"]["sha256"],
                   "- Source global-metadata.dat SHA256: " +
                   proof["metadata"]["sha256"],
@@ -593,11 +597,18 @@ def main():
     ap.add_argument("--recover-managed-fields", action="store_true",
                     help="Opt in to local exact-XAPK IL2CPP TypeTree generation; "
                          "requires TypeTreeGeneratorAPI, source Unity version")
+    ap.add_argument("--binary-backend",
+                    choices=("AssetsTools", "AssetStudio", "AssetRipper"),
+                    default="AssetsTools",
+                    help="Choose strict exact-XAPK TypeTree generator. "
+                         "AssetStudio/AssetRipper may support builds "
+                         "rejected by AssetsTools; no fallback guessing.")
     args = ap.parse_args()
     root = args.root.resolve()
     try:
         data = build(root=root, xapk=args.xapk,
-                     recover_managed=args.recover_managed_fields)
+                     recover_managed=args.recover_managed_fields,
+                     binary_backend=args.binary_backend)
     except (OSError, ValueError, KeyError, TypeError) as exc:
         ap.exit(1, "BLOCKED: " + str(exc)[:400] + "\n")
     folder = root / "output"
