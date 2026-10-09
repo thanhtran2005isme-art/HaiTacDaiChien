@@ -83,6 +83,10 @@ class TestSpine38PreviewContract(unittest.TestCase):
     def test_local_atlas_audit_is_read_only_and_checks_real_links(self):
         audit = (ROOT / "unity-ui-viewer/Assets/Editor/LocalSpineAtlasAudit.cs"
                  ).read_text(encoding="utf-8")
+        # The repair is an independent, explicitly confirmed menu action.
+        # Only CheckPack + AuditAll must remain strictly read-only.
+        read_only = audit.split("private static bool TryRepairEmptyAtlasLink(", 1)[0]
+        audit_entry = audit.split("public static void AuditAll()", 1)[1]
         self.assertIn("Audit all local AtlasAsset links (read only)", audit)
         self.assertIn('ObjectField(data, "atlasFile")', audit)
         self.assertIn('data.FindProperty("materials")', audit)
@@ -94,7 +98,8 @@ class TestSpine38PreviewContract(unittest.TestCase):
         for forbidden in ("AssetDatabase.DeleteAsset(", "AssetDatabase.CreateAsset(",
                           "AssetDatabase.ImportAsset(", "EditorUtility.SetDirty(",
                           "AssetDatabase.SaveAssets(", "File.WriteAllText("):
-            self.assertNotIn(forbidden, audit)
+            self.assertNotIn(forbidden, read_only)
+            self.assertNotIn(forbidden, audit_entry)
         self.assertIn("PLAYBACK NOT TESTED", audit)
 
     def test_verified_empty_atlas_repair_is_safe_and_explicit(self):
