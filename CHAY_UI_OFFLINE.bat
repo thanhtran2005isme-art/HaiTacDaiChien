@@ -33,6 +33,14 @@ if not exist "%~dp0output\local-ui-art\manifest.json" (
         if errorlevel 1 echo [WARN] Chua trich xuat duoc anh. UI Viewer van chay voi wireframe.
     )
 )
+if not exist "%~dp0output\local-spine\manifest.json" (
+    %PY_CMD% -c "import UnityPy; import PIL" >nul 2>nul
+    if not errorlevel 1 (
+        echo [INFO] Dang tao cac bo Spine skeleton, atlas, texture tai may...
+        %PY_CMD% "%~dp0tools\export_local_spine.py" --limit 12
+        if errorlevel 1 echo [WARN] Chua tao duoc Spine pack. Xem CHUAN_BI_DO_HOA.bat.
+    )
+)
 %PY_CMD% "%~dp0tools\serve_ui_viewer.py"
 echo.
 echo Nhan phim bat ky de dong.
