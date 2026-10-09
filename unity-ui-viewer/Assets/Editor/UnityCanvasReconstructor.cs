@@ -348,6 +348,42 @@ namespace HaiTac.OfflineViewer.Editor
             EditorUtility.DisplayDialog("HaiTac reconstructed scene audit", summary, "OK");
         }
 
+        private static int CountMissingMonoScripts(GameObject root)
+        {
+            return root.GetComponentsInChildren<Transform>(true).Sum(transform =>
+                GameObjectUtility.GetMonoBehavioursWithMissingScriptCount(transform.gameObject));
+        }
+
+        private static int CleanOldGeneratedPrefab(string prefabPath)
+        {
+            // Only a prefab under the known generated folder can be modified.
+            // Never remove components from imported XAPK or user-created assets.
+            if (!prefabPath.StartsWith(PrefabFolder + "/", StringComparison.Ordinal) ||
+                !prefabPath.EndsWith(".prefab", StringComparison.Ordinal) ||
+                !AssetDatabase.LoadAssetAtPath<GameObject>(prefabPath))
+                return 0;
+            var oldRoot = PrefabUtility.LoadPrefabContents(prefabPath);
+            try
+            {
+                int removed = 0;
+                foreach (var transform in oldRoot.GetComponentsInChildren<Transform>(true))
+                    removed += GameObjectUtility.RemoveMonoBehavioursWithMissingScript(
+                        transform.gameObject);
+                if (removed > 0)
+                {
+                    PrefabUtility.SaveAsPrefabAsset(oldRoot, prefabPath);
+                    Debug.LogWarning("[HaiTac] Cleaned " + removed +
+                        " stale missing MonoScript reference(s) in generated prefab " +
+                        prefabPath + ".");
+                }
+                return removed;
+            }
+            finally
+            {
+                PrefabUtility.UnloadPrefabContents(oldRoot);
+            }
+        }
+
         private static bool HasWorkingCamera(Scene scene)
         {
             return scene.GetRootGameObjects().SelectMany(root =>
@@ -975,9 +1011,23 @@ namespace HaiTac.OfflineViewer.Editor
                 rect.localScale = Vector3.one;
                 string filename = scene.id;
                 string prefabPath = PrefabFolder + "/" + filename + ".prefab";
+                // A previous generated prefab can retain a broken MonoScript
+                // reference after multiple evidence classes were split into
+                // their own .cs files. Rebuilding must clean the old generated
+                // asset BEFORE overwriting it, otherwise a stale component may
+                // survive PrefabUtility's name/component matching.
+                int removedOldScripts = CleanOldGeneratedPrefab(prefabPath);
+                int sourceMissing = CountMissingMonoScripts(go);
+                if (sourceMissing != 0)
+                    throw new InvalidDataException("Fresh candidate " + filename + " has " +
+                        sourceMissing + " unresolved MonoScript(s); check C# imports.");
                 var prefab = PrefabUtility.SaveAsPrefabAsset(go, prefabPath);
                 if (prefab == null)
                     throw new IOException("Could not save local prefab " + prefabPath);
+                int prefabMissing = CountMissingMonoScripts(prefab);
+                if (prefabMissing > 0)
+                    throw new InvalidDataException("Saved prefab " + filename + " retains " +
+                        prefabMissing + " Missing (Mono Script) component(s).");
                 var newScene = EditorSceneManager.NewScene(NewSceneSetup.EmptyScene,
                                                             NewSceneMode.Single);
                 // Create Camera in the destination scene rather than assuming
@@ -1013,6 +1063,7 @@ namespace HaiTac.OfflineViewer.Editor
                     throw new IOException("Could not save local scene " + filename);
                 Debug.Log("[HaiTac] Saved local scene " + filename + " with " +
                     spriteCount + " source-linked Sprite Images and 1 preview Camera. " +
+                    "Cleaned old missing scripts=" + removedOldScripts + ". " +
                     (layout == null ? "No optional XAPK layout evidence; using legacy XY." :
                     "Verified source transforms=" + layout.nodes.Length +
                     ", Canvas records=" + layout.canvases.Length +
