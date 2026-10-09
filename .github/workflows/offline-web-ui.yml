@@ -49,6 +49,8 @@ jobs:
         run: |
           test -f unity-ui-viewer/Assets/Editor/UnityCanvasReconstructor.cs
           grep -q 'PrefabUtility.SaveAsPrefabAsset' unity-ui-viewer/Assets/Editor/UnityCanvasReconstructor.cs
+          grep -q 'Local Preview Camera' unity-ui-viewer/Assets/Editor/UnityCanvasReconstructor.cs
+          grep -q 'CameraClearFlags.SolidColor' unity-ui-viewer/Assets/Editor/UnityCanvasReconstructor.cs
           grep -q '/unity-ui-viewer/Assets/LocalReconstruction/' .gitignore
       - name: Verify bat entrypoint and privacy requirements
         shell: bash
