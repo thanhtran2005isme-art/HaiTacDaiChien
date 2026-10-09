@@ -223,6 +223,7 @@ namespace HaiTac.OfflineViewer
             var scrollRoot = Panel(right, "Inspector scroll",
                 new Vector2(.02f, .28f), new Vector2(.98f, .915f),
                 new Color(.07f, .11f, .17f));
+            scrollRoot.GetComponent<Image>().raycastTarget = true;
             var scroll = scrollRoot.gameObject.AddComponent<ScrollRect>();
             scroll.horizontal = false;
             scroll.vertical = true;
