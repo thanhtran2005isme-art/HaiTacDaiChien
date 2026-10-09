@@ -196,6 +196,9 @@ namespace HaiTac.OfflineViewer.Editor
                 var evidence = go.AddComponent<ReconstructionEvidence>();
                 evidence.serializedSource = scene.source + " / root " + scene.rootTransform;
                 evidence.limitations =
+                    "The serialized root may have localScale=(0,0) because the original Canvas " +
+                    "runtime state is unknown. The preview normalizes only the Canvas root " +
+                    "to (1,1); its children retain their recorded transforms. " +
                     "Canvas and RectTransforms reconstructed from serialized XAPK metadata. " +
                     "This is not the original prefab. 1600x900 is assumed; original CanvasScaler, " +
                     "UI LayoutGroup resolution, masking, nine-slice and runtime state are unverified. " +
@@ -203,9 +206,23 @@ namespace HaiTac.OfflineViewer.Editor
                 var map = new Dictionary<int, RectTransform>();
                 foreach (var node in scene.nodes)
                 {
-                    var parent = node.id == scene.rootTransform ? rect :
-                        map.TryGetValue(node.parent, out var ancestor) ? ancestor : null;
-                    if (parent == null)
+                    if (node.id == scene.rootTransform)
+                    {
+                        // The standalone Canvas *is* the serialized root. Do not
+                        // clone its RectTransform as a child: 4 of the 5 XAPK UI
+                        // reference roots report localScale=(0,0), which would
+                        // collapse every descendant Sprite in a reconstructed UI.
+                        // We normalize only the preview root, never asset children.
+                        map.Add(node.id, rect);
+                        if (art != null && art.TryGetValue(node.id, out var rootSprite))
+                        {
+                            var image = go.AddComponent<Image>();
+                            image.sprite = rootSprite;
+                            image.raycastTarget = false;
+                        }
+                        continue;
+                    }
+                    if (!map.TryGetValue(node.parent, out var parent))
                         throw new InvalidDataException("Missing parent transform: " + scene.id +
                                                        " / " + node.id);
                     var child = new GameObject(node.name, typeof(RectTransform));
@@ -238,7 +255,8 @@ namespace HaiTac.OfflineViewer.Editor
                 {
                     int index = 0;
                     foreach (var node in group.OrderBy(n => n.order).ThenBy(n => n.id))
-                        if (map.TryGetValue(node.id, out var transform))
+                        if (node.id != scene.rootTransform &&
+                            map.TryGetValue(node.id, out var transform))
                             transform.SetSiblingIndex(index++);
                 }
                 foreach (var row in spine)
@@ -270,9 +288,28 @@ namespace HaiTac.OfflineViewer.Editor
                 previewCamera.backgroundColor = new Color(.045f, .075f, .115f);
                 previewCamera.nearClipPlane = .1f;
                 previewCamera.farClipPlane = 100f;
-                PrefabUtility.InstantiatePrefab(prefab, newScene);
+                var instance = PrefabUtility.InstantiatePrefab(prefab, newScene) as GameObject;
+                if (instance == null || instance.GetComponent<Canvas>() == null)
+                    throw new InvalidDataException("Canvas prefab not instantiated: " + filename);
+                // Fail fast before saving a broken scene; see both inactive and
+                // active Image nodes, since original runtime activation is unknown.
+                int spriteCount = instance.GetComponentsInChildren<Image>(true)
+                    .Count(image => image.sprite != null);
+                int expectedSprites = art != null ? art.Count : 0;
+                if (spriteCount != expectedSprites)
+                    throw new InvalidDataException("Sprite count mismatch for " + filename +
+                        ": expected " + expectedSprites + ", found " + spriteCount);
+                if (instance.transform.localScale.x == 0f ||
+                    instance.transform.localScale.y == 0f)
+                    throw new InvalidDataException("Zero-scale reconstructed Canvas: " + filename);
+                if (!newScene.GetRootGameObjects().SelectMany(root =>
+                      root.GetComponentsInChildren<Camera>(true)).Any(camera =>
+                      camera.enabled && camera.gameObject.activeInHierarchy))
+                    throw new InvalidDataException("Missing working preview Camera: " + filename);
                 if (!EditorSceneManager.SaveScene(newScene, SceneFolder + "/" + filename + ".unity"))
                     throw new IOException("Could not save local scene " + filename);
+                Debug.Log("[HaiTac] Saved local scene " + filename + " with " +
+                    spriteCount + " source-linked Sprite Images and 1 preview Camera.");
             }
             finally
             {
