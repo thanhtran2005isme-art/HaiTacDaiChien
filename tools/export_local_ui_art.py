@@ -68,6 +68,7 @@ def make_manifest(links, scenes, exported):
         "stats": {
             "sprite_images_exported": len(exported),
             "ui_nodes_mapped": sum(len(nodes) for nodes in mapped.values()),
+            "scene_nodes_mapped": {ref: len(nodes) for ref, nodes in mapped.items()},
             "ambiguous_paths": ambiguous,
             "unmatched_sprite_images": len(exported) - len(set(exported.values()) & used),
         },
