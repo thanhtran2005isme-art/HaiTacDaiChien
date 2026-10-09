@@ -9,6 +9,7 @@ independent source owner/MonoScript checks. No binary content is exported.
 """
 from __future__ import annotations
 
+import copy
 import hashlib
 import json
 import math
@@ -162,6 +163,57 @@ def source_generator(xapk, version, factory=None, backend="AssetsTools"):
     }
 
 
+def verified_native_header_root(generated, native):
+    """Recombine engine native header with IL2CPP-derived managed schema.
+
+    This DOES NOT reconstruct unknown field offsets or accept any field value.
+    UnityPy's exact-version native MonoBehaviour TypeTree is independently
+    checked against source in parse_monobehaviour_head(); the final combined
+    tree must still fully consume raw bytes and match all source PPtrs.
+    """
+    if (getattr(generated, "m_Level", None) != 0 or
+            getattr(native, "m_Level", None) != 0 or
+            getattr(native, "m_Type", None) != "MonoBehaviour"):
+        raise RecoveryBlocked("Native or generated MonoBehaviour root invalid",
+                              phase="native_header", code="INVALID_NATIVE_HEADER_ROOT")
+    derived = getattr(generated, "m_Children", None)
+    header = getattr(native, "m_Children", None)
+    if not isinstance(derived, (list, tuple)) or not isinstance(header, (list, tuple)):
+        raise RecoveryBlocked("Native or derived child nodes absent",
+                              phase="native_header", code="MISSING_HEADER_CHILDREN")
+    header_names = [getattr(child, "m_Name", None) for child in header]
+    derived_names = [getattr(child, "m_Name", None) for child in derived]
+    if (len(header_names) != len(set(header_names)) or
+            len(derived_names) != len(set(derived_names)) or
+            not {"m_GameObject", "m_Script", "m_Enabled"}.issubset(header_names) or
+            not {"m_GameObject", "m_Script", "m_Enabled"}.issubset(derived_names)):
+        raise RecoveryBlocked("Header fields missing or ambiguous",
+                              phase="native_header", code="AMBIGUOUS_HEADER_FIELDS")
+    header_set = set(header_names)
+    managed_children = [child for child in derived if
+                        getattr(child, "m_Name", None) not in header_set]
+    if not managed_children:
+        raise RecoveryBlocked("No managed fields after native header",
+                              phase="native_header", code="NO_MANAGED_NODES")
+    merged = copy.copy(generated)
+    merged.m_Children = list(header) + managed_children
+    return merged
+
+
+def exact_source_unity_header(reader):
+    """Use the SAME engine-version node used by parse_monobehaviour_head."""
+    try:
+        from UnityPy.enums import ClassIDType
+        from UnityPy.helpers.Tpk import get_typetree_node
+        return get_typetree_node(ClassIDType.MonoBehaviour, reader.version)
+    except Exception as exc:
+        raise RecoveryBlocked(
+            "Exact source version native MonoBehaviour TypeTree unavailable: " +
+            type(exc).__name__, phase="native_header",
+            code="NATIVE_HEADER_NOT_AVAILABLE", frame=_safe_exception_frame(exc)
+        ) from exc
+
+
 def _valid_field(name, value):
     """Conservative field validation; never coerce an invalid layout into UI."""
     enums = {
@@ -206,7 +258,8 @@ def _valid_field(name, value):
     return value is not None
 
 
-def verified_fields(reader, row, generator):
+def verified_fields(reader, row, generator, *,
+                    use_unitypy_native_header=False, native_root=None):
     """Decode one *already source-identified* MonoBehaviour, all-or-nothing."""
     if (row.get("kind") != "MonoBehaviour" or
             row.get("className") not in ui.FIELDS or
@@ -250,6 +303,9 @@ def verified_fields(reader, row, generator):
             phase="validate_root", code="INCOMPLETE_GENERATED_ROOT",
             tree=shape,
         )
+    if use_unitypy_native_header:
+        native = native_root if native_root is not None else exact_source_unity_header(reader)
+        nodes = verified_native_header_root(nodes, native)
     try:
         # CRITICAL: check_read=True; NEVER treat partial parse as verified.
         decoded = reader.read_typetree(nodes=nodes, check_read=True)
@@ -288,10 +344,15 @@ def verified_fields(reader, row, generator):
         raise RecoveryBlocked("No target managed fields in generated TypeTree",
                               phase="field_validation", code="NO_TARGET_FIELDS")
     return fields, {
-        "method": "SOURCE_IL2CPP_GENERATED_TYPETREE",
+        "method": ("SOURCE_IL2CPP_TREE_WITH_EXACT_UNITY_NATIVE_HEADER"
+                   if use_unitypy_native_header else
+                   "SOURCE_IL2CPP_GENERATED_TYPETREE"),
         "rawObjectSha256": hashlib.sha256(raw).hexdigest(),
         "rawObjectBytes": len(raw),
         "exactSourcePointerChecked": True,
         "strictObjectSizeChecked": True,
+        "nativeHeaderMethod": ("UNITYPY_EXACT_SOURCE_UNITY_VERSION"
+                               if use_unitypy_native_header else
+                               "GENERATOR_NATIVE_HEADER"),
         "sourceFields": sorted(fields),
     }
