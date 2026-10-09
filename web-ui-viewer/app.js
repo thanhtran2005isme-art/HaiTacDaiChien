@@ -71,7 +71,7 @@ function updateVisualStatus(drawn = null) {
     "Đang hiển thị ảnh từ dữ liệu local. " + parts.join(" · ") +
       ". Bố cục vẫn là ước tính từ RectTransform." :
     "Chưa có ảnh tự động cho scene này. " + parts.join(" · ") +
-      ". Tên file phải trùng tên Sprite; hoặc chọn nút để gán ảnh thủ công.";
+      ". Chạy CHUAN_BI_DO_HOA.bat để giải mã XAPK, hoặc gán ảnh thủ công.";
 }
 
 function refreshArt() {
@@ -548,6 +548,9 @@ async function bootstrap() {
           manifest.scenes && typeof manifest.scenes === "object") {
         state.autoArt = manifest;
         stage.classList.add("has-auto-art");
+        $("asset-status").textContent =
+          "Đã có " + manifest.stats?.sprite_images_exported +
+          " Sprite từ XAPK. Ảnh tự động được ưu tiên khi không gán thủ công.";
       }
     }
   } catch (_) {
