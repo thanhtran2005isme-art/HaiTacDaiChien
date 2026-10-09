@@ -134,7 +134,7 @@ namespace HaiTac.OfflineViewer.Editor
         {
             public int nodeId;
             public int componentId;
-            public string @class;
+            public string className;
             public string status;
         }
 
@@ -803,7 +803,7 @@ namespace HaiTac.OfflineViewer.Editor
                                                            component.nodeId);
                         var note = target.gameObject.AddComponent<UiComponentEvidence>();
                         note.originalComponentId = component.componentId.ToString();
-                        note.originalClass = component.@class;
+                        note.originalClass = component.className;
                         note.evidenceStatus = component.status;
                         note.serializedFields = component.status == "serialized_fields_available"
                             ? "Original fields available in local JSON; runtime reproduction " +
