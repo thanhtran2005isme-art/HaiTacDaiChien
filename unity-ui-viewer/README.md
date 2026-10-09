@@ -23,6 +23,69 @@ py tools/build_unity_viewer_data.py --repo-root .
 5. Unity menu → **Tools → HaiTac Offline UI Viewer → Create or Open Demo Scene**.
 6. Press **Play**. Pick a scene in the left sidebar, use **Left/Right** arrow keys to switch, and click any colored region to inspect its underlying Unity metadata.
 
+## Deep XAPK UI evidence and Spine chains (Phase 1 continuation / Phase 2 research)
+
+This is a **source-verified UI investigation**, not a claim that the reconstructed
+prefabs are the original game or that animation has been restored.
+
+In Windows CMD, close Unity Editor first, update the repo, then run:
+
+```cmd
+git pull origin main
+py -3 tools\audit_local_ui_components.py
+py -3 tools\trace_local_spine_links.py
+py -3 tools\export_local_ui_layout.py
+py -3 tools\build_unity_prefab_manifest.py
+```
+
+Alternatively run `CHUAN_BI_DO_HOA.bat` once; it includes these local probes.
+Reopen Unity Editor → **Tools → HaiTac Offline UI Viewer → Reconstruct 5 local Canvas prefabs**,
+then run **Audit 5 generated Canvas scenes** and reopen the generated scene.
+
+Local evidence files, all ignored by Git:
+- `output/local-ui-components.json`: exact Unity Sprite borders, PPU, source rectangle
+  geometry and CanvasScaler / Mask / ScrollRect / other class evidence.
+- `output/local-spine-link-evidence.json`: per original GameObject component and
+  asset IDs; unique resolved source Skeleton JSON + atlas names, atlas pages,
+  available *source* animation names when their contents can be verified.
+- `output/local-ui-layout.json`: serialized RectTransform quaternion, Z depth
+  and available Canvas settings from the real XAPK.
+- `output/local-ui-art` and `output/local-spine`: private art and 3.8 Spine
+  source packages generated only on your machine.
+
+The reconstructed prefab importer assigns original **Sprite border and
+pixels-per-unit only when the source Sprite rectangle matches the PNG** and
+all uses of a texture agree. The `SpineReferenceEvidence` and
+`UiComponentEvidence` components in each GameObject's Inspector retain the
+component's provenance/verification status. No arbitrary characters are placed
+at empty team positions. Original Image Sliced/Tiled settings remain unknown,
+so a border alone does not force a different Image.Type.
+
+For the provided XAPK, 826 Sprite references have readable rectangle/border
+metadata and 32 scene SkeletonGraphic nodes were audited. Only 13 candidates
+have a content-compatible skeleton/atlas chain; this **does not verify** the
+private SkeletonGraphic field name, default skin, current animation, character
+selection, or placement of a live runtime renderer.
+
+IL2CPP type tree stripping prevented reading Image/CanvasScaler private values
+during earlier analysis. For Mask/LayoutGroup only verified type presence and
+readable properties are recorded; **no new Mask stencil behavior or layout
+positioning is invented** where their private field values are missing.
+
+**Spine Unity runtime:** This project intentionally does not bundle proprietary
+Spine Unity runtime, game assets or imported skins. The downloaded 3.8
+JavaScript web player is not a substitute for the official Unity C# runtime.
+Rendering an actual SkeletonGraphic inside Unity still requires a properly
+licensed and compatible Spine-Unity 3.8 runtime, complete texture/material
+imports and an independently confirmed mapping of the original component
+fields. Until then the Game View remains a static Sprite reconstruction with
+original Spine GameObject locations preserved. Do not claim completed animation.
+
+**Test boundary:** Windows and Linux GitHub Actions verify evidence extraction
+against the XAPK. They do not compile Unity C# or verify exact Game View pixels.
+After importing locally, check the Unity Console; any compile error must be
+addressed before running the reconstructed scene.
+
 ## Phase 1 — verified serialized Unity UI layout from XAPK
 
 **Goal:** read full RectTransform quaternion/3D placement, Canvas sorting and any
