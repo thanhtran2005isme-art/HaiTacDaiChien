@@ -6,6 +6,8 @@ on:
       - 'tests/test_local_ui_art.py'
       - 'tools/build_unity_prefab_manifest.py'
       - 'tests/test_unity_prefab_manifest.py'
+      - 'tools/export_local_ui_layout.py'
+      - 'tests/test_local_ui_layout.py'
       - '.github/workflows/local-art-decode.yml'
   workflow_dispatch:
 permissions:
@@ -45,6 +47,21 @@ jobs:
           assert next(x['mappedSprites'] for x in m['scenes'] if x['sceneId']=='REF01-ship-upgrade') == 32
           print('PASS: Unity reconstructed source map',len(m['sprites']),'sprite assignments',len(m['spine']),'Spine nodes')
           PY
+      - name: Extract verified RectTransform and Canvas evidence from real XAPK
+        run: python tools/export_local_ui_layout.py
+      - name: Check all 5 serialized Unity hierarchies are matched exactly
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          data = json.loads(Path('output/local-ui-layout.json').read_text(encoding='utf-8'))
+          stats = data['stats']
+          assert stats['scenes'] == 5
+          assert stats['verifiedTransforms'] == 1670, stats
+          for scene in data['scenes']:
+              assert len({node['nodeId'] for node in scene['nodes']}) == len(scene['nodes'])
+          print('PASS: exact XAPK layout evidence', stats)
+          PY
       - name: Verify decoded PNGs and mapped scene paths
         run: |
           python - <<'PY'
@@ -82,6 +99,11 @@ jobs:
         run: python -m unittest discover -s tests -p test_local_ui_art.py -v
       - name: Extract actual game Sprite PNGs from XAPK on Windows
         run: python tools/export_local_ui_art.py
+      - name: Extract exact XAPK layout evidence on Windows
+        run: python tools/export_local_ui_layout.py
+      - name: Verify Windows evidence and no fake CanvasScaler claims
+        run: |
+          python -c "import json; from pathlib import Path; p=Path('output/local-ui-layout.json'); d=json.loads(p.read_text(encoding='utf-8')); assert d['stats']['verifiedTransforms']==1670; print('WINDOWS LAYOUT PASS:', d['stats'])"
       - name: Prepare Windows Unity Canvas import plan from real XAPK Sprite art
         run: python tools/build_unity_prefab_manifest.py
       - name: Verify generated Sprite manifest, status and scene coverage
