@@ -17,6 +17,15 @@ def pointer(pid, file_id=0):
     return {"m_FileID": file_id, "m_PathID": pid}
 
 
+class Root:
+    def __init__(self, *, root_type="MonoBehaviour", level=0,
+                 fields=("m_GameObject", "m_Script", "m_Enabled", "m_Type")):
+        self.m_Type = root_type
+        self.m_Name = "Base"
+        self.m_Level = level
+        self.m_Children = [types.SimpleNamespace(m_Name=name) for name in fields]
+
+
 class StrictReader:
     def __init__(self, result=None):
         self.tree = result or {
@@ -26,7 +35,7 @@ class StrictReader:
     def get_raw_data(self):
         return b"source-serialized-object"
     def read_typetree(self, nodes, check_read=False):
-        assert nodes == "original-class-layout"
+        assert nodes.m_Type == "MonoBehaviour"
         self.strict = check_read
         return self.tree
 
@@ -35,7 +44,7 @@ class Generator:
     def get_nodes_up(self, assembly, cls):
         assert assembly == "UnityEngine.UI"
         assert cls == "UnityEngine.UI.Image"
-        return "original-class-layout"
+        return Root()
 
 
 ROW = {
@@ -113,6 +122,42 @@ class BinaryProofTests(unittest.TestCase):
         self.assertTrue(reader.strict)
         self.assertTrue(proof["exactSourcePointerChecked"])
         self.assertEqual(proof["method"], "SOURCE_IL2CPP_GENERATED_TYPETREE")
+
+    def test_stage_specific_generation_assertion_does_not_claim_decode(self):
+        class BrokenGenerator:
+            def get_nodes_up(self, assembly, cls):
+                assert False, "bad generated source node"
+        with self.assertRaises(binary.RecoveryBlocked) as failure:
+            binary.verified_fields(StrictReader(), ROW, BrokenGenerator())
+        self.assertEqual(failure.exception.phase, "generate_nodes")
+        self.assertEqual(failure.exception.code, "NODE_GENERATION_AssertionError")
+        self.assertIn("get_nodes_up", failure.exception.frame)
+
+    def test_reject_incomplete_monobehaviour_root_before_parsing(self):
+        class BrokenGenerator:
+            def get_nodes_up(self, assembly, cls):
+                return Root(root_type="Behaviour", level=1,
+                            fields=("m_Name", "m_Type"))
+        reader = StrictReader()
+        reader.read_typetree = lambda *a, **kw: self.fail(
+            "Cannot parse without source GameObject/MonoScript header")
+        with self.assertRaises(binary.RecoveryBlocked) as failure:
+            binary.verified_fields(reader, ROW, BrokenGenerator())
+        self.assertEqual(failure.exception.phase, "validate_root")
+        self.assertEqual(failure.exception.code, "INCOMPLETE_GENERATED_ROOT")
+        self.assertEqual(failure.exception.tree["rootLevel"], 1)
+
+    def test_strict_parser_assertion_remains_blocked(self):
+        class BrokenReader(StrictReader):
+            def read_typetree(self, nodes, check_read=False):
+                self.strict = check_read
+                assert False, "failed to consume source bytes"
+        reader = BrokenReader()
+        with self.assertRaises(binary.RecoveryBlocked) as failure:
+            binary.verified_fields(reader, ROW, Generator())
+        self.assertTrue(reader.strict)
+        self.assertEqual(failure.exception.phase, "strict_parse")
+        self.assertEqual(failure.exception.code, "STRICT_PARSE_AssertionError")
 
     def test_reject_mismatch_to_gameobject_script_or_enabled(self):
         for key, value in (
