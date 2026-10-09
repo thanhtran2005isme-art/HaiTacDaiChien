@@ -139,7 +139,8 @@ def records_for_scene(scene, readers, source_type_counts):
         node = {
             "rectTransformId": tid, "gameObjectId": gid,
             "parent": father, "name": str(layout.get(go, "m_Name", "") or "")[:256],
-            "active": layout.get(go, "m_IsActive", None),
+            "active": (int(layout.get(go, "m_IsActive")) if isinstance(
+                layout.get(go, "m_IsActive"), (int, bool)) else -1),
             "componentIds": linked, "childTransformIds": child_local,
             "prefabPointers": {key: pointer(layout.get(go, key))
                               for key in SOURCE_PTRS},
