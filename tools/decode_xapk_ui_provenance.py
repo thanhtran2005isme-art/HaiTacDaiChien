@@ -11,6 +11,7 @@ import collections
 import hashlib
 import json
 import os
+import shutil
 import tempfile
 import zipfile
 from pathlib import Path
@@ -170,32 +171,59 @@ def inspect_scene(scene, original, groups, registry):
             "components": results, "stats": dict(counts)}
 
 
-def inspect_il2cpp_header(apk_dir):
-    """A string present in metadata is NOT a field offset or value."""
+def inspect_il2cpp_header(apk_dir, xapk=None):
+    """Read metadata from nested APK within canonical local XAPK.
+
+    Output/apks is optional: upstream exporters intentionally delete temp
+    unpacked APKs, and stale placeholders must never count as evidence.
+    """
     result = []
+
+    def scan_apk(archive, name):
+        for entry in archive.infolist():
+            if not entry.filename.lower().endswith("/global-metadata.dat"):
+                continue
+            if not 0 < entry.file_size <= refs.MAX_METADATA_BYTES:
+                raise ValueError("Unsupported IL2CPP metadata size")
+            raw = archive.read(entry)
+            header = refs.metadata_header(raw[:264], len(raw))
+            state = header["state"]
+            hints = {}
+            if state == "standard_header" and header["version"] == 31:
+                hints = {item: (item.encode("utf-8") + b"\0") in raw
+                         for item in METADATA_NAMES}
+                state = "V31_HEADER_VALIDATED_NAME_HINTS_ONLY"
+            result.append({
+                "sourceApk": name, "sha256": hashlib.sha256(raw).hexdigest(),
+                "version": header.get("version"), "status": state,
+                "fieldNameHints": hints,
+            })
+
     for apk in sorted(apk_dir.glob("*.apk")):
         try:
             with zipfile.ZipFile(apk) as archive:
-                for entry in archive.infolist():
-                    if not entry.filename.lower().endswith("/global-metadata.dat"):
-                        continue
-                    if not 0 < entry.file_size <= refs.MAX_METADATA_BYTES:
-                        raise ValueError("Unsupported IL2CPP metadata size")
-                    raw = archive.read(entry)
-                    header = refs.metadata_header(raw[:264], len(raw))
-                    state = header["state"]
-                    hints = {}
-                    if state == "standard_header" and header["version"] == 31:
-                        hints = {name: (name.encode("utf-8") + b"\0") in raw
-                                 for name in METADATA_NAMES}
-                        state = "V31_HEADER_VALIDATED_NAME_HINTS_ONLY"
-                    result.append({
-                        "sourceApk": apk.name, "sha256": hashlib.sha256(raw).hexdigest(),
-                        "version": header.get("version"), "status": state,
-                        "fieldNameHints": hints,
-                    })
+                scan_apk(archive, apk.name)
         except zipfile.BadZipFile:
-            continue  # stale placeholder APKs must not become false evidence
+            continue
+
+    if not result and xapk is not None:
+        if not xapk.is_file() or not zipfile.is_zipfile(xapk):
+            raise ValueError("Canonical local XAPK not accessible for IL2CPP metadata")
+        with zipfile.ZipFile(xapk) as outer, tempfile.TemporaryDirectory(
+            prefix="haitac_meta_") as temporary:
+            for index, entry in enumerate(outer.infolist()):
+                if entry.is_dir() or not entry.filename.lower().endswith(".apk"):
+                    continue
+                if entry.file_size > layout.MAX_ARCHIVE:
+                    raise ValueError("Oversized nested APK")
+                destination = Path(temporary) / (str(index) + ".apk")
+                with outer.open(entry) as source, destination.open("wb") as target:
+                    shutil.copyfileobj(source, target, 1024 * 1024)
+                try:
+                    with zipfile.ZipFile(destination) as archive:
+                        scan_apk(archive, entry.filename)
+                finally:
+                    destination.unlink(missing_ok=True)
     return {"files": result,
             "limitation": "Metadata strings do not establish field layout, "
                           "MonoScript ownership, offsets, types or values."}
@@ -259,12 +287,13 @@ def build(root=ROOT, xapk=None, unitypy=None):
     summary = summarize(analyzed)
     if summary["componentCount"] != graph["stats"]["components"]:
         raise ValueError("Exact source component count mismatch")
+    canonical_xapk = xapk or next(iter(sorted(root.glob("*.xapk"))), None)
     return {
         "schemaVersion": 1,
         "status": "VERIFIED_POINTER_AUDIT_NOT_FIELD_OFFSET_RECOVERY",
         "scenes": sorted(analyzed, key=lambda x: x["sceneId"]),
         "stats": summary,
-        "il2cpp": inspect_il2cpp_header(root / "output/apks"),
+        "il2cpp": inspect_il2cpp_header(root / "output/apks", canonical_xapk),
         "warning": "Never synthesize masked UI/layout or interpret arbitrary "
                    "IL2CPP metadata strings as serialized component values."
     }
