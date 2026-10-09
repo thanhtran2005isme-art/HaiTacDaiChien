@@ -108,7 +108,7 @@ def prepare(scene_data, art, components, candidates):
         raise ValueError("Multiple Image components for one GameObject; no source guess")
     result_spine.sort(key=lambda x: (x["sceneId"], x["nodeId"], x["componentId"]))
     return {
-        "schemaVersion": 2 if art["version"] == 2 else 1,
+        "schemaVersion": 2 if art.get("nodeBindings") else 1,
         "spriteFileNames": sorted({x["spriteFile"] for x in result_art}),
         "sprites": result_art,
         "spine": result_spine,
