@@ -22,6 +22,9 @@ namespace HaiTac.OfflineViewer
         public string candidateAtlasName;
         public string candidateSpineVersion;
         public string localPackId;
+        public TextAsset sourceSkeletonJson;
+        public TextAsset sourceAtlasText;
+        public Texture2D[] sourceAtlasTextures;
         public int availableAnimationCount;
         [TextArea] public string knownAnimationNames;
         [TextArea] public string note =
