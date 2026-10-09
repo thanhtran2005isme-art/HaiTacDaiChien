@@ -217,8 +217,14 @@ class BinaryProofTests(unittest.TestCase):
         ):
             reader = StrictReader()
             reader.tree[key] = value
-            with self.subTest(key=key), self.assertRaises(binary.RecoveryBlocked):
+            with self.subTest(key=key), self.assertRaises(binary.RecoveryBlocked) as err:
                 binary.verified_fields(reader, ROW, Generator())
+            self.assertEqual(err.exception.phase, "source_compare")
+            self.assertEqual(err.exception.code, {
+                "m_GameObject": "GAMEOBJECT_POINTER_MISMATCH",
+                "m_Script": "MONOSCRIPT_POINTER_MISMATCH",
+                "m_Enabled": "ENABLED_VALUE_MISMATCH",
+            }[key])
 
     def test_invalid_enum_and_synthetic_fallback_rejected(self):
         reader = StrictReader()
