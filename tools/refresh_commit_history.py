@@ -73,7 +73,7 @@ def main():
     p = argparse.ArgumentParser(description=__doc__)
     p.add_argument("--month", required=True, help="YYYY-MM, UTC commit date")
     p.add_argument("--branch", default="origin/main")
-    p.add_argument("--max-commits", type=int, default=100)
+    p.add_argument("--max-commits", type=int, default=60)
     p.add_argument("--check", action="store_true",
                    help="exit with 1 if the recorded entries are outdated")
     args = p.parse_args()
