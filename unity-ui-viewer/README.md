@@ -23,6 +23,82 @@ py tools/build_unity_viewer_data.py --repo-root .
 5. Unity menu → **Tools → HaiTac Offline UI Viewer → Create or Open Demo Scene**.
 6. Press **Play**. Pick a scene in the left sidebar, use **Left/Right** arrow keys to switch, and click any colored region to inspect its underlying Unity metadata.
 
+## Phase 2B — REAL Spine 3.8 animation preview in Unity (opt-in)
+
+**IMPORTANT runtime compatibility / license**
+
+- Official spine-unity 3.8 support is **Unity 2017.1 through Unity 2020.3**.
+  The current `unity-ui-viewer` project uses Unity **2022.3**: installing
+  spine-unity 3.8 there is experimental/unsupported, even if it compiles.
+  Prefer a separate Unity 2020.3 LTS test project and COPY the relevant
+  `Assets/LocalReconstruction` data plus this repository's evidence scripts
+  without downgrading the only working Unity 2022 project.
+- Obtain the **spine-unity 3.8** runtime yourself from
+  https://esotericsoftware.com/spine-unity-download under **Older Versions**.
+  Read https://esotericsoftware.com/spine-runtimes-license and only integrate
+  with appropriate rights. The web-only `spine-player.js` is NOT a Unity runtime.
+- No spine-unity vendor code, .unitypackage or third-party game assets may be
+  uploaded to the public repository. Runtime packages and the local reconstructed
+  asset directory are ignored by Git. Keep a local backup of the project first.
+- **DO NOT** install a 4.x runtime for these 3.8 JSON files; Spine 3.8
+  animation exports are not guaranteed to load in newer runtimes.
+
+### Diagnose and try a real source animation
+
+1. Finish `CHUAN_BI_DO_HOA.bat` until **Spine pack: PASS**. It already
+   produced eight REF04 private Spine packages and matching source evidence.
+2. Open your **authorized** Unity test project, with a functioning
+   spine-unity **3.8** runtime imported via Unity
+   **Assets → Import Package → Custom Package**. Allow asset imports/compilation
+   to finish and check Console for errors.
+3. If you installed the runtime *after* the raw Spine assets were first copied,
+   open REF04, select **Tools → HaiTac Offline UI Viewer →
+   Spine 3.8 → Diagnose and preview real animations**. Press
+   **Reimport selected pack after installing runtime**. The official
+   spine-unity importer should generate matching `_SkeletonData.asset`,
+   `_Atlas.asset` and material assets from `skeleton.json`,
+   `skeleton.atlas.txt`, and imported PNG pages.
+4. Press **Diagnose licensed runtime and generated assets**.
+   `SkeletonGraphic found` and `SkeletonDataAsset found` must both be true.
+   A generated SkeletonDataAsset is accepted only when its serialized
+   `skeletonJSON` **and** referenced `atlasFile` match the original,
+   source-verified TextAssets in the *same* local pack. Ambiguous or broken
+   asset bindings are refused.
+5. **Select one source pack** and then **explicitly select an animation name**
+   found in its actual Spine JSON. No automatic `idle`/skin/person selection.
+   If you are testing on unsupported Unity 2022, the checkbox explicitly warns
+   you and must be checked for each Editor session. Testing on supported
+   Unity 2020.3 does not require that exception.
+6. Click **Create ISOLATED real-animation test scene**; a new file is placed at
+   `Assets/LocalReconstruction/SpinePreviews/`, **not** in REF04.
+   Press **Play** and look for the exact Console message
+   `[HaiTac Spine preview] TRACK_ADVANCING`. It proves the real
+   `AnimationState` track progressed; it does **NOT** prove pixels were
+   rendered, so inspect Game View as well.
+
+The preview is a controlled experiment only. Animation names come from
+validated exported skeleton JSON; looping is set explicitly for the test.
+The original source **SkeletonGraphic field mapping**, default skin,
+animation selection, player character roster, CanvasScaler and live server state
+remain unverified. Therefore **no SkeletonGraphic is injected into the REF04
+GameObjects automatically**. This is intentional and prevents fake characters.
+
+**Blockers/diagnostics:**
+- `no runtime`: install official licensed Spine-Unity 3.8 in a test copy.
+- `0 generated assets`: reimport atlas+JSON with runtime active; examine
+  Unity Console for importer/material/shader errors.
+- `skeletonJSON / atlasFile mismatch`: do not force the pointer; check whether
+  `skeleton.atlas.txt`, `skeleton.json`, and the PNG page names actually match.
+- `Spine 3.8 outside supported Unity range`: use a separate 2020.3 test project
+  or explicitly accept an unsupported local experiment; do not claim PASS.
+- `TRACK_ADVANCING` but no artwork: check SkeletonGraphic materials, atlas
+  page count, transparent atlas/alpha, Game tab, and missing textures.
+
+GitHub CI exercises the **runtime-independent contract** and original XAPK
+asset source integrity; it cannot compile/prove visual output in Unity Editor
+without a configured Unity installation and licensed spine-unity runtime.
+A successful CI result therefore does **not** mean animated REF04 is done.
+
 ## Unity warning: Missing (Mono Script) or source Spine packs=0
 
 A generated scene from an older revision could include `Missing (Mono Script)`
