@@ -83,3 +83,5 @@ html,body{max-width:100%;overflow-x:hidden}
 /* Prefer real decoded Sprites to wireframe blocks; retain inspect-on-click. */
 .stage.has-auto-art .wire-node:not(.asset-loaded):not(.selected){opacity:.16}
 .stage.has-auto-art .wire-node.asset-loaded:not(.inactive){opacity:1}
+
+.topbar-right a.build{color:#b9e7da;text-decoration:none}.topbar-right a.build:hover{border-color:#62a99b;background:#173c3a}
