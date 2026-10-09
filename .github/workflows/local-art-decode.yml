@@ -12,6 +12,8 @@ on:
       - 'tools/trace_local_spine_links.py'
       - 'tools/export_local_spine.py'
       - 'tests/test_xapk_deep_evidence.py'
+      - 'tools/audit_original_unity_graph.py'
+      - 'tests/test_original_unity_graph.py'
       - '.github/workflows/local-art-decode.yml'
   workflow_dispatch:
 permissions:
@@ -88,6 +90,28 @@ jobs:
                      not x['activeAnimationVerified'] for x in s['records'])
           print('DEEP EVIDENCE PASS:', u['stats'], s['stats'])
           PY
+      - name: Test exact Unity serialized GO and prefab-pointer evidence
+        run: python -m unittest discover -s tests -p test_original_unity_graph.py -v
+      - name: Audit original serialized GameObject/component graph from XAPK
+        run: python tools/audit_original_unity_graph.py
+      - name: Check original graph coverage without claiming real editor Prefabs
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          data=json.loads(Path('output/original-unity-graph.json').read_text(encoding='utf-8'))
+          assert data['version']==1
+          assert len(data['scenes'])==5
+          assert data['stats']['nodes']==1670
+          assert all(s['provenance']['originalEditorPrefabOrScene']=='NOT_PROVEN'
+                     for s in data['scenes'])
+          assert all(s['stats']['nodes']==s['stats']['gameObjects'] for s in data['scenes'])
+          print('PASS: original serialized graph',data['stats'])
+          for scene in data['scenes']:
+              print(scene['sceneId'], scene['stats']['nodes'],
+                    scene['stats']['componentReferences'],
+                    scene['provenance']['sourceTypeCounts'])
+          PY
       - name: Extract verified RectTransform and Canvas evidence from real XAPK
         run: python tools/export_local_ui_layout.py
       - name: Check all 5 serialized Unity hierarchies are matched exactly
@@ -148,6 +172,13 @@ jobs:
         run: python tools/trace_local_spine_links.py
       - name: Export REF04 matched real Spine source packs on Windows
         run: python tools/export_local_spine.py --from-evidence REF04-home-crew --limit 12
+      - name: Test native GameObject component pointers on Windows
+        run: python -m unittest discover -s tests -p test_original_unity_graph.py -v
+      - name: Check original serialized scene/prefab candidate inventory on Windows
+        run: python tools/audit_original_unity_graph.py
+      - name: Require complete original 5-scene pointers on Windows
+        run: |
+          python -c "import json; from pathlib import Path; x=json.loads(Path('output/original-unity-graph.json').read_text(encoding='utf-8')); assert len(x['scenes'])==5 and x['stats']['nodes']==1670; print('ORIGINAL GRAPH WINDOWS PASS:', x['stats'])"
       - name: Extract exact XAPK layout evidence on Windows
         run: python tools/export_local_ui_layout.py
       - name: Verify Windows evidence and no fake CanvasScaler claims
