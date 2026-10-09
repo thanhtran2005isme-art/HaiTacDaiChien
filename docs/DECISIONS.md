@@ -2,6 +2,11 @@
 
 > Mỗi quyết định mới ghi **ngày, vấn đề, lựa chọn, hệ quả**; chi tiết triển khai ở PR/commit. Không dùng file này để ghi mọi lần chỉnh text.
 
+## 2026-10-09 — Giai đoạn 3B phải giải mã đủ object từ binary đúng build
+- **Vấn đề:** metadata IL2CPP v31 và field offset trong memory không chứng minh byte offset của Unity SerializedFile.
+- **Quyết định:** opt-in TypeTreeGeneratorAPI dùng chính libil2cpp.so + global-metadata.dat từ XAPK có xác minh SHA và Unity version nguồn; chỉ đọc thành công nếu strict full-object parser, owner ID, script PPtr, enabled flags và kiểu field khớp. Nếu thiếu dữ liệu hoặc công cụ không hỗ trợ thì BLOCKED.
+- **Hệ quả:** mọi giá trị quản lý chưa đọc vẫn UNKNOWN; không cập nhật Prefab tự động, không đưa binary lên Git, test synthetic không được xem là kiểm chứng XAPK thật.
+
 ## 2026-10-09 — Không suy diễn UI managed fields từ metadata strings
 - **Vấn đề:** Image/CanvasScaler/Mask/LayoutGroup trong asset build IL2CPP thiếu type trees; biết MonoScript class không chứng minh serialized field values.
 - **Quyết định:** đối chiếu theo exact source PPtr và chỉ nhập giá trị typetree có bằng chứng; metadata v31 chỉ kiểm tra header/tên trường và trạng thái. Thiếu trường là `NO_MANAGED_TYPETREE`, không thay bằng config giả để gọi là UI gốc.
