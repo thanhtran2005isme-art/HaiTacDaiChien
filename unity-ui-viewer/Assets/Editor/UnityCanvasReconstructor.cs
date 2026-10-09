@@ -118,6 +118,73 @@ namespace HaiTac.OfflineViewer.Editor
             }
         }
 
+        [MenuItem("Tools/HaiTac Offline UI Viewer/Audit 5 generated Canvas scenes")]
+        public static void AuditGeneratedScenes()
+        {
+            if (EditorApplication.isPlaying)
+            {
+                Debug.LogWarning("Stop Play Mode before auditing local reconstructed scenes.");
+                return;
+            }
+            if (!EditorSceneManager.SaveCurrentModifiedScenesIfUserWantsTo()) return;
+            var original = EditorSceneManager.GetActiveScene().path;
+            int checkedScenes = 0;
+            var issues = new List<string>();
+            try
+            {
+                var infoPath = Path.Combine(Application.dataPath, "StreamingAssets", "ui-scenes.json");
+                if (!File.Exists(infoPath))
+                    throw new FileNotFoundException("Missing original UI scene metadata.", infoPath);
+                var database = JsonUtility.FromJson<ViewerDatabase>(File.ReadAllText(infoPath));
+                if (database == null || database.scenes == null || database.scenes.Length != 5)
+                    throw new InvalidDataException("Expected exactly five source-derived UI scenes.");
+                foreach (var sceneInfo in database.scenes)
+                {
+                    if (!SafeSceneId.IsMatch(sceneInfo.id))
+                        throw new InvalidDataException("Invalid scene ID.");
+                    var path = SceneFolder + "/" + sceneInfo.id + ".unity";
+                    if (!File.Exists(path))
+                    {
+                        issues.Add(sceneInfo.id + ": generated scene file missing");
+                        continue;
+                    }
+                    var opened = EditorSceneManager.OpenScene(path, OpenSceneMode.Single);
+                    checkedScenes++;
+                    var roots = opened.GetRootGameObjects();
+                    int cameras = roots.Sum(go => go.GetComponentsInChildren<Camera>(true)
+                        .Count(c => c.enabled && c.gameObject.activeInHierarchy));
+                    var canvases = roots.SelectMany(go => go.GetComponentsInChildren<Canvas>(true))
+                        .Where(c => c.enabled && c.gameObject.activeInHierarchy).ToArray();
+                    int art = roots.Sum(go => go.GetComponentsInChildren<Image>(true)
+                        .Count(image => image.sprite != null));
+                    bool zeroRoot = canvases.Any(c => c.transform.localScale.x == 0f ||
+                                                      c.transform.localScale.y == 0f);
+                    if (cameras == 0) issues.Add(sceneInfo.id + ": no preview Camera");
+                    if (canvases.Length == 0) issues.Add(sceneInfo.id + ": no active Canvas");
+                    if (zeroRoot) issues.Add(sceneInfo.id + ": collapsed zero-scale Canvas root");
+                    if (art == 0) issues.Add(sceneInfo.id + ": no decoded Sprite Images");
+                    Debug.Log("[HaiTac scene audit] " + sceneInfo.id + ": " + cameras +
+                        " Cameras, " + canvases.Length + " active Canvases, " + art +
+                        " Sprite Images, zero-root=" + zeroRoot);
+                }
+            }
+            catch (Exception error)
+            {
+                issues.Add(error.Message);
+                Debug.LogException(error);
+            }
+            finally
+            {
+                if (!string.IsNullOrEmpty(original) && File.Exists(original))
+                    EditorSceneManager.OpenScene(original, OpenSceneMode.Single);
+            }
+            string summary = checkedScenes + "/5 generated scenes audited. " +
+                (issues.Count == 0 ? "No structural rendering blockers found." :
+                    string.Join("\\n", issues.ToArray()));
+            if (issues.Count > 0) Debug.LogError("[HaiTac scene audit] " + summary);
+            EditorUtility.DisplayDialog("HaiTac reconstructed scene audit", summary, "OK");
+        }
+
         private static void EnsureFolder(string parent, string name)
         {
             string path = parent + "/" + name;
