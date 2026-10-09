@@ -19,6 +19,11 @@ on:
       - 'tools/recover_managed_ui_fields.py'
       - 'tools/probe_xapk_typetree_backends.py'
       - 'tools/compare_managed_ui_backends.py'
+      - 'tools/build_verified_ui_prefab_plan.py'
+      - 'tests/test_verified_ui_prefab_plan.py'
+      - 'tests/test_verified_ui_unity_contract.py'
+      - 'unity-ui-viewer/Assets/Editor/VerifiedManagedUiPrefabImporter.cs'
+      - 'unity-ui-viewer/Assets/Scripts/ManagedUiSourceEvidence.cs'
       - 'tests/test_compare_managed_ui_backends.py'
       - 'tests/test_decode_xapk_ui_provenance.py'
       - 'tests/test_recover_managed_ui_fields.py'
@@ -298,6 +303,10 @@ jobs:
 
       - name: Strict cross-backend source-proven field agreement tests
         run: python -m unittest discover -s tests -p test_compare_managed_ui_backends.py -v
+      - name: Verify secure two-backend field study-plan constraints
+        run: python -m unittest discover -s tests -p test_verified_ui_prefab_plan.py -v
+      - name: Verify non-destructive Unity study Prefab importer contract
+        run: python -m unittest discover -s tests -p test_verified_ui_unity_contract.py -v
 
       - name: Strict AssetStudio with exact Unity-version native header
         timeout-minutes: 10
@@ -327,6 +336,28 @@ jobs:
       - name: Require independently agreeing field values across source backends
         run: |
           python tools/compare_managed_ui_backends.py output/phase3b-assetstudio.json output/deep-ui-source-evidence.json
+
+      - name: Build local-only double-verified managed UI Prefab plan
+        run: |
+          python tools/build_verified_ui_prefab_plan.py
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          p=json.loads(Path('output/verified-ui-prefab-plan.json').read_text(encoding='utf-8'))
+          assert p['classification']=='TWO_BACKEND_STRICT_SOURCE_VERIFIED_UI_FIELDS'
+          assert p['verifiedComponents']==1108
+          assert p['verifiedFieldValues']==7451
+          assert p['singleBackendExcludedComponents']==93
+          assert p['singleBackendExcludedFieldValues']==651
+          assert len(p['scenes'])==5
+          assert sum(len(x['components']) for x in p['scenes'])==1108
+          assert sum(len(c['fields']) for s in p['scenes'] for c in s['components'])==7451
+          assert all(c['className'] not in ('UnityEngine.UI.HorizontalLayoutGroup',
+                    'UnityEngine.UI.VerticalLayoutGroup')
+                     for sc in p['scenes'] for c in sc['components'])
+          print('PASS: source-bound private plan: 1108 components, 7451 values, 651 excluded')
+          print('NO Unity Prefabs changed; NO binary/source art uploaded')
+          PY
 
 
   windows-decode:
@@ -363,6 +394,10 @@ jobs:
         run: python -m unittest discover -s tests -p test_decode_xapk_ui_provenance.py -v
       - name: Verify optional source-only TypeTree recovery guards on Windows
         run: python -m unittest discover -s tests -p test_recover_managed_ui_fields.py -v
+      - name: Verify double-source guarded study-plan on Windows
+        run: python -m unittest discover -s tests -p test_verified_ui_prefab_plan.py -v
+      - name: Verify Unity Editor importer study-copy contract on Windows
+        run: python -m unittest discover -s tests -p test_verified_ui_unity_contract.py -v
       - name: Audit native MonoScript and managed UI source field IDs on Windows
         run: python tools/decode_xapk_ui_provenance.py
       - name: Require 5346 original component records in Windows deep audit
