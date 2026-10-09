@@ -5,6 +5,7 @@ on:
       - 'web-ui-viewer/**'
       - 'tools/serve_ui_viewer.py'
       - 'tests/test_offline_web_viewer.py'
+      - 'tests/test_asset_matching.cjs'
       - 'CHAY_UI_OFFLINE.bat'
       - '.github/workflows/offline-web-ui.yml'
   workflow_dispatch:
@@ -20,7 +21,10 @@ jobs:
         with:
           lfs: false
       - name: Verify browser JavaScript syntax
-        run: node --check web-ui-viewer/app.js
+        run: |
+          node --check web-ui-viewer/app.js
+          node --check web-ui-viewer/asset-matching.js
+          node tests/test_asset_matching.cjs
       - name: Test local HTTP server and 5 real UI scenes
         run: python3 -m unittest discover -s tests -p test_offline_web_viewer.py -v
       - name: Verify bat entrypoint and privacy requirements
