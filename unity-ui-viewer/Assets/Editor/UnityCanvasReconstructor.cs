@@ -581,6 +581,16 @@ namespace HaiTac.OfflineViewer.Editor
                     !originalFiles.Contains(pack.atlas) ||
                     pack.pages.Any(p => !Valid(p) || !originalFiles.Contains(p)))
                     continue;
+                // Unity 2022.3 imports PNG as Texture2D, but cannot reliably
+                // import WebP from a raw Unity project. Leave those as source
+                // evidence rather than failing every reconstructed scene.
+                if (pack.pages.Any(p => !p.EndsWith(".png",
+                    StringComparison.OrdinalIgnoreCase)))
+                {
+                    Debug.LogWarning("[HaiTac] Skipping a verified Spine pack with " +
+                        "non-PNG atlas pages: " + pack.id);
+                    continue;
+                }
                 EnsureFolder(SpineFolder, pack.id);
                 string dstFolder = SpineFolder + "/" + pack.id;
                 string absoluteDestination = Path.Combine(Application.dataPath,
@@ -907,6 +917,7 @@ namespace HaiTac.OfflineViewer.Editor
                             "Original fields unavailable in IL2CPP typetree; no layout guessed.";
                     }
                 }
+                int importedSpineSources = 0;
                 foreach (var row in spine)
                 {
                     if (!map.TryGetValue(row.nodeId, out var target))
@@ -931,6 +942,7 @@ namespace HaiTac.OfflineViewer.Editor
                             note.sourceSkeletonJson = originals.skeleton;
                             note.sourceAtlasText = originals.atlas;
                             note.sourceAtlasTextures = originals.pages;
+                            importedSpineSources++;
                         }
                         note.availableAnimationCount =
                             link.animationNames == null ? 0 : link.animationNames.Length;
@@ -977,7 +989,9 @@ namespace HaiTac.OfflineViewer.Editor
                     (layout == null ? "No optional XAPK layout evidence; using legacy XY." :
                     "Verified source transforms=" + layout.nodes.Length +
                     ", Canvas records=" + layout.canvases.Length +
-                    ", Image typetrees=" + layout.images.Length + "."));
+                    ", Image typetrees=" + layout.images.Length + ".") +
+                    " Original Spine source packs attached to UI GameObjects=" +
+                    importedSpineSources + ".");
             }
             finally
             {
