@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark">
+  <title>Hải Tặc · Spine Animation (offline)</title>
+  <link rel="stylesheet" href="/spine-viewer.css">
+  <link rel="stylesheet" href="/spine-player.css">
+  <script defer src="/spine-viewer.js"></script>
+</head>
+<body>
+  <header><a href="/">← UI Viewer</a><h1>Spine Animation · Offline</h1><span>Spine 3.8 · Bộ dữ liệu local</span></header>
+  <main>
+    <section class="toolbar">
+      <label>Nhân vật / hiệu ứng <select id="pack" aria-label="Chọn Spine skeleton"></select></label>
+      <label>Animation <select id="animation" aria-label="Chọn animation"></select></label>
+      <button type="button" id="play">Phát animation thật</button>
+    </section>
+    <p id="status" role="status">Đang kiểm tra dữ liệu Spine trên máy...</p>
+    <section class="canvas-shell" aria-label="Spine animation player">
+      <div id="player-stage"></div>
+    </section>
+    <p class="note">Tài nguyên được xuất từ XAPK trên máy, không phải hoạt ảnh CSS. Chế độ xem thử độc lập; chưa xác minh skin/animation nào thuộc một GameObject trong từng scene Unity.</p>
+    <p class="note">Trình phát cần thư viện <strong>Spine Player 3.8</strong> được cung cấp hợp pháp tại <code>output/local-spine-runtime/</code>. Repository không đóng gói thư viện này hoặc đồ họa game.</p>
+  </main>
+</body>
+</html>
