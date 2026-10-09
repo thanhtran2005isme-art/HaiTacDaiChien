@@ -106,7 +106,7 @@ def choose_serialized_file(scene, groups):
 def verified_scene(scene, readers, image_rows):
     expected = {int(node["id"]): node for node in scene["nodes"]}
     go_to_node = {}
-    nodes, canvases, images = [], [], []
+    nodes, canvases, images, image_bindings = [], [], [], []
     failure = collections.Counter()
     for node_id, source in expected.items():
         reader = readers.get(node_id)
@@ -163,6 +163,7 @@ def verified_scene(scene, readers, image_rows):
     paths = collections.defaultdict(list)
     for node in scene["nodes"]:
         paths[node["path"]].append(int(node["id"]))
+    bindings_by_node = collections.defaultdict(dict)
     for item in image_rows:
         ids = paths.get(item["ui_path"], [])
         if len(ids) != 1:
@@ -178,6 +179,21 @@ def verified_scene(scene, readers, image_rows):
             if go_to_node.get(owner) != ids[0]:
                 failure["image_gameobject_mismatch"] += 1
                 continue
+            # The original MonoBehaviour header carries m_Enabled even when
+            # IL2CPP strips the managed Image typetree.
+            cid = int(item["component_id"])
+            enabled = get(head, "m_Enabled")
+            binding = {"nodeId": ids[0], "componentId": cid,
+                       "gameObjectId": owner}
+            if isinstance(enabled, (int, bool)) and enabled in (0, 1):
+                binding.update(hasEnabled=True, enabled=bool(enabled))
+            else:
+                binding["hasEnabled"] = False
+                failure["image_enabled_unavailable"] += 1
+            previous = bindings_by_node[ids[0]].get(cid)
+            if previous is not None and previous != binding:
+                raise ValueError("Conflicting serialized Image header: " + str(cid))
+            bindings_by_node[ids[0]][cid] = binding
             tree = reader.read_typetree()
             if not isinstance(tree, dict):
                 failure["image_typetree_unavailable"] += 1
@@ -199,8 +215,17 @@ def verified_scene(scene, readers, image_rows):
                 failure["image_properties_unavailable"] += 1
         except Exception:
             failure["image_typetree_unavailable"] += 1
+    # A Unity GameObject can show only one uGUI Image in this preview.
+    # An ambiguous source component must not be selected by guesswork.
+    for node_id, unique in bindings_by_node.items():
+        if len(unique) == 1:
+            image_bindings.extend(unique.values())
+        else:
+            failure["ambiguous_image_component_per_node"] += 1
     return {"sceneId": scene["id"], "nodes": nodes, "canvases": canvases,
-            "images": images, "limitations": dict(failure)}
+            "images": images, "imageBindings": sorted(
+                image_bindings, key=lambda row: row["nodeId"]),
+            "limitations": dict(failure)}
 
 
 def scan_bundle(data, scenes, links, unitypy):
@@ -275,9 +300,14 @@ def build(root=ROOT, xapk=None, unitypy=None):
              "verifiedTransforms": sum(len(s["nodes"]) for s in result),
              "verifiedCanvases": sum(len(s["canvases"]) for s in result),
              "imageTypetrees": sum(len(s["images"]) for s in result),
+             "exactImageBindings": sum(len(s["imageBindings"]) for s in result),
+             "disabledSourceImages": sum(1 for s in result for row in
+                  s["imageBindings"] if row.get("hasEnabled") and not row["enabled"]),
+             "unknownImageEnabled": sum(1 for s in result for row in
+                  s["imageBindings"] if not row.get("hasEnabled")),
              "unavailable": dict(sum((collections.Counter(s["limitations"])
                                       for s in result), collections.Counter()))}
-    return {"version": 1, "source": "XAPK serialized Unity assets (local only)",
+    return {"version": 2, "source": "XAPK serialized Unity assets (local only)",
             "scenes": sorted(result, key=lambda s: s["sceneId"]),
             "stats": stats,
             "policy": "Only verified serialized values; no inferred screen size, layout rules, "
