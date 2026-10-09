@@ -53,6 +53,25 @@ Lỗi cổng 8765 đang dùng: mở terminal và chạy `py tools/serve_ui_viewe
 
 Để dừng: quay lại cửa sổ terminal đã mở .bat và nhấn `Ctrl+C`.
 
+## Spine animation thật từ XAPK (preview độc lập, chưa phải client game)
+
+Đã kiểm tra trên XAPK thật trong GitHub Actions: 434 skeleton JSON Spine, 522 atlas văn bản, 422 skeleton và atlas trùng tên; 595/600 tên trang atlas khớp Texture2D. Các skeleton dùng **Spine 3.8**. Đây là kiểm kê tài nguyên, không chứng minh skin/animation runtime của mỗi scene Unity.
+
+Trên Windows:
+
+1. Cập nhật dự án bằng lệnh git pull origin main.
+2. Chạy **CHUAN_BI_DO_HOA.bat** (có thể tải XAPK từ Git LFS và cài UnityPy/Pillow, yêu cầu mạng lần đầu).
+3. Chạy **CHAY_UI_OFFLINE.bat**, mở http://127.0.0.1:8765/ và chọn **Animation Spine** hoặc truy cập http://127.0.0.1:8765/spine-viewer.
+4. Dữ liệu skeleton JSON, atlas và texture đã giải mã chỉ lưu trong output/local-spine/ (đã được Git bỏ qua).
+
+Xuất một skeleton đã xác minh: py -3 tools/export_local_spine.py --name Ace --limit 1
+
+Xuất tối đa 12 bộ nhân vật mặc định: py -3 tools/export_local_spine.py --limit 12
+
+**Phát animation:** Cần bộ **Spine Player 3.8 tương thích và được phép sử dụng**. Không dùng runtime 4.x để render skeleton 3.8. Khi có quyền sử dụng hợp lệ, tự cung cấp 2 tệp spine-player.js và spine-player.css (bản build 3.8) vào output/local-spine-runtime/. Trang xem sẽ báo thiếu runtime thay vì tự tạo animation giả. Xem hướng dẫn và giấy phép tại https://esotericsoftware.com/spine-player và https://esotericsoftware.com/spine-runtimes-license. Repository không phân phối thư viện Spine chính thức hoặc artwork thương mại.
+
+**Còn thiếu:** chưa ánh xạ chính xác skeleton/skin/animation sang SpineMonster, SpineShipPlayer và vị trí nhân vật trong 5 scene. Preview riêng chỉ phát bộ skeleton được chọn, không phải giao diện game, server hoặc gameplay. Muốn khôi phục trong scene phải xác minh prefab, skin và track animation lúc chạy; không ghép theo tên một cách võ đoán.
+
 ## Tự động hiển thị Sprite giải mã từ XAPK trên máy (mới)
 
 Bản Web có thể tự hiển thị các Sprite **thực sự giải mã được**, không cần chọn ảnh thủ công sau khi chuẩn bị dữ liệu một lần. Ảnh chỉ lưu ở `output/local-ui-art/`, không được đưa lên GitHub.
