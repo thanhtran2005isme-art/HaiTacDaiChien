@@ -193,7 +193,9 @@ def audit_scene(scene, groups, sprite_links, canvas_inventory=None):
                               if name in tree}
                     fields = {k: v for k, v in fields.items() if v is not None}
                     if fields:
-                        record.update(status="serialized_fields_available", fields=fields)
+                        record.update(status="serialized_fields_available", fields=fields,
+                                      fieldsSummary=json.dumps(fields, ensure_ascii=False,
+                                                               sort_keys=True)[:500])
             except Exception:
                 pass
             references.append(record)
@@ -255,6 +257,9 @@ def build(root=ROOT, xapk=None, unitypy=None):
     for row in results:
         count["spriteGeometry"] += len(row["spriteGeometry"])
         count["spriteBorders"] += sum("border" in r for r in row["spriteGeometry"])
+        count["nonzeroSpriteBorders"] += sum(
+            "border" in r and any(v > 0 for v in r["border"])
+            for r in row["spriteGeometry"])
         count["components"] += len(row["components"])
         count["readableComponentFields"] += sum(
             c["status"] == "serialized_fields_available" for c in row["components"])
