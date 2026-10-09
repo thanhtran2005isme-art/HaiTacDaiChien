@@ -38,6 +38,11 @@ if /I "%SPRITE_STATE%"=="FAILED" (
     echo [ERROR] Chua tao duoc Sprite UI. Xem output\local-ui-art\export-status.json.
     echo [ERROR] Khi mo web, local-art/manifest.json se khong co.
 )
+if /I "%SPRITE_STATE%"=="PASS" (
+    echo [INFO] Tao du lieu Canvas/Prefab cho Unity Editor...
+    %PY% tools\build_unity_prefab_manifest.py
+    if errorlevel 1 echo [WARN] Chua tao duoc Unity reconstruction plan.
+)
 echo [4/4] Giai ma Spine 3.8 JSON, atlas, texture vao output\local-spine
 set "SPINE_STATE=FAILED"
 %PY% tools\export_local_spine.py --limit 12
