@@ -40,10 +40,12 @@ class TestOfflineWebViewer(unittest.TestCase):
         self.assertIn(b"Offline UI Viewer", content)
         self.assertIn("text/html", headers.get("Content-Type", ""))
         self.assertEqual(headers.get("Cache-Control"), "no-store")
+        self.assertIn("blob:", headers.get("Content-Security-Policy", ""))
 
     def test_js_css_available_without_external_network(self):
         for uri, fragment in [
             ("/app.js", b"bootstrap()"),
+            ("/asset-matching.js", b"buildIndex"),
             ("/style.css", b".wire-node"),
         ]:
             status, _, content = self.request(uri)
@@ -62,6 +64,14 @@ class TestOfflineWebViewer(unittest.TestCase):
         for scene in data["scenes"]:
             self.assertEqual(len(scene["nodes"]), scene["nodeCount"])
             self.assertTrue(scene["nodes"][0]["id"] == scene["rootTransform"])
+
+    def test_private_asset_directories_are_not_served(self):
+        for path in ["/private-ui-art/secret.png", "/web-ui-viewer/local-art/a.png",
+                     "/assets/portrait.png", "/asset-file?name=a.png"]:
+            with self.subTest(path=path):
+                with self.assertRaises(HTTPError) as ctx:
+                    self.request(path)
+                self.assertEqual(ctx.exception.code, 404)
 
     def test_repo_and_arbitrary_files_not_exposed(self):
         for path in [
