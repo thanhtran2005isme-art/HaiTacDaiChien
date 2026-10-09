@@ -122,9 +122,14 @@ namespace HaiTac.OfflineViewer.Editor
                     issues.Add("SkeletonDataAsset.skeletonJSON does not reference local JSON: " +
                                PathOf(skeletonRef));
                 var refs = data.FindProperty("atlasAssets");
-                if (refs == null || !refs.isArray || refs.arraySize == 0)
+                if (refs == null || !refs.isArray)
                 {
-                    issues.Add("SkeletonDataAsset.atlasAssets missing or empty");
+                    issues.Add("SkeletonDataAsset.atlasAssets property missing or incompatible");
+                    continue;
+                }
+                if (refs.arraySize == 0)
+                {
+                    issues.Add("SkeletonDataAsset.atlasAssets array empty");
                     continue;
                 }
                 for (int i = 0; i < refs.arraySize; i++)
@@ -149,6 +154,168 @@ namespace HaiTac.OfflineViewer.Editor
                 Debug.LogWarning(summary + "\n - " +
                                  string.Join("\n - ", issues.ToArray()));
             }
+        }
+
+        /// <summary>
+        /// Repair ONLY an empty atlasAssets array, and only when every source
+        /// dependency is verified within the SAME private local pack. Never
+        /// overwrite any existing non-empty reference or create fake assets.
+        /// </summary>
+        private static bool TryRepairEmptyAtlasLink(string folder, out string status)
+        {
+            var atlases = FindGenerated(folder, "AtlasAsset");
+            var skeletons = FindGenerated(folder, "SkeletonDataAsset");
+            if (atlases.Count != 1 || skeletons.Count != 1)
+            {
+                status = "BLOCKED: expected exactly one AtlasAsset and SkeletonDataAsset";
+                return false;
+            }
+
+            var originalJson = AssetDatabase.LoadAssetAtPath<TextAsset>(
+                folder + "/skeleton.json");
+            var originalAtlasText = AssetDatabase.LoadAssetAtPath<TextAsset>(
+                folder + "/skeleton.atlas.txt");
+            if (originalJson == null || originalAtlasText == null)
+            {
+                status = "BLOCKED: source JSON or atlas text missing";
+                return false;
+            }
+
+            var atlas = atlases[0];
+            var skeleton = skeletons[0];
+            var atlasSerialized = new SerializedObject(atlas);
+            if (ObjectField(atlasSerialized, "atlasFile") != originalAtlasText)
+            {
+                status = "BLOCKED: AtlasAsset.atlasFile does not match local source";
+                return false;
+            }
+            var materialRefs = atlasSerialized.FindProperty("materials");
+            if (materialRefs == null || !materialRefs.isArray ||
+                materialRefs.arraySize == 0)
+            {
+                status = "BLOCKED: AtlasAsset materials missing";
+                return false;
+            }
+
+            var usedPages = new HashSet<string>(StringComparer.Ordinal);
+            for (int i = 0; i < materialRefs.arraySize; i++)
+            {
+                var materialEntry = materialRefs.GetArrayElementAtIndex(i);
+                if (materialEntry.propertyType != SerializedPropertyType.ObjectReference)
+                {
+                    status = "BLOCKED: atlas material field has wrong type";
+                    return false;
+                }
+                var material = materialEntry.objectReferenceValue as Material;
+                var image = material == null ? null : material.mainTexture as Texture2D;
+                string materialPath = PathOf(material);
+                string pagePath = PathOf(image);
+                if (image == null ||
+                    !materialPath.StartsWith(folder + "/", StringComparison.Ordinal) ||
+                    !pagePath.StartsWith(folder + "/", StringComparison.Ordinal) ||
+                    !pagePath.EndsWith(".png", StringComparison.OrdinalIgnoreCase))
+                {
+                    status = "BLOCKED: atlas material or texture not inside source pack";
+                    return false;
+                }
+                usedPages.Add(pagePath);
+            }
+            var originalPages = AssetDatabase.FindAssets("t:Texture2D", new[] { folder })
+                .Select(AssetDatabase.GUIDToAssetPath)
+                .Where(path => path.StartsWith(folder + "/", StringComparison.Ordinal) &&
+                               path.EndsWith(".png", StringComparison.OrdinalIgnoreCase))
+                .ToArray();
+            if (originalPages.Length == 0 ||
+                !originalPages.All(page => usedPages.Contains(page)) ||
+                !usedPages.SetEquals(originalPages))
+            {
+                status = "BLOCKED: atlas materials do not cover exact local PNG pages";
+                return false;
+            }
+
+            var skeletonSerialized = new SerializedObject(skeleton);
+            if (ObjectField(skeletonSerialized, "skeletonJSON") != originalJson)
+            {
+                status = "BLOCKED: SkeletonDataAsset.skeletonJSON points elsewhere";
+                return false;
+            }
+            var atlasRefs = skeletonSerialized.FindProperty("atlasAssets");
+            if (atlasRefs == null || !atlasRefs.isArray)
+            {
+                status = "BLOCKED: incompatible Spine-Unity atlasAssets field";
+                return false;
+            }
+            if (atlasRefs.arraySize != 0)
+            {
+                status = "UNCHANGED: atlasAssets already has references (never overwrite)";
+                return false;
+            }
+
+            // Preserve Undo and never touch original atlas, materials or textures.
+            Undo.RecordObject(skeleton, "Link verified local Spine atlas");
+            atlasRefs.arraySize = 1;
+            var slot = atlasRefs.GetArrayElementAtIndex(0);
+            if (slot.propertyType != SerializedPropertyType.ObjectReference)
+            {
+                // No ApplyModifiedProperties means serialized changes are not saved.
+                status = "BLOCKED: incompatible atlasAssets array element";
+                return false;
+            }
+            slot.objectReferenceValue = atlas;
+            if (!skeletonSerialized.ApplyModifiedProperties())
+            {
+                status = "BLOCKED: Unity did not accept atlasAssets link";
+                return false;
+            }
+            EditorUtility.SetDirty(skeleton);
+            status = "REPAIRED: verified same-pack AtlasAsset linked to empty atlasAssets";
+            return true;
+        }
+
+        [MenuItem("Tools/HaiTac Offline UI Viewer/Spine 3.8/Repair EMPTY verified atlas links (local only)")]
+        public static void RepairEmptyVerifiedAtlasLinks()
+        {
+            if (!AssetDatabase.IsValidFolder(PacksRoot))
+            {
+                Debug.LogError("[HaiTac Spine atlas repair] Missing local SpinePacks folder");
+                return;
+            }
+            if (!EditorUtility.DisplayDialog("Repair only verified empty Spine atlas links",
+                "Only SkeletonDataAsset.atlasAssets EMPTY arrays will be linked. " +
+                "Each pack must have exactly one matching AtlasAsset, skeleton JSON, " +
+                "atlas text and valid material/PNG chain. Nonempty references and " +
+                "other assets are never changed. This does not prove animation " +
+                "or restore the game's original UI. Continue?", "Repair verified",
+                "Cancel"))
+                return;
+
+            int repaired = 0;
+            int unchanged = 0;
+            int blocked = 0;
+            foreach (string folder in AssetDatabase.GetSubFolders(PacksRoot)
+                         .OrderBy(f => f, StringComparer.Ordinal))
+            {
+                string id = folder.Substring(PacksRoot.Length + 1);
+                if (TryRepairEmptyAtlasLink(folder, out string status))
+                    repaired++;
+                else if (status.StartsWith("UNCHANGED:", StringComparison.Ordinal))
+                    unchanged++;
+                else
+                    blocked++;
+
+                string message = "[HaiTac Spine atlas repair] " + id + ": " + status;
+                if (status.StartsWith("BLOCKED:", StringComparison.Ordinal))
+                    Debug.LogWarning(message);
+                else
+                    Debug.Log(message);
+            }
+
+            if (repaired != 0)
+                AssetDatabase.SaveAssets();
+            Debug.Log("[HaiTac Spine atlas repair] COMPLETE: repaired=" + repaired +
+                      ", unchanged=" + unchanged + ", blocked=" + blocked +
+                      ". Run read-only audit again; playback NOT tested.");
+            AuditAll();
         }
 
         [MenuItem("Tools/HaiTac Offline UI Viewer/Spine 3.8/Audit all local AtlasAsset links (read only)")]
