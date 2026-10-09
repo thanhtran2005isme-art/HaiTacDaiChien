@@ -27,6 +27,8 @@ Khảo sát tài nguyên Unity trong XAPK Hải Tặc (được phép sử dụn
 
 - **Đối chiếu AtlasAsset trên Unity máy người dùng (2026-10-09, PR #4):** CMD trên nhánh `fix/ref04-source-image-render-state` tại commit `15fb196` liệt kê **8 file `skeleton_Atlas.asset` trong 8 pack**. Chứng minh importer tạo asset atlas, **không** chứng minh có `materials`/`Texture2D` hoặc `SkeletonDataAsset.atlasAssets`. Bổ sung menu kiểm tra **read-only** `Tools → HaiTac Offline UI Viewer → Spine 3.8 → Audit all local AtlasAsset links (read only)`, log từng pack và tổng `packsWithIssues`; không thay đổi artwork/vendor assets. Chưa chạy trực tiếp Unity Editor, cần người dùng pull nhánh và gửi Console trước khi sửa mối liên kết cụ thể hoặc merge.
 
+- **Spine atlas audit thực tế từ Unity (2026-10-09):** 8 gói đều có 1 AtlasAsset, 1 SkeletonDataAsset, 1 PNG; **5/8 có chuỗi liên kết đầy đủ**, **3/8 `SkeletonDataAsset.atlasAssets` thiếu hoặc rỗng**: `4bf0678e014fa1ae30455646`, `b977b950c1ae31e5aeb9ef77`, `faacf3df9f46fa6c7cb4324e`. Bổ sung menu **Repair EMPTY verified atlas links (local only)** trong `LocalSpineAtlasAudit.cs`, chỉ ghi vào mảng trống khi chứng minh atlas text, skeleton JSON, material và PNG cùng thư mục; tuyệt đối không sửa gói đã có liên kết, không tạo asset giả. Tool chưa chạy Unity local; cần xem log `repaired/unchanged/blocked` + audit kết quả mới trước khi test animation.
+
 ## Vấn đề còn lại / giới hạn chứng cứ
 1. Unity project hiện dùng **2022.3**, trong khi spine-unity 3.8 chính thức hỗ trợ đến Unity 2020.3. Thử runtime trong **bản sao project**; không coi Python CI là chứng cứ tương thích Unity Editor.
 2. Chưa xác minh skin/animation đang chạy và sáu nhân vật được chọn ở REF04; **không tự lấp vị trí bằng nhân vật đoán**.
