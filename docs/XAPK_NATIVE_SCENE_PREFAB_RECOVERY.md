@@ -19,6 +19,7 @@ Từ CMD thư mục repo, với XAPK được sử dụng hợp pháp:
 ```cmd
 git status --short
 py -3 tools\audit_original_unity_graph.py
+py -3 tools\summarize_original_unity_gaps.py
 ```
 
 Hoặc dùng `CHUAN_BI_DO_HOA.bat` (phần báo cáo sẽ có `Original Unity source graph: PASS`).
@@ -33,7 +34,7 @@ Công cụ mở **các serialized Unity file thực tế trong AssetBundle**, đ
 - dấu vết `Prefab`, `PrefabInstance`, `SceneAsset` và prefab pointer ở đúng
   serialized file; **không kết luận từ tên GameObject giống Prefab**.
 
-**Kết quả duy nhất trên máy:** `output/original-unity-graph.json` (Git ignored).
+**Báo cáo chỉ nằm trên máy:** `output/original-unity-graph.json`, `output/original-unity-component-gaps.csv` (**một hàng cho mỗi component nguồn, có GameObject ID, MonoScript PPtr, trạng thái đọc dữ liệu**), và `output/original-unity-gaps.md`. Tất cả đều Git ignored.
 Không xuất binary, managed script nguồn, texture hoặc XAPK lên GitHub. CI chạy
 cùng bộ kiểm tra trên XAPK nhưng chỉ in số liệu tổng hợp, không upload artifact.
 
