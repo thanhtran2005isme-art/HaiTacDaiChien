@@ -13,6 +13,7 @@ import hashlib
 import json
 import math
 import shutil
+import traceback
 import tempfile
 import zipfile
 from pathlib import Path
@@ -26,7 +27,40 @@ MAX_OBJECT = 2 * 1024 * 1024
 
 
 class RecoveryBlocked(ValueError):
-    """Fail closed: do not apply or label any guessed source fields."""
+    """Fail closed with a stable stage/code, never with inferred source values."""
+
+    def __init__(self, message, *, phase="preflight", code="SOURCE_BLOCKED",
+                 frame=None, tree=None):
+        super().__init__(message)
+        self.phase = phase
+        self.code = code
+        self.frame = frame
+        self.tree = tree
+
+
+def _safe_exception_frame(exc):
+    """Expose only the failing Python function, not local paths or source bytes."""
+    stack = traceback.extract_tb(exc.__traceback__)
+    if not stack:
+        return "UNKNOWN_FRAME"
+    frame = stack[-1]
+    return f"{Path(frame.filename).name}:{frame.lineno}:{frame.name}"[:140]
+
+
+def _tree_summary(node):
+    """Inspect generated schema shape only, not serialized field values."""
+    children = getattr(node, "m_Children", None)
+    if not isinstance(children, (list, tuple)):
+        return {"rootType": str(getattr(node, "m_Type", "ABSENT"))[:80],
+                "rootLevel": getattr(node, "m_Level", None),
+                "childCount": None, "headerNodes": []}
+    expected = ("m_GameObject", "m_Script", "m_Enabled")
+    names = {getattr(child, "m_Name", None) for child in children}
+    return {"rootType": str(getattr(node, "m_Type", "ABSENT"))[:80],
+            "rootLevel": getattr(node, "m_Level", None),
+            "childCount": len(children),
+            "headerNodes": sorted(set(expected).intersection(names))}
+
 
 
 def _nested_members(xapk):
@@ -181,13 +215,38 @@ def verified_fields(reader, row, generator):
         raise RecoveryBlocked("Serialized object is absent or oversized")
     try:
         nodes = generator.get_nodes_up(row["assembly"], row["className"])
-        if nodes is None:
-            raise RecoveryBlocked("Generated TypeTree is unavailable")
-        # UnityPy check_read=True requires the TypeTree to consume the full object.
+    except Exception as exc:
+        raise RecoveryBlocked(
+            "Generated TypeTree node generation failed: " + type(exc).__name__,
+            phase="generate_nodes", code="NODE_GENERATION_" + type(exc).__name__,
+            frame=_safe_exception_frame(exc),
+        ) from exc
+    if nodes is None:
+        raise RecoveryBlocked(
+            "Generated TypeTree is unavailable",
+            phase="generate_nodes", code="NO_GENERATED_NODES",
+        )
+    shape = _tree_summary(nodes)
+    # The known Unity MonoBehaviour native header must be represented as part
+    # of a complete generated root. An incomplete root is not a serialized layout.
+    if (shape["rootType"] != "MonoBehaviour" or
+            shape["rootLevel"] != 0 or shape["childCount"] is None or
+            set(shape["headerNodes"]) !=
+            {"m_GameObject", "m_Script", "m_Enabled"}):
+        raise RecoveryBlocked(
+            "Generated TypeTree root lacks Unity MonoBehaviour source header",
+            phase="validate_root", code="INCOMPLETE_GENERATED_ROOT",
+            tree=shape,
+        )
+    try:
+        # CRITICAL: check_read=True; NEVER treat partial parse as verified.
         decoded = reader.read_typetree(nodes=nodes, check_read=True)
     except Exception as exc:
-        raise RecoveryBlocked("Generated TypeTree failed strict object parsing: " +
-                              type(exc).__name__) from exc
+        raise RecoveryBlocked(
+            "Generated TypeTree strict object parse failed: " + type(exc).__name__,
+            phase="strict_parse", code="STRICT_PARSE_" + type(exc).__name__,
+            frame=_safe_exception_frame(exc), tree=shape,
+        ) from exc
     if not isinstance(decoded, dict):
         raise RecoveryBlocked("Generated data is not an object")
     if refs.pptr(decoded.get("m_GameObject")) != (0, row["gameObjectId"]):
