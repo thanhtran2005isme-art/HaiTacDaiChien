@@ -1,0 +1,9 @@
+:root{color-scheme:dark;font:14px "Segoe UI",Arial,sans-serif;color:#e7eef9;background:#0d1622}
+*{box-sizing:border-box}body{margin:0}header{min-height:66px;padding:14px 24px;border-bottom:1px solid #2b384c;display:flex;align-items:center;gap:22px;background:#121e2c}
+a{color:#83dfca;text-decoration:none}a:hover{text-decoration:underline}h1{font-size:20px;margin:0}header span{margin-left:auto;color:#9bb2cd;font-size:12px}
+main{max-width:1300px;margin:auto;padding:20px}.toolbar{display:flex;align-items:end;gap:14px;flex-wrap:wrap}
+label{display:grid;gap:6px;color:#b7c7d9;font-size:12px}select,button{background:#1b2a40;color:#f1f7ff;border:1px solid #426174;border-radius:7px;padding:11px;min-width:150px;font:inherit}
+button{background:#1c715e;cursor:pointer}.toolbar select{max-width:300px}
+#status{min-height:24px;color:#b5d7e1}.canvas-shell{border:1px solid #3c5767;background:#152231;border-radius:12px;min-height:500px;overflow:hidden;position:relative}
+#player-stage{width:100%;height:min(72vh,700px);min-height:500px}.note{color:#a9bfd0;font-size:13px;line-height:1.6}code{color:#a8e9df}
+@media(max-width:650px){header{flex-wrap:wrap}header span{margin-left:0}.canvas-shell,#player-stage{min-height:340px}}
