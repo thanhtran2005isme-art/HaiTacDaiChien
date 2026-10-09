@@ -83,7 +83,26 @@ def local_art_status():
         if not isinstance(scenes, dict) or not isinstance(stats, dict):
             result["status"] = "invalid_manifest"
             return result
-        mapped = sum(len(nodes) for nodes in scenes.values() if isinstance(nodes, dict))
+        exact = info.get("nodeBindings")
+        if isinstance(exact, list) and exact:
+            identities = set()
+            for item in exact:
+                if (not isinstance(item, dict) or
+                    not isinstance(item.get("sceneId"), str) or
+                    not isinstance(item.get("nodeId"), int) or
+                    not isinstance(item.get("imageComponentId"), int) or
+                    item.get("spriteFile") not in files):
+                    result["status"] = "invalid_manifest"
+                    return result
+                key = (item["sceneId"], item["nodeId"])
+                if key in identities:
+                    result["status"] = "invalid_manifest"
+                    return result
+                identities.add(key)
+            mapped = len(identities)
+        else:
+            mapped = sum(len(nodes) for nodes in scenes.values()
+                         if isinstance(nodes, dict))
         result.update(status="ready", sprite_count=stats.get("sprite_images_exported", 0),
                       mapped_nodes=mapped, file_count=len(files))
     except (OSError, UnicodeError, ValueError, TypeError):

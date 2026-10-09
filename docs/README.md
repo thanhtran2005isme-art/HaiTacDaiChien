@@ -4,6 +4,7 @@
 
 | File | Mục đích |
 |---|---|
+| [XAPK_IMAGE_RENDER_CORRECTION.md](XAPK_IMAGE_RENDER_CORRECTION.md) | Sửa Image theo ID nguồn, tôn trọng m_Enabled và ghi rõ phần còn thiếu |
 | [XAPK_NATIVE_SCENE_PREFAB_RECOVERY.md](XAPK_NATIVE_SCENE_PREFAB_RECOVERY.md) | Kiểm kê Serialized GameObject, Prefab/Scene và giới hạn bản khôi phục thật |
 | [AI_HANDOFF.md](AI_HANDOFF.md) | Tình trạng mới nhất, việc đã làm, việc còn tồn đọng và lệnh chạy |
 | [ARCHITECTURE.md](ARCHITECTURE.md) | Cấu trúc repo, kiến trúc dữ liệu và các môi trường |

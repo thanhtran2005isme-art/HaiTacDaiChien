@@ -9,7 +9,7 @@ const state = {
   database: null, scene: 0, filter: "all", showInactive: true,
   zoom: 1, selectedId: null, demoLevel: 1,
   geometry: new Map(), elements: new Map(),
-  assets: null, autoArt: null, artStatus: null, manualAssets: new Map(), referenceImages: new Map(),
+  assets: null, autoArt: null, autoArtByNode: null, artStatus: null, manualAssets: new Map(), referenceImages: new Map(),
   objectUrls: new Map(),
   boundsVisible: false,
 };
@@ -34,7 +34,11 @@ function imageFileFor(node) {
 
 function autoArtFor(node) {
   if (!node || !state.database) return null;
-  const name = state.autoArt?.scenes?.[sceneData().id]?.[node.path];
+  // New XAPK manifests disambiguate same-name siblings by ORIGINAL
+  // Image-component -> GameObject -> RectTransform IDs, never by path alone.
+  const name = state.autoArtByNode
+    ? state.autoArtByNode.get(sceneData().id + ":" + node.id)
+    : state.autoArt?.scenes?.[sceneData().id]?.[node.path];
   return typeof name === "string" && /^[0-9a-f]{32}\.png$/.test(name) &&
     state.autoArt.files?.includes(name) ? name : null;
 }
@@ -556,6 +560,22 @@ async function bootstrap() {
         if (manifest.version === 1 && Array.isArray(manifest.files) &&
             manifest.scenes && typeof manifest.scenes === "object") {
           state.autoArt = manifest;
+          if (Array.isArray(manifest.nodeBindings) && manifest.nodeBindings.length) {
+            const byNode = new Map();
+            for (const item of manifest.nodeBindings) {
+              if (typeof item.sceneId !== "string" ||
+                  !Number.isSafeInteger(item.nodeId) ||
+                  !Number.isSafeInteger(item.imageComponentId) ||
+                  typeof item.spriteFile !== "string" ||
+                  !manifest.files.includes(item.spriteFile)) continue;
+              const key = item.sceneId + ":" + item.nodeId;
+              if (byNode.has(key)) byNode.delete(key);
+              else byNode.set(key, item.spriteFile);
+            }
+            state.autoArtByNode = byNode;
+          } else {
+            state.autoArtByNode = null;
+          }
           stage.classList.add("has-auto-art");
           $("asset-status").textContent = artState.sprite_count +
             " Sprite đã giải mã · " + artState.mapped_nodes +

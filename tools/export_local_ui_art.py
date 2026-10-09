@@ -38,7 +38,48 @@ def image_name(key):
     return hashlib.sha256((key[0] + ":" + key[1]).encode("utf-8")).hexdigest()[:32] + ".png"
 
 
-def make_manifest(links, scenes, exported):
+def component_node_lookup(root, scenes):
+    """Resolve image component IDs to candidate node IDs through ORIGINAL GO IDs.
+
+    This is a source metadata join; duplicated Unity names/paths are allowed,
+    but ambiguous GameObject IDs or component owners are not.
+    """
+    hierarchy = read_rows(root / "reports/xapk/ui-hierarchy.csv")
+    components = read_rows(root / "reports/xapk/ui-components.csv")
+    file_to_refs = collections.defaultdict(list)
+    by_scene = {}
+    for scene in scenes["scenes"]:
+        file_to_refs[scene["source"]].append(scene["id"])
+        by_scene[scene["id"]] = {
+            int(node["id"]): node for node in scene["nodes"]
+        }
+    owners = {}
+    for row in components:
+        for ref in file_to_refs.get(row["bundle"], []):
+            key = (ref, str(row["component_id"]))
+            owner = int(row["gameobject_id"])
+            if key in owners and owners[key] != owner:
+                raise ValueError("Conflicting original component owner " + str(key))
+            owners[key] = owner
+    by_go = {}
+    for row in hierarchy:
+        for ref in file_to_refs.get(row["bundle"], []):
+            node_id = int(row["transform_id"])
+            if node_id not in by_scene[ref]:
+                continue
+            key = (ref, int(row["gameobject_id"]))
+            if key in by_go and by_go[key] != node_id:
+                raise ValueError("Ambiguous GameObject transform " + str(key))
+            by_go[key] = node_id
+    result = {}
+    for key, owner in owners.items():
+        node_id = by_go.get((key[0], owner))
+        if node_id is not None:
+            result[key] = node_id
+    return result
+
+
+def make_manifest(links, scenes, exported, component_nodes=None):
     """Only unambiguous Image→Sprite paths are mapped; never guess by name."""
     by_scene = {scene["id"]: scene for scene in scenes["scenes"]}
     node_paths = {
@@ -53,6 +94,22 @@ def make_manifest(links, scenes, exported):
         candidates[(ref, path)].add(key_of(row["sprite_file"], row["sprite_id"]))
     mapped = {ref: {} for ref in by_scene}
     ambiguous = 0
+    exact = collections.defaultdict(set)
+    if component_nodes is not None:
+        for row in links:
+            ref = row["reference"]
+            node_id = component_nodes.get((ref, str(row["component_id"])))
+            if node_id is None or ref not in by_scene:
+                continue
+            node = next((n for n in by_scene[ref]["nodes"]
+                         if int(n["id"]) == node_id), None)
+            # Component owner must also have the original expected UI path.
+            if node is None or node["path"] != row["ui_path"]:
+                continue
+            exact[(ref, node_id)].add((
+                key_of(row["sprite_file"], row["sprite_id"]),
+                str(row["component_id"])
+            ))
     for (ref, path), keys in candidates.items():
         if len(keys) != 1:
             ambiguous += 1
@@ -60,16 +117,37 @@ def make_manifest(links, scenes, exported):
         key = next(iter(keys))
         if key in exported:
             mapped[ref][path] = exported[key]
+    bindings = []
+    ambiguous_components = 0
+    for (ref, node_id), possibilities in sorted(exact.items()):
+        if len(possibilities) != 1:
+            ambiguous_components += 1
+            continue
+        source_key, component_id = next(iter(possibilities))
+        name = exported.get(source_key)
+        if name is None:
+            continue
+        bindings.append({
+            "sceneId": ref, "nodeId": node_id, "imageComponentId": int(component_id),
+            "spriteFile": name,
+        })
     used = {item for nodes in mapped.values() for item in nodes.values()}
+    used.update(b["spriteFile"] for b in bindings)
+    exact_counts = collections.Counter(b["sceneId"] for b in bindings)
     return {
-        "version": 1,
+        "version": 1,  # Backward-compatible Web manifest; new nodeBindings are additive.
         "files": sorted(used),
         "scenes": mapped,
+        "nodeBindings": bindings,
         "stats": {
             "sprite_images_exported": len(exported),
-            "ui_nodes_mapped": sum(len(nodes) for nodes in mapped.values()),
-            "scene_nodes_mapped": {ref: len(nodes) for ref, nodes in mapped.items()},
+            "ui_nodes_mapped": len(bindings) if component_nodes is not None
+                else sum(len(nodes) for nodes in mapped.values()),
+            "scene_nodes_mapped": {ref: exact_counts[ref] if component_nodes is not None
+                                   else len(nodes) for ref, nodes in mapped.items()},
             "ambiguous_paths": ambiguous,
+            "ambiguous_component_bindings": ambiguous_components,
+            "exact_node_bindings": len(bindings),
             "unmatched_sprite_images": len(exported) - len(set(exported.values()) & used),
         },
     }
@@ -231,7 +309,10 @@ def extract(root, xapk=None, apk_dir=None, out=None, unitypy=None):
                         scan_apk(apk, label, expected, output, exported, issues, unitypy, work)
                     finally:
                         apk.unlink(missing_ok=True)
-    manifest = make_manifest(links, scenes, exported)
+    # UI paths may be identical for siblings; component and GameObject IDs
+    # distinguish them. The local layout exporter cross-checks the same owner.
+    component_nodes = component_node_lookup(root, scenes)
+    manifest = make_manifest(links, scenes, exported, component_nodes)
     # Remove orphaned exported images on rebuild; only manifest-allowed art is served.
     for old in output.glob("*.png"):
         if FILE_RE.fullmatch(old.name) and old.name not in set(manifest["files"]):

@@ -42,6 +42,7 @@ namespace HaiTac.OfflineViewer.Editor
             public string sceneId;
             public int nodeId;
             public string spriteFile;
+            public int sourceImageComponentId;
         }
 
         [Serializable] private class SpineEntry
@@ -68,6 +69,16 @@ namespace HaiTac.OfflineViewer.Editor
             public LayoutNode[] nodes;
             public LayoutCanvas[] canvases;
             public LayoutImage[] images;
+            public LayoutImageBinding[] imageBindings;
+        }
+
+        [Serializable] private class LayoutImageBinding
+        {
+            public int nodeId;
+            public int componentId;
+            public int gameObjectId;
+            public bool hasEnabled;
+            public bool enabled;
         }
 
         [Serializable] private class LayoutNode
@@ -82,6 +93,12 @@ namespace HaiTac.OfflineViewer.Editor
         [Serializable] private class LayoutCanvas
         {
             public int nodeId;
+            public bool hasEnabled;
+            public bool enabled;
+            public bool hasRenderMode;
+            public int renderMode;
+            public bool hasTargetDisplay;
+            public int targetDisplay;
             public bool hasSortingOrder;
             public int sortingOrder;
             public bool hasOverrideSorting;
@@ -204,12 +221,27 @@ namespace HaiTac.OfflineViewer.Editor
                 var scenes = JsonUtility.FromJson<ViewerDatabase>(File.ReadAllText(sceneFile));
                 var plan = JsonUtility.FromJson<Plan>(File.ReadAllText(planFile));
                 if (scenes == null || scenes.schemaVersion != 1 || scenes.scenes == null ||
-                    plan == null || plan.schemaVersion != 1 || plan.sprites == null ||
+                    plan == null || plan.schemaVersion != 2 || plan.sprites == null ||
                     plan.spine == null)
                     throw new InvalidDataException("Invalid reconstruction input schema.");
                 // Strict validation: do not silently bind stale evidence to
                 // GameObjects whose IDs have changed in a different XAPK.
                 var verifiedLayout = ReadLayoutEvidence(root, scenes);
+                if (verifiedLayout.Count != scenes.scenes.Length)
+                    throw new InvalidDataException("Verified Image ownership layout version 2 " +
+                        "required. Rerun CHUAN_BI_DO_HOA.bat and rebuild art manifest.");
+                foreach (var entry in plan.sprites)
+                {
+                    if (!verifiedLayout.TryGetValue(entry.sceneId, out var sourceScene) ||
+                        entry.sourceImageComponentId <= 0 ||
+                        !sourceScene.imageBindings.Any(binding =>
+                            binding.nodeId == entry.nodeId &&
+                            binding.componentId == entry.sourceImageComponentId))
+                        throw new InvalidDataException(
+                            "Sprite owner/component ID not verified in original XAPK: " +
+                            entry.sceneId + "/" + entry.nodeId + "/" +
+                            entry.sourceImageComponentId);
+                }
                 var componentEvidence = ReadDeepUiEvidence(root, scenes);
                 var spineEvidence = ReadSpineEvidence(root, plan);
                 EnsureFolders();
@@ -664,17 +696,24 @@ namespace HaiTac.OfflineViewer.Editor
                     AssetDatabase.ImportAsset(asset, ImportAssetOptions.ForceSynchronousImport);
                     return asset;
                 }
-                string skeletonPath = CopySource(pack.skeleton, false);
-                string atlasPath = CopySource(pack.atlas, true);
+                // IMPORTANT: Spine-Unity 3.8 can open a modal "Could not
+                // automatically set the AtlasAsset for skeleton" as soon as
+                // skeleton.json is imported. Previously we copied/imported
+                // skeleton FIRST, before .atlas.txt and PNG pages existed.
+                // Stage every page, then import the atlas and its materials,
+                // and only THEN expose/import the skeleton JSON. All source
+                // file bytes, names and pack identifiers remain unchanged.
                 var textures = pack.pages.Select(page =>
                     AssetDatabase.LoadAssetAtPath<Texture2D>(CopySource(page, false))).ToArray();
-                // The real Spine-Unity importer watches .atlas.txt and .json.
-                // These must be reimported AFTER all page textures are present;
-                // otherwise the first import may generate incomplete atlas/materials.
-                // Without the licensed runtime installed this is a safe no-op
-                // (the raw sources are still imported as Unity assets).
+                if (textures.Any(tex => tex == null))
+                    throw new InvalidDataException(
+                        "Original Spine atlas page could not be imported: " + pack.id);
+                string atlasPath = CopySource(pack.atlas, true);
                 AssetDatabase.ImportAsset(atlasPath, ImportAssetOptions.ForceUpdate |
                     ImportAssetOptions.ForceSynchronousImport);
+                // Import skeleton last so the Spine runtime sees a generated
+                // atlas; this order is needed even when rebuilding old packs.
+                string skeletonPath = CopySource(pack.skeleton, false);
                 AssetDatabase.ImportAsset(skeletonPath, ImportAssetOptions.ForceUpdate |
                     ImportAssetOptions.ForceSynchronousImport);
                 var skeleton = AssetDatabase.LoadAssetAtPath<TextAsset>(skeletonPath);
@@ -761,7 +800,7 @@ namespace HaiTac.OfflineViewer.Editor
                 return evidence;
             }
             var db = JsonUtility.FromJson<LayoutDatabase>(File.ReadAllText(filename));
-            if (db == null || db.version != 1 || db.scenes == null ||
+            if (db == null || db.version != 2 || db.scenes == null ||
                 db.scenes.Length != source.scenes.Length)
                 throw new InvalidDataException("Layout evidence has wrong version or scene count.");
             var expected = source.scenes.ToDictionary(scene => scene.id);
@@ -770,6 +809,7 @@ namespace HaiTac.OfflineViewer.Editor
                 if (item == null || !expected.TryGetValue(item.sceneId, out var original) ||
                     item.nodes == null || item.nodes.Length != original.nodes.Length ||
                     item.canvases == null || item.images == null ||
+                    item.imageBindings == null ||
                     evidence.ContainsKey(item.sceneId))
                     throw new InvalidDataException("Stale or incomplete layout evidence: " +
                                                    (item == null ? "(null)" : item.sceneId));
@@ -777,7 +817,11 @@ namespace HaiTac.OfflineViewer.Editor
                 if (item.nodes.Select(node => node.nodeId).Distinct().Count() != ids.Count ||
                     item.nodes.Any(node => !ids.Contains(node.nodeId)) ||
                     item.canvases.Any(canvas => !ids.Contains(canvas.nodeId)) ||
-                    item.images.Any(image => !ids.Contains(image.nodeId)))
+                    item.images.Any(image => !ids.Contains(image.nodeId)) ||
+                    item.imageBindings.Any(binding => !ids.Contains(binding.nodeId) ||
+                        binding.componentId <= 0 || binding.gameObjectId <= 0) ||
+                    item.imageBindings.Select(binding => binding.nodeId).Distinct().Count() !=
+                    item.imageBindings.Length)
                     throw new InvalidDataException("Layout evidence transform ID mismatch: " +
                                                    item.sceneId);
                 evidence.Add(item.sceneId, item);
@@ -799,10 +843,13 @@ namespace HaiTac.OfflineViewer.Editor
         private static void ApplyCanvasSettings(Canvas canvas, LayoutCanvas record)
         {
             if (record == null) return;
+            if (record.hasEnabled) canvas.enabled = record.enabled;
             if (record.hasOverrideSorting) canvas.overrideSorting = record.overrideSorting;
             if (record.hasSortingOrder) canvas.sortingOrder = record.sortingOrder;
             if (record.hasPixelPerfect) canvas.pixelPerfect = record.pixelPerfect;
-            // No guess at original render mode, CanvasScaler or camera reference.
+            // ScreenSpaceCamera / WorldSpace depend on source Camera and runtime
+            // CanvasScaler. Record original mode but do not change render mode
+            // until the complete camera & parent linkage is independently proven.
         }
 
         private static void ApplyImageSettings(Image image, LayoutImage record)
@@ -813,9 +860,10 @@ namespace HaiTac.OfflineViewer.Editor
                                         record.color[2], record.color[3]);
             if (record.hasPreserveAspect) image.preserveAspect = record.preserveAspect;
             if (record.hasRaycastTarget) image.raycastTarget = record.raycastTarget;
-            // Sliced/Tiled need original sprite border/pixels-per-unit metadata,
-            // which PNG extraction does not preserve. Never simulate their sizes.
-            if (record.hasType && (record.type == 0 || record.type == 3))
+            // Image Type is only applied when the original Image managed
+            // typetree actually supplies its numeric value. Borders/PPU are
+            // recovered independently from original Sprite data where verified.
+            if (record.hasType && record.type >= 0 && record.type <= 3)
                 image.type = (Image.Type)record.type;
             if (image.type == Image.Type.Filled)
             {
@@ -827,6 +875,21 @@ namespace HaiTac.OfflineViewer.Editor
                     image.fillAmount = record.fillAmount;
                 if (record.hasFillClockwise) image.fillClockwise = record.fillClockwise;
             }
+        }
+
+        private static void ApplyExactImageEnabled(
+            int nodeId, Image image, Dictionary<int, LayoutImageBinding> bindings,
+            ref int disabled, ref int unknown)
+        {
+            if (!bindings.TryGetValue(nodeId, out var binding) ||
+                !binding.hasEnabled)
+            {
+                // The preview's default Image.enabled is NOT original-state evidence.
+                unknown++;
+                return;
+            }
+            image.enabled = binding.enabled;
+            if (!binding.enabled) disabled++;
         }
 
         private static Vector2 ReadVector(float[] value, Vector2 fallback)
@@ -879,6 +942,15 @@ namespace HaiTac.OfflineViewer.Editor
                 var mappedLayout = layout == null
                     ? new Dictionary<int, LayoutNode>()
                     : layout.nodes.ToDictionary(record => record.nodeId);
+                var exactImage = layout == null
+                    ? new Dictionary<int, LayoutImageBinding>()
+                    : layout.imageBindings.ToDictionary(binding => binding.nodeId);
+                int sourceCanvasesWithRenderMode = layout == null ? 0 :
+                    layout.canvases.Count(record => record.hasRenderMode);
+                int sourceDisabledCanvases = layout == null ? 0 :
+                    layout.canvases.Count(record => record.hasEnabled && !record.enabled);
+                int sourceDisabledImages = 0;
+                int sourceUnverifiedImages = 0;
                 var mappedImage = layout == null
                     ? new Dictionary<int, LayoutImage>()
                     : layout.images.GroupBy(record => record.nodeId)
@@ -909,6 +981,8 @@ namespace HaiTac.OfflineViewer.Editor
                             image.raycastTarget = false;
                             if (mappedImage.TryGetValue(node.id, out var originalRootImage))
                                 ApplyImageSettings(image, originalRootImage);
+                            ApplyExactImageEnabled(node.id, image, exactImage,
+                                ref sourceDisabledImages, ref sourceUnverifiedImages);
                         }
                         continue;
                     }
@@ -951,11 +1025,21 @@ namespace HaiTac.OfflineViewer.Editor
                         image.type = Image.Type.Simple; // Original 9-slice unknown.
                         if (mappedImage.TryGetValue(node.id, out var originalImage))
                             ApplyImageSettings(image, originalImage);
+                        ApplyExactImageEnabled(node.id, image, exactImage,
+                            ref sourceDisabledImages, ref sourceUnverifiedImages);
                     }
                     if (HasType(node, "RectMask2D"))
                         child.AddComponent<RectMask2D>();
                     // No callbacks or business behavior are inferred for Button/Text.
                 }
+                Debug.Log("[HaiTac Canvas evidence] " + scene.id +
+                    ": disabled serialized Canvas=" + sourceDisabledCanvases +
+                    ", render modes recorded=" + sourceCanvasesWithRenderMode +
+                    ". Camera/render mode and CanvasScaler runtime still NOT restored.");
+                Debug.Log("[HaiTac Image state] " + scene.id +
+                    ": disabled source Image components=" + sourceDisabledImages +
+                    ", enabled state unknown=" + sourceUnverifiedImages +
+                    ". Legacy preview CanvasScaler remains provisional.");
                 // Restore recorded sibling order for each direct parent, not global Z sorting.
                 foreach (var group in scene.nodes.GroupBy(n => n.parent))
                 {

@@ -55,6 +55,12 @@ jobs:
           assert next(x['mappedSprites'] for x in m['scenes'] if x['sceneId']=='REF01-ship-upgrade') == 32
           print('PASS: Unity reconstructed source map',len(m['sprites']),'sprite assignments',len(m['spine']),'Spine nodes')
           PY
+      - name: Verify local Sprite component ID resolution unit tests
+        run: python -m unittest discover -s tests -p test_local_ui_art.py -v
+      - name: Verify Unity prefab plan supports source component IDs
+        run: python -m unittest discover -s tests -p test_unity_prefab_manifest.py -v
+      - name: Verify Unity Image enabled and layout evidence tests
+        run: python -m unittest discover -s tests -p test_local_ui_layout.py -v
       - name: Verify deep UI/Spine parsing without XAPK
         run: python -m unittest discover -s tests -p test_xapk_deep_evidence.py -v
       - name: Probe Sprite borders, CanvasScaler, Mask, LayoutGroup from XAPK
@@ -132,6 +138,31 @@ jobs:
           PY
       - name: Extract verified RectTransform and Canvas evidence from real XAPK
         run: python tools/export_local_ui_layout.py
+      - name: Verify exact original Image ownership and source visibility counts
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          art=json.loads(Path('output/local-ui-art/manifest.json').read_text(encoding='utf-8'))
+          layout=json.loads(Path('output/local-ui-layout.json').read_text(encoding='utf-8'))
+          plan=json.loads(Path('output/unity-prefab-map.json').read_text(encoding='utf-8'))
+          assert art['version']==1 and layout['version']==2 and plan['schemaVersion']==2
+          assert len(art['nodeBindings'])==963
+          assert len(plan['sprites'])==963
+          assert layout['stats']['exactImageBindings']==963
+          assert layout['stats']['disabledSourceImages']==11
+          assert layout['stats']['canvasWithEnabledEvidence']==4
+          assert layout['stats']['canvasWithRenderModeEvidence']==4
+          assert layout['stats']['disabledCanvases']==0
+          bindings={(s['sceneId'],b['nodeId'],b['componentId'])
+                    for s in layout['scenes'] for b in s['imageBindings']}
+          assert len(bindings)==963
+          assert all((p['sceneId'],p['nodeId'],p['sourceImageComponentId'])
+                     in bindings for p in plan['sprites'])
+          assert art['stats']['scene_nodes_mapped']['REF04-home-crew']==265
+          print('PASS exact original Image mapping:',len(bindings),
+                'disabled:',layout['stats']['disabledImagesByScene'])
+          PY
       - name: Check all 5 serialized Unity hierarchies are matched exactly
         run: |
           python - <<'PY'
@@ -206,6 +237,9 @@ jobs:
           python -c "import json; from pathlib import Path; x=json.loads(Path('output/original-unity-graph.json').read_text(encoding='utf-8')); assert len(x['scenes'])==5 and x['stats']['nodes']==1670; print('ORIGINAL GRAPH WINDOWS PASS:', x['stats'])"
       - name: Extract exact XAPK layout evidence on Windows
         run: python tools/export_local_ui_layout.py
+      - name: Check 963 source Image bindings and 11 disabled Images on Windows
+        run: |
+          python -c "import json; from pathlib import Path; d=json.loads(Path('output/local-ui-layout.json').read_text(encoding='utf-8')); assert d['version']==2 and d['stats']['exactImageBindings']==963 and d['stats']['disabledSourceImages']==11 and d['stats']['canvasWithEnabledEvidence']==4 and d['stats']['disabledCanvases']==0; print('WINDOWS VERIFIED UI IMAGE STATUS:',d['stats']['disabledImagesByScene'])"
       - name: Verify Windows evidence and no fake CanvasScaler claims
         run: |
           python -c "import json; from pathlib import Path; p=Path('output/local-ui-layout.json'); d=json.loads(p.read_text(encoding='utf-8')); assert d['stats']['verifiedTransforms']==1670; print('WINDOWS LAYOUT PASS:', d['stats'])"
