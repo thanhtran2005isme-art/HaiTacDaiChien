@@ -16,7 +16,9 @@ on:
       - 'tests/test_original_unity_graph.py'
       - 'tools/summarize_original_unity_gaps.py'
       - 'tools/decode_xapk_ui_provenance.py'
+      - 'tools/recover_managed_ui_fields.py'
       - 'tests/test_decode_xapk_ui_provenance.py'
+      - 'tests/test_recover_managed_ui_fields.py'
       - 'tests/test_original_unity_gaps.py'
       - '.github/workflows/local-art-decode.yml'
   workflow_dispatch:
@@ -106,6 +108,8 @@ jobs:
         run: python tools/audit_original_unity_graph.py
       - name: Test source-linked IL2CPP and UI field evidence
         run: python -m unittest discover -s tests -p test_decode_xapk_ui_provenance.py -v
+      - name: Verify strict optional managed TypeTree recovery guards
+        run: python -m unittest discover -s tests -p test_recover_managed_ui_fields.py -v
       - name: Audit exact MonoScript, UI managed fields and IL2CPP metadata locally
         run: python tools/decode_xapk_ui_provenance.py
       - name: Require deep UI evidence preserves source component identities
@@ -257,6 +261,8 @@ jobs:
         run: python tools/audit_original_unity_graph.py
       - name: Test source-linked IL2CPP and UI field evidence on Windows
         run: python -m unittest discover -s tests -p test_decode_xapk_ui_provenance.py -v
+      - name: Verify optional source-only TypeTree recovery guards on Windows
+        run: python -m unittest discover -s tests -p test_recover_managed_ui_fields.py -v
       - name: Audit native MonoScript and managed UI source field IDs on Windows
         run: python tools/decode_xapk_ui_provenance.py
       - name: Require 5346 original component records in Windows deep audit
