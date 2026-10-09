@@ -41,6 +41,12 @@ if not exist "%~dp0output\local-spine\manifest.json" (
         if errorlevel 1 echo [WARN] Chua tao duoc Spine pack. Xem CHUAN_BI_DO_HOA.bat.
     )
 )
+if exist "%~dp0output\local-ui-art\manifest.json" (
+    if not exist "%~dp0output\unity-prefab-map.json" (
+        %PY_CMD% "%~dp0tools\build_unity_prefab_manifest.py"
+        if errorlevel 1 echo [WARN] Khong the tao danh sach phuc hoi Canvas cho Unity.
+    )
+)
 %PY_CMD% "%~dp0tools\serve_ui_viewer.py"
 echo.
 echo Nhan phim bat ky de dong.
