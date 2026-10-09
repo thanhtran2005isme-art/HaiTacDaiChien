@@ -118,6 +118,11 @@ jobs:
           assert d['status']=='VERIFIED_POINTER_AUDIT_NOT_FIELD_OFFSET_RECOVERY'
           assert len(d['scenes'])==5 and d['stats']['componentCount']==5346
           assert d['il2cpp']['files']
+          assert d['globalMonoScriptResolution']['resolved']==2320
+          assert d['globalMonoScriptResolution']['ambiguous']==0
+          assert d['stats']['statuses']['NO_MANAGED_TYPETREE']==1201
+          assert any(x['status']=='V31_HEADER_VALIDATED_NAME_HINTS_ONLY'
+                     for x in d['il2cpp']['files'])
           assert all(len({x['pathId'] for x in s['components']})==len(s['components'])
                      for s in d['scenes'])
           assert all(x['status']!='SERIALIZED_FIELDS_VERIFIED' or
@@ -256,7 +261,7 @@ jobs:
         run: python tools/decode_xapk_ui_provenance.py
       - name: Require 5346 original component records in Windows deep audit
         run: |
-          python -c "import json; from pathlib import Path; d=json.loads(Path('output/deep-ui-source-evidence.json').read_text(encoding='utf-8')); assert len(d['scenes'])==5 and d['stats']['componentCount']==5346; print('DEEP XAPK WINDOWS PASS:',d['stats']['statuses'])"
+          python -c "import json; from pathlib import Path; d=json.loads(Path('output/deep-ui-source-evidence.json').read_text(encoding='utf-8')); assert len(d['scenes'])==5 and d['stats']['componentCount']==5346 and d['globalMonoScriptResolution']['resolved']==2320 and d['stats']['statuses']['NO_MANAGED_TYPETREE']==1201; print('DEEP XAPK WINDOWS PASS:',d['stats']['statuses'])"
       - name: Test local component gap reporter on Windows
         run: python -m unittest discover -s tests -p test_original_unity_gaps.py -v
       - name: Report full component gaps on Windows
