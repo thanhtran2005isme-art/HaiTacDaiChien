@@ -33,6 +33,18 @@ These components are now in individual same-named files:
 `ReconstructionEvidence.cs`, `SpineReferenceEvidence.cs`,
 `UiComponentEvidence.cs`.
 
+**Stale prefab recovery:** After updating, the Reconstruct command cleans broken
+MonoScript components **only in existing locally-generated prefabs** under
+`Assets/LocalReconstruction/Prefabs`. It checks the new source GameObject
+and the saved Prefab for any remaining missing scripts, and aborts instead
+of silently writing another corrupted scene. This operation overwrites the
+five generated prefab/scene candidates; back up that local generated folder
+first if you manually edited those candidates. Do not delete XAPK, Sprite
+output, original source scripts or `ProjectSettings`.
+A cleared/empty Console is not proof of no missing scripts: the Inspector
+may still show a broken serialized component until the generated prefab is
+rebuilt.
+
 Close Unity Editor, `git pull origin main`, then reopen via Unity Hub.
 **Do not re-extract the XAPK** if `CHUAN_BI_DO_HOA.bat` already reported PASS.
 In the Editor, choose **Tools → HaiTac Offline UI Viewer → Reconstruct 5 local
