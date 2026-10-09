@@ -73,6 +73,7 @@ namespace HaiTac.OfflineViewer.Editor
             public float[] rotation;
             public float[] localScale;
             public float localPositionZ;
+            public bool hasLocalPositionZ;
         }
 
         [Serializable] private class LayoutCanvas
@@ -591,9 +592,10 @@ namespace HaiTac.OfflineViewer.Editor
                     if (mappedLayout.TryGetValue(node.id, out var sourceNode))
                     {
                         transform.localRotation = ReadRotation(sourceNode.rotation);
-                        transform.anchoredPosition3D = new Vector3(
-                            transform.anchoredPosition.x, transform.anchoredPosition.y,
-                            sourceNode.localPositionZ);
+                        if (sourceNode.hasLocalPositionZ)
+                            transform.anchoredPosition3D = new Vector3(
+                                transform.anchoredPosition.x, transform.anchoredPosition.y,
+                                sourceNode.localPositionZ);
                         if (sourceNode.localScale != null && sourceNode.localScale.Length == 3)
                             transform.localScale = new Vector3(sourceNode.localScale[0],
                                 sourceNode.localScale[1], sourceNode.localScale[2]);
