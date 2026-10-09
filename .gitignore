@@ -24,3 +24,13 @@ __pycache__/
 # Unity Editor imports/reconstructed local scenes: contain XAPK art, NEVER publish
 /unity-ui-viewer/Assets/LocalReconstruction/
 /unity-ui-viewer/Assets/LocalReconstruction.meta
+
+# Optional licensed Esoteric spine-unity runtime is LOCAL ONLY.
+# Do not upload runtime packages, vendor code or imported game artwork to GitHub.
+/unity-ui-viewer/Assets/Spine/
+/unity-ui-viewer/Assets/Spine.meta
+/unity-ui-viewer/Assets/Spine Examples/
+/unity-ui-viewer/Assets/Spine Examples.meta
+/unity-ui-viewer/Assets/Spine-Unity/
+/unity-ui-viewer/Assets/Spine-Unity.meta
+*.unitypackage
