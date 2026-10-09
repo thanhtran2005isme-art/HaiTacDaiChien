@@ -93,6 +93,12 @@ namespace HaiTac.OfflineViewer.Editor
         [Serializable] private class LayoutCanvas
         {
             public int nodeId;
+            public bool hasEnabled;
+            public bool enabled;
+            public bool hasRenderMode;
+            public int renderMode;
+            public bool hasTargetDisplay;
+            public int targetDisplay;
             public bool hasSortingOrder;
             public int sortingOrder;
             public bool hasOverrideSorting;
@@ -830,10 +836,13 @@ namespace HaiTac.OfflineViewer.Editor
         private static void ApplyCanvasSettings(Canvas canvas, LayoutCanvas record)
         {
             if (record == null) return;
+            if (record.hasEnabled) canvas.enabled = record.enabled;
             if (record.hasOverrideSorting) canvas.overrideSorting = record.overrideSorting;
             if (record.hasSortingOrder) canvas.sortingOrder = record.sortingOrder;
             if (record.hasPixelPerfect) canvas.pixelPerfect = record.pixelPerfect;
-            // No guess at original render mode, CanvasScaler or camera reference.
+            // ScreenSpaceCamera / WorldSpace depend on source Camera and runtime
+            // CanvasScaler. Record original mode but do not change render mode
+            // until the complete camera & parent linkage is independently proven.
         }
 
         private static void ApplyImageSettings(Image image, LayoutImage record)
@@ -929,6 +938,10 @@ namespace HaiTac.OfflineViewer.Editor
                 var exactImage = layout == null
                     ? new Dictionary<int, LayoutImageBinding>()
                     : layout.imageBindings.ToDictionary(binding => binding.nodeId);
+                int sourceCanvasesWithRenderMode = layout == null ? 0 :
+                    layout.canvases.Count(record => record.hasRenderMode);
+                int sourceDisabledCanvases = layout == null ? 0 :
+                    layout.canvases.Count(record => record.hasEnabled && !record.enabled);
                 int sourceDisabledImages = 0;
                 int sourceUnverifiedImages = 0;
                 var mappedImage = layout == null
@@ -1012,6 +1025,10 @@ namespace HaiTac.OfflineViewer.Editor
                         child.AddComponent<RectMask2D>();
                     // No callbacks or business behavior are inferred for Button/Text.
                 }
+                Debug.Log("[HaiTac Canvas evidence] " + scene.id +
+                    ": disabled serialized Canvas=" + sourceDisabledCanvases +
+                    ", render modes recorded=" + sourceCanvasesWithRenderMode +
+                    ". Camera/render mode and CanvasScaler runtime still NOT restored.");
                 Debug.Log("[HaiTac Image state] " + scene.id +
                     ": disabled source Image components=" + sourceDisabledImages +
                     ", enabled state unknown=" + sourceUnverifiedImages +
