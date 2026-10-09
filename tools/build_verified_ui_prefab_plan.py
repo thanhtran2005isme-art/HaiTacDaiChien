@@ -211,6 +211,45 @@ def prepare(studio, ripper, graph, graph_sha256):
     }
 
 
+def single_backend_review(studio, ripper):
+    """Index unsupported LayoutGroup values without exporting/applying them."""
+    left, _ = comparison.canonical_index(studio)
+    right, _ = comparison.canonical_index(ripper)
+    findings = []
+    for key in sorted(left):
+        l, r = left[key], right[key]
+        if (l.get("status") == comparison.SUCCEEDED and
+                r.get("status") != comparison.SUCCEEDED):
+            cls = l.get("className")
+            if cls not in (
+                "UnityEngine.UI.HorizontalLayoutGroup",
+                "UnityEngine.UI.VerticalLayoutGroup",
+            ):
+                raise ValueError("Unexpected singly verified class in review")
+            if r.get("binaryRecoveryCode") != "STRICT_PARSE_ValueError":
+                raise ValueError("Unexpected single-backend parser failure")
+            findings.append({
+                "sceneId": key[0], "componentPathId": key[1],
+                "gameObjectPathId": l["gameObjectId"],
+                "rectTransformPathId": l["rectTransformId"],
+                "className": cls,
+                "rawObjectSha256": l["binaryProof"]["rawObjectSha256"],
+                "fieldNames": sorted(l["fields"]),
+                "fieldCount": len(l["fields"]),
+                "crossBackendStatus": "UNVERIFIED_ASSETRIPPER_STRICT_PARSE",
+                "prefabImportAllowed": False,
+            })
+    if (len(findings) != EXPECTED_EXCLUDED or
+            sum(x["fieldCount"] for x in findings) != EXPECTED_EXCLUDED_FIELDS):
+        raise ValueError("Single-backend review count differs from source")
+    return {"schemaVersion": 1,
+            "classification": "SINGLE_BACKEND_UI_FIELDS_NOT_FOR_PREFAB_IMPORT",
+            "components": findings, "componentCount": len(findings),
+            "excludedFieldValues": sum(x["fieldCount"] for x in findings),
+            "warning": "Do not import single-backend UI fields. Review original "
+                       "serialized byte format and native layout independently."}
+
+
 def main():
     ap = argparse.ArgumentParser(description=__doc__)
     ap.add_argument("--root", type=Path, default=ROOT)
@@ -233,6 +272,14 @@ def main():
     temp.write_text(json.dumps(result, ensure_ascii=False, indent=2) + "\n",
                     encoding="utf-8")
     temp.replace(dest)
+    review = single_backend_review(
+        json.loads(studio.read_text(encoding="utf-8")),
+        json.loads(ripper.read_text(encoding="utf-8")))
+    review_path = root / "output/single-backend-layout-review.json"
+    review_tmp = review_path.with_suffix(".tmp")
+    review_tmp.write_text(json.dumps(review, ensure_ascii=False, indent=2) + "\\n",
+                          encoding="utf-8")
+    review_tmp.replace(review_path)
     print(json.dumps({
         "status": "STRICT_TWO_BACKEND_PREFAB_STUDY_PLAN",
         "verifiedComponents": result["verifiedComponents"],
