@@ -193,22 +193,28 @@ def extract(root, xapk=None, apk_dir=None, out=None, unitypy=None):
     output.mkdir(parents=True, exist_ok=True)
     exported, issues = {}, []
     apk_dir = apk_dir or (root / "output/apks")
+    if xapk is None:
+        xapk = next(iter(sorted(root.glob("*.xapk"))), None)
+    source = "xapk"
+    # Prefer the authoritative XAPK over previously unpacked, potentially stale APKs.
+    # --apk-dir remains a supported explicit input when an XAPK is unavailable.
+    has_xapk = xapk is not None and xapk.is_file()
+    if has_xapk:
+        with xapk.open("rb") as stream:
+            is_pointer = stream.read(64).startswith(b"version https://git-lfs.github.com/")
+        if is_pointer:
+            raise RuntimeError("XAPK is only an LFS pointer. Run git lfs pull first.")
+        if not zipfile.is_zipfile(xapk):
+            raise RuntimeError("XAPK is invalid. Download a complete XAPK.")
+    elif not apk_dir.is_dir() or not list(apk_dir.glob("*.apk")):
+        raise RuntimeError("No XAPK or unpacked APKs found. Run git lfs pull first.")
     with tempfile.TemporaryDirectory(prefix="hai_ui_art_") as tmp:
         work = Path(tmp)
-        if apk_dir.is_dir() and list(apk_dir.glob("*.apk")):
+        if not has_xapk:
+            source = "apks"
             for apk in sorted(apk_dir.glob("*.apk")):
                 scan_apk(apk, apk.stem, expected, output, exported, issues, unitypy, work)
         else:
-            if xapk is None:
-                xapk = next(iter(root.glob("*.xapk")), None)
-            if not xapk or not xapk.is_file():
-                raise RuntimeError("No real XAPK/APKs found. Run git lfs pull first.")
-            with xapk.open("rb") as stream:
-                is_pointer = stream.read(48).startswith(b"version https://git-lfs.github.com/")
-            if is_pointer:
-                raise RuntimeError("XAPK is an LFS pointer. Run git lfs pull first.")
-            if not zipfile.is_zipfile(xapk):
-                raise RuntimeError("XAPK is not a valid ZIP archive.")
             with zipfile.ZipFile(xapk) as outer:
                 apks = [i for i in outer.infolist() if i.filename.lower().endswith(".apk")]
                 for i, member in enumerate(apks):
@@ -236,7 +242,7 @@ def extract(root, xapk=None, apk_dir=None, out=None, unitypy=None):
     else:
         manifest_path.unlink(missing_ok=True)
     result = {"status": "PASS" if manifest["files"] else "NO_DECODED_ART",
-              **manifest["stats"], "issues": issues[:20],
+              **manifest["stats"], "source": source, "issues": issues[:20],
               "manifest": str(output / "manifest.json")}
     return result
 
@@ -247,10 +253,15 @@ def main():
     parser.add_argument("--xapk", type=Path, default=None)
     parser.add_argument("--apk-dir", type=Path, default=None)
     args = parser.parse_args()
+    output = args.repo_root.resolve() / "output/local-ui-art"
+    output.mkdir(parents=True, exist_ok=True)
     try:
         result = extract(args.repo_root.resolve(), args.xapk, args.apk_dir)
     except (OSError, ValueError, RuntimeError, zipfile.BadZipFile) as exc:
-        parser.exit(1, "BLOCKED: " + str(exc) + "\n")
+        result = {"status": "BLOCKED", "reason": str(exc)[:300]}
+    status_path = output / "export-status.json"
+    status_path.write_text(json.dumps(result, ensure_ascii=False, indent=2) + "\n",
+                           encoding="utf-8")
     print(json.dumps(result, ensure_ascii=False, indent=2))
     if result["status"] != "PASS":
         raise SystemExit(1)
