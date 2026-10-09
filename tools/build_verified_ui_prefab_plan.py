@@ -16,6 +16,7 @@ from collections import Counter
 from pathlib import Path
 
 import compare_managed_ui_backends as comparison
+import recover_managed_ui_fields as recovery
 
 ROOT = Path(__file__).resolve().parents[1]
 CLASS_FIELDS = {
@@ -72,6 +73,8 @@ def _source_graph(graph):
 
 
 def _encode(name, kind, value):
+    if not recovery._valid_field(name, value):
+        raise ValueError("Invalid source field value/range: " + name)
     row = {"name": name, "kind": kind}
     if kind == "bool":
         if type(value) is not bool:
@@ -196,7 +199,7 @@ def prepare(studio, ripper, graph, graph_sha256):
         "sourceGraphSha256": graph_sha256,
         "sourceLibrarySha256": pa["library"]["sha256"],
         "sourceMetadataSha256": pa["metadata"]["sha256"],
-        "verifiedComponents": 1108,
+        "verifiedComponents": sum(class_counts.values()),
         "verifiedFieldValues": EXPECTED_FIELDS,
         "singleBackendExcludedComponents": EXPECTED_EXCLUDED,
         "singleBackendExcludedFieldValues": EXPECTED_EXCLUDED_FIELDS,
