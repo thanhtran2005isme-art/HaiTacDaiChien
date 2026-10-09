@@ -105,6 +105,12 @@ def inspect_component(reader, expected_kind, owner_go, registry):
         script, state, pointer = resolve_script(
             layout.get(head, "m_Script"), reader, registry)
         row.update(scriptPointer=pointer, scriptResolution=state)
+        if pointer["fileId"] > 0:
+            externals = layout.get(reader.assets_file, "externals", []) or []
+            if pointer["fileId"] <= len(externals):
+                source_path = layout.get(
+                    externals[pointer["fileId"] - 1], "path", "")
+                row["externalScriptAlias"] = refs.normalize(source_path)
         enabled = layout.get(head, "m_Enabled")
         if isinstance(enabled, (bool, int)) and enabled in (0, 1):
             row["nativeEnabled"] = bool(enabled)
@@ -156,6 +162,7 @@ def inspect_scene(scene, original, groups, registry):
                                     node["gameObjectId"], registry)
             row["rectTransformId"] = node["rectTransformId"]
             row["gameObjectId"] = node["gameObjectId"]
+            row["graphFieldStatus"] = prior["fieldStatus"]
             results.append(row)
     if len(results) != original["stats"]["componentReferences"]:
         raise ValueError("Source component counts changed")
@@ -169,6 +176,120 @@ def inspect_scene(scene, original, groups, registry):
                 counts["verifiedManagedFields"] += len(row["fields"])
     return {"sceneId": scene["id"], "sourceFile": scene["source"],
             "components": results, "stats": dict(counts)}
+
+
+def resolve_cross_bundle_scripts(xapk, scenes, unitypy=None):
+    """Read only MonoScript records from OTHER bundles referenced by source PPtrs.
+
+    The target is an exact (external file alias, MonoScript PathID), not a
+    filename/class-name guess. All Unity bundle files are scanned so alias
+    duplicates can be detected and rejected. No metadata binaries exported.
+    """
+    if unitypy is None:
+        import UnityPy as unitypy
+    wanted = collections.defaultdict(set)
+    for scene in scenes:
+        for component in scene["components"]:
+            if component["status"] != "SOURCE_SCRIPT_UNRESOLVED":
+                continue
+            alias = component.get("externalScriptAlias")
+            ptr = component.get("scriptPointer", {})
+            if alias and ptr.get("pathId", 0) > 0:
+                wanted[alias].add(ptr["pathId"])
+    if not wanted:
+        return {"resolved": 0, "ambiguous": 0, "scannedBundles": 0}
+
+    indexed = collections.defaultdict(set)
+    candidate_files = collections.defaultdict(set)
+    scanned = 0
+    with tempfile.TemporaryDirectory(prefix="haitac_monoscripts_") as tmp:
+        with zipfile.ZipFile(xapk) as outer:
+            for n, member in enumerate(outer.infolist()):
+                if member.is_dir() or not member.filename.lower().endswith(".apk"):
+                    continue
+                if member.file_size > layout.MAX_ARCHIVE:
+                    raise ValueError("Nested APK exceeds maximum supported size")
+                apk_file = Path(tmp) / (str(n) + ".apk")
+                with outer.open(member) as source, apk_file.open("wb") as dst:
+                    shutil.copyfileobj(source, dst, 1024 * 1024)
+                try:
+                    with zipfile.ZipFile(apk_file) as archive:
+                        for asset in archive.infolist():
+                            if asset.is_dir() or not asset.filename.lower().endswith(
+                                (".bundle", ".unity3d", ".assetbundle")
+                            ):
+                                continue
+                            if asset.file_size > layout.MAX_BUNDLE:
+                                raise ValueError("Unity asset bundle exceeds limit")
+                            with archive.open(asset) as stream:
+                                env = unitypy.load(stream.read())
+                            scanned += 1
+                            aliases_by_file = collections.defaultdict(set)
+                            for alias, assets_file in getattr(
+                                env, "files", {}).items():
+                                if hasattr(assets_file, "objects"):
+                                    aliases_by_file[id(assets_file)].add(
+                                        refs.normalize(alias))
+                            for item in env.objects:
+                                if item.type.name != "MonoScript":
+                                    continue
+                                af = item.assets_file
+                                names = set(aliases_by_file.get(id(af), set()))
+                                names.update(refs.aliases(af))
+                                useful = names.intersection(wanted)
+                                pid = int(item.path_id)
+                                if not useful or not any(
+                                    pid in wanted[alias] for alias in useful
+                                ):
+                                    continue
+                                info = script_identity(item)
+                                if info is None:
+                                    continue
+                                for alias in useful:
+                                    if pid not in wanted[alias]:
+                                        continue
+                                    key = (alias, pid)
+                                    indexed[key].add((info["class"], info["assembly"]))
+                                    # Unique serialized source is required, even
+                                    # when two bundles coincidentally share names.
+                                    candidate_files[key].add(
+                                        (n, asset.filename, id(af)))
+                finally:
+                    apk_file.unlink(missing_ok=True)
+
+    resolved = 0
+    ambiguous = 0
+    for scene in scenes:
+        for row in scene["components"]:
+            if row["status"] != "SOURCE_SCRIPT_UNRESOLVED":
+                continue
+            alias = row.get("externalScriptAlias")
+            pid = row.get("scriptPointer", {}).get("pathId")
+            key = (alias, pid)
+            choices = indexed.get(key, set())
+            if len(choices) != 1 or len(candidate_files.get(key, set())) != 1:
+                if choices:
+                    ambiguous += 1
+                    row["scriptResolution"] = "GLOBAL_SCRIPT_ALIAS_AMBIGUOUS"
+                continue
+            cls, assembly = next(iter(choices))
+            row.update(className=cls, assembly=assembly,
+                       scriptResolution="GLOBAL_XAPK_EXACT_FILE_ALIAS_PATHID")
+            if cls in UI_FIELDS:
+                row["expectedFields"] = UI_FIELDS[cls]
+                # Typetree status from a separately verified direct
+                # inspection of precisely this component path ID.
+                source_status = row.get("graphFieldStatus")
+                row["status"] = (
+                    "NO_MANAGED_TYPETREE" if source_status ==
+                    "managed_fields_unavailable"
+                    else "TYPE_TREE_RECHECK_REQUIRED"
+                )
+            else:
+                row["status"] = "NOT_TARGET"
+            resolved += 1
+    return {"resolved": resolved, "ambiguous": ambiguous,
+            "scannedBundles": scanned}
 
 
 def inspect_il2cpp_header(apk_dir, xapk=None):
@@ -284,15 +405,30 @@ def build(root=ROOT, xapk=None, unitypy=None):
     layout.build(root=root, xapk=xapk, unitypy=Interceptor())
     if len(completed) != 5:
         raise ValueError("Not all original XAPK candidate serialized files found")
+    canonical_xapk = xapk or next(iter(sorted(root.glob("*.xapk"))), None)
+    if canonical_xapk is None:
+        raise FileNotFoundError("Canonical XAPK not found")
+    cross = resolve_cross_bundle_scripts(canonical_xapk, analyzed, unitypy)
+    # Recompute class counts AFTER global source MonoScript resolution.
+    for item in analyzed:
+        stats = collections.Counter()
+        for row in item["components"]:
+            stats[row["status"]] += 1
+            if row.get("className") in UI_FIELDS:
+                stats["recognizedUIClasses"] += 1
+                stats["class:" + row["className"]] += 1
+                if row["status"] == "SERIALIZED_FIELDS_VERIFIED":
+                    stats["verifiedManagedFields"] += len(row["fields"])
+        item["stats"] = dict(stats)
     summary = summarize(analyzed)
     if summary["componentCount"] != graph["stats"]["components"]:
         raise ValueError("Exact source component count mismatch")
-    canonical_xapk = xapk or next(iter(sorted(root.glob("*.xapk"))), None)
     return {
         "schemaVersion": 1,
         "status": "VERIFIED_POINTER_AUDIT_NOT_FIELD_OFFSET_RECOVERY",
         "scenes": sorted(analyzed, key=lambda x: x["sceneId"]),
         "stats": summary,
+        "globalMonoScriptResolution": cross,
         "il2cpp": inspect_il2cpp_header(root / "output/apks", canonical_xapk),
         "warning": "Never synthesize masked UI/layout or interpret arbitrary "
                    "IL2CPP metadata strings as serialized component values."
@@ -360,7 +496,8 @@ def main():
     print(json.dumps({
         "status": data["status"], "components": data["stats"]["componentCount"],
         "managedFieldNames": data["stats"]["verifiedManagedFields"],
-        "metadataFiles": len(data["il2cpp"]["files"])
+        "metadataFiles": len(data["il2cpp"]["files"]),
+        "globalMonoScripts": data["globalMonoScriptResolution"]
     }, ensure_ascii=False))
 
 
