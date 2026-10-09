@@ -123,6 +123,16 @@ class BinaryProofTests(unittest.TestCase):
         self.assertTrue(proof["exactSourcePointerChecked"])
         self.assertEqual(proof["method"], "SOURCE_IL2CPP_GENERATED_TYPETREE")
 
+    def test_derived_image_root_with_exact_native_header_is_valid(self):
+        class DerivedGenerator:
+            def get_nodes_up(self, assembly, cls):
+                return Root(root_type="Image")
+        reader = StrictReader()
+        fields, proof = binary.verified_fields(reader, ROW, DerivedGenerator())
+        self.assertEqual(fields["m_Type"], 2)
+        self.assertTrue(reader.strict)
+        self.assertEqual(proof["method"], "SOURCE_IL2CPP_GENERATED_TYPETREE")
+
     def test_stage_specific_generation_assertion_does_not_claim_decode(self):
         class BrokenGenerator:
             def get_nodes_up(self, assembly, cls):
