@@ -75,6 +75,16 @@ class TestUnityReconstructionPlan(unittest.TestCase):
         self.assertIn("Local Preview Camera", source)
         self.assertIn("Zero-scale reconstructed Canvas", source)
         self.assertIn("Audit 5 generated Canvas scenes", source)
+        # Regression for the actual Unity Editor failure:
+        # InvalidDataException: Zero-scale reconstructed Canvas: REF01-ship-upgrade
+        self.assertIn("rect.localScale = Vector3.one;", source)
+        self.assertIn("instance.transform.localScale = Vector3.one;", source)
+        self.assertLess(source.index("rect.localScale = Vector3.one;"),
+                        source.index("PrefabUtility.SaveAsPrefabAsset(go, prefabPath)"))
+        self.assertIn("EnsurePreviewCamera(newScene);", source)
+        self.assertIn("Repair existing 5 scenes (Camera + Canvas scale)", source)
+        self.assertIn("EditorSceneManager.SaveScene(opened, path)", source)
+        self.assertIn("camera.enabled = true;", source)
 
     def test_reject_private_image_paths(self):
         scenes, art, comps, candidates = self.fixture()
