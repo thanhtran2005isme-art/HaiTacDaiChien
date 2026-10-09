@@ -79,19 +79,28 @@ def choose_serialized_file(scene, groups):
     nodes = scene["nodes"]
     wanted = {int(node["id"]) for node in nodes}
     minimum = max(2, math.ceil(len(wanted) * 0.8))
-    choices = []
-    for readers in groups.values():
-        root = readers.get(int(scene["rootTransform"]))
-        if root is None or root.type.name != "RectTransform":
-            continue
-        covered = sum(readers.get(pid) is not None and
-                      readers[pid].type.name == "RectTransform" for pid in wanted)
-        if covered >= minimum:
-            choices.append((covered, readers))
-    if len(choices) != 1:
-        raise ValueError("Expected one serialized RectTransform file for " +
-                         scene["id"] + "; matching files=" + str(len(choices)))
-    return choices[0][1]
+    # ui_hierarchy.py originally assigned __fileNNN by enumerating each
+    # SerializedFile *in encounter order* inside a Unity bundle. Path IDs can
+    # legitimately repeat in multiple SerializedFiles containing UI prefabs,
+    # so a global "best matching IDs" heuristic is unsafe.
+    if "__file" not in scene.get("source", ""):
+        raise ValueError("Serialized file identity missing from source metadata")
+    try:
+        index = int(scene["source"].rsplit("__file", 1)[1])
+    except (TypeError, ValueError) as exc:
+        raise ValueError("Malformed serialized file index") from exc
+    parts = list(groups.values())
+    if index < 0 or index >= len(parts):
+        raise ValueError("Serialized file index out of range for " + scene["id"])
+    readers = parts[index]
+    root = readers.get(int(scene["rootTransform"]))
+    covered = sum(readers.get(pid) is not None and
+                  readers[pid].type.name == "RectTransform" for pid in wanted)
+    if root is None or root.type.name != "RectTransform" or covered < minimum:
+        raise ValueError("Serialized file order or RectTransform coverage changed for " +
+                         scene["id"] + " (" + str(covered) + "/" +
+                         str(len(wanted)) + ")")
+    return readers
 
 
 def verified_scene(scene, readers, image_rows):
