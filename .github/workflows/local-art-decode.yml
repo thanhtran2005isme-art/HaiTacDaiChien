@@ -23,7 +23,11 @@ jobs:
           python-version: '3.11'
       - name: Install Unity sprite decoding tools
         run: python -m pip install UnityPy Pillow
-      - name: Extract local-only Sprite PNGs
+      - name: Simulate stale previously unpacked APKs
+        run: |
+          mkdir -p output/apks
+          printf "stale apk" > output/apks/old.apk
+      - name: Extract local-only Sprite PNGs from canonical XAPK
         run: python tools/export_local_ui_art.py
       - name: Verify decoded PNGs and mapped scene paths
         run: |
