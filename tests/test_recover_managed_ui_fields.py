@@ -36,7 +36,7 @@ class StrictReader:
     def get_raw_data(self):
         return b"source-serialized-object"
     def read_typetree(self, nodes, check_read=False):
-        assert nodes.m_Type == "MonoBehaviour"
+        assert nodes.m_Type in ("MonoBehaviour", "Image")
         self.strict = check_read
         return self.tree
 
