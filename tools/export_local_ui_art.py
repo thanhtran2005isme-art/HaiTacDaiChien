@@ -87,9 +87,10 @@ def resolve_bundle_label(apk_label, inner_path, expected):
     return matches[0] if len(matches) == 1 else None
 
 
-def export_bundle(path, bundle_label, expected, output, exported, issues, unitypy):
+def export_bundle(bundle_bytes, bundle_label, expected, output, exported, issues, unitypy):
+    """Load from memory: UnityPy cannot hold an open temporary file on Windows."""
     try:
-        env = unitypy.load(str(path))
+        env = unitypy.load(bundle_bytes)
     except Exception as exc:
         issues.append("Cannot read Unity bundle: " + str(exc)[:160])
         return
@@ -165,13 +166,13 @@ def scan_apk(apk, apk_label, expected, output, exported, issues, unitypy, work):
                 if item.file_size > 1024 * 1024 * 1024:
                     issues.append("Oversized bundle skipped")
                     continue
-                bundle = work / ("bundle_" + str(index) + ".unity3d")
-                with z.open(item) as src, bundle.open("wb") as dst:
-                    shutil.copyfileobj(src, dst)
-                try:
-                    export_bundle(bundle, label, expected, output, exported, issues, unitypy)
-                finally:
-                    bundle.unlink(missing_ok=True)
+                # Reading an archive member as bytes avoids UnityPy retaining a
+                # memory-mapped Windows handle when the temporary file is removed.
+                # Files are bounded above and no bundle is written to disk.
+                with z.open(item) as src:
+                    bundle_bytes = src.read()
+                export_bundle(bundle_bytes, label, expected, output, exported, issues, unitypy)
+                del bundle_bytes
     except (OSError, zipfile.BadZipFile) as exc:
         issues.append("Cannot read APK: " + str(exc)[:160])
 
