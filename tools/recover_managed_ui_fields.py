@@ -214,10 +214,12 @@ def verified_fields(reader, row, generator):
             row.get("scriptResolution") not in
             ("LOCAL_PATHID", "EXTERNAL_RESOLVED", "UNITYPY_DEREF",
              "GLOBAL_XAPK_EXACT_FILE_ALIAS_PATHID")):
-        raise RecoveryBlocked("Missing exact MonoBehaviour/MonoScript provenance")
+        raise RecoveryBlocked("Missing exact MonoBehaviour/MonoScript provenance",
+                              phase="source_identity", code="SOURCE_IDENTITY_MISSING")
     raw = reader.get_raw_data()
     if not raw or len(raw) > MAX_OBJECT:
-        raise RecoveryBlocked("Serialized object is absent or oversized")
+        raise RecoveryBlocked("Serialized object is absent or oversized",
+                              phase="source_identity", code="OBJECT_BYTES_INVALID")
     try:
         nodes = generator.get_nodes_up(row["assembly"], row["className"])
     except Exception as exc:
@@ -258,27 +260,33 @@ def verified_fields(reader, row, generator):
             frame=_safe_exception_frame(exc), tree=shape,
         ) from exc
     if not isinstance(decoded, dict):
-        raise RecoveryBlocked("Generated data is not an object")
+        raise RecoveryBlocked("Generated data is not an object",
+                              phase="source_compare", code="DECODED_NOT_OBJECT")
     if refs.pptr(decoded.get("m_GameObject")) != (0, row["gameObjectId"]):
-        raise RecoveryBlocked("Decoded GameObject owner does not match source")
+        raise RecoveryBlocked("Decoded GameObject owner does not match source",
+                              phase="source_compare", code="GAMEOBJECT_POINTER_MISMATCH")
     expected = row.get("scriptPointer", {})
     if refs.pptr(decoded.get("m_Script")) != (
         expected.get("fileId"), expected.get("pathId")
     ):
-        raise RecoveryBlocked("Decoded MonoScript pointer does not match source")
+        raise RecoveryBlocked("Decoded MonoScript pointer does not match source",
+                              phase="source_compare", code="MONOSCRIPT_POINTER_MISMATCH")
     if ("nativeEnabled" in row and
             decoded.get("m_Enabled") != row["nativeEnabled"]):
-        raise RecoveryBlocked("Decoded enabled flag contradicts source header")
+        raise RecoveryBlocked("Decoded enabled flag contradicts source header",
+                              phase="source_compare", code="ENABLED_VALUE_MISMATCH")
     fields = {}
     for name in ui.FIELDS[row["className"]]:
         if name not in decoded:
             continue
         value = ui.plain(decoded[name])
         if value is None or not _valid_field(name, value):
-            raise RecoveryBlocked("Invalid recovered UI field: " + name)
+            raise RecoveryBlocked("Invalid recovered UI field: " + name,
+                                  phase="field_validation", code="FIELD_VALUE_INVALID")
         fields[name] = value
     if not fields:
-        raise RecoveryBlocked("No target managed fields in generated TypeTree")
+        raise RecoveryBlocked("No target managed fields in generated TypeTree",
+                              phase="field_validation", code="NO_TARGET_FIELDS")
     return fields, {
         "method": "SOURCE_IL2CPP_GENERATED_TYPETREE",
         "rawObjectSha256": hashlib.sha256(raw).hexdigest(),
