@@ -9,7 +9,7 @@ const state = {
   database: null, scene: 0, filter: "all", showInactive: true,
   zoom: 1, selectedId: null, demoLevel: 1,
   geometry: new Map(), elements: new Map(),
-  assets: null, autoArt: null, manualAssets: new Map(), referenceImages: new Map(),
+  assets: null, autoArt: null, artStatus: null, manualAssets: new Map(), referenceImages: new Map(),
   objectUrls: new Map(),
   boundsVisible: false,
 };
@@ -70,8 +70,12 @@ function updateVisualStatus(drawn = null) {
   $("visual-info").textContent = (matched + automatic) ?
     "Đang hiển thị ảnh từ dữ liệu local. " + parts.join(" · ") +
       ". Bố cục vẫn là ước tính từ RectTransform." :
-    "Chưa có ảnh tự động cho scene này. " + parts.join(" · ") +
-      ". Chạy CHUAN_BI_DO_HOA.bat để giải mã XAPK, hoặc gán ảnh thủ công.";
+    "Chưa có ảnh Sprite tự động. " + parts.join(" · ") +
+      ". " + (state.artStatus === "export_failed" ?
+        "Lần giải mã trên máy đã thất bại. Xem output/local-ui-art/export-status.json và chạy lại CHUAN_BI_DO_HOA.bat." :
+        state.artStatus === "missing_png" || state.artStatus === "invalid_manifest" ?
+        "Dữ liệu ảnh local không hợp lệ hoặc thiếu tệp. Hãy xuất lại bằng CHUAN_BI_DO_HOA.bat." :
+        "Chạy CHUAN_BI_DO_HOA.bat để giải mã Sprite trước khi mở Web UI.")
 }
 
 function refreshArt() {
@@ -541,20 +545,31 @@ async function bootstrap() {
   }
   state.database = db;
   try {
-    const artResponse = await fetch("/local-art/manifest.json", {cache: "no-store"});
-    if (artResponse.ok) {
-      const manifest = await artResponse.json();
-      if (manifest.version === 1 && Array.isArray(manifest.files) &&
-          manifest.scenes && typeof manifest.scenes === "object") {
-        state.autoArt = manifest;
-        stage.classList.add("has-auto-art");
+    const statusResponse = await fetch("/local-art/status.json", {cache: "no-store"});
+    if (statusResponse.ok) {
+      const artState = await statusResponse.json();
+      state.artStatus = artState.status;
+      if (artState.status === "ready") {
+        const artResponse = await fetch("/local-art/manifest.json", {cache: "no-store"});
+        if (!artResponse.ok) throw new Error("Manifest Sprite chưa sẵn sàng.");
+        const manifest = await artResponse.json();
+        if (manifest.version === 1 && Array.isArray(manifest.files) &&
+            manifest.scenes && typeof manifest.scenes === "object") {
+          state.autoArt = manifest;
+          stage.classList.add("has-auto-art");
+          $("asset-status").textContent = artState.sprite_count +
+            " Sprite đã giải mã · " + artState.mapped_nodes +
+            " vị trí UI ánh xạ. Không cần chọn ảnh thủ công.";
+        }
+      } else {
         $("asset-status").textContent =
-          "Đã có " + manifest.stats?.sprite_images_exported +
-          " Sprite từ XAPK. Ảnh tự động được ưu tiên khi không gán thủ công.";
+          "Sprite tự động: " + artState.status +
+          ". Chạy CHUAN_BI_DO_HOA.bat; kiểm tra file output/local-ui-art/export-status.json.";
       }
     }
-  } catch (_) {
-    // No local extraction yet: retain the existing wireframe and manual picker.
+  } catch (err) {
+    state.artStatus = "connection_error";
+    $("asset-status").textContent = "Không đọc được tình trạng Sprite trên máy: " + String(err.message);
   }
   makeSceneMenu();
   switchScene(0);
