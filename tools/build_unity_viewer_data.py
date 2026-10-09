@@ -167,7 +167,7 @@ def build(root):
             "confidence": ref["confidence"],
             "expectedNodes": int(ref["tree_nodes"]),
             "linkedImageEntries": int(ref["linked_images"]),
-            "unlinkedImageEntries": int(ref["unresolved_images"]),
+            "unlinkedImageEntries": missing_count,
             "nodeCount": len(nodes),
             "nodes": nodes,
         }
@@ -200,6 +200,8 @@ def validate(data):
                 raise ValueError("Invalid rect in " + scene["id"])
         if len(nodes) != scene["nodeCount"]:
             raise ValueError("Node count mismatch")
+        if sum(n["missingImages"] for n in nodes) != scene["unlinkedImageEntries"]:
+            raise ValueError("Missing Image count does not match node inventory")
 
 
 def main():
