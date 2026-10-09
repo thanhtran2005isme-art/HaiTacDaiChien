@@ -668,6 +668,15 @@ namespace HaiTac.OfflineViewer.Editor
                 string atlasPath = CopySource(pack.atlas, true);
                 var textures = pack.pages.Select(page =>
                     AssetDatabase.LoadAssetAtPath<Texture2D>(CopySource(page, false))).ToArray();
+                // The real Spine-Unity importer watches .atlas.txt and .json.
+                // These must be reimported AFTER all page textures are present;
+                // otherwise the first import may generate incomplete atlas/materials.
+                // Without the licensed runtime installed this is a safe no-op
+                // (the raw sources are still imported as Unity assets).
+                AssetDatabase.ImportAsset(atlasPath, ImportAssetOptions.ForceUpdate |
+                    ImportAssetOptions.ForceSynchronousImport);
+                AssetDatabase.ImportAsset(skeletonPath, ImportAssetOptions.ForceUpdate |
+                    ImportAssetOptions.ForceSynchronousImport);
                 var skeleton = AssetDatabase.LoadAssetAtPath<TextAsset>(skeletonPath);
                 var atlas = AssetDatabase.LoadAssetAtPath<TextAsset>(atlasPath);
                 if (skeleton == null || atlas == null || textures.Any(tex => tex == null))
