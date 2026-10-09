@@ -51,6 +51,62 @@ namespace HaiTac.OfflineViewer.Editor
             public int candidateCount;
         }
 
+        // Optional evidence file is generated locally from the real XAPK,
+        // never from screenshot positions. JsonUtility ignores unknown fields.
+        [Serializable] private class LayoutDatabase
+        {
+            public int version;
+            public LayoutScene[] scenes;
+        }
+
+        [Serializable] private class LayoutScene
+        {
+            public string sceneId;
+            public LayoutNode[] nodes;
+            public LayoutCanvas[] canvases;
+            public LayoutImage[] images;
+        }
+
+        [Serializable] private class LayoutNode
+        {
+            public int nodeId;
+            public float[] rotation;
+            public float[] localScale;
+            public float localPositionZ;
+        }
+
+        [Serializable] private class LayoutCanvas
+        {
+            public int nodeId;
+            public bool hasSortingOrder;
+            public int sortingOrder;
+            public bool hasOverrideSorting;
+            public bool overrideSorting;
+            public bool hasPixelPerfect;
+            public bool pixelPerfect;
+        }
+
+        [Serializable] private class LayoutImage
+        {
+            public int nodeId;
+            public bool hasType;
+            public int type;
+            public bool hasPreserveAspect;
+            public bool preserveAspect;
+            public bool hasFillMethod;
+            public int fillMethod;
+            public bool hasFillAmount;
+            public float fillAmount;
+            public bool hasFillOrigin;
+            public int fillOrigin;
+            public bool hasFillClockwise;
+            public bool fillClockwise;
+            public bool hasRaycastTarget;
+            public bool raycastTarget;
+            public bool hasColor;
+            public float[] color;
+        }
+
         [MenuItem("Tools/HaiTac Offline UI Viewer/Reconstruct 5 local Canvas prefabs")]
         public static void ReconstructFromLocalXapk()
         {
@@ -74,6 +130,9 @@ namespace HaiTac.OfflineViewer.Editor
                     plan == null || plan.schemaVersion != 1 || plan.sprites == null ||
                     plan.spine == null)
                     throw new InvalidDataException("Invalid reconstruction input schema.");
+                // Strict validation: do not silently bind stale evidence to
+                // GameObjects whose IDs have changed in a different XAPK.
+                var verifiedLayout = ReadLayoutEvidence(root, scenes);
                 EnsureFolders();
                 var sprites = ImportSprites(plan.sprites, artFolder);
                 var art = new Dictionary<string, Dictionary<int, Sprite>>();
@@ -98,7 +157,8 @@ namespace HaiTac.OfflineViewer.Editor
                         throw new InvalidDataException("Invalid scene root or ID: " + scene.id);
                     var sceneSpine = plan.spine.Where(e => e.sceneId == scene.id).ToArray();
                     art.TryGetValue(scene.id, out var sceneArt);
-                    BuildPrefabAndScene(scene, sceneArt, sceneSpine);
+                    verifiedLayout.TryGetValue(scene.id, out var nativeLayout);
+                    BuildPrefabAndScene(scene, sceneArt, sceneSpine, nativeLayout);
                     generated++;
                 }
                 AssetDatabase.SaveAssets();
@@ -351,6 +411,87 @@ namespace HaiTac.OfflineViewer.Editor
             return output;
         }
 
+        private static Dictionary<string, LayoutScene> ReadLayoutEvidence(
+            string root, ViewerDatabase source)
+        {
+            var evidence = new Dictionary<string, LayoutScene>();
+            string filename = Path.Combine(root, "output", "local-ui-layout.json");
+            if (!File.Exists(filename))
+            {
+                Debug.LogWarning("[HaiTac] Exact serialized layout evidence not present. " +
+                    "Run py -3 tools/export_local_ui_layout.py from the repo root. " +
+                    "Falling back to known 2D metadata without guessed rotation.");
+                return evidence;
+            }
+            var db = JsonUtility.FromJson<LayoutDatabase>(File.ReadAllText(filename));
+            if (db == null || db.version != 1 || db.scenes == null ||
+                db.scenes.Length != source.scenes.Length)
+                throw new InvalidDataException("Layout evidence has wrong version or scene count.");
+            var expected = source.scenes.ToDictionary(scene => scene.id);
+            foreach (var item in db.scenes)
+            {
+                if (item == null || !expected.TryGetValue(item.sceneId, out var original) ||
+                    item.nodes == null || item.nodes.Length != original.nodes.Length ||
+                    item.canvases == null || item.images == null ||
+                    evidence.ContainsKey(item.sceneId))
+                    throw new InvalidDataException("Stale or incomplete layout evidence: " +
+                                                   (item == null ? "(null)" : item.sceneId));
+                var ids = new HashSet<int>(original.nodes.Select(node => node.id));
+                if (item.nodes.Select(node => node.nodeId).Distinct().Count() != ids.Count ||
+                    item.nodes.Any(node => !ids.Contains(node.nodeId)) ||
+                    item.canvases.Any(canvas => !ids.Contains(canvas.nodeId)) ||
+                    item.images.Any(image => !ids.Contains(image.nodeId)))
+                    throw new InvalidDataException("Layout evidence transform ID mismatch: " +
+                                                   item.sceneId);
+                evidence.Add(item.sceneId, item);
+            }
+            Debug.Log("[HaiTac] Verified XAPK layout evidence: " + evidence.Count +
+                      " scenes; CanvasScaler runtime resolution still unknown.");
+            return evidence;
+        }
+
+        private static Quaternion ReadRotation(float[] value)
+        {
+            if (value == null || value.Length != 4 ||
+                value.Any(x => float.IsNaN(x) || float.IsInfinity(x)))
+                return Quaternion.identity;
+            var rotation = new Quaternion(value[0], value[1], value[2], value[3]);
+            return rotation.normalized;
+        }
+
+        private static void ApplyCanvasSettings(Canvas canvas, LayoutCanvas record)
+        {
+            if (record == null) return;
+            if (record.hasOverrideSorting) canvas.overrideSorting = record.overrideSorting;
+            if (record.hasSortingOrder) canvas.sortingOrder = record.sortingOrder;
+            if (record.hasPixelPerfect) canvas.pixelPerfect = record.pixelPerfect;
+            // No guess at original render mode, CanvasScaler or camera reference.
+        }
+
+        private static void ApplyImageSettings(Image image, LayoutImage record)
+        {
+            if (record == null) return;
+            if (record.hasColor && record.color != null && record.color.Length == 4)
+                image.color = new Color(record.color[0], record.color[1],
+                                        record.color[2], record.color[3]);
+            if (record.hasPreserveAspect) image.preserveAspect = record.preserveAspect;
+            if (record.hasRaycastTarget) image.raycastTarget = record.raycastTarget;
+            // Sliced/Tiled need original sprite border/pixels-per-unit metadata,
+            // which PNG extraction does not preserve. Never simulate their sizes.
+            if (record.hasType && (record.type == 0 || record.type == 3))
+                image.type = (Image.Type)record.type;
+            if (image.type == Image.Type.Filled)
+            {
+                if (record.hasFillMethod && record.fillMethod >= 0 && record.fillMethod <= 4)
+                    image.fillMethod = (Image.FillMethod)record.fillMethod;
+                if (record.hasFillOrigin && record.fillOrigin >= 0 && record.fillOrigin <= 3)
+                    image.fillOrigin = record.fillOrigin;
+                if (record.hasFillAmount && record.fillAmount >= 0f && record.fillAmount <= 1f)
+                    image.fillAmount = record.fillAmount;
+                if (record.hasFillClockwise) image.fillClockwise = record.fillClockwise;
+            }
+        }
+
         private static Vector2 ReadVector(float[] value, Vector2 fallback)
         {
             return value != null && value.Length == 2 &&
@@ -364,7 +505,8 @@ namespace HaiTac.OfflineViewer.Editor
         }
 
         private static void BuildPrefabAndScene(
-            ViewerScene scene, Dictionary<int, Sprite> art, SpineEntry[] spine)
+            ViewerScene scene, Dictionary<int, Sprite> art, SpineEntry[] spine,
+            LayoutScene layout)
         {
             var go = new GameObject("ReconstructedCandidate_" + scene.id,
                 typeof(RectTransform), typeof(Canvas), typeof(CanvasScaler),
@@ -395,6 +537,21 @@ namespace HaiTac.OfflineViewer.Editor
                     "This is not the original prefab. 1600x900 is assumed; original CanvasScaler, " +
                     "UI LayoutGroup resolution, masking, nine-slice and runtime state are unverified. " +
                     "Quaternion z metadata is not a rotation angle; rotation is not guessed.";
+                var mappedLayout = layout == null
+                    ? new Dictionary<int, LayoutNode>()
+                    : layout.nodes.ToDictionary(record => record.nodeId);
+                var mappedImage = layout == null
+                    ? new Dictionary<int, LayoutImage>()
+                    : layout.images.GroupBy(record => record.nodeId)
+                        .Where(group => group.Count() == 1)
+                        .ToDictionary(group => group.Key, group => group.First());
+                var mappedCanvas = layout == null
+                    ? new Dictionary<int, LayoutCanvas>()
+                    : layout.canvases.GroupBy(record => record.nodeId)
+                        .Where(group => group.Count() == 1)
+                        .ToDictionary(group => group.Key, group => group.First());
+                if (mappedCanvas.TryGetValue(scene.rootTransform, out var originalCanvas))
+                    ApplyCanvasSettings(canvas, originalCanvas);
                 var map = new Dictionary<int, RectTransform>();
                 foreach (var node in scene.nodes)
                 {
@@ -411,6 +568,8 @@ namespace HaiTac.OfflineViewer.Editor
                             var image = go.AddComponent<Image>();
                             image.sprite = rootSprite;
                             image.raycastTarget = false;
+                            if (mappedImage.TryGetValue(node.id, out var originalRootImage))
+                                ApplyImageSettings(image, originalRootImage);
                         }
                         continue;
                     }
@@ -427,8 +586,21 @@ namespace HaiTac.OfflineViewer.Editor
                     transform.anchoredPosition = ReadVector(node.position, Vector2.zero);
                     Vector2 scale = ReadVector(node.scale, Vector2.one);
                     transform.localScale = new Vector3(scale.x, scale.y, 1f);
-                    // No rotation guess: ui-scenes.rotationZ is the source quaternion's Z component.
+                    // Only apply a full quaternion when read directly from Unity
+                    // serialized RectTransform; quaternion Z alone is not an angle.
+                    if (mappedLayout.TryGetValue(node.id, out var sourceNode))
+                    {
+                        transform.localRotation = ReadRotation(sourceNode.rotation);
+                        transform.anchoredPosition3D = new Vector3(
+                            transform.anchoredPosition.x, transform.anchoredPosition.y,
+                            sourceNode.localPositionZ);
+                        if (sourceNode.localScale != null && sourceNode.localScale.Length == 3)
+                            transform.localScale = new Vector3(sourceNode.localScale[0],
+                                sourceNode.localScale[1], sourceNode.localScale[2]);
+                    }
                     child.SetActive(node.active);
+                    if (mappedCanvas.TryGetValue(node.id, out var nestedEvidence))
+                        ApplyCanvasSettings(child.AddComponent<Canvas>(), nestedEvidence);
                     map.Add(node.id, transform);
                     if (art != null && art.TryGetValue(node.id, out var sprite))
                     {
@@ -436,7 +608,9 @@ namespace HaiTac.OfflineViewer.Editor
                         image.sprite = sprite;
                         image.color = Color.white;
                         image.raycastTarget = false;
-                        image.type = Image.Type.Simple; // Original 9-slice setting not confirmed.
+                        image.type = Image.Type.Simple; // Original 9-slice unknown.
+                        if (mappedImage.TryGetValue(node.id, out var originalImage))
+                            ApplyImageSettings(image, originalImage);
                     }
                     if (HasType(node, "RectMask2D"))
                         child.AddComponent<RectMask2D>();
