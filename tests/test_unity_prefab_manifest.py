@@ -127,6 +127,21 @@ class TestUnityReconstructionPlan(unittest.TestCase):
         self.assertIn("Spine components=", reconstructor)
         self.assertIn("imported source packs=", reconstructor)
 
+    def test_clean_only_old_generated_prefabs_and_check_new_script_references(self):
+        code = (path.parents[1] /
+                "unity-ui-viewer/Assets/Editor/UnityCanvasReconstructor.cs"
+               ).read_text(encoding="utf-8")
+        self.assertIn("CleanOldGeneratedPrefab(prefabPath)", code)
+        self.assertIn("PrefabUtility.LoadPrefabContents(prefabPath)", code)
+        self.assertIn("PrefabUtility.UnloadPrefabContents(oldRoot)", code)
+        self.assertIn("GameObjectUtility.RemoveMonoBehavioursWithMissingScript", code)
+        self.assertIn("prefabPath.StartsWith(PrefabFolder + \"/\"", code)
+        self.assertIn("CountMissingMonoScripts(go)", code)
+        self.assertIn("CountMissingMonoScripts(prefab)", code)
+        self.assertLess(code.index("CleanOldGeneratedPrefab(prefabPath)"),
+                        code.index("PrefabUtility.SaveAsPrefabAsset(go, prefabPath)"))
+        self.assertIn("Cleaned old missing scripts=", code)
+
     def test_reject_private_image_paths(self):
         scenes, art, comps, candidates = self.fixture()
         art["files"] = ["../../private.png"]
