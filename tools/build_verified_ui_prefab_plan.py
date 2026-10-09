@@ -39,6 +39,7 @@ EXPECTED_CLASSES = {"UnityEngine.UI.Image": 1052,
                     "UnityEngine.UI.CanvasScaler": 4,
                     "UnityEngine.UI.Mask": 41,
                     "UnityEngine.UI.ContentSizeFitter": 11}
+EXPECTED_COMPONENTS = 1108
 EXPECTED_EXCLUDED = 93
 EXPECTED_EXCLUDED_FIELDS = 651
 EXPECTED_FIELDS = 7451
@@ -109,7 +110,7 @@ def prepare(studio, ripper, graph, graph_sha256):
     source = _source_graph(graph)
     if set(source) != {s["sceneId"] for s in studio["scenes"]}:
         raise ValueError("Graph and decoded source scenes differ")
-    if (stats.get("independentlyMatchedComponents") != 1108 or
+    if (stats.get("independentlyMatchedComponents") != EXPECTED_COMPONENTS or
             stats.get("independentlyMatchedFieldValues") != EXPECTED_FIELDS or
             stats.get("studioOnlyComponents", 0) != EXPECTED_EXCLUDED or
             stats.get("studioOnlyFieldValues", 0) != EXPECTED_EXCLUDED_FIELDS):
