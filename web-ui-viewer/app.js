@@ -9,7 +9,8 @@ const state = {
   database: null, scene: 0, filter: "all", showInactive: true,
   zoom: 1, selectedId: null, demoLevel: 1,
   geometry: new Map(), elements: new Map(),
-  assets: null, manualAssets: new Map(), objectUrls: new Map(),
+  assets: null, manualAssets: new Map(), referenceImages: new Map(),
+  objectUrls: new Map(),
   boundsVisible: false,
 };
 
@@ -49,6 +50,7 @@ function updateVisualStatus(drawn = null) {
   for (const node of scene.nodes) if (imageFileFor(node)) matched++;
   const summary = state.assets;
   const parts = [matched + " nút có ảnh trong scene"];
+  if (state.referenceImages.has(scene.id)) parts.push("Đã gắn ảnh chụp nền");
   if (drawn !== null) parts.push(drawn + " vùng hiển thị");
   if (summary) {
     parts.push(summary.accepted + " ảnh đã chọn");
@@ -64,6 +66,7 @@ function updateVisualStatus(drawn = null) {
 
 function refreshArt() {
   if (!state.database) return;
+  refreshReference();
   renderNodes();
   const node = sceneData().nodes.find(n => n.id === state.selectedId);
   selectNode(node || null);
@@ -115,6 +118,44 @@ function clearManualImage() {
   if (!node) return;
   revokeImages();
   state.manualAssets.delete(nodeAssetId(node));
+  refreshArt();
+}
+
+
+function refreshReference() {
+  if (!state.database) return;
+  const file = state.referenceImages.get(sceneData().id);
+  const image = $("reference-image");
+  if (file) {
+    image.src = imageUrlFor(file);
+    image.hidden = false;
+    stage.classList.add("has-reference");
+  } else {
+    image.hidden = true;
+    image.removeAttribute("src");
+    stage.classList.remove("has-reference");
+  }
+}
+
+function handleReferenceImage(event) {
+  const file = event.target.files?.[0];
+  event.target.value = "";
+  if (!file || !state.database) return;
+  if (!window.AssetMatcher.supported(file) || file.size <= 0 ||
+      file.size > window.AssetMatcher.MAX_EACH_BYTES) {
+    $("visual-info").textContent =
+      "Ảnh chụp cần có định dạng PNG/JPG/WebP và nhỏ hơn 20 MB.";
+    return;
+  }
+  revokeImages();
+  state.referenceImages.set(sceneData().id, file);
+  refreshArt();
+}
+
+function clearReferenceImage() {
+  if (!state.database) return;
+  revokeImages();
+  state.referenceImages.delete(sceneData().id);
   refreshArt();
 }
 
@@ -196,6 +237,7 @@ function switchScene(index) {
   state.elements.clear();
   const scene = sceneData();
   updateStats(scene);
+  refreshReference();
   for (const [i, child] of [...sceneList.children].entries()) {
     child.classList.toggle("selected", i === state.scene);
     child.setAttribute("aria-current", i === state.scene ? "page" : "false");
@@ -420,6 +462,8 @@ function registerEvents() {
   $("asset-folder").addEventListener("change", handleSelectedFolder);
   $("asset-files").addEventListener("change", handleSelectedFolder);
   $("asset-clear").addEventListener("click", clearAssets);
+  $("reference-file").addEventListener("change", handleReferenceImage);
+  $("reference-clear").addEventListener("click", clearReferenceImage);
   $("node-image").addEventListener("change", handleManualImage);
   $("node-image-clear").addEventListener("click", clearManualImage);
   $("show-bounds").addEventListener("change", event => {
