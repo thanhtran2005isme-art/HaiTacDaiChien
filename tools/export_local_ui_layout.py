@@ -229,9 +229,11 @@ def build(root=ROOT, xapk=None, unitypy=None):
     result, examined = [], 0
     with tempfile.TemporaryDirectory(prefix="haitac_layout_") as temporary:
         with zipfile.ZipFile(xapk) as outer:
-            for index, member in enumerate(outer.infolist()):
-                if member.is_dir() or not member.filename.lower().endswith(".apk"):
-                    continue
+            # Existing Unity inventory labels index *APK files only*, not all
+            # outer XAPK members (which also include icons/manifest metadata).
+            apks = [member for member in outer.infolist() if
+                    not member.is_dir() and member.filename.lower().endswith(".apk")]
+            for index, member in enumerate(apks):
                 if member.file_size > MAX_ARCHIVE:
                     raise ValueError("Oversized APK encountered")
                 stem = Path(member.filename).stem
