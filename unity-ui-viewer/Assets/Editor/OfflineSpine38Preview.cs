@@ -163,13 +163,39 @@ namespace HaiTac.OfflineViewer.Editor
                     if (atlasFile != null &&
                         atlasFile.propertyType == SerializedPropertyType.ObjectReference &&
                         atlasFile.objectReferenceValue == note.sourceAtlasText)
-                        matchingAtlas = true;
+                    {
+                        var materials = atlasData.FindProperty("materials");
+                        if (materials == null || !materials.isArray ||
+                            materials.arraySize == 0) continue;
+                        var textures = new HashSet<Texture2D>();
+                        bool missingMaterial = false;
+                        for (int matIndex = 0; matIndex < materials.arraySize; matIndex++)
+                        {
+                            var item = materials.GetArrayElementAtIndex(matIndex);
+                            var material = item.objectReferenceValue as Material;
+                            if (material == null || material.mainTexture == null)
+                            {
+                                missingMaterial = true;
+                                break;
+                            }
+                            var page = material.mainTexture as Texture2D;
+                            if (page == null)
+                            {
+                                missingMaterial = true;
+                                break;
+                            }
+                            textures.Add(page);
+                        }
+                        if (!missingMaterial &&
+                            note.sourceAtlasTextures.All(texture => textures.Contains(texture)))
+                            matchingAtlas = true;
+                    }
                 }
                 if (matchingAtlas) verified.Add(asset);
             }
             if (verified.Count != 1)
                 throw new InvalidDataException("Expected exactly one generated " +
-                    "SkeletonDataAsset whose skeletonJSON and atlasFile match " +
+                    "SkeletonDataAsset with matching skeletonJSON, atlasFile and material textures for " +
                     note.candidateSkeletonName + "; found " + verified.Count +
                     ". Import licensed Spine-Unity 3.8, then Reimport this pack.");
             return verified[0];
