@@ -305,6 +305,13 @@ def build(root=ROOT, xapk=None, unitypy=None):
                   s["imageBindings"] if row.get("hasEnabled") and not row["enabled"]),
              "unknownImageEnabled": sum(1 for s in result for row in
                   s["imageBindings"] if not row.get("hasEnabled")),
+             "imageBindingsByScene": {
+                 s["sceneId"]: len(s["imageBindings"]) for s in result
+             },
+             "disabledImagesByScene": {
+                 s["sceneId"]: sum(1 for row in s["imageBindings"] if
+                     row.get("hasEnabled") and not row["enabled"]) for s in result
+             },
              "unavailable": dict(sum((collections.Counter(s["limitations"])
                                       for s in result), collections.Counter()))}
     return {"version": 2, "source": "XAPK serialized Unity assets (local only)",
