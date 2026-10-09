@@ -51,6 +51,14 @@ if /I "%LAYOUT_STATE%"=="FAILED" (
     echo [WARN] Khong doc duoc bo cuc goc. Unity tiep tuc dung du lieu cu.
     echo [WARN] Thu chay: %PY% tools\export_local_ui_layout.py
 )
+set "SOURCE_IMAGE_STATE=FAILED"
+if /I "%SPRITE_STATE%"=="PASS" if /I "%LAYOUT_STATE%"=="PASS" (
+    %PY% -c "import json; from pathlib import Path; a=json.loads(Path('output/local-ui-art/manifest.json').read_text(encoding='utf-8')); b=json.loads(Path('output/local-ui-layout.json').read_text(encoding='utf-8')); p=json.loads(Path('output/unity-prefab-map.json').read_text(encoding='utf-8')); assert b['version']==2 and p['schemaVersion']==2; assert len(a['nodeBindings'])==len(p['sprites'])==b['stats']['exactImageBindings']; print('Original Image pointers:',len(a['nodeBindings']),'Disabled original Images:',b['stats']['disabledImagesByScene'])"
+    if not errorlevel 1 set "SOURCE_IMAGE_STATE=PASS"
+)
+if /I "%SOURCE_IMAGE_STATE%"=="FAILED" (
+    echo [WARN] Can rebuild Sprite/Image owner links. Khong coi preview cu la UI goc.
+)
 echo [INFO] Trich xuat GameObject/Component goc tu serialized Unity Assets...
 set "SOURCE_GRAPH_STATE=FAILED"
 if /I "%LAYOUT_STATE%"=="PASS" (
@@ -101,6 +109,7 @@ echo.
 echo ======================= KET QUA =======================
 echo Sprite UI: %SPRITE_STATE%
 echo Unity verified layout: %LAYOUT_STATE%
+echo Original Image owner/state: %SOURCE_IMAGE_STATE%
 echo Original Unity source graph: %SOURCE_GRAPH_STATE%
 echo UI component evidence: %UI_DEEP_STATE%
 echo Spine reference evidence: %SPINE_LINK_STATE%
