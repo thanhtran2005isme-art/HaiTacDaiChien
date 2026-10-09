@@ -27,7 +27,7 @@ trên **cùng nodeId**; nếu không, Unity dừng Reconstruct thay vì ghép nh
 | Scene | Original Image/Sprite links |
 |---|---:|
 | REF01 ship-upgrade | 32 |
-| REF02 hero-detail | 574 |
+| REF02 hero-detail | 574 (trước đó 460, **+114**) |
 | REF03 islands A | 43 |
 | REF03 islands B | 49 |
 | REF04 home-crew | 265 |
