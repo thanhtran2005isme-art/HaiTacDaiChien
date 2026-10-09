@@ -108,7 +108,7 @@ def prepare(studio, ripper, graph, graph_sha256):
         raise ValueError("Graph and decoded source scenes differ")
     if (stats.get("independentlyMatchedComponents") != 1108 or
             stats.get("independentlyMatchedFieldValues") != EXPECTED_FIELDS or
-            stats.get("studioOnlyComponents") != EXPECTED_EXCLUDED or
+            stats.get("studioOnlyComponents", 0) != EXPECTED_EXCLUDED or
             stats.get("studioOnlyFieldValues", 0) != EXPECTED_EXCLUDED_FIELDS):
         raise ValueError("Exact source recovery inventory changed; review before import")
     output = []
