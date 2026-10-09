@@ -64,9 +64,9 @@ def payload_bytes(data):
     return None
 
 
-def inspect_bundle(path, unitypy, counts, examples):
+def inspect_bundle(bundle_bytes, unitypy, counts, examples):
     try:
-        env = unitypy.load(str(path))
+        env = unitypy.load(bundle_bytes)
     except Exception as exc:
         counts["bundle_unreadable"] += 1
         return
@@ -130,13 +130,11 @@ def inspect_apk(apk, temp, unitypy, counts, examples):
                     counts["oversized_bundle_skipped"] += 1
                     continue
                 counts["bundle_total"] += 1
-                file = temp / ("bundle-" + str(i) + ".unity3d")
-                with archive.open(entry) as inp, file.open("wb") as out:
-                    shutil.copyfileobj(inp, out)
-                try:
-                    inspect_bundle(file, unitypy, counts, examples)
-                finally:
-                    file.unlink(missing_ok=True)
+                # Avoid Windows WinError 32: do not mmap temporary bundle paths.
+                with archive.open(entry) as inp:
+                    blob = inp.read()
+                inspect_bundle(blob, unitypy, counts, examples)
+                del blob
     except (OSError, zipfile.BadZipFile):
         counts["apk_unreadable"] += 1
 
