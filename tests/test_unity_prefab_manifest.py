@@ -112,7 +112,7 @@ class TestUnityReconstructionPlan(unittest.TestCase):
         for name in ("ReconstructionEvidence", "SpineReferenceEvidence",
                      "UiComponentEvidence"):
             contents = (scripts / (name + ".cs")).read_text(encoding="utf-8")
-            classes = re.findall(r"public\\s+sealed\\s+class\\s+(\\w+)\\s*:\\s*MonoBehaviour",
+            classes = re.findall(r"public\s+sealed\s+class\s+(\w+)\s*:\s*MonoBehaviour",
                                  contents)
             self.assertEqual(classes, [name], name)
         reconstructor = (path.parents[1] /
