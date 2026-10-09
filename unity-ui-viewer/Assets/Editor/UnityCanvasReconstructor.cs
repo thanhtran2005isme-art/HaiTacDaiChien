@@ -696,17 +696,24 @@ namespace HaiTac.OfflineViewer.Editor
                     AssetDatabase.ImportAsset(asset, ImportAssetOptions.ForceSynchronousImport);
                     return asset;
                 }
-                string skeletonPath = CopySource(pack.skeleton, false);
-                string atlasPath = CopySource(pack.atlas, true);
+                // IMPORTANT: Spine-Unity 3.8 can open a modal "Could not
+                // automatically set the AtlasAsset for skeleton" as soon as
+                // skeleton.json is imported. Previously we copied/imported
+                // skeleton FIRST, before .atlas.txt and PNG pages existed.
+                // Stage every page, then import the atlas and its materials,
+                // and only THEN expose/import the skeleton JSON. All source
+                // file bytes, names and pack identifiers remain unchanged.
                 var textures = pack.pages.Select(page =>
                     AssetDatabase.LoadAssetAtPath<Texture2D>(CopySource(page, false))).ToArray();
-                // The real Spine-Unity importer watches .atlas.txt and .json.
-                // These must be reimported AFTER all page textures are present;
-                // otherwise the first import may generate incomplete atlas/materials.
-                // Without the licensed runtime installed this is a safe no-op
-                // (the raw sources are still imported as Unity assets).
+                if (textures.Any(tex => tex == null))
+                    throw new InvalidDataException(
+                        "Original Spine atlas page could not be imported: " + pack.id);
+                string atlasPath = CopySource(pack.atlas, true);
                 AssetDatabase.ImportAsset(atlasPath, ImportAssetOptions.ForceUpdate |
                     ImportAssetOptions.ForceSynchronousImport);
+                // Import skeleton last so the Spine runtime sees a generated
+                // atlas; this order is needed even when rebuilding old packs.
+                string skeletonPath = CopySource(pack.skeleton, false);
                 AssetDatabase.ImportAsset(skeletonPath, ImportAssetOptions.ForceUpdate |
                     ImportAssetOptions.ForceSynchronousImport);
                 var skeleton = AssetDatabase.LoadAssetAtPath<TextAsset>(skeletonPath);
