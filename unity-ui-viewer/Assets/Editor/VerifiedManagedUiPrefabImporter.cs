@@ -194,7 +194,11 @@ namespace HaiTac.OfflineViewer.Editor
                 throw new InvalidDataException("Invalid reference resolution.");
         }
 
-        private static (ImportPlan, SourceGraph) ReadAndValidate()
+        private static int CountClass(Dictionary<string, int> map, string name) =>
+            map.TryGetValue(name, out var count) ? count : 0;
+
+        private static (ImportPlan, SourceGraph) ReadAndValidate(
+            bool requireNewStudyOutputs = true)
         {
             string graphPath = Path.Combine(RepoRoot, "output",
                 "original-unity-graph.json");
@@ -291,17 +295,18 @@ namespace HaiTac.OfflineViewer.Editor
                     throw new FileNotFoundException(
                         "Build source serialized graph prefabs first: " +
                         SourcePath(candidate.sceneId));
-                if (AssetDatabase.LoadAssetAtPath<GameObject>(
+                if (requireNewStudyOutputs && (
+                    AssetDatabase.LoadAssetAtPath<GameObject>(
                         TargetPath(candidate.sceneId)) != null ||
-                    File.Exists(TargetScene(candidate.sceneId)))
+                    File.Exists(TargetScene(candidate.sceneId))))
                     throw new IOException("Study Prefab/Scene already exists; " +
                         "refusing to overwrite local edits: " + candidate.sceneId);
             }
             if (count != 1108 || fields != 7451 ||
-                countClasses.GetValueOrDefault("UnityEngine.UI.Image") != 1052 ||
-                countClasses.GetValueOrDefault("UnityEngine.UI.CanvasScaler") != 4 ||
-                countClasses.GetValueOrDefault("UnityEngine.UI.Mask") != 41 ||
-                countClasses.GetValueOrDefault("UnityEngine.UI.ContentSizeFitter") != 11 ||
+                CountClass(countClasses, "UnityEngine.UI.Image") != 1052 ||
+                CountClass(countClasses, "UnityEngine.UI.CanvasScaler") != 4 ||
+                CountClass(countClasses, "UnityEngine.UI.Mask") != 41 ||
+                CountClass(countClasses, "UnityEngine.UI.ContentSizeFitter") != 11 ||
                 countClasses.Count != 4)
                 throw new InvalidDataException("Recovered UI class counts changed.");
             return (plan, graph);
@@ -475,6 +480,146 @@ namespace HaiTac.OfflineViewer.Editor
                     exc.GetBaseException().Message +
                     "\nAny newly generated study outputs were rolled back. " +
                     "Source graph Prefabs were not modified.", "OK");
+            }
+        }
+
+        private static bool Same(float actual, float expected) =>
+            Mathf.Abs(actual - expected) <= 0.0001f;
+
+        private static bool SameManaged(Behaviour component, ImportField source)
+        {
+            var image = component as Image;
+            if (image != null)
+            {
+                switch (source.name)
+                {
+                    case "m_Type": return (int)image.type == source.intValue;
+                    case "m_PreserveAspect": return image.preserveAspect == source.boolValue;
+                    case "m_FillMethod": return (int)image.fillMethod == source.intValue;
+                    case "m_FillOrigin": return image.fillOrigin == source.intValue;
+                    case "m_FillAmount": return Same(image.fillAmount, source.floatValue);
+                    case "m_FillClockwise": return image.fillClockwise == source.boolValue;
+                    case "m_Color":
+                        var rgba = source.floatValues;
+                        var color = image.color;
+                        return Same(color.r, rgba[0]) && Same(color.g, rgba[1]) &&
+                               Same(color.b, rgba[2]) && Same(color.a, rgba[3]);
+                }
+            }
+            var scaler = component as CanvasScaler;
+            if (scaler != null)
+            {
+                switch (source.name)
+                {
+                    case "m_UiScaleMode": return (int)scaler.uiScaleMode == source.intValue;
+                    case "m_ScreenMatchMode":
+                        return (int)scaler.screenMatchMode == source.intValue;
+                    case "m_ReferenceResolution":
+                        return Same(scaler.referenceResolution.x, source.floatValues[0]) &&
+                               Same(scaler.referenceResolution.y, source.floatValues[1]);
+                    case "m_MatchWidthOrHeight":
+                        return Same(scaler.matchWidthOrHeight, source.floatValue);
+                    case "m_ScaleFactor": return Same(scaler.scaleFactor, source.floatValue);
+                    case "m_ReferencePixelsPerUnit":
+                        return Same(scaler.referencePixelsPerUnit, source.floatValue);
+                }
+            }
+            var mask = component as Mask;
+            if (mask != null && source.name == "m_ShowMaskGraphic")
+                return mask.showMaskGraphic == source.boolValue;
+            var fitter = component as ContentSizeFitter;
+            if (fitter != null)
+            {
+                if (source.name == "m_HorizontalFit")
+                    return (int)fitter.horizontalFit == source.intValue;
+                if (source.name == "m_VerticalFit")
+                    return (int)fitter.verticalFit == source.intValue;
+            }
+            return false;
+        }
+
+        private static Behaviour OriginalBehaviour(GameObject go, string cls)
+        {
+            switch (cls)
+            {
+                case "UnityEngine.UI.Image": return go.GetComponent<Image>();
+                case "UnityEngine.UI.CanvasScaler": return go.GetComponent<CanvasScaler>();
+                case "UnityEngine.UI.Mask": return go.GetComponent<Mask>();
+                case "UnityEngine.UI.ContentSizeFitter":
+                    return go.GetComponent<ContentSizeFitter>();
+                default: throw new InvalidDataException("Non-verified class in audit.");
+            }
+        }
+
+        [MenuItem("Tools/HaiTac Offline UI Viewer/Source XAPK/Audit 5 verified field study prefabs")]
+        public static void AuditGenerated()
+        {
+            try
+            {
+                var source = ReadAndValidate(requireNewStudyOutputs: false);
+                int components = 0, fields = 0;
+                foreach (var scene in source.Item1.scenes)
+                {
+                    var prefab = AssetDatabase.LoadAssetAtPath<GameObject>(
+                        TargetPath(scene.sceneId));
+                    if (prefab == null || !File.Exists(TargetScene(scene.sceneId)))
+                        throw new FileNotFoundException("Missing study prefab/scene.");
+                    var evidence = prefab.GetComponentsInChildren<ManagedUiSourceEvidence>(
+                        true);
+                    if (evidence.Length != scene.components.Length)
+                        throw new InvalidDataException("Study component evidence count differs.");
+                    var byId = evidence.ToDictionary(n => n.sourceMonoBehaviourPathId);
+                    foreach (var row in scene.components)
+                    {
+                        if (!byId.TryGetValue(row.componentPathId, out var note) ||
+                            note.sourceSceneId != scene.sceneId ||
+                            note.sourceRectTransformPathId != row.rectTransformPathId ||
+                            note.sourceGameObjectPathId != row.gameObjectPathId ||
+                            note.originalClassName != row.className ||
+                            note.sourceObjectSha256 != row.rawObjectSha256 ||
+                            note.graphSha256 != source.Item1.sourceGraphSha256 ||
+                            note.libil2cppSha256 != source.Item1.sourceLibrarySha256 ||
+                            note.metadataSha256 != source.Item1.sourceMetadataSha256 ||
+                            !note.exactTwoBackendFieldAgreement ||
+                            note.verifiedFieldNames == null ||
+                            !note.verifiedFieldNames.SequenceEqual(
+                                row.fields.Select(f => f.name)))
+                            throw new InvalidDataException(
+                                "Missing or changed original component proof.");
+                        var component = OriginalBehaviour(note.gameObject, row.className);
+                        if (component == null || component.enabled != row.enabled)
+                            throw new InvalidDataException(
+                                "Original UI class or native enabled state differs.");
+                        foreach (var field in row.fields)
+                        {
+                            if (!SameManaged(component, field))
+                                throw new InvalidDataException(
+                                    "Actual Unity serialized field differs from source proof: " +
+                                    row.className + "." + field.name);
+                            fields++;
+                        }
+                        components++;
+                    }
+                }
+                if (components != 1108 || fields != 7451)
+                    throw new InvalidDataException(
+                        "Study prefab cross-verified field counts differ.");
+                Debug.Log("[HaiTac 3C] AUDIT PASS: 5 study prefabs, " +
+                    components + " UI components, " + fields +
+                    " exact values match private two-backend manifest. " +
+                    "NOT Unity Play Mode, layout or original-editor-Prefab verification.");
+                EditorUtility.DisplayDialog("Prefab field audit PASS",
+                    "All 7451 exact dual-backend values match the 5 study Prefabs. " +
+                    "This is a serialized field audit ONLY. " +
+                    "Continue manual scene, Sprite, Canvas and Play Mode inspection.",
+                    "OK");
+            }
+            catch (Exception exc)
+            {
+                Debug.LogException(exc);
+                EditorUtility.DisplayDialog("Prefab field audit FAILED",
+                    exc.GetBaseException().Message +
+                    "\\nDo not treat generated UI as source-verified at runtime.", "OK");
             }
         }
     }
