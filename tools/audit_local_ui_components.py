@@ -127,7 +127,7 @@ def component_script(reader):
         return ""
 
 
-def audit_scene(scene, groups, sprite_links):
+def audit_scene(scene, groups, sprite_links, canvas_inventory=None):
     readers = layout.choose_serialized_file(scene, groups)
     expected = {node["id"]: node for node in scene["nodes"]}
     paths = collections.defaultdict(list)
@@ -199,6 +199,33 @@ def audit_scene(scene, groups, sprite_links):
             references.append(record)
         except Exception:
             counters["component_inspection_failure"] += 1
+    # UI type presence is known even when IL2CPP stripped private serialized
+    # fields. Record these source classes without constructing guessed settings.
+    recorded = {int(row["componentId"]) for row in references}
+    for row in canvas_inventory or []:
+        if row.get("serialized_file") != scene["source"]:
+            continue
+        try:
+            component_id = int(row["component_id"])
+            if component_id in recorded:
+                continue
+            matched = paths.get(row["ui_path"], [])
+            if len(matched) != 1 or component_id not in readers:
+                continue
+            if row["class"] != "UnityEngine.UI.CanvasScaler":
+                continue
+            references.append({"nodeId": matched[0], "componentId": component_id,
+                               "class": row["class"], "status": "fields_unavailable"})
+            recorded.add(component_id)
+        except (ValueError, KeyError):
+            continue
+    for node in scene["nodes"]:
+        for class_name in ("Mask", "ScrollRect", "Slider"):
+            if class_name not in (node.get("types") or []):
+                continue
+            references.append({"nodeId": node["id"], "componentId": 0,
+                               "class": "UnityEngine.UI." + class_name,
+                               "status": "class_only_fields_unavailable"})
     return {"sceneId": scene["id"], "spriteGeometry": sprites,
             "components": references, "unavailable": dict(counters)}
 
@@ -211,6 +238,7 @@ def build(root=ROOT, xapk=None, unitypy=None):
     links = collections.defaultdict(list)
     for row in csv_rows(root / "reports/xapk/scene-image-texture-links.csv"):
         links[row["reference"]].append(row)
+    canvas_inventory = csv_rows(root / "reports/xapk/canvas-spine-components.csv")
     results = []
     class Interceptor:
         def load(self, data):
@@ -219,7 +247,8 @@ def build(root=ROOT, xapk=None, unitypy=None):
                 groups = collections.defaultdict(dict)
                 for obj in env.objects:
                     groups[id(obj.assets_file)][int(obj.path_id)] = obj
-                results.extend(audit_scene(s, groups, links[s["id"]]) for s in scenes)
+                results.extend(audit_scene(s, groups, links[s["id"]],
+                                           canvas_inventory) for s in scenes)
             return env
     layout.build(root, xapk=xapk, unitypy=Interceptor())
     count = collections.Counter()
