@@ -175,26 +175,28 @@ def extract(root, output, xapk, names=None, limit=12, unitypy=None):
                             (".unity3d", ".bundle", ".assetbundle")
                         ):
                             continue
-                        path = temp / f"{ix}-{j}.unity3d"
-                        with nested.open(bundle) as src, path.open("wb") as dst:
-                            shutil.copyfileobj(src, dst)
-                        try:
-                            env = unitypy.load(str(path))
-                            skeletons, atlases, textures, errors = collect(env)
-                            reasons.update(errors)
-                            for name in choose_packages(skeletons, atlases, names, limit):
-                                if name in exported or len(packages) >= limit:
-                                    continue
-                                pack, error = export_one(
-                                    name, skeletons, atlases, textures, output, count
-                                )
-                                if error:
-                                    reasons[error] += 1
-                                else:
-                                    packages.append(pack)
-                                    exported.add(name)
-                        finally:
-                            path.unlink(missing_ok=True)
+                        # UnityPy can retain mmap file handles on Windows. Load
+                        # the bounded bundle from memory, not a temporary path.
+                        if bundle.file_size > 1024 * 1024 * 1024:
+                            reasons["oversized_bundle_skipped"] += 1
+                            continue
+                        with nested.open(bundle) as src:
+                            blob = src.read()
+                        env = unitypy.load(blob)
+                        skeletons, atlases, textures, errors = collect(env)
+                        reasons.update(errors)
+                        for name in choose_packages(skeletons, atlases, names, limit):
+                            if name in exported or len(packages) >= limit:
+                                continue
+                            pack, error = export_one(
+                                name, skeletons, atlases, textures, output, count
+                            )
+                            if error:
+                                reasons[error] += 1
+                            else:
+                                packages.append(pack)
+                                exported.add(name)
+                        del skeletons, atlases, textures, env, blob
                 apk.unlink(missing_ok=True)
     # No stale files are served. The allowlist is rebuilt atomically.
     manifest = {
