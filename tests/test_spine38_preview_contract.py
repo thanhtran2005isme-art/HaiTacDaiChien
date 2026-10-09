@@ -97,6 +97,33 @@ class TestSpine38PreviewContract(unittest.TestCase):
             self.assertNotIn(forbidden, audit)
         self.assertIn("PLAYBACK NOT TESTED", audit)
 
+    def test_verified_empty_atlas_repair_is_safe_and_explicit(self):
+        audit = (ROOT / "unity-ui-viewer/Assets/Editor/LocalSpineAtlasAudit.cs"
+                 ).read_text(encoding="utf-8")
+        self.assertIn("Repair EMPTY verified atlas links (local only)", audit)
+        self.assertIn("EditorUtility.DisplayDialog(", audit)
+        self.assertIn('atlasRefs.arraySize != 0', audit)
+        self.assertIn("never overwrite", audit)
+        self.assertIn('ObjectField(atlasSerialized, "atlasFile") != originalAtlasText',
+                      audit)
+        self.assertIn('ObjectField(skeletonSerialized, "skeletonJSON") != originalJson',
+                      audit)
+        self.assertIn('FindProperty("materials")', audit)
+        self.assertIn("material.mainTexture as Texture2D", audit)
+        self.assertIn("usedPages.SetEquals(originalPages)", audit)
+        self.assertIn('atlasRefs.arraySize = 1;', audit)
+        self.assertIn('slot.objectReferenceValue = atlas;', audit)
+        self.assertIn("Undo.RecordObject(skeleton", audit)
+        self.assertIn("skeletonSerialized.ApplyModifiedProperties()", audit)
+        self.assertIn("AssetDatabase.SaveAssets()", audit)
+        self.assertIn("AuditAll();", audit)
+        self.assertIn("allLinksVerified=", audit)
+        self.assertIn("BLOCKED: incompatible Spine-Unity atlasAssets field", audit)
+        for forbidden in ("AssetDatabase.DeleteAsset(", "AssetDatabase.CreateAsset(",
+                          "AssetDatabase.ImportAsset(", "File.WriteAllText(",
+                          "AssetDatabase.Refresh("):
+            self.assertNotIn(forbidden, audit)
+
     def test_previews_are_isolated_and_not_source_modifications(self):
         self.assertIn('Root + "/SpinePreviews"', self.editor)
         self.assertIn("EditorSceneManager.NewScene(NewSceneSetup.EmptyScene",
