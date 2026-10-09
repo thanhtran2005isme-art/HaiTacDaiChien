@@ -417,7 +417,14 @@ def recover_generated_managed_fields(root, xapk, scenes, analyzed, unitypy):
                         fields, record = binary.verified_fields(reader, row, generator)
                     except binary.RecoveryBlocked as exc:
                         row["binaryRecovery"] = "BLOCKED: " + str(exc)[:180]
+                        row["binaryRecoveryPhase"] = exc.phase
+                        row["binaryRecoveryCode"] = exc.code
+                        if exc.frame:
+                            row["binaryRecoveryFrame"] = exc.frame
+                        if exc.tree is not None:
+                            row["binaryRecoveryTreeShape"] = exc.tree
                         attempts["blocked"] += 1
+                        attempts["reason:" + exc.code] += 1
                         continue
                     row["fields"] = fields
                     row["binaryProof"] = record
@@ -542,6 +549,30 @@ def render_report(data):
                   proof["metadata"]["sha256"],
                   "- Results: " + json.dumps(proof["verification"], sort_keys=True),
                   "- No Unity Prefab changes or Play Mode verification.", ""]
+        errors = collections.Counter(
+            (row["binaryRecoveryPhase"], row["binaryRecoveryCode"])
+            for scene in data["scenes"] for row in scene["components"]
+            if "binaryRecoveryCode" in row)
+        lines.extend(["## Binary decoder blockers by phase", "",
+                      "| Phase | Reason | Components |",
+                      "|---|---|---:|"])
+        for (phase, code), n in sorted(errors.items(),
+                                        key=lambda item: (-item[1], item[0])):
+            lines.append("| " + phase + " | " + code + " | " + str(n) + " |")
+        examples = {}
+        for scene in data["scenes"]:
+            for row in scene["components"]:
+                code = row.get("binaryRecoveryCode")
+                if code and code not in examples:
+                    examples[code] = row
+        lines.extend(["", "## One source-bound example per blocker", ""])
+        for code, row in sorted(examples.items()):
+            location = row.get("binaryRecoveryFrame", "not available")
+            shape = row.get("binaryRecoveryTreeShape", {})
+            lines.append("- " + code + ": " + row.get("className", "unknown") +
+                         ", " + location + ", root=" +
+                         json.dumps(shape, ensure_ascii=False, sort_keys=True))
+        lines.append("")
     lines += ["", "## Remaining blockers", "",
               "- MonoScript class links are PPtr-based and may remain unresolved "
               "if the referenced SerializedFile is unavailable.",
