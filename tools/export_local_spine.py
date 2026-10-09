@@ -222,13 +222,40 @@ def main():
     parser.add_argument("--xapk", type=Path)
     parser.add_argument("--output", type=Path, default=ROOT / "output/local-spine")
     parser.add_argument("--name", action="append", help="Exact skeleton name (repeatable)")
+    parser.add_argument("--from-evidence", help="Scene ID whose TextAsset links are content-verified; never infer skins")
     parser.add_argument("--limit", type=int, default=12)
     args = parser.parse_args()
     if not 1 <= args.limit <= 100:
         parser.error("--limit must be 1..100")
     xapk = args.xapk or next(iter(ROOT.glob("*.xapk")), None)
+    names = args.name
+    if args.from_evidence:
+        if names:
+            parser.error("--name and --from-evidence must not be combined")
+        evidence = ROOT / "output/local-spine-link-evidence.json"
+        if not evidence.is_file():
+            parser.error("Missing local Spine evidence; run tools/trace_local_spine_links.py first")
+        try:
+            source = json.loads(evidence.read_text(encoding="utf-8"))
+            if source.get("version") != 1:
+                raise ValueError("Wrong Spine evidence version")
+            names = sorted({
+                row["skeletonName"] for row in source.get("records", [])
+                if row.get("sceneId") == args.from_evidence and
+                row.get("status") == "content_chain_verified_field_unverified" and
+                row.get("skeletonName")
+            })
+        except (ValueError, OSError, KeyError) as err:
+            parser.error("Spine evidence unreadable: " + str(err)[:140])
+        if not names:
+            parser.error("No validated Skeleton JSON/Atlas content chain for scene " +
+                         args.from_evidence)
+        print(json.dumps({"status": "SELECTED_BY_CONTENT_EVIDENCE",
+                          "scene": args.from_evidence,
+                          "unique_skeletons": len(names),
+                          "note": "Original runtime skin/active track remain unknown."}))
     try:
-        result = extract(ROOT, args.output, xapk, args.name, args.limit)
+        result = extract(ROOT, args.output, xapk, names, args.limit)
     except (OSError, ValueError, zipfile.BadZipFile) as exc:
         parser.exit(1, "BLOCKED: " + str(exc) + "\n")
     print(json.dumps(result, ensure_ascii=False, indent=2))
