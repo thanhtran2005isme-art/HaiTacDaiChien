@@ -30,7 +30,6 @@ namespace HaiTac.OfflineViewer
     }
     // Serialized evidence of the original uGUI component. Unknown fields never
     // become working LayoutGroups/Mask components by approximation.
-    [DisallowMultipleComponent]
     public sealed class UiComponentEvidence : MonoBehaviour
     {
         public string originalClass;
