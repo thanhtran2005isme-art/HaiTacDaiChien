@@ -76,7 +76,7 @@ def choose_serialized_file(scene, groups):
     """Require transform-ID coverage, not unsafe file order or Sprite-name guesses."""
     nodes = scene["nodes"]
     wanted = {int(node["id"]) for node in nodes}
-    minimum = max(10, math.ceil(len(wanted) * 0.8))
+    minimum = max(2, math.ceil(len(wanted) * 0.8))
     choices = []
     for readers in groups.values():
         root = readers.get(int(scene["rootTransform"]))
