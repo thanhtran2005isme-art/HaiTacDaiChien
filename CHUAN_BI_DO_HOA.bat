@@ -51,6 +51,19 @@ if /I "%LAYOUT_STATE%"=="FAILED" (
     echo [WARN] Khong doc duoc bo cuc goc. Unity tiep tuc dung du lieu cu.
     echo [WARN] Thu chay: %PY% tools\export_local_ui_layout.py
 )
+echo [INFO] Trich xuat GameObject/Component goc tu serialized Unity Assets...
+set "SOURCE_GRAPH_STATE=FAILED"
+if /I "%LAYOUT_STATE%"=="PASS" (
+    %PY% tools\audit_original_unity_graph.py
+    if not errorlevel 1 set "SOURCE_GRAPH_STATE=PASS"
+)
+if /I "%SOURCE_GRAPH_STATE%"=="FAILED" (
+    echo [WARN] Chua kiem chung duoc Scene/Prefab goc, khong duoc doan.
+) else (
+    echo [INFO] Tao danh sach component con thieu theo ID goc...
+    %PY% tools\summarize_original_unity_gaps.py
+    if errorlevel 1 echo [WARN] Danh sach component con thieu chua tao duoc.
+)
 echo [INFO] Kiem ke Sprite border, CanvasScaler, Mask, LayoutGroup tu XAPK...
 set "UI_DEEP_STATE=FAILED"
 %PY% tools\audit_local_ui_components.py
@@ -88,6 +101,7 @@ echo.
 echo ======================= KET QUA =======================
 echo Sprite UI: %SPRITE_STATE%
 echo Unity verified layout: %LAYOUT_STATE%
+echo Original Unity source graph: %SOURCE_GRAPH_STATE%
 echo UI component evidence: %UI_DEEP_STATE%
 echo Spine reference evidence: %SPINE_LINK_STATE%
 echo Spine pack: %SPINE_STATE%

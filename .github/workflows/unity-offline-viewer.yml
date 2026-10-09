@@ -6,6 +6,8 @@ on:
     paths:
       - 'tools/build_unity_viewer_data.py'
       - 'tests/test_build_unity_viewer_data.py'
+      - 'tests/test_serialized_graph_unity_contract.py'
+      - 'tests/test_unity_spine_builtin_modules.py'
       - 'unity-ui-viewer/Assets/Scripts/**'
       - 'unity-ui-viewer/Assets/Editor/**'
       - 'unity-ui-viewer/Packages/**'
@@ -16,6 +18,8 @@ on:
     paths:
       - 'tools/build_unity_viewer_data.py'
       - 'tests/test_build_unity_viewer_data.py'
+      - 'tests/test_serialized_graph_unity_contract.py'
+      - 'tests/test_unity_spine_builtin_modules.py'
       - 'unity-ui-viewer/Assets/Scripts/**'
       - 'unity-ui-viewer/Assets/Editor/**'
       - 'unity-ui-viewer/Packages/**'
@@ -44,6 +48,12 @@ jobs:
 
       - name: Python stdlib data integrity tests
         run: python3 -m unittest discover -s tests -p test_build_unity_viewer_data.py -v
+
+      - name: Ensure Spine-Unity built-in modules survive branch switches
+        run: python3 -m unittest discover -s tests -p test_unity_spine_builtin_modules.py -v
+
+      - name: Test strict native serialized graph Unity importer contract
+        run: python3 -m unittest discover -s tests -p test_serialized_graph_unity_contract.py -v
 
       - name: Generate self-contained Unity StreamingAssets JSON
         run: python3 tools/build_unity_viewer_data.py --repo-root .

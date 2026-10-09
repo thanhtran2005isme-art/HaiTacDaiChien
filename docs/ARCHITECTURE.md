@@ -29,6 +29,10 @@ XAPK và Unity assets (nguồn phải được phép sử dụng) → công cụ
 - **Unity uGUI Viewer**: `UnityCanvasReconstructor.cs` dựng 5 scene/prefab với Canvas/RectTransform/Sprite và `ReconstructionEvidence`; Audit 5 scene.
 - **Spine**: `trace_local_spine_links.py` kiểm tra tham chiếu nội dung; `export_local_spine.py` xuất 3.8 JSON+atlas+texture local. `OfflineSpine38Preview.cs` tạo test scene *riêng*, đòi runtime Spine-Unity hợp pháp; `SpinePreviewProbe.cs` kiểm tra track chạy, không chứng minh render bằng hình ảnh.
 
+## Kiểm kê gốc theo SerializedFile
+
+`tools/audit_original_unity_graph.py` đọc trực tiếp AssetBundle, đối chiếu `GameObject.m_Component`, `RectTransform.m_Father/m_Children`, component type/typetree và các dấu vết Prefab/Scene nếu có. Kết quả **local** `output/original-unity-graph.json` không kết luận các GameObject này là `.prefab`/`.unity` nguồn. Unity có menu `Source XAPK → Build evidence-only serialized graph prefabs`, tạo cấu trúc riêng trong `Assets/LocalReconstruction/SourceGraphPrefabs` và `SourceGraphScenes` **không hiển thị UI giả**. Chi tiết xem [XAPK_NATIVE_SCENE_PREFAB_RECOVERY](XAPK_NATIVE_SCENE_PREFAB_RECOVERY.md).
+
 ## Môi trường và phép thử
 
 | Môi trường | Mục đích | Bằng chứng |
