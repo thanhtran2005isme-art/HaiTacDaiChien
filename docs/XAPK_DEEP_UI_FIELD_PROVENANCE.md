@@ -174,3 +174,32 @@ type output\deep-ui-source-evidence.md
 ```
 
 Trước khi nhận kết quả đã xác minh, tuyệt đối không sửa Prefab. Hướng kiểm tra bug root được tham khảo UnityPy issue #340, nhưng không coi đây là nguyên nhân được chứng minh cho XAPK này.
+
+
+## Kết quả giai đoạn 3B trên XAPK thật — 2026-10-10
+
+Lỗi được khoanh vùng bằng báo cáo `NODE_GENERATION_AssertionError`: backend `AssetsTools` của `TypeTreeGeneratorAPI 0.0.10` ném `Sequence contains no matching element` khi tạo TypeTree, trước bước đọc bytes. Điều này không chứng minh dữ liệu serialized thiếu.
+
+Hai backend `AssetStudio`, `AssetRipper` cùng cặp binary XAPK SHA256 có thể tạo TypeTree cho Image, CanvasScaler, Mask, Horizontal/VerticalLayoutGroup và ContentSizeFitter. Tuy nhiên TypeTree được sinh kèm **native MonoBehaviour header không khớp m_Script** trên bản Unity 2022.3.51f1. Để không đoán field offsets, công cụ có lựa chọn `--unity-native-header`: lấy native MonoBehaviour root từ **TypeTree UnityPy đúng version của SerializedFile**, giữ managed children được sinh từ IL2CPP, đọc nguyên object bằng `check_read=True`, kiểm tra lại `m_GameObject`, `m_Script`, `m_Enabled` và type/range từng field.
+
+Trên source thật trước bước cross-backend gate:
+
+| Backend (cùng native header nguồn) | Component qua strict check | Target field values |
+|---|---:|---:|
+| AssetStudio | 1.201 / 1.201 | 8.102 |
+| AssetRipper | 1.108 / 1.201 | 7.451 |
+| AssetRipper bị chặn | 93 | 0 |
+
+**Lưu ý:** `AssetRipper` còn 93 LayoutGroup lỗi strict parser; không được tự bỏ điều kiện để đồng nhất số lượng. `AssetStudio` đọc được các trường LayoutGroup còn thiếu của AssetRipper nhưng vẫn cần Unity Editor visual verification trước khi đưa vào Prefab.
+
+Quy trình kiểm chứng chéo bắt buộc trong CI: `tools/compare_managed_ui_backends.py` so đúng **source identity, GameObject, MonoScript PPtr, Unity version, SHA256 của cặp IL2CPP binary**, rồi đối chiếu giá trị serialized đã qua strict check bằng **hai backend riêng**. Nếu bất kỳ field chung nào lệch, CI FAIL; những field chỉ AssetStudio đọc được tiếp tục mang bằng chứng `single-backend`, không được ghi nhãn được hai bộ đọc xác minh.
+
+Chạy ở máy cục bộ (tạo report riêng trong `output/`, không sửa prefabs):
+
+```cmd
+py -3 tools\audit_original_unity_graph.py
+py -3 tools\decode_xapk_ui_provenance.py --recover-managed-fields --binary-backend AssetStudio --unity-native-header
+type output\deep-ui-source-evidence.md
+```
+
+**Không tự động đưa dữ liệu vào Prefab.** Bước sau cần chuyển các fields đã so chéo từ private `output/` sang importer một cách có kiểm soát, kiểm tra màn hình thật/Editor riêng, xác minh Image mask/raycast/sorting và gỡ các fallback tạm. Vẫn chưa chứng minh được editor Prefab gốc hoặc runtime screen 100%.
