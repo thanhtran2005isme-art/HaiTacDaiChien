@@ -39,6 +39,7 @@ EXPECTED_CLASSES = {"UnityEngine.UI.Image": 1052,
                     "UnityEngine.UI.Mask": 41,
                     "UnityEngine.UI.ContentSizeFitter": 11}
 EXPECTED_EXCLUDED = 93
+EXPECTED_EXCLUDED_FIELDS = 651
 EXPECTED_FIELDS = 7451
 CLASS_VALUES = {
     "UnityEngine.UI.Image": 7, "UnityEngine.UI.CanvasScaler": 6,
@@ -108,7 +109,7 @@ def prepare(studio, ripper, graph, graph_sha256):
     if (stats.get("independentlyMatchedComponents") != 1108 or
             stats.get("independentlyMatchedFieldValues") != EXPECTED_FIELDS or
             stats.get("studioOnlyComponents") != EXPECTED_EXCLUDED or
-            stats.get("studioOnlyFieldValues") != 651):
+            stats.get("studioOnlyFieldValues", 0) != EXPECTED_EXCLUDED_FIELDS):
         raise ValueError("Exact source recovery inventory changed; review before import")
     output = []
     class_counts = Counter()
@@ -185,8 +186,8 @@ def prepare(studio, ripper, graph, graph_sha256):
         raise ValueError("Recovered class distribution changed; review before import")
     if sum(len(c["fields"]) for scene in output for c in scene["components"]) != EXPECTED_FIELDS:
         raise ValueError("Cross-verified field count mismatch")
-    if skipped != Counter({"unconfirmedComponent": 93,
-                           "unconfirmedFieldValues": 651}):
+    if (skipped["unconfirmedComponent"] != EXPECTED_EXCLUDED or
+            skipped["unconfirmedFieldValues"] != EXPECTED_EXCLUDED_FIELDS):
         raise ValueError("Insufficient source verification accounting")
     return {
         "schemaVersion": 1,
@@ -197,8 +198,8 @@ def prepare(studio, ripper, graph, graph_sha256):
         "sourceMetadataSha256": pa["metadata"]["sha256"],
         "verifiedComponents": 1108,
         "verifiedFieldValues": EXPECTED_FIELDS,
-        "singleBackendExcludedComponents": 93,
-        "singleBackendExcludedFieldValues": 651,
+        "singleBackendExcludedComponents": EXPECTED_EXCLUDED,
+        "singleBackendExcludedFieldValues": EXPECTED_EXCLUDED_FIELDS,
         "scenes": output,
         "warning": "Study-only prefab copies. Original editor Prefabs/Scenes and "
                    "runtime appearance are NOT proven; Unity may add dependencies "
