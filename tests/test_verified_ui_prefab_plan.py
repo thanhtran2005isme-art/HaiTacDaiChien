@@ -144,6 +144,12 @@ class TestExactManagedStudyPlan(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "Missing or unexpected"):
             minimal(self.studio, self.ripper, self.graph)
 
+    def test_out_of_range_enum_must_never_be_exported(self):
+        self.studio["scenes"][0]["components"][0]["fields"]["m_Type"] = 999
+        self.ripper["scenes"][0]["components"][0]["fields"]["m_Type"] = 999
+        with self.assertRaisesRegex(ValueError, "Invalid source field value/range"):
+            minimal(self.studio, self.ripper, self.graph)
+
     def test_source_identity_changed_even_with_same_fields_must_block(self):
         self.ripper["scenes"][0]["components"][0]["scriptPointer"]["pathId"] += 1
         with self.assertRaisesRegex(ValueError, "identities differ"):
