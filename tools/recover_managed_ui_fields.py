@@ -144,8 +144,23 @@ def _valid_field(name, value):
         return (isinstance(value, dict) and set(value) == {"r", "g", "b", "a"}
                 and all(type(v) in (int, float) and math.isfinite(v)
                         and 0 <= v <= 4 for v in value.values()))
-    if name in ("m_Padding", "m_CellSize", "m_Spacing", "m_Softness"):
-        return isinstance(value, dict) and bool(value)
+    if name == "m_Padding":
+        return (isinstance(value, dict) and bool(value) and
+                set(value).issubset({"m_Left", "m_Right", "m_Top", "m_Bottom"}))
+    if name in ("m_CellSize", "m_Softness"):
+        return (isinstance(value, dict) and set(value) == {"x", "y"} and
+                all(type(v) in (int, float) and math.isfinite(v)
+                        for v in value.values()))
+    if name == "m_Spacing":
+        return ((type(value) in (int, float) and math.isfinite(value)) or
+                (isinstance(value, dict) and set(value) == {"x", "y"} and
+                 all(type(v) in (int, float) and math.isfinite(v)
+                     for v in value.values())))
+    if name in ("m_ScaleFactor", "m_ReferencePixelsPerUnit",
+                "m_AspectRatio"):
+        return type(value) in (int, float) and math.isfinite(value) and value > 0
+    if name == "m_ConstraintCount":
+        return type(value) is int and 0 <= value <= 100000
     return value is not None
 
 
