@@ -90,8 +90,11 @@ class TestUnityReconstructionPlan(unittest.TestCase):
         """Source pack JSON/atlas/texture cannot be attached by sprite name."""
         source = (path.parents[1] / "unity-ui-viewer/Assets/Editor/UnityCanvasReconstructor.cs"
                   ).read_text(encoding="utf-8")
-        evidence = (path.parents[1] / "unity-ui-viewer/Assets/Scripts/ReconstructionEvidence.cs"
+        evidence = (path.parents[1] / "unity-ui-viewer/Assets/Scripts/SpineReferenceEvidence.cs"
                     ).read_text(encoding="utf-8")
+        component_evidence = (path.parents[1] /
+                              "unity-ui-viewer/Assets/Scripts/UiComponentEvidence.cs"
+                             ).read_text(encoding="utf-8")
         self.assertIn("ApplyOriginalSpriteGeometry(plan.sprites, componentEvidence, sprites);",
                       source)
         self.assertIn("ReadSpineEvidence(root, plan)", source)
@@ -104,7 +107,7 @@ class TestUnityReconstructionPlan(unittest.TestCase):
         self.assertIn("note.sourceSkeletonJson = originals.skeleton;", source)
         self.assertIn("note.sourceAtlasTextures = originals.pages;", source)
         self.assertIn("sourceSkeletonJson", evidence)
-        self.assertIn("UiComponentEvidence", evidence)
+        self.assertIn("UiComponentEvidence", component_evidence)
 
     def test_each_serializable_evidence_monobehaviour_has_matching_script_file(self):
         import re
