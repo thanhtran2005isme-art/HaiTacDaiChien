@@ -21,5 +21,5 @@
 - **Hệ quả:** CI Python không thể thay Unity Play Mode/Console và kiểm tra hình ảnh.
 
 ## 2026-10-09 — CI không tự commit vào main
-- **Lựa chọn:** workflow build metadata chỉ **kiểm tra** kết quả sinh; nếu file tracked cần cập nhật thì tác giả đưa thay đổi vào feature branch/PR.
+- **Lựa chọn:** hai workflow build metadata Unity và kiểm kê XAPK chỉ **kiểm tra** kết quả sinh; nếu file tracked cần cập nhật thì tác giả đưa thay đổi vào feature branch/PR.
 - **Hệ quả:** không xảy ra thay đổi `main` âm thầm từ bot; người làm phải chạy generator trong nhánh và commit kết quả trước khi merge.
