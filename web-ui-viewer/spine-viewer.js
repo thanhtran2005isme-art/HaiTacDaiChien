@@ -41,6 +41,9 @@ function play() {
   try {
     const animation = $("animation").value;
     player = new window.spine.SpinePlayer("player-stage", {
+      // 3.8 used jsonUrl/atlasUrl; newer players use skeleton/atlas.
+      jsonUrl: localFile(pack.skeleton),
+      atlasUrl: localFile(pack.atlas),
       skeleton: localFile(pack.skeleton),
       atlas: localFile(pack.atlas),
       animation,
