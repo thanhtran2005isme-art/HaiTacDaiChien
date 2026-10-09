@@ -195,8 +195,23 @@ def verified_native_header_root(generated, native):
     if not managed_children:
         raise RecoveryBlocked("No managed fields after native header",
                               phase="native_header", code="NO_MANAGED_NODES")
-    merged = copy.copy(generated)
-    merged.m_Children = list(header) + managed_children
+    # UnityPyBoost.TypeTreeNode is a native extension and is not pickle/copy
+    # compatible. Construct a fresh node with the documented UnityPy API
+    # rather than mutating the generator's cached root.
+    try:
+        from UnityPy.helpers.TypeTreeNode import TypeTreeNode
+    except ImportError:
+        TypeTreeNode = None
+    if TypeTreeNode is not None and isinstance(generated, TypeTreeNode):
+        merged = TypeTreeNode(
+            generated.m_Level, generated.m_Type, generated.m_Name,
+            generated.m_ByteSize, generated.m_Version,
+            m_MetaFlag=generated.m_MetaFlag)
+        merged.m_Children.extend(list(header) + managed_children)
+    else:
+        # Lightweight pure-Python test doubles only.
+        merged = copy.copy(generated)
+        merged.m_Children = list(header) + managed_children
     return merged
 
 
