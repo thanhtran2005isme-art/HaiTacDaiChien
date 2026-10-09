@@ -53,6 +53,31 @@ Lỗi cổng 8765 đang dùng: mở terminal và chạy `py tools/serve_ui_viewe
 
 Để dừng: quay lại cửa sổ terminal đã mở .bat và nhấn `Ctrl+C`.
 
+## Tự động hiển thị Sprite giải mã từ XAPK trên máy (mới)
+
+Bản Web có thể tự hiển thị các Sprite **thực sự giải mã được**, không cần chọn ảnh thủ công sau khi chuẩn bị dữ liệu một lần. Ảnh chỉ lưu ở `output/local-ui-art/`, không được đưa lên GitHub.
+
+Trên Windows, chạy từ thư mục repository:
+
+```bat
+git lfs pull
+py -3 -m pip install UnityPy Pillow
+CHAY_UI_OFFLINE.bat
+```
+
+Trong lần chạy đầu, `.bat` gọi `tools/export_local_ui_art.py` nếu chưa có `output/local-ui-art/manifest.json`. Script đọc APK đã trích tại `output/apks/` (nếu có), nếu không thì đọc XAPK thật từ thư mục gốc. Nếu XAPK chỉ là Git LFS pointer hoặc không có UnityPy, chương trình vẫn mở wireframe nhưng **không thể tự tạo ảnh**.
+
+Để xuất lại khi có bản XAPK mới:
+
+```bat
+py -3 tools\export_local_ui_art.py
+CHAY_UI_OFFLINE.bat
+```
+
+Script chỉ xuất Sprite tham chiếu bởi 5 scene hiện tại, giữ PNG crop do UnityPy giải mã và đối chiếu định danh Unity (`serialized file + Sprite path ID`), không đoán theo tên. Các đường dẫn UI có nhiều Sprite không thể phân biệt sẽ bị bỏ qua để tránh ghép sai. Manifest báo số lượng `sprite_images_exported`, `ui_nodes_mapped` và `ambiguous_paths`. Trình duyệt tự đọc manifest; chọn ảnh thủ công vẫn hoạt động để bổ sung/ghi đè khi cần.
+
+**Lưu ý quyền sử dụng:** Chỉ giải mã và sử dụng nội bộ các tài nguyên bạn có quyền dùng. Ảnh được phục vụ qua cổng localhost chỉ khi có trong manifest đã tạo, không có endpoint đọc tùy ý. Không chia sẻ thư mục `output/`, XAPK hay ảnh thương mại. Khung, đối tượng Spine, skin, animation, CanvasScaler runtime và asset tải thêm từ server **không tự được khôi phục**.
+
 ## Hiển thị ảnh thật từ máy (bản Web mới)
 
 Sau khi mở `CHAY_UI_OFFLINE.bat` và vào `http://127.0.0.1:8765/`, trong cột trái bạn sẽ thấy **Ảnh của bạn**.
