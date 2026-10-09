@@ -10,6 +10,7 @@ on:
       - 'tests/test_local_ui_layout.py'
       - 'tools/audit_local_ui_components.py'
       - 'tools/trace_local_spine_links.py'
+      - 'tools/export_local_spine.py'
       - 'tests/test_xapk_deep_evidence.py'
       - '.github/workflows/local-art-decode.yml'
   workflow_dispatch:
@@ -56,6 +57,21 @@ jobs:
         run: python tools/audit_local_ui_components.py
       - name: Trace original Spine component to TextAssets (field still unverified)
         run: python tools/trace_local_spine_links.py
+      - name: Export local Spine 3.8 source packs chosen by REF04 content evidence
+        run: python tools/export_local_spine.py --from-evidence REF04-home-crew --limit 12
+      - name: Verify REF04 candidate skeleton names match selected packs
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          e=json.loads(Path('output/local-spine-link-evidence.json').read_text(encoding='utf-8'))
+          packs=json.loads(Path('output/local-spine/manifest.json').read_text(encoding='utf-8'))
+          verified={x['skeletonName'] for x in e['records'] if
+                    x['sceneId']=='REF04-home-crew' and
+                    x['status']=='content_chain_verified_field_unverified'}
+          assert packs['packages'] and all(p['name'] in verified for p in packs['packages'])
+          print('PASS: REF04 local 3.8 packs selected by original content:',len(packs['packages']))
+          PY
       - name: Validate deep evidence counts and zero false binding claims
         run: |
           python - <<'PY'
@@ -130,6 +146,8 @@ jobs:
         run: python tools/audit_local_ui_components.py
       - name: Trace Spine to local TextAsset content on Windows
         run: python tools/trace_local_spine_links.py
+      - name: Export REF04 matched real Spine source packs on Windows
+        run: python tools/export_local_spine.py --from-evidence REF04-home-crew --limit 12
       - name: Extract exact XAPK layout evidence on Windows
         run: python tools/export_local_ui_layout.py
       - name: Verify Windows evidence and no fake CanvasScaler claims
