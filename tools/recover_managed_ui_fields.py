@@ -131,8 +131,11 @@ def exact_unity_version(scenes):
     return version
 
 
-def source_generator(xapk, version, factory=None):
-    """Create generated TypeTrees from this exact source build only."""
+def source_generator(xapk, version, factory=None, backend="AssetsTools"):
+    """Generate source-bound schema from an explicitly selected native backend."""
+    if backend not in ("AssetsTools", "AssetStudio", "AssetRipper"):
+        raise RecoveryBlocked("Unsupported IL2CPP TypeTree backend",
+                              phase="preflight", code="UNTRUSTED_GENERATOR_BACKEND")
     if factory is None:
         try:
             from UnityPy.helpers.TypeTreeGenerator import TypeTreeGenerator
@@ -140,7 +143,8 @@ def source_generator(xapk, version, factory=None):
             raise RecoveryBlocked(
                 "Install optional TypeTreeGeneratorAPI for local binary recovery"
             ) from exc
-        factory = TypeTreeGenerator
+        factory = lambda source_version: TypeTreeGenerator(
+            source_version, generator=backend)
     found = read_source_pair(xapk)
     try:
         generator = factory(version)
@@ -151,6 +155,7 @@ def source_generator(xapk, version, factory=None):
         ) from exc
     return generator, {
         "generator": "EXACT_XAPK_IL2CPP_BINARY_PAIR",
+        "backend": backend,
         "gameUnityVersion": version,
         "library": found["library"][1],
         "metadata": found["metadata"][1],
