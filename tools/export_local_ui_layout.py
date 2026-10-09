@@ -158,7 +158,11 @@ def verified_scene(scene, readers, image_rows):
                                  ("m_TargetDisplay", "targetDisplay")):
                 value = get(obj, source)
                 if isinstance(value, (bool, int)):
-                    details[dest] = value
+                    # JsonUtility deserializes C# bool fields from true/false,
+                    # not reliably from numeric 0/1 in player-build assets.
+                    details[dest] = (bool(value) if dest in (
+                        "overrideSorting", "pixelPerfect", "enabled")
+                        else int(value))
                     details["has" + dest[0].upper() + dest[1:]] = True
             canvases.append(details)
         except Exception:
