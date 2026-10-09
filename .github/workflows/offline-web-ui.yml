@@ -9,6 +9,10 @@ on:
       - 'tools/probe_spine_payloads.py'
       - 'tests/test_offline_web_viewer.py'
       - 'tests/test_local_ui_art.py'
+      - 'tests/test_unity_prefab_manifest.py'
+      - 'tools/build_unity_prefab_manifest.py'
+      - 'unity-ui-viewer/Assets/Editor/UnityCanvasReconstructor.cs'
+      - 'unity-ui-viewer/Assets/Scripts/ReconstructionEvidence.cs'
       - 'tests/test_local_spine.py'
       - 'tests/test_spine_payloads.py'
       - 'tests/test_asset_matching.cjs'
@@ -39,6 +43,13 @@ jobs:
         run: python3 -m unittest discover -s tests -p test_local_ui_art.py -v
       - name: Test private Spine pack mapping (no XAPK needed)
         run: python3 -m unittest discover -s tests -p test_local_spine.py -v
+      - name: Validate Unity Canvas prefab reconstruction map (no artwork)
+        run: python3 -m unittest discover -s tests -p test_unity_prefab_manifest.py -v
+      - name: Check local-only Unity reconstruction path and API usage
+        run: |
+          test -f unity-ui-viewer/Assets/Editor/UnityCanvasReconstructor.cs
+          grep -q 'PrefabUtility.SaveAsPrefabAsset' unity-ui-viewer/Assets/Editor/UnityCanvasReconstructor.cs
+          grep -q '/unity-ui-viewer/Assets/LocalReconstruction/' .gitignore
       - name: Verify bat entrypoint and privacy requirements
         shell: bash
         run: |
