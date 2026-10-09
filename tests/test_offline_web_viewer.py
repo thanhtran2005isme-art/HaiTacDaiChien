@@ -109,6 +109,55 @@ class TestOfflineWebViewer(unittest.TestCase):
                 self.request("/local-art/manifest.json")
             self.assertEqual(ctx.exception.code, 404)
 
+    def test_spine_gallery_static_html_and_javascript(self):
+        for path, marker in [("/spine-viewer", b"Spine Animation"),
+                             ("/spine-viewer.js", b"SpinePlayer"),
+                             ("/spine-viewer.css", b".canvas-shell")]:
+            status, _, data = self.request(path)
+            self.assertEqual(status, 200)
+            self.assertIn(marker, data)
+
+    def test_local_spine_manifest_strict_allowlist(self):
+        with tempfile.TemporaryDirectory() as temp, patch.object(
+                serve, "SPINE_ROOT", pathlib.Path(temp)):
+            token = "a" * 24
+            folder = pathlib.Path(temp) / token
+            folder.mkdir()
+            files = [token + "/skeleton.json", token + "/skeleton.atlas", token + "/hero.png"]
+            for name in files:
+                (pathlib.Path(temp) / name).write_bytes(b"sample-only")
+            (folder / "private.png").write_bytes(b"should-not-serve")
+            (pathlib.Path(temp) / "manifest.json").write_text(json.dumps({
+                "version": 1, "files": files, "packages": [{
+                    "id": token, "name": "sample",
+                    "skeleton": files[0], "atlas": files[1], "pages": [files[2]]
+                }]
+            }), encoding="utf-8")
+            for name in files:
+                status, _, body = self.request("/local-spine/" + name)
+                self.assertEqual(status, 200)
+                self.assertEqual(body, b"sample-only")
+            status, _, body = self.request("/local-spine/manifest.json")
+            self.assertEqual(status, 200)
+            self.assertEqual(json.loads(body)["version"], 1)
+            for path in ["/local-spine/" + token + "/private.png",
+                         "/local-spine/" + token + "/../manifest.json",
+                         "/local-spine/private.png", "/output/local-spine/" + files[0]]:
+                with self.subTest(path=path):
+                    with self.assertRaises(HTTPError) as exc:
+                        self.request(path)
+                    self.assertEqual(exc.exception.code, 404)
+
+    def test_spine_manifest_rejects_traversal(self):
+        with tempfile.TemporaryDirectory() as temp, patch.object(
+                serve, "SPINE_ROOT", pathlib.Path(temp)):
+            (pathlib.Path(temp) / "manifest.json").write_text(json.dumps({
+                "version": 1, "files": ["../skeleton.json"]
+            }), encoding="utf-8")
+            with self.assertRaises(HTTPError) as err:
+                self.request("/local-spine/manifest.json")
+            self.assertEqual(err.exception.code, 404)
+
     def test_repo_and_arbitrary_files_not_exposed(self):
         for path in [
             "/.git/config", "/README.md", "/tools/serve_ui_viewer.py",
