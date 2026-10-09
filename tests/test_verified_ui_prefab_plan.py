@@ -137,7 +137,7 @@ class TestExactManagedStudyPlan(unittest.TestCase):
     def test_invalid_types_and_extra_fields_must_block(self):
         self.studio["scenes"][0]["components"][0]["fields"]["m_Type"] = True
         self.ripper["scenes"][0]["components"][0]["fields"]["m_Type"] = True
-        with self.assertRaisesRegex(ValueError, "Integer field type"):
+        with self.assertRaisesRegex(ValueError, "Invalid source field value/range"):
             minimal(self.studio, self.ripper, self.graph)
         self.studio, self.ripper, self.graph = fixture()
         self.studio["scenes"][0]["components"][0]["fields"]["m_Fake"] = 1
