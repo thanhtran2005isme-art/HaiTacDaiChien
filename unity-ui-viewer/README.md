@@ -43,6 +43,16 @@ Open **unity-ui-viewer/** as a Unity 2022.3 LTS project. Then use:
 
 **Tools → HaiTac Offline UI Viewer → Reconstruct 5 local Canvas prefabs**
 
+**Important for upgrades:** After `git pull`, run the Reconstruct command **again**, even when `Assets/LocalReconstruction/Scenes` already contains five files. Git ignores generated local scenes and cannot update them automatically. The script overwrites all five scene/prefab candidates locally.
+
+**Blank-scene fix (2026-10-09):** Source data contains `localScale=(0,0)` for the roots of REF01, REF03A, REF03B and REF04; REF02's root has (1,1). Previous builds cloned the serialized root as a zero-scale child beneath a separate Canvas, hiding every sprite. Current reconstruction uses the Canvas as that root and retains per-child transforms. The freshly generated scenes also have a Local Preview Camera.
+
+After rebuilding, choose **Tools → HaiTac Offline UI Viewer → Audit 5 generated Canvas scenes**. This checks that every saved scene has an active Camera and Canvas, nonzero root Canvas scale and at least one imported Sprite. The report shows which scene still has a structural blocker; it does not prove exact pixel fidelity or animate Spine.
+
+To refresh the Game tab after regeneration, **double-click the generated .unity scene again** (prefer REF04-home-crew) and select Game → 16:9. Confirm `Local Preview Camera` and the reconstructed Canvas prefab are both present in the Hierarchy. If the Camera is missing, you are still viewing an old locally generated scene.
+
+
+
 The importer creates:
 
 - `Assets/LocalReconstruction/Sprites/` — only the decoded Sprite PNGs referenced by verified UI components
