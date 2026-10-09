@@ -154,3 +154,23 @@ type output\deep-ui-source-evidence.md
 `--recover-managed-fields` không bật trong CI thật mặc định: CI kiểm tra thuật toán fail-closed bằng dữ liệu tổng hợp, còn việc tạo TypeTree bằng parser tùy chọn có thể không hỗ trợ IL2CPP v31/build này. Báo cáo nằm trong `output/` bị ignore. Không tạo hay sửa `Assets/LocalReconstruction` trong bước này, và **không tự đưa fields vào Prefab Unity** trước khi xem kết quả có chứng cứ, test Editor và duyệt thay đổi importer riêng.
 
 **Các trường cần kiểm chứng tiếp:** Image.Type/Color/Fill/PreserveAspect; CanvasScaler scale mode/reference resolution; Mask/RectMask2D; LayoutGroup spacing, padding, child-alignment, grid constraints. Giá trị chưa lấy được phải ghi UNKNOWN. Kết quả binary phase 3B không đồng nghĩa UI REF04/Spine/game state đã được khôi phục.
+
+
+### Phân tích lỗi AssertionError tại Windows (2026-10-10)
+
+Máy người dùng chạy opt-in: `attempted=1201`, `blocked=1201`, cùng một lỗi `Generated TypeTree failed strict object parsing: AssertionError`. Lỗi này **chưa đủ chi tiết để phân biệt** generator không tạo được nodes, root MonoBehaviour thiếu header, hay strict parser thất bại.
+
+Bản chẩn đoán mới phân loại:
+
+- `NODE_GENERATION_AssertionError` (phase `generate_nodes`): `generator.get_nodes_up` ném exception trước khi có TypeTree.
+- `INCOMPLETE_GENERATED_ROOT` (phase `validate_root`): TypeTree root không phải `MonoBehaviour` level 0 hoặc thiếu `m_GameObject`, `m_Script`, `m_Enabled`; **không đọc** schema thiếu root như layout hợp lệ.
+- `STRICT_PARSE_AssertionError` (phase `strict_parse`): TypeTree có header, nhưng parser thất bại khi `check_read=True` và phải giữ BLOCKED.
+
+Báo cáo lưu thống kê theo `phase/code`, một mẫu lỗi mỗi loại (file Python/function, root shape) tại `output/deep-ui-source-evidence.md`; JSON ghi `binaryRecoveryPhase`, `binaryRecoveryCode`, `binaryRecoveryFrame` và `binaryRecoveryTreeShape`, không ghi byte nội dung. Sau khi `git pull` chạy lại:
+
+```cmd
+py -3 tools\decode_xapk_ui_provenance.py --recover-managed-fields
+type output\deep-ui-source-evidence.md
+```
+
+Trước khi nhận kết quả đã xác minh, tuyệt đối không sửa Prefab. Hướng kiểm tra bug root được tham khảo UnityPy issue #340, nhưng không coi đây là nguyên nhân được chứng minh cho XAPK này.
