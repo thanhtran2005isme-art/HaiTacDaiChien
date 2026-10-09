@@ -14,6 +14,8 @@ on:
       - 'tests/test_xapk_deep_evidence.py'
       - 'tools/audit_original_unity_graph.py'
       - 'tests/test_original_unity_graph.py'
+      - 'tools/summarize_original_unity_gaps.py'
+      - 'tests/test_original_unity_gaps.py'
       - '.github/workflows/local-art-decode.yml'
   workflow_dispatch:
 permissions:
@@ -94,6 +96,22 @@ jobs:
         run: python -m unittest discover -s tests -p test_original_unity_graph.py -v
       - name: Audit original serialized GameObject/component graph from XAPK
         run: python tools/audit_original_unity_graph.py
+      - name: Test exact per-component missing managed-field report
+        run: python -m unittest discover -s tests -p test_original_unity_gaps.py -v
+      - name: Generate local component-by-component recovery checklist
+        run: python tools/summarize_original_unity_gaps.py
+      - name: Validate full component gap CSV
+        run: |
+          python - <<'PY'
+          import csv
+          from pathlib import Path
+          p=Path('output/original-unity-component-gaps.csv')
+          rows=list(csv.DictReader(p.open(encoding='utf-8')))
+          assert len(rows)==5346,len(rows)
+          assert sum(x['workStatus']=='NEEDS_MANAGED_TYPE_TREE' for x in rows)==2212
+          assert len({(x['sceneId'],x['componentPathId']) for x in rows})==5346
+          print('PASS source component gaps:',len(rows),'managed-unavailable:',2212)
+          PY
       - name: Check original graph coverage without claiming real editor Prefabs
         run: |
           python - <<'PY'
@@ -176,6 +194,13 @@ jobs:
         run: python -m unittest discover -s tests -p test_original_unity_graph.py -v
       - name: Check original serialized scene/prefab candidate inventory on Windows
         run: python tools/audit_original_unity_graph.py
+      - name: Test local component gap reporter on Windows
+        run: python -m unittest discover -s tests -p test_original_unity_gaps.py -v
+      - name: Report full component gaps on Windows
+        run: python tools/summarize_original_unity_gaps.py
+      - name: Validate Win source component gap count
+        run: |
+          python -c "import csv; from pathlib import Path; rows=list(csv.DictReader(Path('output/original-unity-component-gaps.csv').open(encoding='utf-8'))); assert len(rows)==5346; print('WINDOWS SOURCE GAPS PASS:',len(rows))"
       - name: Require complete original 5-scene pointers on Windows
         run: |
           python -c "import json; from pathlib import Path; x=json.loads(Path('output/original-unity-graph.json').read_text(encoding='utf-8')); assert len(x['scenes'])==5 and x['stats']['nodes']==1670; print('ORIGINAL GRAPH WINDOWS PASS:', x['stats'])"
