@@ -45,6 +45,25 @@ Open **unity-ui-viewer/** as a Unity 2022.3 LTS project. Then use:
 
 **Important for upgrades:** After `git pull`, run the Reconstruct command **again**, even when `Assets/LocalReconstruction/Scenes` already contains five files. Git ignores generated local scenes and cannot update them automatically. The script overwrites all five scene/prefab candidates locally.
 
+**Fix for Unity Editor error `InvalidDataException: Zero-scale reconstructed Canvas`:**
+After `git pull origin main`, close and reopen Unity Editor to reload the C# assembly.
+Unity's own `RectTransform` preview root is now explicitly normalized to
+`Vector3.one` **both before prefab serialization and after prefab instantiation**.
+Previously the rebuild aborted at REF01, leaving all five old scene files without
+their new preview Camera.
+
+To repair the scene files **already generated on your machine**, select:
+**Tools → HaiTac Offline UI Viewer → Repair existing 5 scenes (Camera + Canvas scale)**.
+This patches each existing generated scene, including the old zero-scale root
+child when present; it does not require re-extracting the XAPK.
+
+Then select **Tools → HaiTac Offline UI Viewer → Reconstruct 5 local Canvas prefabs**
+to regenerate the improved prefab hierarchy from the real XAPK Sprite mappings,
+followed by **Audit 5 generated Canvas scenes**. Open the desired `.unity`
+scene again. The audit should show no missing cameras or collapsed root transforms.
+If Unity reports C# compilation errors or audit errors, inspect the Console
+and `Editor.log` rather than assuming rendering is complete.
+
 **Blank-scene fix (2026-10-09):** Source data contains `localScale=(0,0)` for the roots of REF01, REF03A, REF03B and REF04; REF02's root has (1,1). Previous builds cloned the serialized root as a zero-scale child beneath a separate Canvas, hiding every sprite. Current reconstruction uses the Canvas as that root and retains per-child transforms. The freshly generated scenes also have a Local Preview Camera.
 
 After rebuilding, choose **Tools → HaiTac Offline UI Viewer → Audit 5 generated Canvas scenes**. This checks that every saved scene has an active Camera and Canvas, nonzero root Canvas scale and at least one imported Sprite. The report shows which scene still has a structural blocker; it does not prove exact pixel fidelity or animate Spine.
