@@ -135,7 +135,7 @@ def make_manifest(links, scenes, exported, component_nodes=None):
     used.update(b["spriteFile"] for b in bindings)
     exact_counts = collections.Counter(b["sceneId"] for b in bindings)
     return {
-        "version": 2 if component_nodes is not None else 1,
+        "version": 1,  # Backward-compatible Web manifest; new nodeBindings are additive.
         "files": sorted(used),
         "scenes": mapped,
         "nodeBindings": bindings,
