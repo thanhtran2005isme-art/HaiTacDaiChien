@@ -71,6 +71,12 @@ class TestProjectDocs(unittest.TestCase):
         self.assertNotIn("git push origin HEAD:main", generator)
         self.assertNotIn("contents: write", generator)
         self.assertIn("contents: read", generator)
+        xapk = (ROOT / ".github/workflows/xapk-ui-audit.yml").read_text(
+            encoding="utf-8")
+        self.assertNotIn("git push origin HEAD:main", xapk)
+        self.assertNotIn("contents: write", xapk)
+        self.assertIn("contents: read", xapk)
+        self.assertIn("pull_request:", xapk)
         self.assertIn("pull_request:", generator)
         self.assertIn("git diff --exit-code -- unity-ui-viewer/", generator)
 
