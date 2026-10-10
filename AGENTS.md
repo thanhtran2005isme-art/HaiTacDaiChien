@@ -2,6 +2,16 @@
 
 > **Điểm đọc đầu tiên.** Tài liệu này là chỉ dẫn làm việc, **không** thay cho kiểm tra mã và Git hiện tại.
 
+## QUY TẮC NGƯỜI DÙNG KHÓA — KHÔNG BAO GIỜ ĐOÁN UI TỪ XAPK
+
+**ĐỌC TRƯỚC KHI SỬA BẤT KỲ UI NÀO:** [docs/XAPK_SOURCE_ONLY_UI_RULES.md](docs/XAPK_SOURCE_ONLY_UI_RULES.md).
+
+- **Chỉ XAPK gốc 100%**: tọa độ, vị trí, kích thước, hình ảnh, Canvas, LayoutGroup, trạng thái, chữ, thứ tự hiển thị và phép tính IL2CPP phải có bằng chứng gốc theo SerializedFile/PathID/field hoặc byte mã được kiểm chứng.
+- **KHÔNG BAO GIỜ suy đoán/tự đặt/ước lượng**, kể cả `1600×900`, root scale=1, Unity defaults, icon offsets hay nội suy ảnh; Preview cũ không phải sản phẩm.
+- Không đọc được → **tiếp tục giải mã XAPK** → vẫn không có chứng cứ → **DỪNG VÀ HỎI NGƯỜI DÙNG**. Không đổi `UNVERIFIED` thành `PASS`.
+- Hiện thực hiện bước 1: kiểm kê **toàn bộ** REF04 UI, không chỉ 265 Sprite/Image; chỉ đọc source, chưa sửa bố cục Unity. Spine/nhân vật để sau.
+- Không gọi CI PASS là UI đã giống XAPK. Giữ nguồn/Prefab 3C và ảnh gốc nguyên vẹn.
+
 ## Đọc theo thứ tự (không cần đọc toàn bộ lịch sử)
 1. `AGENTS.md` (file này).
 2. [docs/AI_HANDOFF.md](docs/AI_HANDOFF.md) — tình trạng hiện tại, việc gần nhất, việc tiếp theo, rủi ro.

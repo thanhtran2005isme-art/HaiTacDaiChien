@@ -15,6 +15,52 @@ on:
       - 'tools/audit_original_unity_graph.py'
       - 'tests/test_original_unity_graph.py'
       - 'tools/summarize_original_unity_gaps.py'
+      - 'tools/decode_xapk_ui_provenance.py'
+      - 'tools/recover_managed_ui_fields.py'
+      - 'tools/probe_xapk_typetree_backends.py'
+      - 'tools/compare_managed_ui_backends.py'
+      - 'tools/build_verified_ui_prefab_plan.py'
+      - 'tools/build_verified_visual_plan.py'
+      - 'tools/report_source_visual_layout_gaps.py'
+      - 'tools/audit_ref04_static_ui_geometry.py'
+      - 'tools/report_ref04_png_rect_mismatch.py'
+      - 'tests/test_ref04_png_rect_mismatch.py'
+      - 'tools/report_ref04_source_atlas_offsets.py'
+      - 'tests/test_ref04_source_atlas_offsets.py'
+      - 'tools/compare_ref04_game_screenshots.py'
+      - 'tests/test_ref04_game_screenshot_compare.py'
+      - 'tools/build_ref04_native_bounds_sprites.py'
+      - 'tests/test_ref04_native_bounds_sprites.py'
+      - 'unity-ui-viewer/Assets/Editor/Ref04NativeBoundsPreviewImporter.cs'
+      - 'tests/test_ref04_native_bounds_unity_contract.py'
+      - 'tools/prepare_ref04_native_bounds_preview.py'
+      - 'tools/audit_ref04_3c_image_inventory.py'
+      - 'tools/audit_ref04_full_source_inventory.py'
+      - 'tools/probe_ref04_layout_third_backend.py'
+      - 'tests/test_ref04_layout_third_backend.py'
+      - 'tools/audit_ref04_step2_layout_canvas_text.py'
+      - 'tests/test_ref04_step2_layout_canvas_text.py'
+      - 'tools/probe_ref04_text_source_binary.py'
+      - 'tests/test_ref04_text_source_binary.py'
+      - 'tests/test_ref04_full_source_inventory.py'
+      - 'docs/XAPK_SOURCE_ONLY_UI_RULES.md'
+      - 'AGENTS.md'
+      - 'tests/test_ref04_3c_image_inventory.py'
+      - 'tests/test_ref04_static_ui_geometry.py'
+      - 'tests/test_ref04_static_geometry_unity_contract.py'
+      - 'unity-ui-viewer/Assets/Editor/Ref04SourceSpriteGeometryAudit.cs'
+      - 'tests/test_source_root_canvas_viewport_contract.py'
+      - 'tests/test_verified_visual_plan.py'
+      - 'tests/test_verified_visual_unity_contract.py'
+      - 'unity-ui-viewer/Assets/Editor/VerifiedVisualStudyImporter.cs'
+      - 'unity-ui-viewer/Assets/Scripts/VerifiedVisualPreviewEvidence.cs'
+      - 'tests/test_verified_ui_prefab_plan.py'
+      - 'tests/test_verified_ui_unity_contract.py'
+      - 'unity-ui-viewer/Assets/Editor/VerifiedManagedUiPrefabImporter.cs'
+      - 'unity-ui-viewer/Assets/Scripts/ManagedUiSourceEvidence.cs'
+      - 'tests/test_compare_managed_ui_backends.py'
+      - 'tests/test_decode_xapk_ui_provenance.py'
+      - 'tests/test_recover_managed_ui_fields.py'
       - 'tests/test_original_unity_gaps.py'
       - '.github/workflows/local-art-decode.yml'
   workflow_dispatch:
@@ -91,8 +137,12 @@ jobs:
           s = json.loads(Path('output/local-spine-link-evidence.json').read_text(encoding='utf-8'))
           assert len(u['scenes']) == 5
           assert len(s['records']) == 32
-          assert u['stats']['spriteGeometry'] == 826
-          assert u['stats']['spriteBorders'] == 826
+          assert u['stats']['spriteGeometry'] == 963
+          assert u['stats']['spriteBorders'] == 963
+          assert all('imageComponentId' in g
+                     for sc in u['scenes'] for g in sc['spriteGeometry'])
+          assert len({(sc['sceneId'],g['imageComponentId'])
+                      for sc in u['scenes'] for g in sc['spriteGeometry']})==963
           assert s['stats'].get('content_chain_verified_field_unverified') == 13
           assert all(not x['fieldVerified'] and not x['skinVerified'] and
                      not x['activeAnimationVerified'] for x in s['records'])
@@ -102,6 +152,36 @@ jobs:
         run: python -m unittest discover -s tests -p test_original_unity_graph.py -v
       - name: Audit original serialized GameObject/component graph from XAPK
         run: python tools/audit_original_unity_graph.py
+      - name: Test source-linked IL2CPP and UI field evidence
+        run: python -m unittest discover -s tests -p test_decode_xapk_ui_provenance.py -v
+      - name: Verify strict optional managed TypeTree recovery guards
+        run: python -m unittest discover -s tests -p test_recover_managed_ui_fields.py -v
+      - name: Audit exact MonoScript, UI managed fields and IL2CPP metadata locally
+        run: python tools/decode_xapk_ui_provenance.py
+      - name: Require deep UI evidence preserves source component identities
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          d=json.loads(Path('output/deep-ui-source-evidence.json').read_text(encoding='utf-8'))
+          assert d['schemaVersion']==1
+          assert d['status']=='VERIFIED_POINTER_AUDIT_NOT_FIELD_OFFSET_RECOVERY'
+          assert len(d['scenes'])==5 and d['stats']['componentCount']==5346
+          assert d['il2cpp']['files']
+          assert d['globalMonoScriptResolution']['resolved']==2320
+          assert d['globalMonoScriptResolution']['ambiguous']==0
+          assert d['stats']['statuses']['NO_MANAGED_TYPETREE']==1201
+          assert any(x['status']=='V31_HEADER_VALIDATED_NAME_HINTS_ONLY'
+                     for x in d['il2cpp']['files'])
+          assert all(len({x['pathId'] for x in s['components']})==len(s['components'])
+                     for s in d['scenes'])
+          assert all(x['status']!='SERIALIZED_FIELDS_VERIFIED' or
+                     (x.get('className') and x.get('fields'))
+                     for s in d['scenes'] for x in s['components'])
+          print('PASS source-linked deep audit', d['stats']['statuses'])
+          print('Verified managed UI fields:',d['stats']['verifiedManagedFields'])
+          print('IL2CPP metadata:',[(x['version'],x['status']) for x in d['il2cpp']['files']])
+          PY
       - name: Test exact per-component missing managed-field report
         run: python -m unittest discover -s tests -p test_original_unity_gaps.py -v
       - name: Generate local component-by-component recovery checklist
@@ -195,6 +275,351 @@ jobs:
           print("PASS: local Sprite files verified, no artwork uploaded")
           PY
 
+
+      - name: Diagnose generated IL2CPP TypeTree against exact XAPK (informational)
+        continue-on-error: true
+        timeout-minutes: 12
+        run: |
+          python -m pip install TypeTreeGeneratorAPI
+          python tools/decode_xapk_ui_provenance.py --recover-managed-fields
+          python - <<'PY'
+          import collections
+          import json
+          from pathlib import Path
+          data=json.loads(Path("output/deep-ui-source-evidence.json").read_text(encoding="utf-8"))
+          summary=data.get("generatedBinaryProof",{}).get("verification",{})
+          print("Phase 3B exact-source run:",summary)
+          errors=collections.Counter(
+              (row.get("binaryRecoveryPhase","unknown"),
+               row.get("binaryRecoveryCode","unknown"),
+               row.get("binaryRecoveryFrame","unknown"))
+              for scene in data["scenes"] for row in scene["components"]
+              if "binaryRecoveryCode" in row)
+          for reason,count in errors.most_common(12):
+              print("BLOCKED_COUNT",count,"PHASE",reason[0],
+                    "CODE",reason[1],"FRAME",reason[2])
+          print("No binary/art payloads are uploaded; no Prefab changes.")
+          PY
+
+
+      - name: Compare exact-XAPK AssetStudio and AssetRipper generator backends (informational)
+        continue-on-error: true
+        timeout-minutes: 8
+        run: |
+          python tools/probe_xapk_typetree_backends.py --backend AssetStudio
+          python tools/probe_xapk_typetree_backends.py --backend AssetRipper
+
+
+      - name: Verify AssetStudio-managed fields against exact XAPK (informational)
+        continue-on-error: true
+        timeout-minutes: 10
+        run: |
+          python tools/decode_xapk_ui_provenance.py --recover-managed-fields --binary-backend AssetStudio
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          d=json.loads(Path("output/deep-ui-source-evidence.json").read_text(encoding="utf-8"))
+          print("ASSETSTUDIO STRICT VERIFIED FIELD COUNTS:",d["stats"]["verifiedManagedFields"])
+          print("ASSETSTUDIO STRICT COMPONENT OUTCOMES:",
+                d["generatedBinaryProof"]["verification"])
+          PY
+
+      - name: Verify AssetRipper-managed fields against exact XAPK (informational)
+        continue-on-error: true
+        timeout-minutes: 10
+        run: |
+          python tools/decode_xapk_ui_provenance.py --recover-managed-fields --binary-backend AssetRipper
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          d=json.loads(Path("output/deep-ui-source-evidence.json").read_text(encoding="utf-8"))
+          print("ASSETRIPPER STRICT VERIFIED FIELD COUNTS:",d["stats"]["verifiedManagedFields"])
+          print("ASSETRIPPER STRICT COMPONENT OUTCOMES:",
+                d["generatedBinaryProof"]["verification"])
+          PY
+
+
+      - name: Strict cross-backend source-proven field agreement tests
+        run: python -m unittest discover -s tests -p test_compare_managed_ui_backends.py -v
+      - name: Verify secure two-backend field study-plan constraints
+        run: python -m unittest discover -s tests -p test_verified_ui_prefab_plan.py -v
+      - name: Verify non-destructive Unity study Prefab importer contract
+        run: python -m unittest discover -s tests -p test_verified_ui_unity_contract.py -v
+      - name: Verify exact-source visual preview binding guard tests
+        run: python -m unittest discover -s tests -p test_verified_visual_plan.py -v
+      - name: Verify source-preserving Unity visual importer contract
+        run: python -m unittest discover -s tests -p test_verified_visual_unity_contract.py -v
+      - name: Verify separate source-root Canvas viewport contract
+        run: python -m unittest discover -s tests -p test_source_root_canvas_viewport_contract.py -v
+      - name: Verify REF04 Image Sprite geometry provenance regression tests
+        run: python -m unittest discover -s tests -p test_ref04_static_ui_geometry.py -v
+      - name: Verify REF04 native Sprite border repair never guesses UI layout
+        run: python -m unittest discover -s tests -p test_ref04_static_geometry_unity_contract.py -v
+      - name: Verify REF04 exported PNG bounds cannot silently override XAPK native Sprite rect
+        run: python -m unittest discover -s tests -p test_ref04_png_rect_mismatch.py -v
+      - name: Verify original atlas Sprite offset evidence is never inferred from crop alone
+        run: python -m unittest discover -s tests -p test_ref04_source_atlas_offsets.py -v
+      - name: Verify reference XAPK gameplay screenshot required for REF04 pixel comparison
+        run: python -m unittest discover -s tests -p test_ref04_game_screenshot_compare.py -v
+      - name: Verify exact unpacked native Tight Sprite logical bounds without altering source pixels
+        run: python -m unittest discover -s tests -p test_ref04_native_bounds_sprites.py -v
+      - name: Verify REF04 source Tight Sprite study importer remains separate from 3C and original art
+        run: python -m unittest discover -s tests -p test_ref04_native_bounds_unity_contract.py -v
+      - name: Verify all 3C Image components vs exact Sprite-linked subset
+        run: python -m unittest discover -s tests -p test_ref04_3c_image_inventory.py -v
+      - name: Verify REF04 strict full XAPK-source UI component inventory is read-only
+        run: python -m unittest discover -s tests -p test_ref04_full_source_inventory.py -v
+      - name: Verify independent LayoutGroup source identity and zero guess policy
+        run: python -m unittest discover -s tests -p test_ref04_layout_third_backend.py -v
+      - name: Verify source-only Step 2 Canvas Text and LayoutGroup evidence
+        run: python -m unittest discover -s tests -p test_ref04_step2_layout_canvas_text.py -v
+      - name: Verify 62 Text source object bytes/font pointers guarded by XAPK provenance
+        run: python -m unittest discover -s tests -p test_ref04_text_source_binary.py -v
+
+      - name: Strict AssetStudio with exact Unity-version native header
+        timeout-minutes: 10
+        run: |
+          python tools/decode_xapk_ui_provenance.py --recover-managed-fields --binary-backend AssetStudio --unity-native-header
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          d=json.loads(Path("output/deep-ui-source-evidence.json").read_text(encoding="utf-8"))
+          print("ASSETSTUDIO NATIVE-HEADER FIELDS:",d["stats"]["verifiedManagedFields"])
+          print("ASSETSTUDIO NATIVE-HEADER OUTCOMES:",d["generatedBinaryProof"]["verification"])
+          PY
+          cp output/deep-ui-source-evidence.json output/phase3b-assetstudio.json
+
+      - name: Strict AssetRipper with exact Unity-version native header
+        timeout-minutes: 10
+        run: |
+          python tools/decode_xapk_ui_provenance.py --recover-managed-fields --binary-backend AssetRipper --unity-native-header
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          d=json.loads(Path("output/deep-ui-source-evidence.json").read_text(encoding="utf-8"))
+          print("ASSETRIPPER NATIVE-HEADER FIELDS:",d["stats"]["verifiedManagedFields"])
+          print("ASSETRIPPER NATIVE-HEADER OUTCOMES:",d["generatedBinaryProof"]["verification"])
+          PY
+
+      - name: Require independently agreeing field values across source backends
+        run: |
+          python tools/compare_managed_ui_backends.py output/phase3b-assetstudio.json output/deep-ui-source-evidence.json
+
+      - name: Build local-only double-verified managed UI Prefab plan
+        run: |
+          python tools/build_verified_ui_prefab_plan.py
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          p=json.loads(Path('output/verified-ui-prefab-plan.json').read_text(encoding='utf-8'))
+          assert p['classification']=='TWO_BACKEND_STRICT_SOURCE_VERIFIED_UI_FIELDS'
+          assert p['verifiedComponents']==1108
+          assert p['verifiedFieldValues']==7451
+          assert p['singleBackendExcludedComponents']==93
+          assert p['singleBackendExcludedFieldValues']==651
+          assert len(p['scenes'])==5
+          assert sum(len(x['components']) for x in p['scenes'])==1108
+          assert sum(len(c['fields']) for s in p['scenes'] for c in s['components'])==7451
+          review=json.loads(Path('output/single-backend-layout-review.json').read_text(encoding='utf-8'))
+          assert review['classification']=='SINGLE_BACKEND_UI_FIELDS_NOT_FOR_PREFAB_IMPORT'
+          assert review['componentCount']==93 and review['excludedFieldValues']==651
+          assert sum(x['fieldCount'] for x in review['components'])==651
+          assert all(x['prefabImportAllowed'] is False and 'fields' not in x
+                     for x in review['components'])
+          assert all(c['className'] not in ('UnityEngine.UI.HorizontalLayoutGroup',
+                    'UnityEngine.UI.VerticalLayoutGroup')
+                     for sc in p['scenes'] for c in sc['components'])
+          print('PASS: source-bound private plan: 1108 components, 7451 values, 651 excluded')
+          print('NO Unity Prefabs changed; NO binary/source art uploaded')
+          PY
+
+      - name: Require all 963 original Image Sprite pointers match dual-verified 3C fields
+        run: |
+          python tools/build_verified_visual_plan.py
+          python - <<'PY'
+          from pathlib import Path
+          import json
+          p=json.loads(Path('output/verified-visual-preview-plan.json').read_text(encoding='utf-8'))
+          assert p['classification']=='EXACT_SOURCE_SPRITES_ON_DUAL_VERIFIED_IMAGE_COMPONENTS'
+          assert p['sourceBindings']==963 and p['previewOnly'] is True
+          assert len(p['scenes'])==5
+          assert sum(len(scene['bindings']) for scene in p['scenes'])==963
+          assert len({(scene['sceneId'],row['imageComponentPathId'])
+                      for scene in p['scenes'] for row in scene['bindings']})==963
+          assert all('fields' not in row for scene in p['scenes'] for row in scene['bindings'])
+          print('PASS: exact XAPK source-to-3C Sprite plan: 963 bindings, 0 unverified fields')
+          print('NO Unity prefabs changed, NO art/source values uploaded.')
+          PY
+
+      - name: Require REF04 original Sprite border and Pixels Per Unit inventory
+        run: |
+          python tools/audit_ref04_static_ui_geometry.py
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          p=json.loads(Path('output/ref04-static-image-geometry.json').read_text(encoding='utf-8'))
+          assert p['classification']=='REF04_EXACT_SOURCE_IMAGE_SPRITE_GEOMETRY'
+          assert p['sceneId']=='REF04-home-crew'
+          assert p['sourceBindings']==265
+          assert len(p['images'])==265
+          assert p['counts']['sourceGeometryVerified']==265
+          assert p['counts']['slicedImage']==35
+          assert p['counts']['slicedWithVerifiedNonzeroBorder']==35
+          assert all(x['applyGeometry'] for x in p['images'])
+          assert all(x['applyGeometry'] is True or 'border' not in x
+                     for x in p['images'])
+          print('REF04 ORIGINAL SPRITE GEOMETRY SOURCE AUDIT PASS:',p['counts'])
+          PY
+
+      - name: Reconcile 3C all-Image IDs with REF04 265 Sprite-linked IDs
+        run: |
+          python tools/audit_ref04_3c_image_inventory.py
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          r=json.loads(Path('output/ref04-3c-image-inventory.json').read_text(encoding='utf-8'))
+          assert r['all265SourceBoundIdsPresentIn3C'] is True
+          assert r['sourceImageWithSpriteCount']==265
+          assert r['source3cAllImageComponentCount']>=265
+          assert r['source3cImageWithoutSpriteCount']==(r['source3cAllImageComponentCount']-265)
+          print('STRICT REF04 3C Image source inventory:',r)
+          PY
+
+      - name: Inventory ALL REF04 candidate XAPK UI components with source-only policy
+        run: |
+          python tools/audit_ref04_full_source_inventory.py
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          r=json.loads(Path('output/ref04-full-source-inventory.json').read_text(encoding='utf-8'))
+          c=r['counts']
+          assert r['classification']=='REF04_ALL_SOURCE_CANDIDATE_UI_COMPONENT_INVENTORY_READ_ONLY'
+          assert r['sourceFieldApplicationAllowed'] is False
+          assert r['unityAssetsChanged'] is False
+          assert r['requiresMoreXapkDecoding'] is True
+          assert c['gameObjects']==503
+          assert c['allDualVerifiedImageComponents']==299
+          assert c['originalSpriteLinkedImages']==265
+          assert c['verifiedImagesWithoutSourceSprite']==34
+          assert c['referencedComponentIDs']==c['serializedComponentRecords']
+          assert len(r['gameObjects'])==c['gameObjects']
+          assert sum(len(n['components']) for n in r['gameObjects'])==c['serializedComponentRecords']
+          assert c['singlyVerifiedLayoutComponentsBlocked']>0
+          assert not r['root']['runtimeViewportProven']
+          assert Path('output/ref04-full-source-inventory.md').is_file()
+          print('REF04 strict FULL source-only evidence inventory:',c)
+          print('Unverified fields require further XAPK decoding. NO Canvas/UI guessed.')
+          PY
+
+      - name: Probe independent third IL2CPP backend for 24 blocked REF04 LayoutGroups (no import)
+        continue-on-error: true
+        timeout-minutes: 6
+        run: python tools/probe_ref04_layout_third_backend.py
+
+      - name: Probe strict original 62 Text components from XAPK IL2CPP bytes (no import)
+        continue-on-error: true
+        timeout-minutes: 6
+        run: python tools/probe_ref04_text_source_binary.py
+
+      - name: Audit REF04 Canvas Text layout and SafeArea from source only
+        run: |
+          python tools/audit_ref04_step2_layout_canvas_text.py
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          d=json.loads(Path('output/ref04-step2-layout-canvas-text.json').read_text(encoding='utf-8'))
+          assert d['classification']=='REF04_SOURCE_LAYOUT_CANVAS_TEXT_STEP2_READ_ONLY'
+          assert d['counts']['Canvas']==1 and d['counts']['CanvasScaler']==1
+          assert d['counts']['LayoutGroup']==24 and d['counts']['Text']==62
+          assert d['counts']['SafeArea']==6
+          assert d['layoutGroupFieldValuesStillBlockedFromUnity']==168
+          assert d['sourceRuntimeCanvasOrViewportProven'] is False
+          assert d['sourceRuntimeTextProven'] is False
+          assert d['sourceRuntimeLayoutProven'] is False
+          assert d['unityAssetsChanged'] is False
+          assert d['sourceFieldApplicationAllowed'] is False
+          assert all(x['canBeAppliedToUnity'] is False
+                     for values in d['componentsByCategory'].values() for x in values)
+          assert Path('output/ref04-step2-layout-canvas-text.md').exists()
+          print('REF04 SOURCE-ONLY STEP2:',d['counts'],
+                'third layout backend attempted=',d['thirdBackendRunProvided'],
+                'source text strict probe attempted=',d['sourceTextBinaryProbeProvided'])
+          PY
+
+      - name: Classify all REF04 XAPK native Sprite rectangles against exported PNG dimensions
+        run: |
+          python tools/report_ref04_png_rect_mismatch.py
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          p=json.loads(Path('output/ref04-png-rect-reconciliation.json').read_text(encoding='utf-8'))
+          assert p['classification']=='REF04_XAPK_SPRITE_PNG_DIMENSION_RECONCILIATION'
+          assert p['sourceBindings']==265 and p['noAssetChanges'] is True
+          assert len(p['sprites'])==p['uniqueSpriteFiles']
+          assert all(x['status'] in
+                     ('RECT_COMPATIBLE','NATIVE_RECT_VS_DECODED_PNG_MISMATCH_NO_AUTO_REPAIR')
+                     for x in p['sprites'])
+          assert p['counts'].get('RECT_COMPATIBLE',0)+p['counts'].get(
+              'NATIVE_RECT_VS_DECODED_PNG_MISMATCH_NO_AUTO_REPAIR',0)==p['uniqueSpriteFiles']
+          assert all(x['safeForNativeBorderImport']==(x['status']=='RECT_COMPATIBLE')
+                     for x in p['sprites'])
+          print('REF04 source PNG RECT reconciliation, no alterations:',p['counts'])
+          for x in p['sprites']:
+              if not x['safeForNativeBorderImport']:
+                  print('INCOMPATIBLE:',x['spriteFile'],
+                        'native=',x['sourceRectSize'],
+                        'exported=',x['exportedPngSize'])
+          PY
+
+      - name: Inspect source atlas trim offsets for all REF04 mismatched image files
+        run: |
+          python tools/report_ref04_source_atlas_offsets.py
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          p=json.loads(Path('output/ref04-source-sprite-trim-evidence.json').read_text(encoding='utf-8'))
+          assert p['autoRepairAllowed'] is False
+          assert p['sourceBindings']==265 and p['uniqueSpriteFiles']==88
+          assert p['counts'].get('NATIVE_RECT_VS_DECODED_PNG_MISMATCH_NO_AUTO_REPAIR',0)==22
+          assert sum(v for k,v in p['countsByTrimEvidence'].items() if k!='RECT_COMPATIBLE_NO_CROP')==22
+          assert not any(x.get('safeForNativeBorderImport') for x in p['sprites']
+                         if x['sourceTrimAssessment']!='RECT_COMPATIBLE_NO_CROP')
+          print('REF04 source atlas offset evidence:',p['countsByTrimEvidence'])
+          PY
+
+      - name: Build REF04 optional logical-bounds preview PNGs only for native unpacked Tight sprites
+        run: |
+          python tools/build_ref04_native_bounds_sprites.py
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          p=json.loads(Path('output/ref04-source-logical-sprite-previews/manifest.json').read_text(encoding='utf-8'))
+          assert p['classification']=='REF04_SOURCE_TIGHT_MESH_LOGICAL_BOUNDS_PREVIEW'
+          assert p['originalImageBindings']==265 and p['spriteFiles']==88
+          assert p['previewOnly'] and p['sourceVerifiedPixelPlacement'] is False
+          assert p['counts'].get('ALREADY_RECT_COMPATIBLE_NO_CHANGES',0)==66
+          assert p['counts'].get('UNPACKED_TIGHT_SOURCE_LOGICAL_BOUNDS_PREVIEW',0)>=20
+          assert p['counts'].get('UNPACKED_TIGHT_SOURCE_LOGICAL_BOUNDS_PREVIEW',0)<=22
+          print('REF04 source logical Sprite previews (NO original art modified):',p['counts'])
+          PY
+
+      - name: Audit original XAPK candidate root viewport provenance
+        run: |
+          python tools/report_source_visual_layout_gaps.py
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          report=json.loads(Path('output/source-visual-layout-gaps.json').read_text(encoding='utf-8'))
+          assert report['externalOrZeroScaleCandidateRoots']==4
+          assert report['runtimeCanvasOrViewportRecovered'] is False
+          assert report['spineGameplayLayoutRecovered'] is False
+          assert len(report['scenes'])==5
+          assert all(not s['candidateIsRuntimeViewportProven'] for s in report['scenes'])
+          assert sum(s['spriteBindings'] for s in report['scenes'])==963
+          print('PASS: 4 serialized zero-scale roots, runtime viewport NOT proven')
+          PY
+
+
   windows-decode:
     runs-on: windows-latest
     timeout-minutes: 30
@@ -225,6 +650,49 @@ jobs:
         run: python -m unittest discover -s tests -p test_original_unity_graph.py -v
       - name: Check original serialized scene/prefab candidate inventory on Windows
         run: python tools/audit_original_unity_graph.py
+      - name: Test source-linked IL2CPP and UI field evidence on Windows
+        run: python -m unittest discover -s tests -p test_decode_xapk_ui_provenance.py -v
+      - name: Verify optional source-only TypeTree recovery guards on Windows
+        run: python -m unittest discover -s tests -p test_recover_managed_ui_fields.py -v
+      - name: Verify double-source guarded study-plan on Windows
+        run: python -m unittest discover -s tests -p test_verified_ui_prefab_plan.py -v
+      - name: Verify Unity Editor importer study-copy contract on Windows
+        run: python -m unittest discover -s tests -p test_verified_ui_unity_contract.py -v
+      - name: Verify visual source-owner contract on Windows
+        run: python -m unittest discover -s tests -p test_verified_visual_plan.py -v
+      - name: Verify Unity visual copy isolation on Windows
+        run: python -m unittest discover -s tests -p test_verified_visual_unity_contract.py -v
+      - name: Verify original child transforms protected in viewport study on Windows
+        run: python -m unittest discover -s tests -p test_source_root_canvas_viewport_contract.py -v
+      - name: Verify REF04 source Image geometry guards on Windows
+        run: python -m unittest discover -s tests -p test_ref04_static_ui_geometry.py -v
+      - name: Verify REF04 native Sprite-only repair contract on Windows
+        run: python -m unittest discover -s tests -p test_ref04_static_geometry_unity_contract.py -v
+      - name: Verify REF04 source/PNG size differences rejected on Windows
+        run: python -m unittest discover -s tests -p test_ref04_png_rect_mismatch.py -v
+      - name: Verify REF04 native atlas offset evidence guard on Windows
+        run: python -m unittest discover -s tests -p test_ref04_source_atlas_offsets.py -v
+      - name: Verify no hidden resize in REF04 screenshot comparison on Windows
+        run: python -m unittest discover -s tests -p test_ref04_game_screenshot_compare.py -v
+      - name: Verify source-backed Tight Sprite previews and alpha offsets on Windows
+        run: python -m unittest discover -s tests -p test_ref04_native_bounds_sprites.py -v
+      - name: Verify REF04 source-geometry Unity preview importer never changes 3C on Windows
+        run: python -m unittest discover -s tests -p test_ref04_native_bounds_unity_contract.py -v
+      - name: Verify 3C all-Image inventory is not identical to Sprite PPtr set on Windows
+        run: python -m unittest discover -s tests -p test_ref04_3c_image_inventory.py -v
+      - name: Verify all REF04 GameObject/component source inventory guards on Windows
+        run: python -m unittest discover -s tests -p test_ref04_full_source_inventory.py -v
+      - name: Verify third-backend blocked LayoutGroup source evidence on Windows
+        run: python -m unittest discover -s tests -p test_ref04_layout_third_backend.py -v
+      - name: Verify original Canvas Text Layout source-only field guards on Windows
+        run: python -m unittest discover -s tests -p test_ref04_step2_layout_canvas_text.py -v
+      - name: Verify original XAPK Text full strict parse and private string hash on Windows
+        run: python -m unittest discover -s tests -p test_ref04_text_source_binary.py -v
+      - name: Audit native MonoScript and managed UI source field IDs on Windows
+        run: python tools/decode_xapk_ui_provenance.py
+      - name: Require 5346 original component records in Windows deep audit
+        run: |
+          python -c "import json; from pathlib import Path; d=json.loads(Path('output/deep-ui-source-evidence.json').read_text(encoding='utf-8')); assert len(d['scenes'])==5 and d['stats']['componentCount']==5346 and d['globalMonoScriptResolution']['resolved']==2320 and d['stats']['statuses']['NO_MANAGED_TYPETREE']==1201; print('DEEP XAPK WINDOWS PASS:',d['stats']['statuses'])"
       - name: Test local component gap reporter on Windows
         run: python -m unittest discover -s tests -p test_original_unity_gaps.py -v
       - name: Report full component gaps on Windows
