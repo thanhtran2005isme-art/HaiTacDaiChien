@@ -76,6 +76,25 @@ class FontProof(unittest.TestCase):
         self.assertEqual(result["status"],
                          "BLOCKED_EXTERNAL_FILENAME_SOURCE_MISMATCH")
 
+    def test_original_external_and_local_fonts_both_count_as_source_resolved(self):
+        self.assertTrue(probe.source_font_identity_complete([
+            {"localOriginalFontObjectVerified":True},
+            {"externalOriginalFontObjectVerified":True},
+        ]))
+        self.assertTrue(probe.source_font_identity_complete([
+            {"externalOriginalFontObjectVerified":True},
+            {"externalOriginalFontObjectVerified":True},
+        ]))
+        self.assertFalse(probe.source_font_identity_complete([
+            {"localOriginalFontObjectVerified":True},
+            {"status":"BLOCKED_ORIGINAL_EXTERNAL_DEPENDENCY_UNAVAILABLE"},
+        ]))
+        self.assertFalse(probe.source_font_identity_complete([]))
+        # Neither form of verified source identity proves live font rendering.
+        self.assertFalse(probe.verify_reference({
+            "sourceFileId":0,"sourcePathId":901},
+            {901:Original("Font")})["runtimeFontProven"])
+
     def test_null_unavailable_and_wrong_type_block(self):
         source={901:Original("Texture2D")}
         self.assertEqual(probe.verify_reference(
