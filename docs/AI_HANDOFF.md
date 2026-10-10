@@ -1,5 +1,13 @@
 # AI HANDOFF — Hải Tặc UI Viewer
 
+## REF04 P2/P3 — kết quả truy vết bổ sung, giới hạn runtime (10/10/2026)
+
+- **P2 ARM64 source:** [CI #38053686338](https://github.com/thanhtran2005isme-art/HaiTacDaiChien/actions/runs/38053686338) cho **185/204** method definitions có địa chỉ ứng viên strict Itanium + ELF gốc, 19 chưa ghép. [CI #38053979178](https://github.com/thanhtran2005isme-art/HaiTacDaiChien/actions/runs/38053979178) dùng Capstone để kiểm chứng **185/185 đầu đoạn lệnh ARM64**, chưa chứng minh full-body/control-flow/code registration hoặc công thức SafeArea/PanelHome2. `runtimeAlignmentFormula=null`, `runtimeAlignmentProven=false`, không import Unity.
+- **P3 Text & Font:** [CI #38053733211](https://github.com/thanhtran2005isme-art/HaiTacDaiChien/actions/runs/38053733211) xác nhận 62 Text, 62 m_Text, 62 m_Font, 52 localizers, 2 con trỏ Font. [CI #38054361981](https://github.com/thanhtran2005isme-art/HaiTacDaiChien/actions/runs/38054361981) dùng bảng `externals` từ SerializedFile nguồn để đối chứng **2/2 Font object ngoài bundle** theo filename, PathID, native `Font` type và raw SHA; không chứng minh font đang render.
+- **P3 localization:** [CI #38054500441](https://github.com/thanhtran2005isme-art/HaiTacDaiChien/actions/runs/38054500441) đọc lại cả 52 component I2 source với AssetStudio/AssetRipper. Kết quả **0 term field dual-verified**, gồm 26 lỗi TypeTree parse/backend EOFError và 26 lỗi schema/header RecoveryBlocked. Đã thêm phân loại lỗi theo class/phase ở `tools/probe_ref04_p3_localizer_binary.py`, phải giữ `localizationKeyToTextBindingProven=false` và `runtimeLanguageChosen=null`.
+- **Kết luận:** P2 và P3 **chưa hoàn thành runtime**; không khai báo pixel-perfect hay công thức không có bằng chứng. Công cụ, tests, CI, tài liệu chỉ ở [PR #7](https://github.com/thanhtran2005isme-art/HaiTacDaiChien/pull/7) Draft, không sửa Unity Scene/Prefab/Canvas/nhân vật/Spine. Nhánh `feat/ref04-p2-canvas-il2cpp-runtime-trace` tiếp tục xếp trên PR #6.
+
+
 ## REF04 P2/P3 — tiếp tục chung PR #7 (2026-10-10)
 
 - **P2 đã kiểm chứng dữ liệu nguồn**: 1 Canvas, 1 CanvasScaler, 6 SafeAreaAdapter, 7 PanelHome2 components, 8 class PanelHome2 metadata types và 204 method declarations liên quan. Thêm `tools/ref04_arm64_elf_regions.py`, `tools/ref04_p2_native_method_candidates.py`, `tools/run_ref04_p2_native_dumper.py` và CI optional trong `.github/workflows/ref04-p2-native-probe.yml`. ELF64/AArch64 original PT_LOAD/file-backed executable được kiểm tra theo SHA. Third-party IL2CPP dumper 0.7.0 đọc 119.013 script method entries; bước ghép class-method/source token vẫn **CHƯA chứng minh** một native method body hoặc công thức layout. `runtimeAlignmentProven=false`, `unityImportAllowed=false`.
