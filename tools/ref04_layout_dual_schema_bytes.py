@@ -47,6 +47,9 @@ def strict_raw_schema_agreement(reader, source, schemas, expected):
         raise ValueError("Original single-backend expected field set changed")
     if set(schemas) != set(BACKENDS) or any(schemas.get(k) is None for k in BACKENDS):
         return result
+    if schemas["AssetStudio"] is schemas["AssetRipper"]:
+        result["status"] = "BLOCKED_SHARED_SCHEMA_OBJECT_NOT_INDEPENDENT"
+        return result
     try:
         endian = raw.byte_order(reader)
     except raw.RawWalkBlocked:
