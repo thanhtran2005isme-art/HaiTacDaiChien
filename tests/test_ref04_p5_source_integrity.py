@@ -133,7 +133,7 @@ def synthetic_reports():
 
 
 class CrossPhaseIntegrity(unittest.TestCase):
-    def test_full_synthetic_cross_phase_evidence_254_items_no_runtime(self):
+    def test_full_synthetic_cross_phase_evidence_239_items_no_runtime(self):
         proof = p5.build(synthetic_reports())
         self.assertEqual(proof["sourceCoverage"], {
             "P1OriginalLayoutGroupFields": 168,
@@ -185,8 +185,6 @@ class CrossPhaseIntegrity(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "P5 BLOCKED"):
             p5.build(docs)
         docs = synthetic_reports()
-        docs["inventory"]["gameObjects"][20]["components"][0][
-            "rawSourceObjectSha256"] = "f"*64
         # At least one other component at node 20 may be the modified Text;
         # deliberately corrupt the exact one, irrespective of ordering.
         text_id = docs["p4"]["sourceTextRows"][0]["textComponentPathId"]
@@ -201,6 +199,11 @@ class CrossPhaseIntegrity(unittest.TestCase):
         first = docs["p3"]["sourceLocalizationComponentsEvidence"][0]
         first["gameObjectPathId"] = 12345
         docs["localizers"]["localizers"][0]["gameObjectPathId"] = 12345
+        docs["p3"]["originalTextSourceEvidence"][0][
+            "colocatedLocalizationComponentPathIds"] = []
+        docs["p3"]["originalTextSourceEvidence"][0][
+            "localizationConnection"] = "NO_LOCALIZER_ON_ORIGINAL_GAMEOBJECT"
+        docs["p3"]["originalTextSameGameObjectLocalizationCandidates"] = 49
         # Recomputing P4 cannot conceal mismatch to serialized source GO.
         docs["p4"] = p4_module.build(
             docs["p3"], docs["font"], docs["localizers"])
