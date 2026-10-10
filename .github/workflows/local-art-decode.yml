@@ -706,8 +706,11 @@ jobs:
           p=json.loads(Path('output/ref04-p3-text-font-localization-source.json').read_text(encoding='utf-8'))
           assert p['classification']=='REF04_P3_ORIGINAL_TEXT_FONT_LOCALIZATION_SOURCE_ONLY'
           assert p['sourceTextComponentsIndependentlyVerified']==62
-          assert 0<=p['sourceTextStringsIndependentlyVerified']<=62
-          assert 0<=p['sourceTextFontPointersIndependentlyVerified']<=62
+          assert p['sourceTextStringsIndependentlyVerified']==62
+          assert p['sourceTextFontPointersIndependentlyVerified']==62
+          assert p['sourceTextFieldsVerified'] is True
+          assert p['sourceLocalizationComponents']==52
+          assert p['uniqueOriginalFontPointerCount']==2
           assert p['originalTextContentPublished'] is False
           assert p['localizationKeyToTextBindingProven'] is False
           assert p['runtimeTextAndLocalizationProven'] is False
@@ -722,6 +725,12 @@ jobs:
                 p['sourceTextFontPointersIndependentlyVerified'],'original m_Font fields;',
                 p['sourceLocalizationComponents'],'localization components;',
                 p['uniqueOriginalFontPointerCount'],'distinct source font pointers')
+          print('P3 source-verified localization components:',
+                p['sourceLocalizationComponentsWithDualBackendFields'],
+                'out of',p['sourceLocalizationComponents'])
+          print('P3 term-field-name candidate count:',sum(
+                len(row['sourceKeyOrTermFieldNameCandidates'])
+                for row in p['sourceLocalizationComponentsEvidence']))
           print('P3 runtime text/localization/font: BLOCKED; no source strings printed')
           PY
 
