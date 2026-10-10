@@ -608,7 +608,7 @@ namespace HaiTac.OfflineViewer.Editor
             {
                 if (!previewNotes.TryGetValue(entry.Key, out var changed) ||
                     changed.gameObjectPathId != entry.Value.gameObjectPathId ||
-                    changed.transform.parent == null !=
+                    (changed.transform.parent == null) !=
                         (entry.Value.transform.parent == null))
                     throw new InvalidDataException(
                         "Source hierarchy/object identity changed.");
@@ -624,10 +624,16 @@ namespace HaiTac.OfflineViewer.Editor
                         "Source child RectTransform was changed: " + entry.Key);
             }
             var root = preview.GetComponent<RectTransform>();
-            if (root == null || root.localScale != Vector3.one ||
-                Vector2.Distance(root.anchoredPosition, Vector2.zero) > .0001f ||
-                Vector2.Distance(root.sizeDelta,
-                    new Vector2(1600f, 900f)) > .0001f ||
+            var marker = preview.GetComponent<VerifiedVisualPreviewEvidence>();
+            var originalRootTransform = baseline.GetComponent<RectTransform>();
+            if (root == null || originalRootTransform == null || marker == null ||
+                Vector3.Distance(marker.originalRootScale,
+                    originalRootTransform.localScale) > .0001f ||
+                root.localScale != Vector3.one ||
+                !marker.previewCanvasNotClaimedAsOriginal ||
+                !marker.previewCameraNotClaimedAsOriginal ||
+                marker.provisionalPreviewReferenceResolution !=
+                    new Vector2(1600f, 900f) ||
                 preview.GetComponent<Canvas>() == null ||
                 preview.GetComponent<Canvas>().renderMode !=
                     RenderMode.ScreenSpaceOverlay)
