@@ -92,10 +92,22 @@ class TextLocalizationGuards(unittest.TestCase):
         with self.assertRaisesRegex(ValueError,"source Text"):
             p3.audit(step2,text,p2,metadata)
 
-    def test_absent_text_font_and_changed_field_evidence_blocked(self):
+    def test_missing_font_field_is_blocked_only_for_font_not_fake_font(self):
         step2,text,p2,metadata=fixture()
         step2["componentsByCategory"]["Text"][0][
             "textSourceFieldsTwoBackendsAgreed"].pop("m_Font")
+        text["textComponents"][0]["sourceTextFieldEvidence"].pop("m_Font")
+        result=p3.audit(step2,text,p2,metadata)
+        first=result["originalTextSourceEvidence"][0]
+        self.assertIsNone(first["originalFontPointer"])
+        self.assertEqual(first["originalFontFieldStatus"],
+                         "BLOCKED_SOURCE_M_FONT_FIELD_NOT_EXTRACTED")
+        self.assertEqual(result["sourceTextFontPointersIndependentlyVerified"],61)
+        self.assertFalse(result["runtimeFontRenderingProven"])
+
+    def test_source_backend_field_conflict_is_never_accepted(self):
+        step2,text,p2,metadata=fixture()
+        text["textComponents"][0]["sourceTextFieldEvidence"]["m_Font"]["sourcePathId"]=90
         with self.assertRaisesRegex(ValueError,"Text hash/field"):
             p3.audit(step2,text,p2,metadata)
 
