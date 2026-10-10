@@ -1,6 +1,15 @@
 # AI HANDOFF — Hải Tặc UI Viewer
 
 
+## CHỈ DỮ LIỆU XAPK — RULE NGƯỜI DÙNG KHÓA & REF04 BƯỚC 1 (2026-10-10)
+
+- **Đọc trước khi thay bất cứ UI nào:** [docs/XAPK_SOURCE_ONLY_UI_RULES.md](XAPK_SOURCE_ONLY_UI_RULES.md) và root [AGENTS.md](../AGENTS.md). Cấm đoán tọa độ, ảnh, Canvas, viewport 1600×900, root scale=1, LayoutGroup, HUD, Sprite, animation, trạng thái runtime. Thiếu → giải mã tiếp XAPK gốc → vẫn thiếu → dừng hỏi người dùng. `PASS` CI không chứng minh Game View giống game.
+- **Yêu cầu hiện tại:** chỉ **bước 1/5**: kiểm kê toàn bộ source REF04 (không chỉ 265 Image có Sprite); bước 2 Component/Layout, bước 3 IL2CPP runtime, bước 4 dựng UI, bước 5 nghiệm thu ảnh là **chưa làm**, không được báo hoàn thiện. Nhân vật/Spine để sau.
+- Đã thêm `tools/audit_ref04_full_source_inventory.py` tạo private gitignored `output/ref04-full-source-inventory.json` + `.md`. Truy nguyên theo exact SerializedFile, GameObject/RectTransform/Component PathID, thứ tự con, RectTransform source values, native component, MonoScript class, native field subsets, 3C field values đồng thuận hai decoder, 3D Sprite owner và 93 LayoutGroup một decoder còn bị chặn. Bắt buộc SHA graph/verified/visual/native component evidence khớp; thiếu thì FAIL, không tự điền số. Không tạo/sửa Prefab/Scene/Texture hoặc `Assets`. Đánh dấu root runtime Canvas/parent, LayoutGroup và trạng thái gameplay/Text cần giải mã thêm.
+- Dữ liệu đã biết từ XAPK: REF04 có **503 GameObject**, 3C **299 Image = 265 có Sprite + 34 không có Sprite**; 22 Sprite được tạo thành *preview* riêng từ source Tight mesh, không chứng minh runtime UI. Con số tổng các component/blocked fields cho riêng REF04 **phải lấy từ CI/audit mới**, không tự gán 651 vào REF04 vì đó là tổng 5 scene.
+- CI Linux/Windows bổ sung `tests/test_ref04_full_source_inventory.py`, cộng bước chạy tool trên XAPK thật sau khi các report 3C/3D/geometry đã được xác minh. **Chưa coi là PASS nếu chưa xem kết quả workflow mới nhất**. Nếu thiếu source artifact, chạy lại các bước decode gốc, không lấy default Unity thay.
+- Sau bước 1, bước tiếp theo cần lập danh mục từng Canvas, LayoutGroup, Text/custom UI theo exact Component IDs và tìm ancestor source + phép tính IL2CPP; **không chuyển sang dựng UI** khi còn thiếu chứng cứ.
+
 ## REF04 static Image/icon source recovery — 2026-10-10
 
 - **Priority:** fix REF04 static UI icons/frames first; Spine/characters explicitly deferred. Existing REF04 3E screenshot is not runtime-faithful; do NOT keep generating guessed Canvas variants.
