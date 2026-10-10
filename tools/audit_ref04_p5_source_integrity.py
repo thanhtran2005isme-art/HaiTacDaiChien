@@ -243,35 +243,75 @@ def p2_components(p2, step2, nodes, components):
     for row in rows:
         cid = row.get("componentPathId")
         original = components.get(cid)
-        ensure(type(cid) is int and cid not in seen and original is not None and
-               sha(row.get("originalObjectSha256")) and
-               original["rawSourceObjectSha256"] == row.get("originalObjectSha256") and
-               original["gameObjectPathId"] == row.get("gameObjectPathId") and
-               original["rectTransformPathId"] == row.get("rectTransformPathId") and
-               row.get("ancestry") == parent_chain(
-                   nodes[original["rectTransformPathId"]], nodes, canvas_ids) and
-               row.get("unityImportAllowed") is False and
+        ensure(type(cid) is int and cid not in seen and original is not None,
+               "P2 original component missing or duplicate")
+        # The source graph can contain native components whose bytes could
+        # not be read by the graph extraction step. P2 carries None in that
+        # case; requiring a digest for an ID-only PanelHome2 candidate is
+        # incorrect. Never call the missing digest verified or promote values.
+        original_sha = original.get("rawSourceObjectSha256")
+        reported_sha = row.get("originalObjectSha256")
+        ensure(original_sha == reported_sha and
+               (sha(original_sha) or
+                (original_sha is None and reported_sha is None)),
+               "P2 original component bytes SHA conflict or invalid digest")
+        category = row.get("category")
+        expected_class = ("UnityEngine.UI.CanvasScaler" if category == "CanvasScaler"
+                          else "SafeAreaAdapter" if category == "SafeArea"
+                          else None)
+        if category == "Canvas":
+            ensure(original.get("nativeKind") == "Canvas",
+                   "P2 original native Canvas type changed")
+        elif category == "PanelHome2":
+            ensure(str(original.get("monoScriptClass") or "").startswith("PanelHome2"),
+                   "P2 original PanelHome2 MonoScript ownership changed")
+        else:
+            ensure(original.get("monoScriptClass") == expected_class,
+                   "P2 original CanvasScaler/SafeArea MonoScript ownership changed")
+        ensure(original["gameObjectPathId"] == row.get("gameObjectPathId") and
+               original["rectTransformPathId"] == row.get("rectTransformPathId"),
+               "P2 original GameObject/RectTransform ownership conflict")
+        ensure(row.get("ancestry") == parent_chain(
+                   nodes[original["rectTransformPathId"]], nodes, canvas_ids),
+               "P2 original RectTransform m_Father chain mismatch")
+        ensure(row.get("unityImportAllowed") is False and
                row.get("runtimeFormulaProven") is False,
-               "P2 source owner/SHA or RectTransform ancestry not proven")
+               "P2 unproven runtime was promoted to Unity")
         check = source_by_id.get(cid)
-        if row["category"] != "PanelHome2":
+        if category != "PanelHome2":
             ensure(check is not None and
-                   check.get("originalObjectSha256") == row["originalObjectSha256"] and
+                   check.get("originalObjectSha256") == original_sha and
                    check.get("gameObjectPathId") == row["gameObjectPathId"] and
                    check.get("rectTransformPathId") == row["rectTransformPathId"] and
                    check.get("verifiedSerializedFields", {}) ==
                        row.get("originalSerializedFieldEvidence", {}) and
-                   (row["category"] != "Canvas" or
+                   (category != "Canvas" or
                     check.get("nativeCanvasFieldsExtracted", {}) ==
                         row.get("originalNativeCanvasSubset", {})),
                    "P2 original Canvas/Scaler serialized values differ from Step2")
+        source_values = row.get("originalSerializedFieldEvidence", {})
+        canvas_values = row.get("originalNativeCanvasSubset", {})
+        ensure(isinstance(source_values, dict) and isinstance(canvas_values, dict),
+               "P2 original serialized source value object invalid")
+        if original_sha is None:
+            # Without raw object bytes, only original source *identity* and
+            # parent pointers are reproducible. Do not claim any field values.
+            ensure(not source_values and not canvas_values and
+                   (check is None or
+                    (not check.get("verifiedSerializedFields", {}) and
+                     not check.get("nativeCanvasFieldsExtracted", {}))),
+                   "P2 original raw object SHA missing for serialized values")
         seen.add(cid)
         ledger.append({
             "kind": "ORIGINAL_CANVAS_SAFEAREA_PANEL_COMPONENT",
-            "componentPathId": cid, "originalObjectSha256": original["rawSourceObjectSha256"],
+            "componentPathId": cid, "originalObjectSha256": original_sha,
+            "originalObjectByteProvenanceStatus": (
+                "ORIGINAL_SOURCE_RAW_OBJECT_SHA_VERIFIED" if original_sha is not None
+                else "BLOCKED_RAW_OBJECT_SHA_UNAVAILABLE_IDENTITY_ONLY"),
+            "originalSerializedSourceValueProofAllowed": original_sha is not None,
             "originalGameObjectPathId": original["gameObjectPathId"],
             "originalRectTransformPathId": original["rectTransformPathId"],
-            "sourceCategory": row["category"],
+            "sourceCategory": category,
             "parentChainVerifiedAgainstOriginalXapkInventory": True,
             "runtimeCoordinates": None, "runtimeFormula": None,
         })
@@ -373,6 +413,12 @@ def build(reports):
         "sourceCoverage": {
             "P1OriginalLayoutGroupFields": len(p1),
             "P2OriginalCanvasAndRelatedComponents": len(p2),
+            "P2ComponentsWithOriginalRawSha": sum(
+                x["originalObjectByteProvenanceStatus"] ==
+                "ORIGINAL_SOURCE_RAW_OBJECT_SHA_VERIFIED" for x in p2),
+            "P2IdentityOnlyComponentsWithoutRawSha": sum(
+                x["originalObjectByteProvenanceStatus"] ==
+                "BLOCKED_RAW_OBJECT_SHA_UNAVAILABLE_IDENTITY_ONLY" for x in p2),
             "P4OriginalTextComponents": len(text),
             "totalSourceProvenanceEntries": len(p1)+len(p2)+len(text),
         },
