@@ -1,5 +1,14 @@
 # AI HANDOFF — Hải Tặc UI Viewer
 
+## P6 runtime capture groundwork — 2026-10-11
+
+- Added `tools/ref04_p6_runtime_capture.py` (live ADB foreground screenshot CLI, explicit Android app package and capture ID), `tools/ref04_p6_runtime_evidence.py` (source-bound image/viewport/peer device and SHA integrity, existing exact-size pixel comparison), `tests/test_ref04_p6_runtime_evidence.py` (synthetic negative/unit tests), `docs/REF04_P6_RUNTIME_CAPTURE.md`, and Linux/Windows CI test gates.
+- Capture reads **exact original XAPK IL2CPP metadata and library hashes** via `recover_managed_ui_fields.read_source_pair` and must match P5 report pair. Capture stores PNG and private manifest only under ignored `output/ref04-p6-runtime`. Captured ADB foreground activity and screenshot PNG SHA are local observations, **not device cryptographic attestation** and **not proof installed APK equals XAPK**.
+- Audit compares original vs study Android captures only when same device/build, same pixel dimensions, different foreground apps and same source-P5/XAPK pair. Reuses existing no-resize pixel diff. All outputs are read-only evidence; no Unity prefab/game art/source binaries modified.
+- **Not yet verified:** Windows/Linux new P6 unit tests, original real Android screenshot, study Android package, actual screenshot comparison. Even a zero pixel diff from two frames is NOT runtime Canvas/SafeArea/PanelHome2/Text logic proof; runtime formulas and Unity import remain blocked. PR #7 stays Draft, no merge.
+- To proceed on user's machine: pull the PR7 branch, run `py -3 -m unittest discover -s tests -p test_ref04_p6_runtime_evidence.py -v`; with authorized Android+original game foreground, use `py -3 tools/ref04_p6_runtime_capture.py capture --role original --package <actual-package> --capture-id original-ref04-01 --adb C:\platform-tools\adb.exe`; then `audit --original original-ref04-01`. User must discover real package ID; no hardcoded/guessed package name.
+
+
 ## P5 final Windows source audit: 245 ledger rows; synthetic fixture alias bug (2026-10-11)
 
 - Windows original-XAPK P5 **PASS as source-only audit** with 245 entries: 168 P1 fields, 15 P2 components (14 raw-SHA-backed and 1 ID-only BLOCKED), 62 P4 Text. Six field names associated with SHA-missing P2 source object excluded; `runtimeCoordinates=null`, `runtimeLayoutProven=false`, `unityImportAllowed=false`, no UI assets changed. This does NOT prove runtime layout or pixel-perfect coordinates.
