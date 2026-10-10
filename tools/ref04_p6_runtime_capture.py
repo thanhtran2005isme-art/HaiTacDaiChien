@@ -17,6 +17,7 @@ import subprocess
 from ref04_p6_runtime_evidence import (
     CAPTURE_KIND, NAME, PACKAGE, audit, blocked, capture_root, choose_xapk,
     file_sha, foreground_line, load_p5, png_size, require, sha_bytes,
+    verify_xapk_source_pair,
 )
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -53,6 +54,7 @@ def capture(root, capture_id, package, role, adb="adb", serial=None, xapk=None):
     require(executable is not None, "adb executable not found (use --adb path)")
     original_xapk = choose_xapk(root, xapk)
     p5_sha = load_p5(root)
+    verify_xapk_source_pair(root, original_xapk)
     device = utf8(adb_run(executable, serial, "get-serialno"))
     require(device and device not in ("unknown", "offline"),
             "ADB device not authorized or selected")
