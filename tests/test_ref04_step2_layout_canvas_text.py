@@ -116,7 +116,7 @@ class Step2(unittest.TestCase):
     def test_third_backend_id_or_sha_conflict_blocks(self):
         src=full_inventory()
         layout=next(x for x in src["gameObjects"][0]["components"]
-                    if x.get("monoScriptClass","").endswith("LayoutGroup"))
+                    if (x.get("monoScriptClass") or "").endswith("LayoutGroup"))
         third={
             "classification":"REF04_THIRD_BACKEND_SOURCE_LAYOUTGROUP_RECHECK_READ_ONLY",
             "sourceSerializedFile":"XAPK-file",
