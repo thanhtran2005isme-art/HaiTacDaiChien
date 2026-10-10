@@ -87,6 +87,28 @@ def load_p5(root):
     return sha_bytes(raw)
 
 
+def verify_xapk_source_pair(root, xapk):
+    """Match the actual XAPK IL2CPP binaries to the P5 original source pair."""
+    root = Path(root).resolve()
+    p5 = json.loads((root / "output/ref04-p5-cross-phase-source-integrity.json")
+                    .read_text(encoding="utf-8"))
+    expected_meta = p5.get("originalMetadataSha256")
+    expected_lib = p5.get("originalLibil2cppSha256")
+    require(isinstance(expected_meta, str) and SHA.fullmatch(expected_meta) and
+            isinstance(expected_lib, str) and SHA.fullmatch(expected_lib),
+            "P5 source IL2CPP metadata/library digest unavailable")
+    from recover_managed_ui_fields import read_source_pair
+    try:
+        binary_pair = read_source_pair(xapk)
+    except (OSError, ValueError, KeyError, RuntimeError) as exc:
+        blocked("cannot inspect original XAPK IL2CPP source pair: " +
+                type(exc).__name__)
+    require(binary_pair["metadata"][1]["sha256"] == expected_meta and
+            binary_pair["library"][1]["sha256"] == expected_lib,
+            "P5 metadata/libil2cpp source digests differ from original XAPK")
+    return True
+
+
 def foreground_line(package, activities, window):
     """Accept an ADB observed focused/resumed Activity, never pidof alone."""
     require(isinstance(package, str) and PACKAGE.fullmatch(package),
@@ -124,6 +146,7 @@ def private_capture_path(root, capture_id):
 
 def load_capture(root, capture_id, p5_sha, xapk_sha):
     folder = capture_root(root)
+    require(not folder.is_symlink(), "private capture root cannot be symlink")
     manifest = private_capture_path(root, capture_id)
     require(manifest.is_file() and not manifest.is_symlink() and
             manifest.stat().st_size <= MAX_JSON_BYTES,
@@ -163,7 +186,9 @@ def audit(root, original_id, study_id=None, xapk=None):
     """Validate actual local capture files; never infer runtime Unity values."""
     root = Path(root).resolve()
     p5_sha = load_p5(root)
-    xapk_sha = file_sha(choose_xapk(root, xapk))
+    original_xapk = choose_xapk(root, xapk)
+    verify_xapk_source_pair(root, original_xapk)
+    xapk_sha = file_sha(original_xapk)
     original, reference_png, viewport = load_capture(root, original_id, p5_sha, xapk_sha)
     require(original["role"] == "original", "reference must be foreground original package")
     result = {
