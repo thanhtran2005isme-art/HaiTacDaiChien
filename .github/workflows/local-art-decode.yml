@@ -22,6 +22,7 @@ on:
       - 'tools/build_verified_ui_prefab_plan.py'
       - 'tools/build_verified_visual_plan.py'
       - 'tools/report_source_visual_layout_gaps.py'
+      - 'tests/test_source_root_canvas_viewport_contract.py'
       - 'tests/test_verified_visual_plan.py'
       - 'tests/test_verified_visual_unity_contract.py'
       - 'unity-ui-viewer/Assets/Editor/VerifiedVisualStudyImporter.cs'
@@ -317,6 +318,8 @@ jobs:
         run: python -m unittest discover -s tests -p test_verified_visual_plan.py -v
       - name: Verify source-preserving Unity visual importer contract
         run: python -m unittest discover -s tests -p test_verified_visual_unity_contract.py -v
+      - name: Verify separate source-root Canvas viewport contract
+        run: python -m unittest discover -s tests -p test_source_root_canvas_viewport_contract.py -v
 
       - name: Strict AssetStudio with exact Unity-version native header
         timeout-minutes: 10
@@ -394,7 +397,20 @@ jobs:
           PY
 
       - name: Audit original XAPK candidate root viewport provenance
-        run: python tools/report_source_visual_layout_gaps.py
+        run: |
+          python tools/report_source_visual_layout_gaps.py
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          report=json.loads(Path('output/source-visual-layout-gaps.json').read_text(encoding='utf-8'))
+          assert report['externalOrZeroScaleCandidateRoots']==4
+          assert report['runtimeCanvasOrViewportRecovered'] is False
+          assert report['spineGameplayLayoutRecovered'] is False
+          assert len(report['scenes'])==5
+          assert all(not s['candidateIsRuntimeViewportProven'] for s in report['scenes'])
+          assert sum(s['spriteBindings'] for s in report['scenes'])==963
+          print('PASS: 4 serialized zero-scale roots, runtime viewport NOT proven')
+          PY
 
 
   windows-decode:
@@ -439,6 +455,8 @@ jobs:
         run: python -m unittest discover -s tests -p test_verified_visual_plan.py -v
       - name: Verify Unity visual copy isolation on Windows
         run: python -m unittest discover -s tests -p test_verified_visual_unity_contract.py -v
+      - name: Verify original child transforms protected in viewport study on Windows
+        run: python -m unittest discover -s tests -p test_source_root_canvas_viewport_contract.py -v
       - name: Audit native MonoScript and managed UI source field IDs on Windows
         run: python tools/decode_xapk_ui_provenance.py
       - name: Require 5346 original component records in Windows deep audit
