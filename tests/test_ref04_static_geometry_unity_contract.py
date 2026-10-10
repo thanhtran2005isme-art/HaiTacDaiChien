@@ -60,6 +60,29 @@ class TestRef04NativeSpriteEditorContract(unittest.TestCase):
         self.assertNotIn('PrefabUtility.SaveAsPrefabAsset(', SRC)
         self.assertNotIn('File.Copy(', SRC)
 
+    def test_exported_png_rect_mismatch_never_receives_native_border(self):
+        # Regression: XAPK says 84x92 but exported UnityPy Sprite PNG is 84x86.
+        # Do not simply increase the 1px safety threshold to 6px.
+        for token in (
+            'private sealed class GeometryReport',
+            'unsafeFiles[row.spriteFile] =',
+            'source/export RECT mismatch files SKIPPED.',
+            'NATIVE_RECT_VS_DECODED_PNG_MISMATCH',
+            'LogUnsafeFiles(report);',
+            'report.incompatible.Count',
+            'report.compatible',
+            'Mathf.Abs(sprite.rect.height-row.sourceRectSize[1]) > 1f',
+            'Where(g => !unsafeFiles.ContainsKey(g.filename))',
+            'Never apply original 9-slice border',
+        ):
+            # The source-side report has the longer classification string.
+            if token != 'NATIVE_RECT_VS_DECODED_PNG_MISMATCH':
+                self.assertIn(token, SRC)
+        self.assertNotIn(
+            'throw new InvalidDataException(\n'
+            '                        "Sprite imported rectangle differs', SRC)
+        self.assertNotIn('> 6f', SRC)
+
     def test_conflicting_native_sprite_geometry_is_rejected(self):
         self.assertIn('Conflicting source geometry for one Sprite:', SRC)
         self.assertIn('Untrusted native Sprite geometry.', SRC)
