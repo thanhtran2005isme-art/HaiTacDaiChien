@@ -1,5 +1,12 @@
 # REF04 — BƯỚC 2: Canvas, LayoutGroup, Text, SafeArea từ đúng XAPK
 
+## Kết quả chạy nguồn thật và nguyên nhân BLOCKED của P1
+
+- [CI 38046421707](https://github.com/thanhtran2005isme-art/HaiTacDaiChien/actions/runs/38046421707) trên XAPK gốc, Linux/Windows **SUCCESS**, nhưng `sourceFieldsVerifiedByTwoGeneratedSchemas=0`, `sourceFieldsMissingIndependentSchemaProof=168`. Trạng thái `sourceFieldValuesStillBlockedFromUnity=168` giữ nguyên.
+- `rawByteReparseCounts` ghi nhận bước đọc lại raw theo schema AssetStudio hoạt động. Lỗi ở backend AssetRipper được phân loại `UNSUPPORTED_SOURCE_TYPE`, chỗ đầu tiên hai TypeTree khác nhau chỉ số `12`. Cần kiểm tra kiểu TypeTree nguồn và luật serialize/align thật trước khi bổ sung parser. Đây **không** phải lỗi thiếu XAPK hay lý do dùng layout phỏng đoán.
+- Phân tích sâu hơn chỉ lưu các thông số type/schema và SHA/offset trong `output/` ignored; không sửa Canvas/RectTransform/Prefab, không đưa 168 field vào UI.
+
+
 ## P1 — đối chứng Byte + TypeTree từ hai backend riêng
 
 - `tools/ref04_layout_dual_schema_bytes.py` đối chiếu **hai TypeTree độc lập sinh ra từ XAPK IL2CPP** (AssetStudio và AssetRipper), dùng chung raw object nguồn nhưng **hai lần đọc struct riêng**, bắt buộc full-object consumption. Đồng thuận chỉ khi cùng tập field nguồn, giá trị, offset/length và SHA256 byte; con trỏ native, original SerializedFile/GameObject/Component PathID và hash object được kiểm tra.
