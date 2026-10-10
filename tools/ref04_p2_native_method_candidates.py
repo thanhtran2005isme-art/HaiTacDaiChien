@@ -183,7 +183,7 @@ def source_script_candidates(doc, method_index, exe, binary):
         # Some original IL2CPP symbol dumpers concatenate class/method names
         # without a delimiter. Accept only exact, unambiguous equality; never
         # fuzzy-match a method substring to an arbitrary native address.
-        labels=(cls+"$"+method,cls+method)
+        labels=(cls+"$$"+method,cls+method)
         hits=[(label,addr) for label in labels for addr in by_name.get(label,[])]
         hits.extend(("ITANIUM_ABI_NESTED",addr)
                     for addr in by_itanium.get((cls,method),[]))
