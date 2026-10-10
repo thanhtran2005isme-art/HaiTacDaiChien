@@ -58,9 +58,35 @@ def source_script_candidates(doc, method_index, exe, binary):
         by_name[name].append(address)
     candidates=[]
     blockers=collections.Counter()
+    # Diagnose known dumper name conventions without logging game symbols.
     target_names={cls+"$"+meth for cls,meth in source_methods}
     output_stats["exactNameMatchesInScript"]=sum(
         len(by_name.get(label,[])) for label in target_names)
+    source_classes={cls for cls,_ in source_methods}
+    class_method_pairs=set(source_methods)
+    scoped_names=[name for name in by_name if any(
+        cls in name for cls in source_classes)]
+    output_stats["scriptNamesContainingSourceClass"]=len(scoped_names)
+    separators=collections.Counter()
+    for name in scoped_names:
+        for cls,method in class_method_pairs:
+            if not name.endswith(method):
+                continue
+            prefix=name[:-len(method)]
+            if prefix.endswith(cls+"$"):
+                separators["CLASS_DOUBLE_DOLLAR"]+=1
+            elif prefix.endswith(cls+"__"):
+                separators["CLASS_DOUBLE_UNDERSCORE"]+=1
+            elif prefix.endswith(cls+"_"):
+                separators["CLASS_SINGLE_UNDERSCORE"]+=1
+            elif prefix.endswith(cls+"::"):
+                separators["CLASS_SCOPE"]+=1
+            elif prefix.endswith(cls+"."):
+                separators["CLASS_DOT"]+=1
+            else:
+                separators["SOURCE_CLASS_PRESENT_OTHER_FORMAT"]+=1
+    output_stats.update({"sourceClassMethodSuffix_"+key:num
+                         for key,num in sorted(separators.items())})
     for (cls,method), definitions in sorted(source_methods.items()):
         label=cls+"$$"+method
         scripts=by_name.get(label,[])
