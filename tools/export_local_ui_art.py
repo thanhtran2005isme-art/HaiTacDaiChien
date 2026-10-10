@@ -130,6 +130,11 @@ def make_manifest(links, scenes, exported, component_nodes=None):
         bindings.append({
             "sceneId": ref, "nodeId": node_id, "imageComponentId": int(component_id),
             "spriteFile": name,
+            # Additional original, PPtr-linked source identity is local-only;
+            # it permits native Sprite border/PPU decoding for duplicated
+            # UI paths without using the ambiguous displayed GameObject name.
+            "spriteSerializedFile": source_key[0],
+            "spritePathId": int(source_key[1]),
         })
     used = {item for nodes in mapped.values() for item in nodes.values()}
     used.update(b["spriteFile"] for b in bindings)
