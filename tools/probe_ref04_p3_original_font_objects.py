@@ -105,6 +105,13 @@ def verify_reference(ref, objects, *, assets_file=None, external_deref=None):
         "runtimeFontProven":False,
     }
 
+def source_font_identity_complete(items):
+    """Exact source Font objects only; a missing/external-unresolved pointer blocks."""
+    return bool(items) and all(
+        x.get("localOriginalFontObjectVerified") is True or
+        x.get("externalOriginalFontObjectVerified") is True for x in items)
+
+
 def check_p3(p3,scene):
     if (p3.get("classification")!=
           "REF04_P3_ORIGINAL_TEXT_FONT_LOCALIZATION_SOURCE_ONLY"
@@ -182,10 +189,7 @@ def execute(root=ROOT,unitypy=None):
         # A font in an original external SerializedFile can be source-proven
         # via its exact dependency filename, PathID, native type and raw SHA.
         # Source identity is not evidence of runtime glyphs or loaded font.
-        "originalFontAssetIdentityFullyResolved":bool(items) and all(
-            x.get("localOriginalFontObjectVerified") is True or
-            x.get("externalOriginalFontObjectVerified") is True
-            for x in items),
+        "originalFontAssetIdentityFullyResolved":source_font_identity_complete(items),
         "runtimeFontRenderingProven":False,
         "runtimeGlyphMetricsProven":False,
         "runtimeTextProven":False,
