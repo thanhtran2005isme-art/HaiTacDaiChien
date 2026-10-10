@@ -1,3 +1,7 @@
+## P5 raw-object SHA triage (2026-10-11)
+
+Some source-graph components carry an explicit null raw-object SHA because the native raw object could not be read. P5 retains those as `BLOCKED_RAW_OBJECT_SHA_UNAVAILABLE_IDENTITY_ONLY` after comparing exact original component PathID, owner and parent chain. Such records cannot prove any original serialized field values or native Canvas subset; attempting to do so fails the audit. P5 counts `P2ComponentsWithOriginalRawSha` separately from `P2IdentityOnlyComponentsWithoutRawSha`. This does not prove every P2 object's raw bytes or any runtime coordinates. LayoutGroup 168 field spans and 62 Text source fields continue to require full original SHA.
+
 # REF04 P5 — Kiểm thử tổng hợp truy xuất nguồn từng giá trị
 
 **Trạng thái:** Source-forensics gate, chưa chứng minh UI runtime/pixel-perfect. PR #7 Draft. Ngày 2026-10-10.
