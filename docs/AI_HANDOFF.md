@@ -1,5 +1,50 @@
 # AI HANDOFF — Hải Tặc UI Viewer
 
+## REF04 P1 — CHỐT KIỂM CHỨNG 168/168 FIELD SERIALIZED (10/10/2026)
+
+**Trạng thái hiện tại:** 24/24 LayoutGroup REF04 và 168/168 field serialized đã được đối chiếu với hai TypeTree phát sinh độc lập bằng AssetStudio và AssetRipper trên XAPK gốc; `sourceFieldsMissingIndependentSchemaProof=0`. Mỗi bản ghi khớp Source Component/GameObject/RectTransform PathID, raw SHA-256 của toàn object, con trỏ MonoScript, field names/types/values, byte offsets/length/SHA-256, full-object consumption và IL2CPP original pair.
+
+**Cách xử lý khác biệt schema có bằng chứng:** AssetStudio biểu diễn `m_Padding:RectOffset` dưới dạng bốn node con; AssetRipper biểu diễn node lá với `m_ByteSize=0` (không khai báo size), `m_MetaFlag=0x4000` (AlignBytes). Bộ đọc `tools/ref04_layout_raw_parser.py` dùng hợp đồng Unity 2022.3 `RectOffset(left:int, right:int, top:int, bottom:int)`, chỉ áp dụng cho trường hợp có cờ AlignBytes/loại node đúng và **phải** xác minh lại toàn bộ byte XAPK bằng cả hai schema. Các biến thể khác bị chặn. [Unity 2022.3 API](https://docs.unity.cn/2022.3/Documentation/ScriptReference/RectOffset.html).
+
+**Bằng chứng CI:** [Actions #38047673207](https://github.com/thanhtran2005isme-art/HaiTacDaiChien/actions/runs/38047673207) PASS Linux trên XAPK thật và Windows; kết quả `independentSchemaProofStatusCounts={"TWO_SOURCE_SCHEMAS_RAW_FIELDS_AND_OFFSETS_AGREE_NOT_IMPORTED":24}`, `sourceFieldsVerifiedByTwoGeneratedSchemas=168`, `sourceFieldsMissingIndependentSchemaProof=0`. Commit code được kiểm chứng: `56ba54fb93af382566cf95990b3b8d60d21a31cb`. CI gate cuối [Actions #38047855481](https://github.com/thanhtran2005isme-art/HaiTacDaiChien/actions/runs/38047855481) **SUCCESS** trên code commit `925ac07da3eb29520890695f73493080a9246042`: yêu cầu cứng 24/24 LayoutGroup, 168/168 field nguồn, 0 thiếu bằng chứng và toàn bộ quyền Unity import vẫn `false`.
+
+**Giới hạn:** Xác minh giá trị serialized của LayoutGroup **KHÔNG** đồng nghĩa xác minh layout cuối cùng lúc runtime. `sourceFieldValuesStillBlockedFromUnity=168`, `unityImportAllowed=false`, `runtimeAlignmentProven=false`, `sourceFieldApplicationAllowed=false`. Chưa dựng/chỉnh Unity Canvas, Scene, Prefab, tọa độ, nhân vật hoặc Spine. P1 **đã xong ở phạm vi phục hồi và kiểm chứng field serialized**, còn việc khôi phục quy tắc runtime thuộc các bước sau: Canvas/CanvasScaler, SafeAreaAdapter, PanelHome2, Text localization, thiết bị và scaling.
+
+**Git:** Nhánh `fix/ref04-layout-schema-forensics`, [PR #6](https://github.com/thanhtran2005isme-art/HaiTacDaiChien/pull/6) Draft, base `feat/xapk-il2cpp-ui-field-provenance` (PR #5), chưa merge. Raw-source JSON chỉ ở `output/` ignored, không commit XAPK/asset bytes.
+
+
+## LỊCH SỬ — REF04 P1 trước khi xử lý RectOffset: 0/168 (2026-10-10)
+
+- **CI Linux+Windows [run 38046421707](https://github.com/thanhtran2005isme-art/HaiTacDaiChien/actions/runs/38046421707) SUCCESS** trên `883cb2c`. Tuy nhiên số giá trị LayoutGroup gốc được **hai backend/same-byte độc lập xác nhận: 0/168**, các field bị chặn import vào Unity vẫn **168/168**.
+- Đã khoanh vùng: **AssetStudio raw-byte replay chạy được** (`RAW_BYTES_REPARSED_DERIVED_SCHEMA_REVIEW_ONLY`), nhưng AssetRipper dùng một kiểu TypeTree chưa được hỗ trợ: `UNSUPPORTED_SOURCE_TYPE`, khác biệt hai schema đầu tiên ở **chỉ số 12**. Không tự thay kiểu/byte-size/default để cho PASS.
+- Thêm chẩn đoán **chỉ xuất tên type schema** khi an toàn, tuyệt đối không xuất nội dung field hoặc raw game bytes; theo dõi CI tại HEAD mới nhất để xác định kiểu chính xác. Không có sửa Unity. **P1 chưa hoàn tất nguồn field**, không được claim giao diện đúng game.
+
+
+## REF04 P1 — kiểm chứng kép schema nguồn LayoutGroup (2026-10-10)
+
+- Đã thêm `tools/ref04_layout_dual_schema_bytes.py`: hai backend IL2CPP **AssetStudio + AssetRipper**, sinh TypeTree riêng từ cặp binary XAPK chính xác, được đọc lại bởi bộ `struct` độc lập trên **cùng original serialized MonoBehaviour**. Bằng chứng hợp lệ đòi hỏi full object byte consumption, đồng nhất từng source field name/type/value, offset, byte SHA, owner `GameObject`, `MonoScript`, native enabled, original raw-object hash và cùng IL2CPP SHA. Dùng chung một object schema cho cả hai backend bị chặn.
+- `tools/probe_ref04_layout_schema_forensics.py` nay xuất `independentSchemaRawSourceCheck` và tổng số `sourceFieldsVerifiedByTwoGeneratedSchemas` / `sourceFieldsMissingIndependentSchemaProof` với bất biến tổng **168**, đúng **24 LayoutGroup**. `tools/audit_ref04_step2_layout_canvas_text.py` xác minh lại chứng cứ theo mỗi Component PathID, raw span SHA, original field set trước khi công bố giá trị số lượng.
+- Nếu AssetRipper không thể tạo schema/strict raw parse: **0 giá trị ở object đó được tự nâng**, chi tiết ở `output/ref04-layout-schema-forensics.json` (ignored). CI xác minh nguồn XAPK thật + kiểm thử Linux/Windows; kết quả đầy đủ phải đọc từ Actions chạy tại HEAD mới.
+- **Bất kể 168 serialized fields có được hai backend công nhận hay không**, `unityImportAllowed=false`, `runtimeLayoutProven=false`, `sourceFieldApplicationAllowed=false`. Chưa được khôi phục runtime Canvas/Screen/SafeArea/PanelHome2/Text, chưa vẽ giao diện, chưa dựng nhân vật. Không gọi PASS trên CI là đã hoàn tất UI.
+- Lệnh phân tích tại máy có XAPK và output phase3b: `py -3 tools/probe_ref04_layout_schema_forensics.py` rồi `py -3 tools/audit_ref04_step2_layout_canvas_text.py`. Báo cáo riêng `output/` local; không commit binary/game metadata.
+
+
+## REF04 P1 — raw serialized LayoutGroup offset reparse (2026-10-10)
+
+- Nhánh `fix/ref04-layout-schema-forensics`, PR #6 vẫn draft. Bộ đọc mới `tools/ref04_layout_raw_parser.py` đi byte raw trong object theo schema có nguồn từ IL2CPP AssetStudio, kiểm tra byte order, alignment, m_GameObject/m_Script/m_Enabled, source SHA, offset+hash của mỗi field mà strict source backend đọc được.
+- Báo cáo `output/ref04-layout-schema-forensics.json` bổ sung `rawByteReparseCounts` và trạng thái từng component; `tools/audit_ref04_step2_layout_canvas_text.py` liên kết tới mỗi original LayoutGroup PathID. Tất cả báo cáo ở local/ignored.
+- **Cảnh báo:** phương pháp độc lập về *đọc lại bytes*, không độc lập về *sinh schema*. Không tự nâng 168 fields từ BLOCKED; không xem offset suy ra theo AssetStudio là bằng chứng nguyên bản đủ để dựng UI. Canvas runtime, SafeAreaAdapter, PanelHome2 và Text localization vẫn cần giải mã thêm.
+- **CI đã PASS** tại code commit `33d879c0aea41672ff830ede779f43fff8141bd9`: Linux decode real XAPK + Windows regression tests, [run 38044547014](https://github.com/thanhtran2005isme-art/HaiTacDaiChien/actions/runs/38044547014). Điều này xác nhận pipeline và guard, **không xác nhận rằng 168 field đã có schema độc lập**.
+
+
+## REF04 — bổ sung đối chiếu schema LayoutGroup từ XAPK (2026-10-10)
+
+- Nhánh thay đổi nối tiếp PR #5: `fix/ref04-layout-schema-forensics`. **Chỉ Python source audit, tests, CI, docs**; không đổi Unity Scene/Prefab, Canvas/coordinate hoặc Spine.
+- `tools/probe_ref04_layout_schema_forensics.py` kiểm tra **24 LayoutGroup theo đúng source PathID/raw SHA**, dùng hai managed TypeTree backends AssetStudio + AssetRipper, giữ nguyên cùng binary IL2CPP và native header Unity gốc. Báo cấu trúc schema/điểm khác đầu tiên và strict parse outcome, không tự suy ra offsets hoặc giá trị runtime.
+- `tools/audit_ref04_step2_layout_canvas_text.py` giờ nhận thêm báo cáo schema (khi có), kiểm tra exact owner/RectTransform/class/sha và giữ 168 fields BLOCKED, Text/Canvas source-only. Dữ liệu chỉ ở `output/ref04-layout-schema-forensics.json` (ignored).
+- Linux CI thực thi trên XAPK thật; Windows chạy các unit guard. **Trạng thái CI cần xem trên PR mới**, không tự đánh dấu PASS trước khi hoàn thành. Bước tiếp theo: dựa trên schema diff thực tế để khảo sát offsets/alignment với bằng chứng binary độc lập. Không coi schema giống nhau là chứng minh phép căn chỉnh runtime.
+
+
 
 ## REF04 — BƯỚC 2: LayoutGroup, Canvas và Text từ đúng XAPK (2026-10-10)
 

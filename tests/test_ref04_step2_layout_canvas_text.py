@@ -170,6 +170,86 @@ class Step2(unittest.TestCase):
         self.assertIsNone(item["renderedText"])
         self.assertFalse(item["canBeAppliedToUnity"])
 
+    def test_schema_forensics_join_requires_same_24_source_layouts(self):
+        src=full_inventory()
+        layouts=[c for c in src["gameObjects"][0]["components"]
+                 if "LayoutGroup" in (c.get("monoScriptClass") or "")]
+        schema={
+            "classification":"REF04_LAYOUTGROUP_SCHEMA_FORENSICS_READ_ONLY",
+            "sourceSerializedFile":"XAPK-file",
+            "layoutGroupsInspected":24,
+            "sourceFieldValuesStillBlockedFromUnity":168,
+            "sourceFieldsVerifiedByTwoGeneratedSchemas":0,
+            "sourceFieldsMissingIndependentSchemaProof":168,
+            "unityImportAllowed":False,
+            "runtimeAlignmentProven":False,
+            "originalUiAssetsChanged":False,
+            "schemaComparisonCounts":{"BLOCKED_SCHEMA_COMPARISON":24},
+            "layoutGroups":[{
+                "componentPathId":c["componentPathId"],
+                "sourceObjectSha256":H,
+                "gameObjectPathId":1,
+                "rectTransformPathId":1000,
+                "sourceClass":c["monoScriptClass"],
+                "sourceFieldCountBlocked":7,
+                "sourceExpectedFieldNames":sorted(c["singleBackendFieldNames"]),
+                "independentSchemaRawSourceCheck":{
+                    "status":"BLOCKED_INDEPENDENT_SCHEMAS_UNAVAILABLE",
+                    "sourceFieldsIndependentlyVerified":0,
+                    "independentFieldNames":[],
+                    "originalSerializedFieldValuesPublished":False,
+                    "unityImportAllowed":False,"runtimeLayoutProven":False,
+                },
+                "schemaComparison":"BLOCKED_SCHEMA_COMPARISON",
+                "fieldAgreement":"BLOCKED_INDEPENDENT_STRICT_PARSE",
+                "unityImportAllowed":False,
+                "runtimeLayoutProven":False,
+            } for c in layouts],
+        }
+        report=tool.inventory(src,schema_probe=schema)
+        self.assertTrue(report["layoutSchemaForensicsProvided"])
+        self.assertFalse(report["sourceRuntimeLayoutProven"])
+        self.assertFalse(report["sourceFieldApplicationAllowed"])
+        self.assertEqual(report["layoutSchemaComparisonCounts"],
+                         {"BLOCKED_SCHEMA_COMPARISON":24})
+        self.assertEqual(report["independentlyVerifiedSerializedLayoutFieldValues"],0)
+        self.assertEqual(report["serializedLayoutFieldValuesMissingIndependentSchemaProof"],168)
+        self.assertTrue(all(
+            x["layoutStrictFieldAgreement"]=="BLOCKED_INDEPENDENT_STRICT_PARSE"
+            and not x["canBeAppliedToUnity"]
+            for x in report["componentsByCategory"]["LayoutGroup"]))
+        schema["layoutGroups"][0]["sourceObjectSha256"]="b"*64
+        with self.assertRaisesRegex(ValueError,"schema source ID/hash"):
+            tool.inventory(src,schema_probe=schema)
+
+    def test_reconcile_only_full_double_schema_byte_spans_as_source_evidence(self):
+        src=full_inventory()
+        target=next(c for c in src["gameObjects"][0]["components"]
+                    if "LayoutGroup" in (c.get("monoScriptClass") or ""))
+        fields=sorted(target["singleBackendFieldNames"])
+        spans={key:{"offset":index*4+28,"length":4,
+                    "rawFieldBytesSha256":"a"*64}
+               for index,key in enumerate(fields)}
+        backend={"status":"FULL_ORIGINAL_OBJECT_REPARSED_SOURCE_IDENTICAL",
+                 "sourceObjectSha256":H,
+                 "sourceFieldByteSpans":spans}
+        rec={"sourceExpectedFieldNames":fields,
+             "sourceObjectSha256":H,"sourceFieldCountBlocked":7,
+             "independentSchemaRawSourceCheck":{
+                 "status":"TWO_SOURCE_SCHEMAS_RAW_FIELDS_AND_OFFSETS_AGREE_NOT_IMPORTED",
+                 "sourceFieldsIndependentlyVerified":7,
+                 "independentFieldNames":fields,
+                 "originalSerializedFieldValuesPublished":False,
+                 "unityImportAllowed":False,"runtimeLayoutProven":False,
+                 "backendEvidence":{"AssetStudio":backend,"AssetRipper":dict(backend)},
+             }}
+        self.assertEqual(tool.independent_layout_proof(rec,target),7)
+        rec["independentSchemaRawSourceCheck"]["backendEvidence"]["AssetRipper"]={
+            **backend,"sourceFieldByteSpans":dict(spans, m_Spacing={
+                "offset":1, "length":4, "rawFieldBytesSha256":"b"*64})}
+        with self.assertRaisesRegex(ValueError,"offsets conflict"):
+            tool.independent_layout_proof(rec,target)
+
     def test_missing_component_fails_closed(self):
         src=full_inventory()
         src["gameObjects"][0]["components"].pop()

@@ -37,6 +37,12 @@ on:
       - 'tools/audit_ref04_3c_image_inventory.py'
       - 'tools/audit_ref04_full_source_inventory.py'
       - 'tools/probe_ref04_layout_third_backend.py'
+      - 'tools/probe_ref04_layout_schema_forensics.py'
+      - 'tools/ref04_layout_raw_parser.py'
+      - 'tools/ref04_layout_dual_schema_bytes.py'
+      - 'tests/test_ref04_layout_dual_schema_bytes.py'
+      - 'tests/test_ref04_layout_raw_parser.py'
+      - 'tests/test_ref04_layout_schema_forensics.py'
       - 'tests/test_ref04_layout_third_backend.py'
       - 'tools/audit_ref04_step2_layout_canvas_text.py'
       - 'tests/test_ref04_step2_layout_canvas_text.py'
@@ -69,6 +75,14 @@ permissions:
 jobs:
   decode:
     runs-on: ubuntu-latest
+    outputs:
+      source_verified_fields: ${{ steps.ref04_independent_field_proof.outputs.verified_fields }}
+      source_blocker: ${{ steps.ref04_independent_field_proof.outputs.top_blocker }}
+      studio_byte_status: ${{ steps.ref04_independent_field_proof.outputs.top_raw_status }}
+      layout_schema_status: ${{ steps.ref04_independent_field_proof.outputs.top_schema_status }}
+      ripper_failure: ${{ steps.ref04_independent_field_proof.outputs.ripper_failure }}
+      schema_diff_index: ${{ steps.ref04_independent_field_proof.outputs.schema_diff_index }}
+      unsupported_ripper_type: ${{ steps.ref04_independent_field_proof.outputs.unsupported_ripper_type }}
     timeout-minutes: 25
     steps:
       - name: Checkout real XAPK via Git LFS
@@ -371,6 +385,12 @@ jobs:
         run: python -m unittest discover -s tests -p test_ref04_full_source_inventory.py -v
       - name: Verify independent LayoutGroup source identity and zero guess policy
         run: python -m unittest discover -s tests -p test_ref04_layout_third_backend.py -v
+      - name: Verify REF04 raw-source parser alignment and byte-offset guards
+        run: python -m unittest discover -s tests -p test_ref04_layout_raw_parser.py -v
+      - name: Verify dual-IL2CPP-backend raw source field agreement guards
+        run: python -m unittest discover -s tests -p test_ref04_layout_dual_schema_bytes.py -v
+      - name: Verify REF04 LayoutGroup TypeTree schema forensics fail closed
+        run: python -m unittest discover -s tests -p test_ref04_layout_schema_forensics.py -v
       - name: Verify source-only Step 2 Canvas Text and LayoutGroup evidence
         run: python -m unittest discover -s tests -p test_ref04_step2_layout_canvas_text.py -v
       - name: Verify 62 Text source object bytes/font pointers guarded by XAPK provenance
@@ -516,6 +536,76 @@ jobs:
         timeout-minutes: 6
         run: python tools/probe_ref04_layout_third_backend.py
 
+      - name: Diagnose 24 original REF04 LayoutGroup schemas in AssetStudio and AssetRipper
+        id: ref04_independent_field_proof
+        timeout-minutes: 8
+        run: |
+          python tools/probe_ref04_layout_schema_forensics.py
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          d=json.loads(Path('output/ref04-layout-schema-forensics.json').read_text(encoding='utf-8'))
+          assert d['layoutGroupsInspected']==24
+          assert d['sourceFieldValuesStillBlockedFromUnity']==168
+          assert (d['sourceFieldsVerifiedByTwoGeneratedSchemas']+
+                  d['sourceFieldsMissingIndependentSchemaProof'])==168
+          assert d['sourceFieldsVerifiedByTwoGeneratedSchemas']==168
+          assert d['sourceFieldsMissingIndependentSchemaProof']==0
+          assert d['independentSchemaProofStatusCounts']=={
+              'TWO_SOURCE_SCHEMAS_RAW_FIELDS_AND_OFFSETS_AGREE_NOT_IMPORTED':24}
+          assert sum(d['independentSchemaProofStatusCounts'].values())==24
+          assert d['unityImportAllowed'] is False
+          assert d['runtimeAlignmentProven'] is False
+          assert d['originalUiAssetsChanged'] is False
+          assert sum(d['rawByteReparseCounts'].values())==24
+          assert all(x['unityImportAllowed'] is False and
+                     x['runtimeLayoutProven'] is False and
+                     x['rawByteReparse']['unityImportAllowed'] is False and
+                     x['rawByteReparse']['derivedSchemaOnly'] is True
+                     for x in d['layoutGroups'])
+          print('PASS read-only source schema diagnostics:',d['schemaComparisonCounts'])
+          print('READ-ONLY DERIVED-SCHEMA RAW BYTE REPLAY:',d['rawByteReparseCounts'])
+          print('TWO-GENERATOR SERIALIZED FIELD PROOF:',
+                d['sourceFieldsVerifiedByTwoGeneratedSchemas'],
+                '/168; missing independently proven fields:',
+                d['sourceFieldsMissingIndependentSchemaProof'],
+                '; status:',d['independentSchemaProofStatusCounts'])
+          from collections import Counter
+          ripper_causes=Counter(
+              x['independentSchemaRawSourceCheck'].get('backendEvidence',{})
+              .get('AssetRipper',{}).get('failureCategory','NO_DETAIL')
+              for x in d['layoutGroups'])
+          print('RIPPER RAW BYTE FAILURE CATEGORIES:',dict(sorted(ripper_causes.items())))
+          print('FIRST STRUCTURAL SCHEMA DIFFERENCE (NAMES/TYPES ONLY):',
+                d['layoutGroups'][0].get('firstSchemaDifference'))
+          import os
+          from collections import Counter
+          def main_status(dct):
+              return sorted(dct, key=lambda k:(-dct[k],k))[0] if dct else 'NONE'
+          reasons=Counter(
+              row['independentSchemaRawSourceCheck'].get('backendEvidence',{})
+                .get('AssetRipper',{}).get('failureCategory','NO_RIPPER_ERROR_OR_SCHEMA')
+              for row in d['layoutGroups'])
+          diff=Counter(
+              str(row['firstSchemaDifference']['index'])
+              for row in d['layoutGroups'] if row.get('firstSchemaDifference'))
+          unsupported=Counter(
+              row['independentSchemaRawSourceCheck'].get('backendEvidence',{})
+                 .get('AssetRipper',{}).get('unsupportedSourceTypeName','NONE')
+              for row in d['layoutGroups'])
+          with open(os.environ['GITHUB_OUTPUT'],'a',encoding='utf-8') as out:
+              for key,value in (
+                  ('verified_fields', str(d['sourceFieldsVerifiedByTwoGeneratedSchemas'])),
+                  ('top_blocker', main_status(d['independentSchemaProofStatusCounts'])),
+                  ('top_raw_status', main_status(d['rawByteReparseCounts'])),
+                  ('top_schema_status', main_status(d['schemaComparisonCounts'])),
+                  ('ripper_failure', main_status(reasons)),
+                  ('schema_diff_index', main_status(diff)),
+                  ('unsupported_ripper_type', main_status(unsupported))
+              ):
+                  out.write(key+'='+value+'\n')
+          PY
+
       - name: Probe strict original 62 Text components from XAPK IL2CPP bytes (no import)
         continue-on-error: true
         timeout-minutes: 6
@@ -533,6 +623,14 @@ jobs:
           assert d['counts']['LayoutGroup']==24 and d['counts']['Text']==62
           assert d['counts']['SafeArea']==6
           assert d['layoutGroupFieldValuesStillBlockedFromUnity']==168
+          assert (d['independentlyVerifiedSerializedLayoutFieldValues']+
+                  d['serializedLayoutFieldValuesMissingIndependentSchemaProof'])==168
+          assert d['independentlyVerifiedSerializedLayoutFieldValues']==168
+          assert d['serializedLayoutFieldValuesMissingIndependentSchemaProof']==0
+          assert all(x['independentSourceLayoutFieldsVerified']==7
+                     and x['canBeAppliedToUnity'] is False
+                     and x['runtimeRulesVerified'] is False
+                     for x in d['componentsByCategory']['LayoutGroup'])
           assert d['sourceRuntimeCanvasOrViewportProven'] is False
           assert d['sourceRuntimeTextProven'] is False
           assert d['sourceRuntimeLayoutProven'] is False
@@ -541,6 +639,9 @@ jobs:
           assert all(x['canBeAppliedToUnity'] is False
                      for values in d['componentsByCategory'].values() for x in values)
           assert Path('output/ref04-step2-layout-canvas-text.md').exists()
+          print('SOURCE XAPK INDEPENDENT LAYOUT FIELDS:',
+                d['independentlyVerifiedSerializedLayoutFieldValues'],
+                '/168; no runtime/Unity import authorized')
           print('REF04 SOURCE-ONLY STEP2:',d['counts'],
                 'third layout backend attempted=',d['thirdBackendRunProvided'],
                 'source text strict probe attempted=',d['sourceTextBinaryProbeProvided'])
@@ -684,6 +785,12 @@ jobs:
         run: python -m unittest discover -s tests -p test_ref04_full_source_inventory.py -v
       - name: Verify third-backend blocked LayoutGroup source evidence on Windows
         run: python -m unittest discover -s tests -p test_ref04_layout_third_backend.py -v
+      - name: Verify REF04 raw serialized bytes and schema-dependent offsets on Windows
+        run: python -m unittest discover -s tests -p test_ref04_layout_raw_parser.py -v
+      - name: Verify dual schema source-byte evidence and no promotion on Windows
+        run: python -m unittest discover -s tests -p test_ref04_layout_dual_schema_bytes.py -v
+      - name: Verify REF04 source schema forensic guards on Windows
+        run: python -m unittest discover -s tests -p test_ref04_layout_schema_forensics.py -v
       - name: Verify original Canvas Text Layout source-only field guards on Windows
         run: python -m unittest discover -s tests -p test_ref04_step2_layout_canvas_text.py -v
       - name: Verify original XAPK Text full strict parse and private string hash on Windows
@@ -716,3 +823,15 @@ jobs:
       - name: Verify generated Sprite manifest, status and scene coverage
         run: |
           python -c "import json; from pathlib import Path; d=Path('output/local-ui-art'); m=json.loads((d/'manifest.json').read_text(encoding='utf-8')); s=json.loads((d/'export-status.json').read_text(encoding='utf-8')); assert s['status']=='PASS'; assert m['stats']['sprite_images_exported'] > 0; assert m['stats']['scene_nodes_mapped']['REF01-ship-upgrade'] > 0; assert all((d/f).is_file() for f in m['files']); print('WINDOWS PASS:',s['sprite_images_exported'],'Sprite PNGs,',s['ui_nodes_mapped'],'nodes')"
+
+  ref04-proof-summary:
+    name: REF04 ${{ needs.decode.outputs.source_verified_fields }}/168 | type ${{ needs.decode.outputs.unsupported_ripper_type }} | diff ${{ needs.decode.outputs.schema_diff_index }}
+    needs: decode
+    runs-on: ubuntu-latest
+    steps:
+      - name: Source count only; never publish original XAPK values
+        env:
+          SOURCE_FIELD_COUNT: ${{ needs.decode.outputs.source_verified_fields }}
+        run: |
+          echo "Independently source-verified serialized LayoutGroup fields: ${SOURCE_FIELD_COUNT} of 168"
+          echo "Unity import/runtime layout are still NOT authorized."

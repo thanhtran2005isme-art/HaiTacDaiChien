@@ -1,5 +1,48 @@
 # REF04 — BƯỚC 2: Canvas, LayoutGroup, Text, SafeArea từ đúng XAPK
 
+## P1 HOÀN THÀNH — bằng chứng serialized LayoutGroup từ XAPK thật
+
+- **24/24 LayoutGroup, 168/168 field serialized** đã được đối chứng giá trị và byte span qua hai TypeTree phát sinh độc lập từ AssetStudio và AssetRipper, cùng đúng XAPK/Unity 2022.3.51f1. Đã kiểm chứng raw SHA-256, exact GameObject/RectTransform/Component PathIDs và MonoScript, native enabled, object byte exhaustion, field offsets/length/hashes. **Missing independent proof: 0/168.**
+- Bằng chứng thực tế: [CI #38047673207](https://github.com/thanhtran2005isme-art/HaiTacDaiChien/actions/runs/38047673207) PASS Linux real-XAPK và Windows; 24 status `TWO_SOURCE_SCHEMAS_RAW_FIELDS_AND_OFFSETS_AGREE_NOT_IMPORTED`, không public game values/binaries. CI gate mới [Actions #38047855481](https://github.com/thanhtran2005isme-art/HaiTacDaiChien/actions/runs/38047855481) **SUCCESS** tại code SHA `925ac07da3eb29520890695f73493080a9246042`, khóa cứng bất biến 168/168 và cấm áp dụng field vào Unity.
+- Từ source, `m_Padding` có **khác biệt hình thức**: AssetStudio `RectOffset` + 4 child nodes (byteSize=0, metaFlag=0); AssetRipper `RectOffset` leaf (byteSize=0, metaFlag=16384). `m_ByteSize=0` là không khai báo độ dài, **không phải giá trị padding hoặc độ dài thật**. Parser xử lý duy nhất typed Unity RectOffset gồm bốn `int32`, phải có cờ AlignBytes từ schema Ripper và phải qua đọc/cross-check **toàn object**. Mọi trường hợp lệch field/order/length/hash vẫn bị chặn. [Unity 2022.3 RectOffset API](https://docs.unity.cn/2022.3/Documentation/ScriptReference/RectOffset.html).
+- **Giữ nguyên 168/168 field chưa được áp dụng vào Unity**: `sourceFieldValuesStillBlockedFromUnity=168`, `unityImportAllowed=false`, `sourceRuntimeLayoutProven=false`. Dữ liệu serialized không chứng minh Canvas/Screen/SafeArea, Text runtime/localization, thứ tự rebuild layout/PanelHome2 hoặc tọa độ cuối cùng. Không chỉnh Prefab/Scene/Canvas/UI, không làm nhân vật. Bước tiếp theo là phân tích **runtime alignment** từ XAPK/IL2CPP.
+- Các mục 0/168 ở bên dưới ghi nhận **lịch sử trước khi sửa parser RectOffset**, không phản ánh trạng thái hiện tại. Kết quả authoritative phải theo báo cáo `output/ref04-layout-schema-forensics.json` từ tool trên XAPK chính xác và CI tương ứng.
+
+
+## LỊCH SỬ — lỗi RectOffset trước khi sửa, 0/168
+
+- [CI 38046421707](https://github.com/thanhtran2005isme-art/HaiTacDaiChien/actions/runs/38046421707) trên XAPK gốc, Linux/Windows **SUCCESS**, nhưng `sourceFieldsVerifiedByTwoGeneratedSchemas=0`, `sourceFieldsMissingIndependentSchemaProof=168`. Trạng thái `sourceFieldValuesStillBlockedFromUnity=168` giữ nguyên.
+- `rawByteReparseCounts` ghi nhận bước đọc lại raw theo schema AssetStudio hoạt động. Lỗi ở backend AssetRipper được phân loại `UNSUPPORTED_SOURCE_TYPE`, chỗ đầu tiên hai TypeTree khác nhau chỉ số `12`. Cần kiểm tra kiểu TypeTree nguồn và luật serialize/align thật trước khi bổ sung parser. Đây **không** phải lỗi thiếu XAPK hay lý do dùng layout phỏng đoán.
+- Phân tích sâu hơn chỉ lưu các thông số type/schema và SHA/offset trong `output/` ignored; không sửa Canvas/RectTransform/Prefab, không đưa 168 field vào UI.
+
+
+## P1 — đối chứng Byte + TypeTree từ hai backend riêng
+
+- `tools/ref04_layout_dual_schema_bytes.py` đối chiếu **hai TypeTree độc lập sinh ra từ XAPK IL2CPP** (AssetStudio và AssetRipper), dùng chung raw object nguồn nhưng **hai lần đọc struct riêng**, bắt buộc full-object consumption. Đồng thuận chỉ khi cùng tập field nguồn, giá trị, offset/length và SHA256 byte; con trỏ native, original SerializedFile/GameObject/Component PathID và hash object được kiểm tra.
+- **Nguồn serialized** khi đạt đủ điều kiện được phân biệt với **runtime layout**: các field được đếm trong `sourceFieldsVerifiedByTwoGeneratedSchemas` không có nghĩa đã xác minh SafeArea, Canvas viewport hoặc công thức căn chỉnh của game lúc chạy. Tất cả Unity apply/import vẫn bị chặn.
+- Mọi component không tạo được schema AssetRipper hoặc raw-byte đọc lỗi đều mang `BLOCKED_*`; các field của component đó tính vào `sourceFieldsMissingIndependentSchemaProof`, không tự lấy offset AssetStudio làm chứng cứ thứ hai.
+- Tổng bắt buộc: `sourceFieldsVerifiedByTwoGeneratedSchemas + sourceFieldsMissingIndependentSchemaProof = 168` và đúng **24 Component PathIDs**, với hash, class, owner, RectTransform và danh sách field nguồn đối chiếu. Tool tổng hợp REF04 Step 2 kiểm tra lại hai byte-span records trước khi báo kết quả. Không ghi giá trị field, XAPK hay byte game vào GitHub.
+- CI mới vẫn phải chạy tới hoàn thành ở HEAD nhánh PR #6; khi chạy xong xem số liệu in trong bước `Diagnose 24 original REF04 LayoutGroup schemas...` và `Audit REF04 Canvas Text layout...`, không tự coi 168/168 nếu chưa có báo cáo thực tế.
+
+
+## P1 tiếp — đọc lại raw bytes/offsets LayoutGroup, không import Unity
+
+- `tools/ref04_layout_raw_parser.py` là bộ đọc `struct` độc lập với hàm `UnityPy.read_typetree`, kiểm tra từng scalar/array/string, alignment 4-byte đúng cờ TypeTree, byte order của `SerializedFile`, ranh giới dữ liệu, full-object exact consumption và SHA-256 từng trường. **Không đoán offset**; chỉ ghi offset phát hiện bằng cách đi đúng thứ tự TypeTree đang được khảo sát.
+- `tools/probe_ref04_layout_schema_forensics.py` thử đọc raw bytes XAPK cho **từng original LayoutGroup PathID** khi AssetStudio schema và strict parser khả dụng; so giá trị từng field với strict source record, đồng thời xác minh `m_GameObject`, `m_Script`, `m_Enabled` và raw object SHA. Ghi `rawByteReparseCounts`, `rawByteReparse.sourceByteSpans` trong local-only `output/ref04-layout-schema-forensics.json`. Trường hợp không đọc được ghi rõ `BLOCKED_*`.
+- **Giới hạn không thay đổi:** raw-byte replay là một bộ đọc giá trị độc lập, nhưng vẫn sử dụng TypeTree **sinh từ AssetStudio**. Nó **không phải schema độc lập thứ hai** và không chứng minh phép căn chỉnh runtime. Kể cả trạng thái `RAW_BYTES_REPARSED_DERIVED_SCHEMA_REVIEW_ONLY`, 24 LayoutGroup / 168 field **vẫn không được tự đưa vào Unity**. Cần bằng chứng schema độc lập theo IL2CPP/serialized object hoặc nguồn hợp lệ khác trước khi bỏ BLOCKED.
+- **CI thành công** trên code commit `33d879c0` — [GitHub Actions run 38044547014](https://github.com/thanhtran2005isme-art/HaiTacDaiChien/actions/runs/38044547014), gồm Linux/XAPK thật và Windows guards. Không công khai giá trị UI hoặc source raw bytes, không tạo/sửa asset.
+
+
+## Bổ sung — chẩn đoán schema của 24 LayoutGroup (source-only)
+
+- Script `tools/probe_ref04_layout_schema_forensics.py` đọc đúng các đối tượng LayoutGroup có `PathID`/SHA256 gốc từ XAPK, cùng cặp `libil2cpp.so`/`global-metadata.dat` và Unity version nguồn.
+- Tạo TypeTree độc lập bằng **AssetStudio** và **AssetRipper**, ghép native MonoBehaviour header đã truy vết, báo SHA256 cấu trúc, số node, và điểm đầu tiên khác nhau trong hai schema nếu tìm thấy. Thử strict parse có xác nhận `m_GameObject/m_Script/m_Enabled`, raw-object hash và kích thước object; không chấp nhận parser đọc một phần.
+- Phân biệt `SCHEMA_STRUCTURE_DIFF_NOT_FIELD_PROOF`, `SCHEMAS_IDENTICAL_NOT_FIELD_PROOF`, `BLOCKED_SCHEMA_COMPARISON` với **chứng cứ giá trị field thực**. Dù hai schema trùng và strict parse đồng thuận, trường hợp này vẫn được ghi `REVIEW_ONLY`; không tự import hoặc xác nhận runtime layout.
+- Kết quả ghi **chỉ ở local/gitignored**: `output/ref04-layout-schema-forensics.json`, gồm chính xác 24 component/168 field bị chặn, 0 Unity assets sửa. Báo cáo được liên kết tới `output/ref04-step2-layout-canvas-text.json` với đối chiếu từng PathID/GO/RectTransform/SHA/class và giữ nguyên `canBeAppliedToUnity=false`.
+- Lệnh sau khi đã chuẩn bị xong output phase 3B và single-backend-review từ XAPK: `py -3 tools/probe_ref04_layout_schema_forensics.py` rồi `py -3 tools/audit_ref04_step2_layout_canvas_text.py`.
+- Đây là **công cụ điều tra nguyên nhân schema/strict parse**, không phải kết luận đã giải được 168 field. Nếu AssetRipper tiếp tục parse lỗi, cần sử dụng khác biệt TypeTree làm đầu mối để kiểm tra binary offsets và alignment độc lập; không chỉnh bố cục Unity theo suy đoán. Canvas runtime, Text localization, SafeArea, PanelHome2 vẫn chưa giải xong.
+
+
 > **SOURCE-ONLY / NO-GUESS / READ-ONLY.** Phải đọc [docs/XAPK_SOURCE_ONLY_UI_RULES.md](XAPK_SOURCE_ONLY_UI_RULES.md) trước khi sửa. **Bước 2 chưa chứng minh runtime UI pixel-perfect hoặc đủ điều kiện dựng UI.** Không tự đặt Canvas, tọa độ, chiều rộng màn hình, văn bản, font hay anchor.
 
 ## 1. Dữ liệu gốc thuộc cây ứng viên REF04 (không phải toàn bộ runtime)
