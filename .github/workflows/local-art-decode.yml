@@ -80,6 +80,8 @@ jobs:
       source_blocker: ${{ steps.ref04_independent_field_proof.outputs.top_blocker }}
       studio_byte_status: ${{ steps.ref04_independent_field_proof.outputs.top_raw_status }}
       layout_schema_status: ${{ steps.ref04_independent_field_proof.outputs.top_schema_status }}
+      ripper_failure: ${{ steps.ref04_independent_field_proof.outputs.ripper_failure }}
+      schema_diff_index: ${{ steps.ref04_independent_field_proof.outputs.schema_diff_index }}
     timeout-minutes: 25
     steps:
       - name: Checkout real XAPK via Git LFS
@@ -564,14 +566,24 @@ jobs:
                 d['sourceFieldsMissingIndependentSchemaProof'],
                 '; status:',d['independentSchemaProofStatusCounts'])
           import os
+          from collections import Counter
           def main_status(dct):
               return sorted(dct, key=lambda k:(-dct[k],k))[0] if dct else 'NONE'
+          reasons=Counter(
+              row['independentSchemaRawSourceCheck'].get('backendEvidence',{})
+                .get('AssetRipper',{}).get('failureCategory','NO_RIPPER_ERROR_OR_SCHEMA')
+              for row in d['layoutGroups'])
+          diff=Counter(
+              str(row['firstSchemaDifference']['index'])
+              for row in d['layoutGroups'] if row.get('firstSchemaDifference'))
           with open(os.environ['GITHUB_OUTPUT'],'a',encoding='utf-8') as out:
               for key,value in (
                   ('verified_fields', str(d['sourceFieldsVerifiedByTwoGeneratedSchemas'])),
                   ('top_blocker', main_status(d['independentSchemaProofStatusCounts'])),
                   ('top_raw_status', main_status(d['rawByteReparseCounts'])),
-                  ('top_schema_status', main_status(d['schemaComparisonCounts']))
+                  ('top_schema_status', main_status(d['schemaComparisonCounts'])),
+                  ('ripper_failure', main_status(reasons)),
+                  ('schema_diff_index', main_status(diff))
               ):
                   out.write(key+'='+value+'\n')
           PY
@@ -791,7 +803,7 @@ jobs:
           python -c "import json; from pathlib import Path; d=Path('output/local-ui-art'); m=json.loads((d/'manifest.json').read_text(encoding='utf-8')); s=json.loads((d/'export-status.json').read_text(encoding='utf-8')); assert s['status']=='PASS'; assert m['stats']['sprite_images_exported'] > 0; assert m['stats']['scene_nodes_mapped']['REF01-ship-upgrade'] > 0; assert all((d/f).is_file() for f in m['files']); print('WINDOWS PASS:',s['sprite_images_exported'],'Sprite PNGs,',s['ui_nodes_mapped'],'nodes')"
 
   ref04-proof-summary:
-    name: REF04 ${{ needs.decode.outputs.source_verified_fields }}/168 | ${{ needs.decode.outputs.source_blocker }} | RAW ${{ needs.decode.outputs.studio_byte_status }}
+    name: REF04 ${{ needs.decode.outputs.source_verified_fields }}/168 | Ripper ${{ needs.decode.outputs.ripper_failure }} | diff ${{ needs.decode.outputs.schema_diff_index }}
     needs: decode
     runs-on: ubuntu-latest
     steps:
