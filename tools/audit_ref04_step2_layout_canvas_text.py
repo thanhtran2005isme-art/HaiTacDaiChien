@@ -44,7 +44,7 @@ RUNTIME_BLOCKERS={
 }
 
 
-def inventory(step1, third=None):
+def inventory(step1, third=None, text_probe=None):
     if (step1.get("classification") !=
             "REF04_ALL_SOURCE_CANDIDATE_UI_COMPONENT_INVENTORY_READ_ONLY" or
         step1.get("sceneId") != SCENE or
@@ -67,6 +67,21 @@ def inventory(step1, third=None):
             raise ValueError("Third-backend PathID collision")
     else:
         by_third={}
+    if text_probe is not None:
+        if (text_probe.get("classification") !=
+                "REF04_ORIGINAL_XAPK_TEXT_62_SOURCE_BINARY_PROBE" or
+            text_probe.get("sourceSerializedFile") !=
+                step1["sourceSerializedFile"] or
+            text_probe.get("sourceTextComponents") != 62 or
+            text_probe.get("unityImportAllowed") is not False or
+            text_probe.get("rawTextContentPublished") is not False or
+            len(text_probe.get("textComponents",[]))!=62):
+            raise ValueError("Source Text binary probe does not match original XAPK")
+        by_text={r["componentPathId"]:r for r in text_probe["textComponents"]}
+        if len(by_text)!=62:
+            raise ValueError("Original Text source PathIDs not unique")
+    else:
+        by_text={}
 
     found={group:[] for group in CLASSES}
     identity=set()
@@ -117,6 +132,21 @@ def inventory(step1, third=None):
                         key for key in CANVAS_FIELDS if key not in fields
                     ]
                 if name=="Text":
+                    text_record=by_text.get(cid)
+                    if text_record is not None and (
+                        text_record["gameObjectPathId"]!=gid or
+                        text_record["rectTransformPathId"]!=tid or
+                        text_record["sourceObjectSha256"] !=
+                            component.get("rawSourceObjectSha256")):
+                        raise ValueError("Source Text component ID/source hash differs")
+                    item["textBinaryProbeStatus"]=(
+                        text_record["verificationStatus"] if text_record else
+                        "NOT_YET_RUN")
+                    # A single strict decoded source snapshot is NOT evidence
+                    # of final runtime text, font, localization or position.
+                    item["textSourceSingleBackendEvidence"]=(
+                        text_record.get("sourceTextFieldEvidence",{})
+                        if text_record else {})
                     item["textFontAndAppearanceFieldsNotVerified"]=[
                         key for key in TEXT_REQUIRED if key not in fields
                     ]
@@ -138,6 +168,10 @@ def inventory(step1, third=None):
         raise ValueError("REF04 Canvas/Layout/Text original class inventory changed")
     if set(by_third)!={i["componentPathId"] for i in found["LayoutGroup"]} and third is not None:
         raise ValueError("Third backend did not cover all source LayoutGroup IDs")
+    if text_probe is not None and set(by_text)!={
+        i["componentPathId"] for i in found["Text"]
+    }:
+        raise ValueError("Text binary probe did not cover 62 exact source PathIDs")
 
     blockers=[{
         "category":name,"sourceComponents":counts[name],
@@ -157,6 +191,7 @@ def inventory(step1, third=None):
             len(c["singleBackendFieldNamesNotImportable"])
             for c in found["LayoutGroup"]),
         "thirdBackendRunProvided":third is not None,
+        "sourceTextBinaryProbeProvided":text_probe is not None,
         "sourceRuntimeCanvasOrViewportProven":False,
         "sourceRuntimeTextProven":False,
         "sourceRuntimeLayoutProven":False,
@@ -208,7 +243,10 @@ def main():
     thirdpath=root/"output/ref04-layout-third-backend-evidence.json"
     third=(json.loads(thirdpath.read_text(encoding="utf-8"))
            if thirdpath.is_file() else None)
-    report=inventory(step1,third)
+    textpath=root/"output/ref04-text-source-binary-evidence.json"
+    text=(json.loads(textpath.read_text(encoding="utf-8"))
+          if textpath.is_file() else None)
+    report=inventory(step1,third,text)
     dest=root/"output/ref04-step2-layout-canvas-text.json"
     write(report,dest)
     print(json.dumps({
@@ -217,6 +255,7 @@ def main():
         "unverifiedLayoutGroupFields":
             report["layoutGroupFieldValuesStillBlockedFromUnity"],
         "thirdBackendRunProvided":report["thirdBackendRunProvided"],
+        "sourceTextBinaryProbeProvided":report["sourceTextBinaryProbeProvided"],
         "unityAssetsChanged":False,
         "runtimeUIProven":False,
     },sort_keys=True))
