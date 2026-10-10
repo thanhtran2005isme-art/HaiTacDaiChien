@@ -268,15 +268,21 @@ class CrossPhaseIntegrity(unittest.TestCase):
         self.assertIsNot(
             canvas["originalNativeCanvasSubset"],
             step2["nativeCanvasFieldsExtracted"])
+        # P5 compares P2 to Step2 first. Step2-only corruption must fail
+        # that guard before the separate inventory comparison is reached.
         step2["verifiedSerializedFields"]["m_RenderMode"] = 3
         with self.assertRaisesRegex(
-                ValueError, "Step2 source fields/status disagree with original inventory"):
+                ValueError, "P2 original Canvas/Scaler serialized values differ from Step2"):
             p5.build(docs)
-        # Even if Step2 and the original inventory are both changed in the
-        # synthetic fixture, the untouched P2 report must still block them.
+        # Restore Step2 exactly, then corrupt ONLY the original inventory.
+        # P2 and Step2 now agree, so the second independent guard must fail.
+        step2["verifiedSerializedFields"]["m_RenderMode"] = copy.deepcopy(
+            canvas["originalSerializedFieldEvidence"]["m_RenderMode"])
+        self.assertEqual(step2["verifiedSerializedFields"],
+                         canvas["originalSerializedFieldEvidence"])
         original["verifiedSerializedFields"]["m_RenderMode"] = 3
         with self.assertRaisesRegex(
-                ValueError, "serialized values differ from Step2"):
+                ValueError, "P2 Step2 source fields/status disagree with original inventory"):
             p5.build(docs)
 
     def test_unhashed_two_backend_claim_is_rejected(self):
