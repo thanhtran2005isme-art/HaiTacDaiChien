@@ -187,6 +187,7 @@ def execute(root=ROOT,*,xapk=None,unitypy=None):
         "metadataSha256":proof["metadata"]["sha256"],
     }
     doc=report(rows,results,proof_small)
+    doc["sourceSerializedFile"]=source_file
     target=o/"ref04-text-source-binary-evidence.json"
     tmp=target.with_suffix(".tmp")
     tmp.write_text(json.dumps(doc,ensure_ascii=False,indent=2)+"\n",
