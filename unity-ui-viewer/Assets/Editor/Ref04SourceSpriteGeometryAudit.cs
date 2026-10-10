@@ -221,9 +221,21 @@ namespace HaiTac.OfflineViewer.Editor
             return src;
         }
 
-        private static List<Geometry> Resolve(Source src)
+        private sealed class GeometryReport
         {
-            var result = new Dictionary<string, Geometry>();
+            public List<Geometry> compatible = new List<Geometry>();
+            public List<string> incompatible = new List<string>();
+        }
+
+        private static GeometryReport Resolve(Source src)
+        {
+            var all = new Dictionary<string, Geometry>();
+            // Any native-Rect/PNG disagreement disqualifies the *entire Sprite
+            // file*, even when referenced by several source Image components.
+            // Never apply original 9-slice border to an exported image whose
+            // pixel rectangle is materially smaller/different than the source.
+            var unsafeFiles = new SortedDictionary<string, string>(
+                StringComparer.Ordinal);
             foreach (var row in src.images)
             {
                 if (!row.applyGeometry) continue;
@@ -241,15 +253,6 @@ namespace HaiTac.OfflineViewer.Editor
                     Sha(File.ReadAllBytes(raw)) != Sha(File.ReadAllBytes(local)))
                     throw new InvalidDataException(
                         "Sprite PNG content differs from XAPK export: " + row.spriteFile);
-                // Exported sprites can have fractional serialized Rect size;
-                // match the existing source decoder's <=1px validation
-                // tolerance, but reject any materially different image bounds.
-                if (Mathf.Abs(sprite.rect.width-row.sourceRectSize[0]) > 1f ||
-                    Mathf.Abs(sprite.rect.height-row.sourceRectSize[1]) > 1f)
-                    throw new InvalidDataException(
-                        "Sprite imported rectangle differs from original native rectangle: " +
-                        row.spriteFile + " source=" + row.sourceRectSize[0] + "x" +
-                        row.sourceRectSize[1] + " imported=" + sprite.rect.size);
                 var original = new Geometry {
                     filename=row.spriteFile, assetPath=path, importer=importer,
                     border=new Vector4(row.border[0],row.border[1],
@@ -257,7 +260,7 @@ namespace HaiTac.OfflineViewer.Editor
                     ppu=row.pixelsPerUnit, width=row.sourceRectSize[0],
                     height=row.sourceRectSize[1],
                 };
-                if (result.TryGetValue(row.spriteFile,out var existing))
+                if (all.TryGetValue(row.spriteFile,out var existing))
                 {
                     if (!Eq(existing.border,original.border) ||
                         !Eq(existing.ppu,original.ppu) ||
@@ -265,11 +268,40 @@ namespace HaiTac.OfflineViewer.Editor
                         !Eq(existing.height,original.height))
                         throw new InvalidDataException(
                             "Conflicting source geometry for one Sprite: " + row.spriteFile);
-                    continue;
                 }
-                result.Add(row.spriteFile,original);
+                else
+                    all.Add(row.spriteFile,original);
+
+                // <=1px allows fractional Unity m_Rect roundoff. 84x92 versus
+                // 84x86 is a genuine source/export dimension disagreement.
+                // It may indicate atlas trimming, but DO NOT infer padding or
+                // sprite offsets without separately verified source metadata.
+                if (Mathf.Abs(sprite.rect.width-row.sourceRectSize[0]) > 1f ||
+                    Mathf.Abs(sprite.rect.height-row.sourceRectSize[1]) > 1f)
+                    unsafeFiles[row.spriteFile] =
+                        row.spriteFile + " | native=" + row.sourceRectSize[0] +
+                        "x" + row.sourceRectSize[1] + " | imported=" +
+                        sprite.rect.width + "x" + sprite.rect.height +
+                        " | SKIPPED (no 9-slice/PPU change)";
             }
-            return result.Values.OrderBy(g=>g.filename).ToList();
+            var report = new GeometryReport();
+            report.compatible = all.Values
+                .Where(g => !unsafeFiles.ContainsKey(g.filename))
+                .OrderBy(g => g.filename).ToList();
+            report.incompatible = unsafeFiles.Values.ToList();
+            return report;
+        }
+
+        private static void LogUnsafeFiles(GeometryReport report)
+        {
+            if (report.incompatible.Count == 0) return;
+            Debug.LogWarning("[REF04 SOURCE ICONS] EXPORT_RECT_MISMATCH: " +
+                report.incompatible.Count + " original Sprite files have " +
+                "materially different PNG dimensions. Their importer metadata " +
+                "was NOT modified. Source image export must be investigated.\n" +
+                string.Join("\n", report.incompatible.Take(50).ToArray()) +
+                (report.incompatible.Count > 50 ?
+                    "\n... additional mismatch files omitted from Console." : ""));
         }
 
         private static int CountWrong(IEnumerable<Geometry> geometries)
@@ -284,14 +316,17 @@ namespace HaiTac.OfflineViewer.Editor
             try
             {
                 var src = ReadSource();
-                var geometries = Resolve(src);
+                var report = Resolve(src);
+                LogUnsafeFiles(report);
+                var geometries = report.compatible;
                 int wrong = CountWrong(geometries);
                 int unverified = src.images.Count(x=>!x.applyGeometry);
                 int sliced = src.images.Count(x=>x.verifiedImageType==1);
                 Debug.Log("[REF04 SOURCE ICONS] AUDIT: " +
                     src.sourceBindings + " exact original Images; " +
                     geometries.Count + " unique native-geometry Sprite files; " +
-                    wrong + " imported border/PPU mismatches; " +
+                    wrong + " compatible imported border/PPU mismatches; " +
+                    report.incompatible.Count + " exported Sprite RECT mismatches BLOCKED; " +
                     unverified + " Image geometry records not proven; " +
                     sliced + " original Sliced Images. " +
                     "No Canvas/Spine/Text/Root RectTransforms changed. " +
@@ -299,7 +334,9 @@ namespace HaiTac.OfflineViewer.Editor
                 EditorUtility.DisplayDialog("REF04 static icon audit",
                     "Original Images: " + src.sourceBindings +
                     "\nSprite native geometry records: " + geometries.Count +
-                    "\nBorder/PPU importer mismatches: " + wrong +
+                    "\nCompatible border/PPU mismatches: " + wrong +
+                    "\nExported Sprite RECT mismatches (blocked): " +
+                    report.incompatible.Count +
                     "\nUnverified Image geometries: " + unverified +
                     "\nThis is NOT a full original-runtime layout test.", "OK");
             }
@@ -318,14 +355,17 @@ namespace HaiTac.OfflineViewer.Editor
             try
             {
                 var src = ReadSource();
-                var geometries = Resolve(src);
+                var report = Resolve(src);
+                LogUnsafeFiles(report);
+                var geometries = report.compatible;
                 var toFix = geometries.Where(g =>
                     !Eq(g.importer.spriteBorder,g.border) ||
                     !Eq(g.importer.spritePixelsPerUnit,g.ppu)).ToArray();
                 if (toFix.Length == 0)
                 {
-                    Debug.Log("[REF04 SOURCE ICONS] No original border/PPU mismatches; " +
-                        "not changing any asset. Remaining UI mismatch is elsewhere.");
+                    Debug.Log("[REF04 SOURCE ICONS] No COMPATIBLE border/PPU mismatches; " +
+                        report.incompatible.Count + " source/export RECT mismatches " +
+                        "remain BLOCKED. No asset changed.");
                     return;
                 }
                 // Save local importer settings and revert on any failure.
@@ -359,7 +399,9 @@ namespace HaiTac.OfflineViewer.Editor
                 }
                 Debug.Log("[REF04 SOURCE ICONS] RESTORE PASS: " +
                     toFix.Length + " source-derived local Sprite border/PPU import settings " +
-                    "corrected. Original PNG bytes untouched; 3C fields, Canvas, Spine, Text " +
+                    "corrected; " + report.incompatible.Count +
+                    " source/export RECT mismatch files SKIPPED. " +
+                    "Original PNG bytes untouched; 3C fields, Canvas, Spine, Text " +
                     "and RectTransforms unchanged. REF04 Game View needs visual review.");
             }
             catch (Exception exc)
