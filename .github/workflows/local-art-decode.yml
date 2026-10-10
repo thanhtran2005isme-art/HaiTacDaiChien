@@ -47,6 +47,10 @@ on:
       - 'tools/audit_ref04_step2_layout_canvas_text.py'
       - 'tools/ref04_il2cpp_method_index_v31.py'
       - 'tools/audit_ref04_p2_runtime_alignment.py'
+      - 'tools/ref04_arm64_elf_regions.py'
+      - 'tests/test_ref04_arm64_elf_regions.py'
+      - 'tools/audit_ref04_p3_text_localization.py'
+      - 'tests/test_ref04_p3_text_localization.py'
       - 'tests/test_ref04_il2cpp_method_index_v31.py'
       - 'tests/test_ref04_p2_runtime_alignment.py'
       - 'tests/test_ref04_step2_layout_canvas_text.py'
@@ -397,6 +401,10 @@ jobs:
         run: python -m unittest discover -s tests -p test_ref04_layout_schema_forensics.py -v
       - name: Verify original IL2CPP v31 metadata method source ownership (P2)
         run: python -m unittest discover -s tests -p test_ref04_il2cpp_method_index_v31.py -v
+      - name: Verify original AArch64 ELF code segment boundaries without fake method mapping (P2)
+        run: python -m unittest discover -s tests -p test_ref04_arm64_elf_regions.py -v
+      - name: Verify P3 original Text fonts and source localization guards
+        run: python -m unittest discover -s tests -p test_ref04_p3_text_localization.py -v
       - name: Verify Canvas/SafeArea/PanelHome2 runtime evidence cannot be guessed (P2)
         run: python -m unittest discover -s tests -p test_ref04_p2_runtime_alignment.py -v
       - name: Verify source-only Step 2 Canvas Text and LayoutGroup evidence
@@ -680,6 +688,31 @@ jobs:
           print('P2 runtime formulas: BLOCKED until IL2CPP ARM64 method bodies are proven')
           PY
 
+      - name: Trace P3 original 62 Text, font pointers and I2 localization metadata (NO runtime strings)
+        timeout-minutes: 8
+        run: |
+          python tools/audit_ref04_p3_text_localization.py
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          p=json.loads(Path('output/ref04-p3-text-font-localization-source.json').read_text(encoding='utf-8'))
+          assert p['classification']=='REF04_P3_ORIGINAL_TEXT_FONT_LOCALIZATION_SOURCE_ONLY'
+          assert p['sourceTextComponentsIndependentlyVerified']==62
+          assert p['originalTextContentPublished'] is False
+          assert p['localizationKeyToTextBindingProven'] is False
+          assert p['runtimeTextAndLocalizationProven'] is False
+          assert p['runtimeFontRenderingProven'] is False
+          assert p['runtimePlacementProven'] is False
+          assert p['methodBodiesVerified']==0
+          assert p['unityImportAllowed'] is False
+          assert p['unityAssetsChanged'] is False
+          print('P3 original XAPK source:',p['sourceTextComponentsIndependentlyVerified'],
+                'dual-backend Text,',p['sourceLocalizationComponents'],
+                'localization components,',p['uniqueOriginalFontPointerCount'],
+                'distinct font pointers (not runtime fonts)')
+          print('P3 runtime text/localization/font: BLOCKED; no source strings printed')
+          PY
+
       - name: Classify all REF04 XAPK native Sprite rectangles against exported PNG dimensions
         run: |
           python tools/report_ref04_png_rect_mismatch.py
@@ -826,6 +859,10 @@ jobs:
         run: python -m unittest discover -s tests -p test_ref04_layout_schema_forensics.py -v
       - name: Verify original IL2CPP v31 metadata method ownership on Windows (P2)
         run: python -m unittest discover -s tests -p test_ref04_il2cpp_method_index_v31.py -v
+      - name: Verify AArch64 ELF source code region bounds on Windows (P2)
+        run: python -m unittest discover -s tests -p test_ref04_arm64_elf_regions.py -v
+      - name: Verify P3 source Text/localization/font honesty on Windows
+        run: python -m unittest discover -s tests -p test_ref04_p3_text_localization.py -v
       - name: Verify P2 Canvas/SafeArea/PanelHome2 source-only runtime blockers on Windows
         run: python -m unittest discover -s tests -p test_ref04_p2_runtime_alignment.py -v
       - name: Verify original Canvas Text Layout source-only field guards on Windows
