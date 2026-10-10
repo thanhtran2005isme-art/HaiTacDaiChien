@@ -162,6 +162,12 @@ class OfflineRef04Ui(unittest.TestCase):
             self.assertFalse(saved["requiresOriginalGameServer"])
             self.assertEqual(saved["counts"]["P2IdentityOnlyComponents"], 1)
             self.assertTrue(saved["sourceReportSha256"]["p5"])
+            self.assertEqual(saved["p5ReportSha256"],
+                             saved["sourceReportSha256"]["p5"])
+            self.assertEqual(saved["inventoryReportSha256"],
+                             saved["sourceReportSha256"]["inventory"])
+            self.assertEqual(saved["geometryReportSha256"],
+                             saved["sourceReportSha256"]["geometry"])
 
 
 if __name__ == "__main__":
