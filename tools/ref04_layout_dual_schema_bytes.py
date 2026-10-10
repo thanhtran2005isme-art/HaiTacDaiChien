@@ -92,9 +92,20 @@ def strict_raw_schema_agreement(reader, source, schemas, expected):
             if detail["fullObjectSha256"] != source_sha:
                 raise raw.RawWalkBlocked("Raw replay changed original object hash")
         except (raw.RawWalkBlocked, ValueError, TypeError, KeyError) as exc:
-            result["backendEvidence"][backend] = {
+            issue = source_safe_raw_failure(exc)
+            problem = {
                 "status": "BLOCKED_RAW_OBJECT_" + type(exc).__name__,
-                "failureCategory": source_safe_raw_failure(exc)}
+                "failureCategory": issue,
+            }
+            if issue == "UNSUPPORTED_SOURCE_TYPE":
+                # Schema *type* only, never original field contents or bytes.
+                import re
+                typ = str(exc).partition("Unrecognized source field type: ")[2]
+                if 0 < len(typ) <= 80 and re.fullmatch(r"[A-Za-z0-9_.<>]+", typ):
+                    problem["unsupportedSourceTypeName"] = typ
+                else:
+                    problem["unsupportedSourceTypeName"] = "COMPLEX_TYPE_UNPUBLISHED"
+            result["backendEvidence"][backend] = problem
             result["status"] = "BLOCKED_INDEPENDENT_SCHEMA_RAW_PARSE"
             continue
         probes[backend] = detail
