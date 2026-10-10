@@ -105,6 +105,26 @@ class TextProbe(unittest.TestCase):
         self.assertFalse(out["rawTextContentPublished"])
         self.assertFalse(out["runtimeTextProven"])
 
+    def test_two_backends_must_exactly_match_source_text_and_font_fields(self):
+        evidence={"m_Text":{"sourceUtf8Sha256":"a"*64,"utf8Bytes":9},
+                  "m_Font":{"sourceFileId":0,"sourcePathId":123},
+                  "m_FontSize":20}
+        first=("SOURCE_TEXT_STRICT_SINGLE_BACKEND_NOT_IMPORTED",evidence)
+        agree=tool.compare_decoders(first,first)
+        self.assertEqual(agree[0],
+            "TWO_BACKENDS_SAME_SERIALIZED_TEXT_FIELDS_NOT_IMPORTED")
+        self.assertEqual(agree[1],evidence)
+        altered=dict(evidence)
+        altered["m_FontSize"]=21
+        mismatch=tool.compare_decoders(first,(
+            "SOURCE_TEXT_STRICT_SINGLE_BACKEND_NOT_IMPORTED",altered))
+        self.assertEqual(mismatch[0],
+            "BLOCKED_TEXT_INDEPENDENT_BACKEND_FIELD_CONFLICT")
+        self.assertEqual(mismatch[1],{})
+        blocked=tool.compare_decoders(first,("BLOCKED_STRICT_SOURCE_TEXT_PARSE_ValueError",{}))
+        self.assertEqual(blocked[0],"SOURCE_TEXT_STRICT_SINGLE_BACKEND_NOT_IMPORTED")
+        self.assertEqual(blocked[2],"BLOCKED_STRICT_SOURCE_TEXT_PARSE_ValueError")
+
     def test_original_serialized_sha_changed_is_blocked(self):
         graph,deep=documents()
         rows,_=tool.source_text_nodes(deep,graph)
