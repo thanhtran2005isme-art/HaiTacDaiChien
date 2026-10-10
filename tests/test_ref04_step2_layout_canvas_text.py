@@ -110,8 +110,9 @@ class Step2(unittest.TestCase):
         self.assertEqual(len(texts),62)
         self.assertTrue(all(x["renderedText"] is None for x in texts))
         self.assertTrue(all(x["canBeAppliedToUnity"] is False for x in texts))
-        self.assertTrue(all("m_Font" in x["textFontAndAppearanceFieldsNotVerified"]
+        self.assertTrue(all("m_Font" in x["textFieldsNotDoubleVerified"]
                             for x in texts))
+        self.assertEqual(report["originalTextComponentsVerifiedByTwoBackends"],0)
 
     def test_third_backend_id_or_sha_conflict_blocks(self):
         src=full_inventory()
@@ -135,6 +136,39 @@ class Step2(unittest.TestCase):
         third["layoutGroups"][0]["sourceObjectSha256"]="b"*64
         with self.assertRaisesRegex(ValueError,"source LayoutGroup ID/hash"):
             tool.inventory(src,third)
+
+    def test_62_binary_rounded_trip_text_source_fields_do_not_prove_runtime(self):
+        src=full_inventory()
+        texts=[c for c in src["gameObjects"][0]["components"] if
+               c.get("monoScriptClass")=="UnityEngine.UI.Text"]
+        report_rows=[{
+            "componentPathId":c["componentPathId"],
+            "gameObjectPathId":c["gameObjectPathId"],
+            "rectTransformPathId":c["rectTransformPathId"],
+            "sourceObjectSha256":H,
+            "verificationStatus":
+                "TWO_BACKENDS_SAME_SERIALIZED_TEXT_FIELDS_NOT_IMPORTED",
+            "sourceTextFieldEvidence":{
+                "m_Text":{"sourceUtf8Sha256":"a"*64,"utf8Bytes":12},
+                "m_Font":{"sourceFileId":0,"sourcePathId":456},
+                "m_FontSize":22,
+            },
+        } for c in texts]
+        probe={
+            "classification":"REF04_ORIGINAL_XAPK_TEXT_62_SOURCE_BINARY_PROBE",
+            "sourceSerializedFile":"XAPK-file","sourceTextComponents":62,
+            "unityImportAllowed":False,"rawTextContentPublished":False,
+            "textComponents":report_rows,
+        }
+        result=tool.inventory(src,None,probe)
+        self.assertEqual(result["originalTextComponentsVerifiedByTwoBackends"],62)
+        self.assertFalse(result["sourceRuntimeTextProven"])
+        item=result["componentsByCategory"]["Text"][0]
+        self.assertEqual(item["textSourceFieldsTwoBackendsAgreed"]["m_FontSize"],22)
+        self.assertIn("m_Alignment",item["textFieldsNotDoubleVerified"])
+        self.assertNotIn("m_Font",item["textFieldsNotDoubleVerified"])
+        self.assertIsNone(item["renderedText"])
+        self.assertFalse(item["canBeAppliedToUnity"])
 
     def test_missing_component_fails_closed(self):
         src=full_inventory()
