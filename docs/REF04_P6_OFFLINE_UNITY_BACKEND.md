@@ -1,5 +1,19 @@
 # REF04 P6 — Phục dựng UI Unity offline, backend tự xây
 
+## P6.1 Unity screenshot triage — nút Dựng bị khóa (2026-10-11)
+
+Trong ảnh Unity thực tế, **3C source-study: có** và **Tight Sprite source manifest: có**. Nút **Dựng REF04 Study** mờ nhưng **Kiểm tra Prefab** và **Mở Scene** vẫn bật: theo source code, điều này xảy ra khi đã tồn tại ít nhất một trong hai asset `REF04-home-crew_NATIVE_BOUNDS_STUDY.prefab` hoặc `REF04-home-crew_NATIVE_BOUNDS_STUDY.unity`. **Không phải bằng chứng Unity đã biên dịch lỗi.**
+
+Đã sửa cửa sổ P6:
+- Đã có cả hai: hiển thị rõ `REF04 Study: đã có Prefab + Scene`, giữ Build khóa nhằm tránh overwrite. Nhấn **1. Kiểm tra dữ liệu P5/P6**, sau đó **4. Kiểm tra Prefab** và **5. Mở Scene** (chỉ nếu Audit PASS).
+- Chỉ có một asset: hiển thị `REF04 Study CHƯA ĐẦY ĐỦ` kèm asset thiếu; khóa cả Build/Audit/Open. Không xóa hoặc ghi đè tự động.
+- Chưa có gì và đủ 3C + manifest: mới bật Build; lệnh Build tự kiểm tra tồn tại thêm một lần ngay khi được bấm để chặn overwrite.
+- Chưa xác minh SHA: trạng thái `Chưa kiểm tra dữ liệu P6 offline` là thông báo **chưa chạy bước 1**, không phải lỗi. Nếu bước 1 báo thiếu SHA dạng phẳng do báo cáo cũ, chạy lại `py -3 tools/ref04_p6_offline_ui_plan.py` để tạo file report mới.
+
+Cập nhật mã rồi Unity sẽ tự nạp lại script. **Không chạy lại generator ảnh hoặc xóa Prefab/Scene khi chưa có kết quả bước 1/4**. Bộ test Python kiểm tra GUI source contract không thay thế biên dịch/test Unity Editor thực tế.
+
+---
+
 ## P6.1 — Dựng bản REF04 Source Study trực tiếp trong Unity Editor (2026-10-11)
 
 Bản P6 offline của bạn đã PASS trên XAPK thật: **265/265** Image/Sprite có geometry nguồn được xác minh; 299 Image tổng cộng (34 không có Sprite), 168 LayoutGroup field, 62 Text. Đó là bằng chứng các Sprite/Image và field nguồn, **không** phải xác nhận nguyên trạng Canvas hay Pixel-Perfect UI.
