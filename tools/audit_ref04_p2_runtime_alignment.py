@@ -279,7 +279,14 @@ def execute(root=ROOT, xapk=None):
         "|---|---:|",
     ]
     md.extend(f"| {name} | {count} |" for name, count in result["counts"].items())
-    md += ["", "## Blocked runtime questions"]
+    md += ["", "## Original serialized parent graph (NOT runtime)",
+           "CanvasScaler and original Canvas share source GameObject: "
+           + str(result["sourceCanvasGraph"]["sourceCanvasScaler"]["originalSameGameObjectAsCanvas"]),
+           "CanvasScaler verified serialized configuration keys: "
+           + ", ".join(result["sourceCanvasGraph"]["sourceCanvasScaler"]["originalSerializedScaleConfigFieldNames"]),
+           "Serialized Canvas ancestor counts: "
+           + json.dumps(result["sourceCanvasGraph"]["sourceAncestryCounts"], sort_keys=True),
+           "", "## Blocked runtime questions"]
     md.extend(f"- **{x['stage']}** — {x['status']}: {x['reason']}"
               for x in result["runtimeBlockers"])
     md += ["", "Metadata method declarations are NOT ARM64 method bodies.",
