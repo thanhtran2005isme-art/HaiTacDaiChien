@@ -9,7 +9,7 @@
 - **Chỉ XAPK gốc 100%**: tọa độ, vị trí, kích thước, hình ảnh, Canvas, LayoutGroup, trạng thái, chữ, thứ tự hiển thị và phép tính IL2CPP phải có bằng chứng gốc theo SerializedFile/PathID/field hoặc byte mã được kiểm chứng.
 - **KHÔNG BAO GIỜ suy đoán/tự đặt/ước lượng**, kể cả `1600×900`, root scale=1, Unity defaults, icon offsets hay nội suy ảnh; Preview cũ không phải sản phẩm.
 - Không đọc được → **tiếp tục giải mã XAPK** → vẫn không có chứng cứ → **DỪNG VÀ HỎI NGƯỜI DÙNG**. Không đổi `UNVERIFIED` thành `PASS`.
-- Đã hoàn thành kiểm kê **bước 1** cho cây ứng viên REF04; **bước 2** đang kiểm tra 24 LayoutGroup/168 field BLOCKED, Canvas, 62 Text và nguồn runtime alignment. Chỉ đọc XAPK, chưa sửa bố cục Unity. Spine/nhân vật để sau.
+- P1 đã kiểm chứng **24/24 LayoutGroup, 168/168 serialized fields** từ XAPK qua hai schema và raw-byte replay, nhưng **168 field vẫn cấm import Unity** vì thiếu runtime canvas/layout chứng cứ. P2 đang truy dấu 1 Canvas, 1 CanvasScaler, 6 SafeAreaAdapter, PanelHome2* và IL2CPP method/code runtime. Chỉ đọc XAPK; chưa sửa bố cục Unity. Spine/nhân vật để sau.
 - Không gọi CI PASS là UI đã giống XAPK. Giữ nguồn/Prefab 3C và ảnh gốc nguyên vẹn.
 
 ## Đọc theo thứ tự (không cần đọc toàn bộ lịch sử)
