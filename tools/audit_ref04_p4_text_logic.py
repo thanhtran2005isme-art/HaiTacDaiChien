@@ -11,6 +11,7 @@ import argparse
 from collections import Counter, defaultdict
 import hashlib
 import json
+import re
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -23,6 +24,11 @@ VERIFIED_TERM = frozenset((
     "DUAL_SCHEMA_RIPPER_RAW_REPARSED_LOCALIZER_TERMS_SOURCE_ONLY",
 ))
 EMPTY_SHA = hashlib.sha256(b"").hexdigest()
+# Labels are discovery hints only, not decoded IL2CPP callsites or Text writes.
+MUTATION_NAME_HINT = re.compile(
+    r"(?:set[_]?text|set[_]?term|set[_]?language|localiz|update[_]?text|refresh[_]?text)",
+    re.IGNORECASE)
+
 
 
 def sha_ok(value):
@@ -81,8 +87,65 @@ def _check_documents(p3, font_proof, term_proof):
         raise ValueError("Original I2 localizer source pair or runtime gate untrusted")
 
 
+def declaration_hints(p3):
+    classes = p3.get("localizationMethodDeclarations")
+    if not isinstance(classes, list) or not classes:
+        raise ValueError("Original P3 IL2CPP method declaration inventory missing")
+    totals = Counter()
+    candidates = []
+    type_indexes = set()
+    method_indexes = set()
+    for cls in classes:
+        ti = cls.get("typeDefinitionIndex")
+        methods = cls.get("methods")
+        if (type(ti) is not int or ti in type_indexes or
+            cls.get("nativeMethodAddressResolved") is not False or
+            cls.get("runtimeExpressionProven") is not False or
+            not isinstance(methods, list) or
+            cls.get("methodCount") != len(methods) or
+            not isinstance(cls.get("className"), str) or
+            not isinstance(cls.get("namespace"), str)):
+            raise ValueError("Untrusted original P3 IL2CPP method type ownership")
+        type_indexes.add(ti)
+        owner = (cls["namespace"] + "." if cls["namespace"] else "") + cls["className"]
+        totals[owner] += len(methods)
+        for method in methods:
+            mi = method.get("methodDefinitionIndex")
+            token = method.get("methodToken")
+            name = method.get("name")
+            if (type(mi) is not int or mi in method_indexes or
+                not isinstance(token, str) or
+                not re.fullmatch(r"0x06[0-9a-f]{6}", token) or
+                not isinstance(name, str) or not 0 < len(name) <= 160 or
+                method.get("declaringTypeIndex") != ti or
+                method.get("nativeAddress") is not None or
+                method.get("methodBodyVerified") is not False):
+                raise ValueError("Original IL2CPP method index/token/owner or native gate invalid")
+            method_indexes.add(mi)
+            if MUTATION_NAME_HINT.search(name):
+                candidates.append({
+                    "originalTypeDefinitionIndex": ti,
+                    "originalMethodDefinitionIndex": mi,
+                    "originalMethodToken": token,
+                    "sourceMethodNameSha256": hashlib.sha256(name.encode("utf-8")).hexdigest(),
+                    "sourceMethodOwnerClass": owner,
+                    "matchClass": "METHOD_NAME_ONLY_POTENTIAL_TEXT_OR_LOCALE_UPDATE",
+                    "independentNativeMethodOwnerProven": False,
+                    "runtimeTextFieldWriteProven": False,
+                })
+    return {
+        "sourceMethodDeclarationCount": sum(totals.values()),
+        "sourceMethodDeclarationsByType": dict(sorted(totals.items())),
+        "sourceNameOnlyTextOrLocaleCandidates": sorted(
+            candidates, key=lambda item: item["originalMethodDefinitionIndex"]),
+        "verifiedNativeFieldWriters": 0,
+        "sourceDeclarationsOnlyNoDynamicTextProof": True,
+    }
+
+
 def build(p3, font_proof, term_proof):
     _check_documents(p3, font_proof, term_proof)
+    method_evidence = declaration_hints(p3)
     originals = p3.get("originalTextSourceEvidence")
     localizers = p3.get("sourceLocalizationComponentsEvidence")
     font_objects = font_proof.get("pointerResolutions")
@@ -241,6 +304,7 @@ def build(p3, font_proof, term_proof):
         "originalSameOwnerLocalizationCandidates": sum(
             bool(x["colocatedLocalizerComponentPathIds"]) for x in rows),
         "sourceTextRows": rows,
+        "sourceIL2CPPMethodDeclarationHints": method_evidence,
         "runtimeDynamicTextWritersIndependentlyProven": 0,
         "runtimeLocalizedAssignmentsIndependentlyProven": 0,
         "runtimeLocale": None,
@@ -273,6 +337,7 @@ def execute(root=ROOT):
         "sourceTextComponentsVerified": report["sourceTextComponentsVerified"],
         "sourceFontObjectsVerified": report["sourceFontObjectsVerified"],
         "sourceLocalizerComponentsChecked": report["sourceLocalizerComponentsChecked"],
+        "sourceNativeMethodNameHints": len(report["sourceIL2CPPMethodDeclarationHints"]["sourceNameOnlyTextOrLocaleCandidates"]),
         "sourceTermFieldsIndependentlyVerified": report["sourceTermFieldsIndependentlyVerified"],
         "runtimeTextLogicRecovered": False,
         "unityImportAllowed": False,
