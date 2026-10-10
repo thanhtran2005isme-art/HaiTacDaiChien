@@ -48,6 +48,8 @@ on:
       - 'tools/ref04_il2cpp_method_index_v31.py'
       - 'tools/audit_ref04_p2_runtime_alignment.py'
       - 'tools/ref04_arm64_elf_regions.py'
+      - 'tools/ref04_p2_native_method_candidates.py'
+      - 'tests/test_ref04_p2_native_method_candidates.py'
       - 'tests/test_ref04_arm64_elf_regions.py'
       - 'tools/audit_ref04_p3_text_localization.py'
       - 'tests/test_ref04_p3_text_localization.py'
@@ -403,6 +405,8 @@ jobs:
         run: python -m unittest discover -s tests -p test_ref04_il2cpp_method_index_v31.py -v
       - name: Verify original AArch64 ELF code segment boundaries without fake method mapping (P2)
         run: python -m unittest discover -s tests -p test_ref04_arm64_elf_regions.py -v
+      - name: Verify P2 native method candidates never masquerade as verified ARM64 code
+        run: python -m unittest discover -s tests -p test_ref04_p2_native_method_candidates.py -v
       - name: Verify P3 original Text fonts and source localization guards
         run: python -m unittest discover -s tests -p test_ref04_p3_text_localization.py -v
       - name: Verify Canvas/SafeArea/PanelHome2 runtime evidence cannot be guessed (P2)
@@ -698,6 +702,8 @@ jobs:
           p=json.loads(Path('output/ref04-p3-text-font-localization-source.json').read_text(encoding='utf-8'))
           assert p['classification']=='REF04_P3_ORIGINAL_TEXT_FONT_LOCALIZATION_SOURCE_ONLY'
           assert p['sourceTextComponentsIndependentlyVerified']==62
+          assert 0<=p['sourceTextStringsIndependentlyVerified']<=62
+          assert 0<=p['sourceTextFontPointersIndependentlyVerified']<=62
           assert p['originalTextContentPublished'] is False
           assert p['localizationKeyToTextBindingProven'] is False
           assert p['runtimeTextAndLocalizationProven'] is False
@@ -707,9 +713,11 @@ jobs:
           assert p['unityImportAllowed'] is False
           assert p['unityAssetsChanged'] is False
           print('P3 original XAPK source:',p['sourceTextComponentsIndependentlyVerified'],
-                'dual-backend Text,',p['sourceLocalizationComponents'],
-                'localization components,',p['uniqueOriginalFontPointerCount'],
-                'distinct font pointers (not runtime fonts)')
+                'dual-backend Text components;',
+                p['sourceTextStringsIndependentlyVerified'],'original m_Text fields;',
+                p['sourceTextFontPointersIndependentlyVerified'],'original m_Font fields;',
+                p['sourceLocalizationComponents'],'localization components;',
+                p['uniqueOriginalFontPointerCount'],'distinct source font pointers')
           print('P3 runtime text/localization/font: BLOCKED; no source strings printed')
           PY
 
@@ -861,6 +869,8 @@ jobs:
         run: python -m unittest discover -s tests -p test_ref04_il2cpp_method_index_v31.py -v
       - name: Verify AArch64 ELF source code region bounds on Windows (P2)
         run: python -m unittest discover -s tests -p test_ref04_arm64_elf_regions.py -v
+      - name: Verify P2 third-party native candidate validation on Windows
+        run: python -m unittest discover -s tests -p test_ref04_p2_native_method_candidates.py -v
       - name: Verify P3 source Text/localization/font honesty on Windows
         run: python -m unittest discover -s tests -p test_ref04_p3_text_localization.py -v
       - name: Verify P2 Canvas/SafeArea/PanelHome2 source-only runtime blockers on Windows
