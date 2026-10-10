@@ -79,6 +79,7 @@ class TextLocalizationGuards(unittest.TestCase):
         self.assertFalse(got["localizationKeyToTextBindingProven"])
         self.assertFalse(got["runtimeTextAndLocalizationProven"])
         self.assertFalse(got["fontAssetIdentityVerified"])
+        self.assertTrue(got["sourceTextFieldsVerified"])
         self.assertFalse(got["unityImportAllowed"])
         text=got["originalTextSourceEvidence"][0]
         self.assertEqual(text["colocatedLocalizationComponentPathIds"],[4000])
@@ -103,6 +104,7 @@ class TextLocalizationGuards(unittest.TestCase):
         self.assertEqual(first["originalFontFieldStatus"],
                          "BLOCKED_SOURCE_M_FONT_FIELD_NOT_EXTRACTED")
         self.assertEqual(result["sourceTextFontPointersIndependentlyVerified"],61)
+        self.assertFalse(result["sourceTextFieldsVerified"])
         self.assertFalse(result["runtimeFontRenderingProven"])
 
     def test_source_backend_field_conflict_is_never_accepted(self):
