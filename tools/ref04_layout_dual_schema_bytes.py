@@ -99,7 +99,8 @@ def report_totals(rows):
         actual = data["sourceFieldsIndependentlyVerified"]
         names = data["independentFieldNames"]
         if status == SUCCESS:
-            if actual != count or len(names) != count or len(set(names)) != count:
+            if (actual != count or len(names) != count or
+                    set(names) != set(row.get("sourceExpectedFieldNames", []))):
                 raise ValueError("Incomplete independent source LayoutGroup evidence")
             verified += count
         else:
