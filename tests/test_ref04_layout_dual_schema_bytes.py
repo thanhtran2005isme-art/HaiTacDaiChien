@@ -67,6 +67,28 @@ class IndependentOriginalLayoutGroupFields(unittest.TestCase):
         self.assertEqual(evidence["backendEvidence"]["AssetStudio"]["sourceFieldByteSpans"],
                          evidence["backendEvidence"]["AssetRipper"]["sourceFieldByteSpans"])
 
+    def test_actual_source_asset_ripper_rectoffset_zero_size_aligned_leaf(self):
+        reader, row, studio, ripper, fields = example()
+        leaf = rawfixture.node("m_Padding", "RectOffset", meta=0x4000)
+        leaf.m_ByteSize = 0
+        ripper.m_Children[3] = leaf
+        proof = dual.strict_raw_schema_agreement(
+            reader, row, {"AssetStudio": studio, "AssetRipper": ripper}, fields)
+        self.assertEqual(proof["status"], dual.SUCCESS)
+        self.assertEqual(proof["sourceFieldsIndependentlyVerified"], 7)
+        self.assertFalse(proof["unityImportAllowed"])
+        self.assertFalse(proof["runtimeLayoutProven"])
+
+    def test_zero_size_rectoffset_without_original_align_flag_rejected(self):
+        reader, row, studio, ripper, fields = example()
+        leaf = rawfixture.node("m_Padding", "RectOffset")
+        leaf.m_ByteSize = 0
+        ripper.m_Children[3] = leaf
+        proof = dual.strict_raw_schema_agreement(
+            reader, row, {"AssetStudio": studio, "AssetRipper": ripper}, fields)
+        self.assertEqual(proof["status"], "BLOCKED_INDEPENDENT_SCHEMA_RAW_PARSE")
+        self.assertEqual(proof["sourceFieldsIndependentlyVerified"], 0)
+
     def test_rectoffset_size_not_16_is_blocked_without_guessing(self):
         reader, row, studio, ripper, fields = example()
         leaf = rawfixture.node("m_Padding", "RectOffset")
