@@ -52,7 +52,7 @@ def fixture():
         if classname:
             src["className"]=classname
         decoded.append(src)
-        if cid>=1000:
+        if cid>=1000 and cid!=2000:
             managed.append({
                 "componentPathId":cid,"gameObjectPathId":100,
                 "rectTransformPathId":10,"className":classname,
