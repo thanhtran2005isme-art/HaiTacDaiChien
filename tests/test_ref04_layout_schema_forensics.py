@@ -76,6 +76,7 @@ class Ref04LayoutSchemaForensics(unittest.TestCase):
         reader = SimpleNamespace(
             type=SimpleNamespace(name="MonoBehaviour"), get_raw_data=lambda: raw)
         row = {"binaryProof": {"rawObjectSha256": digest},
+               "fields": {"m_Spacing": 12.0},
                "assembly": "Assembly-CSharp",
                "className": "UnityEngine.UI.HorizontalLayoutGroup"}
         generators = {
