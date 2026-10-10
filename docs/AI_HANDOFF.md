@@ -1,5 +1,12 @@
 # AI HANDOFF — Hải Tặc UI Viewer
 
+## P5 second Windows regression and source-value quarantine (2026-10-11)
+
+- Windows update at commit `190894e` passed **8/8 synthetic P5 tests**, but original-XAPK P5 stopped at `P2 original raw object SHA missing for serialized values`. The exact component category is **not** shown by the exception; do not state that it definitely was Canvas/Scaler/PanelHome2.
+- Upstream Step2 and P2 may already report native source field observations whose `rawSourceObjectSha256=null` in original inventory. P5 previously rejected this data *just for being recorded*, even without intending to import it. New P5 rechecks **same original owner/type/serialized mapping in original inventory, Step2 and P2**, and places unhashable field **names only** into `unverifiedRecordedSourceFieldNames`/`P2SourceFieldNamesExcludedWithoutRawSha`. No source values are copied to P5's ledger; source byte provenance remains `BLOCKED_RAW_OBJECT_SHA_UNAVAILABLE_IDENTITY_ONLY` and import remains false.
+- **Hard blockers remain:** any forged field on unhashed PanelHome2, `TWO_BACKEND_SOURCE_VERIFIED_FIELDS` with null raw SHA, corrupted P2/Step2/inventory mappings, wrong original owner/class/parent, or fabricated runtime positions still FAIL. Regression tests added for unhashed native Canvas field quarantine and false dual-backend proof. **This new head has NOT passed real XAPK/CI yet; user must fetch and rerun tests and P5.**
+- `245` expected ledger rows means **audited identities/fields**, not every row has raw object byte evidence. Read P5 source coverage to see actual SHA-proven vs identity-only P2 component counts.
+
 ## P5 hotfix after real Windows audit (2026-10-11)
 
 - On user Windows XAPK reports: LayoutGroup 168/168, Text 62/62 and P2/P3/P4 script generation succeeded. P3 52 localizers still have 0 independent localization term confirmations; 2 Font source objects are external, runtime font unresolved. P5 originally stopped in P2 source owner/SHA/ancestry gate. Root cause is not proven from traceback alone; P5 code was over-strict by treating every P2 source-identity-only component as raw-SHA verified.
