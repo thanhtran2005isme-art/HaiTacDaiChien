@@ -138,6 +138,8 @@ class CrossPhaseIntegrity(unittest.TestCase):
         self.assertEqual(proof["sourceCoverage"], {
             "P1OriginalLayoutGroupFields": 168,
             "P2OriginalCanvasAndRelatedComponents": 9,
+            "P2ComponentsWithOriginalRawSha": 9,
+            "P2IdentityOnlyComponentsWithoutRawSha": 0,
             "P4OriginalTextComponents": 62,
             "totalSourceProvenanceEntries": 239,
         })
@@ -177,6 +179,39 @@ class CrossPhaseIntegrity(unittest.TestCase):
         docs = synthetic_reports()
         docs["p2"]["originalIL2CPPPair"]["metadataSha256"] = "e"*64
         with self.assertRaisesRegex(ValueError, "P5 BLOCKED"):
+            p5.build(docs)
+
+    def test_p2_missing_raw_sha_only_allows_id_and_parent_no_field_values(self):
+        docs = synthetic_reports()
+        panel = next(x for x in docs["p2"]["sourceComponents"]
+                     if x["category"] == "PanelHome2")
+        cid = panel["componentPathId"]
+        original = next(c for node in docs["inventory"]["gameObjects"]
+                        for c in node["components"] if c["componentPathId"] == cid)
+        panel["originalObjectSha256"] = None
+        original["rawSourceObjectSha256"] = None
+        # This cannot be classified as SHA-verified even when owner and
+        # original serialized parent pointers still agree.
+        proof = p5.build(docs)
+        self.assertEqual(proof["sourceCoverage"][
+            "P2IdentityOnlyComponentsWithoutRawSha"], 1)
+        self.assertEqual(proof["sourceCoverage"][
+            "P2ComponentsWithOriginalRawSha"], 8)
+        entry = next(x for x in proof["componentProvenance"]
+                     if x["componentPathId"] == cid)
+        self.assertIsNone(entry["originalObjectSha256"])
+        self.assertEqual(entry["originalObjectByteProvenanceStatus"],
+                         "BLOCKED_RAW_OBJECT_SHA_UNAVAILABLE_IDENTITY_ONLY")
+        self.assertFalse(entry["originalSerializedSourceValueProofAllowed"])
+        # Forging a serialized value with no original object hash is forbidden.
+        panel["originalSerializedFieldEvidence"] = {"m_Position": 1600}
+        with self.assertRaisesRegex(ValueError, "raw object SHA missing"):
+            p5.build(docs)
+        docs = synthetic_reports()
+        panel = next(x for x in docs["p2"]["sourceComponents"]
+                     if x["category"] == "PanelHome2")
+        panel["originalObjectSha256"] = None
+        with self.assertRaisesRegex(ValueError, "bytes SHA conflict"):
             p5.build(docs)
 
     def test_62_text_source_stale_and_forged_font_link_fail(self):
