@@ -264,3 +264,21 @@ Bản mới có wrapper Canvas `ScreenSpaceOverlay`, Camera `3D PREVIEW CAMERA -
 Menu **Audit 3D** so từng property có trong 7.451 field values từ 3C source Prefab với component của Prefab 3D, kiểm tra `m_Enabled` và 963 Sprite asset references. Nếu một field bị Unity thay đổi khi gắn Sprite, audit sẽ FAIL (không tuyên bố 7451 được bảo toàn). Các component không có chứng cứ chéo (93 LayoutGroup / 651 values), native Canvas chưa giải mã, Spine/animation và tính năng game vẫn **chưa phục hồi**. GUI Play Mode và mức độ giống UI gốc vẫn phải kiểm chứng riêng bằng ảnh/trạng thái runtime; Scene 3D không phải original editable Prefab.
 
 **Quan trọng:** Công cụ không ghi đè bản 3D nếu đã tồn tại; để dựng lại cần chủ động sao lưu/di chuyển các bản xem trước hiện có, không xóa bản nguồn gốc.
+
+
+## Giai đoạn 3E — Thử khung hiển thị bằng chính gốc Canvas (không dựng Canvas lồng nhau)
+
+**Chẩn đoán trên XAPK thật:** `tools/report_source_visual_layout_gaps.py` đã kiểm tra năm candidate root. `REF01-ship-upgrade`, `REF03-islands-map-A`, `REF03-islands-map-B`, `REF04-home-crew` đều có `m_SizeDelta=(0,0)` và `m_LocalScale=(0,0,0)`; `REF02-hero-detail` có `m_SizeDelta=(0,0)`, scale=(1,1,1) nhưng anchor stretch. Đây không phải bằng chứng viewport runtime gốc. Vì vậy, cả cách lồng Canvas 1600x900 ở 3D và cách chỉ đặt root scale=1 đều không thể tự chứng minh bố cục gốc.
+
+**Thử nghiệm 3E an toàn, không sửa dữ liệu nguồn:** Menu Unity `Tools > HaiTac Offline UI Viewer > Source XAPK > Build 5 source-root Canvas viewport studies` tạo **5 Prefab + Scene hoàn toàn mới** trong:
+
+- `Assets/LocalReconstruction/RootCanvasViewportPrefabs/`
+- `Assets/LocalReconstruction/RootCanvasViewportScenes/`
+
+Công cụ tạo **Canvas ScreenSpaceOverlay trực tiếp trên root** của Prefab 3C được sao chép và unpack, **không thêm một Canvas cha thứ hai**. Các thay đổi `root.anchorMin/Max=(0.5,0.5)`, `pivot=(0.5,0.5)`, `anchoredPosition=(0,0)`, `sizeDelta=(1600,900)`, scale=(1,1,1) là các thông số **chỉ để xem trước**, không nhận là runtime source. Nếu gốc đã có `CanvasScaler` được xác minh, không thay giá trị của nó; chỉ thêm scaler tạm nếu chưa có.
+
+Đồng thời, 963 liên kết Image/Sprite theo PathID được dùng lại từ plan 3D. Menu `Audit 5 source-root Canvas viewport studies` đối chiếu **7.451 source field**, **963 Sprite pointer**, cộng thêm **toàn bộ RectTransform con** với 3C source prefab (anchor, pivot, size, anchoredPosition, scale, quaternion, sibling order, activeSelf). Chỉ RectTransform root của bản xem trước được phép chuẩn hóa. Tất cả đầu ra cũ từ main, 3C và 3D đều giữ nguyên; đã tồn tại bản 3E thì chặn ghi đè.
+
+**Chạy trên máy:** `git pull --ff-only origin feat/xapk-il2cpp-ui-field-provenance`, đóng/mở lại Unity Editor bằng quyền thường và chọn Build rồi Audit của **source-root Canvas viewport studies**. Mở `RootCanvasViewportScenes/REF04-home-crew_SOURCE_ROOT_CANVAS_PREVIEW.unity` trong Unity. Chọn tab **Game**, đặt 16:9, chụp Game View + Hierarchy + Console; so trực tiếp với bản `VerifiedVisualScenes` đang lệch. Chạy `py -3 tools/report_source_visual_layout_gaps.py` để xem báo cáo private `output/source-visual-layout-gaps.json` nếu cần.
+
+**Chưa được nhận là giao diện game hoàn chỉnh:** 651 giá trị của 93 LayoutGroup chưa được kiểm tra chéo; Text, Spine, animation, giao diện stateful và khung hiển thị runtime chưa được phục hồi đầy đủ. Bản 3E là phép thử cơ chế viewport có kiểm toán chứng cứ, không phải fix thủ công theo ảnh hoặc bản gốc có thể chỉnh sửa.
