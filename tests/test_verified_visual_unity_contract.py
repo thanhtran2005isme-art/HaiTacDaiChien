@@ -62,7 +62,7 @@ class TestVerifiedVisualStudyContract(unittest.TestCase):
                 self.assertIn(token, code)
         self.assertIn('byComponent.TryGetValue(', code)
         self.assertIn('byId = b;', code)
-        self.assertIn('Prefab FIELD AUDIT', code.upper())
+        self.assertIn('PREFAB FIELD AUDIT', code.upper())
 
     def test_plan_never_uses_unverified_source_values(self):
         code = PLAN.read_text(encoding="utf-8")
