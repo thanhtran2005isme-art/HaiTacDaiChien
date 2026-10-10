@@ -49,6 +49,16 @@ class MetadataProof(unittest.TestCase):
         self.assertEqual(r["methodCodeAddressesResolved"],0)
         self.assertIsNone(a["methods"][0]["nativeAddress"])
 
+    def test_nonzero_namespace_index_may_point_to_empty_source_string(self):
+        blob=bytearray(sample())
+        strings=bytes(blob[0x200:0x300])
+        at=strings.index(b".ctor") + len(b".ctor")
+        self.assertEqual(strings[at],0)
+        struct.pack_into("<I",blob,0x400+4,at)
+        result=idx.inspect(bytes(blob))
+        self.assertEqual(result["safeAreaClassDefinitions"],1)
+        self.assertEqual(result["targetClassDefinitions"][0]["namespace"],"")
+
     def test_wrong_metadata_version_and_broken_method_ownership_block(self):
         blob=bytearray(sample())
         struct.pack_into("<I",blob,4,29)
