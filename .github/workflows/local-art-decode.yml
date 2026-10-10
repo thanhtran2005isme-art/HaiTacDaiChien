@@ -900,6 +900,14 @@ jobs:
           r=json.loads(Path('output/ref04-p6-offline-ui-gaps.json').read_text(encoding='utf-8'))
           c=r['counts']
           assert r['classification']=='REF04_P6_OFFLINE_XAPK_TO_UNITY_SOURCE_GAP_AUDIT'
+          import hashlib
+          for key,name in (
+              ('p5ReportSha256','ref04-p5-cross-phase-source-integrity.json'),
+              ('inventoryReportSha256','ref04-full-source-inventory.json'),
+              ('geometryReportSha256','ref04-static-image-geometry.json'),
+          ):
+              assert r[key]==hashlib.sha256(Path('output',name).read_bytes()).hexdigest()
+          assert len(r['spriteGeometryAudit'])==265
           assert c['spriteLinkedImages']==265
           assert c['sourceGeometryVerified']+c['sourceGeometryBlocked']==265
           assert c['allDualVerifiedImages']==299
