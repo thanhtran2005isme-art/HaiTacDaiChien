@@ -45,6 +45,14 @@ class IndependentOriginalLayoutGroupFields(unittest.TestCase):
         self.assertFalse(x["runtimeLayoutProven"])
         self.assertFalse(x["originalSerializedFieldValuesPublished"])
 
+    def test_same_schema_object_cannot_masquerade_as_two_generators(self):
+        reader, row, studio, _, fields = example()
+        result = dual.strict_raw_schema_agreement(
+            reader, row, {"AssetStudio": studio, "AssetRipper": studio}, fields)
+        self.assertEqual(result["status"],
+                         "BLOCKED_SHARED_SCHEMA_OBJECT_NOT_INDEPENDENT")
+        self.assertEqual(result["sourceFieldsIndependentlyVerified"], 0)
+
     def test_missing_backend_is_blocked_without_partial_promotion(self):
         reader, row, studio, _, fields = example()
         result = dual.strict_raw_schema_agreement(
