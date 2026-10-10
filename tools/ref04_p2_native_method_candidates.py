@@ -36,15 +36,31 @@ def source_script_candidates(doc, method_index, exe, binary):
     rows=doc["ScriptMethod"]
     if len(rows)>2_000_000:
         raise ValueError("Untrusted native script output method count")
+    output_stats=collections.Counter()
     for row in rows:
         name=row.get("Name") if isinstance(row,dict) else None
         address=row.get("Address") if isinstance(row,dict) else None
+        output_stats["scriptEntries"]+=1
+        if isinstance(name,str) and ("PanelHome2" in name or "SafeAreaAdapter" in name):
+            output_stats["scriptNamesMentionOriginalTargetClass"]+=1
+        if isinstance(address,str):
+            if (len(address)<=18 and address.startswith(("0x","0X"))
+                and all(x in "0123456789abcdefABCDEF" for x in address[2:])):
+                address=int(address,16)
+                output_stats["sourceHexStringAddressFields"]+=1
+            else:
+                output_stats["unsupportedAddressEncoding"]+=1
+                continue
         if not isinstance(name,str) or not isinstance(address,int) or (
             address<=0 or address>=(1<<63) or len(name)>256):
+            output_stats["unusableScriptEntries"]+=1
             continue
         by_name[name].append(address)
     candidates=[]
     blockers=collections.Counter()
+    target_names={cls+"$"+meth for cls,meth in source_methods}
+    output_stats["exactNameMatchesInScript"]=sum(
+        len(by_name.get(label,[])) for label in target_names)
     for (cls,method), definitions in sorted(source_methods.items()):
         label=cls+"$$"+method
         scripts=by_name.get(label,[])
@@ -82,6 +98,7 @@ def source_script_candidates(doc, method_index, exe, binary):
         "sourceMetadataSha256":method_index["metadataSha256"],
         "thirdPartyScriptJsonSha256":None,
         "strictCandidateCount":len(candidates),
+        "sanitizedScriptFormatCounts":dict(sorted(output_stats.items())),
         "unresolvedCountByReason":dict(sorted(blockers.items())),
         "candidates":candidates,
         "nativeCodeMethodOwnershipVerified":False,
