@@ -148,7 +148,9 @@ def audit(step2, probe, p2, method_metadata):
             x["sourceTextUtf8Sha256"] is not None for x in texts),
         "sourceTextFontPointersIndependentlyVerified":sum(
             x["originalFontPointer"] is not None for x in texts),
-        "sourceTextFieldsVerified":True,
+        "sourceTextFieldsVerified":all(
+            x["sourceTextUtf8Sha256"] is not None and
+            x["originalFontPointer"] is not None for x in texts),
         "fontAssetIdentityVerified":False,
         "localizationKeyToTextBindingProven":False,
         "runtimeLanguageChosen":None,
