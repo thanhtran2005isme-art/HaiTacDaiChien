@@ -34,7 +34,8 @@ def fixture():
         }]}],
     }
     deep = {"version": 1, "scenes": [{"sceneId": sc, "spriteGeometry": [{
-        "nodeId": 10, "imageComponentId": 100, "spriteId": 77, "border": [7, 5, 7, 5],
+        "nodeId": 10, "imageComponentId": 100, "spriteId": 77,
+        "spriteFile": "a"*32+".png", "border": [7, 5, 7, 5],
         "sourceRectSize": [96, 32], "pixelsPerUnit": 100,
     }]}]}
     blobs = {
@@ -66,6 +67,12 @@ class TestRef04Geometry(unittest.TestCase):
         self.assertEqual(x["images"][0]["border"], [7, 5, 7, 5])
         self.assertEqual(x["images"][0]["sourceRectSize"], [96, 32])
         self.assertTrue(x["images"][0]["applyGeometry"])
+
+    def test_sprite_file_disagreement_is_blocked(self):
+        d = fixture()
+        d[3]["scenes"][0]["spriteGeometry"][0]["spriteFile"] = "b"*32+".png"
+        with self.assertRaisesRegex(ValueError, "Sprite file identity"):
+            mod.prepare(*d)
 
     def test_ambiguous_geometry_not_applied(self):
         d = fixture()
