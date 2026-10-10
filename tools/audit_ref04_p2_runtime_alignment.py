@@ -16,6 +16,7 @@ from pathlib import Path
 
 import recover_managed_ui_fields as source
 import ref04_il2cpp_method_index_v31 as methods
+import ref04_arm64_elf_regions as original_elf
 
 ROOT = Path(__file__).resolve().parents[1]
 SCENE = "REF04-home-crew"
@@ -89,7 +90,7 @@ def verify_component_match(source_component, reported_component, node):
         raise ValueError("Serialized Canvas/SafeArea source identity or provenance conflicts")
 
 
-def build(step1, step2, p1, metadata, elf):
+def build(step1, step2, p1, metadata, elf, executable_regions=None):
     if (step1.get("classification") != STEP1_CLASS or
         step1.get("sceneId") != SCENE or
         len(step1.get("gameObjects", [])) != 503 or
@@ -118,6 +119,13 @@ def build(step1, step2, p1, metadata, elf):
         metadata.get("methodCodeAddressesResolved") != 0 or
         metadata.get("runtimeFormulaRecovered") is not False):
         raise ValueError("Original REF04/P1/XAPK IL2CPP source identity or gate untrusted")
+
+    if executable_regions is not None and (
+        executable_regions.get("originalLibrarySha256") != elf.get("sha256") or
+        executable_regions.get("methodTokenToNativeAddressProven") is not False or
+        executable_regions.get("methodBodiesDecoded") is not False or
+        executable_regions.get("runtimeAlignmentFormulaProven") is not False):
+        raise ValueError("Untrusted source ELF executable regions or fake method pointers")
 
     nodes = {n["rectTransformPathId"]: n for n in step1["gameObjects"]}
     if len(nodes) != 503:
@@ -231,6 +239,7 @@ def build(step1, step2, p1, metadata, elf):
              "status":"BLOCKED_DYNAMIC_LAYOUT_CONTROL_FLOW_NOT_VERIFIED",
              "reason":"Method names do not prove calls, branch conditions or field writes"},
         ],
+        "originalELFExecutableRegions": executable_regions,
         "nativeFunctionPointerEvidence": None,
         "runtimeAlignmentFormula": None, "runtimeAlignmentProven": False,
         "runtimeCanvasViewportProven": False,
@@ -251,7 +260,8 @@ def execute(root=ROOT, xapk=None):
     found = source.read_source_pair(xapk)
     metadata = methods.inspect(found["metadata"][0])
     elf = methods.check_library_elf(found["library"][0])
-    result = build(*data, metadata, elf)
+    executable_regions = original_elf.elf_regions(found["library"][0])
+    result = build(*data, metadata, elf, executable_regions)
     dest = folder / "ref04-p2-canvas-il2cpp-runtime-source.json"
     tmp = dest.with_suffix(".tmp")
     tmp.write_text(json.dumps(result, ensure_ascii=False, indent=2) + "\n",
