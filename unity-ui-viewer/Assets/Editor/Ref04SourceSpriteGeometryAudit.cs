@@ -160,8 +160,11 @@ namespace HaiTac.OfflineViewer.Editor
                     Sha(File.ReadAllBytes(raw)) != Sha(File.ReadAllBytes(local)))
                     throw new InvalidDataException(
                         "Sprite PNG content differs from XAPK export: " + row.spriteFile);
-                if (!Eq(sprite.rect.width,row.sourceRectSize[0]) ||
-                    !Eq(sprite.rect.height,row.sourceRectSize[1]))
+                // Exported sprites can have fractional serialized Rect size;
+                // match the existing source decoder's <=1px validation
+                // tolerance, but reject any materially different image bounds.
+                if (Mathf.Abs(sprite.rect.width-row.sourceRectSize[0]) > 1f ||
+                    Mathf.Abs(sprite.rect.height-row.sourceRectSize[1]) > 1f)
                     throw new InvalidDataException(
                         "Sprite imported rectangle differs from original native rectangle: " +
                         row.spriteFile + " source=" + row.sourceRectSize[0] + "x" +
