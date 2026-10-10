@@ -34,6 +34,9 @@ def strict_probe(reader, original_row, original_record, generator):
         native=binary.exact_source_unity_header(reader)
         merged=binary.verified_native_header_root(nodes,native)
         parsed=reader.read_typetree(nodes=merged,check_read=True)
+    except binary.RecoveryBlocked as exc:
+        # Stable source-parser phase, never source bytes or game text.
+        return "BLOCKED_SOURCE_SCHEMA_"+exc.phase+"_"+exc.code,{}
     except Exception as exc:
         return "BLOCKED_SOURCE_SCHEMA_PARSE_"+type(exc).__name__,{}
     ptr=original_row["scriptPointer"]
@@ -155,6 +158,9 @@ def execute(root=ROOT,unitypy=None):
     if len(results)!=52:
         raise ValueError("Incomplete 52 original localization components")
     counts=collections.Counter(v["verificationStatus"] for v in results.values())
+    by_class=collections.defaultdict(collections.Counter)
+    for item in results.values():
+        by_class[item["sourceClass"]][item["verificationStatus"]]+=1
     proof={
         "classification":CLASS,
         "originalSourceSerializedFile":source_file,
@@ -164,6 +170,8 @@ def execute(root=ROOT,unitypy=None):
         "sourceTermFieldsTwoBackendVerified":sum(
             len(v["sourceTermFieldDigests"]) for v in results.values()),
         "sourceStatusCounts":dict(sorted(counts.items())),
+        "sourceStatusByClass":{
+            key:dict(sorted(value.items())) for key,value in sorted(by_class.items())},
         "localizers":list(results.values()),
         "sourceTermValuesPublished":False,
         "runtimeLanguageOrTranslationProven":False,
@@ -181,6 +189,7 @@ def execute(root=ROOT,unitypy=None):
         "dualBackendLocalizerStatus":counts["DUAL_BACKEND_LOCALIZER_TERMS_SOURCE_ONLY"],
         "sourceTermFieldsTwoBackendVerified":proof["sourceTermFieldsTwoBackendVerified"],
         "sourceStatusCounts":proof["sourceStatusCounts"],
+        "sourceStatusByClass":proof["sourceStatusByClass"],
         "runtimeLanguageOrTranslationProven":False,
         "originalUIAssetsChanged":False,
     },sort_keys=True))
