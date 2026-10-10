@@ -1,5 +1,13 @@
 # REF04 P3 — Text, font và localization từ XAPK
 
+## P3 — Bằng chứng nguồn Text và Font dependency gốc (10/10/2026)
+
+- [CI source #38053733211](https://github.com/thanhtran2005isme-art/HaiTacDaiChien/actions/runs/38053733211): 62/62 Text, 62/62 `m_Text`, 62/62 `m_Font`, 52 localizers, **2 con trỏ Font riêng biệt**. Trong Step2 **0/52 localizers được hai backend xác minh field**; vì vậy không được tự suy ra Term/translation/locale.
+- [CI Font #38054361981](https://github.com/thanhtran2005isme-art/HaiTacDaiChien/actions/runs/38054361981): cả **2 con trỏ Font** là tham chiếu external SerializedFile, được UnityPy dereference theo đúng bảng `externals` nguồn; target file name + `PathID` + type `Font` + raw SHA-256 đều khớp; **2/2 external Font object identity (by filename/source pointer) resolved**, nhưng không chứng minh đúng font đã kích hoạt hay chữ render trên thiết bị.
+- `tools/probe_ref04_p3_original_font_objects.py` không đoán Font fallback; fileId=0 chỉ so local raw object, fileId khác 0 phải qua original external record. Cùng tên file chỉ là bằng chứng tên theo UnityPy, không thay thế xác minh loaded device font.
+- P3 còn `runtimeLanguageChosen=null`, `runtimeTextAndLocalizationProven=false`, `runtimeFontRenderingProven=false`. Chưa có key/database I2 và language fallback/field assignment đã chứng minh.
+
+
 ## Kết quả kiểm thử XAPK gốc và trạng thái P3
 
 [GitHub Actions #38051186270](https://github.com/thanhtran2005isme-art/HaiTacDaiChien/actions/runs/38051186270) xác nhận **62/62 original Text components**, **62/62 `m_Text` source fields**, **62/62 `m_Font` source pointers**, **52 original localization components** và **2 con trỏ Font khác nhau**. Đây là đếm các con trỏ nguồn, **chưa xác minh 2 Font asset đã được tải hoặc render**. Không công bố chuỗi game nguyên bản.
