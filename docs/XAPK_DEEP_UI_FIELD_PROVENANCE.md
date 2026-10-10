@@ -291,3 +291,30 @@ Lỗi `InvalidDataException: Provisional root Canvas preview no longer matches i
 Nếu Build bị chặn, 5 Prefab/Scene 3E vừa sinh sẽ rollback; lỗi `FileNotFoundException: 3D preview scene or Prefab missing` khi người dùng nhấn Audit sau đó là hệ quả của rollback. Importer giờ khôi phục Scene trước khi Build và Audit hiện hướng dẫn nguyên nhân. **Chỉ nhấn Audit sau khi Build+Audit PASS**. Nếu quá trình Build cũ bị rollback, không cố Save Scene Unity còn mở, hãy đóng Scene đó **không lưu**, pull bản mới và chạy lại Build. Hai thư mục `RootCanvasViewportPrefabs/Scenes` nên chưa có Prefab/Scene đã lưu; nếu có output từ trước cần sao lưu chứ không xóa tự động.
 
 Cần kiểm tra giao diện tại tab **Game** (ảnh Scene View có thể hiển thị UI ngoài camera viewport và không cho biết kết quả trình bày cuối). Ngay cả khi audit mới PASS, 3E vẫn chỉ là một viewport thử nghiệm, **không phải khôi phục toàn bộ bố cục runtime** vì các LayoutGroup, Spine, Text, state và kích thước Canvas runtime chưa được kiểm chứng. Unity Editor phải chạy quyền thường, không phải Administrator.
+
+
+## REF04 — Sửa đúng gốc icon/khung 9-slice trước nhân vật (2026-10-10)
+
+**Vấn đề thực tế:** UI REF04 ở 3D/3E còn khác XAPK; các icon, thanh HUD và viền Sliced có thể sai dù Image liên kết đúng ảnh. Audit ban đầu dùng `ui_path` nên chỉ trích được **826/963** geometry Sprite trên 5 ứng viên, riêng REF04 chỉ **242/265**. Khi đã kiểm chứng chéo source Image theo `componentPathId`, không được tiếp tục coi tên GameObject là khóa xác thực.
+
+**Bản sửa mã:** `tools/export_local_ui_art.py` giữ `spriteSerializedFile` + `spritePathId` trong manifest private cạnh `Image Component PathID`. `tools/audit_local_ui_components.py` xác minh GameObject gốc của chính Image component theo `m_GameObject`, Sprite type và original Sprite PathID, sau đó đọc **border / pixelsPerUnit / sourceRectSize** đúng ID. `tools/audit_ref04_static_ui_geometry.py` còn kiểm tra cả tên PNG trùng exact source Sprite binding, graph SHA-256, managed fields SHA-256 và không gán giá trị thiếu. **CI XAPK thật đã xác nhận 963/963 geometry source, riêng REF04 265/265 Image geometry; 35 Image kiểu Sliced đều có border khác 0.**
+
+**Các lệnh chạy Windows CMD (đã hoàn tất 3C và 3E; không xóa Prefab):**
+
+```cmd
+cd /d C:\Users\Admin\Videos\HaiTacDaiChien
+git switch feat/xapk-il2cpp-ui-field-provenance
+git pull --ff-only origin feat/xapk-il2cpp-ui-field-provenance
+
+py -3 tools\export_local_ui_art.py
+py -3 tools\build_unity_prefab_manifest.py
+py -3 tools\audit_local_ui_components.py
+py -3 tools\build_verified_visual_plan.py
+py -3 tools\audit_ref04_static_ui_geometry.py
+```
+
+Kết quả `REF04_SOURCE_IMAGE_GEOMETRY_AUDITED` với `sourceBindings=265` và `sourceGeometryVerified=265` mới hợp lệ. Nếu thiếu, dừng và gửi Console/CMD, không đoán.
+
+Trong Unity (không chạy Administrator): chọn `Tools > HaiTac Offline UI Viewer > Source XAPK > REF04 - Audit static icon native Sprite borders`. Lệnh **chỉ đọc**, so tất cả nguồn REF04 Image Type, Component PathID, Sprite filename, PNG source SHA256 và native border/PPU. **Chỉ khi báo rõ mismatch > 0**, sử dụng `REF04 - Restore verified icon Sprite border and PPU`, sau đó chạy lại Audit và mở tab **Game** Scene 3E hiện có. Restore chỉ điều chỉnh TextureImporter ở `Assets/LocalReconstruction/Sprites` để khớp Sprite XAPK, giữ nguyên byte PNG, Image.color/Type/Fill 3C, toàn bộ RectTransform/Canvas, Spine và text. Nếu đúng từ đầu, lệnh Restore không thay gì.
+
+**Không tuyên bố đã hết lỗi UI:** Đây chỉ là phục hồi đầy đủ native Sprite geometry đã bị bỏ sót bởi path trùng tên. Vị trí HUD, LayoutGroup (93 thành phần/651 giá trị chỉ AssetStudio kiểm chứng), font/Text, độ phân giải, trạng thái UI runtime và tương tác vẫn cần chứng cứ độc lập, so sánh với XAPK cùng trạng thái. Chỉ PASS kiểm thử dữ liệu và metadata, **không thay thế Game View/Play Mode của người dùng**.
