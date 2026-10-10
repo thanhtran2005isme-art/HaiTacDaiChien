@@ -26,6 +26,8 @@ namespace HaiTac.OfflineViewer.Editor
         private const string VisualPrefabs = LocalRoot + "/VerifiedVisualPrefabs";
         private const string VisualScenes = LocalRoot + "/VerifiedVisualScenes";
         private const string SpriteFolder = LocalRoot + "/Sprites";
+        private const string RootViewPrefabs = LocalRoot + "/RootCanvasViewportPrefabs";
+        private const string RootViewScenes = LocalRoot + "/RootCanvasViewportScenes";
         private const string Classification =
             "EXACT_SOURCE_SPRITES_ON_DUAL_VERIFIED_IMAGE_COMPONENTS";
 
@@ -97,6 +99,14 @@ namespace HaiTac.OfflineViewer.Editor
         private static string DestScene(string id) =>
             VisualScenes + "/" + id + "_VERIFIED_VISUAL_PREVIEW.unity";
         private static string SpritePath(string file) => SpriteFolder + "/" + file;
+        private static string RootViewPrefab(string id) =>
+            RootViewPrefabs + "/" + id + "_SOURCE_ROOT_CANVAS_PREVIEW.prefab";
+        private static string RootViewScene(string id) =>
+            RootViewScenes + "/" + id + "_SOURCE_ROOT_CANVAS_PREVIEW.unity";
+        private static string StudyTargetPrefab(string id, bool rootCanvas) =>
+            rootCanvas ? RootViewPrefab(id) : DestPrefab(id);
+        private static string StudyTargetScene(string id, bool rootCanvas) =>
+            rootCanvas ? RootViewScene(id) : DestScene(id);
 
         private static bool SafeId(string s) =>
             !string.IsNullOrEmpty(s) &&
@@ -118,7 +128,7 @@ namespace HaiTac.OfflineViewer.Editor
         private static string DigestedOutput(string relative) =>
             Digest(ReadOutput(relative));
 
-        private static Sources ValidateSources(bool requireFreshOutputs)
+        private static Sources ValidateSources(bool requireFreshOutputs, bool rootCanvas = false)
         {
             var visual = JsonUtility.FromJson<Plan>(
                 Encoding.UTF8.GetString(ReadOutput("verified-visual-preview-plan.json")));
@@ -198,8 +208,8 @@ namespace HaiTac.OfflineViewer.Editor
                         "3C study Prefab missing for " + scene.sceneId);
                 if (requireFreshOutputs &&
                     (AssetDatabase.LoadAssetAtPath<GameObject>(
-                        DestPrefab(scene.sceneId)) != null ||
-                     File.Exists(DestScene(scene.sceneId))))
+                        StudyTargetPrefab(scene.sceneId, rootCanvas)) != null ||
+                     File.Exists(StudyTargetScene(scene.sceneId, rootCanvas))))
                     throw new IOException("3D preview already exists; refusing to overwrite: " +
                         scene.sceneId);
             }
@@ -353,14 +363,14 @@ namespace HaiTac.OfflineViewer.Editor
             }
         }
 
-        private static void AuditScene(Sources source, PlanScene scene)
+        private static void AuditScene(Sources source, PlanScene scene, bool rootCanvas = false)
         {
             var basePrefab = AssetDatabase.LoadAssetAtPath<GameObject>(
                 SourcePrefab(scene.sceneId));
             var previewPrefab = AssetDatabase.LoadAssetAtPath<GameObject>(
-                DestPrefab(scene.sceneId));
+                StudyTargetPrefab(scene.sceneId, rootCanvas));
             if (basePrefab == null || previewPrefab == null ||
-                !File.Exists(DestScene(scene.sceneId)))
+                !File.Exists(StudyTargetScene(scene.sceneId, rootCanvas)))
                 throw new FileNotFoundException("3D preview scene or Prefab missing.");
             var wrapper = previewPrefab.GetComponent<VerifiedVisualPreviewEvidence>();
             if (wrapper == null || wrapper.sourceSceneId != scene.sceneId ||
@@ -429,6 +439,270 @@ namespace HaiTac.OfflineViewer.Editor
                 proof.components.Sum(c => c.fields.Length) ||
                 wrapper.inheritedVerifiedFields != compared)
                 throw new InvalidDataException("3D preview audit count mismatch.");
+        }
+
+
+        // Phase 3E is an explicit viewport experiment, not a recovered Unity
+        // runtime. It removes the extra wrapping Canvas that can double-scale
+        // a source CanvasScaler or shift a RectTransform with unknown parent.
+        // Every source child RectTransform is retained; only the source-root
+        // RectTransform is given a preview viewport.
+        private static void ConstructSourceRootCanvas(Sources source, PlanScene scene)
+        {
+            var stage = EditorSceneManager.NewScene(NewSceneSetup.EmptyScene,
+                                                    NewSceneMode.Single);
+            var study = AssetDatabase.LoadAssetAtPath<GameObject>(
+                SourcePrefab(scene.sceneId));
+            var copy = PrefabUtility.InstantiatePrefab(study, stage) as GameObject;
+            if (copy == null)
+                throw new InvalidDataException("3C verified study root is unavailable.");
+            try
+            {
+                PrefabUtility.UnpackPrefabInstance(
+                    copy, PrefabUnpackMode.Completely,
+                    InteractionMode.AutomatedAction);
+                var root = copy.GetComponent<RectTransform>();
+                var originalRootNote = copy.GetComponent<OriginalSerializedEvidence>();
+                if (root == null || originalRootNote == null)
+                    throw new InvalidDataException(
+                        "Missing exact source RectTransform/owner at preview root.");
+                var originalScale = root.localScale;
+                // Standalone display hypotheses ONLY. Source 3C root is not
+                // modified; descendants keep original anchors and transforms.
+                root.anchorMin = new Vector2(.5f, .5f);
+                root.anchorMax = new Vector2(.5f, .5f);
+                root.pivot = new Vector2(.5f, .5f);
+                root.anchoredPosition = Vector2.zero;
+                root.sizeDelta = new Vector2(1600f, 900f);
+                root.localScale = Vector3.one;
+                var canvas = copy.GetComponent<Canvas>();
+                if (canvas == null) canvas = copy.AddComponent<Canvas>();
+                canvas.renderMode = RenderMode.ScreenSpaceOverlay;
+                var scaler = copy.GetComponent<CanvasScaler>();
+                if (scaler == null)
+                {
+                    // There is no source CanvasScaler for this root. Do not
+                    // claim these preview-only values as native evidence.
+                    scaler = copy.AddComponent<CanvasScaler>();
+                    scaler.uiScaleMode =
+                        CanvasScaler.ScaleMode.ScaleWithScreenSize;
+                    scaler.referenceResolution = new Vector2(1600f, 900f);
+                }
+                if (copy.GetComponent<GraphicRaycaster>() == null)
+                    copy.AddComponent<GraphicRaycaster>();
+
+                var components = source.fields.scenes.Single(
+                    x => x.sceneId == scene.sceneId).components;
+                var notes = copy.GetComponentsInChildren<ManagedUiSourceEvidence>(true);
+                var byId = notes.ToDictionary(x => x.sourceMonoBehaviourPathId);
+                if (byId.Count != components.Length)
+                    throw new InvalidDataException(
+                        "Verified UI components lost in root-Canvas preview.");
+                foreach (var verified in components)
+                {
+                    if (!byId.TryGetValue(verified.componentPathId, out var note) ||
+                        note.sourceSceneId != scene.sceneId ||
+                        note.sourceGameObjectPathId != verified.gameObjectPathId ||
+                        note.sourceRectTransformPathId != verified.rectTransformPathId ||
+                        note.sourceObjectSha256 != verified.rawObjectSha256 ||
+                        !note.exactTwoBackendFieldAgreement)
+                        throw new InvalidDataException(
+                            "3C source Component PathID mismatch.");
+                }
+                foreach (var sprite in scene.bindings)
+                {
+                    if (!byId.TryGetValue(sprite.imageComponentPathId, out var note) ||
+                        note.sourceGameObjectPathId != sprite.gameObjectPathId ||
+                        note.sourceRectTransformPathId != sprite.rectTransformPathId ||
+                        note.sourceObjectSha256 != sprite.sourceObjectSha256 ||
+                        note.originalClassName != "UnityEngine.UI.Image")
+                        throw new InvalidDataException(
+                            "Original source Image/Sprite ownership differs.");
+                    var image = note.GetComponent<Image>();
+                    if (image == null)
+                        throw new InvalidDataException("Original Image missing.");
+                    image.sprite = AssetDatabase.LoadAssetAtPath<Sprite>(
+                        SpritePath(sprite.spriteFile));
+                    if (image.sprite == null)
+                        throw new FileNotFoundException(
+                            "Missing source Sprite " + sprite.spriteFile);
+                }
+                var marker = copy.AddComponent<VerifiedVisualPreviewEvidence>();
+                marker.sourceSceneId = scene.sceneId;
+                marker.originalSourceGraphSha256 =
+                    source.visual.sourceGraphSha256;
+                marker.verifiedFieldPlanSha256 =
+                    source.visual.verifiedUiPlanSha256;
+                marker.exactSpritePlanSha256 =
+                    source.visual.spritePrefabPlanSha256;
+                marker.sourceBoundSprites = scene.bindings.Length;
+                marker.inheritedVerifiedComponents = components.Length;
+                marker.inheritedVerifiedFields =
+                    components.Sum(c => c.fields.Length);
+                marker.excludedSingleBackendFields = 651;
+                marker.originalRootScale = originalScale;
+                marker.normalizedPreviewRootScale = root.localScale;
+                marker.provisionalPreviewReferenceResolution =
+                    new Vector2(1600f, 900f);
+                marker.limitations =
+                    "SOURCE ROOT AS PREVIEW CANVAS (3E). No extra enclosing " +
+                    "Canvas or preview-scale nesting. Only root RectTransform " +
+                    "anchors/pivot/size/position/scale normalized for 1600x900 " +
+                    "preview. All child source RectTransforms kept unchanged. " +
+                    "Root Canvas render mode is preview-only. Native runtime " +
+                    "ancestor, safe area, Spine animation and 651 LayoutGroup " +
+                    "fields remain unverified; not original runtime UI.";
+                if (PrefabUtility.SaveAsPrefabAsset(copy,
+                        RootViewPrefab(scene.sceneId)) == null)
+                    throw new IOException("Root-Canvas preview Prefab not saved.");
+            }
+            finally
+            {
+                UnityEngine.Object.DestroyImmediate(copy);
+            }
+            var dest = EditorSceneManager.NewScene(NewSceneSetup.EmptyScene,
+                                                   NewSceneMode.Single);
+            AddPreviewCamera(dest);
+            var asset = AssetDatabase.LoadAssetAtPath<GameObject>(
+                RootViewPrefab(scene.sceneId));
+            if (asset == null ||
+                PrefabUtility.InstantiatePrefab(asset, dest) == null ||
+                !EditorSceneManager.SaveScene(dest,
+                    RootViewScene(scene.sceneId)))
+                throw new IOException("Root-Canvas preview Scene not saved.");
+        }
+
+        private static bool RectEqual(RectTransform a, RectTransform b)
+        {
+            const float eps = .0001f;
+            return Vector2.Distance(a.anchorMin, b.anchorMin) <= eps &&
+                   Vector2.Distance(a.anchorMax, b.anchorMax) <= eps &&
+                   Vector2.Distance(a.pivot, b.pivot) <= eps &&
+                   Vector2.Distance(a.sizeDelta, b.sizeDelta) <= eps &&
+                   Vector2.Distance(a.anchoredPosition, b.anchoredPosition) <= eps &&
+                   Vector3.Distance(a.localScale, b.localScale) <= eps &&
+                   Quaternion.Angle(a.localRotation, b.localRotation) <= .01f;
+        }
+
+        private static void AuditRootTransforms(PlanScene scene)
+        {
+            var baseline = AssetDatabase.LoadAssetAtPath<GameObject>(
+                SourcePrefab(scene.sceneId));
+            var preview = AssetDatabase.LoadAssetAtPath<GameObject>(
+                RootViewPrefab(scene.sceneId));
+            if (baseline == null || preview == null)
+                throw new FileNotFoundException("Preview/source prefab absent.");
+            var sourceNotes = baseline.GetComponentsInChildren<OriginalSerializedEvidence>(
+                true).ToDictionary(x => x.rectTransformPathId);
+            var previewNotes = preview.GetComponentsInChildren<OriginalSerializedEvidence>(
+                true).ToDictionary(x => x.rectTransformPathId);
+            if (sourceNotes.Count != previewNotes.Count)
+                throw new InvalidDataException(
+                    "Source RectTransform object inventory altered.");
+            var originalRoot = baseline.GetComponent<OriginalSerializedEvidence>();
+            var newRoot = preview.GetComponent<OriginalSerializedEvidence>();
+            if (originalRoot == null || newRoot == null ||
+                originalRoot.rectTransformPathId != newRoot.rectTransformPathId)
+                throw new InvalidDataException("Source root PathID changed.");
+            foreach (var entry in sourceNotes)
+            {
+                if (!previewNotes.TryGetValue(entry.Key, out var changed) ||
+                    changed.gameObjectPathId != entry.Value.gameObjectPathId ||
+                    changed.transform.parent == null !=
+                        (entry.Value.transform.parent == null))
+                    throw new InvalidDataException(
+                        "Source hierarchy/object identity changed.");
+                if (entry.Key == originalRoot.rectTransformPathId) continue;
+                var a = entry.Value.GetComponent<RectTransform>();
+                var b = changed.GetComponent<RectTransform>();
+                if (a == null || b == null || !RectEqual(a, b) ||
+                    changed.transform.GetSiblingIndex() !=
+                        entry.Value.transform.GetSiblingIndex() ||
+                    changed.gameObject.activeSelf !=
+                        entry.Value.gameObject.activeSelf)
+                    throw new InvalidDataException(
+                        "Source child RectTransform was changed: " + entry.Key);
+            }
+            var root = preview.GetComponent<RectTransform>();
+            if (root == null || root.localScale != Vector3.one ||
+                Vector2.Distance(root.anchoredPosition, Vector2.zero) > .0001f ||
+                Vector2.Distance(root.sizeDelta,
+                    new Vector2(1600f, 900f)) > .0001f ||
+                preview.GetComponent<Canvas>() == null ||
+                preview.GetComponent<Canvas>().renderMode !=
+                    RenderMode.ScreenSpaceOverlay)
+                throw new InvalidDataException(
+                    "Provisional root Canvas preview no longer matches its label.");
+        }
+
+        [MenuItem("Tools/HaiTac Offline UI Viewer/Source XAPK/Build 5 source-root Canvas viewport studies")]
+        public static void BuildRootCanvas()
+        {
+            if (EditorApplication.isPlaying ||
+                !EditorSceneManager.SaveCurrentModifiedScenesIfUserWantsTo())
+                return;
+            var created = new List<string>();
+            try
+            {
+                var source = ValidateSources(true, rootCanvas: true);
+                Folder("Assets", "LocalReconstruction");
+                Folder(LocalRoot, "RootCanvasViewportPrefabs");
+                Folder(LocalRoot, "RootCanvasViewportScenes");
+                foreach (var scene in source.visual.scenes)
+                {
+                    created.Add(RootViewPrefab(scene.sceneId));
+                    created.Add(RootViewScene(scene.sceneId));
+                    ConstructSourceRootCanvas(source, scene);
+                }
+                AssetDatabase.SaveAssets();
+                foreach (var scene in source.visual.scenes)
+                {
+                    AuditScene(source, scene, rootCanvas: true);
+                    AuditRootTransforms(scene);
+                }
+                Debug.Log("[HaiTac ROOT CANVAS STUDY] BUILD+AUDIT PASS: 5 " +
+                    "separate RootCanvasViewportScenes, 963 exact Sprite bindings, " +
+                    "7451 original 3C fields match, source children transforms " +
+                    "unchanged. Preview root normalization is NOT runtime evidence.");
+                EditorUtility.DisplayDialog("Viewport study complete",
+                    "5 new root-Canvas viewport study scenes created. " +
+                    "No nested provisional Canvas; 3C 7451 values and all child " +
+                    "RectTransforms audited. This is NOT original game layout.",
+                    "OK");
+            }
+            catch (Exception exc)
+            {
+                foreach (var asset in created)
+                    AssetDatabase.DeleteAsset(asset);
+                AssetDatabase.SaveAssets();
+                Debug.LogException(exc);
+                EditorUtility.DisplayDialog("Root Canvas preview BLOCKED",
+                    exc.GetBaseException().Message +
+                    "\nNo original 3C/3D prefabs overwritten.", "OK");
+            }
+        }
+
+        [MenuItem("Tools/HaiTac Offline UI Viewer/Source XAPK/Audit 5 source-root Canvas viewport studies")]
+        public static void AuditRootCanvas()
+        {
+            try
+            {
+                var source = ValidateSources(false, rootCanvas: true);
+                foreach (var scene in source.visual.scenes)
+                {
+                    AuditScene(source, scene, rootCanvas: true);
+                    AuditRootTransforms(scene);
+                }
+                Debug.Log("[HaiTac ROOT CANVAS STUDY] AUDIT PASS: 963 Sprite " +
+                    "links, 7451 managed values, all nonroot source RectTransforms " +
+                    "preserved. Original runtime viewport NOT verified.");
+            }
+            catch (Exception exc)
+            {
+                Debug.LogException(exc);
+                EditorUtility.DisplayDialog("Root Canvas audit FAILED",
+                    exc.GetBaseException().Message, "OK");
+            }
         }
 
         [MenuItem("Tools/HaiTac Offline UI Viewer/Source XAPK/Build 5 exact-source 3D visual previews")]
