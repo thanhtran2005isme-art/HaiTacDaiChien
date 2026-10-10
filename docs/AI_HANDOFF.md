@@ -1,5 +1,12 @@
 # AI HANDOFF — Hải Tặc UI Viewer
 
+## REF04 P1 — kết quả đọc XAPK thực tế: 0/168 vẫn BLOCKED (2026-10-10)
+
+- **CI Linux+Windows [run 38046421707](https://github.com/thanhtran2005isme-art/HaiTacDaiChien/actions/runs/38046421707) SUCCESS** trên `883cb2c`. Tuy nhiên số giá trị LayoutGroup gốc được **hai backend/same-byte độc lập xác nhận: 0/168**, các field bị chặn import vào Unity vẫn **168/168**.
+- Đã khoanh vùng: **AssetStudio raw-byte replay chạy được** (`RAW_BYTES_REPARSED_DERIVED_SCHEMA_REVIEW_ONLY`), nhưng AssetRipper dùng một kiểu TypeTree chưa được hỗ trợ: `UNSUPPORTED_SOURCE_TYPE`, khác biệt hai schema đầu tiên ở **chỉ số 12**. Không tự thay kiểu/byte-size/default để cho PASS.
+- Thêm chẩn đoán **chỉ xuất tên type schema** khi an toàn, tuyệt đối không xuất nội dung field hoặc raw game bytes; theo dõi CI tại HEAD mới nhất để xác định kiểu chính xác. Không có sửa Unity. **P1 chưa hoàn tất nguồn field**, không được claim giao diện đúng game.
+
+
 ## REF04 P1 — kiểm chứng kép schema nguồn LayoutGroup (2026-10-10)
 
 - Đã thêm `tools/ref04_layout_dual_schema_bytes.py`: hai backend IL2CPP **AssetStudio + AssetRipper**, sinh TypeTree riêng từ cặp binary XAPK chính xác, được đọc lại bởi bộ `struct` độc lập trên **cùng original serialized MonoBehaviour**. Bằng chứng hợp lệ đòi hỏi full object byte consumption, đồng nhất từng source field name/type/value, offset, byte SHA, owner `GameObject`, `MonoScript`, native enabled, original raw-object hash và cùng IL2CPP SHA. Dùng chung một object schema cho cả hai backend bị chặn.
