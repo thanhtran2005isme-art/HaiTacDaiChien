@@ -46,6 +46,26 @@ class NativeBoundsStudyContract(unittest.TestCase):
         ):
             self.assertIn(x,SRC)
 
+    def test_verified_3c_all_image_set_is_not_confused_with_265_sprite_links(self):
+        # The old importer incorrectly required notes.Count == 265. Some
+        # source-verified Images have no Sprite PPtr and must remain in study.
+        for token in (
+            'private static Dictionary<int,Verified3cComponent> ExpectedAll3cImages(',
+            'private static Dictionary<int,ManagedUiSourceEvidence> Check3cImageEvidence(',
+            'list.Length<265',
+            'actual.Count!=expected.Count',
+            'Check3cImageEvidence(source3c,src)',
+            'var notes=Check3cImageEvidence(go,original)',
+            'var sourceImages=Check3cImageEvidence(source,proof)',
+            'var previewImages=Check3cImageEvidence(preview,proof)',
+            'sourceLinkedIds.Contains(sourceImage.Key)',
+            '3C Image WITHOUT source Sprite binding was changed:',
+            'REF04 265 exact Sprite-linked Image subset has',
+        ):
+            self.assertIn(token,SRC)
+        self.assertNotIn('if(notes.Count!=265)',SRC)
+        self.assertNotIn('REF04 3C Image inventory changed.',SRC)
+
     def test_saved_scene_preserves_source_child_layout_and_all_image_fields(self):
         for x in (
             'private static void AuditSaved()',
