@@ -46,6 +46,30 @@ class NativeBoundsStudyContract(unittest.TestCase):
         ):
             self.assertIn(x,SRC)
 
+    def test_saved_scene_preserves_source_child_layout_and_all_image_fields(self):
+        for x in (
+            'private static void AuditSaved()',
+            'AuditSaved(); // Fail closed and roll back only NEW study outputs.',
+            'sourceRects.Count!=copiedRects.Count',
+            'a.GetSiblingIndex()!=b.GetSiblingIndex()',
+            'Vector2.Distance(a.anchorMin,b.anchorMin)',
+            'Vector2.Distance(a.anchorMax,b.anchorMax)',
+            'Vector2.Distance(a.pivot,b.pivot)',
+            'Vector2.Distance(a.sizeDelta,b.sizeDelta)',
+            'Vector2.Distance(a.anchoredPosition,b.anchoredPosition)',
+            'Vector3.Distance(a.localScale,b.localScale)',
+            'Quaternion.Angle(a.localRotation,b.localRotation)',
+            'rendered.type!=original.type',
+            'rendered.preserveAspect!=original.preserveAspect',
+            'rendered.fillMethod!=original.fillMethod',
+            'rendered.fillOrigin!=original.fillOrigin',
+            'rendered.fillClockwise!=original.fillClockwise',
+            'rendered.fillAmount-original.fillAmount',
+            'rendered.enabled!=original.enabled',
+            'Source XAPK/REF04 - Audit source Tight Sprite bounds UI study',
+        ):
+            self.assertIn(x,SRC)
+
     def test_sprite_import_exact_native_9slice_and_safe_preview_label(self):
         for x in (
             'item.settingsRaw!=64',
