@@ -69,6 +69,18 @@ def audit(step2, probe, p2, method_metadata):
         local_by_owner[(x["gameObjectPathId"],x["rectTransformPathId"])].append(x)
     if len({l["componentPathId"] for l in loc})!=len(loc):
         raise ValueError("Duplicate original localization components")
+    loc_verified=0
+    for x in loc:
+        known=x.get("verifiedSerializedFields",{})
+        if not isinstance(known,dict):
+            raise ValueError("Invalid localization source field container")
+        if x["verificationStatus"]=="TWO_BACKEND_SOURCE_VERIFIED_FIELDS":
+            loc_verified+=1
+        elif known:
+            # Native kind/header and single-backend records must not be
+            # promoted into independently verified localization fields.
+            if x["verificationStatus"]!="XAPK_NATIVE_SERIALIZED_FIELD_SUBSET":
+                raise ValueError("Unverified localizer has purported source fields")
     texts=[]
     fonts=collections.Counter()
     with_local=0
@@ -142,6 +154,7 @@ def audit(step2, probe, p2, method_metadata):
         "originalIL2CPPSha256Pair":p2["originalIL2CPPPair"],
         "sourceTextComponentsIndependentlyVerified":len(texts),
         "sourceLocalizationComponents":len(loc),
+        "sourceLocalizationComponentsWithDualBackendFields":loc_verified,
         "originalTextSameGameObjectLocalizationCandidates":with_local,
         "uniqueOriginalFontPointerCount":len(fonts),
         "sourceTextStringsIndependentlyVerified":sum(
@@ -166,6 +179,12 @@ def audit(step2, probe, p2, method_metadata):
             "rectTransformPathId":l["rectTransformPathId"],
             "originalObjectSha256":l["originalObjectSha256"],
             "serializedVerificationStatus":l["verificationStatus"],
+            "dualBackendSourceFieldNames":sorted(l.get("verifiedSerializedFields",{}))
+                if l["verificationStatus"]=="TWO_BACKEND_SOURCE_VERIFIED_FIELDS" else [],
+            "sourceKeyOrTermFieldNameCandidates":[
+                k for k in sorted(l.get("verifiedSerializedFields",{}))
+                if k in ("m_Term","m_SecondaryTerm","mTerm","mSecondaryTerm")
+            ] if l["verificationStatus"]=="TWO_BACKEND_SOURCE_VERIFIED_FIELDS" else [],
             "runtimeLocalizedText":None,
             "localizationBindingProven":False,
         } for l in loc],
