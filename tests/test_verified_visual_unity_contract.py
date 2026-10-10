@@ -33,7 +33,7 @@ class TestVerifiedVisualStudyContract(unittest.TestCase):
             'sourceMonoBehaviourPathId', 'sourceRectTransformPathId',
             'sourceGameObjectPathId', 'sourceObjectSha256',
             'image.sprite = AssetDatabase.LoadAssetAtPath<Sprite>',
-            'copy.transform.localScale = Vector3.one',
+            'copy.transform.localScale = new Vector3(',
             '3D PREVIEW CAMERA - NOT ORIGINAL',
             'ScreenSpaceOverlay', 'new Vector2(1600, 900)',
             'Verify',  # replaced below with real audit symbol
