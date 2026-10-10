@@ -33,6 +33,7 @@ def source_safe_raw_failure(exc):
         ("Source GameObject/MonoScript/native state changed", "SOURCE_POINTER"),
         ("Source managed field missing in raw replay", "FIELD_MISSING"),
         ("Raw replay changed original object hash", "RAW_SHA"),
+        ("RectOffset source schema byte size not 16", "RECTOFFSET_SCHEMA_SIZE_NOT_16"),
         ("Incomplete source raw field span accounting", "FIELD_SPAN_INCOMPLETE"),
         ("Source string byte length invalid", "SOURCE_STRING_LENGTH"),
         ("Source array element count invalid", "SOURCE_ARRAY_LENGTH"),
