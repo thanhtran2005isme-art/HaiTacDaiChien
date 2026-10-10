@@ -58,6 +58,12 @@ jobs:
               entry=json.loads(file.read_text(encoding='utf-8'))
               assert entry['inspectedCandidateEntryPoints']==d['strictCandidateCount']
               assert entry['completeNativeBodiesProven']==0
+              assert entry['independentMethodCallEdgesProven']==0
+              assert isinstance(entry['sourceBranchInstructionsObserved'],int)
+              assert all(row['independentNativeMethodCallGraphProven'] is False
+                         for row in entry['originalSourceOnlyInstructionCensus'])
+              print('Native bounded direct branch instructions (not call graph):',
+                    entry['sourceBranchInstructionsObserved'])
               assert entry['runtimeAlignmentFormula'] is None
               assert entry['runtimeAlignmentProven'] is False
               assert entry['unityAssetsChanged'] is False
