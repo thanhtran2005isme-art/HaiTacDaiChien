@@ -70,6 +70,39 @@ class CandidateOnly(unittest.TestCase):
         report=p.source_script_candidates(data,idx,exe,blob)
         self.assertEqual(report["strictCandidateCount"],0)
 
+    def test_itanium_length_encoded_method_is_only_a_source_candidate(self):
+        data,idx,exe,blob=input_files()
+        symbol="_ZN15SafeAreaAdapter13ApplySafeAreaEv"
+        self.assertEqual(p.decode_itanium_nested_symbol(symbol),
+                         ("SafeAreaAdapter","ApplySafeArea"))
+        data["ScriptMethod"][0]["Name"]=symbol
+        report=p.source_script_candidates(data,idx,exe,blob)
+        self.assertEqual(report["strictCandidateCount"],1)
+        self.assertEqual(report["candidates"][0]["nameMatchRule"],
+                         "ITANIUM_ABI_NESTED")
+        self.assertFalse(report["nativeCodeMethodOwnershipVerified"])
+        self.assertFalse(report["runtimeFormulaRecovered"])
+
+    def test_itanium_parser_rejects_wrong_length_or_unsupported_templates(self):
+        for text in (
+            "_ZN14SafeAreaAdapter13ApplySafeAreaEv",
+            "_ZN015SafeAreaAdapter13ApplySafeAreaEv",
+            "_ZN15SafeAreaAdapterI13ApplySafeAreaEv",
+            "_ZN15SafeAreaAdapter13ApplySafeArea",
+            "_ZN15SafeAreaAdapter0Ev",
+        ):
+            self.assertIsNone(p.decode_itanium_nested_symbol(text))
+        self.assertIsNone(p.decode_itanium_nested_symbol(None))
+
+    def test_itanium_overloaded_metadata_method_name_remains_blocked(self):
+        data,idx,exe,blob=input_files()
+        data["ScriptMethod"][0]["Name"]="_ZN15SafeAreaAdapter13ApplySafeAreaEv"
+        idx["targetClassDefinitions"][0]["methods"].append({
+            "name":"ApplySafeArea","methodDefinitionIndex":46,
+            "methodToken":"0x0600002f"})
+        report=p.source_script_candidates(data,idx,exe,blob)
+        self.assertEqual(report["strictCandidateCount"],0)
+
     def test_duplicate_overload_or_name_blocks_address_assignment(self):
         data,idx,exe,blob=input_files()
         idx["targetClassDefinitions"][0]["methods"].append(
