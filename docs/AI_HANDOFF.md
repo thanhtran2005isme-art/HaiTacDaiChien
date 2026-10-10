@@ -1,5 +1,14 @@
 # AI HANDOFF — Hải Tặc UI Viewer
 
+## REF04 P2 — truy vết Canvas/CanvasScaler/SafeAreaAdapter/PanelHome2 (2026-10-10)
+
+- Nhánh `feat/ref04-p2-canvas-il2cpp-runtime-trace` tiếp nối PR #6, **không sửa** Scene/Prefab/Canvas/RectTransform/Sprite/Spine. Xem [docs/REF04_P2_CANVAS_IL2CPP_RUNTIME_TRACE.md](REF04_P2_CANVAS_IL2CPP_RUNTIME_TRACE.md).
+- Đã thêm `tools/ref04_il2cpp_method_index_v31.py` đọc metadata v31 **chính xác từ XAPK**: class và method definitions cho SafeAreaAdapter, PanelHome2*, Unity Canvas/CanvasScaler/Screen/RectTransform, xác minh declaringType/methodToken; không coi method metadata là code ARM64.
+- Đã thêm `tools/audit_ref04_p2_runtime_alignment.py`: ghép exact P1 IL2CPP source-pair SHA, REF04 503 nodes/1564 components, Canvas, CanvasScaler và 6 SafeAreaAdapter; truy xuất SerializedFile/Component/GO/RectTransform PathID và parent pointers để xác định Canvas ancestor **nếu có**. P2 tạo báo cáo gitignored `output/ref04-p2-canvas-il2cpp-runtime-source.json/.md`, **không đưa ra công thức runtime khi chưa chứng minh method body + viewport/device**.
+- Tests và Linux/Windows CI kiểm tra strict source, SHA, parent, class-method ownership, cấm fake method code address, cấm UI modification. CI P2 cần xem run ở đúng HEAD, không mặc nhiên PASS.
+- **P1 giữ nguyên:** 24/24 và 168/168 field nguồn đã verified; `sourceFieldValuesStillBlockedFromUnity=168`, `runtimeAlignmentProven=false`. P2 chưa thể kết luận pixel-perfect/đúng tọa độ runtime.
+
+
 ## REF04 P1 — CHỐT KIỂM CHỨNG 168/168 FIELD SERIALIZED (10/10/2026)
 
 **Trạng thái hiện tại:** 24/24 LayoutGroup REF04 và 168/168 field serialized đã được đối chiếu với hai TypeTree phát sinh độc lập bằng AssetStudio và AssetRipper trên XAPK gốc; `sourceFieldsMissingIndependentSchemaProof=0`. Mỗi bản ghi khớp Source Component/GameObject/RectTransform PathID, raw SHA-256 của toàn object, con trỏ MonoScript, field names/types/values, byte offsets/length/SHA-256, full-object consumption và IL2CPP original pair.
