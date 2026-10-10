@@ -453,6 +453,13 @@ namespace HaiTac.OfflineViewer.Editor
                                                     NewSceneMode.Single);
             var study = AssetDatabase.LoadAssetAtPath<GameObject>(
                 SourcePrefab(scene.sceneId));
+            var sourceRect = study == null ? null : study.GetComponent<RectTransform>();
+            if (sourceRect == null)
+                throw new InvalidDataException("Verified 3C SOURCE ASSET root RectTransform absent.");
+            // Capture the original from the SOURCE ASSET, not a live instance:
+            // Unity can recalculate a root RectTransform on instantiation,
+            // and that runtime value is not the XAPK serialized root scale.
+            var originalSourceAssetScale = sourceRect.localScale;
             var copy = PrefabUtility.InstantiatePrefab(study, stage) as GameObject;
             if (copy == null)
                 throw new InvalidDataException("3C verified study root is unavailable.");
@@ -466,8 +473,8 @@ namespace HaiTac.OfflineViewer.Editor
                 if (root == null || originalRootNote == null)
                     throw new InvalidDataException(
                         "Missing exact source RectTransform/owner at preview root.");
-                var originalScale = root.localScale;
-                // Standalone display hypotheses ONLY. Source 3C root is not
+                var originalScale = originalSourceAssetScale;
+                // Standalone display hypotheses ONLY. Source 3C asset is not
                 // modified; descendants keep original anchors and transforms.
                 root.anchorMin = new Vector2(.5f, .5f);
                 root.anchorMax = new Vector2(.5f, .5f);
@@ -626,19 +633,45 @@ namespace HaiTac.OfflineViewer.Editor
             var root = preview.GetComponent<RectTransform>();
             var marker = preview.GetComponent<VerifiedVisualPreviewEvidence>();
             var originalRootTransform = baseline.GetComponent<RectTransform>();
-            if (root == null || originalRootTransform == null || marker == null ||
-                Vector3.Distance(marker.originalRootScale,
-                    originalRootTransform.localScale) > .0001f ||
-                root.localScale != Vector3.one ||
-                !marker.previewCanvasNotClaimedAsOriginal ||
-                !marker.previewCameraNotClaimedAsOriginal ||
-                marker.provisionalPreviewReferenceResolution !=
-                    new Vector2(1600f, 900f) ||
-                preview.GetComponent<Canvas>() == null ||
-                preview.GetComponent<Canvas>().renderMode !=
-                    RenderMode.ScreenSpaceOverlay)
+            var previewCanvas = preview.GetComponent<Canvas>();
+            if (root == null || originalRootTransform == null || marker == null)
                 throw new InvalidDataException(
-                    "Provisional root Canvas preview no longer matches its label.");
+                    scene.sceneId + ": missing root RectTransform or preview provenance.");
+            if (Vector3.Distance(marker.originalRootScale,
+                    originalRootTransform.localScale) > .0001f)
+                throw new InvalidDataException(
+                    scene.sceneId + ": original XAPK root-scale marker differs from " +
+                    "SOURCE ASSET scale: marker=" + marker.originalRootScale +
+                    ", source=" + originalRootTransform.localScale +
+                    ". No source asset was modified; runtime instance values " +
+                    "must not be used as source evidence.");
+            // The source root has a *provisional* rendering contract. The
+            // identity, evidence labels, and child RectTransforms remain strict;
+            // the root is the only transform that can be preview-adjusted.
+            if (marker.normalizedPreviewRootScale != Vector3.one ||
+                Vector3.Distance(root.localScale, marker.normalizedPreviewRootScale)
+                    > .0001f)
+                throw new InvalidDataException(
+                    scene.sceneId + ": provisional PREVIEW root scale changed " +
+                    "after prefab serialization: root=" + root.localScale +
+                    ", stored=" + marker.normalizedPreviewRootScale +
+                    ", expected=(1,1,1).");
+            if (!marker.previewCanvasNotClaimedAsOriginal ||
+                !marker.previewCameraNotClaimedAsOriginal)
+                throw new InvalidDataException(
+                    scene.sceneId + ": missing PROVISIONAL Camera/Canvas source disclaimer.");
+            if (Vector2.Distance(marker.provisionalPreviewReferenceResolution,
+                    new Vector2(1600f, 900f)) > .0001f)
+                throw new InvalidDataException(
+                    scene.sceneId + ": preview viewport marker corrupted: " +
+                    marker.provisionalPreviewReferenceResolution);
+            if (previewCanvas == null ||
+                previewCanvas.renderMode != RenderMode.ScreenSpaceOverlay)
+                throw new InvalidDataException(
+                    scene.sceneId + ": PREVIEW Canvas render mode changed: " +
+                    (previewCanvas == null ? "Canvas missing" :
+                     previewCanvas.renderMode.ToString()) +
+                    "; expected preview-only ScreenSpaceOverlay.");
         }
 
         [MenuItem("Tools/HaiTac Offline UI Viewer/Source XAPK/Build 5 source-root Canvas viewport studies")]
