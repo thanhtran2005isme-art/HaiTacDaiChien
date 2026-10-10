@@ -20,6 +20,43 @@ import ref04_il2cpp_method_index_v31 as metadata
 ROOT=Path(__file__).resolve().parents[1]
 MAX_SCRIPT_BYTES=200*1024*1024
 
+def decode_itanium_nested_symbol(symbol):
+    """Strict Itanium _ZN length-prefix parser; no fuzzy name matching.
+
+    Returns (qualified class string, method string) only for plain nested
+    names. Templates, substitutions, operators and malformed lengths are
+    intentionally blocked; a decoded symbol is still a *candidate* only.
+    """
+    if not isinstance(symbol,str) or not symbol.startswith("_ZN"):
+        return None
+    position=3
+    parts=[]
+    while position < len(symbol) and symbol[position] != "E":
+        if len(parts) >= 20 or not symbol[position].isdigit():
+            return None
+        start=position
+        while position < len(symbol) and symbol[position].isdigit():
+            position+=1
+            if position-start>4:
+                return None
+        digits=symbol[start:position]
+        if len(digits)>1 and digits[0]=="0":
+            return None
+        count=int(digits)
+        if not 0<count<=256 or position+count>len(symbol):
+            return None
+        member=symbol[position:position+count]
+        if any(not (ch.isalnum() or ch in "_.$") for ch in member):
+            return None
+        parts.append(member)
+        position+=count
+    if position>=len(symbol) or symbol[position]!="E" or len(parts)<2:
+        return None
+    # Remaining bytes carry parameter ABI types; not used as method names.
+    if len(symbol)-position>256:
+        return None
+    return (".".join(parts[:-1]),parts[-1])
+
 def source_script_candidates(doc, method_index, exe, binary):
     if (not isinstance(doc,dict) or
         not isinstance(doc.get("ScriptMethod"),list) or
@@ -33,6 +70,7 @@ def source_script_candidates(doc, method_index, exe, binary):
         for method in cls["methods"]:
             source_methods[(key,method["name"])].append(method)
     by_name=collections.defaultdict(list)
+    by_itanium=collections.defaultdict(list)
     rows=doc["ScriptMethod"]
     if len(rows)>2_000_000:
         raise ValueError("Untrusted native script output method count")
@@ -56,6 +94,10 @@ def source_script_candidates(doc, method_index, exe, binary):
             output_stats["unusableScriptEntries"]+=1
             continue
         by_name[name].append(address)
+        decoded=decode_itanium_nested_symbol(name)
+        if decoded is not None:
+            by_itanium[decoded].append(address)
+            output_stats["itaniumNestedSymbolsParsed"]+=1
     candidates=[]
     blockers=collections.Counter()
     # Diagnose known dumper name conventions without logging game symbols.
@@ -141,8 +183,10 @@ def source_script_candidates(doc, method_index, exe, binary):
         # Some original IL2CPP symbol dumpers concatenate class/method names
         # without a delimiter. Accept only exact, unambiguous equality; never
         # fuzzy-match a method substring to an arbitrary native address.
-        labels=(cls+"$$"+method,cls+method)
+        labels=(cls+"$"+method,cls+method)
         hits=[(label,addr) for label in labels for addr in by_name.get(label,[])]
+        hits.extend(("ITANIUM_ABI_NESTED",addr)
+                    for addr in by_itanium.get((cls,method),[]))
         if len(definitions)!=1 or len(hits)!=1:
             blockers["NOT_UNIQUE_METHOD_DEFINITION_OR_SCRIPT_MATCH"]+=1
             continue
@@ -163,7 +207,8 @@ def source_script_candidates(doc, method_index, exe, binary):
             "originalMethodDefinitionIndex":definitions[0]["methodDefinitionIndex"],
             "sourceMethodToken":definitions[0]["methodToken"],
             "nameMatchRule":("EXACT_DOUBLE_DOLLAR" if matching_label==labels[0]
-                             else "EXACT_CLASS_METHOD_CONCATENATION"),
+                             else "EXACT_CLASS_METHOD_CONCATENATION"
+                             if matching_label==labels[1] else "ITANIUM_ABI_NESTED"),
             "candidateELFVirtualAddress":addr,
             "originalELFFileOffset":off,
             "first16ExecutableBytesSha256":hashlib.sha256(binary[off:off+16]).hexdigest(),
