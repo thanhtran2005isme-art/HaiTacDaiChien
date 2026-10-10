@@ -28,7 +28,7 @@ def fixture():
             "componentPathId":cid,"gameObjectPathId":100+i,
             "rectTransformPathId":900+i,"originalObjectSha256":SHA,
             "textBinaryProbeStatus":p3.TEXT_STATUS,
-            "textSourceFieldsTwoBackendsAgreed":fields,
+            "textSourceFieldsTwoBackendsAgreed":copy.deepcopy(fields),
             "canBeAppliedToUnity":False,"renderedText":None,
         })
         probe.append({
