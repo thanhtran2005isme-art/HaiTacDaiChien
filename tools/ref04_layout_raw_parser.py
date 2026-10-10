@@ -83,13 +83,20 @@ class Cursor:
         if typ in PRIMITIVES and not children:
             value = self.scalar(*PRIMITIVES[typ])
         elif typ == "RectOffset" and not children:
-            # AssetRipper may emit RectOffset as a *fixed-size leaf*. Only
-            # decode when its independent source-derived TypeTree itself says
-            # exactly 16 bytes. Never infer variable size or substitute a
-            # missing field from AssetStudio. Full-object and per-field byte
-            # comparison are still mandatory at the caller.
-            if getattr(node, "m_ByteSize", None) != 16:
-                raise RawWalkBlocked("RectOffset source schema byte size not 16")
+            # Unity 2022.3 engine contract: RectOffset(left:int32, right:int32,
+            # top:int32, bottom:int32), four signed 32-bit members in order.
+            # https://docs.unity.cn/2022.3/Documentation/ScriptReference/RectOffset.html
+            # Original XAPK AssetRipper TypeTree reports m_ByteSize=0 (size is
+            # not declared), m_MetaFlag=0x4000 (4-byte alignment), no children;
+            # AssetStudio generates four explicit int32 members. Accept this
+            # *named Unity engine type* only with exact source metadata, NOT
+            # arbitrary unknown zero-size nodes. Never infer UI positions.
+            size = getattr(node, "m_ByteSize", None)
+            flags = int(getattr(node, "m_MetaFlag", 0) or 0)
+            fixed_size = size == 16 and flags in (0, ALIGN_FLAG)
+            unity_contract = size == 0 and flags == ALIGN_FLAG
+            if not (fixed_size or unity_contract):
+                raise RawWalkBlocked("RectOffset engine type contract unverified")
             value = {key: self.scalar("i", 4)
                      for key in ("m_Left", "m_Right", "m_Top", "m_Bottom")}
         elif typ == "string":
