@@ -1,5 +1,14 @@
 # REF04 P2 — Canvas, SafeAreaAdapter, PanelHome2 from source IL2CPP
 
+## Bổ sung truy vết native ELF64 và chẩn đoán method (P2)
+
+- `tools/ref04_arm64_elf_regions.py` kiểm tra ELF64 little-endian AArch64, PT_LOAD, vùng có quyền thực thi, file-backed bounds, nguồn SHA. Nó **không** suy ra method từ metadata token.
+- `tools/ref04_p2_native_method_candidates.py` kiểm tra dữ liệu `script.json` của dumper độc lập với exact `libil2cpp.so`: chỉ chấp nhận định dạng method không nhập nhằng và file offset nằm trong executable segment. Bằng chứng dừng ở **ứng viên cho disassembly**; `methodOwnershipIndependentlyProven=false`, `runtimeExpressionProven=false`.
+- `tools/run_ref04_p2_native_dumper.py` thử công cụ `il2cpp_dumper v0.7.0` trong thư mục tạm, xóa file binary khi xong, không upload `script.json` hoặc dữ liệu XAPK.
+- [Actions #38051075759](https://github.com/thanhtran2005isme-art/HaiTacDaiChien/actions/runs/38051075759): dumper xử lý được **119.013 script method entries**, 98 tên chứa các lớp mục tiêu, nhưng lúc đó **0 method address candidates** đạt bộ ghép tên nghiêm ngặt; 204 method definitions trong source metadata còn chưa match. Đang đối chiếu **định dạng tên IL2CPP**, không phỏng đoán RVA hoặc công thức Canvas.
+- **P2 runtime chưa hoàn thành**: 0 phương trình được đối chiếu với ARM64 function body + device viewport/safe area; `runtimeAlignmentFormula=null`. Không dựng UI Unity.
+
+
 ## Đúng phạm vi
 
 P1 đã xác minh **24 LayoutGroup / 168 field serialized** trên XAPK. P2 không được lấy các field này để suy ra tọa độ lúc chạy. Chỉ phân tích original SerializedFile/PathID/source byte SHA256, tên phương thức từ original IL2CPP metadata v31 và ELF libil2cpp.so. Không chỉnh giao diện Unity.
