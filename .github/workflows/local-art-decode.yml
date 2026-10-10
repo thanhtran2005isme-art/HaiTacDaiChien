@@ -112,8 +112,12 @@ jobs:
           s = json.loads(Path('output/local-spine-link-evidence.json').read_text(encoding='utf-8'))
           assert len(u['scenes']) == 5
           assert len(s['records']) == 32
-          assert u['stats']['spriteGeometry'] == 826
-          assert u['stats']['spriteBorders'] == 826
+          assert u['stats']['spriteGeometry'] == 963
+          assert u['stats']['spriteBorders'] == 963
+          assert all('imageComponentId' in g
+                     for sc in u['scenes'] for g in sc['spriteGeometry'])
+          assert len({(sc['sceneId'],g['imageComponentId'])
+                      for sc in u['scenes'] for g in sc['spriteGeometry']})==963
           assert s['stats'].get('content_chain_verified_field_unverified') == 13
           assert all(not x['fieldVerified'] and not x['skinVerified'] and
                      not x['activeAnimationVerified'] for x in s['records'])
