@@ -87,6 +87,44 @@ def source_script_candidates(doc, method_index, exe, binary):
                 separators["SOURCE_CLASS_PRESENT_OTHER_FORMAT"]+=1
     output_stats.update({"sourceClassMethodSuffix_"+key:num
                          for key,num in sorted(separators.items())})
+    # Read-only aggregate diagnostics: never publish IL2CPP symbol names,
+    # script.json names, metadata method names, or source string values.
+    patterns=collections.Counter()
+    method_matches=collections.Counter()
+    for name in scoped_names:
+        for cls in source_classes:
+            at=name.find(cls)
+            if at < 0:
+                continue
+            tail=name[at+len(cls):]
+            if not tail:
+                patterns["CLASS_END"]+=1
+            elif tail.startswith("$"):
+                patterns["CLASS_THEN_DOUBLE_DOLLAR"]+=1
+            elif tail.startswith("::"):
+                patterns["CLASS_THEN_SCOPE"]+=1
+            elif tail.startswith("__"):
+                patterns["CLASS_THEN_DOUBLE_UNDERSCORE"]+=1
+            elif tail.startswith("_"):
+                patterns["CLASS_THEN_UNDERSCORE"]+=1
+            elif tail.startswith("."):
+                patterns["CLASS_THEN_DOT"]+=1
+            else:
+                patterns["CLASS_THEN_OTHER"]+=1
+            if cls in {k for k,_ in class_method_pairs}:
+                for class_name,method in class_method_pairs:
+                    if class_name != cls or not method:
+                        continue
+                    if method in tail:
+                        method_matches["TARGET_METHOD_NAME_APPEARS_AFTER_CLASS"]+=1
+                    if (len(tail)>=len(method)+2 and method in tail and
+                        any(tail.startswith(delim+method) for delim in
+                            ("$","::","__","_","."))):
+                        method_matches["TARGET_METHOD_PREFIX_AFTER_CLASS"]+=1
+    output_stats.update({"scriptClassShape_"+key:value
+                         for key,value in sorted(patterns.items())})
+    output_stats.update({"sourceMethodPattern_"+key:value
+                         for key,value in sorted(method_matches.items())})
     for (cls,method), definitions in sorted(source_methods.items()):
         label=cls+"$$"+method
         scripts=by_name.get(label,[])
