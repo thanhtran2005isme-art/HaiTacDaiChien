@@ -34,6 +34,17 @@ class P6RuntimeEvidence(unittest.TestCase):
         # separately validated by the original-XAPK source workflow.
         self.xapk = self.root / "synthetic-private.xapk"
         self.xapk.write_bytes(b"synthetic fixture; not an actual XAPK")
+        self.real_verify_pair = evidence.verify_xapk_source_pair
+        # Screenshots in this test are synthetic. The independently-tested
+        # binary-pair verifier is mocked for the screenshot-specific cases.
+        verifier_a = patch.object(evidence, "verify_xapk_source_pair",
+                                  return_value=True)
+        verifier_b = patch.object(capture_module, "verify_xapk_source_pair",
+                                  return_value=True)
+        verifier_a.start()
+        verifier_b.start()
+        self.addCleanup(verifier_b.stop)
+        self.addCleanup(verifier_a.stop)
         self.p5 = self.root / "output/ref04-p5-cross-phase-source-integrity.json"
         self.p5.write_text(json.dumps({
             "classification": evidence.P5_KIND,
@@ -45,6 +56,8 @@ class P6RuntimeEvidence(unittest.TestCase):
             },
             "runtimeCoordinates": None, "runtimeLayoutProven": False,
             "unityImportAllowed": False, "originalUiAssetsChanged": False,
+            "originalMetadataSha256": "a" * 64,
+            "originalLibil2cppSha256": "b" * 64,
         }), encoding="utf-8")
         self.folder = evidence.capture_root(self.root)
         self.folder.mkdir()
@@ -159,6 +172,20 @@ class P6RuntimeEvidence(unittest.TestCase):
             evidence.foreground_line(
                 "com.example.original",
                 "mResumedActivity: com.example.original.fake/.Main", "")
+
+    def test_original_xapk_il2cpp_pair_must_equal_p5(self):
+        pair = {
+            "metadata": (b"metadata", {"sha256": "a" * 64}),
+            "library": (b"library", {"sha256": "b" * 64}),
+        }
+        with patch("recover_managed_ui_fields.read_source_pair",
+                   return_value=pair):
+            self.assertTrue(self.real_verify_pair(self.root, self.xapk))
+        pair["library"][1]["sha256"] = "c" * 64
+        with patch("recover_managed_ui_fields.read_source_pair",
+                   return_value=pair):
+            with self.assertRaisesRegex(ValueError, "digests differ"):
+                self.real_verify_pair(self.root, self.xapk)
 
     def test_capture_uses_adb_live_png_and_does_not_overwrite(self):
         def fake_adb(executable, serial, *args, timeout=30):
