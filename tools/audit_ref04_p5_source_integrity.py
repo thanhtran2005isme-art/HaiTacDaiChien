@@ -293,14 +293,32 @@ def p2_components(p2, step2, nodes, components):
         canvas_values = row.get("originalNativeCanvasSubset", {})
         ensure(isinstance(source_values, dict) and isinstance(canvas_values, dict),
                "P2 original serialized source value object invalid")
+        # A source report may *record* native Canvas fields even when the
+        # original graph failed to hash that object's raw bytes. These are
+        # single-pipeline observations, NOT independently proven source
+        # values. They must never enter the P5 value-provenance ledger.
+        if category != "PanelHome2":
+            ensure(check.get("verificationStatus") ==
+                       original.get("verificationStatus") and
+                   check.get("sourceClass") ==
+                       (original.get("monoScriptClass") or original["nativeKind"]) and
+                   check.get("verifiedSerializedFields", {}) ==
+                       original.get("verifiedSerializedFields", {}),
+                   "P2 Step2 source fields/status disagree with original inventory")
+        unverified_field_names = []
         if original_sha is None:
-            # Without raw object bytes, only original source *identity* and
-            # parent pointers are reproducible. Do not claim any field values.
-            ensure(not source_values and not canvas_values and
-                   (check is None or
-                    (not check.get("verifiedSerializedFields", {}) and
-                     not check.get("nativeCanvasFieldsExtracted", {}))),
-                   "P2 original raw object SHA missing for serialized values")
+            ensure(original.get("verificationStatus") !=
+                   "TWO_BACKEND_SOURCE_VERIFIED_FIELDS",
+                   "P2 claimed two-backend field proof without source object SHA")
+            ensure(category != "PanelHome2" or
+                   (not source_values and not canvas_values),
+                   "P2 original raw object SHA missing for unsupported PanelHome2 fields")
+            ensure(check is not None or
+                   (not source_values and not canvas_values),
+                   "P2 source values without original Step2 report or SHA")
+            # Original source fields can be *observed*, but without a raw SHA
+            # they are blocked. Only names are retained, never values.
+            unverified_field_names = sorted(set(source_values) | set(canvas_values))
         seen.add(cid)
         ledger.append({
             "kind": "ORIGINAL_CANVAS_SAFEAREA_PANEL_COMPONENT",
@@ -309,6 +327,8 @@ def p2_components(p2, step2, nodes, components):
                 "ORIGINAL_SOURCE_RAW_OBJECT_SHA_VERIFIED" if original_sha is not None
                 else "BLOCKED_RAW_OBJECT_SHA_UNAVAILABLE_IDENTITY_ONLY"),
             "originalSerializedSourceValueProofAllowed": original_sha is not None,
+            "unverifiedRecordedSourceFieldNames": unverified_field_names,
+            "unverifiedRecordedSourceValuesExcluded": bool(unverified_field_names),
             "originalGameObjectPathId": original["gameObjectPathId"],
             "originalRectTransformPathId": original["rectTransformPathId"],
             "sourceCategory": category,
@@ -419,6 +439,8 @@ def build(reports):
             "P2IdentityOnlyComponentsWithoutRawSha": sum(
                 x["originalObjectByteProvenanceStatus"] ==
                 "BLOCKED_RAW_OBJECT_SHA_UNAVAILABLE_IDENTITY_ONLY" for x in p2),
+            "P2SourceFieldNamesExcludedWithoutRawSha": sum(
+                len(x["unverifiedRecordedSourceFieldNames"]) for x in p2),
             "P4OriginalTextComponents": len(text),
             "totalSourceProvenanceEntries": len(p1)+len(p2)+len(text),
         },
