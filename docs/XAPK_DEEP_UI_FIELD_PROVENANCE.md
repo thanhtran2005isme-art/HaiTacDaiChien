@@ -370,3 +370,12 @@ py -3 tools\compare_ref04_game_screenshots.py --xapk-reference C:\duong-dan\ref0
 ```
 
 Tool sẽ tạo ba tệp riêng trong `output/ref04-visual-qa`: `ref04-comparison.json`, `ref04-raw-difference.png` và `ref04-50-50-overlay.png`. Không tự chỉnh kích thước, so sai phiên màn hình hoặc tuyên bố đạt 100% khi chưa có ảnh thực tế. Nếu XAPK/Unity chưa cùng runtime HUD, metric pixel bị ảnh hưởng; chênh lệch được dùng để khoanh vùng icon/UI tĩnh, không tự tạo dữ liệu gameplay.
+
+
+### Sửa lỗi REF04 Build native bounds: kiểm tra sai số lượng Image 3C
+
+**Triệu chứng Unity:** `InvalidDataException: REF04 3C Image inventory changed.` tại `Ref04NativeBoundsPreviewImporter.BuildContent()`. Điều kiện Build cũ đòi **số Image trong toàn bộ Prefab 3C = 265**, trong khi 265 là số **Image có source Sprite PPtr** được chứng minh, không nhất thiết là mọi Image. Một Image có thể không có Sprite serialized, nhưng vẫn là Image 3C hợp lệ. Lỗi `New REF04 source Tight Sprite study missing` khi Audit sau đó chỉ là hệ quả rollback do Build FAIL.
+
+**Bản sửa:** C++/C# Unity Editor importer không dùng hard-coded `notes.Count == 265` nữa. Nó đọc private `verified-ui-prefab-plan.json` (SHA-256 khóa bởi `ref04-static-image-geometry.json`), kiểm tra đúng **toàn bộ** `UnityEngine.UI.Image` component PathID trong Prefab 3C, rồi xác minh riêng **265 Sprite-bound Image PathID** là tập con chính xác của 3C. Với mọi Image, buộc đúng ID GameObject, RectTransform và SHA của source MonoBehaviour, không bỏ Image thiếu Sprite. Audit sau lưu so lại **tất cả Image kể cả không Sprite**, các thuộc tính Image được xác minh và không thay đổi Sprite ở các Image không có PPtr gốc. Console có dòng `[REF04 3C IMAGE INVENTORY]` cho số đếm nguồn chính xác.
+
+Thêm báo cáo chỉ đọc `py -3 tools/audit_ref04_3c_image_inventory.py` để so nguồn 3C với source Sprite manifest và lưu `output/ref04-3c-image-inventory.json`. **Không cần chạy lại Python 3 bước** nếu trước đó `REF04_NATIVE_BOUNDS_SOURCE_PREVIEW_READY` đã PASS. Sau khi cập nhật code, Unity `Build source Tight Sprite bounds UI study` lại, chỉ nhấn Audit sau khi Build PASS. Không xóa Prefab 3C; bản nghiên cứu được rollback nếu Build thất bại. Unity Editor vẫn cần kiểm thử trên máy người dùng; GitHub CI không render Game View.
