@@ -1,5 +1,14 @@
 # REF04 — BƯỚC 2: Canvas, LayoutGroup, Text, SafeArea từ đúng XAPK
 
+## P1 — đối chứng Byte + TypeTree từ hai backend riêng
+
+- `tools/ref04_layout_dual_schema_bytes.py` đối chiếu **hai TypeTree độc lập sinh ra từ XAPK IL2CPP** (AssetStudio và AssetRipper), dùng chung raw object nguồn nhưng **hai lần đọc struct riêng**, bắt buộc full-object consumption. Đồng thuận chỉ khi cùng tập field nguồn, giá trị, offset/length và SHA256 byte; con trỏ native, original SerializedFile/GameObject/Component PathID và hash object được kiểm tra.
+- **Nguồn serialized** khi đạt đủ điều kiện được phân biệt với **runtime layout**: các field được đếm trong `sourceFieldsVerifiedByTwoGeneratedSchemas` không có nghĩa đã xác minh SafeArea, Canvas viewport hoặc công thức căn chỉnh của game lúc chạy. Tất cả Unity apply/import vẫn bị chặn.
+- Mọi component không tạo được schema AssetRipper hoặc raw-byte đọc lỗi đều mang `BLOCKED_*`; các field của component đó tính vào `sourceFieldsMissingIndependentSchemaProof`, không tự lấy offset AssetStudio làm chứng cứ thứ hai.
+- Tổng bắt buộc: `sourceFieldsVerifiedByTwoGeneratedSchemas + sourceFieldsMissingIndependentSchemaProof = 168` và đúng **24 Component PathIDs**, với hash, class, owner, RectTransform và danh sách field nguồn đối chiếu. Tool tổng hợp REF04 Step 2 kiểm tra lại hai byte-span records trước khi báo kết quả. Không ghi giá trị field, XAPK hay byte game vào GitHub.
+- CI mới vẫn phải chạy tới hoàn thành ở HEAD nhánh PR #6; khi chạy xong xem số liệu in trong bước `Diagnose 24 original REF04 LayoutGroup schemas...` và `Audit REF04 Canvas Text layout...`, không tự coi 168/168 nếu chưa có báo cáo thực tế.
+
+
 ## P1 tiếp — đọc lại raw bytes/offsets LayoutGroup, không import Unity
 
 - `tools/ref04_layout_raw_parser.py` là bộ đọc `struct` độc lập với hàm `UnityPy.read_typetree`, kiểm tra từng scalar/array/string, alignment 4-byte đúng cờ TypeTree, byte order của `SerializedFile`, ranh giới dữ liệu, full-object exact consumption và SHA-256 từng trường. **Không đoán offset**; chỉ ghi offset phát hiện bằng cách đi đúng thứ tự TypeTree đang được khảo sát.
