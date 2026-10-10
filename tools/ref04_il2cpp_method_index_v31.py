@@ -63,8 +63,11 @@ def source_string(data, base, length, index):
     return value
 
 
-def is_p2_type(name):
-    return name == "SafeAreaAdapter" or bool(TARGET.fullmatch(name))
+def is_p2_type(name, namespace=""):
+    if name == "SafeAreaAdapter" or bool(TARGET.fullmatch(name)):
+        return True
+    return (name in {"Canvas", "CanvasScaler", "RectTransform", "Screen"} and
+            namespace in {"UnityEngine", "UnityEngine.UI"})
 
 
 def inspect(data: bytes):
@@ -82,11 +85,11 @@ def inspect(data: bytes):
     for ti in range(type_count):
         off = type_base + ti * TYPE_STRIDE
         name = source_string(data, string_base, string_bytes, u32(data, off))
-        if not is_p2_type(name):
-            continue
         namespace_index = u32(data, off + 4)
         namespace = (source_string(data, string_base, string_bytes, namespace_index)
                      if namespace_index else "")
+        if not is_p2_type(name, namespace):
+            continue
         start = u32(data, off + TYPE_METHOD_START)
         count = u16(data, off + TYPE_METHOD_COUNT)
         if count and (start == NO_METHODS or start + count > method_count):
@@ -130,6 +133,7 @@ def inspect(data: bytes):
             "panelHome2ClassDefinitions": sum(x["className"].startswith("PanelHome2")
                                               for x in classes),
             "targetClassDefinitions": classes,
+            "targetTypesWithMetadataOnlyEvidence": len(classes),
             "methodCodeAddressesResolved": 0, "runtimeFormulaRecovered": False,
             "unityAssetsChanged": False, "unityImportAllowed": False}
 
