@@ -179,8 +179,13 @@ def execute(root=ROOT,unitypy=None):
         "originalExternalFontObjectsVerified":sum(
             x.get("externalOriginalFontObjectVerified",False) for x in items),
         "pointerResolutions":items,
-        "originalFontAssetIdentityFullyResolved":all(
-            x["localOriginalFontObjectVerified"] for x in items),
+        # A font in an original external SerializedFile can be source-proven
+        # via its exact dependency filename, PathID, native type and raw SHA.
+        # Source identity is not evidence of runtime glyphs or loaded font.
+        "originalFontAssetIdentityFullyResolved":bool(items) and all(
+            x.get("localOriginalFontObjectVerified") is True or
+            x.get("externalOriginalFontObjectVerified") is True
+            for x in items),
         "runtimeFontRenderingProven":False,
         "runtimeGlyphMetricsProven":False,
         "runtimeTextProven":False,
