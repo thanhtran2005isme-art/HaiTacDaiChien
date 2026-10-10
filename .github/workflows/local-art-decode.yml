@@ -549,6 +549,10 @@ jobs:
           assert d['sourceFieldValuesStillBlockedFromUnity']==168
           assert (d['sourceFieldsVerifiedByTwoGeneratedSchemas']+
                   d['sourceFieldsMissingIndependentSchemaProof'])==168
+          assert d['sourceFieldsVerifiedByTwoGeneratedSchemas']==168
+          assert d['sourceFieldsMissingIndependentSchemaProof']==0
+          assert d['independentSchemaProofStatusCounts']=={
+              'TWO_SOURCE_SCHEMAS_RAW_FIELDS_AND_OFFSETS_AGREE_NOT_IMPORTED':24}
           assert sum(d['independentSchemaProofStatusCounts'].values())==24
           assert d['unityImportAllowed'] is False
           assert d['runtimeAlignmentProven'] is False
@@ -621,7 +625,11 @@ jobs:
           assert d['layoutGroupFieldValuesStillBlockedFromUnity']==168
           assert (d['independentlyVerifiedSerializedLayoutFieldValues']+
                   d['serializedLayoutFieldValuesMissingIndependentSchemaProof'])==168
-          assert all(x['independentSourceLayoutFieldsVerified'] in (0,7)
+          assert d['independentlyVerifiedSerializedLayoutFieldValues']==168
+          assert d['serializedLayoutFieldValuesMissingIndependentSchemaProof']==0
+          assert all(x['independentSourceLayoutFieldsVerified']==7
+                     and x['canBeAppliedToUnity'] is False
+                     and x['runtimeRulesVerified'] is False
                      for x in d['componentsByCategory']['LayoutGroup'])
           assert d['sourceRuntimeCanvasOrViewportProven'] is False
           assert d['sourceRuntimeTextProven'] is False
