@@ -1,5 +1,13 @@
 # AI HANDOFF — Hải Tặc UI Viewer
 
+## REF04 — bổ sung đối chiếu schema LayoutGroup từ XAPK (2026-10-10)
+
+- Nhánh thay đổi nối tiếp PR #5: `fix/ref04-layout-schema-forensics`. **Chỉ Python source audit, tests, CI, docs**; không đổi Unity Scene/Prefab, Canvas/coordinate hoặc Spine.
+- `tools/probe_ref04_layout_schema_forensics.py` kiểm tra **24 LayoutGroup theo đúng source PathID/raw SHA**, dùng hai managed TypeTree backends AssetStudio + AssetRipper, giữ nguyên cùng binary IL2CPP và native header Unity gốc. Báo cấu trúc schema/điểm khác đầu tiên và strict parse outcome, không tự suy ra offsets hoặc giá trị runtime.
+- `tools/audit_ref04_step2_layout_canvas_text.py` giờ nhận thêm báo cáo schema (khi có), kiểm tra exact owner/RectTransform/class/sha và giữ 168 fields BLOCKED, Text/Canvas source-only. Dữ liệu chỉ ở `output/ref04-layout-schema-forensics.json` (ignored).
+- Linux CI thực thi trên XAPK thật; Windows chạy các unit guard. **Trạng thái CI cần xem trên PR mới**, không tự đánh dấu PASS trước khi hoàn thành. Bước tiếp theo: dựa trên schema diff thực tế để khảo sát offsets/alignment với bằng chứng binary độc lập. Không coi schema giống nhau là chứng minh phép căn chỉnh runtime.
+
+
 
 ## REF04 — BƯỚC 2: LayoutGroup, Canvas và Text từ đúng XAPK (2026-10-10)
 
