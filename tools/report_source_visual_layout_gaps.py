@@ -80,7 +80,7 @@ def source_layout_gap_report(graph, plan):
             "nativeCanvasCount": kinds["Canvas"],
             "nativeRectMask2DCount": kinds["RectMask2D"],
             "nativeCanvasRendererCount": kinds["CanvasRenderer"],
-            "unrestoredHorizontalLayoutGroup": sum(
+            "managedMonoBehaviourTypesUnresolved": sum(
                 1 for c in sc["components"]
                 if c.get("kind") == "MonoBehaviour" and
                 c.get("monoScriptPointer") is not None and
