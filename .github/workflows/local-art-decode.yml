@@ -21,6 +21,7 @@ on:
       - 'tools/compare_managed_ui_backends.py'
       - 'tools/build_verified_ui_prefab_plan.py'
       - 'tools/build_verified_visual_plan.py'
+      - 'tools/report_source_visual_layout_gaps.py'
       - 'tests/test_verified_visual_plan.py'
       - 'tests/test_verified_visual_unity_contract.py'
       - 'unity-ui-viewer/Assets/Editor/VerifiedVisualStudyImporter.cs'
@@ -391,6 +392,9 @@ jobs:
           print('PASS: exact XAPK source-to-3C Sprite plan: 963 bindings, 0 unverified fields')
           print('NO Unity prefabs changed, NO art/source values uploaded.')
           PY
+
+      - name: Audit original XAPK candidate root viewport provenance
+        run: python tools/report_source_visual_layout_gaps.py
 
 
   windows-decode:
