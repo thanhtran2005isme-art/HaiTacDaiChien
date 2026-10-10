@@ -1,5 +1,14 @@
 # AI HANDOFF — Hải Tặc UI Viewer
 
+
+## REF04 static Image/icon source recovery — 2026-10-10
+
+- **Priority:** fix REF04 static UI icons/frames first; Spine/characters explicitly deferred. Existing REF04 3E screenshot is not runtime-faithful; do NOT keep generating guessed Canvas variants.
+- **Root cause found:** the original `audit_local_ui_components.py` used `ui_path` to read native Sprite m_Border and PixelsToUnits. Duplicate GameObject paths caused only **826/963** Sprite geometry records and **242/265** REF04 (23 missed, including 3 Image.Type=Sliced). Exact Image Component PPtr mapping already existed for artwork but native Sprite geometry extraction failed to reuse it.
+- **Changes in PR #5:** `export_local_ui_art.py` preserves original `spriteSerializedFile` and `spritePathId` in private art manifest. `audit_local_ui_components.py` verifies source Image Component PPtr owner GameObject and Sprite source object before emitting geometry. `audit_ref04_static_ui_geometry.py` verifies REF04 Image Type, GameObject/Component PathID, source hash, Sprite filename and border/PPU. `Ref04SourceSpriteGeometryAudit.cs` adds read-only REF04 audit + guarded restore of **only source-derived TextureImporter Sprite border/PPU**, never PNG bytes, Layout/Canvas, 3C fields, text or Spine. Tests/CI updated.
+- **Real-XAPK evidence:** CI run [38017473221](https://github.com/thanhtran2005isme-art/HaiTacDaiChien/actions/runs/38017473221) Linux+Windows SUCCESS: **963/963 native geometry records**, REF04 **265/265**, REF04 **35/35 Image.Type=Sliced have original nonzero Sprite borders**. Subsequent commits tighten SHA and filename agreement, CI required for latest SHA.
+- **Next user action:** in Windows CMD run export_local_ui_art.py → build_unity_prefab_manifest.py → audit_local_ui_components.py → build_verified_visual_plan.py → audit_ref04_static_ui_geometry.py. In Unity select **REF04 - Audit static icon native Sprite borders**, record mismatch count. Only if >0 choose **REF04 - Restore verified icon Sprite border and PPU**, then re-audit and compare Game View. No Python CI can prove final screenshot fidelity; text/HUD state, LayoutGroup and runtime viewport are still unresolved, 651 values unverified by second backend.
+
 **Cập nhật:** 2026-10-09 (Asia/Ho_Chi_Minh)  
 **Repo:** [thanhtran2005isme-art/HaiTacDaiChien](https://github.com/thanhtran2005isme-art/HaiTacDaiChien)  
 **Nhánh ổn định:** `main`  
