@@ -37,7 +37,8 @@ RUNTIME_VALUE_KEYS = frozenset((
     "runtimeSafeAreaFormula", "runtimeScreenInsets", "runtimeTextPositions",
     "pixelCoordinates", "pixelPerfectCoordinates", "guessedRuntimeRect",
     "runtimeAlignmentFormula", "runtimeCanvasScaleFormula",
-    "runtimeSafeAreaPanelHome2Formula", "runtimeText", "runtimeString",
+    "runtimeSafeAreaPanelHome2Formula", "runtimeFontLoaded",
+    "runtimeText", "runtimeString",
     "runtimeLocale", "runtimeLanguage", "runtimeSelectedFont",
     "runtimeFont", "runtimePlacement", "runtimeViewport",
 ))
@@ -89,7 +90,8 @@ def source_objects(inventory):
             ensure(type(cid) is int and cid not in components and
                    comp.get("gameObjectPathId") == gid and
                    comp.get("rectTransformPathId") == tid and
-                   sha(comp.get("rawSourceObjectSha256")),
+                   (comp.get("rawSourceObjectSha256") is None or
+                    sha(comp.get("rawSourceObjectSha256"))),
                    "original component ID/owner/bytes SHA")
             components[cid] = comp
     ensure(len(components) == 1564, "incomplete original component hierarchy")
@@ -242,6 +244,7 @@ def p2_components(p2, step2, nodes, components):
         cid = row.get("componentPathId")
         original = components.get(cid)
         ensure(type(cid) is int and cid not in seen and original is not None and
+               sha(row.get("originalObjectSha256")) and
                original["rawSourceObjectSha256"] == row.get("originalObjectSha256") and
                original["gameObjectPathId"] == row.get("gameObjectPathId") and
                original["rectTransformPathId"] == row.get("rectTransformPathId") and
