@@ -807,6 +807,10 @@ jobs:
           assert p['sourceLocalizerComponentsChecked']==52
           assert sum(row['originalTextComponentsReferencingFont'] for row in p['originalFontUsage'])==62
           assert sum(p['sourceTextInitialStates'].values())==62
+          assert p['sourceIL2CPPMethodDeclarationHints']['sourceMethodDeclarationCount'] >= 0
+          assert p['sourceIL2CPPMethodDeclarationHints']['verifiedNativeFieldWriters']==0
+          assert all(row['runtimeTextFieldWriteProven'] is False
+                     for row in p['sourceIL2CPPMethodDeclarationHints']['sourceNameOnlyTextOrLocaleCandidates'])
           assert p['runtimeDynamicTextWritersIndependentlyProven']==0
           assert p['runtimeLocalizedAssignmentsIndependentlyProven']==0
           assert p['runtimeTextLogicRecovered'] is False
