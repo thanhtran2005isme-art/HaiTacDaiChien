@@ -167,9 +167,9 @@ namespace HaiTac.OfflineViewer.Editor
             foreach (var item in report.spriteGeometryAudit)
             {
                 Require(item != null &&
-                    item.originalImageComponentPathId > 0 &&
-                    item.originalGameObjectPathId > 0 &&
-                    item.originalRectTransformPathId > 0 &&
+                    item.originalImageComponentPathId != 0 &&
+                    item.originalGameObjectPathId != 0 &&
+                    item.originalRectTransformPathId != 0 &&
                     ids.Add(item.originalImageComponentPathId) &&
                     ValidSha(item.originalImageObjectSha256) &&
                     ValidSpriteFile(item.spriteFile),
@@ -247,6 +247,42 @@ namespace HaiTac.OfflineViewer.Editor
                     item.GetComponent<Image>().sprite != null,
                     "Mất Image/Sprite gốc theo Component PathID");
             }
+            // The imported source study is allowed to adjust ONLY its
+            // provisional root Canvas; every child transform/sibling must
+            // remain equal to the verified 3C study prefab.
+            var original3c = AssetDatabase.LoadAssetAtPath<GameObject>(ThreeC);
+            Require(original3c != null, "Thiếu 3C verified field Prefab gốc");
+            var fromSource = original3c
+                .GetComponentsInChildren<OriginalSerializedEvidence>(true)
+                .ToDictionary(x => x.rectTransformPathId);
+            var inStudy = prefab
+                .GetComponentsInChildren<OriginalSerializedEvidence>(true)
+                .ToDictionary(x => x.rectTransformPathId);
+            Require(fromSource.Count == 503 && inStudy.Count == 503,
+                "Thiếu 503 RectTransform/owner nguồn REF04");
+            int rootId = original3c
+                .GetComponent<OriginalSerializedEvidence>().rectTransformPathId;
+            foreach (var src in fromSource)
+            {
+                Require(inStudy.TryGetValue(src.Key, out var copy) &&
+                    copy.gameObjectPathId == src.Value.gameObjectPathId,
+                    "GameObject/RectTransform PathID của bản Study không khớp");
+                if (src.Key == rootId) continue; // provisional preview root
+                var a = src.Value.GetComponent<RectTransform>();
+                var b = copy.GetComponent<RectTransform>();
+                Require(a != null && b != null &&
+                    Vector2.Distance(a.anchorMin, b.anchorMin) < .0001f &&
+                    Vector2.Distance(a.anchorMax, b.anchorMax) < .0001f &&
+                    Vector2.Distance(a.pivot, b.pivot) < .0001f &&
+                    Vector2.Distance(a.sizeDelta, b.sizeDelta) < .0001f &&
+                    Vector2.Distance(a.anchoredPosition, b.anchoredPosition) < .0001f &&
+                    Vector3.Distance(a.localScale, b.localScale) < .0001f &&
+                    Quaternion.Angle(a.localRotation, b.localRotation) < .01f &&
+                    a.GetSiblingIndex() == b.GetSiblingIndex() &&
+                    a.gameObject.activeSelf == b.gameObject.activeSelf,
+                    "Bản Study đã thay đổi giá trị RectTransform con gốc");
+            }
+
             // The 34 source Images WITHOUT Sprite pointers still exist as
             // independent Image components: never silently delete them.
             Require(byId.Count - source.spriteGeometryAudit.Length == 34,
