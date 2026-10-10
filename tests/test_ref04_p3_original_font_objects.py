@@ -37,6 +37,45 @@ class FontProof(unittest.TestCase):
         self.assertEqual(got["status"],"BLOCKED_EXTERNAL_FILE_REFERENCE_NOT_RESOLVED")
         self.assertFalse(got["localOriginalFontObjectVerified"])
 
+    def test_original_external_font_pathid_filename_and_sha(self):
+        class Ref:
+            path="archive:/CAB-abcd/sharedfont.assets"
+        class Owner:
+            externals=[Ref()]
+        class FontReader(Original):
+            path_id=901
+            class Serialized:
+                name="sharedfont.assets"
+            assets_file=Serialized()
+        target=FontReader("Font",b"external native font")
+        result=probe.verify_reference(
+            {"sourceFileId":1,"sourcePathId":901},{},
+            assets_file=Owner(),
+            external_deref=lambda fid,pid,file:target)
+        self.assertEqual(result["status"],
+                         "SOURCE_EXTERNAL_FONT_SHA256_FILENAME_MATCH_RUNTIME_UNPROVEN")
+        self.assertTrue(result["externalOriginalFontObjectVerified"])
+        self.assertFalse(result["localOriginalFontObjectVerified"])
+        self.assertFalse(result["runtimeFontProven"])
+        self.assertEqual(result["sourceRawObjectSha256"],
+                         hashlib.sha256(b"external native font").hexdigest())
+
+    def test_external_font_wrong_serialized_file_name_blocks_even_when_pathid_matches(self):
+        class Ref:
+            path="archive:/CAB-one/font.assets"
+        class Owner:
+            externals=[Ref()]
+        class FontReader(Original):
+            path_id=901
+            class Serialized:
+                name="unrelated.assets"
+            assets_file=Serialized()
+        result=probe.verify_reference(
+            {"sourceFileId":1,"sourcePathId":901},{},assets_file=Owner(),
+            external_deref=lambda fid,pid,file:FontReader("Font"))
+        self.assertEqual(result["status"],
+                         "BLOCKED_EXTERNAL_FILENAME_SOURCE_MISMATCH")
+
     def test_null_unavailable_and_wrong_type_block(self):
         source={901:Original("Texture2D")}
         self.assertEqual(probe.verify_reference(
