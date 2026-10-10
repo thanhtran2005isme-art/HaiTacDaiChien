@@ -34,6 +34,8 @@ on:
       - 'unity-ui-viewer/Assets/Editor/Ref04NativeBoundsPreviewImporter.cs'
       - 'tests/test_ref04_native_bounds_unity_contract.py'
       - 'tools/prepare_ref04_native_bounds_preview.py'
+      - 'tools/audit_ref04_3c_image_inventory.py'
+      - 'tests/test_ref04_3c_image_inventory.py'
       - 'tests/test_ref04_static_ui_geometry.py'
       - 'tests/test_ref04_static_geometry_unity_contract.py'
       - 'unity-ui-viewer/Assets/Editor/Ref04SourceSpriteGeometryAudit.cs'
@@ -353,6 +355,8 @@ jobs:
         run: python -m unittest discover -s tests -p test_ref04_native_bounds_sprites.py -v
       - name: Verify REF04 source Tight Sprite study importer remains separate from 3C and original art
         run: python -m unittest discover -s tests -p test_ref04_native_bounds_unity_contract.py -v
+      - name: Verify all 3C Image components vs exact Sprite-linked subset
+        run: python -m unittest discover -s tests -p test_ref04_3c_image_inventory.py -v
 
       - name: Strict AssetStudio with exact Unity-version native header
         timeout-minutes: 10
@@ -447,6 +451,20 @@ jobs:
           assert all(x['applyGeometry'] is True or 'border' not in x
                      for x in p['images'])
           print('REF04 ORIGINAL SPRITE GEOMETRY SOURCE AUDIT PASS:',p['counts'])
+          PY
+
+      - name: Reconcile 3C all-Image IDs with REF04 265 Sprite-linked IDs
+        run: |
+          python tools/audit_ref04_3c_image_inventory.py
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          r=json.loads(Path('output/ref04-3c-image-inventory.json').read_text(encoding='utf-8'))
+          assert r['all265SourceBoundIdsPresentIn3C'] is True
+          assert r['sourceImageWithSpriteCount']==265
+          assert r['source3cAllImageComponentCount']>=265
+          assert r['source3cImageWithoutSpriteCount']==(r['source3cAllImageComponentCount']-265)
+          print('STRICT REF04 3C Image source inventory:',r)
           PY
 
       - name: Classify all REF04 XAPK native Sprite rectangles against exported PNG dimensions
@@ -581,6 +599,8 @@ jobs:
         run: python -m unittest discover -s tests -p test_ref04_native_bounds_sprites.py -v
       - name: Verify REF04 source-geometry Unity preview importer never changes 3C on Windows
         run: python -m unittest discover -s tests -p test_ref04_native_bounds_unity_contract.py -v
+      - name: Verify 3C all-Image inventory is not identical to Sprite PPtr set on Windows
+        run: python -m unittest discover -s tests -p test_ref04_3c_image_inventory.py -v
       - name: Audit native MonoScript and managed UI source field IDs on Windows
         run: python tools/decode_xapk_ui_provenance.py
       - name: Require 5346 original component records in Windows deep audit
