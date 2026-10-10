@@ -124,6 +124,18 @@ def prepare(visual, verified, graph, deep, blobs):
                     "sourceRectSize": [float(v) for v in size],
                     "pixelsPerUnit": float(ppu),
                 })
+                # Preserve original atlas/pivot/textureRect measurements with
+                # exact Image owner ID; never derive them from the PNG itself.
+                for field in ("sourceRectOrigin", "sourceSpriteOffset",
+                              "sourceSpritePivot", "sourceTextureRectOffset",
+                              "sourceAtlasRectOffset", "sourceTextureRectSize",
+                              "sourceTextureRectOrigin"):
+                    candidate = shape.get(field)
+                    if numeric_array(candidate, 2):
+                        row[field] = [float(v) for v in candidate]
+                raw_settings = shape.get("sourceSpriteSettingsRaw")
+                if type(raw_settings) is int and 0 <= raw_settings <= 0xffffffff:
+                    row["sourceSpriteSettingsRaw"] = raw_settings
                 counts["sourceGeometryVerified"] += 1
         if type_id == 1:
             counts["slicedImage"] += 1
