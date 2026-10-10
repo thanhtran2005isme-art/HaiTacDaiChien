@@ -69,7 +69,19 @@ def is_p2_type(name, namespace=""):
             namespace in {"UnityEngine", "UnityEngine.UI"})
 
 
-def inspect(data: bytes):
+def is_p3_type(name, namespace=""):
+    # Only exact known Unity/I2 localization text classes; name alone is not
+    # evidence of runtime language, translation or field assignment.
+    return (
+        name == "TextLocalizeChecker" or
+        (name in {"Localize", "LocalizationManager"} and
+         namespace == "I2.Loc") or
+        (name == "Text" and namespace == "UnityEngine.UI") or
+        (name == "Font" and namespace == "UnityEngine")
+    )
+
+
+def inspect(data: bytes, *, family="p2"):
     if not isinstance(data, bytes) or not 0x200 <= len(data) <= MAX_FILE:
         raise MetadataBlocked("Original metadata unavailable or oversized")
     if u32(data, 0) != MAGIC or u32(data, 4) != VERSION:
@@ -79,6 +91,9 @@ def inspect(data: bytes):
     type_base, type_count = table(data, TYPES, TYPE_STRIDE)
     if method_count > 2_000_000 or type_count > 400_000:
         raise MetadataBlocked("Untrusted metadata table counts")
+    if family not in ("p2", "p3"):
+        raise MetadataBlocked("Unsupported IL2CPP method inventory scope")
+    accepts = is_p2_type if family == "p2" else is_p3_type
     # Method start/length refer to global metadata indexes, not ELF offsets.
     classes = []
     for ti in range(type_count):
@@ -92,7 +107,7 @@ def inspect(data: bytes):
         # The class name and any owned method names still require nonempty data.
         namespace = (source_string(data, string_base, string_bytes, namespace_index,
                                    allow_empty=True) if namespace_index else "")
-        if not is_p2_type(name, namespace):
+        if not accepts(name, namespace):
             continue
         start = u32(data, off + TYPE_METHOD_START)
         count = u16(data, off + TYPE_METHOD_COUNT)
@@ -138,6 +153,7 @@ def inspect(data: bytes):
                                               for x in classes),
             "targetClassDefinitions": classes,
             "targetTypesWithMetadataOnlyEvidence": len(classes),
+            "methodInventoryScope": family,
             "methodCodeAddressesResolved": 0, "runtimeFormulaRecovered": False,
             "unityAssetsChanged": False, "unityImportAllowed": False}
 
