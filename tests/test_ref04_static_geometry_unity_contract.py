@@ -16,16 +16,34 @@ class TestRef04NativeSpriteEditorContract(unittest.TestCase):
             'verified-visual-preview-plan.json',
             'local-ui-components.json',
             'src.sourceBindings != 265',
-            'sourceMonoBehaviourPathId',
-            'sourceGameObjectPathId != item.gameObjectPathId',
-            'sourceRectTransformPathId != item.rectTransformPathId',
-            'sourceObjectSha256 != item.sourceObjectSha256',
-            'exactTwoBackendFieldAgreement',
-            '(int)image.type != item.verifiedImageType',
-            'AssetDatabase.GetAssetPath(image.sprite)',
+            'verified.verifiedComponents != 1108',
+            'verified.verifiedFieldValues != 7451',
+            'verified.singleBackendExcludedFieldValues != 651',
+            'visual.sourceBindings != 963',
+            'originalImages.TryGetValue(item.componentPathId, out var owner)',
+            'originalSprites.TryGetValue(item.componentPathId, out var pointer)',
+            'owner.gameObjectPathId != item.gameObjectPathId',
+            'owner.rectTransformPathId != item.rectTransformPathId',
+            'owner.rawObjectSha256 != item.sourceObjectSha256',
+            'pointer.sourceObjectSha256 != item.sourceObjectSha256',
+            'pointer.spriteFile != item.spriteFile',
+            'x.name == "m_Type"',
+            'type[0].intValue != item.verifiedImageType',
             'Sha(File.ReadAllBytes(raw)) != Sha(File.ReadAllBytes(local))',
         ):
             self.assertIn(x, SRC)
+
+    def test_does_not_require_deleted_3e_study_prefab(self):
+        # A failed 3E Build rolls back the disposable study Prefab. Source
+        # PNG/import metadata can still be audited without reconstructing 3E.
+        self.assertNotIn('RootCanvasViewportPrefabs', SRC)
+        self.assertNotIn('SOURCE_ROOT_CANVAS_PREVIEW.prefab', SRC)
+        self.assertNotIn('Build and Audit 3E first', SRC)
+        self.assertNotIn('GetComponentsInChildren<ManagedUiSourceEvidence>', SRC)
+        self.assertIn('originalImages.TryGetValue(', SRC)
+        self.assertIn('originalSprites.TryGetValue(', SRC)
+        self.assertIn('verified-ui-prefab-plan.json', SRC)
+        self.assertIn('verified-visual-preview-plan.json', SRC)
 
     def test_repairs_only_verified_local_sprite_import_settings(self):
         self.assertIn('item.importer.spriteBorder=item.border;', SRC)
