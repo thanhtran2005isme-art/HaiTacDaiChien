@@ -1,5 +1,13 @@
 # AI HANDOFF — Hải Tặc UI Viewer
 
+## REF04 P5 — tổng hợp bằng chứng nguồn P1–P4, không đoán tọa độ (2026-10-10)
+
+- **Đã triển khai trên PR #7 Draft**, chưa merge: `tools/audit_ref04_p5_source_integrity.py` kiểm tra cùng SerializedFile/cặp IL2CPP SHA, original Component/GameObject/RectTransform owner, 24 LayoutGroup với 168 byte-span/hash trùng nhau giữa AssetStudio và AssetRipper, chuỗi Canvas/Scaler/SafeArea/PanelHome2 kiểm toán lại theo source-parent pointers, và 62 Text cùng Font/I2 localizers qua dữ liệu P3/P4 và Step2.
+- Báo cáo private: `output/ref04-p5-cross-phase-source-integrity.json` có field-level source ledger và đặt `runtimeCoordinates=null`, `runtimeCanvasScale=null`, `runtimeSafeAreaFormula=null`, `runtimeTextPositions=null`, `pixelPerfectUiProven=false`; tuyệt đối không áp dụng giá trị preview `1600×900` như runtime.
+- `tests/test_ref04_p5_source_integrity.py` kiểm tra fixture tổng hợp và các đột biến độc hại: SHA/byte-offset/owner khác nhau, P2 parent-chain sai, stale P4/font, localizer giả, tọa độ hay text runtime suy đoán. CI `.github/workflows/local-art-decode.yml` thêm Windows unit tests và Linux **original XAPK end-to-end** sau P4. Phạm vi dự kiến 168 field P1 + 15 component P2 + 62 Text P4 = 245 bản ghi nguồn; không phải 245 tọa độ đã khôi phục.
+- **Chưa xác nhận PASS CI của HEAD mới** hoặc Unity Play Mode, chưa chứng minh formula runtime từ ARM64 hay Text động. Cần xem Actions của đúng SHA và xử lý lỗi nếu có; chỉ xem P5 PASS khi chạy kiểm toán XAPK thật. Tài liệu chi tiết: `docs/REF04_P5_SOURCE_PROVENANCE.md`. Không chỉnh Unity Scene/Prefab/Canvas/Spine hay `main`.
+
+
 ## REF04 P4 — 62 Text / 2 Font / 52 I2 localizer source matrix (2026-10-10)
 
 - P4 mở rộng danh sách các **IL2CPP declaration-only method candidates** liên quan Text/I2 bằng methodDefinitionIndex/token, xác minh declaring type và chỉ lưu SHA của tên phương thức trong private output. Cần code-registration mapping/verified ARM64 writes trước khi biến ứng viên này thành nội dung động có thật; `verifiedNativeFieldWriters=0`.
