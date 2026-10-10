@@ -17,6 +17,7 @@ from pathlib import Path
 import recover_managed_ui_fields as source
 import ref04_il2cpp_method_index_v31 as methods
 import ref04_arm64_elf_regions as original_elf
+import ref04_p2_canvas_graph as static_graph
 
 ROOT = Path(__file__).resolve().parents[1]
 SCENE = "REF04-home-crew"
@@ -208,7 +209,9 @@ def build(step1, step2, p1, metadata, elf, executable_regions=None):
         if any(m.get("methodBodyVerified") is not False or
                m.get("nativeAddress") is not None for m in x["methods"]):
             raise ValueError("Fake native method pointer supplied")
+    graph = static_graph.build_graph(records)
     return {
+        "sourceCanvasGraph": graph,
         "schemaVersion": 1, "classification": P2_CLASS, "sceneId": SCENE,
         "originalSourceSerializedFile": step1["sourceSerializedFile"],
         "originalIL2CPPPair": {
