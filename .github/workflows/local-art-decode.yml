@@ -576,6 +576,10 @@ jobs:
           assert d['counts']['LayoutGroup']==24 and d['counts']['Text']==62
           assert d['counts']['SafeArea']==6
           assert d['layoutGroupFieldValuesStillBlockedFromUnity']==168
+          assert (d['independentlyVerifiedSerializedLayoutFieldValues']+
+                  d['serializedLayoutFieldValuesMissingIndependentSchemaProof'])==168
+          assert all(x['independentSourceLayoutFieldsVerified'] in (0,7)
+                     for x in d['componentsByCategory']['LayoutGroup'])
           assert d['sourceRuntimeCanvasOrViewportProven'] is False
           assert d['sourceRuntimeTextProven'] is False
           assert d['sourceRuntimeLayoutProven'] is False
@@ -584,6 +588,9 @@ jobs:
           assert all(x['canBeAppliedToUnity'] is False
                      for values in d['componentsByCategory'].values() for x in values)
           assert Path('output/ref04-step2-layout-canvas-text.md').exists()
+          print('SOURCE XAPK INDEPENDENT LAYOUT FIELDS:',
+                d['independentlyVerifiedSerializedLayoutFieldValues'],
+                '/168; no runtime/Unity import authorized')
           print('REF04 SOURCE-ONLY STEP2:',d['counts'],
                 'third layout backend attempted=',d['thirdBackendRunProvided'],
                 'source text strict probe attempted=',d['sourceTextBinaryProbeProvided'])
