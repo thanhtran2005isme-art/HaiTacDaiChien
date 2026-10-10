@@ -34,7 +34,7 @@ class FontProof(unittest.TestCase):
         got=probe.verify_reference(
             {"sourceFileId":1,"sourcePathId":901},
             {901:Original("Font")})
-        self.assertEqual(got["status"],"BLOCKED_EXTERNAL_FILE_REFERENCE_NOT_RESOLVED")
+        self.assertEqual(got["status"],"BLOCKED_EXTERNAL_SOURCE_FILE_TABLE_UNAVAILABLE")
         self.assertFalse(got["localOriginalFontObjectVerified"])
 
     def test_original_external_font_pathid_filename_and_sha(self):
