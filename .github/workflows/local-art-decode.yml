@@ -38,6 +38,8 @@ on:
       - 'tools/audit_ref04_full_source_inventory.py'
       - 'tools/probe_ref04_layout_third_backend.py'
       - 'tools/probe_ref04_layout_schema_forensics.py'
+      - 'tools/ref04_layout_raw_parser.py'
+      - 'tests/test_ref04_layout_raw_parser.py'
       - 'tests/test_ref04_layout_schema_forensics.py'
       - 'tests/test_ref04_layout_third_backend.py'
       - 'tools/audit_ref04_step2_layout_canvas_text.py'
@@ -373,6 +375,8 @@ jobs:
         run: python -m unittest discover -s tests -p test_ref04_full_source_inventory.py -v
       - name: Verify independent LayoutGroup source identity and zero guess policy
         run: python -m unittest discover -s tests -p test_ref04_layout_third_backend.py -v
+      - name: Verify REF04 raw-source parser alignment and byte-offset guards
+        run: python -m unittest discover -s tests -p test_ref04_layout_raw_parser.py -v
       - name: Verify REF04 LayoutGroup TypeTree schema forensics fail closed
         run: python -m unittest discover -s tests -p test_ref04_layout_schema_forensics.py -v
       - name: Verify source-only Step 2 Canvas Text and LayoutGroup evidence
@@ -533,9 +537,14 @@ jobs:
           assert d['unityImportAllowed'] is False
           assert d['runtimeAlignmentProven'] is False
           assert d['originalUiAssetsChanged'] is False
+          assert sum(d['rawByteReparseCounts'].values())==24
           assert all(x['unityImportAllowed'] is False and
-                     x['runtimeLayoutProven'] is False for x in d['layoutGroups'])
+                     x['runtimeLayoutProven'] is False and
+                     x['rawByteReparse']['unityImportAllowed'] is False and
+                     x['rawByteReparse']['derivedSchemaOnly'] is True
+                     for x in d['layoutGroups'])
           print('PASS read-only source schema diagnostics:',d['schemaComparisonCounts'])
+          print('READ-ONLY DERIVED-SCHEMA RAW BYTE REPLAY:',d['rawByteReparseCounts'])
           PY
 
       - name: Probe strict original 62 Text components from XAPK IL2CPP bytes (no import)
@@ -706,6 +715,8 @@ jobs:
         run: python -m unittest discover -s tests -p test_ref04_full_source_inventory.py -v
       - name: Verify third-backend blocked LayoutGroup source evidence on Windows
         run: python -m unittest discover -s tests -p test_ref04_layout_third_backend.py -v
+      - name: Verify REF04 raw serialized bytes and schema-dependent offsets on Windows
+        run: python -m unittest discover -s tests -p test_ref04_layout_raw_parser.py -v
       - name: Verify REF04 source schema forensic guards on Windows
         run: python -m unittest discover -s tests -p test_ref04_layout_schema_forensics.py -v
       - name: Verify original Canvas Text Layout source-only field guards on Windows
