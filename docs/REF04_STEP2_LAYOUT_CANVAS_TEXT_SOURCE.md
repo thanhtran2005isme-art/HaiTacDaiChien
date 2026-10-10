@@ -32,7 +32,7 @@ Nguồn AssetStudio từ XAPK đã đọc strict 24 LayoutGroup với 168 giá t
 
 Đã thêm `tools/probe_ref04_text_source_binary.py`: kiểm tra tất cả 62 original UI.Text MonoBehaviour qua source `MonoScript`, raw object SHA256, `m_GameObject`, `m_Script`, `m_Enabled`, strict `read_typetree(check_read=True)`. Chỉ nhận field thực có trong object; chuỗi nguồn không xuất nguyên văn vào GitHub hoặc console mà chỉ lưu hash SHA256 và byte count **trong báo cáo local-only**. Font ghi original PPtr FileID/PathID, không chọn font khác. Giá trị có thể có: `m_Text`, `m_Font`, `m_FontSize`, `m_FontStyle`, `m_Alignment`, `m_LineSpacing`, `m_Color`, `m_RaycastTarget`.
 
-Dữ liệu serialized Text vẫn **không chứng minh câu chữ/phông hiển thị trong runtime** (I2 Localization, dữ liệu game, ngôn ngữ, animation, script). Công cụ còn thử đối chiếu với TypeTree AssetRipper độc lập; chỉ báo trạng thái trùng/khác/không đọc, **không tự nhập bất kỳ field nào vào Unity**.
+**Kết quả trên XAPK thật:** cả **62/62** `UnityEngine.UI.Text` đã được parse strict đầy đủ bởi **AssetStudio và AssetRipper**, các source target fields đã có trong serialized object **trùng nhau giữa hai decoder**: `TWO_BACKENDS_SAME_SERIALIZED_TEXT_FIELDS_NOT_IMPORTED` (CI [38040389041](https://github.com/thanhtran2005isme-art/HaiTacDaiChien/actions/runs/38040389041)). Giá trị có chứng cứ được ghi riêng vào `textSourceFieldsTwoBackendsAgreed`; field không có trong dữ liệu được đánh dấu `textFieldsNotDoubleVerified`. **Không** tự tạo hoặc áp chuỗi/font. Dữ liệu serialized Text vẫn **không chứng minh câu chữ/phông hiển thị trong runtime** (I2 Localization, dữ liệu game, ngôn ngữ, animation, script).
 
 File private: `output/ref04-text-source-binary-evidence.json`.
 
@@ -61,6 +61,7 @@ Các probe có thể trả `BLOCKED`; đây **không phải** lệnh sửa UI v�
 ## 6. Tiêu chí kết thúc
 
 - **Đã** xác định source PathID và nguồn chứng cứ cho toàn bộ component bố cục/Text/Canvas trong candidate.
-- **Chưa** phục hồi 168 LayoutGroup fields bằng decoder thứ hai; chưa chứng minh full runtime Text + SafeArea/Canvas ancestor; không claim 100% UI.
+- **Đã** kiểm chứng hai backend đồng nhất cho các field nguồn của **62/62 Text** (không phải text runtime).
+- **Chưa** phục hồi 168 LayoutGroup fields bằng decoder thứ hai; chưa chứng minh final runtime Text/localization + SafeArea/Canvas ancestor; không claim 100% UI.
 - Bước tiếp theo: tìm bằng chứng independent cho LayoutGroup và giải mã đúng logic IL2CPP tính HUD/SafeArea; chỉ dựng UI sau khi field có giá trị gốc được chứng minh.
 - Không làm nhân vật/Spine ở giai đoạn này.
