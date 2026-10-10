@@ -33,6 +33,9 @@ class SourceCanvasGraphTests(unittest.TestCase):
         result = graph.build_graph(source_rows())
         self.assertEqual(result["sourceCanvas"]["rectTransformPathId"], 1000)
         self.assertTrue(result["sourceCanvasScaler"]["originalSameGameObjectAsCanvas"])
+        self.assertIn("m_ReferenceResolution",
+                      result["sourceCanvasScaler"]["originalSerializedScaleConfigFieldNames"])
+        self.assertTrue(result["sourceCanvasScaler"]["originalSerializedScaleConfigurationSourceOnly"])
         self.assertEqual(result["sourceAncestryCounts"]["SafeArea:SOURCE_CANVAS_ANCESTOR_VERIFIED"], 6)
         panel = next(x for x in result["relatedComponents"] if x["category"] == "PanelHome2")
         self.assertEqual(panel["originalCanvasDistanceInParentEdges"], 2)
