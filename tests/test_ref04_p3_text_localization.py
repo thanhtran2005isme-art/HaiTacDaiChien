@@ -87,6 +87,26 @@ class TextLocalizationGuards(unittest.TestCase):
         self.assertEqual(text["localizationConnection"],
                          "SAME_ORIGINAL_GAMEOBJECT_ONLY_NO_BINDING_PROOF")
 
+    def test_verified_localizer_term_names_do_not_prove_language_or_text_binding(self):
+        step2,text,p2,metadata=fixture()
+        local=step2["componentsByCategory"]["TextLocalization"][0]
+        local["verificationStatus"]="TWO_BACKEND_SOURCE_VERIFIED_FIELDS"
+        local["verifiedSerializedFields"]={"m_Term":{"sourceValueSha256":"a"*64},
+                                           "m_RandomUnrelatedField":{"present":True}}
+        out=p3.audit(step2,text,p2,metadata)
+        self.assertEqual(out["sourceLocalizationComponentsWithDualBackendFields"],1)
+        self.assertEqual(out["sourceLocalizationComponentsEvidence"][0][
+            "sourceKeyOrTermFieldNameCandidates"],["m_Term"])
+        self.assertFalse(out["localizationKeyToTextBindingProven"])
+        self.assertIsNone(out["runtimeLanguageChosen"])
+
+    def test_unverified_localizer_cannot_claim_managed_field_values(self):
+        step2,text,p2,metadata=fixture()
+        local=step2["componentsByCategory"]["TextLocalization"][0]
+        local["verifiedSerializedFields"]={"m_Term":"fabricated"}
+        with self.assertRaisesRegex(ValueError,"Unverified localizer"):
+            p3.audit(step2,text,p2,metadata)
+
     def test_wrong_text_sha_rejected(self):
         step2,text,p2,metadata=fixture()
         text["textComponents"][0]["sourceObjectSha256"]="f"*64
