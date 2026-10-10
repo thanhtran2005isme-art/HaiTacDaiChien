@@ -153,6 +153,11 @@ def build(p5, inventory, geometry, report_sha=None):
         "sceneId": SCENE,
         "originalSourceSerializedFile": origin,
         "sourceReportSha256": report_sha or {},
+        # Flat hash mirrors for Unity JsonUtility (dictionaries are not
+        # supported), bound to the same original private source reports.
+        "p5ReportSha256": (report_sha or {}).get("p5"),
+        "inventoryReportSha256": (report_sha or {}).get("inventory"),
+        "geometryReportSha256": (report_sha or {}).get("geometry"),
         "counts": dict(sorted(counts.items())),
         "spriteGeometryAudit": review,
         "sourceOnlyFieldPromotionAllowed": False,
