@@ -34,7 +34,7 @@ def fixture():
         }]}],
     }
     deep = {"version": 1, "scenes": [{"sceneId": sc, "spriteGeometry": [{
-        "nodeId": 10, "spriteId": 77, "border": [7, 5, 7, 5],
+        "nodeId": 10, "imageComponentId": 100, "spriteId": 77, "border": [7, 5, 7, 5],
         "sourceRectSize": [96, 32], "pixelsPerUnit": 100,
     }]}]}
     blobs = {
