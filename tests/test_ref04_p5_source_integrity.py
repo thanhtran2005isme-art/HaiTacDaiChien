@@ -28,6 +28,17 @@ SHA_FIELD = hashlib.sha256(b"strict field bytes").hexdigest()
 def synthetic_reports():
     step1, step2, p1_stub, methods, elf = p2_fixture()
     nodes = step1["gameObjects"]
+    # Match actual Step2 production: every verifiedSerializedFields mapping
+    # was copied from the same original source inventory component.
+    for category in ("Canvas", "CanvasScaler", "SafeArea"):
+        for item in step2["componentsByCategory"][category]:
+            original = next(c for node in nodes for c in node["components"]
+                            if c["componentPathId"] == item["componentPathId"])
+            original["verifiedSerializedFields"] = copy.deepcopy(
+                item["verifiedSerializedFields"])
+            item["verificationStatus"] = original["verificationStatus"]
+            item["sourceClass"] = (
+                original.get("monoScriptClass") or original["nativeKind"])
     p3, fonts, localizers = p4_fixture()
 
     def replace_component(node, cid, klass):
@@ -140,6 +151,7 @@ class CrossPhaseIntegrity(unittest.TestCase):
             "P2OriginalCanvasAndRelatedComponents": 9,
             "P2ComponentsWithOriginalRawSha": 9,
             "P2IdentityOnlyComponentsWithoutRawSha": 0,
+            "P2SourceFieldNamesExcludedWithoutRawSha": 0,
             "P4OriginalTextComponents": 62,
             "totalSourceProvenanceEntries": 239,
         })
@@ -212,6 +224,56 @@ class CrossPhaseIntegrity(unittest.TestCase):
                      if x["category"] == "PanelHome2")
         panel["originalObjectSha256"] = None
         with self.assertRaisesRegex(ValueError, "bytes SHA conflict"):
+            p5.build(docs)
+
+    def test_unhashed_native_canvas_reported_values_quarantined_not_verified(self):
+        docs = synthetic_reports()
+        canvas = next(x for x in docs["p2"]["sourceComponents"]
+                      if x["category"] == "Canvas")
+        cid = canvas["componentPathId"]
+        original = next(c for node in docs["inventory"]["gameObjects"]
+                        for c in node["components"] if c["componentPathId"] == cid)
+        step2 = next(x for x in docs["step2"]["componentsByCategory"]["Canvas"]
+                     if x["componentPathId"] == cid)
+        # Native Canvas source values can be reported even when its raw bytes
+        # cannot be SHA-hashed; they must NEVER count as proven.
+        self.assertTrue(canvas["originalSerializedFieldEvidence"])
+        self.assertTrue(canvas["originalNativeCanvasSubset"])
+        original["rawSourceObjectSha256"] = None
+        canvas["originalObjectSha256"] = None
+        step2["originalObjectSha256"] = None
+        report = p5.build(docs)
+        comp = next(x for x in report["componentProvenance"]
+                    if x["componentPathId"] == cid)
+        self.assertEqual(comp["originalObjectByteProvenanceStatus"],
+                         "BLOCKED_RAW_OBJECT_SHA_UNAVAILABLE_IDENTITY_ONLY")
+        self.assertFalse(comp["originalSerializedSourceValueProofAllowed"])
+        self.assertTrue(comp["unverifiedRecordedSourceValuesExcluded"])
+        self.assertIn("m_RenderMode", comp["unverifiedRecordedSourceFieldNames"])
+        self.assertEqual(report["sourceCoverage"][
+            "P2SourceFieldNamesExcludedWithoutRawSha"], 1)
+        self.assertEqual(report["sourceCoverage"][
+            "P2IdentityOnlyComponentsWithoutRawSha"], 1)
+        self.assertNotIn("m_RenderMode", comp)  # Do not copy raw values into ledger.
+        # Corrupting Step2 alone remains prohibited, even though field proof
+        # is blocked due to missing source bytes.
+        step2["verifiedSerializedFields"]["m_RenderMode"] = 3
+        with self.assertRaisesRegex(ValueError, "serialized values differ"):
+            p5.build(docs)
+
+    def test_unhashed_two_backend_claim_is_rejected(self):
+        docs = synthetic_reports()
+        scaler = next(x for x in docs["p2"]["sourceComponents"]
+                      if x["category"] == "CanvasScaler")
+        cid = scaler["componentPathId"]
+        original = next(c for node in docs["inventory"]["gameObjects"]
+                        for c in node["components"] if c["componentPathId"] == cid)
+        step2 = next(x for x in docs["step2"]["componentsByCategory"]["CanvasScaler"]
+                     if x["componentPathId"] == cid)
+        original["rawSourceObjectSha256"] = None
+        scaler["originalObjectSha256"] = None
+        step2["originalObjectSha256"] = None
+        with self.assertRaisesRegex(ValueError, "two-backend field proof without"):
             p5.build(docs)
 
     def test_62_text_source_stale_and_forged_font_link_fail(self):
