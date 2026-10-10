@@ -12,6 +12,7 @@ import argparse
 import collections
 import hashlib
 import json
+import re
 from pathlib import Path
 
 import recover_managed_ui_fields as source
@@ -20,6 +21,36 @@ import ref04_arm64_elf_regions as elf
 ROOT=Path(__file__).resolve().parents[1]
 STATUS="REF04_P2_ARM64_CANDIDATE_ENTRY_BLOCKS_DISASSEMBLED_NO_FORMULA"
 MAX_BYTES=256
+
+DIRECT_BRANCH = re.compile(r"^(?:#)?0x([0-9a-fA-F]{1,16})$")
+
+def bounded_source_branch(insn, regions):
+    """Inspect an immediate branch operand; it is NOT a verified call edge.
+
+    The decoded instruction is source-backed, but its containing method and
+    target method ownership are not yet independently proven.
+    """
+    opcode = insn.mnemonic.lower()
+    if opcode not in ("b", "bl", "cbz", "cbnz", "tbz", "tbnz") and not opcode.startswith("b."):
+        return None
+    operand = getattr(insn, "op_str", None)
+    if not isinstance(operand, str) or len(operand) > 160:
+        return {"kind": opcode, "status": "BLOCKED_BRANCH_OPERAND_UNREADABLE"}
+    last = operand.rsplit(",", 1)[-1].strip()
+    match = DIRECT_BRANCH.fullmatch(last)
+    if not match:
+        return {"kind": opcode, "status": "BLOCKED_NONCANONICAL_IMMEDIATE"}
+    target = int(match.group(1), 16)
+    if target % 4:
+        return {"kind": opcode, "status": "BLOCKED_UNALIGNED_TARGET"}
+    try:
+        source_offset = elf.checked_original_offset(regions, target)
+    except elf.ElfBlocked:
+        return {"kind": opcode, "status": "TARGET_NOT_IN_ORIGINAL_EXECUTABLE_FILE_BYTES"}
+    return {"kind": opcode, "status": "SOURCE_EXECUTABLE_TARGET_CANDIDATE",
+            "targetELFVirtualAddress": target, "targetOriginalELFFileOffset": source_offset,
+            "nativeTargetMethodOwnershipProven": False}
+
 
 def inspect_entry(candidate, binary, regions, disassembler, neighbor=None):
     if candidate.get("methodOwnershipIndependentlyProven") is not False or (
@@ -49,6 +80,7 @@ def inspect_entry(candidate, binary, regions, disassembler, neighbor=None):
     mnemonic_counts=collections.Counter()
     instruction_count=0
     terminated=False
+    source_branch_candidates=[]
     for insn in disassembler(binary[offset:offset+size],addr):
         if insn.address != addr+instruction_count*4 or insn.size!=4:
             raise ValueError("Non-contiguous or invalid ARM64 instruction decoding")
@@ -56,6 +88,10 @@ def inspect_entry(candidate, binary, regions, disassembler, neighbor=None):
         if not isinstance(op,str) or not op or not op.isascii():
             raise ValueError("Unknown ARM64 opcode mnemonic")
         mnemonic_counts[op]+=1
+        edge=bounded_source_branch(insn,regions)
+        if edge is not None:
+            edge["originalInstructionAddress"]=insn.address
+            source_branch_candidates.append(edge)
         instruction_count+=1
         if op in ("ret","br","eret"):
             terminated=True
@@ -74,6 +110,8 @@ def inspect_entry(candidate, binary, regions, disassembler, neighbor=None):
         "instructionCount":instruction_count,
         "instructionMnemonicHistogram":dict(sorted(mnemonic_counts.items())),
         "entryTerminatorEncountered":terminated,
+        "boundedSourceBranchCandidates":source_branch_candidates,
+        "independentNativeMethodCallGraphProven":False,
         "methodOwnershipIndependentlyProven":False,
         "completeNativeMethodBodyProven":False,
         "screenSafeAreaOrCanvasFormulaProven":False,
@@ -107,6 +145,8 @@ def audit(binary, regions, candidates_report, decoder):
         "inspectedCandidateEntryPoints":len(rows),
         "originalMethodAddressesMappedIndependently":0,
         "completeNativeBodiesProven":0,
+        "sourceBranchInstructionsObserved":sum(len(x["boundedSourceBranchCandidates"]) for x in rows),
+        "independentMethodCallEdgesProven":0,
         "runtimeAlignmentFormula":None,
         "runtimeAlignmentProven":False,
         "runtimeSafeAreaProven":False,
@@ -139,6 +179,8 @@ def execute(root=ROOT):
         "classification":STATUS,
         "nativeEntryBlocksInspected":report["inspectedCandidateEntryPoints"],
         "completeNativeBodiesProven":0,
+        "sourceBranchInstructionsObserved":report["sourceBranchInstructionsObserved"],
+        "independentMethodCallEdgesProven":0,
         "runtimeAlignmentProven":False,
         "sourceAssetsChanged":False,
     },sort_keys=True))
