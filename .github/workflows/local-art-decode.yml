@@ -419,6 +419,10 @@ jobs:
           assert p['sceneId']=='REF04-home-crew'
           assert p['sourceBindings']==265
           assert len(p['images'])==265
+          assert p['counts']['sourceGeometryVerified']==265
+          assert p['counts']['slicedImage']==35
+          assert p['counts']['slicedWithVerifiedNonzeroBorder']==35
+          assert all(x['applyGeometry'] for x in p['images'])
           assert all(x['applyGeometry'] is True or 'border' not in x
                      for x in p['images'])
           print('REF04 ORIGINAL SPRITE GEOMETRY SOURCE AUDIT PASS:',p['counts'])
