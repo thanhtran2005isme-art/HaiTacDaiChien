@@ -177,6 +177,12 @@ def build(step1, step2, p1, metadata, elf):
             "sourceClass": comp.get("monoScriptClass") or comp["nativeKind"],
             "serializedVerificationStatus": comp["verificationStatus"],
             "verifiedSerializedFieldNames": sorted(verified_fields),
+            # Exact source-only values are stored in gitignored local output.
+            # These must never be considered runtime viewport/insets or logged.
+            "originalSerializedFieldEvidence": (verified_fields
+                if category in ("Canvas", "CanvasScaler") else {}),
+            "originalNativeCanvasSubset": (item.get("nativeCanvasFieldsExtracted", {})
+                if category == "Canvas" and item else {}),
             "sourceFieldStatus": canvas_field_state,
             "ancestry": trace_path(node, nodes, canvas_transforms),
             "unityImportAllowed": False, "runtimeFormulaProven": False,
