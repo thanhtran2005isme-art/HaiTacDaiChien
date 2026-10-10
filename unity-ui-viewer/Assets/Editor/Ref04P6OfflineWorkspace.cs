@@ -24,6 +24,8 @@ namespace HaiTac.OfflineViewer.Editor
         private const string ReportName = "ref04-p6-offline-ui-gaps.json";
         private const string SceneId = "REF04-home-crew";
         private const string LocalRoot = "Assets/LocalReconstruction";
+        private const string ThreeCPrefabs = LocalRoot + "/VerifiedManagedFieldPrefabs";
+        private const string ThreeCScenes = LocalRoot + "/VerifiedManagedFieldScenes";
         private const string ThreeC = LocalRoot +
             "/VerifiedManagedFieldPrefabs/REF04-home-crew_VERIFIED_FIELDS_STUDY.prefab";
         private const string NativeManifest =
@@ -187,6 +189,19 @@ namespace HaiTac.OfflineViewer.Editor
             return report;
         }
 
+        private static bool AnyExistingThreeCOutput()
+        {
+            // The legacy 3C builder processes FIVE scenes and can overwrite
+            // existing generated prefab copies. Guard the *entire* destination
+            // set before calling it, not only the REF04 destination.
+            return (AssetDatabase.IsValidFolder(ThreeCPrefabs) &&
+                    AssetDatabase.FindAssets("t:Prefab",
+                        new[] { ThreeCPrefabs }).Length > 0) ||
+                   (AssetDatabase.IsValidFolder(ThreeCScenes) &&
+                    AssetDatabase.FindAssets("t:Scene",
+                        new[] { ThreeCScenes }).Length > 0);
+        }
+
         /// <summary>
         /// Checks the GENERATED copy, without opening a scene or changing assets.
         /// The original serialized hierarchy still does not prove runtime HUD.
@@ -275,14 +290,18 @@ namespace HaiTac.OfflineViewer.Editor
             EditorGUILayout.Space();
             EditorGUILayout.LabelField("2. Chuẩn bị Prefab 3C Study", EditorStyles.boldLabel);
             bool has3c = AssetDatabase.LoadAssetAtPath<GameObject>(ThreeC) != null;
+            bool any3c = AnyExistingThreeCOutput();
             EditorGUILayout.LabelField(has3c ? "3C source-study: có" :
+                any3c ? "3C study khác tồn tại: KHÔNG tự ghi đè" :
                 "3C source-study: chưa có");
-            using (new EditorGUI.DisabledScope(has3c || EditorApplication.isPlaying))
+            using (new EditorGUI.DisabledScope(any3c || EditorApplication.isPlaying))
             {
                 if (GUILayout.Button("Dựng 3C Prefabs từ field đã kiểm chứng"))
                     InvokeSafe(() =>
                     {
                         VerifyOfflineReport();
+                        Require(!AnyExistingThreeCOutput(),
+                            "3C study outputs đã tồn tại, từ chối ghi đè");
                         if (!EditorUtility.DisplayDialog("Tạo bản Study riêng?",
                             "Công cụ 3C sẽ dựng 5 prefab/scenes trong " +
                             "LocalReconstruction; không sửa Prefab nguồn. " +
