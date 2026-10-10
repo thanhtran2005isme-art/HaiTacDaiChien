@@ -88,8 +88,10 @@ def inspect(data: bytes):
         if not name:
             continue
         namespace_index = u32(data, off + 4)
-        namespace = (source_string(data, string_base, string_bytes, namespace_index)
-                     if namespace_index else "")
+        # IL2CPP may point at an empty namespace string using a nonzero index.
+        # The class name and any owned method names still require nonempty data.
+        namespace = (source_string(data, string_base, string_bytes, namespace_index,
+                                   allow_empty=True) if namespace_index else "")
         if not is_p2_type(name, namespace):
             continue
         start = u32(data, off + TYPE_METHOD_START)
