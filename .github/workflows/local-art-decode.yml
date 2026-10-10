@@ -27,6 +27,8 @@ on:
       - 'tests/test_ref04_png_rect_mismatch.py'
       - 'tools/report_ref04_source_atlas_offsets.py'
       - 'tests/test_ref04_source_atlas_offsets.py'
+      - 'tools/compare_ref04_game_screenshots.py'
+      - 'tests/test_ref04_game_screenshot_compare.py'
       - 'tests/test_ref04_static_ui_geometry.py'
       - 'tests/test_ref04_static_geometry_unity_contract.py'
       - 'unity-ui-viewer/Assets/Editor/Ref04SourceSpriteGeometryAudit.cs'
@@ -340,6 +342,8 @@ jobs:
         run: python -m unittest discover -s tests -p test_ref04_png_rect_mismatch.py -v
       - name: Verify original atlas Sprite offset evidence is never inferred from crop alone
         run: python -m unittest discover -s tests -p test_ref04_source_atlas_offsets.py -v
+      - name: Verify reference XAPK gameplay screenshot required for REF04 pixel comparison
+        run: python -m unittest discover -s tests -p test_ref04_game_screenshot_compare.py -v
 
       - name: Strict AssetStudio with exact Unity-version native header
         timeout-minutes: 10
@@ -546,6 +550,8 @@ jobs:
         run: python -m unittest discover -s tests -p test_ref04_png_rect_mismatch.py -v
       - name: Verify REF04 native atlas offset evidence guard on Windows
         run: python -m unittest discover -s tests -p test_ref04_source_atlas_offsets.py -v
+      - name: Verify no hidden resize in REF04 screenshot comparison on Windows
+        run: python -m unittest discover -s tests -p test_ref04_game_screenshot_compare.py -v
       - name: Audit native MonoScript and managed UI source field IDs on Windows
         run: python tools/decode_xapk_ui_provenance.py
       - name: Require 5346 original component records in Windows deep audit
