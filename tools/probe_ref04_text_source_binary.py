@@ -25,6 +25,10 @@ SCENE="REF04-home-crew"
 CLASS="UnityEngine.UI.Text"
 FIELDS=("m_Text","m_Font","m_FontSize","m_FontStyle",
         "m_Alignment","m_LineSpacing","m_Color","m_RaycastTarget")
+# Unity 2022.3 UGUI Text stores FontData within the Text MonoBehaviour.
+# Strictly follow only actual source child fields; no synthesized font defaults.
+FONTDATA_FIELDS=frozenset(("m_Font","m_FontSize","m_FontStyle",
+                           "m_Alignment","m_LineSpacing"))
 TOTAL=62
 
 
@@ -81,9 +85,18 @@ def strict_text_probe(reader,row,original,generator):
         obj.get("m_Enabled")!=row.get("nativeEnabled")):
         return "BLOCKED_TEXT_NATIVE_HEADER_OR_OWNER_MISMATCH",{}
     selected={}
+    fontdata=obj.get("m_FontData")
+    if fontdata is not None and not isinstance(fontdata,dict):
+        return "BLOCKED_SOURCE_TEXT_FONTDATA_NOT_MAPPING",{}
     for key in FIELDS:
-        if key not in obj: continue
-        val=obj[key]
+        in_root=key in obj
+        in_fontdata=key in FONTDATA_FIELDS and isinstance(fontdata,dict) and key in fontdata
+        if in_root and in_fontdata:
+            return "BLOCKED_SOURCE_TEXT_DUPLICATE_FONT_FIELD_LOCATIONS",{}
+        if not in_root and not in_fontdata:
+            continue
+        val=obj[key] if in_root else fontdata[key]
+        exact_path=key if in_root else "m_FontData."+key
         if key=="m_Text":
             if not isinstance(val,str):
                 return "BLOCKED_SOURCE_TEXT_TYPE_MISMATCH",{}
@@ -95,7 +108,8 @@ def strict_text_probe(reader,row,original,generator):
             fileid,pathid=refs.pptr(val)
             if fileid<0 or pathid<0:
                 return "BLOCKED_SOURCE_TEXT_FONT_POINTER_INVALID",{}
-            selected[key]={"sourceFileId":fileid,"sourcePathId":pathid}
+            selected[key]={"sourceFileId":fileid,"sourcePathId":pathid,
+                           "sourceFieldPath":exact_path}
         elif key=="m_Color":
             color=source.ui.plain(val)
             if not isinstance(color,dict) or set(color)!={"r","g","b","a"}:
