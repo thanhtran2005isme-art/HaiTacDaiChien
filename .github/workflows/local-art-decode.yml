@@ -36,6 +36,10 @@ on:
       - 'tools/prepare_ref04_native_bounds_preview.py'
       - 'tools/audit_ref04_3c_image_inventory.py'
       - 'tools/audit_ref04_full_source_inventory.py'
+      - 'tools/probe_ref04_layout_third_backend.py'
+      - 'tests/test_ref04_layout_third_backend.py'
+      - 'tools/audit_ref04_step2_layout_canvas_text.py'
+      - 'tests/test_ref04_step2_layout_canvas_text.py'
       - 'tests/test_ref04_full_source_inventory.py'
       - 'docs/XAPK_SOURCE_ONLY_UI_RULES.md'
       - 'AGENTS.md'
@@ -363,6 +367,10 @@ jobs:
         run: python -m unittest discover -s tests -p test_ref04_3c_image_inventory.py -v
       - name: Verify REF04 strict full XAPK-source UI component inventory is read-only
         run: python -m unittest discover -s tests -p test_ref04_full_source_inventory.py -v
+      - name: Verify independent LayoutGroup source identity and zero guess policy
+        run: python -m unittest discover -s tests -p test_ref04_layout_third_backend.py -v
+      - name: Verify source-only Step 2 Canvas Text and LayoutGroup evidence
+        run: python -m unittest discover -s tests -p test_ref04_step2_layout_canvas_text.py -v
 
       - name: Strict AssetStudio with exact Unity-version native header
         timeout-minutes: 10
@@ -497,6 +505,35 @@ jobs:
           assert Path('output/ref04-full-source-inventory.md').is_file()
           print('REF04 strict FULL source-only evidence inventory:',c)
           print('Unverified fields require further XAPK decoding. NO Canvas/UI guessed.')
+          PY
+
+      - name: Probe independent third IL2CPP backend for 24 blocked REF04 LayoutGroups (no import)
+        continue-on-error: true
+        timeout-minutes: 6
+        run: python tools/probe_ref04_layout_third_backend.py
+
+      - name: Audit REF04 Canvas Text layout and SafeArea from source only
+        run: |
+          python tools/audit_ref04_step2_layout_canvas_text.py
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          d=json.loads(Path('output/ref04-step2-layout-canvas-text.json').read_text(encoding='utf-8'))
+          assert d['classification']=='REF04_SOURCE_LAYOUT_CANVAS_TEXT_STEP2_READ_ONLY'
+          assert d['counts']['Canvas']==1 and d['counts']['CanvasScaler']==1
+          assert d['counts']['LayoutGroup']==24 and d['counts']['Text']==62
+          assert d['counts']['SafeArea']==6
+          assert d['layoutGroupFieldValuesStillBlockedFromUnity']==168
+          assert d['sourceRuntimeCanvasOrViewportProven'] is False
+          assert d['sourceRuntimeTextProven'] is False
+          assert d['sourceRuntimeLayoutProven'] is False
+          assert d['unityAssetsChanged'] is False
+          assert d['sourceFieldApplicationAllowed'] is False
+          assert all(x['canBeAppliedToUnity'] is False
+                     for values in d['componentsByCategory'].values() for x in values)
+          assert Path('output/ref04-step2-layout-canvas-text.md').exists()
+          print('REF04 SOURCE-ONLY STEP2:',d['counts'],
+                'third backend attempted=',d['thirdBackendRunProvided'])
           PY
 
       - name: Classify all REF04 XAPK native Sprite rectangles against exported PNG dimensions
@@ -635,6 +672,10 @@ jobs:
         run: python -m unittest discover -s tests -p test_ref04_3c_image_inventory.py -v
       - name: Verify all REF04 GameObject/component source inventory guards on Windows
         run: python -m unittest discover -s tests -p test_ref04_full_source_inventory.py -v
+      - name: Verify third-backend blocked LayoutGroup source evidence on Windows
+        run: python -m unittest discover -s tests -p test_ref04_layout_third_backend.py -v
+      - name: Verify original Canvas Text Layout source-only field guards on Windows
+        run: python -m unittest discover -s tests -p test_ref04_step2_layout_canvas_text.py -v
       - name: Audit native MonoScript and managed UI source field IDs on Windows
         run: python tools/decode_xapk_ui_provenance.py
       - name: Require 5346 original component records in Windows deep audit
