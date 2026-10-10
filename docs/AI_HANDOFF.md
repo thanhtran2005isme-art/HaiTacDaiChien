@@ -1,5 +1,12 @@
 # AI HANDOFF — Hải Tặc UI Viewer
 
+## P5 final Windows source audit: 245 ledger rows; synthetic fixture alias bug (2026-10-11)
+
+- Windows original-XAPK P5 **PASS as source-only audit** with 245 entries: 168 P1 fields, 15 P2 components (14 raw-SHA-backed and 1 ID-only BLOCKED), 62 P4 Text. Six field names associated with SHA-missing P2 source object excluded; `runtimeCoordinates=null`, `runtimeLayoutProven=false`, `unityImportAllowed=false`, no UI assets changed. This does NOT prove runtime layout or pixel-perfect coordinates.
+- Windows P5 unit tests **9/10 PASS on commit `93a4268`**. The failed negative mutation test incorrectly shared the same in-memory nested `verifiedSerializedFields` dict in synthetic P2 and Step2 reports; when Step2 and inventory were mutated, synthetic P2 changed too. **Actual production reports are independent JSON files**. Corrected `synthetic_reports()` by `copy.deepcopy(p2_module.build(...))` and added `assertIsNot` to prevent this regression. **No changes to the production P5 auditor, original data, Unity UI, source rules or runtime evidence.** New HEAD unit test/CI has not yet been confirmed locally by user.
+- Pull PR7 branch and rerun `py -3 -m unittest discover -s tests -p test_ref04_p5_source_integrity.py -v`. PR7 remains Draft; original I2 term verification 0/52 and native dynamic layout/Text remain BLOCKED.
+
+
 ## P5 second Windows regression and source-value quarantine (2026-10-11)
 
 - Windows update at commit `190894e` passed **8/8 synthetic P5 tests**, but original-XAPK P5 stopped at `P2 original raw object SHA missing for serialized values`. The exact component category is **not** shown by the exception; do not state that it definitely was Canvas/Scaler/PanelHome2.
