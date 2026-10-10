@@ -45,6 +45,10 @@ on:
       - 'tests/test_ref04_layout_schema_forensics.py'
       - 'tests/test_ref04_layout_third_backend.py'
       - 'tools/audit_ref04_step2_layout_canvas_text.py'
+      - 'tools/ref04_il2cpp_method_index_v31.py'
+      - 'tools/audit_ref04_p2_runtime_alignment.py'
+      - 'tests/test_ref04_il2cpp_method_index_v31.py'
+      - 'tests/test_ref04_p2_runtime_alignment.py'
       - 'tests/test_ref04_step2_layout_canvas_text.py'
       - 'tools/probe_ref04_text_source_binary.py'
       - 'tests/test_ref04_text_source_binary.py'
@@ -391,6 +395,10 @@ jobs:
         run: python -m unittest discover -s tests -p test_ref04_layout_dual_schema_bytes.py -v
       - name: Verify REF04 LayoutGroup TypeTree schema forensics fail closed
         run: python -m unittest discover -s tests -p test_ref04_layout_schema_forensics.py -v
+      - name: Verify original IL2CPP v31 metadata method source ownership (P2)
+        run: python -m unittest discover -s tests -p test_ref04_il2cpp_method_index_v31.py -v
+      - name: Verify Canvas/SafeArea/PanelHome2 runtime evidence cannot be guessed (P2)
+        run: python -m unittest discover -s tests -p test_ref04_p2_runtime_alignment.py -v
       - name: Verify source-only Step 2 Canvas Text and LayoutGroup evidence
         run: python -m unittest discover -s tests -p test_ref04_step2_layout_canvas_text.py -v
       - name: Verify 62 Text source object bytes/font pointers guarded by XAPK provenance
@@ -647,6 +655,31 @@ jobs:
                 'source text strict probe attempted=',d['sourceTextBinaryProbeProvided'])
           PY
 
+      - name: Trace REF04 Canvas/CanvasScaler/SafeAreaAdapter/PanelHome2 IL2CPP metadata (P2 READ ONLY)
+        timeout-minutes: 8
+        run: |
+          python tools/audit_ref04_p2_runtime_alignment.py
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          p=json.loads(Path('output/ref04-p2-canvas-il2cpp-runtime-source.json').read_text(encoding='utf-8'))
+          assert p['classification']=='REF04_P2_CANVAS_SAFEAREA_PANELHOME2_SOURCE_TRACE_NO_RUNTIME_FORMULA'
+          assert p['counts']['Canvas']==1 and p['counts']['CanvasScaler']==1
+          assert p['counts']['SafeAreaAdapter']==6
+          assert p['counts']['layoutGroupSerializedFieldsTwoSchemaVerified']==168
+          assert all(row['unityImportAllowed'] is False and
+                     row['runtimeFormulaProven'] is False for row in p['sourceComponents'])
+          assert len(p['runtimeBlockers'])==4
+          assert p['runtimeAlignmentFormula'] is None and not p['runtimeAlignmentProven']
+          assert p['nativeFunctionPointerEvidence'] is None
+          assert p['sourceFieldApplicationAllowed'] is False
+          assert p['unityAssetsChanged'] is False and p['charactersOrSpineChanged'] is False
+          print('P2 original XAPK method TYPES:',p['counts']['metadataSafeAreaTypes'],
+                'safe area;',p['counts']['metadataPanelHome2Types'],
+                'PanelHome2; declarations=',p['counts']['metadataTargetMethods'])
+          print('P2 runtime formulas: BLOCKED until IL2CPP ARM64 method bodies are proven')
+          PY
+
       - name: Classify all REF04 XAPK native Sprite rectangles against exported PNG dimensions
         run: |
           python tools/report_ref04_png_rect_mismatch.py
@@ -791,6 +824,10 @@ jobs:
         run: python -m unittest discover -s tests -p test_ref04_layout_dual_schema_bytes.py -v
       - name: Verify REF04 source schema forensic guards on Windows
         run: python -m unittest discover -s tests -p test_ref04_layout_schema_forensics.py -v
+      - name: Verify original IL2CPP v31 metadata method ownership on Windows (P2)
+        run: python -m unittest discover -s tests -p test_ref04_il2cpp_method_index_v31.py -v
+      - name: Verify P2 Canvas/SafeArea/PanelHome2 source-only runtime blockers on Windows
+        run: python -m unittest discover -s tests -p test_ref04_p2_runtime_alignment.py -v
       - name: Verify original Canvas Text Layout source-only field guards on Windows
         run: python -m unittest discover -s tests -p test_ref04_step2_layout_canvas_text.py -v
       - name: Verify original XAPK Text full strict parse and private string hash on Windows
