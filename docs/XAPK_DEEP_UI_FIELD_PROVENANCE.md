@@ -236,3 +236,31 @@ Sau đó mở các Scene trong `Assets/LocalReconstruction/VerifiedManagedFieldS
 **Bảo vệ thao tác:** Script Python xuất `output/verified-ui-prefab-plan.json` private, buộc khớp SHA-256 graph, hash binary, 5 scene, đủ 1.108 object / 7.451 field, đúng 4 class cho phép, so `m_GameObject`, `m_Script`, `rawObjectSha256` và status strict đọc đủ byte. Unity Editor preflight kiểm tra class, Enum/type/range, OriginalSerializedEvidence và từng component pathID; nếu đã tồn tại study Prefab sẽ không ghi đè. Khi xảy ra lỗi trong quá trình tạo, chỉ các study outputs mới được dọn; source graph assets không đổi. Sau khi tạo có menu Audit đọc lại giá trị serialized từ chính Prefab copy.
 
 **Lưu ý phiên bản:** Unity source là `2022.3.51f1`, dự án viewer tracked trong `ProjectVersion.txt` là `2022.3.21f1`. Để so giao diện chính xác cần mở bản sao viewer với Unity 2022.3.51f1 và ghi rõ version đã kiểm chứng, tránh mặc định coi hai patch là tương đương. CI chạy Python/contract tests, **không mở Unity Editor, không chứng thực Play Mode hay ảnh dựng**.
+
+
+## Giai đoạn 3D — Bản xem trước mới có Sprite, giữ nguyên 7.451 giá trị 3C
+
+**Không dùng lại** Scene cũ trong \`LocalReconstruction/Scenes\` làm kết quả 3D. Công cụ tạo 5 file **mới** dưới \`Assets/LocalReconstruction/VerifiedVisualScenes/\` và Prefab cùng tên trong \`VerifiedVisualPrefabs/\`. 5 SourceGraphPrefabs, 5 VerifiedManagedFieldPrefabs và 5 Scene Canvas cũ không bị ghi đè.
+
+Nguồn đầu vào: \`output/verified-ui-prefab-plan.json\` đã PASS 3C; \`output/original-unity-graph.json\`; \`output/unity-prefab-map.json\` (963 Image→Sprite đúng PathID); \`output/local-ui-art/manifest.json\`; và các Sprite đã được Unity import tại \`Assets/LocalReconstruction/Sprites/\`. Tất cả các JSON/tài nguyên này chỉ có trên máy địa phương và bị .gitignore.
+
+Trên CMD trong thư mục repository (đã hoàn tất các lệnh Phase 3C):
+
+\`\`\`cmd
+py -3 tools\build_unity_prefab_manifest.py
+py -3 tools\build_verified_visual_plan.py
+\`\`\`
+
+Kết quả đạt yêu cầu: \`VERIFIED_3D_PREVIEW_PLAN_READY\`, \`sceneCount=5\`, \`exactSourceSpriteBindings=963\`, \`singleBackendValuesImported=0\`.
+
+Trong Unity Editor, mở đúng \`unity-ui-viewer/\` bằng quyền người dùng bình thường, **không dùng Run as administrator**. Trước đó phải tạo 5 verified 3C study Prefabs bằng menu Phase 3C, và đã từng chạy \`Reconstruct 5 local Canvas prefabs\` để import Sprite source PNG. Sau đó:
+
+1. \`Tools > HaiTac Offline UI Viewer > Source XAPK > Build 5 exact-source 3D visual previews\`
+2. \`Tools > HaiTac Offline UI Viewer > Source XAPK > Audit 5 exact-source 3D visual previews\`
+3. Mở **\`Assets/LocalReconstruction/VerifiedVisualScenes/REF04-home-crew_VERIFIED_VISUAL_PREVIEW.unity\`** hoặc 4 Scene mới cùng loại và chụp **Game View + Hierarchy + Console**.
+
+Bản mới có wrapper Canvas \`ScreenSpaceOverlay\`, Camera \`3D PREVIEW CAMERA - NOT ORIGINAL\`, kích thước thử nghiệm 1600×900 và có thể normalize scale **chỉ trên đối tượng copy hiển thị**. Các cài đặt này là tiện ích xem trước, không phải bằng chứng runtime nguyên bản. Tất cả 963 Sprite bindings đều được kiểm chứng theo tuple \`(sceneId, RectTransform PathID, Image Component PathID)\` với source graph và 3C đúng GameObject. Không tự gán theo tên, Sprite GUID đoán, hoặc tạo/điều chỉnh ảnh game.
+
+Menu **Audit 3D** so từng property có trong 7.451 field values từ 3C source Prefab với component của Prefab 3D, kiểm tra \`m_Enabled\` và 963 Sprite asset references. Nếu một field bị Unity thay đổi khi gắn Sprite, audit sẽ FAIL (không tuyên bố 7451 được bảo toàn). Các component không có chứng cứ chéo (93 LayoutGroup / 651 values), native Canvas chưa giải mã, Spine/animation và tính năng game vẫn **chưa phục hồi**. GUI Play Mode và mức độ giống UI gốc vẫn phải kiểm chứng riêng bằng ảnh/trạng thái runtime; Scene 3D không phải original editable Prefab.
+
+**Quan trọng:** Công cụ không ghi đè bản 3D nếu đã tồn tại; để dựng lại cần chủ động sao lưu/di chuyển các bản xem trước hiện có, không xóa bản nguồn gốc.
