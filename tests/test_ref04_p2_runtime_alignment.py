@@ -85,7 +85,7 @@ class RuntimeTraceGuards(unittest.TestCase):
         self.assertEqual(result["counts"]["SafeAreaAdapter"],6)
         self.assertEqual(result["counts"]["PanelHome2ComponentsInCandidate"],1)
         safe=next(x for x in result["sourceComponents"]
-                  if x["category"]=="SafeAreaAdapter")
+                  if x["category"]=="SafeArea")
         self.assertEqual(safe["ancestry"]["originalRectTransformPathIdsLeafToAncestor"],
                          [1001,1000])
         self.assertEqual(safe["ancestry"]["originalNearestCanvasRectTransformPathId"],
