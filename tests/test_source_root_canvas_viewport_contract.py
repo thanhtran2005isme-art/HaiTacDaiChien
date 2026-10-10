@@ -60,6 +60,46 @@ class TestSourceRootCanvasViewport(unittest.TestCase):
         ):
             self.assertIn(value, CODE)
 
+    def test_source_scale_provenance_never_uses_runtime_instance(self):
+        # This was the cause of an opaque on-machine Unity Editor root-audit
+        # failure: a live RectTransform may differ from the prefab asset root.
+        self.assertIn('var originalSourceAssetScale = sourceRect.localScale;', CODE)
+        self.assertIn('var originalScale = originalSourceAssetScale;', CODE)
+        self.assertNotIn('var originalScale = root.localScale;', CODE)
+        self.assertIn('original XAPK root-scale marker differs from', CODE)
+        self.assertIn('SOURCE ASSET scale:', CODE)
+
+    def test_audit_reports_individual_root_invariant_and_rejects_corruption(self):
+        for token in (
+            'provisional PREVIEW root scale changed',
+            'missing PROVISIONAL Camera/Canvas source disclaimer',
+            'preview viewport marker corrupted:',
+            'PREVIEW Canvas render mode changed:',
+            'Vector3.Distance(root.localScale, marker.normalizedPreviewRootScale)',
+            'Vector2.Distance(marker.provisionalPreviewReferenceResolution,',
+            'Vector3.Distance(marker.originalRootScale,',
+            'originalRootTransform.localScale)',
+            'source.Ui.Does.Not.Exist.NEVER',
+        ):
+            if token != 'source.Ui.Does.Not.Exist.NEVER':
+                self.assertIn(token, CODE)
+        self.assertNotIn(
+            'Provisional root Canvas preview no longer matches its label.',
+            CODE)
+
+    def test_failed_build_restores_user_scene_before_discarding_generated_only(self):
+        for token in (
+            'string priorScene = EditorSceneManager.GetActiveScene().path;',
+            'EditorSceneManager.OpenScene(priorScene, OpenSceneMode.Single)',
+            'if (!string.IsNullOrEmpty(priorScene)',
+            'foreach (var asset in created)',
+            'AssetDatabase.DeleteAsset(asset)',
+            'Do NOT run viewport Audit until Build reports PASS.',
+            '3E viewport Build previously failed',
+            'outputs were rolled back.',
+        ):
+            self.assertIn(token, CODE)
+
     def test_strict_source_field_and_sprite_proof_reused(self):
         for value in (
             'AuditScene(source, scene, rootCanvas: true)',
