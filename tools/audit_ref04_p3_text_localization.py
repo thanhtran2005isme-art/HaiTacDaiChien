@@ -82,30 +82,44 @@ def audit(step2, probe, p2, method_metadata):
             t["gameObjectPathId"]!=q["gameObjectPathId"] or
             t["rectTransformPathId"]!=q["rectTransformPathId"] or
             t.get("canBeAppliedToUnity") is not False or
-            t.get("renderedText") is not None or
-            "m_Text" not in fields or "m_Font" not in fields):
+            t.get("renderedText") is not None):
             raise ValueError("Original source Text hash/field/owner disagreement")
-        content=fields["m_Text"]
-        font=fields["m_Font"]
-        if (not require_sha(content.get("sourceUtf8Sha256")) or
+        content=fields.get("m_Text")
+        font=fields.get("m_Font")
+        # Dual-backend component verification does not imply that every
+        # individual source field was present. Missing entries remain BLOCKED.
+        if content is not None and (
+            not isinstance(content,dict) or
+            not require_sha(content.get("sourceUtf8Sha256")) or
             type(content.get("utf8Bytes")) is not int or
             content["utf8Bytes"]<0 or
+            type(content.get("sourceTextIsEmpty")) is not bool):
+            raise ValueError("Untrusted Text source hash or length")
+        if font is not None and (
+            not isinstance(font,dict) or
             type(font.get("sourceFileId")) is not int or
             type(font.get("sourcePathId")) is not int or
             font["sourceFileId"]<0 or font["sourcePathId"]<0):
-            raise ValueError("Untrusted Text hash or font PPtr")
+            raise ValueError("Untrusted Text original font pointer")
         candidates=local_by_owner[(t["gameObjectPathId"],t["rectTransformPathId"])]
         if candidates: with_local+=1
-        fonts[(font["sourceFileId"],font["sourcePathId"])]+=1
+        if font is not None:
+            fonts[(font["sourceFileId"],font["sourcePathId"])]+=1
         texts.append({
             "componentPathId":t["componentPathId"],
             "rectTransformPathId":t["rectTransformPathId"],
             "gameObjectPathId":t["gameObjectPathId"],
             "originalObjectSha256":q["sourceObjectSha256"],
-            "sourceTextUtf8Sha256":content["sourceUtf8Sha256"],
-            "sourceTextUtf8ByteLength":content["utf8Bytes"],
-            "sourceEmptyText":content["sourceTextIsEmpty"],
+            "sourceTextUtf8Sha256":content["sourceUtf8Sha256"] if content else None,
+            "sourceTextUtf8ByteLength":content["utf8Bytes"] if content else None,
+            "sourceEmptyText":content["sourceTextIsEmpty"] if content else None,
             "originalFontPointer":font,
+            "originalTextFieldStatus":(
+                "DUAL_BACKEND_M_TEXT_FIELD" if content else
+                "BLOCKED_SOURCE_M_TEXT_FIELD_NOT_EXTRACTED"),
+            "originalFontFieldStatus":(
+                "DUAL_BACKEND_M_FONT_FIELD" if font else
+                "BLOCKED_SOURCE_M_FONT_FIELD_NOT_EXTRACTED"),
             "originalTextFontAndStyleFieldNames":sorted(fields),
             "originalTextSourceValues":fields,
             "colocatedLocalizationComponentPathIds":[x["componentPathId"] for x in candidates],
@@ -130,6 +144,10 @@ def audit(step2, probe, p2, method_metadata):
         "sourceLocalizationComponents":len(loc),
         "originalTextSameGameObjectLocalizationCandidates":with_local,
         "uniqueOriginalFontPointerCount":len(fonts),
+        "sourceTextStringsIndependentlyVerified":sum(
+            x["sourceTextUtf8Sha256"] is not None for x in texts),
+        "sourceTextFontPointersIndependentlyVerified":sum(
+            x["originalFontPointer"] is not None for x in texts),
         "sourceTextFieldsVerified":True,
         "fontAssetIdentityVerified":False,
         "localizationKeyToTextBindingProven":False,
