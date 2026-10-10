@@ -144,11 +144,25 @@ def inventory(step1, third=None, text_probe=None):
                         "NOT_YET_RUN")
                     # A single strict decoded source snapshot is NOT evidence
                     # of final runtime text, font, localization or position.
-                    item["textSourceSingleBackendEvidence"]=(
+                    text_source_fields=(
                         text_record.get("sourceTextFieldEvidence",{})
                         if text_record else {})
-                    item["textFontAndAppearanceFieldsNotVerified"]=[
-                        key for key in TEXT_REQUIRED if key not in fields
+                    independently_agreed=(
+                        text_record is not None and
+                        text_record["verificationStatus"]==
+                            "TWO_BACKENDS_SAME_SERIALIZED_TEXT_FIELDS_NOT_IMPORTED")
+                    # Distinguish restored original Text values from all
+                    # runtime/localized text. 3C did not target Text class,
+                    # but the independent Text-specific XAPK binary recheck
+                    # may verify its original serialized field subset.
+                    item["textSourceFieldsTwoBackendsAgreed"]=(
+                        text_source_fields if independently_agreed else {})
+                    item["textSourceFieldsSingleBackendOnly"]=(
+                        text_source_fields if not independently_agreed else {})
+                    item["textFieldsNotDoubleVerified"]=[
+                        key for key in TEXT_REQUIRED
+                        if key not in (text_source_fields if
+                                       independently_agreed else {})
                     ]
                     # Never invent a localized string or font from the component name.
                     item["renderedText"] = None
@@ -192,6 +206,10 @@ def inventory(step1, third=None, text_probe=None):
             for c in found["LayoutGroup"]),
         "thirdBackendRunProvided":third is not None,
         "sourceTextBinaryProbeProvided":text_probe is not None,
+        "originalTextComponentsVerifiedByTwoBackends":sum(
+            c.get("textBinaryProbeStatus")==
+            "TWO_BACKENDS_SAME_SERIALIZED_TEXT_FIELDS_NOT_IMPORTED"
+            for c in found["Text"]),
         "sourceRuntimeCanvasOrViewportProven":False,
         "sourceRuntimeTextProven":False,
         "sourceRuntimeLayoutProven":False,
@@ -256,6 +274,8 @@ def main():
             report["layoutGroupFieldValuesStillBlockedFromUnity"],
         "thirdBackendRunProvided":report["thirdBackendRunProvided"],
         "sourceTextBinaryProbeProvided":report["sourceTextBinaryProbeProvided"],
+        "originalTextComponentsVerifiedByTwoBackends":report[
+            "originalTextComponentsVerifiedByTwoBackends"],
         "unityAssetsChanged":False,
         "runtimeUIProven":False,
     },sort_keys=True))
