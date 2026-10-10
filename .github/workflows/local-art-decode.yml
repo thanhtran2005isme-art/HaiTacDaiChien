@@ -33,6 +33,7 @@ on:
       - 'tests/test_ref04_native_bounds_sprites.py'
       - 'unity-ui-viewer/Assets/Editor/Ref04NativeBoundsPreviewImporter.cs'
       - 'tests/test_ref04_native_bounds_unity_contract.py'
+      - 'tools/prepare_ref04_native_bounds_preview.py'
       - 'tests/test_ref04_static_ui_geometry.py'
       - 'tests/test_ref04_static_geometry_unity_contract.py'
       - 'unity-ui-viewer/Assets/Editor/Ref04SourceSpriteGeometryAudit.cs'
