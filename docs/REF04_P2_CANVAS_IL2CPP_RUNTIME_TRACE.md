@@ -12,7 +12,7 @@ P1 đã xác minh **24 LayoutGroup / 168 field serialized** trên XAPK. P2 khôn
 
 ## Kết quả đã chạy trên original XAPK (2026-10-10)
 
-[GitHub Actions #38049435435](https://github.com/thanhtran2005isme-art/HaiTacDaiChien/actions/runs/38049435435) **PASS** Linux/Windows: 1 Canvas, 1 CanvasScaler, 6 SafeAreaAdapter, 7 PanelHome2* source components, 8 PanelHome2* metadata type definitions, 1 SafeAreaAdapter metadata type, 204 method declarations trong các type mục tiêu (gồm Canvas/Scaler/Screen/RectTransform). **0 verified native method bodies**, **0 runtime formulas**. Đây là kết quả metadata declarations + serialized hierarchy, không có công thức thực thi.
+[GitHub Actions #38049542276](https://github.com/thanhtran2005isme-art/HaiTacDaiChien/actions/runs/38049542276) **PASS** trên commit code `8330bd84` (Linux/XAPK thật, Windows và P1 168/168): 1 Canvas, 1 CanvasScaler, 6 SafeAreaAdapter, 7 PanelHome2* source components, 8 PanelHome2* metadata type definitions, 1 SafeAreaAdapter metadata type, 204 method declarations trong các type mục tiêu (gồm Canvas/Scaler/Screen/RectTransform). **0 verified native method bodies**, **0 runtime formulas**. Đây là kết quả metadata declarations + serialized hierarchy, không có công thức thực thi.
 
 Giá trị serialized Canvas/CanvasScaler có nguồn được giữ trong báo cáo riêng **gitignored local** `originalSerializedFieldEvidence`; không log/commit các giá trị này. Những giá trị đó chưa phải runtime viewport/scaling.
 
