@@ -59,7 +59,7 @@ def source_script_candidates(doc, method_index, exe, binary):
     candidates=[]
     blockers=collections.Counter()
     # Diagnose known dumper name conventions without logging game symbols.
-    target_names={cls+"$"+meth for cls,meth in source_methods}
+    target_names={cls+"$$"+meth for cls,meth in source_methods}
     output_stats["exactNameMatchesInScript"]=sum(
         len(by_name.get(label,[])) for label in target_names)
     source_classes={cls for cls,_ in source_methods}
