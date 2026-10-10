@@ -352,23 +352,55 @@ namespace HaiTac.OfflineViewer.Editor
             }
             bool nativeReady = File.Exists(Path.Combine(RepositoryRoot, NativeManifest));
             EditorGUILayout.LabelField(nativeReady ?
-                "Tight Sprite source manifest: có" :
+                "Tight Sprite source manifest: có (chưa kiểm SHA ở màn này)" :
                 "Tight Sprite source manifest: thiếu. Chạy Python chuẩn bị.");
             EditorGUILayout.SelectableLabel(
                 "py -3 tools/prepare_ref04_native_bounds_preview.py",
                 EditorStyles.textField, GUILayout.Height(22));
             EditorGUILayout.Space();
             EditorGUILayout.LabelField("3. Dựng bản REF04 Study", EditorStyles.boldLabel);
-            bool hasStudy =
-                AssetDatabase.LoadAssetAtPath<GameObject>(PreviewPrefab) != null ||
+            bool hasStudyPrefab =
+                AssetDatabase.LoadAssetAtPath<GameObject>(PreviewPrefab) != null;
+            bool hasStudyScene =
                 AssetDatabase.LoadAssetAtPath<SceneAsset>(PreviewScene) != null;
+            bool hasAnyStudy = hasStudyPrefab || hasStudyScene;
+            bool hasCompleteStudy = hasStudyPrefab && hasStudyScene;
+            if (hasCompleteStudy)
+                EditorGUILayout.HelpBox(
+                    "REF04 Study: đã có Prefab + Scene. Nút Dựng bị khóa để " +
+                    "không ghi đè. Bấm bước 1, rồi bước 4 Kiểm tra Prefab; " +
+                    "nếu PASS thì bấm bước 5 để mở Scene.",
+                    MessageType.Info);
+            else if (hasAnyStudy)
+                EditorGUILayout.HelpBox(
+                    "REF04 Study CHƯA ĐẦY ĐỦ: " +
+                    (hasStudyPrefab ? "chỉ có Prefab, thiếu Scene." :
+                        "chỉ có Scene, thiếu Prefab.") +
+                    " Đã khóa Dựng/Kiểm tra/Mở để tránh mất dữ liệu. " +
+                    "Kiểm tra Console và thư mục LocalReconstruction, " +
+                    "không xóa hay ghi đè tự động.",
+                    MessageType.Error);
+            else if (!has3c || !nativeReady)
+                EditorGUILayout.HelpBox(
+                    "Chưa thể dựng: " +
+                    (!has3c ? "thiếu Prefab 3C. " : "") +
+                    (!nativeReady ? "thiếu Tight Sprite manifest." : ""),
+                    MessageType.Warning);
+            else
+                EditorGUILayout.HelpBox(
+                    "Chưa có REF04 Study; có thể dựng bản riêng sau khi " +
+                    "kiểm tra dữ liệu P5/P6 ở bước 1.",
+                    MessageType.Info);
             using (new EditorGUI.DisabledScope(
-                !has3c || !nativeReady || hasStudy || EditorApplication.isPlaying))
+                !has3c || !nativeReady || hasAnyStudy || EditorApplication.isPlaying))
             {
                 if (GUILayout.Button("Dựng REF04 Study — từ Sprite nguồn"))
                     InvokeSafe(() =>
                     {
                         var doc = VerifyOfflineReport();
+                        Require(!AssetDatabase.LoadAssetAtPath<GameObject>(PreviewPrefab) &&
+                            !AssetDatabase.LoadAssetAtPath<SceneAsset>(PreviewScene),
+                            "Study đã tồn tại; từ chối ghi đè. Kiểm tra bước 4.");
                         Require(doc.counts.sourceGeometryVerified == 265 &&
                             doc.counts.sourceGeometryBlocked == 0,
                             "Chưa đủ 265 geometry gốc; không dựng từ trường thiếu proof");
@@ -386,7 +418,7 @@ namespace HaiTac.OfflineViewer.Editor
                     });
             }
             using (new EditorGUI.DisabledScope(
-                !hasStudy || EditorApplication.isPlaying))
+                !hasCompleteStudy || EditorApplication.isPlaying))
             {
                 if (GUILayout.Button("4. Kiểm tra Prefab REF04 đã dựng"))
                     InvokeSafe(() =>
