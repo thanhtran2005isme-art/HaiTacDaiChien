@@ -13,7 +13,12 @@ import json
 import math
 from pathlib import Path
 
-from report_ref04_png_rect_mismatch import analyze
+try:
+    # Direct invocation: python tools/report_ref04_source_atlas_offsets.py
+    from report_ref04_png_rect_mismatch import analyze
+except ModuleNotFoundError:
+    # importlib-based unit tests with repository root in sys.path
+    from tools.report_ref04_png_rect_mismatch import analyze
 
 ROOT = Path(__file__).resolve().parents[1]
 
