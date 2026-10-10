@@ -1,5 +1,12 @@
 # AI HANDOFF — Hải Tặc UI Viewer
 
+## REF04 P2/P3 — xác định nguyên nhân localizer và kiểm tra font nguồn (2026-10-10)
+
+- CI mới [#38056216654](https://github.com/thanhtran2005isme-art/HaiTacDaiChien/actions/runs/38056216654): **Linux decode SUCCESS, Windows SUCCESS**. P3 `I2.Loc.Localize` có 26/26 `BLOCKED_RAW_RIPPER_UNTRUSTED_STRING_LENGTH` (schema offset đọc chuỗi sai), `TextLocalizeChecker` có 26/26 `BLOCKED_SOURCE_SCHEMA_native_header_NO_MANAGED_NODES`. **0 term được hai backend xác minh**; không sửa parser theo kích thước/phép canh giả định. Xem `tools/probe_ref04_p3_localizer_binary.py` và unit test lý do chặn không lộ text.
+- Font PPtrs: hai object ngoài bundle đã được xác minh nguyên bản theo externals filename/PathID/type/SHA. `originalFontAssetIdentityFullyResolved=true` phản ánh đúng **source asset identity** khi local hoặc external được xác minh; `runtimeFontRenderingProven=false`. CI yêu cầu đúng **2/2** object nguồn.
+- P2 runtime công thức **chưa chứng minh** vì chưa có mapping method ownership độc lập/full ARM64 CFG cùng thiết bị safe area và Canvas runtime. P3 bản dịch/ngôn ngữ/font render cũng chưa chứng minh. PR #7 vẫn Draft và không đổi Unity UI.
+
+
 ## REF04 P2/P3 — rà soát cuối P3 Font identity và blockers (2026-10-10)
 
 - P3 đã đối chiếu 62/62 Text source fields và 2 Font PPtr nguồn. Bản sửa mới xác nhận **Font ngoài bundle** bằng bảng externals gốc, exact filename, PathID, type Font và source SHA-256; tổng hợp `originalFontAssetIdentityFullyResolved` giờ tính đủ cả Font trong hoặc ngoài bundle. CI gate mới yêu cầu **2/2 Font object source identity**, không nhận các pointer mồ côi hoặc target sai kiểu. Điều này **không chứng minh** Font nào được tải/render ở runtime.
