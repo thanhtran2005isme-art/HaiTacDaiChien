@@ -767,7 +767,11 @@ jobs:
           doc=json.loads(Path('output/ref04-p3-original-font-object-provenance.json').read_text(encoding='utf-8'))
           assert doc['classification']=='REF04_P3_LOCAL_FONT_OBJECT_PROVENANCE_NO_RUNTIME_RENDER'
           assert doc['originalFontPPtrReferences']==2
-          assert 0 <= doc['originalLocalFontRawObjectsVerified'] <= 2
+          assert doc['originalLocalFontRawObjectsVerified'] + doc['originalExternalFontObjectsVerified'] == 2
+          assert doc['originalFontAssetIdentityFullyResolved'] is True
+          assert all(x.get('localOriginalFontObjectVerified') is True or
+                     x.get('externalOriginalFontObjectVerified') is True
+                     for x in doc['pointerResolutions'])
           assert doc['runtimeFontRenderingProven'] is False
           assert doc['runtimeGlyphMetricsProven'] is False
           assert doc['unityAssetsChanged'] is False
