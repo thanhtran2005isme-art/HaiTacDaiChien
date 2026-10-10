@@ -23,6 +23,7 @@ LAYOUT_STATUS = "TWO_SOURCE_SCHEMAS_RAW_FIELDS_AND_OFFSETS_AGREE_NOT_IMPORTED"
 BACKENDS = ("AssetStudio", "AssetRipper")
 INPUTS = {
     "inventory": "ref04-full-source-inventory.json",
+    "step2": "ref04-step2-layout-canvas-text.json",
     "layout": "ref04-layout-schema-forensics.json",
     "p2": "ref04-p2-canvas-il2cpp-runtime-source.json",
     "p3": "ref04-p3-text-font-localization-source.json",
@@ -170,7 +171,7 @@ def layout_values(layout, components):
            "P1 field-level source coverage incomplete")
     return ledger
 
-def p2_components(p2, nodes, components):
+def p2_components(p2, step2, nodes, components):
     ensure(p2.get("classification") ==
            "REF04_P2_CANVAS_SAFEAREA_PANELHOME2_SOURCE_TRACE_NO_RUNTIME_FORMULA" and
            p2.get("sceneId") == SOURCE and
@@ -180,6 +181,22 @@ def p2_components(p2, nodes, components):
            p2.get("sourceFieldApplicationAllowed") is False and
            p2.get("unityAssetsChanged") is False,
            "P2 original Canvas runtime not proven")
+    ensure(step2.get("classification") ==
+           "REF04_SOURCE_LAYOUT_CANVAS_TEXT_STEP2_READ_ONLY" and
+           step2.get("sourceSerializedFile") == p2.get("originalSourceSerializedFile") and
+           step2.get("counts", {}).get("Canvas") == 1 and
+           step2.get("counts", {}).get("CanvasScaler") == 1 and
+           step2.get("counts", {}).get("SafeArea") == 6 and
+           step2.get("sourceFieldApplicationAllowed") is False and
+           step2.get("sourceRuntimeCanvasOrViewportProven") is False,
+           "Step2 independent Canvas/Scaler source identity")
+    source_by_id = {}
+    for cat in ("Canvas", "CanvasScaler", "SafeArea"):
+        for item in step2.get("componentsByCategory", {}).get(cat, []):
+            cid = item.get("componentPathId")
+            ensure(type(cid) is int and cid not in source_by_id,
+                   "duplicate Step2 original component PathID")
+            source_by_id[cid] = item
     rows = p2.get("sourceComponents")
     ensure(isinstance(rows, list), "P2 source component rows absent")
     counts = Counter(row.get("category") for row in rows)
@@ -205,6 +222,18 @@ def p2_components(p2, nodes, components):
                row.get("unityImportAllowed") is False and
                row.get("runtimeFormulaProven") is False,
                "P2 source owner/SHA or RectTransform ancestry not proven")
+        check = source_by_id.get(cid)
+        if row["category"] != "PanelHome2":
+            ensure(check is not None and
+                   check.get("originalObjectSha256") == row["originalObjectSha256"] and
+                   check.get("gameObjectPathId") == row["gameObjectPathId"] and
+                   check.get("rectTransformPathId") == row["rectTransformPathId"] and
+                   check.get("verifiedSerializedFields", {}) ==
+                       row.get("originalSerializedFieldEvidence", {}) and
+                   (row["category"] != "Canvas" or
+                    check.get("nativeCanvasFieldsExtracted", {}) ==
+                        row.get("originalNativeCanvasSubset", {})),
+                   "P2 original Canvas/Scaler serialized values differ from Step2")
         seen.add(cid)
         ledger.append({
             "kind": "ORIGINAL_CANVAS_SAFEAREA_PANEL_COMPONENT",
@@ -221,11 +250,12 @@ def p2_components(p2, nodes, components):
     return ledger
 
 def check_cross_phase(d):
-    inventory, layout, p2, p3, font, localizers, p4_doc = (
+    inventory, step2, layout, p2, p3, font, localizers, p4_doc = (
         d[k] for k in INPUTS)
     nodes, components = source_objects(inventory)
     reference = inventory["sourceSerializedFile"]
     ensure(all(d[k].get(key) == reference for k, key in (
+        ("step2", "sourceSerializedFile"),
         ("layout", "sourceSerializedFile"),
         ("p2", "originalSourceSerializedFile"),
         ("p3", "originalSourceSerializedFile"),
@@ -241,16 +271,39 @@ def check_cross_phase(d):
            p4_doc.get("originalIL2CPPSha256Pair", {}).get("libil2cppSha256") == expected_lib,
            "P1/P2/P4 exact source metadata + libil2cpp pair")
     p1_ledger = layout_values(layout, components)
-    p2_ledger = p2_components(p2, nodes, components)
+    p2_ledger = p2_components(p2, step2, nodes, components)
     # P4 is regenerated from original P3/Text/Font/Term reports, never trusted
     # merely because a previously generated JSON said "verified".
     regenerated = p4.build(p3, font, localizers)
     ensure(regenerated == p4_doc, "P4 Text/font/localizer report was changed or stale")
+    # Validate original localizer component identity independently of P3/P4
+    # grouping. Same-owner co-location remains a source *candidate*, not a
+    # verified binding to the displayed runtime Text.
+    for item in p3.get("sourceLocalizationComponentsEvidence", []):
+        component = components.get(item.get("componentPathId"))
+        ensure(component is not None and
+               component["rawSourceObjectSha256"] == item.get("originalObjectSha256") and
+               component["gameObjectPathId"] == item.get("gameObjectPathId") and
+               component["rectTransformPathId"] == item.get("rectTransformPathId") and
+               component.get("monoScriptClass") == item.get("sourceClass"),
+               "original I2 localization component owner/bytes mismatch")
+    step2_text = {item["componentPathId"]: item for item in
+                  step2.get("componentsByCategory", {}).get("Text", [])}
+    ensure(len(step2_text) == 62 and len(
+        step2.get("componentsByCategory", {}).get("Text", [])) == 62,
+        "Step2 original Text component inventory incomplete")
     text_ledger = []
     for row in p4_doc["sourceTextRows"]:
         cid = row["textComponentPathId"]
         original = components.get(cid)
+        step2_row = step2_text.get(cid)
         ensure(original is not None and
+               original.get("monoScriptClass") == "UnityEngine.UI.Text" and
+               step2_row is not None and
+               step2_row.get("originalObjectSha256") == original["rawSourceObjectSha256"] and
+               step2_row.get("textSourceFieldsTwoBackendsAgreed") ==
+                   next(item["originalTextSourceValues"] for item in
+                        p3["originalTextSourceEvidence"] if item["componentPathId"] == cid) and
                original["rawSourceObjectSha256"] == p3_text_sha(p3, cid) and
                original["gameObjectPathId"] == row["originalGameObjectPathId"] and
                original["rectTransformPathId"] == row["originalRectTransformPathId"],
