@@ -1,5 +1,14 @@
 # AI HANDOFF — Hải Tặc UI Viewer
 
+## REF04 P1 — kiểm chứng kép schema nguồn LayoutGroup (2026-10-10)
+
+- Đã thêm `tools/ref04_layout_dual_schema_bytes.py`: hai backend IL2CPP **AssetStudio + AssetRipper**, sinh TypeTree riêng từ cặp binary XAPK chính xác, được đọc lại bởi bộ `struct` độc lập trên **cùng original serialized MonoBehaviour**. Bằng chứng hợp lệ đòi hỏi full object byte consumption, đồng nhất từng source field name/type/value, offset, byte SHA, owner `GameObject`, `MonoScript`, native enabled, original raw-object hash và cùng IL2CPP SHA. Dùng chung một object schema cho cả hai backend bị chặn.
+- `tools/probe_ref04_layout_schema_forensics.py` nay xuất `independentSchemaRawSourceCheck` và tổng số `sourceFieldsVerifiedByTwoGeneratedSchemas` / `sourceFieldsMissingIndependentSchemaProof` với bất biến tổng **168**, đúng **24 LayoutGroup**. `tools/audit_ref04_step2_layout_canvas_text.py` xác minh lại chứng cứ theo mỗi Component PathID, raw span SHA, original field set trước khi công bố giá trị số lượng.
+- Nếu AssetRipper không thể tạo schema/strict raw parse: **0 giá trị ở object đó được tự nâng**, chi tiết ở `output/ref04-layout-schema-forensics.json` (ignored). CI xác minh nguồn XAPK thật + kiểm thử Linux/Windows; kết quả đầy đủ phải đọc từ Actions chạy tại HEAD mới.
+- **Bất kể 168 serialized fields có được hai backend công nhận hay không**, `unityImportAllowed=false`, `runtimeLayoutProven=false`, `sourceFieldApplicationAllowed=false`. Chưa được khôi phục runtime Canvas/Screen/SafeArea/PanelHome2/Text, chưa vẽ giao diện, chưa dựng nhân vật. Không gọi PASS trên CI là đã hoàn tất UI.
+- Lệnh phân tích tại máy có XAPK và output phase3b: `py -3 tools/probe_ref04_layout_schema_forensics.py` rồi `py -3 tools/audit_ref04_step2_layout_canvas_text.py`. Báo cáo riêng `output/` local; không commit binary/game metadata.
+
+
 ## REF04 P1 — raw serialized LayoutGroup offset reparse (2026-10-10)
 
 - Nhánh `fix/ref04-layout-schema-forensics`, PR #6 vẫn draft. Bộ đọc mới `tools/ref04_layout_raw_parser.py` đi byte raw trong object theo schema có nguồn từ IL2CPP AssetStudio, kiểm tra byte order, alignment, m_GameObject/m_Script/m_Enabled, source SHA, offset+hash của mỗi field mà strict source backend đọc được.
