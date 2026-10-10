@@ -1,5 +1,12 @@
 # REF04 P3 — Text, font và localization từ XAPK
 
+## Kết quả kiểm thử XAPK gốc và trạng thái P3
+
+[GitHub Actions #38051186270](https://github.com/thanhtran2005isme-art/HaiTacDaiChien/actions/runs/38051186270) xác nhận **62/62 original Text components**, **62/62 `m_Text` source fields**, **62/62 `m_Font` source pointers**, **52 original localization components** và **2 con trỏ Font khác nhau**. Đây là đếm các con trỏ nguồn, **chưa xác minh 2 Font asset đã được tải hoặc render**. Không công bố chuỗi game nguyên bản.
+
+P3 hiện phân biệt `sourceTextFieldsVerified` với `runtimeTextAndLocalizationProven`: thiếu bất kỳ `m_Text` hay `m_Font` thì đánh dấu riêng `BLOCKED` và giảm số đếm field, không bù mặc định. Các `m_Term/m_SecondaryTerm` của localizer chỉ được liệt kê tên field khi source đã được hai backend xác minh; **cùng GameObject không đủ chứng minh Text nhận translation term**. Tiếng/locale đang chọn, fallback, text động, metric font và vị trí runtime vẫn không xác minh được.
+
+
 ## Phạm vi
 
 P3 kiểm chứng **62 UnityEngine.UI.Text** và các component liên quan I2 localization trong cùng cây REF04, dựa trên original SerializedFile/Component PathID/SHA-256 và cặp IL2CPP v31 **trùng với P1/P2**. P3 **không** dựng UI Unity, không tự thay chuỗi, không tự gán font hay ngôn ngữ.
