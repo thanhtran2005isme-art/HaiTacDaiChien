@@ -80,6 +80,98 @@ namespace HaiTac.OfflineViewer.Editor
             public string spriteFile;
             public int verifiedImageType;
         }
+        [Serializable] private sealed class Verified3cPlan
+        {
+            public int verifiedComponents;
+            public int verifiedFieldValues;
+            public string classification;
+            public Verified3cScene[] scenes;
+        }
+        [Serializable] private sealed class Verified3cScene
+        {
+            public string sceneId;
+            public Verified3cComponent[] components;
+        }
+        [Serializable] private sealed class Verified3cComponent
+        {
+            public string className;
+            public int componentPathId;
+            public int rectTransformPathId;
+            public int gameObjectPathId;
+            public string rawObjectSha256;
+        }
+
+        // 265 source Image->Sprite pointers are NOT the entire 3C Image class:
+        // additional 3C Images may have no serialized Sprite reference. Never
+        // assert every source Image must be Sprite-bound or drop unbound Images.
+        private static Dictionary<int,Verified3cComponent> ExpectedAll3cImages(
+            string expectedPlanSha256)
+        {
+            string path=Path.Combine(Repo,"output","verified-ui-prefab-plan.json");
+            if(FileDigest(path)!=expectedPlanSha256)
+                throw new InvalidDataException(
+                    "Original 3C Image verification plan SHA256 differs.");
+            var plan=JsonUtility.FromJson<Verified3cPlan>(
+                File.ReadAllText(path,Encoding.UTF8));
+            if(plan==null ||
+                plan.classification!="TWO_BACKEND_STRICT_SOURCE_VERIFIED_UI_FIELDS" ||
+                plan.verifiedComponents!=1108 || plan.verifiedFieldValues!=7451 ||
+                plan.scenes==null)
+                throw new InvalidDataException(
+                    "Original 3C source Image component inventory not verified.");
+            var ref04=plan.scenes.Where(v=>v.sceneId==Id).ToArray();
+            if(ref04.Length!=1 || ref04[0].components==null)
+                throw new InvalidDataException("REF04 3C source scene missing.");
+            var list=ref04[0].components.Where(v=>
+                v.className=="UnityEngine.UI.Image").ToArray();
+            if(list.Length<265)
+                throw new InvalidDataException(
+                    "REF04 3C total Image count is smaller than 265 linked Sprites: "+
+                    list.Length);
+            return list.ToDictionary(v=>v.componentPathId);
+        }
+
+        private static Dictionary<int,ManagedUiSourceEvidence> Check3cImageEvidence(
+            GameObject prefab,Source original)
+        {
+            var expected=ExpectedAll3cImages(original.verifiedUiPlanSha256);
+            var actual=prefab.GetComponentsInChildren<ManagedUiSourceEvidence>(true)
+                .Where(n=>n.originalClassName=="UnityEngine.UI.Image")
+                .ToDictionary(n=>n.sourceMonoBehaviourPathId);
+            if(actual.Count!=expected.Count)
+                throw new InvalidDataException(
+                    "REF04 source 3C all-Image inventory mismatch (includes Image " +
+                    "components WITHOUT a Sprite): actual="+actual.Count+
+                    ", original plan="+expected.Count);
+            foreach(var record in expected)
+            {
+                if(!actual.TryGetValue(record.Key,out var note) ||
+                    note.sourceSceneId!=Id ||
+                    note.sourceGameObjectPathId!=record.Value.gameObjectPathId ||
+                    note.sourceRectTransformPathId!=record.Value.rectTransformPathId ||
+                    note.sourceObjectSha256!=record.Value.rawObjectSha256 ||
+                    !note.exactTwoBackendFieldAgreement ||
+                    note.GetComponent<Image>()==null)
+                    throw new InvalidDataException(
+                        "REF04 3C source Image evidence missing/mismatched for " +
+                        "Component PathID "+record.Key);
+            }
+            var seen=new HashSet<int>();
+            foreach(var image in original.images)
+                if(!seen.Add(image.componentPathId) ||
+                    !actual.TryGetValue(image.componentPathId,out var note) ||
+                    note.sourceGameObjectPathId!=image.gameObjectPathId ||
+                    note.sourceRectTransformPathId!=image.rectTransformPathId ||
+                    note.sourceObjectSha256!=image.sourceObjectSha256)
+                    throw new InvalidDataException(
+                        "REF04 265 exact Sprite-linked Image subset has " +
+                        "missing/mismatched Component PathID "+image.componentPathId);
+            if(seen.Count!=265)
+                throw new InvalidDataException(
+                    "REF04 265 source Sprite bindings are not unique.");
+            return actual;
+        }
+
         private static string Repo => Path.GetFullPath(
             Path.Combine(Application.dataPath, "..", ".."));
         private static string SourceFile(string file) => Path.Combine(
@@ -181,10 +273,12 @@ namespace HaiTac.OfflineViewer.Editor
                 changed<20 || changed>22 || copiedOwners.Count<45)
                 throw new InvalidDataException(
                     "REF04 source-derived Sprite/owner inventory unexpected.");
-            if (AssetDatabase.LoadAssetAtPath<GameObject>(Study)==null)
+            var source3c=AssetDatabase.LoadAssetAtPath<GameObject>(Study);
+            if (source3c==null)
                 throw new FileNotFoundException(
                     "Phase 3C original managed-field Study Prefab missing. " +
                     "Do not use an old 3E Preview as the source.");
+            Check3cImageEvidence(source3c,src);
             if (AssetDatabase.LoadAssetAtPath<GameObject>(NewPrefab)!=null ||
                 File.Exists(NewScene))
                 throw new IOException(
@@ -262,11 +356,10 @@ namespace HaiTac.OfflineViewer.Editor
             }
             if(go.GetComponent<GraphicRaycaster>()==null)
                 go.AddComponent<GraphicRaycaster>();
-            var notes=go.GetComponentsInChildren<ManagedUiSourceEvidence>(true)
-                .Where(n=>n.originalClassName=="UnityEngine.UI.Image")
-                .ToDictionary(n=>n.sourceMonoBehaviourPathId);
-            if(notes.Count!=265)
-                throw new InvalidDataException("REF04 3C Image inventory changed.");
+            // The full verified 3C Image inventory can be greater than 265.
+            // Validate ALL source Image identities, then bind only the 265
+            // Image components with exact original Sprite PPtrs.
+            var notes=Check3cImageEvidence(go,original);
             foreach(var item in original.images)
             {
                 if(!notes.TryGetValue(item.componentPathId,out var evidence) ||
