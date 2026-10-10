@@ -35,6 +35,10 @@ on:
       - 'tests/test_ref04_native_bounds_unity_contract.py'
       - 'tools/prepare_ref04_native_bounds_preview.py'
       - 'tools/audit_ref04_3c_image_inventory.py'
+      - 'tools/audit_ref04_full_source_inventory.py'
+      - 'tests/test_ref04_full_source_inventory.py'
+      - 'docs/XAPK_SOURCE_ONLY_UI_RULES.md'
+      - 'AGENTS.md'
       - 'tests/test_ref04_3c_image_inventory.py'
       - 'tests/test_ref04_static_ui_geometry.py'
       - 'tests/test_ref04_static_geometry_unity_contract.py'
@@ -357,6 +361,8 @@ jobs:
         run: python -m unittest discover -s tests -p test_ref04_native_bounds_unity_contract.py -v
       - name: Verify all 3C Image components vs exact Sprite-linked subset
         run: python -m unittest discover -s tests -p test_ref04_3c_image_inventory.py -v
+      - name: Verify REF04 strict full XAPK-source UI component inventory is read-only
+        run: python -m unittest discover -s tests -p test_ref04_full_source_inventory.py -v
 
       - name: Strict AssetStudio with exact Unity-version native header
         timeout-minutes: 10
@@ -465,6 +471,32 @@ jobs:
           assert r['source3cAllImageComponentCount']>=265
           assert r['source3cImageWithoutSpriteCount']==(r['source3cAllImageComponentCount']-265)
           print('STRICT REF04 3C Image source inventory:',r)
+          PY
+
+      - name: Inventory ALL REF04 candidate XAPK UI components with source-only policy
+        run: |
+          python tools/audit_ref04_full_source_inventory.py
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          r=json.loads(Path('output/ref04-full-source-inventory.json').read_text(encoding='utf-8'))
+          c=r['counts']
+          assert r['classification']=='REF04_ALL_SOURCE_CANDIDATE_UI_COMPONENT_INVENTORY_READ_ONLY'
+          assert r['sourceFieldApplicationAllowed'] is False
+          assert r['unityAssetsChanged'] is False
+          assert r['requiresMoreXapkDecoding'] is True
+          assert c['gameObjects']==503
+          assert c['allDualVerifiedImageComponents']==299
+          assert c['originalSpriteLinkedImages']==265
+          assert c['verifiedImagesWithoutSourceSprite']==34
+          assert c['referencedComponentIDs']==c['serializedComponentRecords']
+          assert len(r['gameObjects'])==c['gameObjects']
+          assert sum(len(n['components']) for n in r['gameObjects'])==c['serializedComponentRecords']
+          assert c['singlyVerifiedLayoutComponentsBlocked']>0
+          assert not r['root']['runtimeViewportProven']
+          assert Path('output/ref04-full-source-inventory.md').is_file()
+          print('REF04 strict FULL source-only evidence inventory:',c)
+          print('Unverified fields require further XAPK decoding. NO Canvas/UI guessed.')
           PY
 
       - name: Classify all REF04 XAPK native Sprite rectangles against exported PNG dimensions
@@ -601,6 +633,8 @@ jobs:
         run: python -m unittest discover -s tests -p test_ref04_native_bounds_unity_contract.py -v
       - name: Verify 3C all-Image inventory is not identical to Sprite PPtr set on Windows
         run: python -m unittest discover -s tests -p test_ref04_3c_image_inventory.py -v
+      - name: Verify all REF04 GameObject/component source inventory guards on Windows
+        run: python -m unittest discover -s tests -p test_ref04_full_source_inventory.py -v
       - name: Audit native MonoScript and managed UI source field IDs on Windows
         run: python tools/decode_xapk_ui_provenance.py
       - name: Require 5346 original component records in Windows deep audit
