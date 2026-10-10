@@ -49,6 +49,8 @@ def run(root=ROOT, dumper="il2cpp_dumper"):
         return {"classification":report["classification"],
                 "dumperExitCode":proc.returncode,
                 "sourceAddressCandidatesForManualReview":report["strictCandidateCount"],
+                "sanitizedScriptFormatCounts":report["sanitizedScriptFormatCounts"],
+                "candidateBlockerCounts":report["unresolvedCountByReason"],
                 "nativeMethodOwnershipProven":False,
                 "runtimeFormulaProven":False}
 
