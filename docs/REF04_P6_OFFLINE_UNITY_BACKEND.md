@@ -1,5 +1,17 @@
 # REF04 P6 — Phục dựng UI Unity offline, backend tự xây
 
+## Cập nhật trải nghiệm cửa sổ P6 — tự kiểm nguồn khi mở (2026-10-11)
+
+Trong ảnh người dùng chụp sau bản sửa trước: Unity **không có lỗi Console**, Prefab + Scene đã tồn tại, nhưng ô đầu vẫn ghi `Chưa kiểm tra dữ liệu P6 offline`. Lý do là phiên bản cũ khởi tạo ô trạng thái cố định; không tự chạy kiểm chứng cho đến khi bấm bước 1, và khi Unity domain reload trạng thái lại trở về dòng mặc định.
+
+Bản mới `Ref04P6OfflineWorkspace.OnEnable()` chạy `RefreshSourceStatus()` mỗi khi mở cửa sổ hoặc scripts nạp lại: kiểm toán hash báo cáo P5, source inventory, native Sprite geometry từ P6 private. Nếu hợp lệ, hiện **`P6 nguồn PASS: 265/265 geometry; 299 Image; 62 Text nguồn`**. Nếu không hợp lệ, hiện lỗi **cụ thể** (thiếu hash dạng phẳng, hoặc sai SHA từng báo cáo) và giữ nguyên source assets. Nút 1 đổi thành **Kiểm tra lại dữ liệu nguồn P5/P6 (chỉ đọc)**.
+
+Thông báo “đã có Prefab + Scene” bây giờ là **một dòng trạng thái trung tính tự xuống hàng**, vì tồn tại bản Study là điều bình thường, không phải lỗi. Nút Dựng vẫn khóa để bảo vệ bản cũ; **bước 4 kiểm tra thật Prefab**, **bước 5 mở Scene**. Nếu bước 4 báo lỗi, gửi **nguyên văn lỗi** để xác định đúng component/field; không xóa hoặc ghi đè prefab khi chưa rõ nguyên nhân.
+
+Chạy `git pull --ff-only origin feat/ref04-p2-canvas-il2cpp-runtime-trace`, `py -3 tools/ref04_p6_offline_ui_plan.py`, mở lại cửa sổ Unity. Mã còn cần máy người dùng xác nhận Editor thực tế; test tĩnh Python chỉ kiểm tra hợp đồng source.
+
+---
+
 ## P6.1 Unity screenshot triage — nút Dựng bị khóa (2026-10-11)
 
 Trong ảnh Unity thực tế, **3C source-study: có** và **Tight Sprite source manifest: có**. Nút **Dựng REF04 Study** mờ nhưng **Kiểm tra Prefab** và **Mở Scene** vẫn bật: theo source code, điều này xảy ra khi đã tồn tại ít nhất một trong hai asset `REF04-home-crew_NATIVE_BOUNDS_STUDY.prefab` hoặc `REF04-home-crew_NATIVE_BOUNDS_STUDY.unity`. **Không phải bằng chứng Unity đã biên dịch lỗi.**
