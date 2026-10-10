@@ -1,5 +1,8 @@
 # REF04 P6 — đo ảnh giao diện runtime trên Android (source-bound; chưa có UI formula)
 
+> **P6 được điều chỉnh theo mục tiêu thực tế:** game Hải Tặc Đại Chiến gốc đã ngừng dịch vụ; bản mới dùng **Unity UI + backend riêng**. **KHÔNG yêu cầu chạy APK, ADB hay đăng nhập server gốc.** Quy trình chính là [P6 phục dựng offline](REF04_P6_OFFLINE_UNITY_BACKEND.md) với `py -3 tools/ref04_p6_offline_ui_plan.py`. Tài liệu này chỉ mô tả **lựa chọn phụ** nếu bản Android cũ vẫn có thể chạy độc lập. Không cần chạy các lệnh bên dưới để xây UI mới.
+
+
 ## Phạm vi hiện thực
 
 P5 kiểm toán bản XAPK riêng tư đã PASS 10/10 unit test và kiểm kê 245 bản ghi nguồn, **không** phải bằng chứng tọa độ runtime. P6 còn đối chiếu trực tiếp SHA-256 của cặp `global-metadata.dat` / `libil2cpp.so` đọc lại từ XAPK với các SHA gốc trong P5; nếu không khớp sẽ dừng, không lấy ảnh của bản nguồn khác. P6 bổ sung quá trình chụp ảnh trên ứng dụng Android thật ở foreground, khóa SHA-256 ảnh PNG với cặp báo cáo P5/XAPK đang có trên cùng máy, rồi so pixel giữa bản gốc và bản dựng thử **trên đúng cùng một thiết bị và cùng kích thước ảnh**. Dữ liệu được giữ cục bộ trong thư mục Git-ignored `output/ref04-p6-runtime/`.
