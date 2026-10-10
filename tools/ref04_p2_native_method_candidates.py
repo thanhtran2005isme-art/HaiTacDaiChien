@@ -73,7 +73,7 @@ def source_script_candidates(doc, method_index, exe, binary):
             if not name.endswith(method):
                 continue
             prefix=name[:-len(method)]
-            if prefix.endswith(cls+"$"):
+            if prefix.endswith(cls+"$$"):
                 separators["CLASS_DOUBLE_DOLLAR"]+=1
             elif prefix.endswith(cls+"__"):
                 separators["CLASS_DOUBLE_UNDERSCORE"]+=1
@@ -99,7 +99,7 @@ def source_script_candidates(doc, method_index, exe, binary):
             tail=name[at+len(cls):]
             if not tail:
                 patterns["CLASS_END"]+=1
-            elif tail.startswith("$"):
+            elif tail.startswith("$$"):
                 patterns["CLASS_THEN_DOUBLE_DOLLAR"]+=1
             elif tail.startswith("::"):
                 patterns["CLASS_THEN_SCOPE"]+=1
@@ -127,7 +127,7 @@ def source_script_candidates(doc, method_index, exe, binary):
                         method_matches["TARGET_METHOD_NAME_APPEARS_AFTER_CLASS"]+=1
                     if (len(tail)>=len(method)+2 and method in tail and
                         any(tail.startswith(delim+method) for delim in
-                            ("$","::","__","_","."))):
+                            ("$$","::","__","_","."))):
                         method_matches["TARGET_METHOD_PREFIX_AFTER_CLASS"]+=1
     output_stats.update({"scriptClassShape_"+key:value
                          for key,value in sorted(patterns.items())})
