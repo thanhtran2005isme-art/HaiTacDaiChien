@@ -324,6 +324,128 @@ namespace HaiTac.OfflineViewer.Editor
                 throw new IOException("Cannot save REF04 NativeBounds study scene.");
         }
 
+
+        private static void AuditSaved()
+        {
+            var source=AssetDatabase.LoadAssetAtPath<GameObject>(Study);
+            var preview=AssetDatabase.LoadAssetAtPath<GameObject>(NewPrefab);
+            if(source==null || preview==null ||
+                AssetDatabase.LoadAssetAtPath<SceneAsset>(NewScene)==null)
+                throw new FileNotFoundException("New REF04 source Tight Sprite study missing.");
+            var proof=JsonUtility.FromJson<Source>(
+                File.ReadAllText(NativeGeometryPath,Encoding.UTF8));
+            var plan=JsonUtility.FromJson<Plan>(
+                File.ReadAllText(NativePlanPath,Encoding.UTF8));
+            if(proof==null || plan==null || proof.images==null ||
+                proof.images.Length!=265 || plan.sprites==null ||
+                plan.nativeGeometryManifestFileSha256!=FileDigest(NativeGeometryPath))
+                throw new InvalidDataException("Native Sprite source proof was modified.");
+            var byFile=plan.sprites.ToDictionary(x=>x.spriteFile);
+            var sourceNotes=source.GetComponentsInChildren<ManagedUiSourceEvidence>(true)
+                .ToDictionary(n=>n.sourceMonoBehaviourPathId);
+            var copiedNotes=preview.GetComponentsInChildren<ManagedUiSourceEvidence>(true)
+                .ToDictionary(n=>n.sourceMonoBehaviourPathId);
+            if(sourceNotes.Count!=copiedNotes.Count)
+                throw new InvalidDataException("Source-managed component inventory changed.");
+            foreach(var sourceEntry in sourceNotes)
+            {
+                if(!copiedNotes.TryGetValue(sourceEntry.Key,out var copy) ||
+                    copy.sourceObjectSha256!=sourceEntry.Value.sourceObjectSha256 ||
+                    copy.sourceRectTransformPathId!=
+                        sourceEntry.Value.sourceRectTransformPathId ||
+                    copy.sourceGameObjectPathId!=
+                        sourceEntry.Value.sourceGameObjectPathId ||
+                    copy.originalClassName!=sourceEntry.Value.originalClassName)
+                    throw new InvalidDataException(
+                        "Original 3C source-managed component identity changed.");
+            }
+            var sourceRects=source.GetComponentsInChildren<OriginalSerializedEvidence>(true)
+                .ToDictionary(n=>n.rectTransformPathId);
+            var copiedRects=preview.GetComponentsInChildren<OriginalSerializedEvidence>(true)
+                .ToDictionary(n=>n.rectTransformPathId);
+            if(sourceRects.Count!=copiedRects.Count)
+                throw new InvalidDataException(
+                    "Original 3C RectTransform/child inventory changed.");
+            int rootId=source.GetComponent<OriginalSerializedEvidence>().rectTransformPathId;
+            foreach(var item in sourceRects)
+            {
+                if(!copiedRects.TryGetValue(item.Key,out var other) ||
+                    other.gameObjectPathId!=item.Value.gameObjectPathId)
+                    throw new InvalidDataException("Original RectTransform owner missing.");
+                if(item.Key==rootId) continue; // ONLY preview root may be normalized
+                var a=item.Value.GetComponent<RectTransform>();
+                var b=other.GetComponent<RectTransform>();
+                if(a==null || b==null ||
+                    Vector2.Distance(a.anchorMin,b.anchorMin)>.0001f ||
+                    Vector2.Distance(a.anchorMax,b.anchorMax)>.0001f ||
+                    Vector2.Distance(a.pivot,b.pivot)>.0001f ||
+                    Vector2.Distance(a.sizeDelta,b.sizeDelta)>.0001f ||
+                    Vector2.Distance(a.anchoredPosition,b.anchoredPosition)>.0001f ||
+                    Vector3.Distance(a.localScale,b.localScale)>.0001f ||
+                    Quaternion.Angle(a.localRotation,b.localRotation)>.01f ||
+                    a.GetSiblingIndex()!=b.GetSiblingIndex() ||
+                    a.gameObject.activeSelf!=b.gameObject.activeSelf)
+                    throw new InvalidDataException(
+                        "Original REF04 child source RectTransform/sibling changed: "+
+                        item.Key);
+            }
+            int previewSpriteOwners=0;
+            foreach(var item in proof.images)
+            {
+                if(!byFile.TryGetValue(item.spriteFile,out var native) ||
+                    !sourceNotes.TryGetValue(item.componentPathId,out var a) ||
+                    !copiedNotes.TryGetValue(item.componentPathId,out var b) ||
+                    a.sourceObjectSha256!=item.sourceObjectSha256 ||
+                    b.sourceObjectSha256!=item.sourceObjectSha256)
+                    throw new InvalidDataException(
+                        "Source original REF04 Image owner changed.");
+                var original=a.GetComponent<Image>();
+                var rendered=b.GetComponent<Image>();
+                if(original==null || rendered==null ||
+                    (int)rendered.type!=item.verifiedImageType ||
+                    rendered.type!=original.type ||
+                    rendered.preserveAspect!=original.preserveAspect ||
+                    rendered.fillMethod!=original.fillMethod ||
+                    rendered.fillOrigin!=original.fillOrigin ||
+                    Mathf.Abs(rendered.fillAmount-original.fillAmount)>.0001f ||
+                    rendered.fillClockwise!=original.fillClockwise ||
+                    Vector4.Distance(rendered.color,original.color)>.0001f ||
+                    rendered.enabled!=original.enabled)
+                    throw new InvalidDataException(
+                        "Original cross-verified Image fields changed: "+
+                        item.componentPathId);
+                string path=native.status==PreviewStatus ?
+                    PreviewSpritePath(item.spriteFile) :
+                    SourceSpritePath(item.spriteFile);
+                if(AssetDatabase.GetAssetPath(rendered.sprite)!=path)
+                    throw new InvalidDataException(
+                        "Original Image Sprite filename binding modified: "+
+                        item.componentPathId);
+                if(native.status==PreviewStatus)
+                    previewSpriteOwners++;
+            }
+            if(previewSpriteOwners<45 || previewSpriteOwners>53)
+                throw new InvalidDataException("Unexpected native Sprite preview owner count.");
+            Debug.Log("[REF04 NATIVE BOUNDS STUDY] AUDIT PASS: 265 exact " +
+                "original Image IDs, " + previewSpriteOwners +
+                " native-offset preview Sprite Image owners, all non-root " +
+                "source RectTransforms/sibling indices intact, source Image " +
+                "fields identical to original 3C. Runtime visual fidelity " +
+                "and full HUD/Text/Spine NOT proven.");
+        }
+
+        [MenuItem("Tools/HaiTac Offline UI Viewer/Source XAPK/REF04 - Audit source Tight Sprite bounds UI study")]
+        public static void Audit()
+        {
+            try { AuditSaved(); }
+            catch(Exception exc)
+            {
+                Debug.LogException(exc);
+                EditorUtility.DisplayDialog("REF04 native Sprite UI audit FAILED",
+                    exc.GetBaseException().Message,"OK");
+            }
+        }
+
         [MenuItem("Tools/HaiTac Offline UI Viewer/Source XAPK/REF04 - Build source Tight Sprite bounds UI study")]
         public static void Build()
         {
@@ -346,6 +468,7 @@ namespace HaiTac.OfflineViewer.Editor
                 created.Add(NewScene);
                 BuildContent(evidence.Item1,evidence.Item2,evidence.Item3);
                 AssetDatabase.SaveAssets();
+                AuditSaved(); // Fail closed and roll back only NEW study outputs.
                 Debug.Log("[REF04 NATIVE BOUNDS STUDY] BUILD PASS: " +
                     evidence.Item3.Values.Count(x=>x.status==PreviewStatus) +
                     " source-offset reconstructed Tight Sprite COPIES; " +
