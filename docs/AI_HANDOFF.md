@@ -5,7 +5,7 @@
 - Nhánh `fix/ref04-layout-schema-forensics`, PR #6 vẫn draft. Bộ đọc mới `tools/ref04_layout_raw_parser.py` đi byte raw trong object theo schema có nguồn từ IL2CPP AssetStudio, kiểm tra byte order, alignment, m_GameObject/m_Script/m_Enabled, source SHA, offset+hash của mỗi field mà strict source backend đọc được.
 - Báo cáo `output/ref04-layout-schema-forensics.json` bổ sung `rawByteReparseCounts` và trạng thái từng component; `tools/audit_ref04_step2_layout_canvas_text.py` liên kết tới mỗi original LayoutGroup PathID. Tất cả báo cáo ở local/ignored.
 - **Cảnh báo:** phương pháp độc lập về *đọc lại bytes*, không độc lập về *sinh schema*. Không tự nâng 168 fields từ BLOCKED; không xem offset suy ra theo AssetStudio là bằng chứng nguyên bản đủ để dựng UI. Canvas runtime, SafeAreaAdapter, PanelHome2 và Text localization vẫn cần giải mã thêm.
-- CI Linux/Windows tại HEAD của nhánh đang được kiểm tra; không ghi PASS trước khi GitHub Actions báo kết quả.
+- **CI đã PASS** tại code commit `33d879c0aea41672ff830ede779f43fff8141bd9`: Linux decode real XAPK + Windows regression tests, [run 38044547014](https://github.com/thanhtran2005isme-art/HaiTacDaiChien/actions/runs/38044547014). Điều này xác nhận pipeline và guard, **không xác nhận rằng 168 field đã có schema độc lập**.
 
 
 ## REF04 — bổ sung đối chiếu schema LayoutGroup từ XAPK (2026-10-10)
