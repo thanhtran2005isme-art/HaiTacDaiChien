@@ -53,6 +53,30 @@ class IndependentOriginalLayoutGroupFields(unittest.TestCase):
                          "BLOCKED_SHARED_SCHEMA_OBJECT_NOT_INDEPENDENT")
         self.assertEqual(result["sourceFieldsIndependentlyVerified"], 0)
 
+    def test_asset_ripper_fixed_size_rectoffset_leaf_matches_original_bytes(self):
+        reader, row, studio, ripper, fields = example()
+        # Independent AssetRipper schema can represent RectOffset as a 16-byte
+        # leaf rather than AssetStudio's four child nodes.
+        leaf = rawfixture.node("m_Padding", "RectOffset")
+        leaf.m_ByteSize = 16
+        ripper.m_Children[3] = leaf
+        evidence = dual.strict_raw_schema_agreement(
+            reader, row, {"AssetStudio": studio, "AssetRipper": ripper}, fields)
+        self.assertEqual(evidence["status"], dual.SUCCESS)
+        self.assertEqual(evidence["sourceFieldsIndependentlyVerified"], 7)
+        self.assertEqual(evidence["backendEvidence"]["AssetStudio"]["sourceFieldByteSpans"],
+                         evidence["backendEvidence"]["AssetRipper"]["sourceFieldByteSpans"])
+
+    def test_rectoffset_size_not_16_is_blocked_without_guessing(self):
+        reader, row, studio, ripper, fields = example()
+        leaf = rawfixture.node("m_Padding", "RectOffset")
+        leaf.m_ByteSize = 12
+        ripper.m_Children[3] = leaf
+        evidence = dual.strict_raw_schema_agreement(
+            reader, row, {"AssetStudio": studio, "AssetRipper": ripper}, fields)
+        self.assertEqual(evidence["status"], "BLOCKED_INDEPENDENT_SCHEMA_RAW_PARSE")
+        self.assertEqual(evidence["sourceFieldsIndependentlyVerified"], 0)
+
     def test_missing_backend_is_blocked_without_partial_promotion(self):
         reader, row, studio, _, fields = example()
         result = dual.strict_raw_schema_agreement(
