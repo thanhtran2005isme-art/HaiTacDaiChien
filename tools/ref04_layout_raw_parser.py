@@ -82,6 +82,16 @@ class Cursor:
         start = self.pos
         if typ in PRIMITIVES and not children:
             value = self.scalar(*PRIMITIVES[typ])
+        elif typ == "RectOffset" and not children:
+            # AssetRipper may emit RectOffset as a *fixed-size leaf*. Only
+            # decode when its independent source-derived TypeTree itself says
+            # exactly 16 bytes. Never infer variable size or substitute a
+            # missing field from AssetStudio. Full-object and per-field byte
+            # comparison are still mandatory at the caller.
+            if getattr(node, "m_ByteSize", None) != 16:
+                raise RawWalkBlocked("RectOffset source schema byte size not 16")
+            value = {key: self.scalar("i", 4)
+                     for key in ("m_Left", "m_Right", "m_Top", "m_Bottom")}
         elif typ == "string":
             length = self.scalar("i", 4)
             if length < 0 or length > MAX_BYTES:
