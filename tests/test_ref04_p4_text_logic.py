@@ -94,6 +94,18 @@ def fixture():
         "unityImportAllowed": False,
         "originalTextSourceEvidence": text,
         "sourceLocalizationComponentsEvidence": local,
+        "localizationMethodDeclarations": [{
+            "className": "TextLocalizeChecker", "namespace": "",
+            "typeDefinitionIndex": 42, "methodCount": 2,
+            "nativeMethodAddressResolved": False, "runtimeExpressionProven": False,
+            "methods": [
+                {"name": "OnLocalize", "methodDefinitionIndex": 100,
+                 "declaringTypeIndex": 42, "methodToken": "0x06000064",
+                 "nativeAddress": None, "methodBodyVerified": False},
+                {"name": "Awake", "methodDefinitionIndex": 101,
+                 "declaringTypeIndex": 42, "methodToken": "0x06000065",
+                 "nativeAddress": None, "methodBodyVerified": False},
+            ]}],
     }
     font_proof = {
         "classification": p4.FONT_CLASS,
@@ -135,6 +147,11 @@ class TextP4SourceChecks(unittest.TestCase):
                           for row in report["originalFontUsage"]], [31,31])
         self.assertIsNone(report["originalFontUsage"][0]["runtimeFontLoaded"])
         self.assertFalse(report["runtimeTextLogicRecovered"])
+        hint = report["sourceIL2CPPMethodDeclarationHints"]
+        self.assertEqual(hint["sourceMethodDeclarationCount"], 2)
+        self.assertEqual(len(hint["sourceNameOnlyTextOrLocaleCandidates"]), 1)
+        self.assertFalse(hint["sourceNameOnlyTextOrLocaleCandidates"][0]["runtimeTextFieldWriteProven"])
+        self.assertEqual(hint["verifiedNativeFieldWriters"], 0)
         self.assertFalse(report["originalTextStringsPublished"])
         self.assertFalse(report["unityImportAllowed"])
 
@@ -201,6 +218,20 @@ class TextP4SourceChecks(unittest.TestCase):
         self.assertEqual(report["sourceTermFieldsIndependentlyVerified"], 1)
         self.assertEqual(report["runtimeLocalizedAssignmentsIndependentlyProven"], 0)
         self.assertIsNone(report["runtimeLocale"])
+
+    def test_untrusted_il2cpp_method_owner_or_native_claim_blocks(self):
+        p3, fonts, terms = fixture()
+        p3["localizationMethodDeclarations"][0]["methods"][0]["nativeAddress"] = 0x10000
+        with self.assertRaisesRegex(ValueError, "method index"):
+            p4.build(p3, fonts, terms)
+        p3, fonts, terms = fixture()
+        p3["localizationMethodDeclarations"][0]["methods"][0]["declaringTypeIndex"] = 999
+        with self.assertRaisesRegex(ValueError, "method index"):
+            p4.build(p3, fonts, terms)
+        p3, fonts, terms = fixture()
+        p3["localizationMethodDeclarations"][0]["methods"][1]["methodDefinitionIndex"] = 100
+        with self.assertRaisesRegex(ValueError, "method index"):
+            p4.build(p3, fonts, terms)
 
     def test_wrong_il2cpp_pair_or_faked_runtime_proof_blocks(self):
         p3, fonts, terms = fixture()
