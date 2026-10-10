@@ -18,6 +18,34 @@ BACKENDS = ("AssetStudio", "AssetRipper")
 SUCCESS = "TWO_SOURCE_SCHEMAS_RAW_FIELDS_AND_OFFSETS_AGREE_NOT_IMPORTED"
 
 
+def source_safe_raw_failure(exc):
+    """Stable reason categories only; never publish game bytes or field values."""
+    text = str(exc)
+    hints = (
+        ("Raw parser did not consume exact source object bytes", "TRAILING_OBJECT_BYTES"),
+        ("Serialized object ended before schema field", "SCHEMA_OVERRUN"),
+        ("Raw field differs from original strict source", "FIELD_VALUE_OR_TYPE_CONFLICT"),
+        ("Unrecognized source field type", "UNSUPPORTED_SOURCE_TYPE"),
+        ("Source schema field consumed no bytes", "EMPTY_SOURCE_NODE"),
+        ("Serialized object invalid or oversized", "OBJECT_SIZE"),
+        ("Original serialized byte order unknown", "SOURCE_ENDIAN"),
+        ("Original source byte order unavailable", "SOURCE_ENDIAN"),
+        ("Source GameObject/MonoScript/native state changed", "SOURCE_POINTER"),
+        ("Source managed field missing in raw replay", "FIELD_MISSING"),
+        ("Raw replay changed original object hash", "RAW_SHA"),
+        ("Incomplete source raw field span accounting", "FIELD_SPAN_INCOMPLETE"),
+        ("Source string byte length invalid", "SOURCE_STRING_LENGTH"),
+        ("Source array element count invalid", "SOURCE_ARRAY_LENGTH"),
+        ("TypeTree depth/node budget exceeded", "TYPE_TREE_DEPTH"),
+        ("Unsupported source array schema", "UNSUPPORTED_ARRAY_SCHEMA"),
+        ("Ambiguous duplicate source schema field", "DUPLICATE_SCHEMA_FIELD"),
+    )
+    for msg, category in hints:
+        if msg in text:
+            return category
+    return "OTHER_" + type(exc).__name__
+
+
 def validate_header(parsed, source):
     head = parsed["nativeHeader"]
     ptr = source["scriptPointer"]
@@ -65,7 +93,8 @@ def strict_raw_schema_agreement(reader, source, schemas, expected):
                 raise raw.RawWalkBlocked("Raw replay changed original object hash")
         except (raw.RawWalkBlocked, ValueError, TypeError, KeyError) as exc:
             result["backendEvidence"][backend] = {
-                "status": "BLOCKED_RAW_OBJECT_" + type(exc).__name__}
+                "status": "BLOCKED_RAW_OBJECT_" + type(exc).__name__,
+                "failureCategory": source_safe_raw_failure(exc)}
             result["status"] = "BLOCKED_INDEPENDENT_SCHEMA_RAW_PARSE"
             continue
         probes[backend] = detail
