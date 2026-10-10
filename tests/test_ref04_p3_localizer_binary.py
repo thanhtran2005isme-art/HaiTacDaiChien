@@ -25,6 +25,24 @@ class LocalizerBinaryChecks(unittest.TestCase):
         self.assertEqual(status,"BLOCKED_SOURCE_TERM_HASH_OR_FIELD_CONFLICT")
         self.assertEqual(payload,{})
 
+    def test_full_source_raw_ripper_reparse_can_agree_without_unitypy_values(self):
+        src={"mTerm":{"originalUtf8Sha256":"a"*64,"originalByteLength":8}}
+        status,fields=probe.compare_two(
+            ("STRICT_SOURCE_PARSED_SOURCE_TERM_KEYS_UNVERIFIED_RUNTIME",src),
+            ("STRICT_RIPPER_RAW_SOURCE_FULL_OBJECT_TERM_HASH_ONLY",dict(src)))
+        self.assertEqual(status,
+                         "DUAL_SCHEMA_RIPPER_RAW_REPARSED_LOCALIZER_TERMS_SOURCE_ONLY")
+        self.assertEqual(fields,src)
+
+    def test_raw_ripper_source_term_hash_conflict_stays_blocked(self):
+        src={"mTerm":{"originalUtf8Sha256":"a"*64,"originalByteLength":8}}
+        other={"mTerm":{"originalUtf8Sha256":"b"*64,"originalByteLength":8}}
+        status,fields=probe.compare_two(
+            ("STRICT_SOURCE_PARSED_SOURCE_TERM_KEYS_UNVERIFIED_RUNTIME",src),
+            ("STRICT_RIPPER_RAW_SOURCE_FULL_OBJECT_TERM_HASH_ONLY",other))
+        self.assertEqual(status,"BLOCKED_SOURCE_TERM_HASH_OR_FIELD_CONFLICT")
+        self.assertEqual(fields,{})
+
     def test_zero_recovered_terms_is_not_runtime_translation(self):
         status,payload=probe.compare_two((OK,{}),(OK,{}))
         self.assertEqual(status,"DUAL_BACKEND_LOCALIZER_TERMS_SOURCE_ONLY")
