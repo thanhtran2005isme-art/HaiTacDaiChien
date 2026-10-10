@@ -111,6 +111,14 @@ def source_script_candidates(doc, method_index, exe, binary):
                 patterns["CLASS_THEN_DOT"]+=1
             else:
                 patterns["CLASS_THEN_OTHER"]+=1
+                # Unicode/ASCII codepoint only, never symbol or game text.
+                char=tail[0]
+                if ord(char)<128 and not char.isalnum():
+                    patterns["OTHER_NEXT_ASCII_HEX_"+format(ord(char),"02X")]+=1
+                elif char.isalnum():
+                    patterns["OTHER_NEXT_ALPHANUMERIC"]+=1
+                else:
+                    patterns["OTHER_NEXT_NON_ASCII"]+=1
             if cls in {k for k,_ in class_method_pairs}:
                 for class_name,method in class_method_pairs:
                     if class_name != cls or not method:
