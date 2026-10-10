@@ -1,5 +1,14 @@
 # REF04 P2 — Canvas, SafeAreaAdapter, PanelHome2 from source IL2CPP
 
+## Bổ sung P2/P3 SafeAreaAdapter & PanelHome2 source graph (10/10/2026)
+
+- `tools/ref04_p2_canvas_graph.py` được gọi từ `audit_ref04_p2_runtime_alignment.py` sau kiểm tra danh tính component và pointer chain nguồn. Báo cáo `sourceCanvasGraph` phân loại **Canvas/CanvasScaler có cùng original GameObject hay không**, khoảng cách ancestor tính theo cạnh RectTransform, quan hệ có SafeAreaAdapter/PanelHome2 cùng ancestor và tình trạng parent pointer bị chặn. Các boolean này xác nhận **quan hệ serialized**, không cho phép nội suy runtime Canvas scale, scale mode hoặc vị trí.
+- `tests/test_ref04_p2_canvas_graph.py` kiểm tra co-location, thứ tự parent, ngoại lệ khi parent external, cycle, component trùng ID, và bác bỏ runtime giả.
+- `tools/ref04_p2_arm64_candidate_census.py` ghi direct ARM64 branch immediate khi opcode và immediate được Capstone phân tích từ đúng original ELF executable; nếu không kiểm chứng được đích thì gắn nhãn BLOCKED. Đây vẫn là **bounded entrypoint graph candidates**, không phải full call graph: `independentMethodCallEdgesProven=0`, `runtimeAlignmentFormula=null`.
+- Công việc được người dùng gọi là **P3 SafeAreaAdapter/PanelHome2** ở đây là bước tiếp nối P2 về căn chỉnh, **khác với P3 Text/Font/Localization** đang có trong `REF04_P3_TEXT_FONT_LOCALIZATION_SOURCE.md`. Không trộn hai bộ bằng chứng.
+- Để khôi phục công thức thật phải tiếp tục xác minh code-registration pointer → full CFG ARM64 → field writes/branch predicates/call flow, rồi đối chứng với Screen.safeArea và CanvasScale tại runtime thật. **Chưa thể tuyên bố đã khôi phục công thức từ những commit này.**
+
+
 ## P2 — Kết quả ARM64 trên XAPK thật (10/10/2026)
 
 - [CI native #38053686338](https://github.com/thanhtran2005isme-art/HaiTacDaiChien/actions/runs/38053686338): từ 204 method declarations trong metadata v31 của nhóm Canvas, SafeAreaAdapter và PanelHome2 liên quan, decoder giải **strict Itanium ABI nested name** rồi đối chiếu ELF AArch64/file-backed SHA; tìm được **185 candidate method addresses**, còn **19 method definitions chưa ghép được**. Đây là ứng viên được kiểm tra byte nguồn, **không phải chứng cứ độc lập về code-registration method ownership**.
