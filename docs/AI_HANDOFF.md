@@ -1,5 +1,13 @@
 # AI HANDOFF — Hải Tặc UI Viewer
 
+## Tiếp tục PR #7 — source Canvas graph và native branch candidates (2026-10-10)
+
+- Từ nguyên gốc source-only P2, thêm `tools/ref04_p2_canvas_graph.py` và `tests/test_ref04_p2_canvas_graph.py`: báo cáo Canvas, CanvasScaler cùng GameObject hay không, các quan hệ RectTransform nguồn của 6 SafeAreaAdapter và PanelHome2, vị trí Canvas ancestor theo đúng pointer chain. Mối quan hệ **chỉ là serialized/source**, không phải runtime viewport hoặc scale.
+- Bổ sung thu thập direct branch immediate trong 256 byte ARM64 entry candidate; từng nhánh phải trỏ vào original ELF file-backed executable mới được gắn nhãn `SOURCE_EXECUTABLE_TARGET_CANDIDATE`. **Không** xem đó là native method ownership, đầy đủ CFG, hay công thức căn chỉnh.
+- CI được bổ sung P2 source-graph tests Linux/Windows và kiểm tra `independentMethodCallEdgesProven=0`. Những số liệu trước đó (185/204 candidates, 168/168 LayoutGroup) không bị đổi thành chứng cứ runtime.
+- Còn thiếu: độc lập map MethodDefinitionIndex → Il2CppCodeRegistration methodPointers, full ARM64 CFG và các lần ghi RectTransform/CanvasScaler, cùng runtime Screen.safeArea + device viewport để kiểm chứng công thức. **P2 runtime và P3 SafeAreaAdapter/PanelHome2 formula chưa hoàn thành; PR #7 vẫn Draft.** Các thay đổi chỉ trong branch #7, không nhập Unity/UI; chưa có kết quả CI mới xác nhận cho những commit bổ sung.
+
+
 ## REF04 P2/P3 — xác định nguyên nhân localizer và kiểm tra font nguồn (2026-10-10)
 
 - CI mới [#38056216654](https://github.com/thanhtran2005isme-art/HaiTacDaiChien/actions/runs/38056216654): **Linux decode SUCCESS, Windows SUCCESS**. P3 `I2.Loc.Localize` có 26/26 `BLOCKED_RAW_RIPPER_UNTRUSTED_STRING_LENGTH` (schema offset đọc chuỗi sai), `TextLocalizeChecker` có 26/26 `BLOCKED_SOURCE_SCHEMA_native_header_NO_MANAGED_NODES`. **0 term được hai backend xác minh**; không sửa parser theo kích thước/phép canh giả định. Xem `tools/probe_ref04_p3_localizer_binary.py` và unit test lý do chặn không lộ text.
