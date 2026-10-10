@@ -1,0 +1,51 @@
+name: REF04 optional native IL2CPP v31 source address candidates
+
+on:
+  push:
+    paths:
+      - '.github/workflows/ref04-p2-native-probe.yml'
+      - 'tools/ref04_p2_native_method_candidates.py'
+      - 'tools/run_ref04_p2_native_dumper.py'
+      - 'tools/ref04_arm64_elf_regions.py'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  original-native-candidate-source:
+    runs-on: ubuntu-latest
+    timeout-minutes: 19
+    continue-on-error: true
+    steps:
+      - name: Checkout exact XAPK LFS source without persisting credentials
+        uses: actions/checkout@v4
+        with:
+          lfs: true
+          persist-credentials: false
+      - name: Python for source-proof scripts
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install pinned IL2CPP metadata-v31-capable source dumper
+        run: cargo install il2cpp_dumper --version 0.7.0 --locked
+      - name: Probe real libil2cpp.so and metadata source; no game data uploads
+        timeout-minutes: 6
+        run: |
+          python tools/run_ref04_p2_native_dumper.py
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          p=Path('output/ref04-p2-native-code-address-candidates.json')
+          if p.is_file():
+              d=json.loads(p.read_text(encoding='utf-8'))
+              assert d['runtimeFormulaRecovered'] is False
+              assert d['nativeCodeMethodOwnershipVerified'] is False
+              assert d['sourceFieldApplicationAllowed'] is False
+              assert d['unityAssetsChanged'] is False
+              print('Source method address candidates (NOT formulas):',d['strictCandidateCount'])
+          else:
+              print('BLOCKED: original native method pointer candidates not recovered')
+          PY
+      - name: Check branch source untouched and do not upload binaries
+        run: git status --short
