@@ -150,6 +150,7 @@ namespace HaiTac.OfflineViewer.Editor
 
             var byScene = fields.scenes.ToDictionary(s => s.sceneId);
             var ids = new HashSet<string>();
+            var verifiedSpriteFiles = new HashSet<string>(StringComparer.Ordinal);
             int sprites = 0;
             foreach (var scene in visual.scenes)
             {
@@ -177,6 +178,18 @@ namespace HaiTac.OfflineViewer.Editor
                         throw new FileNotFoundException(
                             "Source Sprite not imported locally: " + b.spriteFile +
                             ". First run Reconstruct 5 local Canvas prefabs.");
+                    if (verifiedSpriteFiles.Add(b.spriteFile))
+                    {
+                        string sourceImage = Path.Combine(RepoRoot, "output",
+                            "local-ui-art", b.spriteFile);
+                        string importedImage = Path.Combine(Application.dataPath,
+                            "LocalReconstruction", "Sprites", b.spriteFile);
+                        if (!File.Exists(sourceImage) || !File.Exists(importedImage) ||
+                            Digest(File.ReadAllBytes(sourceImage)) !=
+                                Digest(File.ReadAllBytes(importedImage)))
+                            throw new InvalidDataException(
+                                "Imported Sprite PNG bytes differ from exact XAPK export.");
+                    }
                     sprites++;
                 }
                 if (AssetDatabase.LoadAssetAtPath<GameObject>(SourcePrefab(scene.sceneId))
