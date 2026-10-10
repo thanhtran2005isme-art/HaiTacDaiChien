@@ -566,6 +566,14 @@ jobs:
                 '/168; missing independently proven fields:',
                 d['sourceFieldsMissingIndependentSchemaProof'],
                 '; status:',d['independentSchemaProofStatusCounts'])
+          from collections import Counter
+          ripper_causes=Counter(
+              x['independentSchemaRawSourceCheck'].get('backendEvidence',{})
+              .get('AssetRipper',{}).get('failureCategory','NO_DETAIL')
+              for x in d['layoutGroups'])
+          print('RIPPER RAW BYTE FAILURE CATEGORIES:',dict(sorted(ripper_causes.items())))
+          print('FIRST STRUCTURAL SCHEMA DIFFERENCE (NAMES/TYPES ONLY):',
+                d['layoutGroups'][0].get('firstSchemaDifference'))
           import os
           from collections import Counter
           def main_status(dct):
