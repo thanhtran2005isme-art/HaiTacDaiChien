@@ -1,5 +1,38 @@
 # REF04 P6 — Phục dựng UI Unity offline, backend tự xây
 
+## P6.1 — Dựng bản REF04 Source Study trực tiếp trong Unity Editor (2026-10-11)
+
+Bản P6 offline của bạn đã PASS trên XAPK thật: **265/265** Image/Sprite có geometry nguồn được xác minh; 299 Image tổng cộng (34 không có Sprite), 168 LayoutGroup field, 62 Text. Đó là bằng chứng các Sprite/Image và field nguồn, **không** phải xác nhận nguyên trạng Canvas hay Pixel-Perfect UI.
+
+Đã thêm `unity-ui-viewer/Assets/Editor/Ref04P6OfflineWorkspace.cs` làm điểm thao tác duy nhất trong Unity Editor:
+
+1. **Trước khi mở Unity:** chạy lệnh bên dưới để bổ sung hash dạng phẳng trong `output/ref04-p6-offline-ui-gaps.json` (Unity `JsonUtility` không đọc được dictionary). KHÔNG cần APK gốc khởi chạy, đăng nhập, ADB hoặc backend cũ.
+   ```cmd
+   git pull --ff-only origin feat/ref04-p2-canvas-il2cpp-runtime-trace
+   py -3 -m unittest discover -s tests -p test_ref04_p6_offline_ui_plan.py -v
+   py -3 -m unittest discover -s tests -p test_ref04_p6_unity_workspace_contract.py -v
+   py -3 tools/ref04_p6_offline_ui_plan.py
+   ```
+2. **Chuẩn bị Tight Sprite preview** nếu chưa có `output/ref04-source-logical-sprite-previews/manifest.json`:
+   ```cmd
+   py -3 tools/prepare_ref04_native_bounds_preview.py
+   ```
+   Công cụ này chạy lại audit nguồn có liên quan và xuất *bản sao riêng* của các Sprite Tight đã được truy vết từ XAPK. Không được sửa hoặc gán giả dữ liệu còn thiếu.
+3. Mở `unity-ui-viewer` bằng Unity Hub (repo hiện ghi nhận **Unity Editor 2022.3.21f1**). Trong Unity chọn:
+   **Tools → HaiTac Offline UI Viewer → Source XAPK → P6 - REF04 offline Unity workspace**.
+4. Cửa sổ có các bước **(1) Kiểm tra P5/P6 SHA** → **(2) Chuẩn bị 3C Study nếu còn thiếu** → **(3) Dựng REF04 Study** → **(4) Kiểm tra bản dựng** → **(5) Mở REF04 Study Scene**.
+   - Không tự ghi đè bất cứ bản 3C study prefab/scene nào đã có, kể cả của 4 màn hình khác.
+   - Bước dựng REF04 cần prefab 3C và manifest Tight Sprite từ XAPK. Nếu nguồn còn thiếu, thao tác dừng và hiển thị blocker; không đặt placeholder.
+   - Bản mới đặt tại `Assets/LocalReconstruction/Ref04NativeBoundsStudyPrefabs/` và `.../Ref04NativeBoundsStudyScenes/`. Chúng là **bản làm việc private**, không phải asset gốc và không commit.
+   - Bản dựng được kiểm tra 299 Image (265 Sprite + 34 Image không Sprite), Component PathID/owner/SHA và **503 RectTransform**, bao gồm sibling/anchor/size/position/scale của tất cả các child so với 3C study nguồn; **root preview được phân biệt riêng**.
+5. Dùng **Scene View và Game View** trong Unity để quan sát và liệt kê chỗ cần tạo chức năng UI cho backend mới. Canvas/Camera 1600×900 ở bản Study hiện tại là **PREVIEW ONLY**, không phải tọa độ/scale gốc được phục dựng. **Không coi bản này là UI cuối hoặc pixel-perfect**.
+6. Nếu đã có REF04 Native Bounds study, cửa sổ chỉ cho **Audit + Open** để bảo vệ dữ liệu hiện có; không tự build đè. Nếu thư mục 3C có bản khác nhưng thiếu REF04, sẽ từ chối chạy batch builder để không ghi đè 4 bản kia.
+
+**Lưu ý khi triển khai:** Các điều khiển gameplay, button action, mô hình tài khoản/đội hình/kho đồ, call API qua backend của bạn là tầng `NEW_PROJECT_DESIGN` — chưa được thực hiện trong P6.1. Muốn đạt UI hoạt động thực tế, cần phát triển tầng controller/adapter riêng và test luồng chức năng. Hiện P6.1 tạo được quy trình dựng/kiểm toán Scene nguồn trên Unity, nhưng **chưa có bằng chứng Unity Editor PlayMode/build PASS trên máy người dùng**.
+
+---
+
+
 ## Mục tiêu đúng của dự án
 
 Game Hải Tặc Đại Chiến cũ đã ngừng dịch vụ. Mục tiêu của chủ dự án là **phục dựng UI bằng Unity từ bộ XAPK đang sở hữu** và **xây dựng backend độc lập**. Không được bắt buộc đăng nhập game cũ, chụp qua ADB, có máy chủ gốc, hay giả định app cũ khởi chạy được.
