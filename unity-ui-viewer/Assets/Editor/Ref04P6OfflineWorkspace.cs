@@ -350,8 +350,7 @@ namespace HaiTac.OfflineViewer.Editor
                         return "Đã tạo bản 3C study; chưa dựng REF04 native Sprite.";
                     });
             }
-            bool nativeReady = File.Exists(OutputPath(
-                "ref04-source-logical-sprite-previews/manifest.json"));
+            bool nativeReady = File.Exists(Path.Combine(RepositoryRoot, NativeManifest));
             EditorGUILayout.LabelField(nativeReady ?
                 "Tight Sprite source manifest: có" :
                 "Tight Sprite source manifest: thiếu. Chạy Python chuẩn bị.");
