@@ -77,7 +77,7 @@ class TestP6UnityOfflineWorkspaceContract(unittest.TestCase):
             'Require(!AnyExistingThreeCOutput(),',
             '3C study outputs đã tồn tại, từ chối ghi đè',
             'using (new EditorGUI.DisabledScope(',
-            '!has3c || !nativeReady || hasStudy',
+            '!has3c || !nativeReady || hasAnyStudy',
             'Không chạm source art hoặc gameplay',
         ):
             self.assertIn(token, S)
@@ -95,7 +95,7 @@ class TestP6UnityOfflineWorkspaceContract(unittest.TestCase):
             'bool hasCompleteStudy = hasStudyPrefab && hasStudyScene;',
             'if (hasCompleteStudy)',
             'else if (hasAnyStudy)',
-            'REF04 Study: đã có Prefab + Scene.',
+            'REF04 Study đã có Prefab + Scene.',
             'REF04 Study CHƯA ĐẦY ĐỦ:',
             'chỉ có Prefab, thiếu Scene.',
             'chỉ có Scene, thiếu Prefab.',
@@ -105,6 +105,24 @@ class TestP6UnityOfflineWorkspaceContract(unittest.TestCase):
         ):
             self.assertIn(token, S)
         self.assertNotIn('bool hasStudy =', S)
+
+    def test_auto_checks_p6_source_on_window_open_and_reports_precise_hash_errors(self):
+        for token in (
+            'private void OnEnable()',
+            'RefreshSourceStatus();',
+            'private void RefreshSourceStatus()',
+            'var proof = VerifyOfflineReport();',
+            'status = "P6 nguồn PASS: "',
+            'severity = MessageType.Error;',
+            'Báo cáo P6 thiếu SHA dạng phẳng.',
+            'SHA P5 khác báo cáo P6.',
+            'SHA inventory khác báo cáo P6.',
+            'SHA Sprite geometry khác báo cáo P6.',
+            '1. Kiểm tra lại dữ liệu nguồn P5/P6 (chỉ đọc)',
+            'EditorStyles.wordWrappedLabel',
+        ):
+            self.assertIn(token, S)
+        self.assertNotIn('Chưa kiểm tra dữ liệu P6 offline.', S)
 
     def test_runtime_uncertainty_and_design_separation_is_visible_to_user(self):
         for token in (
