@@ -860,7 +860,7 @@ jobs:
           assert result['runtimeLayoutProven'] is False
           assert result['unityImportAllowed'] is False
           assert result['originalUiAssetsChanged'] is False
-          print('P5 SOURCE-PROOF PASS on real XAPK reports (NOT runtime fidelity):',
+          print('P5 source audit completed; ID-only SHA blockers retained; NO runtime proof:',
                 result['sourceCoverage'])
           PY
 
