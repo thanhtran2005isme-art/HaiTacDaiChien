@@ -87,6 +87,25 @@ class TestP6UnityOfflineWorkspaceContract(unittest.TestCase):
         ):
             self.assertNotIn(bad, S)
 
+    def test_existing_study_is_explained_and_partial_outputs_fail_closed(self):
+        for token in (
+            'bool hasStudyPrefab =',
+            'bool hasStudyScene =',
+            'bool hasAnyStudy = hasStudyPrefab || hasStudyScene;',
+            'bool hasCompleteStudy = hasStudyPrefab && hasStudyScene;',
+            'if (hasCompleteStudy)',
+            'else if (hasAnyStudy)',
+            'REF04 Study: đã có Prefab + Scene.',
+            'REF04 Study CHƯA ĐẦY ĐỦ:',
+            'chỉ có Prefab, thiếu Scene.',
+            'chỉ có Scene, thiếu Prefab.',
+            '!has3c || !nativeReady || hasAnyStudy',
+            '!hasCompleteStudy || EditorApplication.isPlaying',
+            'Study đã tồn tại; từ chối ghi đè. Kiểm tra bước 4.',
+        ):
+            self.assertIn(token, S)
+        self.assertNotIn('bool hasStudy =', S)
+
     def test_runtime_uncertainty_and_design_separation_is_visible_to_user(self):
         for token in (
             'Canvas 1600×900 của Study chỉ là PREVIEW',
