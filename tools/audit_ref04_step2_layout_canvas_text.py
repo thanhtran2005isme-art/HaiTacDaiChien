@@ -44,7 +44,7 @@ RUNTIME_BLOCKERS={
 }
 
 
-def inventory(step1, third=None, text_probe=None):
+def inventory(step1, third=None, text_probe=None, schema_probe=None):
     if (step1.get("classification") !=
             "REF04_ALL_SOURCE_CANDIDATE_UI_COMPONENT_INVENTORY_READ_ONLY" or
         step1.get("sceneId") != SCENE or
@@ -82,6 +82,25 @@ def inventory(step1, third=None, text_probe=None):
             raise ValueError("Original Text source PathIDs not unique")
     else:
         by_text={}
+
+    if schema_probe is not None:
+        if (schema_probe.get("classification") !=
+                "REF04_LAYOUTGROUP_SCHEMA_FORENSICS_READ_ONLY" or
+            schema_probe.get("sourceSerializedFile") !=
+                step1["sourceSerializedFile"] or
+            schema_probe.get("layoutGroupsInspected") != 24 or
+            schema_probe.get("sourceFieldValuesStillBlockedFromUnity") != 168 or
+            schema_probe.get("unityImportAllowed") is not False or
+            schema_probe.get("runtimeAlignmentProven") is not False or
+            schema_probe.get("originalUiAssetsChanged") is not False or
+            len(schema_probe.get("layoutGroups", [])) != 24):
+            raise ValueError("REF04 original LayoutGroup schema evidence untrusted")
+        by_schema = {row["componentPathId"]: row
+                     for row in schema_probe["layoutGroups"]}
+        if len(by_schema) != 24:
+            raise ValueError("Source schema forensic component IDs not unique")
+    else:
+        by_schema = {}
 
     found={group:[] for group in CLASSES}
     identity=set()
@@ -172,6 +191,22 @@ def inventory(step1, third=None, text_probe=None):
                     item["thirdBackendSourceVerification"] = (
                         third_record["thirdBackendStatus"] if third_record else
                         "NOT_YET_RUN")
+                    evidence=by_schema.get(cid)
+                    if evidence is not None and (
+                        evidence["sourceObjectSha256"] !=
+                            component.get("rawSourceObjectSha256") or
+                        evidence["gameObjectPathId"] != gid or
+                        evidence["rectTransformPathId"] != tid or
+                        evidence["sourceClass"] != classname or
+                        evidence["sourceFieldCountBlocked"] != len(
+                            item["singleBackendFieldNamesNotImportable"]) or
+                        evidence["unityImportAllowed"] is not False or
+                        evidence["runtimeLayoutProven"] is not False):
+                        raise ValueError("REF04 LayoutGroup schema source ID/hash conflicts")
+                    item["layoutSchemaComparison"] = (
+                        evidence["schemaComparison"] if evidence else "NOT_YET_RUN")
+                    item["layoutStrictFieldAgreement"] = (
+                        evidence["fieldAgreement"] if evidence else "NOT_YET_RUN")
                 found[name].append(item)
     if len(identity)!=1564:
         raise ValueError("REF04 source component traversal incomplete")
@@ -186,6 +221,10 @@ def inventory(step1, third=None, text_probe=None):
         i["componentPathId"] for i in found["Text"]
     }:
         raise ValueError("Text binary probe did not cover 62 exact source PathIDs")
+    if schema_probe is not None and set(by_schema)!={
+        i["componentPathId"] for i in found["LayoutGroup"]
+    }:
+        raise ValueError("Schema forensics did not cover all 24 source LayoutGroups")
 
     blockers=[{
         "category":name,"sourceComponents":counts[name],
@@ -205,6 +244,9 @@ def inventory(step1, third=None, text_probe=None):
             len(c["singleBackendFieldNamesNotImportable"])
             for c in found["LayoutGroup"]),
         "thirdBackendRunProvided":third is not None,
+        "layoutSchemaForensicsProvided":schema_probe is not None,
+        "layoutSchemaComparisonCounts":(
+            schema_probe["schemaComparisonCounts"] if schema_probe else {}),
         "sourceTextBinaryProbeProvided":text_probe is not None,
         "originalTextComponentsVerifiedByTwoBackends":sum(
             c.get("textBinaryProbeStatus")==
@@ -264,7 +306,10 @@ def main():
     textpath=root/"output/ref04-text-source-binary-evidence.json"
     text=(json.loads(textpath.read_text(encoding="utf-8"))
           if textpath.is_file() else None)
-    report=inventory(step1,third,text)
+    schemapath=root/"output/ref04-layout-schema-forensics.json"
+    schema=(json.loads(schemapath.read_text(encoding="utf-8"))
+            if schemapath.is_file() else None)
+    report=inventory(step1,third,text,schema)
     dest=root/"output/ref04-step2-layout-canvas-text.json"
     write(report,dest)
     print(json.dumps({
@@ -273,6 +318,7 @@ def main():
         "unverifiedLayoutGroupFields":
             report["layoutGroupFieldValuesStillBlockedFromUnity"],
         "thirdBackendRunProvided":report["thirdBackendRunProvided"],
+        "layoutSchemaForensicsProvided":report["layoutSchemaForensicsProvided"],
         "sourceTextBinaryProbeProvided":report["sourceTextBinaryProbeProvided"],
         "originalTextComponentsVerifiedByTwoBackends":report[
             "originalTextComponentsVerifiedByTwoBackends"],
