@@ -1,5 +1,13 @@
 # AI HANDOFF — Hải Tặc UI Viewer
 
+## P5 hotfix after real Windows audit (2026-10-11)
+
+- On user Windows XAPK reports: LayoutGroup 168/168, Text 62/62 and P2/P3/P4 script generation succeeded. P3 52 localizers still have 0 independent localization term confirmations; 2 Font source objects are external, runtime font unresolved. P5 originally stopped in P2 source owner/SHA/ancestry gate. Root cause is not proven from traceback alone; P5 code was over-strict by treating every P2 source-identity-only component as raw-SHA verified.
+- Hotfix allows only exact NULL raw source digest (original and P2 agree) on **ID-only** source component, retains `BLOCKED_RAW_OBJECT_SHA_UNAVAILABLE_IDENTITY_ONLY`; fields and native Canvas value evidence without SHA still force failure. Added full source class/owner/parent chain guards and explicit P2 raw-SHA coverage counts.
+- Added unit regression for missing original PanelHome2 hash and injected serialized value; CI distinguishes ID-only source-blockers instead of declaring every SHA proven. New HEAD real-XAPK P5 result and CI remain unverified. User should fetch/pull same PR7 branch and rerun unit tests + `py -3 tools/audit_ref04_p5_source_integrity.py`; do not regenerate already-proven 168/62 reports unless content changes.
+
+
+
 ## REF04 P5 — tổng hợp bằng chứng nguồn P1–P4, không đoán tọa độ (2026-10-10)
 
 - **Đã triển khai trên PR #7 Draft**, chưa merge: `tools/audit_ref04_p5_source_integrity.py` kiểm tra cùng SerializedFile/cặp IL2CPP SHA, original Component/GameObject/RectTransform owner, 24 LayoutGroup với 168 byte-span/hash trùng nhau giữa AssetStudio và AssetRipper, chuỗi Canvas/Scaler/SafeArea/PanelHome2 kiểm toán lại theo source-parent pointers, và 62 Text cùng Font/I2 localizers qua dữ liệu P3/P4 và Step2.
