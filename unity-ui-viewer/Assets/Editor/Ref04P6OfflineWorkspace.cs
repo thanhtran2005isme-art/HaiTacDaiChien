@@ -395,7 +395,8 @@ namespace HaiTac.OfflineViewer.Editor
             if (hasCompleteStudy)
                 EditorGUILayout.LabelField(
                     "REF04 Study đã có Prefab + Scene. Dùng bước 4 để kiểm tra, " +
-                    "bước 5 để mở. Dựng lại bị khóa để bảo vệ dữ liệu.");
+                    "bước 5 để mở. Dựng lại bị khóa để bảo vệ dữ liệu.",
+                    EditorStyles.wordWrappedLabel);
             else if (hasAnyStudy)
                 EditorGUILayout.HelpBox(
                     "REF04 Study CHƯA ĐẦY ĐỦ: " +
