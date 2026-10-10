@@ -107,6 +107,40 @@ def sprite_details(reader):
             result["pixelsPerUnit"] = pixels
         if size and all(0 < x <= 16384 for x in size):
             result["sourceRectSize"] = size
+        # Sprite texture geometry is separate from m_Rect (source logical
+        # dimensions). Copy ONLY serialized numbers. Do not synthesize an
+        # offset from missing PNG pixels or assume atlas trim direction.
+        origin = layout.vector(rect, ("x", "y"))
+        if origin is not None:
+            result["sourceRectOrigin"] = origin
+        for name, raw in (
+            ("sourceSpriteOffset", layout.get(obj, "m_Offset")),
+            ("sourceSpritePivot", layout.get(obj, "m_Pivot")),
+            ("sourceTextureRectOffset", layout.get(
+                layout.get(obj, "m_RD"), "textureRectOffset")),
+            ("sourceAtlasRectOffset", layout.get(
+                layout.get(obj, "m_RD"), "atlasRectOffset")),
+        ):
+            values = layout.vector(raw, ("x", "y"))
+            if values is not None:
+                result[name] = values
+        rendering = layout.get(obj, "m_RD")
+        texture_rect = layout.get(rendering, "textureRect")
+        size = layout.vector(layout.get(texture_rect, "size"), ("x", "y"))
+        if size is None:
+            size = [layout.real(layout.get(texture_rect, "width")),
+                    layout.real(layout.get(texture_rect, "height"))]
+        if size and all(x is not None and 0 < x <= 16384 for x in size):
+            result["sourceTextureRectSize"] = size
+        origin = layout.vector(texture_rect, ("x", "y"))
+        if origin is not None:
+            result["sourceTextureRectOrigin"] = origin
+        packing = layout.get(rendering, "settingsRaw")
+        try:
+            if type(packing) is int and 0 <= packing <= 0xffffffff:
+                result["sourceSpriteSettingsRaw"] = packing
+        except (ValueError, TypeError):
+            pass
         return result
     except Exception:
         return {}
