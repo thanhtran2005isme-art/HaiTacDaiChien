@@ -34,9 +34,41 @@ namespace HaiTac.OfflineViewer.Editor
             "/Ref04NativeBoundsStudyPrefabs/REF04-home-crew_NATIVE_BOUNDS_STUDY.prefab";
         private const string PreviewScene = LocalRoot +
             "/Ref04NativeBoundsStudyScenes/REF04-home-crew_NATIVE_BOUNDS_STUDY.unity";
-        private string status = "Chưa kiểm tra dữ liệu P6 offline.";
+        private string status = "Đang xác minh P6 offline...";
         private MessageType severity = MessageType.Info;
         private Vector2 scroll;
+
+        private void OnEnable()
+        {
+            // Domain reload / opening EditorWindow must show an ACTUAL audit
+            // result, not a persistent misleading "not checked" placeholder.
+            // Only reads the ignored source JSON reports. No Unity asset edits.
+            RefreshSourceStatus();
+        }
+
+        private void RefreshSourceStatus()
+        {
+            try
+            {
+                var proof = VerifyOfflineReport();
+                status = "P6 nguồn PASS: " +
+                    proof.counts.sourceGeometryVerified + "/265 geometry; " +
+                    proof.counts.allDualVerifiedImages + " Image; " +
+                    proof.counts.originalTextSourceComponents +
+                    " Text nguồn. Có thể kiểm tra Prefab ở bước 4. " +
+                    "Chưa chứng minh Canvas/runtime.";
+                severity = MessageType.Info;
+            }
+            catch (Exception exception)
+            {
+                status = exception.GetBaseException().Message;
+                severity = MessageType.Error;
+                // A failed proof check is a BLOCKED state, not an Editor
+                // compilation failure. The operator can regenerate the JSON
+                // locally and press step 1; no source assets are modified.
+            }
+            Repaint();
+        }
 
         [Serializable]
         private sealed class Counts
@@ -152,14 +184,18 @@ namespace HaiTac.OfflineViewer.Editor
                 "Báo cáo P6 không khớp các điều kiện phục dựng offline");
             Require(ValidSha(report.p5ReportSha256) &&
                 ValidSha(report.inventoryReportSha256) &&
-                ValidSha(report.geometryReportSha256) &&
-                Digest(OutputPath("ref04-p5-cross-phase-source-integrity.json")) ==
-                    report.p5ReportSha256 &&
-                Digest(OutputPath("ref04-full-source-inventory.json")) ==
-                    report.inventoryReportSha256 &&
-                Digest(OutputPath("ref04-static-image-geometry.json")) ==
-                    report.geometryReportSha256,
-                "SHA nguồn P5/Inventory/Geometry thay đổi; chạy lại audit P6");
+                ValidSha(report.geometryReportSha256),
+                "Báo cáo P6 thiếu SHA dạng phẳng. Chạy lại: " +
+                "py -3 tools/ref04_p6_offline_ui_plan.py");
+            Require(Digest(OutputPath("ref04-p5-cross-phase-source-integrity.json")) ==
+                report.p5ReportSha256,
+                "SHA P5 khác báo cáo P6. Chạy lại audit P6 offline");
+            Require(Digest(OutputPath("ref04-full-source-inventory.json")) ==
+                report.inventoryReportSha256,
+                "SHA inventory khác báo cáo P6. Chạy lại audit P6 offline");
+            Require(Digest(OutputPath("ref04-static-image-geometry.json")) ==
+                report.geometryReportSha256,
+                "SHA Sprite geometry khác báo cáo P6. Chạy lại audit P6 offline");
 
             var ids = new HashSet<int>();
             var sprites = new HashSet<string>();
@@ -312,17 +348,8 @@ namespace HaiTac.OfflineViewer.Editor
                 "Canvas 1600×900 của Study chỉ là PREVIEW, không phải cấu hình gốc.",
                 MessageType.Warning);
             EditorGUILayout.HelpBox(status, severity);
-            if (GUILayout.Button("1. Kiểm tra dữ liệu P5/P6 offline (không sửa file)"))
-                InvokeSafe(() =>
-                {
-                    var doc = VerifyOfflineReport();
-                    return "Bằng chứng gốc PASS: " +
-                        doc.counts.spriteLinkedImages + " Image có Sprite; " +
-                        doc.counts.sourceGeometryVerified + " geometry đã chứng minh; " +
-                        doc.counts.verifiedImagesWithoutSourceSprite +
-                        " Image không có Sprite; " +
-                        doc.counts.originalTextSourceComponents + " Text nguồn.";
-                });
+            if (GUILayout.Button("1. Kiểm tra lại dữ liệu nguồn P5/P6 (chỉ đọc)"))
+                RefreshSourceStatus();
             EditorGUILayout.Space();
             EditorGUILayout.LabelField("2. Chuẩn bị Prefab 3C Study", EditorStyles.boldLabel);
             bool has3c = AssetDatabase.LoadAssetAtPath<GameObject>(ThreeC) != null;
@@ -366,11 +393,9 @@ namespace HaiTac.OfflineViewer.Editor
             bool hasAnyStudy = hasStudyPrefab || hasStudyScene;
             bool hasCompleteStudy = hasStudyPrefab && hasStudyScene;
             if (hasCompleteStudy)
-                EditorGUILayout.HelpBox(
-                    "REF04 Study: đã có Prefab + Scene. Nút Dựng bị khóa để " +
-                    "không ghi đè. Bấm bước 1, rồi bước 4 Kiểm tra Prefab; " +
-                    "nếu PASS thì bấm bước 5 để mở Scene.",
-                    MessageType.Info);
+                EditorGUILayout.LabelField(
+                    "REF04 Study đã có Prefab + Scene. Dùng bước 4 để kiểm tra, " +
+                    "bước 5 để mở. Dựng lại bị khóa để bảo vệ dữ liệu.");
             else if (hasAnyStudy)
                 EditorGUILayout.HelpBox(
                     "REF04 Study CHƯA ĐẦY ĐỦ: " +
@@ -388,8 +413,8 @@ namespace HaiTac.OfflineViewer.Editor
                     MessageType.Warning);
             else
                 EditorGUILayout.HelpBox(
-                    "Chưa có REF04 Study; có thể dựng bản riêng sau khi " +
-                    "kiểm tra dữ liệu P5/P6 ở bước 1.",
+                    "Chưa có REF04 Study; hãy xác nhận trạng thái nguồn PASS " +
+                    "bên trên trước khi dựng bản Study riêng.",
                     MessageType.Info);
             using (new EditorGUI.DisabledScope(
                 !has3c || !nativeReady || hasAnyStudy || EditorApplication.isPlaying))
