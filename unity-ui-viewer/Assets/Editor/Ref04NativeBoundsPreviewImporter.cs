@@ -278,7 +278,12 @@ namespace HaiTac.OfflineViewer.Editor
                 throw new FileNotFoundException(
                     "Phase 3C original managed-field Study Prefab missing. " +
                     "Do not use an old 3E Preview as the source.");
-            Check3cImageEvidence(source3c,src);
+            var allImages=Check3cImageEvidence(source3c,src);
+            Debug.Log("[REF04 3C IMAGE INVENTORY] " +
+                allImages.Count + " original verified Image components, " +
+                src.images.Length + " Image/Sprite bindings, " +
+                (allImages.Count-src.images.Length) +
+                " additional verified Images without source Sprite links.");
             if (AssetDatabase.LoadAssetAtPath<GameObject>(NewPrefab)!=null ||
                 File.Exists(NewScene))
                 throw new IOException(
@@ -424,7 +429,11 @@ namespace HaiTac.OfflineViewer.Editor
             var preview=AssetDatabase.LoadAssetAtPath<GameObject>(NewPrefab);
             if(source==null || preview==null ||
                 AssetDatabase.LoadAssetAtPath<SceneAsset>(NewScene)==null)
-                throw new FileNotFoundException("New REF04 source Tight Sprite study missing.");
+                throw new FileNotFoundException(
+                    "REF04 source Tight Sprite Build did not complete, so the " +
+                    "new Scene/Prefab is missing (rolled back on failure). " +
+                    "Update the importer and run Build until BUILD+AUDIT PASS " +
+                    "before selecting this Audit menu.");
             var proof=JsonUtility.FromJson<Source>(
                 File.ReadAllText(NativeGeometryPath,Encoding.UTF8));
             var plan=JsonUtility.FromJson<Plan>(
