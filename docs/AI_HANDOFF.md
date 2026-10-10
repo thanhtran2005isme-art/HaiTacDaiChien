@@ -1,5 +1,13 @@
 # AI HANDOFF — Hải Tặc UI Viewer
 
+## REF04 P1 — raw serialized LayoutGroup offset reparse (2026-10-10)
+
+- Nhánh `fix/ref04-layout-schema-forensics`, PR #6 vẫn draft. Bộ đọc mới `tools/ref04_layout_raw_parser.py` đi byte raw trong object theo schema có nguồn từ IL2CPP AssetStudio, kiểm tra byte order, alignment, m_GameObject/m_Script/m_Enabled, source SHA, offset+hash của mỗi field mà strict source backend đọc được.
+- Báo cáo `output/ref04-layout-schema-forensics.json` bổ sung `rawByteReparseCounts` và trạng thái từng component; `tools/audit_ref04_step2_layout_canvas_text.py` liên kết tới mỗi original LayoutGroup PathID. Tất cả báo cáo ở local/ignored.
+- **Cảnh báo:** phương pháp độc lập về *đọc lại bytes*, không độc lập về *sinh schema*. Không tự nâng 168 fields từ BLOCKED; không xem offset suy ra theo AssetStudio là bằng chứng nguyên bản đủ để dựng UI. Canvas runtime, SafeAreaAdapter, PanelHome2 và Text localization vẫn cần giải mã thêm.
+- CI Linux/Windows tại HEAD của nhánh đang được kiểm tra; không ghi PASS trước khi GitHub Actions báo kết quả.
+
+
 ## REF04 — bổ sung đối chiếu schema LayoutGroup từ XAPK (2026-10-10)
 
 - Nhánh thay đổi nối tiếp PR #5: `fix/ref04-layout-schema-forensics`. **Chỉ Python source audit, tests, CI, docs**; không đổi Unity Scene/Prefab, Canvas/coordinate hoặc Spine.
