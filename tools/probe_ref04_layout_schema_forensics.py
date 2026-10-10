@@ -11,11 +11,13 @@ import argparse
 import collections
 import hashlib
 import json
+import struct
 from pathlib import Path
 
 import export_local_ui_layout as layout
 import probe_ref04_layout_third_backend as third
 import recover_managed_ui_fields as recovery
+import ref04_layout_raw_parser as rawparse
 
 ROOT = Path(__file__).resolve().parents[1]
 SCENE = "REF04-home-crew"
@@ -77,6 +79,7 @@ def inspect_object(reader, source_row, generators):
         raise ValueError("REF04 LayoutGroup original object changed")
     report = {}
     strict_values = {}
+    schema_nodes = {}
     for backend in BACKENDS:
         generator = generators[backend]
         entry = {"schemaStatus": "BLOCKED_NOT_PROBED",
@@ -95,6 +98,7 @@ def inspect_object(reader, source_row, generators):
             entry["schemaStatus"] = "SCHEMA_GENERATED_SOURCE_VERSION"
             entry["schema"] = summarize_schema(desc)
             entry["_entries"] = desc
+            schema_nodes[backend] = merged
         except (recovery.RecoveryBlocked, ValueError, TypeError,
                 AttributeError, AssertionError) as exc:
             code = exc.code if isinstance(exc, recovery.RecoveryBlocked) else type(exc).__name__
@@ -139,9 +143,42 @@ def inspect_object(reader, source_row, generators):
     else:
         agreement = "BLOCKED_INDEPENDENT_STRICT_PARSE"
 
+    # This uses independently implemented struct reads on the exact raw object,
+    # but the schema still derives from AssetStudio: never claim independent
+    # schema recovery or allow application of those byte spans to Unity.
+    raw_result = {"status": "BLOCKED_STUDIO_SCHEMA_OR_STRICT_PARSE",
+                  "sourceByteSpans": {},
+                  "derivedSchemaOnly": True,
+                  "unityImportAllowed": False}
+    if "AssetStudio" in schema_nodes and "AssetStudio" in strict_values:
+        try:
+            proof = rawparse.reparse_strict(
+                reader.get_raw_data(), schema_nodes["AssetStudio"],
+                strict_values["AssetStudio"], endian=rawparse.byte_order(reader))
+            obj = proof["nativeHeader"]
+            owner = recovery.refs.pptr(obj["m_GameObject"])
+            script = recovery.refs.pptr(obj["m_Script"])
+            expected_script = source_row["scriptPointer"]
+            if (owner != (0, source_row["gameObjectId"]) or
+                script != (expected_script["fileId"],
+                           expected_script["pathId"]) or
+                obj["m_Enabled"] != source_row.get("nativeEnabled")):
+                raise rawparse.RawWalkBlocked("Raw replay source native pointer mismatch")
+            raw_result = {
+                "status": "RAW_BYTES_REPARSED_DERIVED_SCHEMA_REVIEW_ONLY",
+                "sourceByteSpans": proof["fieldByteSpans"],
+                "sourceObjectSha256": proof["fullObjectSha256"],
+                "derivedSchemaOnly": True,
+                "unityImportAllowed": False,
+            }
+        except (rawparse.RawWalkBlocked, ValueError, TypeError,
+                KeyError, struct.error) as exc:
+            raw_result["status"] = "BLOCKED_RAW_REPARSE_" + type(exc).__name__
+
     return {"backendResults": report, "schemaComparison": comparison,
             "firstSchemaDifference": difference,
             "fieldAgreement": agreement,
+            "rawByteReparse": raw_result,
             "unityImportAllowed": False,
             "runtimeLayoutProven": False}
 
@@ -176,6 +213,9 @@ def build_report(plan, inspected, source_file, source_pair):
         "sourceFieldValuesStillBlockedFromUnity": blocked,
         "schemaComparisonCounts": dict(sorted(collections.Counter(
             x["schemaComparison"] for x in rows).items())),
+        "rawByteReparseCounts": dict(sorted(collections.Counter(
+            x.get("rawByteReparse", {}).get("status", "NOT_PROBED")
+            for x in rows).items())),
         "fieldAgreementCounts": dict(sorted(collections.Counter(
             x["fieldAgreement"] for x in rows).items())),
         "unityImportAllowed": False,
@@ -258,6 +298,7 @@ def execute(root=ROOT, *, xapk=None, unitypy=None):
             result["sourceFieldValuesStillBlockedFromUnity"],
         "schemaComparisonCounts": result["schemaComparisonCounts"],
         "fieldAgreementCounts": result["fieldAgreementCounts"],
+        "rawByteReparseCounts": result["rawByteReparseCounts"],
         "unityImportAllowed": False,
         "originalUiAssetsChanged": False,
     }, sort_keys=True))
