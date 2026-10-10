@@ -29,6 +29,8 @@ Các trường trong mỗi hàng:
 
 Báo cáo tổng hợp số hàng đúng 62, mức bao phủ 2 Font gốc, 52 I2 components, số Text source empty/non-empty, số localizer đồng owner và tổng term có hai nguồn xác nhận. Trên XAPK từng kiểm tra trước đó **0 term được dual-verified**; không dự đoán rằng test mới sẽ nâng số này.
 
+- **IL2CPP method-declaration search hints:** P4 kiểm tra ownership `typeDefinitionIndex`/`methodDefinitionIndex`/`methodToken` cho các lớp Text/I2 đã có ở P3. Tên method có dạng set text/term/language/localize được ghi dưới dạng SHA + method index trong `sourceIL2CPPMethodDeclarationHints` để ưu tiên phân tích native tiếp; đây chỉ là **method-name candidate**, không chứng minh đã chạy hoặc ghi `Text.text`. `verifiedNativeFieldWriters=0`.
+
 ## Kiểm thử / CI
 
 - `tests/test_ref04_p4_text_logic.py`: fixture tổng hợp đủ 62 Text/2 Font/52 localizers; bác bỏ sai SHA, nhầm Font type/PPtr, sai owner, forged key/term và trạng thái runtime giả.
