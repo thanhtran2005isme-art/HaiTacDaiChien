@@ -52,6 +52,24 @@ class CandidateOnly(unittest.TestCase):
             "sourceClassMethodSuffix_CLASS_DOUBLE_DOLLAR"],1)
         self.assertFalse(result["nativeCodeMethodOwnershipVerified"])
 
+    def test_exact_undelimited_class_and_method_match_is_candidate_only(self):
+        data,idx,exe,blob=input_files()
+        data["ScriptMethod"][0]["Name"]="SafeAreaAdapterApplySafeArea"
+        report=p.source_script_candidates(data,idx,exe,blob)
+        self.assertEqual(report["strictCandidateCount"],1)
+        self.assertEqual(report["sanitizedScriptFormatCounts"][
+            "directClassMethodNameMatches"],1)
+        self.assertEqual(report["candidates"][0]["nameMatchRule"],
+                         "EXACT_CLASS_METHOD_CONCATENATION")
+        self.assertFalse(report["candidates"][0]["methodOwnershipIndependentlyProven"])
+        self.assertFalse(report["runtimeFormulaRecovered"])
+
+    def test_fuzzy_native_name_never_mapped_to_method(self):
+        data,idx,exe,blob=input_files()
+        data["ScriptMethod"][0]["Name"]="SafeAreaAdapterOtherApplySafeArea"
+        report=p.source_script_candidates(data,idx,exe,blob)
+        self.assertEqual(report["strictCandidateCount"],0)
+
     def test_duplicate_overload_or_name_blocks_address_assignment(self):
         data,idx,exe,blob=input_files()
         idx["targetClassDefinitions"][0]["methods"].append(
