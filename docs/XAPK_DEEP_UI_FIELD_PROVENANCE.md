@@ -338,3 +338,35 @@ Unity Editor báo `Sprite imported rectangle differs from original native rectan
 Thêm báo cáo không cần Unity `py -3 tools/report_ref04_png_rect_mismatch.py` xuất `output/ref04-png-rect-reconciliation.json` (private, ignored), đọc PNG IHDR và số đo native của từng Sprite file REF04. Báo cáo chứa `RECT_COMPATIBLE` hoặc `NATIVE_RECT_VS_DECODED_PNG_MISMATCH_NO_AUTO_REPAIR`. Không sửa bất kỳ ảnh, Prefab, texture importer hay Canvas nào.
 
 **Sau khi pull:** không chạy lại các lệnh Python dài đã PASS; chọn Unity menu `REF04 - Audit static icon native Sprite borders`. Nếu Console có `EXPORT_RECT_MISMATCH`, đó là ảnh nguồn đã bị khác kích thước sau xuất PNG và cần nghiên cứu atlas trim/m_SpriteOffset tiếp; đây không phải lỗi được sửa bằng 9-slice/PPU đơn thuần. Menu Restore chỉ cập nhật các Sprite tương thích và sẽ báo rõ số file bị bỏ qua. **Không tuyên bố REF04 đã giống XAPK khi còn size mismatch hoặc runtime layout chưa kiểm chứng.**
+
+
+## REF04 — Khôi phục logic của 22 Tight Sprites bằng offset gốc (2026-10-10)
+
+**Bằng chứng thực tế từ XAPK:** 22/88 Sprite REF04 có PNG decode bị thu nhỏ so với source native `Sprite.m_Rect`, tác động 53/265 `Image`. Toàn bộ 22 record có `m_RD.settingsRaw=64` (unpacked Tight mesh), `m_RD.textureRect` khớp kích thước PNG, và `m_RD.textureRectOffset` chứa vị trí pixel trong khung Sprite logic. 20 giá trị offset nằm trong source rect bằng kiểm tra chặt; 2 bản còn lại sai số biên thập phân dưới pixel. Không có lý do tăng 1px ngưỡng bảo vệ của Unity importer để bỏ qua sai khác này. Để xem chi tiết: `output/ref04-source-sprite-trim-evidence.json` (private, ignored).
+
+**Bản sửa mới, không chép đè:** `tools/build_ref04_native_bounds_sprites.py` chỉ tạo **22 PNG preview mới**, từ chính pixel RGBA `output/local-ui-art` và **khung + offset đọc trực tiếp từ source XAPK**. Bản dịch vị trí pixel dùng `sourceTextureRectOffset` (tọa độ trái/dưới của Tight sprite) và vùng canvas logic nguồn; phần ở ngoài vùng mesh original là alpha=0. Không nội suy, tô vẽ, hoặc thay đổi pixel ảnh nguồn; kiểm tra `settingsRaw=64`, `textureRectSize`, sai số offset <=0.125px, đúng native `m_Rect`. Nếu thiếu chứng cứ, bỏ qua Sprite đó, **không chèn alpha theo phỏng đoán**. Xuất output riêng `output/ref04-source-logical-sprite-previews/`; 66 PNG native-compatible giữ nguyên. CI XAPK thật đã xác minh 22/22 đủ bằng chứng hình học cho phương án preview nhưng đây **chưa phải chứng minh render giống runtime**.
+
+**Dùng đúng một lệnh CMD để tái xác minh ba bước nguồn có thay đổi:**
+
+```cmd
+cd /d C:\Users\Admin\Videos\HaiTacDaiChien
+git switch feat/xapk-il2cpp-ui-field-provenance
+git pull --ff-only origin feat/xapk-il2cpp-ui-field-provenance
+py -3 tools\prepare_ref04_native_bounds_preview.py
+```
+
+Chỉ chấp nhận `REF04_NATIVE_BOUNDS_SOURCE_PREVIEW_READY`, `sourceProvenTightSpritePreviewFiles=22`, `unmodifiedOriginalSpriteFiles=66`. Dữ liệu nguồn 3C và các PNG gốc KHÔNG thay đổi.
+
+Sau khi CMD PASS, mở Unity 2022.3.62f2 (quyền user thường), menu: `Tools > HaiTac Offline UI Viewer > Source XAPK > REF04 - Build source Tight Sprite bounds UI study`. Công cụ tạo **Prefab+Scene riêng** `Assets/LocalReconstruction/Ref04NativeBoundsStudyPrefabs/REF04-home-crew_NATIVE_BOUNDS_STUDY.prefab` và `Ref04NativeBoundsStudyScenes/REF04-home-crew_NATIVE_BOUNDS_STUDY.unity`; Sprite mới nằm trong `Ref04NativeBoundsSprites`. Dùng 3C Prefab làm nguồn (KHÔNG dùng Scene 3E có thể đã rollback), ánh xạ chính xác 265 Image source Component PathID; **chỉ 53 Image dùng 22 Sprite logical bounds mới**, 212 Image còn lại dùng Sprite gốc. Giữ 3C Image type/color/Mask/RectTransform các node con, native sibling ordering; source root Canvas 1600×900 vẫn chỉ là viewport xem thử (KHÔNG nhận là runtime Canvas).
+
+**Quan trọng:** Bản này phục hồi footprint và vị trí pixel bên trong Sprite từ dữ liệu Tight mesh, **không phục hồi được Text, trạng thái HUD, nhân vật Spine, 651 giá trị LayoutGroup chỉ có một backend hay Canvas runtime gốc**. Không lấy PASS trên CI/Prefab để kết luận UI đã giống XAPK.
+
+### So ảnh thật — không lấy ảnh Unity viewer làm XAPK gốc
+
+Yêu cầu chụp **REF04 từ XAPK gốc đang chạy** ở đúng trạng thái màn hình và một ảnh **Game View từ Unity bản mới**, có cùng số pixel chiều rộng/cao (không tự co giãn). Khi đã có cả hai file PNG, chạy:
+
+```cmd
+py -3 tools\compare_ref04_game_screenshots.py --xapk-reference C:\duong-dan\ref04-xapk-goc.png --unity-game C:\duong-dan\ref04-unity-game.png
+```
+
+Tool sẽ tạo ba tệp riêng trong `output/ref04-visual-qa`: `ref04-comparison.json`, `ref04-raw-difference.png` và `ref04-50-50-overlay.png`. Không tự chỉnh kích thước, so sai phiên màn hình hoặc tuyên bố đạt 100% khi chưa có ảnh thực tế. Nếu XAPK/Unity chưa cùng runtime HUD, metric pixel bị ảnh hưởng; chênh lệch được dùng để khoanh vùng icon/UI tĩnh, không tự tạo dữ liệu gameplay.
