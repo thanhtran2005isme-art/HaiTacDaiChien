@@ -170,6 +170,46 @@ class Step2(unittest.TestCase):
         self.assertIsNone(item["renderedText"])
         self.assertFalse(item["canBeAppliedToUnity"])
 
+    def test_schema_forensics_join_requires_same_24_source_layouts(self):
+        src=full_inventory()
+        layouts=[c for c in src["gameObjects"][0]["components"]
+                 if "LayoutGroup" in (c.get("monoScriptClass") or "")]
+        schema={
+            "classification":"REF04_LAYOUTGROUP_SCHEMA_FORENSICS_READ_ONLY",
+            "sourceSerializedFile":"XAPK-file",
+            "layoutGroupsInspected":24,
+            "sourceFieldValuesStillBlockedFromUnity":168,
+            "unityImportAllowed":False,
+            "runtimeAlignmentProven":False,
+            "originalUiAssetsChanged":False,
+            "schemaComparisonCounts":{"BLOCKED_SCHEMA_COMPARISON":24},
+            "layoutGroups":[{
+                "componentPathId":c["componentPathId"],
+                "sourceObjectSha256":H,
+                "gameObjectPathId":1,
+                "rectTransformPathId":1000,
+                "sourceClass":c["monoScriptClass"],
+                "sourceFieldCountBlocked":7,
+                "schemaComparison":"BLOCKED_SCHEMA_COMPARISON",
+                "fieldAgreement":"BLOCKED_INDEPENDENT_STRICT_PARSE",
+                "unityImportAllowed":False,
+                "runtimeLayoutProven":False,
+            } for c in layouts],
+        }
+        report=tool.inventory(src,schema_probe=schema)
+        self.assertTrue(report["layoutSchemaForensicsProvided"])
+        self.assertFalse(report["sourceRuntimeLayoutProven"])
+        self.assertFalse(report["sourceFieldApplicationAllowed"])
+        self.assertEqual(report["layoutSchemaComparisonCounts"],
+                         {"BLOCKED_SCHEMA_COMPARISON":24})
+        self.assertTrue(all(
+            x["layoutStrictFieldAgreement"]=="BLOCKED_INDEPENDENT_STRICT_PARSE"
+            and not x["canBeAppliedToUnity"]
+            for x in report["componentsByCategory"]["LayoutGroup"]))
+        schema["layoutGroups"][0]["sourceObjectSha256"]="b"*64
+        with self.assertRaisesRegex(ValueError,"schema source ID/hash"):
+            tool.inventory(src,schema_probe=schema)
+
     def test_missing_component_fails_closed(self):
         src=full_inventory()
         src["gameObjects"][0]["components"].pop()
