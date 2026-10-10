@@ -135,6 +135,9 @@ def build(geometry, art_folder: Path, output: Path, *, write=True):
             canvas = Image.new("RGBA", tuple(desc["nativeSize"]), (0,0,0,0))
             canvas.paste(decoded, tuple(desc["placementInPngTopLeft"]))
             record.update(desc)
+            record["originalBorder"] = entry["source"].get("border")
+            record["originalPixelsPerUnit"] = entry["source"].get(
+                "pixelsPerUnit")
             if write:
                 target = output / name
                 canvas.save(target, "PNG")
@@ -177,6 +180,11 @@ def main():
                      .read_text(encoding="utf-8"))
     target = root / "output/ref04-source-logical-sprite-previews"
     result = build(doc, root / "output/local-ui-art", target)
+    result["nativeGeometryManifestFileSha256"] = _sha(
+        (root / "output/ref04-static-image-geometry.json").read_bytes())
+    (target / "manifest.json").write_text(
+        json.dumps(result,ensure_ascii=False,indent=2)+"\n",
+        encoding="utf-8")
     print(json.dumps({
         "status": result["classification"],
         "counts": result["counts"],
