@@ -45,11 +45,13 @@ def build(verified, graph, prefab, art, blobs):
         len(prefab.get("scenes", [])) != 5 or
         art.get("stats", {}).get("exact_node_bindings") != EXPECTED_BINDINGS):
         raise ValueError("Five source scene identities or Sprite counts changed")
+    art_rows = art.get("nodeBindings", [])
     source_art = {
         (s["sceneId"], s["nodeId"], s["imageComponentId"]): s["spriteFile"]
-        for s in art.get("nodeBindings", [])
+        for s in art_rows
     }
-    if len(source_art) != EXPECTED_BINDINGS:
+    if (len(art_rows) != EXPECTED_BINDINGS or
+            len(source_art) != len(art_rows)):
         raise ValueError("Original Sprite binding identities duplicate/missing")
     available = set(art.get("files", []))
     matches, counts, used = [], collections.Counter(), set()
