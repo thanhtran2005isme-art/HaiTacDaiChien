@@ -62,7 +62,10 @@ on:
       - 'tools/ref04_p6_runtime_evidence.py'
       - 'tools/ref04_p6_runtime_capture.py'
       - 'tests/test_ref04_p6_runtime_evidence.py'
+      - 'tools/ref04_p6_offline_ui_plan.py'
+      - 'tests/test_ref04_p6_offline_ui_plan.py'
       - 'docs/REF04_P6_RUNTIME_CAPTURE.md'
+      - 'docs/REF04_P6_OFFLINE_UNITY_BACKEND.md'
       - 'tests/test_ref04_p4_text_logic.py'
       - 'tests/test_ref04_p3_localizer_binary.py'
       - 'tests/test_ref04_p3_original_font_objects.py'
@@ -826,6 +829,11 @@ jobs:
           print('P4 strict source-only Text/Font/I2 matrix verified. Runtime dynamic assignments remain BLOCKED.')
           PY
 
+      - name: P6 offline Unity UI source gap tests (original game server not required)
+        run: |
+          python -m unittest discover -s tests -p test_ref04_p6_offline_ui_plan.py -v
+        # Synthetic original-source fixtures test the offline gate, NOT a real live game.
+
       - name: P6 reject fake ADB screenshots, stale P5 SHA and guessed runtime values
         run: python -m unittest discover -s tests -p test_ref04_p6_runtime_evidence.py -v
         # No Android device in CI. Synthetic fixtures never count as runtime proof.
@@ -876,6 +884,30 @@ jobs:
           assert result['originalUiAssetsChanged'] is False
           print('P5 source audit completed; ID-only SHA blockers retained; NO runtime proof:',
                 result['sourceCoverage'])
+          PY
+
+      - name: P6 independent-backend offline UI readiness from exact original XAPK source
+        run: |
+          python tools/ref04_p6_offline_ui_plan.py
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          r=json.loads(Path('output/ref04-p6-offline-ui-gaps.json').read_text(encoding='utf-8'))
+          c=r['counts']
+          assert r['classification']=='REF04_P6_OFFLINE_XAPK_TO_UNITY_SOURCE_GAP_AUDIT'
+          assert c['spriteLinkedImages']==265
+          assert c['sourceGeometryVerified']+c['sourceGeometryBlocked']==265
+          assert c['allDualVerifiedImages']==299
+          assert c['verifiedImagesWithoutSourceSprite']==34
+          assert c['layoutSerializedFieldsTwoSchemaVerified']==168
+          assert c['originalTextSourceComponents']==62
+          assert r['requiresOriginalAndroidGameToRun'] is False
+          assert r['requiresOriginalGameServer'] is False
+          assert r['newBackendIsAuthoritativeForNewGameplay'] is True
+          assert r['originalXapkPixelPerfectMatchProven'] is False
+          assert r['runtimeCoordinates'] is None
+          assert r['unityAssetsChanged'] is False
+          print('P6 offline provenance accepted; Unity restoration and new backend work remain separate.')
           PY
 
       - name: Classify all REF04 XAPK native Sprite rectangles against exported PNG dimensions
@@ -1034,6 +1066,8 @@ jobs:
         run: python -m unittest discover -s tests -p test_ref04_p3_original_font_objects.py -v
       - name: Verify P3 source Text/localization/font honesty on Windows
         run: python -m unittest discover -s tests -p test_ref04_p3_text_localization.py -v
+      - name: Verify P6 offline source UI audit does not need discontinued game server on Windows
+        run: python -m unittest discover -s tests -p test_ref04_p6_offline_ui_plan.py -v
       - name: Verify P6 ADB source-bound runtime screenshot guards on Windows
         run: python -m unittest discover -s tests -p test_ref04_p6_runtime_evidence.py -v
       - name: Verify P5 cross-phase source SHA/owner/byte-span/coordinate safety on Windows
