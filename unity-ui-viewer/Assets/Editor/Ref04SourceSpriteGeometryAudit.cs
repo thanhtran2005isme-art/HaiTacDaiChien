@@ -21,9 +21,6 @@ namespace HaiTac.OfflineViewer.Editor
     {
         private const string Ref = "REF04-home-crew";
         private const string SpriteRoot = "Assets/LocalReconstruction/Sprites";
-        private const string PrefabRoot =
-            "Assets/LocalReconstruction/RootCanvasViewportPrefabs/" +
-            Ref + "_SOURCE_ROOT_CANVAS_PREVIEW.prefab";
         [Serializable] private sealed class Source
         {
             public int schemaVersion;
@@ -50,6 +47,58 @@ namespace HaiTac.OfflineViewer.Editor
             public float[] sourceRectSize;
             public float pixelsPerUnit;
         }
+        // These plans were independently validated against the real XAPK in
+        // Phase 3C/3D. Their private SHA256s already appear in the geometry
+        // plan. Recheck exact per-Image identity and Image.Type here, without
+        // loading or rebuilding any disposable 3E preview Scene/Prefab.
+        [Serializable] private sealed class VerifiedPlan
+        {
+            public string classification;
+            public int verifiedComponents;
+            public int verifiedFieldValues;
+            public int singleBackendExcludedFieldValues;
+            public VerifiedScene[] scenes;
+        }
+        [Serializable] private sealed class VerifiedScene
+        {
+            public string sceneId;
+            public VerifiedComponent[] components;
+        }
+        [Serializable] private sealed class VerifiedComponent
+        {
+            public int componentPathId;
+            public int rectTransformPathId;
+            public int gameObjectPathId;
+            public string rawObjectSha256;
+            public string className;
+            public VerifiedField[] fields;
+        }
+        [Serializable] private sealed class VerifiedField
+        {
+            public string name;
+            public string kind;
+            public int intValue;
+        }
+        [Serializable] private sealed class VisualPlan
+        {
+            public string classification;
+            public int sourceBindings;
+            public VisualScene[] scenes;
+        }
+        [Serializable] private sealed class VisualScene
+        {
+            public string sceneId;
+            public VisualBinding[] bindings;
+        }
+        [Serializable] private sealed class VisualBinding
+        {
+            public int rectTransformPathId;
+            public int imageComponentPathId;
+            public int gameObjectPathId;
+            public string sourceObjectSha256;
+            public string spriteFile;
+        }
+
         private sealed class Geometry
         {
             public string filename;
@@ -96,32 +145,61 @@ namespace HaiTac.OfflineViewer.Editor
                 throw new InvalidDataException(
                     "REF04 265 Image geometry source manifest/fingerprints invalid.");
 
-            var sourcePrefab = AssetDatabase.LoadAssetAtPath<GameObject>(PrefabRoot);
-            if (sourcePrefab == null)
-                throw new FileNotFoundException(
-                    "3E REF04 preview Prefab is missing. Build and Audit 3E first.");
-            var ids = sourcePrefab.GetComponentsInChildren<ManagedUiSourceEvidence>(true)
-                .ToDictionary(n => n.sourceMonoBehaviourPathId);
+            var verified = JsonUtility.FromJson<VerifiedPlan>(
+                Encoding.UTF8.GetString(ReadOutput("verified-ui-prefab-plan.json")));
+            var visual = JsonUtility.FromJson<VisualPlan>(
+                Encoding.UTF8.GetString(ReadOutput("verified-visual-preview-plan.json")));
+            if (verified == null || visual == null ||
+                verified.classification !=
+                    "TWO_BACKEND_STRICT_SOURCE_VERIFIED_UI_FIELDS" ||
+                verified.verifiedComponents != 1108 ||
+                verified.verifiedFieldValues != 7451 ||
+                verified.singleBackendExcludedFieldValues != 651 ||
+                visual.classification !=
+                    "EXACT_SOURCE_SPRITES_ON_DUAL_VERIFIED_IMAGE_COMPONENTS" ||
+                visual.sourceBindings != 963 ||
+                verified.scenes == null || visual.scenes == null)
+                throw new InvalidDataException(
+                    "Original REF04 source Image plans are incomplete.");
+            var fieldScenes = verified.scenes.Where(x => x.sceneId == Ref).ToArray();
+            var visualScenes = visual.scenes.Where(x => x.sceneId == Ref).ToArray();
+            if (fieldScenes.Length != 1 || visualScenes.Length != 1 ||
+                fieldScenes[0].components == null ||
+                visualScenes[0].bindings == null ||
+                visualScenes[0].bindings.Length != 265)
+                throw new InvalidDataException(
+                    "REF04 source Image inventory does not contain 265 unique bindings.");
+
+            var originalImages = fieldScenes[0].components
+                .Where(x => x.className == "UnityEngine.UI.Image")
+                .ToDictionary(x => x.componentPathId);
+            var originalSprites = visualScenes[0].bindings
+                .ToDictionary(x => x.imageComponentPathId);
             var seen = new HashSet<int>();
             foreach (var item in src.images)
             {
                 if (item == null || !seen.Add(item.componentPathId) ||
                     !SourcePngName(item.spriteFile) ||
-                    !ids.TryGetValue(item.componentPathId, out var marker) ||
-                    marker.originalClassName != "UnityEngine.UI.Image" ||
-                    marker.sourceSceneId != Ref ||
-                    marker.sourceGameObjectPathId != item.gameObjectPathId ||
-                    marker.sourceRectTransformPathId != item.rectTransformPathId ||
-                    marker.sourceObjectSha256 != item.sourceObjectSha256 ||
-                    !marker.exactTwoBackendFieldAgreement)
-                    throw new InvalidDataException("REF04 owner/Component PathID differs from original.");
-                var image = marker.GetComponent<Image>();
-                if (image == null || image.sprite == null ||
-                    (int)image.type != item.verifiedImageType ||
-                    AssetDatabase.GetAssetPath(image.sprite) !=
-                    SpriteRoot + "/" + item.spriteFile)
+                    !originalImages.TryGetValue(item.componentPathId, out var owner) ||
+                    !originalSprites.TryGetValue(item.componentPathId, out var pointer) ||
+                    owner.gameObjectPathId != item.gameObjectPathId ||
+                    owner.rectTransformPathId != item.rectTransformPathId ||
+                    owner.rawObjectSha256 != item.sourceObjectSha256 ||
+                    pointer.gameObjectPathId != item.gameObjectPathId ||
+                    pointer.rectTransformPathId != item.rectTransformPathId ||
+                    pointer.sourceObjectSha256 != item.sourceObjectSha256 ||
+                    pointer.spriteFile != item.spriteFile)
                     throw new InvalidDataException(
-                        "REF04 Image type/source Sprite pointer differs on component " +
+                        "REF04 original Image/Sprite PathID or hash differs: " +
+                        (item == null ? "null Image" : item.componentPathId.ToString()));
+                var type = owner.fields == null ? null :
+                    owner.fields.Where(x => x.name == "m_Type").ToArray();
+                if (type == null || type.Length != 1 ||
+                    type[0].kind != "int" ||
+                    type[0].intValue != item.verifiedImageType ||
+                    item.verifiedImageType < 0 || item.verifiedImageType > 3)
+                    throw new InvalidDataException(
+                        "REF04 source Image Type is not independently verified: " +
                         item.componentPathId);
                 if (!item.applyGeometry)
                     continue;
@@ -137,6 +215,9 @@ namespace HaiTac.OfflineViewer.Editor
                     item.border[1] + item.border[3] > item.sourceRectSize[1])
                     throw new InvalidDataException("Untrusted native Sprite geometry.");
             }
+            if (seen.Count != 265 || originalSprites.Count != 265)
+                throw new InvalidDataException(
+                    "REF04 exact source Sprite/Image inventory contains gaps.");
             return src;
         }
 
