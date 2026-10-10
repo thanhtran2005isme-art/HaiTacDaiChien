@@ -41,6 +41,17 @@ class CandidateOnly(unittest.TestCase):
         self.assertFalse(result["runtimeFormulaRecovered"])
         self.assertFalse(result["sourceFieldApplicationAllowed"])
 
+    def test_dumper_exact_names_and_hex_address_format_remain_candidate_only(self):
+        data,idx,exe,blob=input_files()
+        data["ScriptMethod"][0]["Address"]="0x1110"
+        result=p.source_script_candidates(data,idx,exe,blob)
+        self.assertEqual(result["strictCandidateCount"],1)
+        self.assertEqual(result["sanitizedScriptFormatCounts"]["exactNameMatchesInScript"],1)
+        self.assertEqual(result["sanitizedScriptFormatCounts"]["sourceHexStringAddressFields"],1)
+        self.assertGreaterEqual(result["sanitizedScriptFormatCounts"][
+            "sourceClassMethodSuffix_CLASS_DOUBLE_DOLLAR"],1)
+        self.assertFalse(result["nativeCodeMethodOwnershipVerified"])
+
     def test_duplicate_overload_or_name_blocks_address_assignment(self):
         data,idx,exe,blob=input_files()
         idx["targetClassDefinitions"][0]["methods"].append(
