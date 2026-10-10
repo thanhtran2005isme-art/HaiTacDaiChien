@@ -94,6 +94,11 @@ class RuntimeTraceGuards(unittest.TestCase):
         self.assertIsNone(result["runtimeAlignmentFormula"])
         self.assertFalse(result["sourceFieldApplicationAllowed"])
         self.assertFalse(result["unityAssetsChanged"])
+        canvas=next(x for x in result["sourceComponents"] if x["category"]=="Canvas")
+        self.assertEqual(canvas["originalNativeCanvasSubset"]["m_RenderMode"],0)
+        scaler=next(x for x in result["sourceComponents"] if x["category"]=="CanvasScaler")
+        self.assertIn("m_ScaleFactor",scaler["originalSerializedFieldEvidence"])
+        self.assertFalse(scaler["runtimeFormulaProven"])
 
     def test_external_parent_never_faked_into_canvas(self):
         step1,step2,p1,method,elf=fixture()
