@@ -111,13 +111,31 @@ def strict_text_probe(reader,row,original,generator):
     return "SOURCE_TEXT_STRICT_SINGLE_BACKEND_NOT_IMPORTED",selected
 
 
+def compare_decoders(a, b):
+    """Accept matching strict parsed source fields only, never infer runtime UI."""
+    primary,original_fields=a
+    secondary,second_fields=b
+    if primary!="SOURCE_TEXT_STRICT_SINGLE_BACKEND_NOT_IMPORTED":
+        return primary,{},secondary
+    if secondary!="SOURCE_TEXT_STRICT_SINGLE_BACKEND_NOT_IMPORTED":
+        return primary,original_fields,secondary
+    if original_fields != second_fields:
+        return "BLOCKED_TEXT_INDEPENDENT_BACKEND_FIELD_CONFLICT",{},secondary
+    return ("TWO_BACKENDS_SAME_SERIALIZED_TEXT_FIELDS_NOT_IMPORTED",
+            original_fields,secondary)
+
+
 def report(rows, results, binary_proof):
     if set(rows)!=set(results):
         raise ValueError("Full REF04 original Text inventory was not probed")
     by_status=collections.Counter()
     items=[]
     for cid,(src,original) in sorted(rows.items()):
-        outcome,fields=results[cid]
+        values=results[cid]
+        if len(values) not in (2,3):
+            raise ValueError("Text source backend result invalid")
+        outcome,fields=values[:2]
+        secondary=values[2] if len(values)==3 else "NOT_RUN"
         by_status[outcome]+=1
         items.append({
             "componentPathId":cid,"rectTransformPathId":src["rectTransformId"],
@@ -125,6 +143,7 @@ def report(rows, results, binary_proof):
             "sourceObjectSha256":original["rawEvidence"]["sha256"],
             "sourceMonoScriptPointer":src["scriptPointer"],
             "verificationStatus":outcome,
+            "secondIndependentBackendStatus":secondary,
             "sourceTextFieldEvidence":fields,
             "notProven":"Runtime language, localize, panel state, "
                         "dynamic text assignment and pixel-perfect font",
@@ -136,6 +155,8 @@ def report(rows, results, binary_proof):
         "sourceTextComponents":TOTAL,
         "sourceBinary":binary_proof,
         "statuses":dict(sorted(by_status.items())),
+        "dualBackendAgreedComponentCount":by_status[
+            "TWO_BACKENDS_SAME_SERIALIZED_TEXT_FIELDS_NOT_IMPORTED"],
         "rawTextContentPublished":False,
         "runtimeTextProven":False,
         "unityImportAllowed":False,
@@ -160,6 +181,17 @@ def execute(root=ROOT,*,xapk=None,unitypy=None):
         raise FileNotFoundError("Original XAPK absent")
     version=binary.exact_unity_version(deep["scenes"])
     generator,proof=binary.source_generator(xapk,version,backend="AssetStudio")
+    second_generator=None
+    second_issue="NOT_RUN"
+    try:
+        second_generator,proof2=binary.source_generator(
+            xapk,version,backend="AssetRipper")
+        if (proof2["library"]["sha256"]!=proof["library"]["sha256"] or
+            proof2["metadata"]["sha256"]!=proof["metadata"]["sha256"] or
+            proof2["gameUnityVersion"]!=proof["gameUnityVersion"]):
+            raise ValueError("Second source generator used different XAPK")
+    except binary.RecoveryBlocked as exc:
+        second_issue="BLOCKED_SECOND_BACKEND_GENERATOR_"+exc.code
     results={}
     class Interceptor:
         def load(self,blob):
@@ -177,12 +209,19 @@ def execute(root=ROOT,*,xapk=None,unitypy=None):
                 reader=data.get(cid)
                 if reader is None or reader.type.name!="MonoBehaviour":
                     raise ValueError("Original source Text component disappeared")
-                results[cid]=strict_text_probe(reader,row,original,generator)
+                first=strict_text_probe(reader,row,original,generator)
+                if second_generator is None:
+                    results[cid]=(first[0],first[1],second_issue)
+                else:
+                    second=strict_text_probe(reader,row,original,second_generator)
+                    results[cid]=compare_decoders(first,second)
             return env
     layout.build(root=root,xapk=xapk,unitypy=Interceptor())
     proof_small={
         "sourcePair":"EXACT_XAPK_IL2CPP_BINARY_PAIR",
-        "backend":"AssetStudio","gameUnityVersion":version,
+        "backends":(["AssetStudio","AssetRipper"]
+                    if second_generator is not None else ["AssetStudio"]),
+        "gameUnityVersion":version,
         "librarySha256":proof["library"]["sha256"],
         "metadataSha256":proof["metadata"]["sha256"],
     }
@@ -197,6 +236,8 @@ def execute(root=ROOT,*,xapk=None,unitypy=None):
         "classification":doc["classification"],
         "sourceTextComponents":TOTAL,
         "statuses":doc["statuses"],
+        "dualBackendAgreedComponentCount":doc[
+            "dualBackendAgreedComponentCount"],
         "rawTextContentPublished":False,
         "unityAssetsChanged":False,
     },sort_keys=True))
