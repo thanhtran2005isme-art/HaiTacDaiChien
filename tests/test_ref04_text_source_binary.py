@@ -105,6 +105,54 @@ class TextProbe(unittest.TestCase):
         self.assertFalse(out["rawTextContentPublished"])
         self.assertFalse(out["runtimeTextProven"])
 
+    def test_original_nested_fontdata_source_path_no_guessing(self):
+        graph,deep=documents()
+        rows,_=tool.source_text_nodes(deep,graph)
+        row,original=rows[100]
+        obj={
+            "m_GameObject":{"m_FileID":0,"m_PathID":200},
+            "m_Script":{"m_FileID":1,"m_PathID":55},
+            "m_Enabled":True,
+            "m_Text":"Source only",
+            "m_FontData":{
+                "m_Font":{"m_FileID":2,"m_PathID":901},
+                "m_FontSize":17,"m_FontStyle":1,
+                "m_Alignment":4,"m_LineSpacing":1.2},
+        }
+        with patch.object(tool.binary,"exact_source_unity_header",
+                          return_value=object()),patch.object(
+                              tool.binary,"verified_native_header_root",
+                              return_value=object()):
+            status,fields=tool.strict_text_probe(
+                Reader(obj),row,original,Generator())
+        self.assertEqual(status,"SOURCE_TEXT_STRICT_SINGLE_BACKEND_NOT_IMPORTED")
+        self.assertEqual(fields["m_Font"]["sourceFileId"],2)
+        self.assertEqual(fields["m_Font"]["sourcePathId"],901)
+        self.assertEqual(fields["m_Font"]["sourceFieldPath"],"m_FontData.m_Font")
+        self.assertEqual(fields["m_FontSize"],17)
+        self.assertNotIn("Source only",str(fields))
+
+    def test_duplicate_root_and_nested_font_fields_are_not_merged(self):
+        graph,deep=documents()
+        rows,_=tool.source_text_nodes(deep,graph)
+        row,original=rows[100]
+        obj={
+            "m_GameObject":{"m_FileID":0,"m_PathID":200},
+            "m_Script":{"m_FileID":1,"m_PathID":55},
+            "m_Enabled":True,
+            "m_Text":"Source only",
+            "m_Font":{"m_FileID":0,"m_PathID":20},
+            "m_FontData":{"m_Font":{"m_FileID":1,"m_PathID":21}},
+        }
+        with patch.object(tool.binary,"exact_source_unity_header",
+                          return_value=object()),patch.object(
+                              tool.binary,"verified_native_header_root",
+                              return_value=object()):
+            status,fields=tool.strict_text_probe(
+                Reader(obj),row,original,Generator())
+        self.assertEqual(status,"BLOCKED_SOURCE_TEXT_DUPLICATE_FONT_FIELD_LOCATIONS")
+        self.assertFalse(fields)
+
     def test_two_backends_must_exactly_match_source_text_and_font_fields(self):
         evidence={"m_Text":{"sourceUtf8Sha256":"a"*64,"utf8Bytes":9},
                   "m_Font":{"sourceFileId":0,"sourcePathId":123},
