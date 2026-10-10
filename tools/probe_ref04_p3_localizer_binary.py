@@ -56,6 +56,28 @@ def strict_probe(reader, original_row, original_record, generator):
                       "originalByteLength":len(text)}
     return "STRICT_SOURCE_PARSED_SOURCE_TERM_KEYS_UNVERIFIED_RUNTIME",fields
 
+def safe_ripper_raw_failure(exc):
+    """Stable failure category only; never leak original game bytes or values."""
+    msg=str(exc)
+    if isinstance(exc,raw_replay.RawWalkBlocked):
+        patterns=(
+            ("Unrecognized source field type: ","UNSUPPORTED_SCHEMA_LEAF_TYPE"),
+            ("Serialized object ended before schema field","TYPE_TREE_OVERRUN"),
+            ("Source array element count invalid","UNTRUSTED_ARRAY_LENGTH"),
+            ("Source string byte length invalid","UNTRUSTED_STRING_LENGTH"),
+            ("Source schema field consumed no bytes","EMPTY_TYPE_TREE_NODE"),
+            ("Incomplete source TypeTree node","INCOMPLETE_SOURCE_NODE"),
+            ("Unsupported source array schema","UNSUPPORTED_ARRAY_SCHEMA"),
+            ("TypeTree depth/node budget exceeded","TYPE_TREE_LIMIT"),
+            ("Ambiguous duplicate source schema field","DUPLICATE_SOURCE_FIELD"),
+            ("Original serialized object invalid or oversized","ORIGINAL_OBJECT_SIZE"),
+        )
+        for prefix,cat in patterns:
+            if msg.startswith(prefix):
+                return cat
+    return "OTHER_"+type(exc).__name__
+
+
 def raw_ripper_probe(reader,original_row,original_record,generator):
     """Independent struct-based walk of all original bytes under Ripper schema.
 
@@ -77,7 +99,7 @@ def raw_ripper_probe(reader,original_row,original_record,generator):
             return "BLOCKED_RAW_RIPPER_UNCONSUMED_OBJECT_BYTES",{}
     except (binary.RecoveryBlocked,raw_replay.RawWalkBlocked,
             UnicodeError,ValueError,KeyError,TypeError) as exc:
-        return "BLOCKED_RAW_RIPPER_"+type(exc).__name__,{}
+        return "BLOCKED_RAW_RIPPER_"+safe_ripper_raw_failure(exc),{}
     ptr=original_row["scriptPointer"]
     if (not isinstance(parsed,dict) or
         refs.pptr(parsed.get("m_GameObject"))!=(0,original_row["gameObjectId"]) or
