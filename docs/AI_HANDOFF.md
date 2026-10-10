@@ -1,5 +1,10 @@
 # AI HANDOFF — Hải Tặc UI Viewer
 
+## Clarified objective — P6 offline Unity UI + original game's server permanently retired (2026-10-11)
+
+User clarified **old Hải Tặc Đại Chiến online server has shut down**. They want the **original XAPK UI/assets as the source for a new Unity game with independent backend**, not to test against a still-running original Android game. Corrected P6: primary script `tools/ref04_p6_offline_ui_plan.py`, offline tests `tests/test_ref04_p6_offline_ui_plan.py`, source-gap ledger `output/ref04-p6-offline-ui-gaps.json`, documentation `docs/REF04_P6_OFFLINE_UNITY_BACKEND.md`. ADB screenshot tooling retained **only as optional reference**, not required for P6/Unity/backend. No existing backend endpoint inferred; deliberate new design must be labeled `NEW_PROJECT_DESIGN` rather than original-XAPK-verified. Latest HEAD still requires CI/user execution validation. PR #7 remains Draft, no merge or changes to Unity scene/prefab/source art.
+
+
 ## P6 runtime capture groundwork — 2026-10-11
 
 - Added `tools/ref04_p6_runtime_capture.py` (live ADB foreground screenshot CLI, explicit Android app package and capture ID), `tools/ref04_p6_runtime_evidence.py` (source-bound image/viewport/peer device and SHA integrity, existing exact-size pixel comparison), `tests/test_ref04_p6_runtime_evidence.py` (synthetic negative/unit tests), `docs/REF04_P6_RUNTIME_CAPTURE.md`, and Linux/Windows CI test gates.
