@@ -835,10 +835,20 @@ jobs:
           assert result['sourceCoverage']=={
               'P1OriginalLayoutGroupFields':168,
               'P2OriginalCanvasAndRelatedComponents':15,
+              'P2ComponentsWithOriginalRawSha': result['sourceCoverage']['P2ComponentsWithOriginalRawSha'],
+              'P2IdentityOnlyComponentsWithoutRawSha': result['sourceCoverage']['P2IdentityOnlyComponentsWithoutRawSha'],
               'P4OriginalTextComponents':62,
               'totalSourceProvenanceEntries':245,
           }
           assert len(result['fieldProvenance'])==168
+          assert result['sourceCoverage']['P2ComponentsWithOriginalRawSha'] + result['sourceCoverage']['P2IdentityOnlyComponentsWithoutRawSha'] == 15
+          assert sum(x['originalObjectByteProvenanceStatus'] ==
+                     'BLOCKED_RAW_OBJECT_SHA_UNAVAILABLE_IDENTITY_ONLY'
+                     for x in result['componentProvenance']) == result['sourceCoverage']['P2IdentityOnlyComponentsWithoutRawSha']
+          assert all(x['originalSerializedSourceValueProofAllowed'] is False
+                     for x in result['componentProvenance']
+                     if x['originalObjectByteProvenanceStatus'] ==
+                     'BLOCKED_RAW_OBJECT_SHA_UNAVAILABLE_IDENTITY_ONLY')
           assert len(result['componentProvenance'])==15
           assert len(result['textProvenance'])==62
           assert result['runtimeCoordinates'] is None
