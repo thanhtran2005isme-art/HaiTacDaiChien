@@ -45,7 +45,7 @@ class Arm64ElfProvenance(unittest.TestCase):
 
     def test_executable_segment_file_out_of_bounds_rejected(self):
         bad=bytearray(fixture())
-        struct.pack_into("<Q",bad,64+8+32,9999)
+        struct.pack_into("<Q",bad,64+8+24,9999)
         with self.assertRaises(elf.ElfBlocked):
             elf.elf_regions(bytes(bad))
 
