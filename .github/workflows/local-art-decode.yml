@@ -37,6 +37,8 @@ on:
       - 'tools/audit_ref04_3c_image_inventory.py'
       - 'tools/audit_ref04_full_source_inventory.py'
       - 'tools/probe_ref04_layout_third_backend.py'
+      - 'tools/probe_ref04_layout_schema_forensics.py'
+      - 'tests/test_ref04_layout_schema_forensics.py'
       - 'tests/test_ref04_layout_third_backend.py'
       - 'tools/audit_ref04_step2_layout_canvas_text.py'
       - 'tests/test_ref04_step2_layout_canvas_text.py'
@@ -371,6 +373,8 @@ jobs:
         run: python -m unittest discover -s tests -p test_ref04_full_source_inventory.py -v
       - name: Verify independent LayoutGroup source identity and zero guess policy
         run: python -m unittest discover -s tests -p test_ref04_layout_third_backend.py -v
+      - name: Verify REF04 LayoutGroup TypeTree schema forensics fail closed
+        run: python -m unittest discover -s tests -p test_ref04_layout_schema_forensics.py -v
       - name: Verify source-only Step 2 Canvas Text and LayoutGroup evidence
         run: python -m unittest discover -s tests -p test_ref04_step2_layout_canvas_text.py -v
       - name: Verify 62 Text source object bytes/font pointers guarded by XAPK provenance
@@ -515,6 +519,24 @@ jobs:
         continue-on-error: true
         timeout-minutes: 6
         run: python tools/probe_ref04_layout_third_backend.py
+
+      - name: Diagnose 24 original REF04 LayoutGroup schemas in AssetStudio and AssetRipper
+        timeout-minutes: 8
+        run: |
+          python tools/probe_ref04_layout_schema_forensics.py
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          d=json.loads(Path('output/ref04-layout-schema-forensics.json').read_text(encoding='utf-8'))
+          assert d['layoutGroupsInspected']==24
+          assert d['sourceFieldValuesStillBlockedFromUnity']==168
+          assert d['unityImportAllowed'] is False
+          assert d['runtimeAlignmentProven'] is False
+          assert d['originalUiAssetsChanged'] is False
+          assert all(x['unityImportAllowed'] is False and
+                     x['runtimeLayoutProven'] is False for x in d['layoutGroups'])
+          print('PASS read-only source schema diagnostics:',d['schemaComparisonCounts'])
+          PY
 
       - name: Probe strict original 62 Text components from XAPK IL2CPP bytes (no import)
         continue-on-error: true
@@ -684,6 +706,8 @@ jobs:
         run: python -m unittest discover -s tests -p test_ref04_full_source_inventory.py -v
       - name: Verify third-backend blocked LayoutGroup source evidence on Windows
         run: python -m unittest discover -s tests -p test_ref04_layout_third_backend.py -v
+      - name: Verify REF04 source schema forensic guards on Windows
+        run: python -m unittest discover -s tests -p test_ref04_layout_schema_forensics.py -v
       - name: Verify original Canvas Text Layout source-only field guards on Windows
         run: python -m unittest discover -s tests -p test_ref04_step2_layout_canvas_text.py -v
       - name: Verify original XAPK Text full strict parse and private string hash on Windows
