@@ -258,7 +258,14 @@ class CrossPhaseIntegrity(unittest.TestCase):
         # Corrupting Step2 alone remains prohibited, even though field proof
         # is blocked due to missing source bytes.
         step2["verifiedSerializedFields"]["m_RenderMode"] = 3
-        with self.assertRaisesRegex(ValueError, "serialized values differ"):
+        with self.assertRaisesRegex(
+                ValueError, "Step2 source fields/status disagree with original inventory"):
+            p5.build(docs)
+        # Even if Step2 and the original inventory are both changed in the
+        # synthetic fixture, the untouched P2 report must still block them.
+        original["verifiedSerializedFields"]["m_RenderMode"] = 3
+        with self.assertRaisesRegex(
+                ValueError, "serialized values differ from Step2"):
             p5.build(docs)
 
     def test_unhashed_two_backend_claim_is_rejected(self):
