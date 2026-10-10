@@ -56,6 +56,8 @@ on:
       - 'tools/audit_ref04_p3_text_localization.py'
       - 'tools/probe_ref04_p3_original_font_objects.py'
       - 'tools/probe_ref04_p3_localizer_binary.py'
+      - 'tools/audit_ref04_p4_text_logic.py'
+      - 'tests/test_ref04_p4_text_logic.py'
       - 'tests/test_ref04_p3_localizer_binary.py'
       - 'tests/test_ref04_p3_original_font_objects.py'
       - 'tests/test_ref04_p3_text_localization.py'
@@ -419,6 +421,8 @@ jobs:
         run: python -m unittest discover -s tests -p test_ref04_p3_original_font_objects.py -v
       - name: Verify P3 original Text fonts and source localization guards
         run: python -m unittest discover -s tests -p test_ref04_p3_text_localization.py -v
+      - name: Verify P4 62-Text font and localization source graph refuses dynamic guesses
+        run: python -m unittest discover -s tests -p test_ref04_p4_text_logic.py -v
       - name: Verify original Canvas/Scaler source graph (P2)
         run: python -m unittest discover -s tests -p test_ref04_p2_canvas_graph.py -v
       - name: Verify Canvas/SafeArea/PanelHome2 runtime evidence cannot be guessed (P2)
@@ -789,6 +793,29 @@ jobs:
                 'of',doc['originalFontPPtrReferences'],'source pointers; runtime font BLOCKED')
           PY
 
+      - name: Audit P4 original 62 Text through two Font sources and 52 I2 localizers
+        timeout-minutes: 3
+        run: |
+          python tools/audit_ref04_p4_text_logic.py
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          p=json.loads(Path('output/ref04-p4-62-text-logic-source-evidence.json').read_text(encoding='utf-8'))
+          assert p['classification']=='REF04_P4_TEXT_62_SOURCE_FONT_LOCALIZATION_DYNAMIC_EVIDENCE_ONLY'
+          assert p['sourceTextComponentsVerified']==62
+          assert p['sourceFontObjectsVerified']==2
+          assert p['sourceLocalizerComponentsChecked']==52
+          assert sum(row['originalTextComponentsReferencingFont'] for row in p['originalFontUsage'])==62
+          assert sum(p['sourceTextInitialStates'].values())==62
+          assert p['runtimeDynamicTextWritersIndependentlyProven']==0
+          assert p['runtimeLocalizedAssignmentsIndependentlyProven']==0
+          assert p['runtimeTextLogicRecovered'] is False
+          assert p['runtimeFontRenderingProven'] is False
+          assert p['originalTextStringsPublished'] is False
+          assert p['unityImportAllowed'] is False
+          print('P4 strict source-only Text/Font/I2 matrix verified. Runtime dynamic assignments remain BLOCKED.')
+          PY
+
       - name: Classify all REF04 XAPK native Sprite rectangles against exported PNG dimensions
         run: |
           python tools/report_ref04_png_rect_mismatch.py
@@ -945,6 +972,8 @@ jobs:
         run: python -m unittest discover -s tests -p test_ref04_p3_original_font_objects.py -v
       - name: Verify P3 source Text/localization/font honesty on Windows
         run: python -m unittest discover -s tests -p test_ref04_p3_text_localization.py -v
+      - name: Verify P4 62 Text font and I2 evidence cannot invent dynamic writers on Windows
+        run: python -m unittest discover -s tests -p test_ref04_p4_text_logic.py -v
       - name: Verify original Canvas/Scaler source graph (P2) on Windows
         run: python -m unittest discover -s tests -p test_ref04_p2_canvas_graph.py -v
       - name: Verify P2 Canvas/SafeArea/PanelHome2 source-only runtime blockers on Windows
