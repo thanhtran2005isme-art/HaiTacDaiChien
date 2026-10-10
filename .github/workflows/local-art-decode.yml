@@ -75,6 +75,8 @@ permissions:
 jobs:
   decode:
     runs-on: ubuntu-latest
+    outputs:
+      source_verified_fields: ${{ steps.ref04_independent_field_proof.outputs.verified_fields }}
     timeout-minutes: 25
     steps:
       - name: Checkout real XAPK via Git LFS
@@ -529,6 +531,7 @@ jobs:
         run: python tools/probe_ref04_layout_third_backend.py
 
       - name: Diagnose 24 original REF04 LayoutGroup schemas in AssetStudio and AssetRipper
+        id: ref04_independent_field_proof
         timeout-minutes: 8
         run: |
           python tools/probe_ref04_layout_schema_forensics.py
@@ -557,6 +560,9 @@ jobs:
                 '/168; missing independently proven fields:',
                 d['sourceFieldsMissingIndependentSchemaProof'],
                 '; status:',d['independentSchemaProofStatusCounts'])
+          import os
+          with open(os.environ['GITHUB_OUTPUT'],'a',encoding='utf-8') as out:
+              out.write('verified_fields='+str(d['sourceFieldsVerifiedByTwoGeneratedSchemas'])+'\\n')
           PY
 
       - name: Probe strict original 62 Text components from XAPK IL2CPP bytes (no import)
@@ -772,3 +778,15 @@ jobs:
       - name: Verify generated Sprite manifest, status and scene coverage
         run: |
           python -c "import json; from pathlib import Path; d=Path('output/local-ui-art'); m=json.loads((d/'manifest.json').read_text(encoding='utf-8')); s=json.loads((d/'export-status.json').read_text(encoding='utf-8')); assert s['status']=='PASS'; assert m['stats']['sprite_images_exported'] > 0; assert m['stats']['scene_nodes_mapped']['REF01-ship-upgrade'] > 0; assert all((d/f).is_file() for f in m['files']); print('WINDOWS PASS:',s['sprite_images_exported'],'Sprite PNGs,',s['ui_nodes_mapped'],'nodes')"
+
+  ref04-proof-summary:
+    name: REF04 original LayoutGroup source proof ${{ needs.decode.outputs.source_verified_fields }} of 168
+    needs: decode
+    runs-on: ubuntu-latest
+    steps:
+      - name: Source count only; never publish original XAPK values
+        env:
+          SOURCE_FIELD_COUNT: ${{ needs.decode.outputs.source_verified_fields }}
+        run: |
+          echo "Independently source-verified serialized LayoutGroup fields: ${SOURCE_FIELD_COUNT} of 168"
+          echo "Unity import/runtime layout are still NOT authorized."
