@@ -8,6 +8,11 @@ from __future__ import annotations
 from collections import Counter
 
 KINDS = ("Canvas", "CanvasScaler", "SafeArea", "PanelHome2")
+# Unity CanvasScaler serialized configuration names. Presence only; no scale math.
+SCALER_CONFIG_FIELDS = frozenset(("m_UiScaleMode", "m_ReferenceResolution",
+    "m_ScreenMatchMode", "m_MatchWidthOrHeight", "m_ScaleFactor",
+    "m_ReferencePixelsPerUnit", "m_PhysicalUnit", "m_FallbackScreenDPI",
+    "m_DefaultSpriteDPI", "m_DynamicPixelsPerUnit"))
 
 def build_graph(records):
     if not isinstance(records, list):
@@ -45,6 +50,11 @@ def build_graph(records):
     root = canvas["rectTransformPathId"]
     if canvas["ancestry"]["originalNearestCanvasRectTransformPathId"] != root:
         raise ValueError("Canvas did not resolve itself on original path")
+    declared_scaler_fields = scaler.get("verifiedSerializedFieldNames")
+    if not isinstance(declared_scaler_fields, list) or not all(
+            isinstance(item, str) for item in declared_scaler_fields):
+        raise ValueError("CanvasScaler verified serialized field inventory missing")
+    scale_keys = set(declared_scaler_fields) & SCALER_CONFIG_FIELDS
     panels = {row["rectTransformPathId"] for row in by_kind["PanelHome2"]}
     safes = {row["rectTransformPathId"] for row in by_kind["SafeArea"]}
     statuses = Counter()
@@ -92,6 +102,9 @@ def build_graph(records):
             "originalSameGameObjectStatus": ("SOURCE_SAME_GAMEOBJECT_VERIFIED" if colocated
                                              else "SOURCE_DIFFERENT_GAMEOBJECT"),
             "sourceVerifiedSerializedFieldNames": scaler["verifiedSerializedFieldNames"],
+            "originalSerializedScaleConfigFieldNames": sorted(scale_keys),
+            "originalSerializedScaleConfigMissingFieldNames": sorted(SCALER_CONFIG_FIELDS - scale_keys),
+            "originalSerializedScaleConfigurationSourceOnly": True,
             "runtimeScaleModeAndEffectiveScaleUnproven": True,
         },
         "relatedComponents": children,
