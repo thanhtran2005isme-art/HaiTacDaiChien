@@ -1,6 +1,15 @@
 # AI HANDOFF — Hải Tặc UI Viewer
 
 
+## REF04 — BƯỚC 2: LayoutGroup, Canvas và Text từ đúng XAPK (2026-10-10)
+
+- **Quy tắc KHÓA:** [XAPK_SOURCE_ONLY_UI_RULES.md](XAPK_SOURCE_ONLY_UI_RULES.md). Chỉ source XAPK; không tự đặt/đoán các giá trị UI. Nhân vật Spine để sau. Các script mới READ ONLY, **không sửa Game View, Prefab hay Asset**, CI PASS không có nghĩa UI đã được phục dựng.
+- `tools/audit_ref04_step2_layout_canvas_text.py` phân nhóm source component trong 503 GO/1564 component REF04: **Canvas=1, CanvasScaler=1, LayoutGroup=24 (18 ngang/6 dọc), Text=62, text localization=52, SafeAreaAdapter=6, UI controls=155**. Mỗi Component PathID giữ source RectTransform/sibling, native fields verified, những giá trị bị BLOCKED. Private `output/ref04-step2-layout-canvas-text.{json,md}`.
+- `tools/probe_ref04_layout_third_backend.py` thử backend IL2CPP thứ ba **AssetsTools** độc lập trên đúng 24 source object, nhưng XAPK thực: **24/24 `BLOCKED_NODE_GENERATION_AssertionError`**. Như vậy **168 source LayoutGroup fields vẫn chưa đủ chứng cứ độc lập để import**. Không âm thầm thay bằng số Unity mặc định.
+- `tools/probe_ref04_text_source_binary.py`: **62/62 UI.Text được strict full-object decode 2 backend AssetStudio + AssetRipper, các target field nguồn trùng nhau**, cùng native header/owner/SHA-256 nguồn. Chuỗi XAPK chỉ ghi SHA+byte-length ở output riêng (không đẩy text nguyên lên GitHub); m_Font PPtr/cỡ chữ nếu source có được ghi đúng. **Source text đã verify không chứng minh runtime localized/dynamic Text**. Tất cả Text vẫn `unityImportAllowed=false`.
+- **CI XAPK thật Linux+Windows [run 38040389041](https://github.com/thanhtran2005isme-art/HaiTacDaiChien/actions/runs/38040389041) đã PASS** sau probe cả 24 LayoutGroup và 62 Text; công cụ báo rõ scope và blockers. Xem [REF04_STEP2_LAYOUT_CANVAS_TEXT_SOURCE.md](REF04_STEP2_LAYOUT_CANVAS_TEXT_SOURCE.md).
+- **Chưa xong:** recover 168 LayoutGroup fields với độc lập byte parser, viewport/ancestor runtime, 6 SafeAreaAdapter, Text I2 localization và mã IL2CPP PanelHome2*. **Không có chỉnh sửa hình ảnh, icon hay tọa độ Unity** ở bước 2; bước 3–5 vẫn chờ.
+
 ## CHỈ DỮ LIỆU XAPK — RULE NGƯỜI DÙNG KHÓA & REF04 BƯỚC 1 (2026-10-10)
 
 - **Đọc trước khi thay bất cứ UI nào:** [docs/XAPK_SOURCE_ONLY_UI_RULES.md](XAPK_SOURCE_ONLY_UI_RULES.md) và root [AGENTS.md](../AGENTS.md). Cấm đoán tọa độ, ảnh, Canvas, viewport 1600×900, root scale=1, LayoutGroup, HUD, Sprite, animation, trạng thái runtime. Thiếu → giải mã tiếp XAPK gốc → vẫn thiếu → dừng hỏi người dùng. `PASS` CI không chứng minh Game View giống game.
