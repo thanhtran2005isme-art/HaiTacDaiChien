@@ -62,6 +62,8 @@ def source_script_candidates(doc, method_index, exe, binary):
     target_names={cls+"$$"+meth for cls,meth in source_methods}
     output_stats["exactNameMatchesInScript"]=sum(
         len(by_name.get(label,[])) for label in target_names)
+    output_stats["directClassMethodNameMatches"]=sum(
+        len(by_name.get(cls+method,[])) for cls,method in source_methods)
     source_classes={cls for cls,_ in source_methods}
     class_method_pairs=set(source_methods)
     scoped_names=[name for name in by_name if any(
@@ -73,7 +75,9 @@ def source_script_candidates(doc, method_index, exe, binary):
             if not name.endswith(method):
                 continue
             prefix=name[:-len(method)]
-            if prefix.endswith(cls+"$$"):
+            if prefix == cls:
+                separators["EXACT_CLASS_METHOD_NO_DELIMITER"]+=1
+            elif prefix.endswith(cls+"$$"):
                 separators["CLASS_DOUBLE_DOLLAR"]+=1
             elif prefix.endswith(cls+"__"):
                 separators["CLASS_DOUBLE_UNDERSCORE"]+=1
@@ -134,12 +138,15 @@ def source_script_candidates(doc, method_index, exe, binary):
     output_stats.update({"sourceMethodPattern_"+key:value
                          for key,value in sorted(method_matches.items())})
     for (cls,method), definitions in sorted(source_methods.items()):
-        label=cls+"$$"+method
-        scripts=by_name.get(label,[])
-        if len(definitions)!=1 or len(scripts)!=1:
+        # Some original IL2CPP symbol dumpers concatenate class/method names
+        # without a delimiter. Accept only exact, unambiguous equality; never
+        # fuzzy-match a method substring to an arbitrary native address.
+        labels=(cls+"$$"+method,cls+method)
+        hits=[(label,addr) for label in labels for addr in by_name.get(label,[])]
+        if len(definitions)!=1 or len(hits)!=1:
             blockers["NOT_UNIQUE_METHOD_DEFINITION_OR_SCRIPT_MATCH"]+=1
             continue
-        addr=scripts[0]
+        matching_label,addr=hits[0]
         if addr%4:
             blockers["NON_AARCH64_ALIGNED_ADDRESS"]+=1
             continue
@@ -155,6 +162,8 @@ def source_script_candidates(doc, method_index, exe, binary):
             "className":cls,"methodName":method,
             "originalMethodDefinitionIndex":definitions[0]["methodDefinitionIndex"],
             "sourceMethodToken":definitions[0]["methodToken"],
+            "nameMatchRule":("EXACT_DOUBLE_DOLLAR" if matching_label==labels[0]
+                             else "EXACT_CLASS_METHOD_CONCATENATION"),
             "candidateELFVirtualAddress":addr,
             "originalELFFileOffset":off,
             "first16ExecutableBytesSha256":hashlib.sha256(binary[off:off+16]).hexdigest(),
