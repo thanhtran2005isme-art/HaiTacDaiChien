@@ -1,6 +1,15 @@
 # REF04 — BƯỚC 2: Canvas, LayoutGroup, Text, SafeArea từ đúng XAPK
 
-## Kết quả chạy nguồn thật và nguyên nhân BLOCKED của P1
+## P1 HOÀN THÀNH — bằng chứng serialized LayoutGroup từ XAPK thật
+
+- **24/24 LayoutGroup, 168/168 field serialized** đã được đối chứng giá trị và byte span qua hai TypeTree phát sinh độc lập từ AssetStudio và AssetRipper, cùng đúng XAPK/Unity 2022.3.51f1. Đã kiểm chứng raw SHA-256, exact GameObject/RectTransform/Component PathIDs và MonoScript, native enabled, object byte exhaustion, field offsets/length/hashes. **Missing independent proof: 0/168.**
+- Bằng chứng thực tế: [CI #38047673207](https://github.com/thanhtran2005isme-art/HaiTacDaiChien/actions/runs/38047673207) PASS Linux real-XAPK và Windows; 24 status `TWO_SOURCE_SCHEMAS_RAW_FIELDS_AND_OFFSETS_AGREE_NOT_IMPORTED`, không public game values/binaries. CI mới khóa lại bất biến 168/168 ở XAPK chính thức.
+- Từ source, `m_Padding` có **khác biệt hình thức**: AssetStudio `RectOffset` + 4 child nodes (byteSize=0, metaFlag=0); AssetRipper `RectOffset` leaf (byteSize=0, metaFlag=16384). `m_ByteSize=0` là không khai báo độ dài, **không phải giá trị padding hoặc độ dài thật**. Parser xử lý duy nhất typed Unity RectOffset gồm bốn `int32`, phải có cờ AlignBytes từ schema Ripper và phải qua đọc/cross-check **toàn object**. Mọi trường hợp lệch field/order/length/hash vẫn bị chặn. [Unity 2022.3 RectOffset API](https://docs.unity.cn/2022.3/Documentation/ScriptReference/RectOffset.html).
+- **Giữ nguyên 168/168 field chưa được áp dụng vào Unity**: `sourceFieldValuesStillBlockedFromUnity=168`, `unityImportAllowed=false`, `sourceRuntimeLayoutProven=false`. Dữ liệu serialized không chứng minh Canvas/Screen/SafeArea, Text runtime/localization, thứ tự rebuild layout/PanelHome2 hoặc tọa độ cuối cùng. Không chỉnh Prefab/Scene/Canvas/UI, không làm nhân vật. Bước tiếp theo là phân tích **runtime alignment** từ XAPK/IL2CPP.
+- Các mục 0/168 ở bên dưới ghi nhận **lịch sử trước khi sửa parser RectOffset**, không phản ánh trạng thái hiện tại. Kết quả authoritative phải theo báo cáo `output/ref04-layout-schema-forensics.json` từ tool trên XAPK chính xác và CI tương ứng.
+
+
+## LỊCH SỬ — lỗi RectOffset trước khi sửa, 0/168
 
 - [CI 38046421707](https://github.com/thanhtran2005isme-art/HaiTacDaiChien/actions/runs/38046421707) trên XAPK gốc, Linux/Windows **SUCCESS**, nhưng `sourceFieldsVerifiedByTwoGeneratedSchemas=0`, `sourceFieldsMissingIndependentSchemaProof=168`. Trạng thái `sourceFieldValuesStillBlockedFromUnity=168` giữ nguyên.
 - `rawByteReparseCounts` ghi nhận bước đọc lại raw theo schema AssetStudio hoạt động. Lỗi ở backend AssetRipper được phân loại `UNSUPPORTED_SOURCE_TYPE`, chỗ đầu tiên hai TypeTree khác nhau chỉ số `12`. Cần kiểm tra kiểu TypeTree nguồn và luật serialize/align thật trước khi bổ sung parser. Đây **không** phải lỗi thiếu XAPK hay lý do dùng layout phỏng đoán.
