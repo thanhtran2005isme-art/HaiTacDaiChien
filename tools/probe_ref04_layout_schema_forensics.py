@@ -18,6 +18,7 @@ import export_local_ui_layout as layout
 import probe_ref04_layout_third_backend as third
 import recover_managed_ui_fields as recovery
 import ref04_layout_raw_parser as rawparse
+import ref04_layout_dual_schema_bytes as dual_schema
 
 ROOT = Path(__file__).resolve().parents[1]
 SCENE = "REF04-home-crew"
@@ -175,10 +176,15 @@ def inspect_object(reader, source_row, generators):
                 KeyError, struct.error) as exc:
             raw_result["status"] = "BLOCKED_RAW_REPARSE_" + type(exc).__name__
 
+    independent = dual_schema.strict_raw_schema_agreement(
+        reader, source_row, schema_nodes,
+        strict_values.get("AssetStudio", {}))
+
     return {"backendResults": report, "schemaComparison": comparison,
             "firstSchemaDifference": difference,
             "fieldAgreement": agreement,
             "rawByteReparse": raw_result,
+            "independentSchemaRawSourceCheck": independent,
             "unityImportAllowed": False,
             "runtimeLayoutProven": False}
 
@@ -192,7 +198,20 @@ def build_report(plan, inspected, source_file, source_pair):
         if observation.get("unityImportAllowed") is not False or (
             observation.get("runtimeLayoutProven") is not False):
             raise ValueError("Cannot promote forensic results into runtime fields")
+        independently_checked = observation.get("independentSchemaRawSourceCheck")
+        if independently_checked is None:
+            independently_checked = {
+                "status": "BLOCKED_INDEPENDENT_SCHEMAS_UNAVAILABLE",
+                "sourceFieldsIndependentlyVerified": 0,
+                "independentFieldNames": [],
+                "backendEvidence": {},
+                "originalSerializedFieldValuesPublished": False,
+                "unityImportAllowed": False,
+                "runtimeLayoutProven": False,
+            }
         rows.append({
+            "independentSchemaRawSourceCheck": independently_checked,
+            "sourceExpectedFieldNames": sorted(source["fields"]),
             "componentPathId": cid,
             "gameObjectPathId": source["gameObjectId"],
             "rectTransformPathId": source["rectTransformId"],
@@ -204,6 +223,7 @@ def build_report(plan, inspected, source_file, source_pair):
     blocked = sum(x["sourceFieldCountBlocked"] for x in rows)
     if blocked != third.EXPECTED_FIELDS:
         raise ValueError("Original 168 single-backend field inventory changed")
+    independent_summary = dual_schema.report_totals(rows)
     return {
         "schemaVersion": 1,
         "classification": "REF04_LAYOUTGROUP_SCHEMA_FORENSICS_READ_ONLY",
@@ -211,6 +231,7 @@ def build_report(plan, inspected, source_file, source_pair):
         "exactSourcePair": source_pair,
         "layoutGroupsInspected": len(rows),
         "sourceFieldValuesStillBlockedFromUnity": blocked,
+        **independent_summary,
         "schemaComparisonCounts": dict(sorted(collections.Counter(
             x["schemaComparison"] for x in rows).items())),
         "rawByteReparseCounts": dict(sorted(collections.Counter(
@@ -299,6 +320,12 @@ def execute(root=ROOT, *, xapk=None, unitypy=None):
         "schemaComparisonCounts": result["schemaComparisonCounts"],
         "fieldAgreementCounts": result["fieldAgreementCounts"],
         "rawByteReparseCounts": result["rawByteReparseCounts"],
+        "independentSchemaProofStatusCounts":
+            result["independentSchemaProofStatusCounts"],
+        "sourceFieldsVerifiedByTwoGeneratedSchemas":
+            result["sourceFieldsVerifiedByTwoGeneratedSchemas"],
+        "sourceFieldsMissingIndependentSchemaProof":
+            result["sourceFieldsMissingIndependentSchemaProof"],
         "unityImportAllowed": False,
         "originalUiAssetsChanged": False,
     }, sort_keys=True))
