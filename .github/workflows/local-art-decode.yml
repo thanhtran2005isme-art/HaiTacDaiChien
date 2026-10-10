@@ -24,6 +24,8 @@ on:
       - 'tools/report_source_visual_layout_gaps.py'
       - 'tools/audit_ref04_static_ui_geometry.py'
       - 'tests/test_ref04_static_ui_geometry.py'
+      - 'tests/test_ref04_static_geometry_unity_contract.py'
+      - 'unity-ui-viewer/Assets/Editor/Ref04SourceSpriteGeometryAudit.cs'
       - 'tests/test_source_root_canvas_viewport_contract.py'
       - 'tests/test_verified_visual_plan.py'
       - 'tests/test_verified_visual_unity_contract.py'
@@ -328,6 +330,8 @@ jobs:
         run: python -m unittest discover -s tests -p test_source_root_canvas_viewport_contract.py -v
       - name: Verify REF04 Image Sprite geometry provenance regression tests
         run: python -m unittest discover -s tests -p test_ref04_static_ui_geometry.py -v
+      - name: Verify REF04 native Sprite border repair never guesses UI layout
+        run: python -m unittest discover -s tests -p test_ref04_static_geometry_unity_contract.py -v
 
       - name: Strict AssetStudio with exact Unity-version native header
         timeout-minutes: 10
@@ -483,6 +487,8 @@ jobs:
         run: python -m unittest discover -s tests -p test_source_root_canvas_viewport_contract.py -v
       - name: Verify REF04 source Image geometry guards on Windows
         run: python -m unittest discover -s tests -p test_ref04_static_ui_geometry.py -v
+      - name: Verify REF04 native Sprite-only repair contract on Windows
+        run: python -m unittest discover -s tests -p test_ref04_static_geometry_unity_contract.py -v
       - name: Audit native MonoScript and managed UI source field IDs on Windows
         run: python tools/decode_xapk_ui_provenance.py
       - name: Require 5346 original component records in Windows deep audit
