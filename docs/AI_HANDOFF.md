@@ -1,5 +1,13 @@
 # AI HANDOFF — Hải Tặc UI Viewer
 
+## REF04 P2/P3 — rà soát cuối P3 Font identity và blockers (2026-10-10)
+
+- P3 đã đối chiếu 62/62 Text source fields và 2 Font PPtr nguồn. Bản sửa mới xác nhận **Font ngoài bundle** bằng bảng externals gốc, exact filename, PathID, type Font và source SHA-256; tổng hợp `originalFontAssetIdentityFullyResolved` giờ tính đủ cả Font trong hoặc ngoài bundle. CI gate mới yêu cầu **2/2 Font object source identity**, không nhận các pointer mồ côi hoặc target sai kiểu. Điều này **không chứng minh** Font nào được tải/render ở runtime.
+- [CI #38055119103](https://github.com/thanhtran2005isme-art/HaiTacDaiChien/actions/runs/38055119103) đã kiểm tra 52 I2 localizer trên XAPK: 26 `I2.Loc.Localize` còn `BLOCKED_RAW_RIPPER_RawWalkBlocked`, 26 `TextLocalizeChecker` thiếu managed TypeTree nodes sau native header; **0 localization term source values được xác minh độc lập**, không suy ra ngôn ngữ/key/dynamic Text.
+- P2 source có **185/204 method candidates** và chỉ đầu đoạn lệnh ARM64 được xác minh tại CI #38053979178, **không phải 185 body đã được chứng minh**. Thiếu mapping code registration, CFG/field writes và device Screen.safeArea/viewport nên công thức căn chỉnh vẫn `null`.
+- Vẫn một nhánh PR #7 Draft, không chỉnh Unity Scene/Prefab/Canvas/Spine hoặc đặt UI giả.
+
+
 ## REF04 P2/P3 — kết quả truy vết bổ sung, giới hạn runtime (10/10/2026)
 
 - **P2 ARM64 source:** [CI #38053686338](https://github.com/thanhtran2005isme-art/HaiTacDaiChien/actions/runs/38053686338) cho **185/204** method definitions có địa chỉ ứng viên strict Itanium + ELF gốc, 19 chưa ghép. [CI #38053979178](https://github.com/thanhtran2005isme-art/HaiTacDaiChien/actions/runs/38053979178) dùng Capstone để kiểm chứng **185/185 đầu đoạn lệnh ARM64**, chưa chứng minh full-body/control-flow/code registration hoặc công thức SafeArea/PanelHome2. `runtimeAlignmentFormula=null`, `runtimeAlignmentProven=false`, không import Unity.
