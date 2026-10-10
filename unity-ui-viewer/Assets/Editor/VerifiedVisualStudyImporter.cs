@@ -216,7 +216,8 @@ namespace HaiTac.OfflineViewer.Editor
         private static Camera AddPreviewCamera(Scene destination)
         {
             var go = new GameObject("3D PREVIEW CAMERA - NOT ORIGINAL", typeof(Camera));
-            SceneManager.MoveGameObjectToScene(go, destination);
+            if (go.scene != destination)
+                SceneManager.MoveGameObjectToScene(go, destination);
             go.transform.position = new Vector3(0, 0, -10);
             go.transform.rotation = Quaternion.identity;
             var camera = go.GetComponent<Camera>();
