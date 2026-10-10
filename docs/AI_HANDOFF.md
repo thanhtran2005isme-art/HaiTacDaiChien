@@ -1,5 +1,14 @@
 # AI HANDOFF — Hải Tặc UI Viewer
 
+## REF04 P4 — 62 Text / 2 Font / 52 I2 localizer source matrix (2026-10-10)
+
+- Trong **cùng nhánh PR #7 Draft**, đã thêm `tools/audit_ref04_p4_text_logic.py` và `tests/test_ref04_p4_text_logic.py` để nối 62 Text theo original GameObject/RectTransform/Component PathID, hash serialized `m_Text`, verified `m_Font` và đúng 2 Font source objects (bao gồm external SerializedFile), 52 I2 localizer với trạng thái term-source độc lập. Bằng chứng tổng hợp ghi trong `output/ref04-p4-62-text-logic-source-evidence.json` gitignored.
+- Báo cáo phân loại **empty/non-empty ở serialized source**, tìm localizer đồng GameObject nhưng **không** suy ra bản dịch hoặc UI Text runtime. `dynamicTextWriterStatus=UNKNOWN_NO_VERIFIED_RUNTIME_FIELD_WRITER` cho toàn bộ Text; `runtimeTextLogicRecovered=false`, `runtimeFontRenderingProven=false`, `runtimeLocalizedAssignmentsIndependentlyProven=0`, `unityImportAllowed=false`.
+- Bổ sung Linux/Windows unit tests và original-XAPK P4 audit gate vào `.github/workflows/local-art-decode.yml`; tài liệu: `docs/REF04_P4_TEXT_LOGIC_SOURCE.md`. **Chưa xác nhận CI PASS tại HEAD mới hoặc render thực**; không xem unit fixture là XAPK test.
+- Blocker P4 runtime: phân tích được I2 localization term bằng hai decoder, xác định key → Text binding, selected locale/fallback; code-registration ownership + full ARM64 field writes để chứng minh Text động; font runtime/glyph metrics và P2/P3 Canvas layout. Không sửa Scene/Prefab/Text/Canvas/Spine hoặc merge.
+- Công việc này được người dùng đặt tên **P4 — 62 Text** (khác mục Text/Font từng ghi P3 trong tài liệu cũ); coi P3 Text là baseline nguồn cho P4.
+
+
 ## Tiếp tục PR #7 — source Canvas graph và native branch candidates (2026-10-10)
 
 - Từ nguyên gốc source-only P2, thêm `tools/ref04_p2_canvas_graph.py` và `tests/test_ref04_p2_canvas_graph.py`: báo cáo Canvas, CanvasScaler cùng GameObject hay không, các quan hệ RectTransform nguồn của 6 SafeAreaAdapter và PanelHome2, vị trí Canvas ancestor theo đúng pointer chain. Mối quan hệ **chỉ là serialized/source**, không phải runtime viewport hoặc scale.
