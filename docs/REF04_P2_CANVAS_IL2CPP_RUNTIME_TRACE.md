@@ -1,5 +1,13 @@
 # REF04 P2 — Canvas, SafeAreaAdapter, PanelHome2 from source IL2CPP
 
+## P2 — Kết quả ARM64 trên XAPK thật (10/10/2026)
+
+- [CI native #38053686338](https://github.com/thanhtran2005isme-art/HaiTacDaiChien/actions/runs/38053686338): từ 204 method declarations trong metadata v31 của nhóm Canvas, SafeAreaAdapter và PanelHome2 liên quan, decoder giải **strict Itanium ABI nested name** rồi đối chiếu ELF AArch64/file-backed SHA; tìm được **185 candidate method addresses**, còn **19 method definitions chưa ghép được**. Đây là ứng viên được kiểm tra byte nguồn, **không phải chứng cứ độc lập về code-registration method ownership**.
+- [CI native #38053979178](https://github.com/thanhtran2005isme-art/HaiTacDaiChien/actions/runs/38053979178): Capstone 5.0.6 giải mã **185/185 entry instruction blocks**, giới hạn tối đa 256 byte/entry, SHA đầu mã nguồn, không đi sang ngoài executable segment hoặc qua một entry khác đã biết. Bằng chứng riêng ghi các nhóm opcode, branch và điểm dừng; **0 native full body verified, 0 formula runtime verified**.
+- `tools/ref04_p2_arm64_candidate_census.py`, `tools/ref04_p2_native_method_candidates.py`, `tools/run_ref04_p2_native_dumper.py` và `tests/test_ref04_p2_arm64_candidate_census.py` fail-closed nếu token/địa chỉ/byte span/hàm ngoài ELF không khớp. Địa chỉ và opcode chỉ lưu `output/` ignored; không xuất nhị phân game.
+- **P2 chưa hoàn tất ở mức runtime**: để chứng minh quy tắc căn chỉnh cần map độc lập MethodDefinitionIndex→Il2CppCodeRegistration native pointer, phân tích toàn bộ control-flow/field writes và đối chiếu trạng thái Screen.safeArea/CanvasScaler/PanelHome2 khi game chạy ở viewport cụ thể. Không được ghi `runtimeAlignmentProven=true` chỉ vì 185 entry blocks được giải mã. `runtimeAlignmentFormula=null` tiếp tục giữ nguyên.
+
+
 ## Bổ sung truy vết native ELF64 và chẩn đoán method (P2)
 
 - `tools/ref04_arm64_elf_regions.py` kiểm tra ELF64 little-endian AArch64, PT_LOAD, vùng có quyền thực thi, file-backed bounds, nguồn SHA. Nó **không** suy ra method từ metadata token.
