@@ -2,6 +2,9 @@
 
 ## REF04 P4 — 62 Text / 2 Font / 52 I2 localizer source matrix (2026-10-10)
 
+- P4 mở rộng danh sách các **IL2CPP declaration-only method candidates** liên quan Text/I2 bằng methodDefinitionIndex/token, xác minh declaring type và chỉ lưu SHA của tên phương thức trong private output. Cần code-registration mapping/verified ARM64 writes trước khi biến ứng viên này thành nội dung động có thật; `verifiedNativeFieldWriters=0`.
+
+
 - Trong **cùng nhánh PR #7 Draft**, đã thêm `tools/audit_ref04_p4_text_logic.py` và `tests/test_ref04_p4_text_logic.py` để nối 62 Text theo original GameObject/RectTransform/Component PathID, hash serialized `m_Text`, verified `m_Font` và đúng 2 Font source objects (bao gồm external SerializedFile), 52 I2 localizer với trạng thái term-source độc lập. Bằng chứng tổng hợp ghi trong `output/ref04-p4-62-text-logic-source-evidence.json` gitignored.
 - Báo cáo phân loại **empty/non-empty ở serialized source**, tìm localizer đồng GameObject nhưng **không** suy ra bản dịch hoặc UI Text runtime. `dynamicTextWriterStatus=UNKNOWN_NO_VERIFIED_RUNTIME_FIELD_WRITER` cho toàn bộ Text; `runtimeTextLogicRecovered=false`, `runtimeFontRenderingProven=false`, `runtimeLocalizedAssignmentsIndependentlyProven=0`, `unityImportAllowed=false`.
 - Bổ sung Linux/Windows unit tests và original-XAPK P4 audit gate vào `.github/workflows/local-art-decode.yml`; tài liệu: `docs/REF04_P4_TEXT_LOGIC_SOURCE.md`. **Chưa xác nhận CI PASS tại HEAD mới hoặc render thực**; không xem unit fixture là XAPK test.
