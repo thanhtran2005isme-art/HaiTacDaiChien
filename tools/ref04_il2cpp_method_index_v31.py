@@ -23,7 +23,6 @@ TYPE_STRIDE = 0x58
 TYPE_METHOD_START = 0x24
 TYPE_METHOD_COUNT = 0x40
 NO_METHODS = 0xFFFFFFFF
-IDENTIFIER = re.compile(r"^[A-Za-z_][A-Za-z0-9_.$<>+]*$")
 TARGET = re.compile(r"^PanelHome2(?:$|[A-Za-z0-9_+].*)$")
 
 
@@ -51,14 +50,14 @@ def table(blob, at, stride=1):
     return offset, length // stride
 
 
-def source_string(data, base, length, index):
+def source_string(data, base, length, index, *, allow_empty=False):
     if index >= length:
         raise MetadataBlocked("Original metadata string index outside name table")
     end = data.find(b"\0", base + index, min(base + length, base + index + 257))
     if end == -1:
         raise MetadataBlocked("Unterminated or oversized metadata identifier")
     value = data[base + index:end].decode("utf-8", "strict")
-    if not value or len(value) > 256:
+    if (not value and not allow_empty) or len(value) > 256:
         raise MetadataBlocked("Invalid metadata identifier")
     return value
 
@@ -84,7 +83,10 @@ def inspect(data: bytes):
     classes = []
     for ti in range(type_count):
         off = type_base + ti * TYPE_STRIDE
-        name = source_string(data, string_base, string_bytes, u32(data, off))
+        name = source_string(data, string_base, string_bytes, u32(data, off),
+                             allow_empty=True)
+        if not name:
+            continue
         namespace_index = u32(data, off + 4)
         namespace = (source_string(data, string_base, string_bytes, namespace_index)
                      if namespace_index else "")
@@ -102,7 +104,7 @@ def inspect(data: bytes):
                 raise MetadataBlocked("IL2CPP method declaring type conflicts with owner")
             method_name = source_string(
                 data, string_base, string_bytes, u32(data, method_off))
-            if not IDENTIFIER.fullmatch(method_name):
+            if len(method_name) > 160 or not all(ch.isprintable() for ch in method_name):
                 raise MetadataBlocked("IL2CPP metadata method name invalid")
             token = u32(data, method_off + 0x18)
             if token >> 24 != 0x06:
