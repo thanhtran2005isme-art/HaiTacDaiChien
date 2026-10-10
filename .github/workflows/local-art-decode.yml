@@ -57,6 +57,8 @@ on:
       - 'tools/probe_ref04_p3_original_font_objects.py'
       - 'tools/probe_ref04_p3_localizer_binary.py'
       - 'tools/audit_ref04_p4_text_logic.py'
+      - 'tools/audit_ref04_p5_source_integrity.py'
+      - 'tests/test_ref04_p5_source_integrity.py'
       - 'tests/test_ref04_p4_text_logic.py'
       - 'tests/test_ref04_p3_localizer_binary.py'
       - 'tests/test_ref04_p3_original_font_objects.py'
@@ -820,6 +822,38 @@ jobs:
           print('P4 strict source-only Text/Font/I2 matrix verified. Runtime dynamic assignments remain BLOCKED.')
           PY
 
+      - name: P5 audit exact REF04 P1-P4 provenance with no invented runtime coordinates
+        timeout-minutes: 4
+        run: |
+          python -m unittest discover -s tests -p test_ref04_p5_source_integrity.py -v
+          python tools/audit_ref04_p5_source_integrity.py
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          result=json.loads(Path('output/ref04-p5-cross-phase-source-integrity.json').read_text(encoding='utf-8'))
+          assert result['classification']=='REF04_P5_CROSS_PHASE_SOURCE_PROVENANCE_NO_RUNTIME_COORDINATES'
+          assert result['sourceCoverage']=={
+              'P1OriginalLayoutGroupFields':168,
+              'P2OriginalCanvasAndRelatedComponents':15,
+              'P4OriginalTextComponents':62,
+              'totalSourceProvenanceEntries':245,
+          }
+          assert len(result['fieldProvenance'])==168
+          assert len(result['componentProvenance'])==15
+          assert len(result['textProvenance'])==62
+          assert result['runtimeCoordinates'] is None
+          assert result['runtimeCanvasScale'] is None
+          assert result['runtimeSafeAreaFormula'] is None
+          assert result['runtimeTextPositions'] is None
+          assert result['assumedPreviewResolution1600x900'] is False
+          assert result['pixelPerfectUiProven'] is False
+          assert result['runtimeLayoutProven'] is False
+          assert result['unityImportAllowed'] is False
+          assert result['originalUiAssetsChanged'] is False
+          print('P5 SOURCE-PROOF PASS on real XAPK reports (NOT runtime fidelity):',
+                result['sourceCoverage'])
+          PY
+
       - name: Classify all REF04 XAPK native Sprite rectangles against exported PNG dimensions
         run: |
           python tools/report_ref04_png_rect_mismatch.py
@@ -976,6 +1010,8 @@ jobs:
         run: python -m unittest discover -s tests -p test_ref04_p3_original_font_objects.py -v
       - name: Verify P3 source Text/localization/font honesty on Windows
         run: python -m unittest discover -s tests -p test_ref04_p3_text_localization.py -v
+      - name: Verify P5 cross-phase source SHA/owner/byte-span/coordinate safety on Windows
+        run: python -m unittest discover -s tests -p test_ref04_p5_source_integrity.py -v
       - name: Verify P4 62 Text font and I2 evidence cannot invent dynamic writers on Windows
         run: python -m unittest discover -s tests -p test_ref04_p4_text_logic.py -v
       - name: Verify original Canvas/Scaler source graph (P2) on Windows
