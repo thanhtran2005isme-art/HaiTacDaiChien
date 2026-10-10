@@ -98,6 +98,11 @@ def prepare(visual, verified, graph, deep, blobs):
             counts["unverifiedUniqueSpriteGeometry"] += 1
         else:
             shape = choices[0]
+            # The original Sprite filename and the original Image Component
+            # must agree independently. Never inherit geometry from another
+            # source Sprite that happens to live on a same-named GameObject.
+            if shape.get("spriteFile") != link["spriteFile"]:
+                raise ValueError("REF04 original Sprite file identity contradicted")
             border = shape.get("border")
             size = shape.get("sourceRectSize")
             ppu = shape.get("pixelsPerUnit")
