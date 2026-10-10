@@ -1,5 +1,13 @@
 # REF04 — BƯỚC 2: Canvas, LayoutGroup, Text, SafeArea từ đúng XAPK
 
+## P1 tiếp — đọc lại raw bytes/offsets LayoutGroup, không import Unity
+
+- `tools/ref04_layout_raw_parser.py` là bộ đọc `struct` độc lập với hàm `UnityPy.read_typetree`, kiểm tra từng scalar/array/string, alignment 4-byte đúng cờ TypeTree, byte order của `SerializedFile`, ranh giới dữ liệu, full-object exact consumption và SHA-256 từng trường. **Không đoán offset**; chỉ ghi offset phát hiện bằng cách đi đúng thứ tự TypeTree đang được khảo sát.
+- `tools/probe_ref04_layout_schema_forensics.py` thử đọc raw bytes XAPK cho **từng original LayoutGroup PathID** khi AssetStudio schema và strict parser khả dụng; so giá trị từng field với strict source record, đồng thời xác minh `m_GameObject`, `m_Script`, `m_Enabled` và raw object SHA. Ghi `rawByteReparseCounts`, `rawByteReparse.sourceByteSpans` trong local-only `output/ref04-layout-schema-forensics.json`. Trường hợp không đọc được ghi rõ `BLOCKED_*`.
+- **Giới hạn không thay đổi:** raw-byte replay là một bộ đọc giá trị độc lập, nhưng vẫn sử dụng TypeTree **sinh từ AssetStudio**. Nó **không phải schema độc lập thứ hai** và không chứng minh phép căn chỉnh runtime. Kể cả trạng thái `RAW_BYTES_REPARSED_DERIVED_SCHEMA_REVIEW_ONLY`, 24 LayoutGroup / 168 field **vẫn không được tự đưa vào Unity**. Cần bằng chứng schema độc lập theo IL2CPP/serialized object hoặc nguồn hợp lệ khác trước khi bỏ BLOCKED.
+- CI chạy trên Linux với XAPK thật và kiểm thử Windows bằng fixture byte; không công khai giá trị UI hoặc source raw bytes, không tạo/sửa asset.
+
+
 ## Bổ sung — chẩn đoán schema của 24 LayoutGroup (source-only)
 
 - Script `tools/probe_ref04_layout_schema_forensics.py` đọc đúng các đối tượng LayoutGroup có `PathID`/SHA256 gốc từ XAPK, cùng cặp `libil2cpp.so`/`global-metadata.dat` và Unity version nguồn.
