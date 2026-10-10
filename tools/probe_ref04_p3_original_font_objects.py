@@ -19,7 +19,7 @@ ROOT=Path(__file__).resolve().parents[1]
 SCENE="REF04-home-crew"
 CLASS="REF04_P3_LOCAL_FONT_OBJECT_PROVENANCE_NO_RUNTIME_RENDER"
 
-def verify_reference(ref, objects):
+def verify_reference(ref, objects, *, assets_file=None, external_deref=None):
     if (not isinstance(ref,dict) or type(ref.get("sourceFileId")) is not int
         or type(ref.get("sourcePathId")) is not int):
         raise ValueError("Untrusted Font pointer structure")
@@ -27,9 +27,58 @@ def verify_reference(ref, objects):
     if fid<0 or pid<0:
         raise ValueError("Negative original font pointer")
     if fid!=0:
-        return {"status":"BLOCKED_EXTERNAL_FILE_REFERENCE_NOT_RESOLVED",
-                "sourceFileId":fid,"sourcePathId":pid,
-                "localOriginalFontObjectVerified":False}
+        # m_FileID is 1-based into the *original* SerializedFile externals.
+        # Never substitute an unrelated font having the same PathID.
+        externals=getattr(assets_file,"externals",None)
+        if not isinstance(externals,(list,tuple)) or fid>len(externals):
+            return {"status":"BLOCKED_EXTERNAL_SOURCE_FILE_TABLE_UNAVAILABLE",
+                    "sourceFileId":fid,"sourcePathId":pid,
+                    "localOriginalFontObjectVerified":False,
+                    "externalOriginalFontObjectVerified":False}
+        original=getattr(externals[fid-1],"path",None)
+        if not isinstance(original,str) or not original:
+            return {"status":"BLOCKED_EXTERNAL_SOURCE_PATH_EMPTY",
+                    "sourceFileId":fid,"sourcePathId":pid,
+                    "localOriginalFontObjectVerified":False,
+                    "externalOriginalFontObjectVerified":False}
+        normalized=original.lower().replace("\\\\","/").split("/")[-1]
+        if not normalized or normalized in (".",".."):
+            raise ValueError("Invalid original source external filename")
+        status={"sourceFileId":fid,"sourcePathId":pid,
+                "originalExternalPathSha256":hashlib.sha256(
+                    original.encode("utf-8")).hexdigest(),
+                "originalExternalFileNameSha256":hashlib.sha256(
+                    normalized.encode("utf-8")).hexdigest(),
+                "localOriginalFontObjectVerified":False,
+                "externalOriginalFontObjectVerified":False}
+        if external_deref is None:
+            return {"status":"BLOCKED_EXTERNAL_SOURCE_DEREFERENCER_UNAVAILABLE",
+                    **status}
+        try:
+            target=external_deref(fid,pid,assets_file)
+        except (KeyError,FileNotFoundError,ValueError,LookupError):
+            return {"status":"BLOCKED_ORIGINAL_EXTERNAL_DEPENDENCY_UNAVAILABLE",
+                    **status}
+        if target is None or type(getattr(target,"path_id",None)) is not int or (
+            target.path_id != pid):
+            return {"status":"BLOCKED_EXTERNAL_FONT_TARGET_PATHID_CONFLICT",
+                    **status}
+        target_file=getattr(target,"assets_file",None)
+        actual=getattr(target_file,"name",None)
+        if not isinstance(actual,str) or actual.lower().replace("\\\\","/").split("/")[-1] != normalized:
+            return {"status":"BLOCKED_EXTERNAL_FILENAME_SOURCE_MISMATCH",
+                    **status}
+        if target.type.name!="Font":
+            return {"status":"BLOCKED_EXTERNAL_POINTER_TARGET_NOT_FONT",
+                    **status}
+        raw=target.get_raw_data()
+        if not raw or len(raw)>64*1024*1024:
+            raise ValueError("Original external Font bytes missing or oversized")
+        return {"status":"SOURCE_EXTERNAL_FONT_SHA256_FILENAME_MATCH_RUNTIME_UNPROVEN",
+                **status,"externalOriginalFontObjectVerified":True,
+                "originalNativeType":"Font","sourceRawObjectBytes":len(raw),
+                "sourceRawObjectSha256":hashlib.sha256(raw).hexdigest(),
+                "runtimeFontProven":False}
     if pid==0:
         return {"status":"BLOCKED_NULL_FONT_POINTER",
                 "sourceFileId":fid,"sourcePathId":pid,
@@ -106,7 +155,14 @@ def execute(root=ROOT,unitypy=None):
                 return env
             if found:
                 raise ValueError("Duplicate REF04 source serialized bundle")
-            found.append([verify_reference(ref,objects) for _,ref in sorted(pointers.items())])
+            def deref_source(fid,pid,assets_file):
+                from UnityPy.classes.PPtr import PPtr
+                return PPtr(m_FileID=fid,m_PathID=pid,
+                            assetsfile=assets_file).deref()
+            selected_file=next(r.assets_file for r in objects.values())
+            found.append([verify_reference(ref,objects,assets_file=selected_file,
+                                           external_deref=deref_source)
+                          for _,ref in sorted(pointers.items())])
             return env
     # The original XAPK is read only. No output files are imported into Unity.
     layout.build(root=root,unitypy=RecordingUnityPy())
@@ -120,6 +176,8 @@ def execute(root=ROOT,unitypy=None):
         "originalFontPPtrReferences":len(items),
         "originalLocalFontRawObjectsVerified":sum(
             x["localOriginalFontObjectVerified"] for x in items),
+        "originalExternalFontObjectsVerified":sum(
+            x.get("externalOriginalFontObjectVerified",False) for x in items),
         "pointerResolutions":items,
         "originalFontAssetIdentityFullyResolved":all(
             x["localOriginalFontObjectVerified"] for x in items),
@@ -138,6 +196,7 @@ def execute(root=ROOT,unitypy=None):
         "originalFontPPtrReferences":len(items),
         "originalLocalFontRawObjectsVerified":proof["originalLocalFontRawObjectsVerified"],
         "sourcePointerStatuses":dict(collections.Counter(x["status"] for x in items)),
+        "originalExternalFontObjectsVerified":proof["originalExternalFontObjectsVerified"],
         "runtimeFontRenderingProven":False,
     },sort_keys=True))
     return proof
