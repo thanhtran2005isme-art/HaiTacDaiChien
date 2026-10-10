@@ -680,6 +680,10 @@ namespace HaiTac.OfflineViewer.Editor
             if (EditorApplication.isPlaying ||
                 !EditorSceneManager.SaveCurrentModifiedScenesIfUserWantsTo())
                 return;
+            // The builder opens temporary scenes while copying prefabs. Restore
+            // the user's pre-build scene after a failure: never leave a dangling
+            // open scene whose newly-created asset was rolled back.
+            string priorScene = EditorSceneManager.GetActiveScene().path;
             var created = new List<string>();
             try
             {
@@ -711,13 +715,32 @@ namespace HaiTac.OfflineViewer.Editor
             }
             catch (Exception exc)
             {
+                // New preview scene(s) are disposable; the original Scene
+                // remains untouched. Do not reopen missing paths after rollback.
+                try
+                {
+                    if (!string.IsNullOrEmpty(priorScene) &&
+                        AssetDatabase.LoadAssetAtPath<SceneAsset>(priorScene) != null &&
+                        !created.Contains(priorScene))
+                        EditorSceneManager.OpenScene(priorScene, OpenSceneMode.Single);
+                    else
+                        EditorSceneManager.NewScene(
+                            NewSceneSetup.EmptyScene, NewSceneMode.Single);
+                }
+                catch (Exception restoreError)
+                {
+                    Debug.LogWarning("[HaiTac ROOT CANVAS STUDY] Could not " +
+                        "restore prior Scene: " + restoreError.Message);
+                }
                 foreach (var asset in created)
                     AssetDatabase.DeleteAsset(asset);
                 AssetDatabase.SaveAssets();
                 Debug.LogException(exc);
                 EditorUtility.DisplayDialog("Root Canvas preview BLOCKED",
                     exc.GetBaseException().Message +
-                    "\nNo original 3C/3D prefabs overwritten.", "OK");
+                    "\nAll NEW viewport studies rolled back. " +
+                    "Do NOT run viewport Audit until Build reports PASS. " +
+                    "Source 3C/3D Prefabs remain untouched.", "OK");
             }
         }
 
@@ -727,6 +750,15 @@ namespace HaiTac.OfflineViewer.Editor
             try
             {
                 var source = ValidateSources(false, rootCanvas: true);
+                if (source.visual.scenes.Any(x =>
+                    AssetDatabase.LoadAssetAtPath<GameObject>(
+                        RootViewPrefab(x.sceneId)) == null ||
+                    AssetDatabase.LoadAssetAtPath<SceneAsset>(
+                        RootViewScene(x.sceneId)) == null))
+                    throw new FileNotFoundException(
+                        "3E viewport Build previously failed and its generated " +
+                        "outputs were rolled back. Run Build again after updating " +
+                        "the importer, and run Audit ONLY after Build PASS.");
                 foreach (var scene in source.visual.scenes)
                 {
                     AuditScene(source, scene, rootCanvas: true);
