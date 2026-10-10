@@ -43,6 +43,20 @@ class LocalizerBinaryChecks(unittest.TestCase):
         self.assertEqual(status,"BLOCKED_SOURCE_TERM_HASH_OR_FIELD_CONFLICT")
         self.assertEqual(fields,{})
 
+    def test_raw_ripper_failure_categories_never_publish_game_values(self):
+        exception=probe.raw_replay.RawWalkBlocked(
+            "Unrecognized source field type: ConfidentialOriginalType")
+        self.assertEqual(probe.safe_ripper_raw_failure(exception),
+                         "UNSUPPORTED_SCHEMA_LEAF_TYPE")
+        exception=probe.raw_replay.RawWalkBlocked(
+            "Serialized object ended before schema field")
+        self.assertEqual(probe.safe_ripper_raw_failure(exception),
+                         "TYPE_TREE_OVERRUN")
+        self.assertNotIn("ConfidentialOriginalType",
+                         probe.safe_ripper_raw_failure(
+                            probe.raw_replay.RawWalkBlocked(
+                            "Unrecognized source field type: ConfidentialOriginalType")))
+
     def test_zero_recovered_terms_is_not_runtime_translation(self):
         status,payload=probe.compare_two((OK,{}),(OK,{}))
         self.assertEqual(status,"DUAL_BACKEND_LOCALIZER_TERMS_SOURCE_ONLY")
