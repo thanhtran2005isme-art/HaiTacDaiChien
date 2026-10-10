@@ -134,7 +134,12 @@ def synthetic_reports():
         "layoutGroups": layout_rows,
     }
 
-    report_p2 = p2_module.build(step1, step2, p1_stub, methods, elf)
+    # In production these are separate JSON files read back from disk.
+    # P2.build() intentionally reuses the Step2 nested field mappings in
+    # memory; deepcopy is required here so a synthetic mutation of Step2
+    # does NOT silently mutate its supposedly independent saved P2 report.
+    report_p2 = copy.deepcopy(
+        p2_module.build(step1, step2, p1_stub, methods, elf))
     report_p4 = p4_module.build(p3, fonts, localizers)
     return {
         "inventory": step1, "step2": step2, "layout": layout,
@@ -257,6 +262,12 @@ class CrossPhaseIntegrity(unittest.TestCase):
         self.assertNotIn("m_RenderMode", comp)  # Do not copy raw values into ledger.
         # Corrupting Step2 alone remains prohibited, even though field proof
         # is blocked due to missing source bytes.
+        self.assertIsNot(
+            canvas["originalSerializedFieldEvidence"],
+            step2["verifiedSerializedFields"])
+        self.assertIsNot(
+            canvas["originalNativeCanvasSubset"],
+            step2["nativeCanvasFieldsExtracted"])
         step2["verifiedSerializedFields"]["m_RenderMode"] = 3
         with self.assertRaisesRegex(
                 ValueError, "Step2 source fields/status disagree with original inventory"):
