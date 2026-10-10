@@ -13,10 +13,11 @@ elf=importlib.import_module("ref04_arm64_elf_regions")
 fixture=importlib.import_module("test_ref04_arm64_elf_regions").fixture
 
 class Ins:
-    def __init__(self,address,mnemonic):
+    def __init__(self,address,mnemonic,op_str=None):
         self.address=address
         self.size=4
         self.mnemonic=mnemonic
+        self.op_str=op_str
 
 def decoder(data,addr):
     for i in range(0,len(data)//4):
@@ -58,6 +59,39 @@ class SourceCensus(unittest.TestCase):
         self.assertEqual(entry["inspectedOriginalBytes"],8)
         self.assertTrue(entry["entryTerminatorEncountered"])
         self.assertFalse(entry["completeNativeMethodBodyProven"])
+
+    def test_source_bounded_branches_are_not_verified_method_call_graph(self):
+        blob, regions, inventory = source()
+        def branch_decoder(bits, addr):
+            yield Ins(addr, "bl", "#0x1118")
+            yield Ins(addr+4, "ret")
+        result = p.audit(blob, regions, inventory, branch_decoder)
+        self.assertEqual(result["sourceBranchInstructionsObserved"], 1)
+        self.assertEqual(result["independentMethodCallEdgesProven"], 0)
+        row = result["originalSourceOnlyInstructionCensus"][0]
+        self.assertFalse(row["independentNativeMethodCallGraphProven"])
+        branch = row["boundedSourceBranchCandidates"][0]
+        self.assertEqual(branch["status"], "SOURCE_EXECUTABLE_TARGET_CANDIDATE")
+        self.assertEqual(branch["targetELFVirtualAddress"], 0x1118)
+        self.assertFalse(branch["nativeTargetMethodOwnershipProven"])
+        self.assertFalse(result["runtimeAlignmentProven"])
+
+    def test_invalid_or_unmapped_branch_operand_is_not_a_call_edge(self):
+        blob, regions, inventory = source()
+        class Stub:
+            mnemonic = "bl"
+            op_str = "#0x999999999"
+        self.assertEqual(
+            p.bounded_source_branch(Stub(),regions)["status"],
+            "TARGET_NOT_IN_ORIGINAL_EXECUTABLE_FILE_BYTES")
+        Stub.op_str="x1"
+        self.assertEqual(
+            p.bounded_source_branch(Stub(),regions)["status"],
+            "BLOCKED_NONCANONICAL_IMMEDIATE")
+        Stub.op_str="#0x1111"
+        self.assertEqual(
+            p.bounded_source_branch(Stub(),regions)["status"],
+            "BLOCKED_UNALIGNED_TARGET")
 
     def test_fake_method_body_claim_or_bad_source_digest_rejected(self):
         blob,regions,inventory=source()
