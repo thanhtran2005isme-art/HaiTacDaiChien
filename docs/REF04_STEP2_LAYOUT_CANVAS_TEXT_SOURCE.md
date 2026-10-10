@@ -1,5 +1,15 @@
 # REF04 — BƯỚC 2: Canvas, LayoutGroup, Text, SafeArea từ đúng XAPK
 
+## Bổ sung — chẩn đoán schema của 24 LayoutGroup (source-only)
+
+- Script `tools/probe_ref04_layout_schema_forensics.py` đọc đúng các đối tượng LayoutGroup có `PathID`/SHA256 gốc từ XAPK, cùng cặp `libil2cpp.so`/`global-metadata.dat` và Unity version nguồn.
+- Tạo TypeTree độc lập bằng **AssetStudio** và **AssetRipper**, ghép native MonoBehaviour header đã truy vết, báo SHA256 cấu trúc, số node, và điểm đầu tiên khác nhau trong hai schema nếu tìm thấy. Thử strict parse có xác nhận `m_GameObject/m_Script/m_Enabled`, raw-object hash và kích thước object; không chấp nhận parser đọc một phần.
+- Phân biệt `SCHEMA_STRUCTURE_DIFF_NOT_FIELD_PROOF`, `SCHEMAS_IDENTICAL_NOT_FIELD_PROOF`, `BLOCKED_SCHEMA_COMPARISON` với **chứng cứ giá trị field thực**. Dù hai schema trùng và strict parse đồng thuận, trường hợp này vẫn được ghi `REVIEW_ONLY`; không tự import hoặc xác nhận runtime layout.
+- Kết quả ghi **chỉ ở local/gitignored**: `output/ref04-layout-schema-forensics.json`, gồm chính xác 24 component/168 field bị chặn, 0 Unity assets sửa. Báo cáo được liên kết tới `output/ref04-step2-layout-canvas-text.json` với đối chiếu từng PathID/GO/RectTransform/SHA/class và giữ nguyên `canBeAppliedToUnity=false`.
+- Lệnh sau khi đã chuẩn bị xong output phase 3B và single-backend-review từ XAPK: `py -3 tools/probe_ref04_layout_schema_forensics.py` rồi `py -3 tools/audit_ref04_step2_layout_canvas_text.py`.
+- Đây là **công cụ điều tra nguyên nhân schema/strict parse**, không phải kết luận đã giải được 168 field. Nếu AssetRipper tiếp tục parse lỗi, cần sử dụng khác biệt TypeTree làm đầu mối để kiểm tra binary offsets và alignment độc lập; không chỉnh bố cục Unity theo suy đoán. Canvas runtime, Text localization, SafeArea, PanelHome2 vẫn chưa giải xong.
+
+
 > **SOURCE-ONLY / NO-GUESS / READ-ONLY.** Phải đọc [docs/XAPK_SOURCE_ONLY_UI_RULES.md](XAPK_SOURCE_ONLY_UI_RULES.md) trước khi sửa. **Bước 2 chưa chứng minh runtime UI pixel-perfect hoặc đủ điều kiện dựng UI.** Không tự đặt Canvas, tọa độ, chiều rộng màn hình, văn bản, font hay anchor.
 
 ## 1. Dữ liệu gốc thuộc cây ứng viên REF04 (không phải toàn bộ runtime)
