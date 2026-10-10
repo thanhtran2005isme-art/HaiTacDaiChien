@@ -1,5 +1,13 @@
 # AI HANDOFF — Hải Tặc UI Viewer
 
+## REF04 P2/P3 — tiếp tục chung PR #7 (2026-10-10)
+
+- **P2 đã kiểm chứng dữ liệu nguồn**: 1 Canvas, 1 CanvasScaler, 6 SafeAreaAdapter, 7 PanelHome2 components, 8 class PanelHome2 metadata types và 204 method declarations liên quan. Thêm `tools/ref04_arm64_elf_regions.py`, `tools/ref04_p2_native_method_candidates.py`, `tools/run_ref04_p2_native_dumper.py` và CI optional trong `.github/workflows/ref04-p2-native-probe.yml`. ELF64/AArch64 original PT_LOAD/file-backed executable được kiểm tra theo SHA. Third-party IL2CPP dumper 0.7.0 đọc 119.013 script method entries; bước ghép class-method/source token vẫn **CHƯA chứng minh** một native method body hoặc công thức layout. `runtimeAlignmentProven=false`, `unityImportAllowed=false`.
+- **P3 source đã kiểm tra trên XAPK thật**: [CI #38051186270](https://github.com/thanhtran2005isme-art/HaiTacDaiChien/actions/runs/38051186270) PASS Linux/Windows: 62/62 original Text, 62 `m_Text` source hashes, 62 `m_Font` source pointers, 52 localization components và 2 con trỏ Font riêng biệt. Thêm `tools/audit_ref04_p3_text_localization.py` và `tests/test_ref04_p3_text_localization.py`; tài liệu `docs/REF04_P3_TEXT_FONT_LOCALIZATION_SOURCE.md`. Phân biệt field verified với font asset, locale đang chọn và Text runtime, vẫn `runtimeTextAndLocalizationProven=false`.
+- CI fail-closed bác bỏ field I2 giả, hash Text/font sai, địa chỉ code không nằm trong executable ELF, class/method không khớp nguồn. Báo cáo XAPK và original text values chỉ lưu `output/` gitignored; không sửa Scene/Prefab/Canvas, Spine hoặc nhân vật. PR #7 vẫn Draft, base PR #6.
+- **Không được gọi P2/P3 runtime 100%** cho đến khi chứng minh được native control flow của SafeAreaAdapter/PanelHome2, thiết bị Screen.safeArea/viewport, localization key/database/selected language và Font asset runtime. Không suy đoán tọa độ.
+
+
 ## REF04 P2 — truy vết Canvas/CanvasScaler/SafeAreaAdapter/PanelHome2 (2026-10-10)
 
 - Nhánh `feat/ref04-p2-canvas-il2cpp-runtime-trace` tiếp nối PR #6, **không sửa** Scene/Prefab/Canvas/RectTransform/Sprite/Spine. Xem [docs/REF04_P2_CANVAS_IL2CPP_RUNTIME_TRACE.md](REF04_P2_CANVAS_IL2CPP_RUNTIME_TRACE.md).
