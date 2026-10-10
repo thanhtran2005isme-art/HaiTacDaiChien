@@ -51,7 +51,7 @@ class TestRef04NativeSpriteEditorContract(unittest.TestCase):
         self.assertIn('item.importer.SaveAndReimport();', SRC)
         self.assertIn('item.importer.spriteBorder=change.border;', SRC)
         self.assertIn('item.importer.spritePixelsPerUnit=change.ppu;', SRC)
-        self.assertIn('No original border/PPU mismatches;', SRC)
+        self.assertIn('No COMPATIBLE border/PPU mismatches;', SRC)
         self.assertNotIn('image.SetNativeSize(', SRC)
         self.assertNotIn('image.color =', SRC)
         self.assertNotIn('image.type =', SRC)
@@ -86,7 +86,7 @@ class TestRef04NativeSpriteEditorContract(unittest.TestCase):
     def test_conflicting_native_sprite_geometry_is_rejected(self):
         self.assertIn('Conflicting source geometry for one Sprite:', SRC)
         self.assertIn('Untrusted native Sprite geometry.', SRC)
-        self.assertIn('not changing any asset', SRC)
+        self.assertIn('No asset changed.', SRC)
         self.assertIn('Original PNG bytes untouched', SRC)
         self.assertIn('not proven', SRC)
 
