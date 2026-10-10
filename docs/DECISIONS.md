@@ -1,3 +1,10 @@
+## 2026-10-10 — REF04 P5: bắt buộc provenance trước khi dùng giá trị UI
+
+- **Vấn đề:** báo cáo đơn lẻ có thể được sao chép từ XAPK khác hoặc bị chỉnh ID/hash/tọa độ, khiến một giá trị preview trông như dữ liệu runtime thật.
+- **Quyết định:** chỉ chấp nhận kiểm toán tổng hợp khi đối chiếu exact SerializedFile, cặp binary SHA, component owner/RectTransform ID và từng byte-span/hash gốc của 168 LayoutGroup fields qua hai schema; Text và Font/localizer phải tái đối chiếu xuyên Step2/P3/P4. Giữ nguồn private trong `output/`.
+- **Giới hạn:** xác minh serialized value không có nghĩa runtime scale/Screen.safeArea/Text/placement đã phục hồi. `runtimeCoordinates`, `runtimeCanvasScale`, `runtimeSafeAreaFormula`, `runtimeTextPositions` tiếp tục `null`; `1600×900` không được dùng làm runtime ground truth. Không tự sửa Unity hoặc merge PR Draft.
+- **Hệ quả:** nếu thiếu báo cáo nguồn, byte hash không trùng, có mutation không chứng minh hoặc giá trị tọa độ tự điền, P5 **FAIL/BLOCKED**; yêu cầu chạy XAPK thật từ CI rồi xác minh thiết bị/Unity để chuyển sang runtime.
+
 ## 2026-10-10 — Phase 3B: native Unity MonoBehaviour header + managed IL2CPP source schema
 
 - **Bằng chứng:** Unity nguồn 2022.3.51f1, IL2CPP metadata v31. `AssetsTools` fail 1.201/1.201 lúc sinh schema; `AssetStudio` và `AssetRipper` tạo schema từ cùng cặp binary nhưng phát sinh sai khác ở native MonoBehaviour header.
