@@ -57,7 +57,11 @@ def prepare(visual, verified, graph, deep, blobs):
     components = {c["componentPathId"]: c for c in ui["components"]}
     raw = collections.defaultdict(list)
     for shape in details.get("spriteGeometry", []):
-        raw[shape["nodeId"]].append(shape)
+        # Refuse path/name-only legacy records. Each native Sprite border
+        # must be attached to the same exact Image Component PathID as the
+        # independently decoded 3C Image and Phase 3D Sprite binding.
+        if "imageComponentId" in shape:
+            raw[(shape["nodeId"], shape["imageComponentId"])].append(shape)
     output, counts = [], collections.Counter()
     for link in art["bindings"]:
         image_id = link["imageComponentPathId"]
@@ -87,7 +91,7 @@ def prepare(visual, verified, graph, deep, blobs):
             "nativeSpriteGeometryStatus": "UNVERIFIED",
             "applyGeometry": False,
         }
-        choices = raw[node_id]
+        choices = raw[(node_id, image_id)]
         if len(choices) != 1:
             row["nativeSpriteGeometryStatus"] = (
                 "NO_UNIQUE_NATIVE_SPRITE_GEOMETRY")
