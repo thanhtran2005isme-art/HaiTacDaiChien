@@ -434,6 +434,35 @@ namespace HaiTac.OfflineViewer.Editor
                 plan.nativeGeometryManifestFileSha256!=FileDigest(NativeGeometryPath))
                 throw new InvalidDataException("Native Sprite source proof was modified.");
             var byFile=plan.sprites.ToDictionary(x=>x.spriteFile);
+            // Validate the exact COMPLETE set (including Sprite-less 3C
+            // Image components) on both saved Prefabs.
+            var sourceImages=Check3cImageEvidence(source,proof);
+            var previewImages=Check3cImageEvidence(preview,proof);
+            var sourceLinkedIds=new HashSet<int>(
+                proof.images.Select(i=>i.componentPathId));
+            foreach(var sourceImage in sourceImages)
+            {
+                var originalImage=sourceImage.Value.GetComponent<Image>();
+                var previewImage=previewImages[sourceImage.Key].GetComponent<Image>();
+                if(originalImage==null || previewImage==null ||
+                    originalImage.enabled!=previewImage.enabled ||
+                    originalImage.type!=previewImage.type ||
+                    originalImage.preserveAspect!=previewImage.preserveAspect ||
+                    originalImage.fillMethod!=previewImage.fillMethod ||
+                    originalImage.fillOrigin!=previewImage.fillOrigin ||
+                    Mathf.Abs(originalImage.fillAmount-previewImage.fillAmount)>.0001f ||
+                    originalImage.fillClockwise!=previewImage.fillClockwise ||
+                    Vector4.Distance(originalImage.color,previewImage.color)>.0001f)
+                    throw new InvalidDataException(
+                        "Cross-verified 3C Image field changed for Component PathID "+
+                        sourceImage.Key);
+                if(!sourceLinkedIds.Contains(sourceImage.Key) &&
+                    AssetDatabase.GetAssetPath(originalImage.sprite) !=
+                    AssetDatabase.GetAssetPath(previewImage.sprite))
+                    throw new InvalidDataException(
+                        "3C Image WITHOUT source Sprite binding was changed: "+
+                        sourceImage.Key);
+            }
             var sourceNotes=source.GetComponentsInChildren<ManagedUiSourceEvidence>(true)
                 .ToDictionary(n=>n.sourceMonoBehaviourPathId);
             var copiedNotes=preview.GetComponentsInChildren<ManagedUiSourceEvidence>(true)
