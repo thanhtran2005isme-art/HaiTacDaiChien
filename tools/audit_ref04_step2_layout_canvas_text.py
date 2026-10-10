@@ -201,12 +201,20 @@ def inventory(step1, third=None, text_probe=None, schema_probe=None):
                         evidence["sourceFieldCountBlocked"] != len(
                             item["singleBackendFieldNamesNotImportable"]) or
                         evidence["unityImportAllowed"] is not False or
-                        evidence["runtimeLayoutProven"] is not False):
+                        evidence["runtimeLayoutProven"] is not False or
+                        evidence.get("rawByteReparse", {}).get(
+                            "unityImportAllowed", False) is not False):
                         raise ValueError("REF04 LayoutGroup schema source ID/hash conflicts")
                     item["layoutSchemaComparison"] = (
                         evidence["schemaComparison"] if evidence else "NOT_YET_RUN")
                     item["layoutStrictFieldAgreement"] = (
                         evidence["fieldAgreement"] if evidence else "NOT_YET_RUN")
+                    item["layoutRawByteReplayStatus"] = (
+                        evidence.get("rawByteReparse", {}).get("status", "NOT_YET_RUN")
+                        if evidence else "NOT_YET_RUN")
+                    # Offsets are diagnostic, tied to the AssetStudio-generated
+                    # schema; they cannot prove independent source field layout.
+                    item["layoutRawByteReplayDerivedSchemaOnly"] = True
                 found[name].append(item)
     if len(identity)!=1564:
         raise ValueError("REF04 source component traversal incomplete")
@@ -247,6 +255,8 @@ def inventory(step1, third=None, text_probe=None, schema_probe=None):
         "layoutSchemaForensicsProvided":schema_probe is not None,
         "layoutSchemaComparisonCounts":(
             schema_probe["schemaComparisonCounts"] if schema_probe else {}),
+        "layoutRawByteReparseCounts":(
+            schema_probe.get("rawByteReparseCounts", {}) if schema_probe else {}),
         "sourceTextBinaryProbeProvided":text_probe is not None,
         "originalTextComponentsVerifiedByTwoBackends":sum(
             c.get("textBinaryProbeStatus")==
