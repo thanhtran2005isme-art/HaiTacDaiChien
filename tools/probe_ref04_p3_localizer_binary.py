@@ -17,6 +17,7 @@ import decode_xapk_ui_provenance as source
 import export_local_ui_layout as layout
 import il2cpp_refs as refs
 import recover_managed_ui_fields as binary
+import ref04_layout_raw_parser as raw_replay
 
 ROOT=Path(__file__).resolve().parents[1]
 SCENE="REF04-home-crew"
@@ -55,14 +56,59 @@ def strict_probe(reader, original_row, original_record, generator):
                       "originalByteLength":len(text)}
     return "STRICT_SOURCE_PARSED_SOURCE_TERM_KEYS_UNVERIFIED_RUNTIME",fields
 
+def raw_ripper_probe(reader,original_row,original_record,generator):
+    """Independent struct-based walk of all original bytes under Ripper schema.
+
+    This does NOT invent missing fields or validate runtime localization;
+    it is only attempted after UnityPy's strict Ripper decoder returns EOF.
+    """
+    source_bytes=reader.get_raw_data()
+    if hashlib.sha256(source_bytes).hexdigest()!=original_record["originalObjectSha256"]:
+        return "BLOCKED_RAW_RIPPER_SOURCE_SHA_MISMATCH",{}
+    try:
+        nodes=generator.get_nodes_up(original_row["assembly"],original_row["className"])
+        if nodes is None:
+            return "BLOCKED_RAW_RIPPER_TYPETREE_MISSING",{}
+        schema=binary.verified_native_header_root(
+            nodes,binary.exact_source_unity_header(reader))
+        cur=raw_replay.Cursor(source_bytes,raw_replay.byte_order(reader))
+        parsed=cur.walk(schema)
+        if cur.pos!=len(source_bytes):
+            return "BLOCKED_RAW_RIPPER_UNCONSUMED_OBJECT_BYTES",{}
+    except (binary.RecoveryBlocked,raw_replay.RawWalkBlocked,
+            UnicodeError,ValueError,KeyError,TypeError) as exc:
+        return "BLOCKED_RAW_RIPPER_"+type(exc).__name__,{}
+    ptr=original_row["scriptPointer"]
+    if (not isinstance(parsed,dict) or
+        refs.pptr(parsed.get("m_GameObject"))!=(0,original_row["gameObjectId"]) or
+        refs.pptr(parsed.get("m_Script"))!=(ptr["fileId"],ptr["pathId"]) or
+        parsed.get("m_Enabled")!=original_row.get("nativeEnabled")):
+        return "BLOCKED_RAW_RIPPER_OWNER_POINTER_MISMATCH",{}
+    fields={}
+    for name in sorted(TERMS.intersection(parsed)):
+        val=parsed[name]
+        if not isinstance(val,str):
+            return "BLOCKED_RAW_RIPPER_TERM_NOT_STRING",{}
+        try:
+            term=val.encode("utf-8")
+        except UnicodeError:
+            return "BLOCKED_RAW_RIPPER_UTF8_INVALID",{}
+        fields[name]={"originalUtf8Sha256":hashlib.sha256(term).hexdigest(),
+                      "originalByteLength":len(term)}
+    return "STRICT_RIPPER_RAW_SOURCE_FULL_OBJECT_TERM_HASH_ONLY",fields
+
 def compare_two(primary,secondary):
     if primary[0]!="STRICT_SOURCE_PARSED_SOURCE_TERM_KEYS_UNVERIFIED_RUNTIME":
         return primary[0],{}
-    if secondary[0]!="STRICT_SOURCE_PARSED_SOURCE_TERM_KEYS_UNVERIFIED_RUNTIME":
+    if secondary[0] not in (
+        "STRICT_SOURCE_PARSED_SOURCE_TERM_KEYS_UNVERIFIED_RUNTIME",
+        "STRICT_RIPPER_RAW_SOURCE_FULL_OBJECT_TERM_HASH_ONLY"):
         return "BLOCKED_INDEPENDENT_SOURCE_SCHEMA_"+secondary[0],{}
     if primary[1]!=secondary[1]:
         return "BLOCKED_SOURCE_TERM_HASH_OR_FIELD_CONFLICT",{}
-    return "DUAL_BACKEND_LOCALIZER_TERMS_SOURCE_ONLY",primary[1]
+    return ("DUAL_SCHEMA_RIPPER_RAW_REPARSED_LOCALIZER_TERMS_SOURCE_ONLY"
+            if secondary[0]=="STRICT_RIPPER_RAW_SOURCE_FULL_OBJECT_TERM_HASH_ONLY"
+            else "DUAL_BACKEND_LOCALIZER_TERMS_SOURCE_ONLY"),primary[1]
 
 def select_rows(deep,graph,step2):
     a=[x for x in deep["scenes"] if x["sceneId"]==SCENE]
@@ -142,6 +188,10 @@ def execute(root=ROOT,unitypy=None):
                     raise ValueError("Source localizer serialized component absent")
                 a=strict_probe(reader,src,original,g1)
                 b=strict_probe(reader,src,original,g2)
+                if (src["className"]=="I2.Loc.Localize" and
+                    a[0]=="STRICT_SOURCE_PARSED_SOURCE_TERM_KEYS_UNVERIFIED_RUNTIME" and
+                    b[0]=="BLOCKED_SOURCE_SCHEMA_PARSE_EOFError"):
+                    b=raw_ripper_probe(reader,src,original,g2)
                 result,fields=compare_two(a,b)
                 results[cid]={
                     "componentPathId":cid,
@@ -187,6 +237,8 @@ def execute(root=ROOT,unitypy=None):
         "classification":CLASS,
         "localizersChecked":52,
         "dualBackendLocalizerStatus":counts["DUAL_BACKEND_LOCALIZER_TERMS_SOURCE_ONLY"],
+        "dualSourceRipperRawReparseStatus":
+            counts["DUAL_SCHEMA_RIPPER_RAW_REPARSED_LOCALIZER_TERMS_SOURCE_ONLY"],
         "sourceTermFieldsTwoBackendVerified":proof["sourceTermFieldsTwoBackendVerified"],
         "sourceStatusCounts":proof["sourceStatusCounts"],
         "sourceStatusByClass":proof["sourceStatusByClass"],
