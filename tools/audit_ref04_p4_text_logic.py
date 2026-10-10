@@ -233,7 +233,7 @@ def build(p3, font_proof, term_proof):
             {"sourceFileId": k[0], "sourcePathId": k[1],
              "originalTextComponentsReferencingFont": source_font_counts[k],
              "fontRawObjectSha256": fonts[k]["sourceRawObjectSha256"],
-             "runtimeFontLoaded": False}
+             "runtimeFontLoadProven": False, "runtimeFontLoaded": None}
             for k in sorted(fonts)],
         "sourceTextInitialStates": dict(sorted(source_text_state.items())),
         "sourceLocalizerComponentsChecked": len(local_by_id),
