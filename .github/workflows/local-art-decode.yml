@@ -47,6 +47,8 @@ on:
       - 'tools/audit_ref04_step2_layout_canvas_text.py'
       - 'tools/ref04_il2cpp_method_index_v31.py'
       - 'tools/audit_ref04_p2_runtime_alignment.py'
+      - 'tools/ref04_p2_canvas_graph.py'
+      - 'tests/test_ref04_p2_canvas_graph.py'
       - 'tools/ref04_arm64_elf_regions.py'
       - 'tools/ref04_p2_native_method_candidates.py'
       - 'tests/test_ref04_p2_native_method_candidates.py'
@@ -417,6 +419,8 @@ jobs:
         run: python -m unittest discover -s tests -p test_ref04_p3_original_font_objects.py -v
       - name: Verify P3 original Text fonts and source localization guards
         run: python -m unittest discover -s tests -p test_ref04_p3_text_localization.py -v
+      - name: Verify original Canvas/Scaler source graph (P2)
+        run: python -m unittest discover -s tests -p test_ref04_p2_canvas_graph.py -v
       - name: Verify Canvas/SafeArea/PanelHome2 runtime evidence cannot be guessed (P2)
         run: python -m unittest discover -s tests -p test_ref04_p2_runtime_alignment.py -v
       - name: Verify source-only Step 2 Canvas Text and LayoutGroup evidence
@@ -685,6 +689,11 @@ jobs:
           p=json.loads(Path('output/ref04-p2-canvas-il2cpp-runtime-source.json').read_text(encoding='utf-8'))
           assert p['classification']=='REF04_P2_CANVAS_SAFEAREA_PANELHOME2_SOURCE_TRACE_NO_RUNTIME_FORMULA'
           assert p['counts']['Canvas']==1 and p['counts']['CanvasScaler']==1
+          assert p['sourceCanvasGraph']['classification']=='REF04_ORIGINAL_CANVAS_COMPONENT_PARENT_GRAPH_SOURCE_ONLY'
+          assert p['sourceCanvasGraph']['runtimeCanvasScaleFormula'] is None
+          assert p['sourceCanvasGraph']['runtimeSafeAreaPanelHome2Formula'] is None
+          assert p['sourceCanvasGraph']['runtimeLayoutProven'] is False
+          assert p['sourceCanvasGraph']['unityImportAllowed'] is False
           assert p['counts']['SafeAreaAdapter']==6
           assert p['counts']['layoutGroupSerializedFieldsTwoSchemaVerified']==168
           assert all(row['unityImportAllowed'] is False and
@@ -936,6 +945,8 @@ jobs:
         run: python -m unittest discover -s tests -p test_ref04_p3_original_font_objects.py -v
       - name: Verify P3 source Text/localization/font honesty on Windows
         run: python -m unittest discover -s tests -p test_ref04_p3_text_localization.py -v
+      - name: Verify original Canvas/Scaler source graph (P2) on Windows
+        run: python -m unittest discover -s tests -p test_ref04_p2_canvas_graph.py -v
       - name: Verify P2 Canvas/SafeArea/PanelHome2 source-only runtime blockers on Windows
         run: python -m unittest discover -s tests -p test_ref04_p2_runtime_alignment.py -v
       - name: Verify original Canvas Text Layout source-only field guards on Windows
