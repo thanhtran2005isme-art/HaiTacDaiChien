@@ -25,6 +25,8 @@ on:
       - 'tools/audit_ref04_static_ui_geometry.py'
       - 'tools/report_ref04_png_rect_mismatch.py'
       - 'tests/test_ref04_png_rect_mismatch.py'
+      - 'tools/report_ref04_source_atlas_offsets.py'
+      - 'tests/test_ref04_source_atlas_offsets.py'
       - 'tests/test_ref04_static_ui_geometry.py'
       - 'tests/test_ref04_static_geometry_unity_contract.py'
       - 'unity-ui-viewer/Assets/Editor/Ref04SourceSpriteGeometryAudit.cs'
@@ -336,6 +338,8 @@ jobs:
         run: python -m unittest discover -s tests -p test_ref04_static_geometry_unity_contract.py -v
       - name: Verify REF04 exported PNG bounds cannot silently override XAPK native Sprite rect
         run: python -m unittest discover -s tests -p test_ref04_png_rect_mismatch.py -v
+      - name: Verify original atlas Sprite offset evidence is never inferred from crop alone
+        run: python -m unittest discover -s tests -p test_ref04_source_atlas_offsets.py -v
 
       - name: Strict AssetStudio with exact Unity-version native header
         timeout-minutes: 10
@@ -457,6 +461,22 @@ jobs:
                         'exported=',x['exportedPngSize'])
           PY
 
+      - name: Inspect source atlas trim offsets for all REF04 mismatched image files
+        run: |
+          python tools/report_ref04_source_atlas_offsets.py
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          p=json.loads(Path('output/ref04-source-sprite-trim-evidence.json').read_text(encoding='utf-8'))
+          assert p['autoRepairAllowed'] is False
+          assert p['sourceBindings']==265 and p['uniqueSpriteFiles']==88
+          assert p['counts'].get('NATIVE_RECT_VS_DECODED_PNG_MISMATCH_NO_AUTO_REPAIR',0)==22
+          assert sum(v for k,v in p['countsByTrimEvidence'].items() if k!='RECT_COMPATIBLE_NO_CROP')==22
+          assert not any(x.get('safeForNativeBorderImport') for x in p['sprites']
+                         if x['sourceTrimAssessment']!='RECT_COMPATIBLE_NO_CROP')
+          print('REF04 source atlas offset evidence:',p['countsByTrimEvidence'])
+          PY
+
       - name: Audit original XAPK candidate root viewport provenance
         run: |
           python tools/report_source_visual_layout_gaps.py
@@ -524,6 +544,8 @@ jobs:
         run: python -m unittest discover -s tests -p test_ref04_static_geometry_unity_contract.py -v
       - name: Verify REF04 source/PNG size differences rejected on Windows
         run: python -m unittest discover -s tests -p test_ref04_png_rect_mismatch.py -v
+      - name: Verify REF04 native atlas offset evidence guard on Windows
+        run: python -m unittest discover -s tests -p test_ref04_source_atlas_offsets.py -v
       - name: Audit native MonoScript and managed UI source field IDs on Windows
         run: python tools/decode_xapk_ui_provenance.py
       - name: Require 5346 original component records in Windows deep audit
