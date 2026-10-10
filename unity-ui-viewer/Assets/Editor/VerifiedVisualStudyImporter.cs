@@ -258,7 +258,10 @@ namespace HaiTac.OfflineViewer.Editor
                 // Normalize only this local PREVIEW instance, never source 3C.
                 if (Mathf.Approximately(originalScale.x, 0f) ||
                     Mathf.Approximately(originalScale.y, 0f))
-                    copy.transform.localScale = Vector3.one;
+                    copy.transform.localScale = new Vector3(
+                        Mathf.Approximately(originalScale.x, 0f) ? 1f : originalScale.x,
+                        Mathf.Approximately(originalScale.y, 0f) ? 1f : originalScale.y,
+                        originalScale.z);
                 var notes = copy.GetComponentsInChildren<ManagedUiSourceEvidence>(true);
                 var byComponent = notes.ToDictionary(n => n.sourceMonoBehaviourPathId);
                 var fieldScene = source.fields.scenes.Single(s => s.sceneId == scene.sceneId);
