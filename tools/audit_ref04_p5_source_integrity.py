@@ -32,6 +32,34 @@ INPUTS = {
     "p4": "ref04-p4-62-text-logic-source-evidence.json",
 }
 
+RUNTIME_VALUE_KEYS = frozenset((
+    "runtimeCoordinates", "screenSpaceCoordinates", "runtimeCanvasScale",
+    "runtimeSafeAreaFormula", "runtimeScreenInsets", "runtimeTextPositions",
+    "pixelCoordinates", "pixelPerfectCoordinates", "guessedRuntimeRect",
+    "runtimeAlignmentFormula", "runtimeCanvasScaleFormula",
+    "runtimeSafeAreaPanelHome2Formula", "runtimeText", "runtimeString",
+    "runtimeLocale", "runtimeLanguage", "runtimeSelectedFont",
+    "runtimeFont", "runtimePlacement", "runtimeViewport",
+))
+
+def reject_runtime_coordinates(reports):
+    """Reject numerical runtime placement/scaling even in nested source reports."""
+    for name, document in reports.items():
+        pending, traversed = [document], 0
+        while pending:
+            item = pending.pop()
+            traversed += 1
+            ensure(traversed < 2_000_000, "source report nesting/count unbounded")
+            if isinstance(item, dict):
+                for key, value in item.items():
+                    if key in RUNTIME_VALUE_KEYS:
+                        ensure(value is None or value is False,
+                               "invented runtime coordinate/text value in " + name)
+                    if isinstance(value, (list, dict)):
+                        pending.append(value)
+            elif isinstance(item, list):
+                pending.extend(x for x in item if isinstance(x, (list, dict)))
+
 def ensure(condition, message):
     if not condition:
         raise ValueError("P5 BLOCKED: " + message)
@@ -331,6 +359,7 @@ def p3_text_sha(p3, cid):
 def build(reports):
     ensure(isinstance(reports, dict) and set(reports) == set(INPUTS),
            "P1–P4 source report set incomplete")
+    reject_runtime_coordinates(reports)
     p1, p2, text, original, metadata_sha, lib_sha = check_cross_phase(reports)
     return {
         "classification": KIND,
