@@ -1,5 +1,16 @@
 # AI HANDOFF — Hải Tặc UI Viewer
 
+## P6.2 actual UI-visible change, not another source audit (2026-10-11)
+
+User reported REF04 P6.1 UI "still looks like main." This is substantiated: the P6.1 Study reused the native-bounds prefab with 1600x900 preview Canvas and did NOT implement responsive client layout, characters, Text or backend. Rather than misclaim full UI restoration, added an actual independent client-study Scene generated from the user's 299 Image / 503 RectTransform source-proven P6.1 Study:
+
+- `unity-ui-viewer/Assets/Scripts/Ref04ClientViewportFit.cs` — `[ExecuteAlways]` CanvasScaler NEW_PROJECT_DESIGN, dynamically chooses match width when device/viewport aspect is narrower than 16:9, height when wider; only CanvasScaler state in the separate new-client scene, NEVER alters source child RectTransforms/Sprite text/character data.
+- `unity-ui-viewer/Assets/Editor/Ref04P62ClientSceneBuilder.cs` — validates P5/P6 SHA and original Study, copies native-bounds Scene to **new** `Assets/LocalReconstruction/Ref04OfflineClientScenes/REF04-home-crew_NEW_CLIENT_FIT_STUDY.unity` (ignored in Git), adds fitter to *copied scene prefab instance only*, refuses overwrite and rollbacks only newly created client scene on failure; separate Build/Open Unity menus.
+- Added P6 workspace buttons `6. Tao P6.2 NEW CLIENT viewport Study` and `7. Mo P6.2 NEW CLIENT Scene`; `tests/test_ref04_p62_client_fit_contract.py` (4 source-only contract tests), Linux/Windows CI wiring and `docs/REF04_P6_OFFLINE_UNITY_BACKEND.md` instructions.
+- **This is a real new Unity Scene/layout fit change, but NOT a complete UI fix**: source characters Spine/animations, runtime localization/dynamic Text, incomplete HUD fields and custom backend are unimplemented and not claimed recovered. Original Canvas runtime is unverified; reference 1600x900 and fit equation belong ONLY to NEW_PROJECT_DESIGN. No source Study Prefab/Scene, PNG, XAPK or main changed.
+- Latest P6.2 source contract tests and Unity Editor compile/render **not yet independently run on user machine**. User should pull branch, inspect P6 buttons 6/7, open new Game View at same resolution as prior P6.1 and send screenshot. Do not call viewport P6.2 pixel-perfect or fully operational.
+
+
 ## P6.1 Unity Editor source-study workspace — 2026-10-11
 
 - User's Windows **real original-XAPK** offline P6 audit PASS: 5/5 synthetic tests + real output `sourceGeometryVerified=265`, `spriteLinkedImages=265`, `allDualVerifiedImages=299`, `verifiedImagesWithoutSourceSprite=34`, LayoutGroup 168, Text 62. The test fixture's `sourceGeometryVerified=200` and `sourceGeometryBlocked=65` are synthetic, NOT original XAPK.
