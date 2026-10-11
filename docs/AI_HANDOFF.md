@@ -1,5 +1,14 @@
 # AI HANDOFF — Hải Tặc UI Viewer
 
+## P6.3 icon layout / character slot provenance diagnosis (2026-10-11)
+
+User screenshot after P6.2 background cover: black bars gone; UI still wrong — horizontally floating circular fist icons across the sea, unpopulated hero shadows, sparse HUD text. Explicit complaint: "thế còn các icon sắp xếp lung tung thì sao". **Do not claim P6.2 fixed icons.** Cannot assume every fist icon belongs in top HUD; original game runtime unavailable, and source serial Transform fields alone don't prove original dynamic layout; icons might be PlayerHeroes markers and no Spine binding.
+
+Added `unity-ui-viewer/Assets/Editor/Ref04P63IconLayoutAudit.cs`: read-only Unity Editor scene icon owner/parent/group/Component PathID/GO/RectTransform, source Sprite name/asset path, SHA, current new-client observed RectTransform anchor/position/size/worldCorners, active/raycast state and ancestor/descendant SpineReferenceEvidence. Strictly requires active `REF04-home-crew_NEW_CLIENT_FIT_STUDY`, original P6 proof and 299 source Image provenance. Exports **private gitignored** `output/ref04-p63-client-icon-layout-audit.json`, refuses overwrite, no UI modifications. Adds P6 window button 9 and Unity Source XAPK menu, plus 4 static Python tests `tests/test_ref04_p63_icon_source_audit_contract.py` in Linux/Windows CI.
+
+User must pull, run tests, open existing P6.2 Scene, run P6.3 icon audit, then share private JSON or Console `[P6.3 ICON GROUP]` lines before any targeted icon layout repairs. **No icon rearrangement implemented yet**, no Spine, Text or playable/backend behavior. PR7 remains Draft and Unity Editor test not yet confirmed. Next legitimate work is classification → NEW_PROJECT_DESIGN icon anchors/reflow in client scene (never P6.1 original) and source-backed hero Spine reconstruction separate.
+
+
 ## P6.2 background/UI regression — existing new-client scene, 2026-10-11
 
 User's actual Game View screenshot confirmed P6.2 NEW_CLIENT_FIT_STUDY still displays almost identical incomplete UI to P6.1, but worse: black letterbox bands left/right and HUD disjoint from centered background. No characters Spine or dynamic Text. Root cause is code-proven: P6.2 only changes root CanvasScaler/viewport match and copies source Study content; the source `Background` subtree remains fixed native-size.
