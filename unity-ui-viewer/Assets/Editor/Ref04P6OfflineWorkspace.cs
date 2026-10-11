@@ -225,6 +225,17 @@ namespace HaiTac.OfflineViewer.Editor
             return report;
         }
 
+        // P6.2 may consume this verified private Study. It must not
+        // mutate the source/P5 reports or any existing Unity prefab.
+        public static void ValidateSourceStudyForClientDesign()
+        {
+            var source = VerifyOfflineReport();
+            Require(source.counts.sourceGeometryVerified == 265 &&
+                source.counts.sourceGeometryBlocked == 0,
+                "Thiếu 265 geometry; không thể dựng client từ dữ liệu thiếu");
+            VerifyGeneratedStudy(source);
+        }
+
         private static bool AnyExistingThreeCOutput()
         {
             // The legacy 3C builder processes FIVE scenes and can overwrite
