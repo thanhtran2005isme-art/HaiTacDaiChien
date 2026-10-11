@@ -41,7 +41,7 @@ namespace HaiTac.OfflineViewer.Editor
 
             if (AssetDatabase.LoadAssetAtPath<SceneAsset>(ClientScene) != null ||
                 File.Exists(Path.GetFullPath(
-                    Path.Combine(Application.dataPath, "..",
+                    Path.Combine(Application.dataPath,
                         ClientScene.Substring("Assets/".Length)))))
                 throw new IOException(
                     "P6.2 NEW CLIENT study already exists. Refusing to overwrite.");
