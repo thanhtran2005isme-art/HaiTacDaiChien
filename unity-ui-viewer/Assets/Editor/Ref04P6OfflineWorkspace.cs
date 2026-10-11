@@ -515,6 +515,26 @@ namespace HaiTac.OfflineViewer.Editor
                     });
             }
             EditorGUILayout.Space();
+            EditorGUILayout.LabelField("P6.2 - Sua dai den cua nen game moi",
+                EditorStyles.boldLabel);
+            EditorGUILayout.HelpBox(
+                "Scene P6.2 ban cu van hien thi dai den do nen giu kich thuoc " +
+                "Study. Lenh duoi chi scale nhom Background dong deu de phu " +
+                "Game View; co the cat mep anh. Se sao luu Scene client truoc. " +
+                "Khong sua Scene/Preset/Sprite goc va khong them nhan vat gia.",
+                MessageType.Info);
+            using (new EditorGUI.DisabledScope(
+                !hasClientScene || EditorApplication.isPlaying))
+            {
+                if (GUILayout.Button("8. Sua nen P6.2 - luu ban sao truoc"))
+                    InvokeSafe(() =>
+                    {
+                        Ref04P62ClientSceneBuilder.FixClientBackground();
+                        return "Da yeu cau sua nen cho P6.2 client. Kiem tra " +
+                            "Console va Game View. Spine, Text van chua xong.";
+                    });
+            }
+            EditorGUILayout.Space();
             EditorGUILayout.HelpBox(
                 "Tiếp theo: xem Scene/Game View, ghi nhận khoảng trống Canvas/" +
                 "SafeArea/Text; mọi chức năng và API cho backend mới phải gắn nhãn " +
