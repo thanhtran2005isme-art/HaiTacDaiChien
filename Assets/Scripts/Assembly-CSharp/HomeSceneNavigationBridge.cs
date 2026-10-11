@@ -31,9 +31,18 @@ public sealed class HomeSceneNavigationBridge : MonoBehaviour
         public GameObject target;
     }
 
+    [Serializable]
+    public sealed class NoticeRoute
+    {
+        public Button button;
+        public string title;
+        public string message;
+    }
+
     public Route[] routes;
     public PopupRoute[] popupRoutes;
     public ToggleRoute[] toggleRoutes;
+    public NoticeRoute[] noticeRoutes;
     public string homeScenePath = "Assets/Scenes/HomeScene.unity";
 
     private readonly List<Button> subscribedButtons = new List<Button>();
@@ -93,6 +102,22 @@ public sealed class HomeSceneNavigationBridge : MonoBehaviour
                 Register(route.button, () => TogglePanel(target), seen);
             }
         }
+        if (noticeRoutes != null)
+        {
+            foreach (NoticeRoute route in noticeRoutes)
+            {
+                if (route == null || route.button == null
+                    || string.IsNullOrEmpty(route.title)
+                    || string.IsNullOrEmpty(route.message))
+                {
+                    UnityEngine.Debug.LogWarning("[HTDC Navigation] Skipped incomplete Notice route.", this);
+                    continue;
+                }
+                string title = route.title;
+                string message = route.message;
+                Register(route.button, () => OpenNotice(title, message), seen);
+            }
+        }
     }
 
     // Existing scene objects such as Home2Scene's PanelMenu and BoxSelect
@@ -140,7 +165,14 @@ public sealed class HomeSceneNavigationBridge : MonoBehaviour
         }
     }
 
-    private void OpenPopup(string resourcePath)
+    private void OpenNotice(string title, string message)
+    {
+        UnityEngine.Debug.LogWarning(
+            "[HTDC Offline] " + title + ": " + message, this);
+        OpenPopup("prefabs/common/PopupMessage", title, message);
+    }
+
+    private void OpenPopup(string resourcePath, string noticeTitle = null, string noticeMessage = null)
     {
         // Only one popup is open at a time; clicking behind it cannot trigger another route.
         if (activePopupLayer != null)
@@ -191,6 +223,36 @@ public sealed class HomeSceneNavigationBridge : MonoBehaviour
             GameObject instance = Instantiate(prefab, modalLayer.transform, false);
             instance.SetActive(true);
 
+            if (noticeTitle != null)
+            {
+                // Reuse the game's own PopupMessage prefab, not a new UI mock.
+                // Its decompiled setters are empty, so assign Text components.
+                bool titleFound = false;
+                bool messageFound = false;
+                foreach (Text label in instance.GetComponentsInChildren<Text>(true))
+                {
+                    if (label.name == "TextTitle")
+                    {
+                        label.text = noticeTitle;
+                        titleFound = true;
+                    }
+                    else if (label.name == "TextMessage")
+                    {
+                        label.text = noticeMessage;
+                        messageFound = true;
+                    }
+                    else if (label.name == "Text1" || label.name == "Text2")
+                    {
+                        label.text = "Đóng";
+                    }
+                }
+                if (!titleFound || !messageFound)
+                {
+                    UnityEngine.Debug.LogWarning(
+                        "[HTDC Offline] PopupMessage missing title/message Text.", this);
+                }
+            }
+
             // The exported C# close handlers are stubs. Add only the closing
             // callback (not gameplay/data actions) to existing close controls.
             foreach (Button button in instance.GetComponentsInChildren<Button>(true))
@@ -198,6 +260,8 @@ public sealed class HomeSceneNavigationBridge : MonoBehaviour
                 if (button.name == "ButtonClose"
                     || button.name == "ButtonBack"
                     || button.name == "CloseButton"
+                    || (noticeTitle != null
+                        && (button.name == "ButtonAction1" || button.name == "ButtonAction2"))
                     || (resourcePath == "prefabs/home/PopupCheckin" && button.name == "BgrPopup"))
                 {
                     button.onClick.AddListener(() => { CloseOpenPopup(); });
