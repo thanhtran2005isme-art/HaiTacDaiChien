@@ -323,6 +323,7 @@ GameObject:
   m_Component:
   - component: {fileID: 510}
   - component: {fileID: 1457}
+  - component: {fileID: 2120}
   m_Layer: 0
   m_Name: Scripts
   m_TagString: Untagged
@@ -42718,3 +42719,69 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &2120
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 12}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6486579f283b4602b1e711dc7ec913ab, type: 3}
+  m_Name:
+  m_EditorClassIdentifier:
+  routes:
+  - button: {fileID: 1456}
+    scenePath: Assets/Scenes/MonsterScene.unity
+  - button: {fileID: 1463}
+    scenePath: Assets/Scenes/WorldScene.unity
+  - button: {fileID: 1467}
+    scenePath: Assets/Scenes/LuckySpinScene.unity
+  - button: {fileID: 1483}
+    scenePath: Assets/Scenes/ForgeScene.unity
+  - button: {fileID: 1496}
+    scenePath: Assets/Scenes/SummonScrollScene.unity
+  - button: {fileID: 1532}
+    scenePath: Assets/Scenes/AltarScene.unity
+  - button: {fileID: 1538}
+    scenePath: Assets/Scenes/SummonOrbScene.unity
+  - button: {fileID: 1585}
+    scenePath: Assets/Scenes/ItemListScene.unity
+  - button: {fileID: 1637}
+    scenePath: Assets/Scenes/CampaignMapScene.unity
+  - button: {fileID: 1699}
+    scenePath: Assets/Scenes/HeroListNewScene.unity
+  - button: {fileID: 1717}
+    scenePath: Assets/Scenes/FusingHeroScene.unity
+  popupRoutes:
+  - button: {fileID: 1460}
+    resourcePath: prefabs/home/PopupDailyQuest
+  - button: {fileID: 1470}
+    resourcePath: prefabs/common/PopupShop
+  - button: {fileID: 1517}
+    resourcePath: prefabs/crosswordpuzzles/PopupCrosswordPuzzles
+  - button: {fileID: 1521}
+    resourcePath: prefabs/friend/PopupFriend
+  - button: {fileID: 1571}
+    resourcePath: prefabs/home/PopupFirstPurchase
+  - button: {fileID: 1587}
+    resourcePath: prefabs/common/PopupPlayerInfo
+  - button: {fileID: 1611}
+    resourcePath: prefabs/home/PopupCheckin
+  - button: {fileID: 1627}
+    resourcePath: prefabs/heroskins/PopupHeroSkins
+  - button: {fileID: 1657}
+    resourcePath: prefabs/common/PopupChatNew
+  - button: {fileID: 1688}
+    resourcePath: prefabs/common/PopupChatNew
+  - button: {fileID: 1743}
+    resourcePath: prefabs/home/PopupMailBox
+  toggleRoutes:
+  - button: {fileID: 1444}
+    target: {fileID: 117}
+  - button: {fileID: 1645}
+    target: {fileID: 117}
+  - button: {fileID: 1555}
+    target: {fileID: 134}
+  homeScenePath: Assets/Scenes/Home2Scene.unity
