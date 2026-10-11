@@ -29007,4 +29007,39 @@ MonoBehaviour:
     scenePath: Assets/Scenes/TowerNewScene.unity
   - button: {fileID: 1124}
     scenePath: Assets/Scenes/TowerNewScene.unity
+  - button: {fileID: 1047}
+    scenePath: Assets/Scenes/HeroListNewScene.unity
+  - button: {fileID: 1109}
+    scenePath: Assets/Scenes/CampaignMapScene.unity
+  - button: {fileID: 964}
+    scenePath: Assets/Scenes/LuckySpinScene.unity
+  - button: {fileID: 1147}
+    scenePath: Assets/Scenes/LuckySpinScene.unity
+  - button: {fileID: 978}
+    scenePath: Assets/Scenes/BraveTrialScene.unity
+  - button: {fileID: 1171}
+    scenePath: Assets/Scenes/BraveTrialScene.unity
+  - button: {fileID: 1007}
+    scenePath: Assets/Scenes/SummonOrbScene.unity
+  - button: {fileID: 1120}
+    scenePath: Assets/Scenes/SummonOrbScene.unity
+  popupRoutes:
+  - button: {fileID: 1022}
+    resourcePath: prefabs/home/PopupDailyQuest
+  - button: {fileID: 1076}
+    resourcePath: prefabs/home/PopupMailBox
+  - button: {fileID: 1207}
+    resourcePath: prefabs/friend/PopupFriend
+  - button: {fileID: 1040}
+    resourcePath: prefabs/home/PopupCheckin
+  - button: {fileID: 1071}
+    resourcePath: prefabs/home/PopupEventRaid
+  - button: {fileID: 951}
+    resourcePath: prefabs/common/PopupShop
+  - button: {fileID: 1060}
+    resourcePath: prefabs/common/PopupShop
+  - button: {fileID: 1169}
+    resourcePath: prefabs/common/PopupShop
+  - button: {fileID: 997}
+    resourcePath: prefabs/common/PopupChatNew
   homeScenePath: Assets/Scenes/HomeScene.unity
