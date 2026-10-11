@@ -478,6 +478,43 @@ namespace HaiTac.OfflineViewer.Editor
                     });
             }
             EditorGUILayout.Space();
+            EditorGUILayout.LabelField(
+                "P6.2 - Game View cua game moi (NEW_PROJECT_DESIGN)",
+                EditorStyles.boldLabel);
+            bool hasClientScene = AssetDatabase.LoadAssetAtPath<SceneAsset>(
+                Ref04P62ClientSceneBuilder.ClientScene) != null;
+            EditorGUILayout.HelpBox(hasClientScene
+                ? "Da co Scene P6.2 rieng. Mo Scene moi de kiem tra co con " +
+                  "bi cat giao dien trong Game View khong."
+                : "P6.2 tao MOT Scene moi, tu ban REF04 Study da kiem chung. " +
+                  "Scene moi fit viewport theo Game View. Khong chinh sua " +
+                  "Prefab/Scene goc; khong phuc dung nhan vat, Text hoac server.",
+                MessageType.Info);
+            using (new EditorGUI.DisabledScope(
+                !hasCompleteStudy || hasClientScene || EditorApplication.isPlaying))
+            {
+                if (GUILayout.Button("6. Tao P6.2 NEW CLIENT viewport Study"))
+                    InvokeSafe(() =>
+                    {
+                        Ref04P62ClientSceneBuilder.Build();
+                        Require(AssetDatabase.LoadAssetAtPath<SceneAsset>(
+                            Ref04P62ClientSceneBuilder.ClientScene) != null,
+                            "P6.2 Scene chua duoc tao hoac da huy");
+                        return "Da tao Scene P6.2 rieng. Hay bam buoc 7 mo Game View.";
+                    });
+            }
+            using (new EditorGUI.DisabledScope(
+                !hasClientScene || EditorApplication.isPlaying))
+            {
+                if (GUILayout.Button("7. Mo P6.2 NEW CLIENT Scene"))
+                    InvokeSafe(() =>
+                    {
+                        Ref04P62ClientSceneBuilder.Open();
+                        return "Da mo P6.2 NEW_CLIENT_FIT_STUDY: fit theo viewport " +
+                            "la NEW_PROJECT_DESIGN, khong phai runtime goc.";
+                    });
+            }
+            EditorGUILayout.Space();
             EditorGUILayout.HelpBox(
                 "Tiếp theo: xem Scene/Game View, ghi nhận khoảng trống Canvas/" +
                 "SafeArea/Text; mọi chức năng và API cho backend mới phải gắn nhãn " +
