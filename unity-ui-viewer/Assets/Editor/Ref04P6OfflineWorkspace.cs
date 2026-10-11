@@ -535,6 +535,28 @@ namespace HaiTac.OfflineViewer.Editor
                     });
             }
             EditorGUILayout.Space();
+            EditorGUILayout.LabelField(
+                "P6.3 - Xac dinh nguon icon va o nhan vat",
+                EditorStyles.boldLabel);
+            EditorGUILayout.HelpBox(
+                "Cac icon nam dam giua bien va bong nhan vat chua co " +
+                "quan he gameplay duoc chung minh. P6.3 chi doc Scene " +
+                "NEW CLIENT, ghi lai Sprite/PathID/nhom cha/RectTransform " +
+                "vao output rieng. Chua tu dong keo icon sai nhom.",
+                MessageType.Info);
+            using (new EditorGUI.DisabledScope(
+                !hasClientScene || EditorApplication.isPlaying))
+            {
+                if (GUILayout.Button("9. Kiem tra icon, HUD va PlayerHeroes"))
+                    InvokeSafe(() =>
+                    {
+                        var path = Ref04P63IconLayoutAudit.BuildReport();
+                        return "Da ghi bao cao icon/HUD/PlayerHeroes (chi doc) " +
+                            "vao " + path + ". Hay gui file JSON de sap xep " +
+                            "theo dung nhom, khong doan toa do goc.";
+                    });
+            }
+            EditorGUILayout.Space();
             EditorGUILayout.HelpBox(
                 "Tiếp theo: xem Scene/Game View, ghi nhận khoảng trống Canvas/" +
                 "SafeArea/Text; mọi chức năng và API cho backend mới phải gắn nhãn " +
