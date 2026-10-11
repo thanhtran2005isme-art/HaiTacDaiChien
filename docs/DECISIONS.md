@@ -1,6 +1,35 @@
+## 2026-10-10 — REF04 P5: bắt buộc provenance trước khi dùng giá trị UI
+
+- **Vấn đề:** báo cáo đơn lẻ có thể được sao chép từ XAPK khác hoặc bị chỉnh ID/hash/tọa độ, khiến một giá trị preview trông như dữ liệu runtime thật.
+- **Quyết định:** chỉ chấp nhận kiểm toán tổng hợp khi đối chiếu exact SerializedFile, cặp binary SHA, component owner/RectTransform ID và từng byte-span/hash gốc của 168 LayoutGroup fields qua hai schema; Text và Font/localizer phải tái đối chiếu xuyên Step2/P3/P4. Giữ nguồn private trong `output/`.
+- **Giới hạn:** xác minh serialized value không có nghĩa runtime scale/Screen.safeArea/Text/placement đã phục hồi. `runtimeCoordinates`, `runtimeCanvasScale`, `runtimeSafeAreaFormula`, `runtimeTextPositions` tiếp tục `null`; `1600×900` không được dùng làm runtime ground truth. Không tự sửa Unity hoặc merge PR Draft.
+- **Hệ quả:** nếu thiếu báo cáo nguồn, byte hash không trùng, có mutation không chứng minh hoặc giá trị tọa độ tự điền, P5 **FAIL/BLOCKED**; yêu cầu chạy XAPK thật từ CI rồi xác minh thiết bị/Unity để chuyển sang runtime.
+
+## 2026-10-10 — Phase 3B: native Unity MonoBehaviour header + managed IL2CPP source schema
+
+- **Bằng chứng:** Unity nguồn 2022.3.51f1, IL2CPP metadata v31. `AssetsTools` fail 1.201/1.201 lúc sinh schema; `AssetStudio` và `AssetRipper` tạo schema từ cùng cặp binary nhưng phát sinh sai khác ở native MonoBehaviour header.
+- **Lựa chọn:** lấy native MonoBehaviour header từ UnityPy TypeTree đúng version của file nguồn, ghép với **managed TypeTree sinh từ IL2CPP**, chỉ chấp nhận khi parse hết object (`check_read=True`), kiểm tra GameObject/MonoScript PPtr, enabled và mọi field type/range.
+- **Kết quả lần đầu:** AssetStudio 1.201 component / 8.102 field values; AssetRipper 1.108 / 7.451. 93 LayoutGroup chỉ AssetStudio parse strict thành công; giữ source provenance riêng cho từng backend.
+- **Quyết định an toàn:** cross-verify trên từng (scene, component PathID, field), source SHA và PPtr qua hai backend; CI phải FAIL nếu bất đồng. Tài nguyên nhị phân không upload GitHub. Không tự áp dụng UI values vào Prefab trước visual/Unity Editor audit.
+
 # Quyết định kỹ thuật đang áp dụng
 
 > Mỗi quyết định mới ghi **ngày, vấn đề, lựa chọn, hệ quả**; chi tiết triển khai ở PR/commit. Không dùng file này để ghi mọi lần chỉnh text.
+
+## 2026-10-09 — Giai đoạn 3B phải giải mã đủ object từ binary đúng build
+- **Vấn đề:** metadata IL2CPP v31 và field offset trong memory không chứng minh byte offset của Unity SerializedFile.
+- **Quyết định:** opt-in TypeTreeGeneratorAPI dùng chính libil2cpp.so + global-metadata.dat từ XAPK có xác minh SHA và Unity version nguồn; chỉ đọc thành công nếu strict full-object parser, owner ID, script PPtr, enabled flags và kiểu field khớp. Nếu thiếu dữ liệu hoặc công cụ không hỗ trợ thì BLOCKED.
+- **Hệ quả:** mọi giá trị quản lý chưa đọc vẫn UNKNOWN; không cập nhật Prefab tự động, không đưa binary lên Git, test synthetic không được xem là kiểm chứng XAPK thật.
+
+## 2026-10-09 — Không suy diễn UI managed fields từ metadata strings
+- **Vấn đề:** Image/CanvasScaler/Mask/LayoutGroup trong asset build IL2CPP thiếu type trees; biết MonoScript class không chứng minh serialized field values.
+- **Quyết định:** đối chiếu theo exact source PPtr và chỉ nhập giá trị typetree có bằng chứng; metadata v31 chỉ kiểm tra header/tên trường và trạng thái. Thiếu trường là `NO_MANAGED_TYPETREE`, không thay bằng config giả để gọi là UI gốc.
+- **Tiếp theo:** xác minh binary schema/field offsets cụ thể của build trước khi triển khai decoder giá trị, không cam kết 100% fidelity từ metadata tĩnh.
+
+## 2026-10-09 — Ghép Sprite bằng source component ID, không bằng path string
+- **Vấn đề:** 137 Image thuộc các nút trùng tên bị bỏ qua; Image bị tắt trong serialized data được preview vô tình hiện.
+- **Lựa chọn:** xác minh Image component → GameObject → RectTransform qua ID gốc; kế hoạch dựng và bằng chứng layout phải có component ID trùng nhau. Áp dụng m_Enabled khi đọc được; không suy luận Image Type/CanvasScaler khi thiếu IL2CPP typetree.
+- **Hệ quả:** sửa được liên kết và một phần render, nhưng không tuyên bố UI 100%; cần runtime evidence.
 
 ## 2026-10-09 — Dừng coi Canvas preview là UI gốc
 - **Vấn đề:** bản xem thử đang đặt root `(1,1,1)`, CanvasScaler `1600×900`, Image `Simple`, thiếu các trường được serialize và runtime Spine.

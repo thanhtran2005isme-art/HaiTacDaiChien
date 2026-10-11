@@ -40,6 +40,53 @@ class TestLocalArtManifest(unittest.TestCase):
         self.assertEqual(len(out["files"]), 1)
         self.assertTrue(module.FILE_RE.fullmatch(out["files"][0]))
 
+    def test_duplicate_ui_path_is_resolved_by_exact_original_component_id(self):
+        # Both GameObjects have the same displayed path, but their serialized
+        # Image component IDs and GameObject ownership are different.
+        scenes = {"scenes": [{"id": "REF04", "nodes": [
+            {"id": 10, "path": "/Canvas/Duplicate"},
+            {"id": 11, "path": "/Canvas/Duplicate"},
+        ]}]}
+        images = [
+            {"reference": "REF04", "ui_path": "/Canvas/Duplicate",
+             "component_id": "550", "sprite_file": "assets__file123",
+             "sprite_id": "3"},
+            {"reference": "REF04", "ui_path": "/Canvas/Duplicate",
+             "component_id": "551", "sprite_file": "assets__file123",
+             "sprite_id": "4"},
+        ]
+        decoded = {(x["sprite_file"], x["sprite_id"]):
+                   module.image_name((x["sprite_file"], x["sprite_id"]))
+                   for x in images}
+        manifest = module.make_manifest(images, scenes, decoded, {
+            ("REF04", "550"): 10, ("REF04", "551"): 11
+        })
+        self.assertEqual(manifest["version"], 1)
+        self.assertEqual(manifest["stats"]["ui_nodes_mapped"], 2)
+        self.assertEqual(len(manifest["nodeBindings"]), 2)
+        self.assertEqual(manifest["scenes"]["REF04"], {})
+        self.assertEqual({row["nodeId"] for row in manifest["nodeBindings"]},
+                         {10, 11})
+        self.assertEqual(len(manifest["files"]), 2)
+
+    def test_conflicting_sprites_one_original_image_component_are_not_guessed(self):
+        scenes = {"scenes": [{"id": "REF04", "nodes": [
+            {"id": 10, "path": "/Canvas/A"}
+        ]}]}
+        images = [
+            {"reference": "REF04", "ui_path": "/Canvas/A",
+             "component_id": "550", "sprite_file": "assets__file123",
+             "sprite_id": str(number)} for number in (3, 4)
+        ]
+        decoded = {(x["sprite_file"], x["sprite_id"]):
+                   module.image_name((x["sprite_file"], x["sprite_id"]))
+                   for x in images}
+        manifest = module.make_manifest(images, scenes, decoded, {
+            ("REF04", "550"): 10
+        })
+        self.assertEqual(manifest["nodeBindings"], [])
+        self.assertEqual(manifest["stats"]["ambiguous_component_bindings"], 1)
+
     def test_bundle_read_without_temporary_windows_file(self):
         """Regression: load byte buffer, never leave UnityPy mmap on bundle_2.unity3d."""
         with tempfile.TemporaryDirectory() as tmp:

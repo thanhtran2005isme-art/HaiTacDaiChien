@@ -107,6 +107,40 @@ def sprite_details(reader):
             result["pixelsPerUnit"] = pixels
         if size and all(0 < x <= 16384 for x in size):
             result["sourceRectSize"] = size
+        # Sprite texture geometry is separate from m_Rect (source logical
+        # dimensions). Copy ONLY serialized numbers. Do not synthesize an
+        # offset from missing PNG pixels or assume atlas trim direction.
+        origin = layout.vector(rect, ("x", "y"))
+        if origin is not None:
+            result["sourceRectOrigin"] = origin
+        for name, raw in (
+            ("sourceSpriteOffset", layout.get(obj, "m_Offset")),
+            ("sourceSpritePivot", layout.get(obj, "m_Pivot")),
+            ("sourceTextureRectOffset", layout.get(
+                layout.get(obj, "m_RD"), "textureRectOffset")),
+            ("sourceAtlasRectOffset", layout.get(
+                layout.get(obj, "m_RD"), "atlasRectOffset")),
+        ):
+            values = layout.vector(raw, ("x", "y"))
+            if values is not None:
+                result[name] = values
+        rendering = layout.get(obj, "m_RD")
+        texture_rect = layout.get(rendering, "textureRect")
+        size = layout.vector(layout.get(texture_rect, "size"), ("x", "y"))
+        if size is None:
+            size = [layout.real(layout.get(texture_rect, "width")),
+                    layout.real(layout.get(texture_rect, "height"))]
+        if size and all(x is not None and 0 < x <= 16384 for x in size):
+            result["sourceTextureRectSize"] = size
+        origin = layout.vector(texture_rect, ("x", "y"))
+        if origin is not None:
+            result["sourceTextureRectOrigin"] = origin
+        packing = layout.get(rendering, "settingsRaw")
+        try:
+            if type(packing) is int and 0 <= packing <= 0xffffffff:
+                result["sourceSpriteSettingsRaw"] = packing
+        except (ValueError, TypeError):
+            pass
         return result
     except Exception:
         return {}
@@ -127,7 +161,8 @@ def component_script(reader):
         return ""
 
 
-def audit_scene(scene, groups, sprite_links, canvas_inventory=None):
+def audit_scene(scene, groups, sprite_links, canvas_inventory=None,
+                exact_sprite_bindings=None):
     readers = layout.choose_serialized_file(scene, groups)
     expected = {node["id"]: node for node in scene["nodes"]}
     paths = collections.defaultdict(list)
@@ -136,30 +171,78 @@ def audit_scene(scene, groups, sprite_links, canvas_inventory=None):
     references = []
     sprites = []
     counters = collections.Counter()
-    for row in sprite_links:
-        match = paths.get(row["ui_path"], [])
-        if len(match) != 1:
-            counters["ambiguous_sprite_path"] += 1
-            continue
-        target = row.get("sprite_file", "")
-        try:
-            bundle = layout.scene_bundle_prefix(scene)
-            if target.rsplit("__file", 1)[0] != bundle:
-                counters["external_sprite_serialized_file"] += 1
+    if exact_sprite_bindings:
+        # Unlike the old path-based CSV join, this uses the original Image
+        # Component PathID. It must be proven to belong to this GameObject's
+        # RectTransform and refer to the actual source Sprite object.
+        matched = set()
+        source_prefix = layout.scene_bundle_prefix(scene)
+        for binding in exact_sprite_bindings:
+            try:
+                node_id = int(binding["nodeId"])
+                component_id = int(binding["imageComponentId"])
+                sprite_id = int(binding["spritePathId"])
+                source = str(binding["spriteSerializedFile"])
+                if (node_id not in expected or
+                    not isinstance(binding.get("spriteFile"), str) or
+                    component_id <= 0 or sprite_id <= 0 or
+                    not source.startswith(source_prefix + "__file") or
+                    (node_id, component_id) in matched):
+                    raise ValueError("Invalid source Sprite/component identity")
+                matched.add((node_id, component_id))
+                selected_id = int(source.rsplit("__file", 1)[1])
+                sprite_reader = list(groups.values())[selected_id].get(sprite_id)
+                image_reader = readers.get(component_id)
+                node_reader = readers.get(node_id)
+                if (sprite_reader is None or sprite_reader.type.name != "Sprite" or
+                    image_reader is None or image_reader.type.name != "MonoBehaviour" or
+                    node_reader is None or node_reader.type.name != "RectTransform"):
+                    raise ValueError("Required original Sprite/Image/RectTransform unavailable")
+                head = image_reader.parse_monobehaviour_head()
+                image_go = layout.local_id(layout.get(head, "m_GameObject"))
+                node_go = layout.local_id(
+                    layout.get(node_reader.read(), "m_GameObject"))
+                if not image_go or image_go != node_go:
+                    raise ValueError("Image source GameObject identity differs")
+                detail = sprite_details(sprite_reader)
+                if not detail:
+                    counters["exact_sprite_geometry_unavailable"] += 1
+                    continue
+                sprites.append({
+                    "nodeId": node_id, "imageComponentId": component_id,
+                    "spriteId": sprite_id, "sourceFile": source,
+                    "spriteFile": binding["spriteFile"], **detail,
+                })
+                counters["exact_source_image_sprite_geometry"] += 1
+            except (KeyError, ValueError, IndexError, TypeError, AttributeError):
+                counters["exact_sprite_owner_or_file_unverifiable"] += 1
+    else:
+        # Backwards-compatible legacy path audit only when an old manifest has
+        # NO PPtr-linked image rows. Never mix legacy and exact source links.
+        for row in sprite_links:
+            match = paths.get(row["ui_path"], [])
+            if len(match) != 1:
+                counters["ambiguous_sprite_path"] += 1
                 continue
-            selected = list(groups.values())[int(target.rsplit("__file", 1)[1])]
-            reader = selected[int(row["sprite_id"])]
-            if reader.type.name != "Sprite":
-                counters["wrong_sprite_type"] += 1
-                continue
-            detail = sprite_details(reader)
-            if detail:
-                sprites.append({"nodeId": match[0], "spriteId": int(row["sprite_id"]),
-                                "sourceFile": target, **detail})
-            else:
-                counters["sprite_geometry_not_decodable"] += 1
-        except (KeyError, ValueError, IndexError, TypeError):
-            counters["sprite_object_not_found"] += 1
+            target = row.get("sprite_file", "")
+            try:
+                bundle = layout.scene_bundle_prefix(scene)
+                if target.rsplit("__file", 1)[0] != bundle:
+                    counters["external_sprite_serialized_file"] += 1
+                    continue
+                selected = list(groups.values())[int(target.rsplit("__file", 1)[1])]
+                reader = selected[int(row["sprite_id"])]
+                if reader.type.name != "Sprite":
+                    counters["wrong_sprite_type"] += 1
+                    continue
+                detail = sprite_details(reader)
+                if detail:
+                    sprites.append({"nodeId": match[0], "spriteId": int(row["sprite_id"]),
+                                    "sourceFile": target, **detail})
+                else:
+                    counters["sprite_geometry_not_decodable"] += 1
+            except (KeyError, ValueError, IndexError, TypeError):
+                counters["sprite_object_not_found"] += 1
     ids = {node["id"] for node in scene["nodes"]}
     go_map = {}
     for node in scene["nodes"]:
@@ -240,6 +323,13 @@ def build(root=ROOT, xapk=None, unitypy=None):
     links = collections.defaultdict(list)
     for row in csv_rows(root / "reports/xapk/scene-image-texture-links.csv"):
         links[row["reference"]].append(row)
+    exact = collections.defaultdict(list)
+    art_manifest = root / "output/local-ui-art/manifest.json"
+    if art_manifest.is_file():
+        manifest = json.loads(art_manifest.read_text(encoding="utf-8"))
+        for row in manifest.get("nodeBindings", []):
+            if "spriteSerializedFile" in row and "spritePathId" in row:
+                exact[row["sceneId"]].append(row)
     canvas_inventory = csv_rows(root / "reports/xapk/canvas-spine-components.csv")
     results = []
     class Interceptor:
@@ -250,7 +340,9 @@ def build(root=ROOT, xapk=None, unitypy=None):
                 for obj in env.objects:
                     groups[id(obj.assets_file)][int(obj.path_id)] = obj
                 results.extend(audit_scene(s, groups, links[s["id"]],
-                                           canvas_inventory) for s in scenes)
+                                           canvas_inventory,
+                                           exact_sprite_bindings=exact[s["id"]])
+                               for s in scenes)
             return env
     layout.build(root, xapk=xapk, unitypy=Interceptor())
     count = collections.Counter()

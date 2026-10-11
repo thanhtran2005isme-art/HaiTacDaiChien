@@ -24,7 +24,7 @@ def read_csv(path):
 
 
 def prepare(scene_data, art, components, candidates):
-    if scene_data.get("schemaVersion") != 1 or art.get("version") != 1:
+    if scene_data.get("schemaVersion") != 1 or art.get("version") not in (1, 2):
         raise ValueError("Incompatible scene metadata or Sprite manifest")
     available = set(art.get("files") or [])
     if not available or len(available) > 2000 or any(
@@ -59,15 +59,32 @@ def prepare(scene_data, art, components, candidates):
             if ident != scene["rootTransform"] and int(node["parent"]) not in ordered:
                 raise ValueError("Parent must precede child: " + scene_id)
             ordered.add(ident)
-        for path, name in (scene_maps.get(scene_id) or {}).items():
-            if paths[path] != 1 or not isinstance(name, str) or name not in available:
-                # No name-only fallback or guessing for duplicates.
-                continue
-            node = next(n for n in nodes if n["path"] == path)
-            result_art.append({
-                "sceneId": scene_id, "nodeId": int(node["id"]),
-                "spriteFile": name,
-            })
+        if isinstance(art.get("nodeBindings"), list) and art["nodeBindings"]:
+            if not isinstance(art.get("nodeBindings"), list):
+                raise ValueError("Exact Image ID bindings missing from Sprite manifest")
+            for entry in art["nodeBindings"]:
+                if entry["sceneId"] != scene_id:
+                    continue
+                node_id = int(entry["nodeId"])
+                component_id = int(entry["imageComponentId"])
+                name = entry["spriteFile"]
+                if node_id not in by_id or component_id <= 0 or name not in available:
+                    raise ValueError("Invalid exact Image component binding: " + scene_id)
+                result_art.append({
+                    "sceneId": scene_id, "nodeId": node_id,
+                    "spriteFile": name, "sourceImageComponentId": component_id,
+                })
+        else:
+            # Legacy local manifests had only UI paths. Do not mistake them for
+            # enough evidence when duplicate sibling names exist.
+            for path, name in (scene_maps.get(scene_id) or {}).items():
+                if paths[path] != 1 or not isinstance(name, str) or name not in available:
+                    continue
+                node = next(n for n in nodes if n["path"] == path)
+                result_art.append({
+                    "sceneId": scene_id, "nodeId": int(node["id"]),
+                    "spriteFile": name,
+                })
         scene_counts[scene_id] = sum(a["sceneId"] == scene_id for a in result_art)
         for row in components:
             if row.get("reference") != scene_id:
@@ -87,9 +104,11 @@ def prepare(scene_data, art, components, candidates):
                 "candidateCount": len(choices),
             })
     result_art.sort(key=lambda x: (x["sceneId"], x["nodeId"]))
+    if len({(x["sceneId"], x["nodeId"]) for x in result_art}) != len(result_art):
+        raise ValueError("Multiple Image components for one GameObject; no source guess")
     result_spine.sort(key=lambda x: (x["sceneId"], x["nodeId"], x["componentId"]))
     return {
-        "schemaVersion": 1,
+        "schemaVersion": 2 if art.get("nodeBindings") else 1,
         "spriteFileNames": sorted({x["spriteFile"] for x in result_art}),
         "sprites": result_art,
         "spine": result_spine,

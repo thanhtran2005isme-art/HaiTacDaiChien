@@ -48,6 +48,87 @@ class TestSpine38PreviewContract(unittest.TestCase):
         self.assertIn("anim.stringValue = chosenAnimation;", self.editor)
         self.assertNotIn('anim.stringValue = "idle"', self.editor)
 
+    def test_spine_import_stages_atlas_pages_then_atlas_then_skeleton(self):
+        # Spine 3.8 opens "Could not automatically set the AtlasAsset"
+        # when skeleton.json imports before the corresponding atlas is ready.
+        source = self.rebuilder.split(
+            "private static Dictionary<string, ImportedSpinePack> "
+            "ImportSpineSourcePacks(", 1)[1].split(
+            "private static void ApplyOriginalSpriteGeometry(", 1)[0]
+        p_pages = source.index("var textures = pack.pages.Select(")
+        p_atlas = source.index("string atlasPath = CopySource(pack.atlas, true);")
+        p_atlas_import = source.index("AssetDatabase.ImportAsset(atlasPath,")
+        p_skeleton = source.index("string skeletonPath = CopySource(pack.skeleton, false);")
+        p_skeleton_import = source.index("AssetDatabase.ImportAsset(skeletonPath,")
+        self.assertLess(p_pages, p_atlas)
+        self.assertLess(p_atlas, p_atlas_import)
+        self.assertLess(p_atlas_import, p_skeleton)
+        self.assertLess(p_skeleton, p_skeleton_import)
+        # The same exact source files are retained; no guessed artwork.
+        self.assertIn('string destinationName = atlas ? name + ".txt" : name;', source)
+        self.assertIn("textures.Any(tex => tex == null)", source)
+        self.assertIn("ForceSynchronousImport", source)
+
+    def test_spine_reimport_uses_exact_page_atlas_skeleton_order(self):
+        reimport = self.editor.split(
+            "private static void Reimport(SpineReferenceEvidence note)", 1)[1].split(
+            "private void OnGUI()", 1)[0]
+        self.assertLess(reimport.index("foreach (var page in note.sourceAtlasTextures)"),
+                        reimport.index("GetAssetPath(note.sourceAtlasText)"))
+        self.assertLess(reimport.index("GetAssetPath(note.sourceAtlasText)"),
+                        reimport.index("GetAssetPath(note.sourceSkeletonJson)"))
+        self.assertNotIn("ImportRecursive", reimport)
+        self.assertIn("FolderFor(note)", reimport)
+
+    def test_local_atlas_audit_is_read_only_and_checks_real_links(self):
+        audit = (ROOT / "unity-ui-viewer/Assets/Editor/LocalSpineAtlasAudit.cs"
+                 ).read_text(encoding="utf-8")
+        # The repair is an independent, explicitly confirmed menu action.
+        # Only CheckPack + AuditAll must remain strictly read-only.
+        read_only = audit.split("private static bool TryRepairEmptyAtlasLink(", 1)[0]
+        audit_entry = audit.split("public static void AuditAll()", 1)[1]
+        self.assertIn("Audit all local AtlasAsset links (read only)", audit)
+        self.assertIn('ObjectField(data, "atlasFile")', audit)
+        self.assertIn('data.FindProperty("materials")', audit)
+        self.assertIn("mat.mainTexture as Texture2D", audit)
+        self.assertIn('ObjectField(data, "skeletonJSON")', audit)
+        self.assertIn('data.FindProperty("atlasAssets")', audit)
+        self.assertIn("GetSubFolders(PacksRoot)", audit)
+        self.assertIn("allLinksVerified=", audit)
+        for forbidden in ("AssetDatabase.DeleteAsset(", "AssetDatabase.CreateAsset(",
+                          "AssetDatabase.ImportAsset(", "EditorUtility.SetDirty(",
+                          "AssetDatabase.SaveAssets(", "File.WriteAllText("):
+            self.assertNotIn(forbidden, read_only)
+            self.assertNotIn(forbidden, audit_entry)
+        self.assertIn("PLAYBACK NOT TESTED", audit)
+
+    def test_verified_empty_atlas_repair_is_safe_and_explicit(self):
+        audit = (ROOT / "unity-ui-viewer/Assets/Editor/LocalSpineAtlasAudit.cs"
+                 ).read_text(encoding="utf-8")
+        self.assertIn("Repair EMPTY verified atlas links (local only)", audit)
+        self.assertIn("EditorUtility.DisplayDialog(", audit)
+        self.assertIn('atlasRefs.arraySize != 0', audit)
+        self.assertIn("never overwrite", audit)
+        self.assertIn('ObjectField(atlasSerialized, "atlasFile") != originalAtlasText',
+                      audit)
+        self.assertIn('ObjectField(skeletonSerialized, "skeletonJSON") != originalJson',
+                      audit)
+        self.assertIn('FindProperty("materials")', audit)
+        self.assertIn("material.mainTexture as Texture2D", audit)
+        self.assertIn("usedPages.SetEquals(originalPages)", audit)
+        self.assertIn('atlasRefs.arraySize = 1;', audit)
+        self.assertIn('slot.objectReferenceValue = atlas;', audit)
+        self.assertIn("Undo.RecordObject(skeleton", audit)
+        self.assertIn("skeletonSerialized.ApplyModifiedProperties()", audit)
+        self.assertIn("AssetDatabase.SaveAssets()", audit)
+        self.assertIn("AuditAll();", audit)
+        self.assertIn("allLinksVerified=", audit)
+        self.assertIn("BLOCKED: incompatible Spine-Unity atlasAssets field", audit)
+        for forbidden in ("AssetDatabase.DeleteAsset(", "AssetDatabase.CreateAsset(",
+                          "AssetDatabase.ImportAsset(", "File.WriteAllText(",
+                          "AssetDatabase.Refresh("):
+            self.assertNotIn(forbidden, audit)
+
     def test_previews_are_isolated_and_not_source_modifications(self):
         self.assertIn('Root + "/SpinePreviews"', self.editor)
         self.assertIn("EditorSceneManager.NewScene(NewSceneSetup.EmptyScene",

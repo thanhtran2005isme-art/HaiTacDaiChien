@@ -254,10 +254,22 @@ namespace HaiTac.OfflineViewer.Editor
         private static void Reimport(SpineReferenceEvidence note)
         {
             string folder = FolderFor(note);
-            AssetDatabase.ImportAsset(folder,
-                ImportAssetOptions.ForceUpdate | ImportAssetOptions.ImportRecursive);
-            AssetDatabase.Refresh(ImportAssetOptions.ForceSynchronousImport);
-            Debug.Log("[HaiTac Spine 3.8] Reimported local, evidence-matched " + folder);
+            // Recursive folder reimport does not guarantee that Spine's atlas
+            // importer runs before skeleton.json and can show a modal error.
+            // Preserve exact pack ownership and import dependencies in order.
+            foreach (var page in note.sourceAtlasTextures)
+                AssetDatabase.ImportAsset(AssetDatabase.GetAssetPath(page),
+                    ImportAssetOptions.ForceUpdate |
+                    ImportAssetOptions.ForceSynchronousImport);
+            AssetDatabase.ImportAsset(AssetDatabase.GetAssetPath(note.sourceAtlasText),
+                ImportAssetOptions.ForceUpdate |
+                ImportAssetOptions.ForceSynchronousImport);
+            AssetDatabase.ImportAsset(AssetDatabase.GetAssetPath(note.sourceSkeletonJson),
+                ImportAssetOptions.ForceUpdate |
+                ImportAssetOptions.ForceSynchronousImport);
+            Debug.Log("[HaiTac Spine 3.8] Reimported atlas pages -> atlas -> " +
+                "skeleton from exactly verified local pack " + folder +
+                ". Check generated AtlasAsset and SkeletonDataAsset in Inspector.");
         }
 
         private void OnGUI()
