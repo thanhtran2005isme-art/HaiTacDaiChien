@@ -83,9 +83,12 @@ public sealed class HomeSceneNavigationBridge : MonoBehaviour
         }
 
         // Works in player builds only when the scene is in Build Settings.
-        if (Application.CanStreamedLevelBeLoaded(scenePath))
+        // SceneManager expects the Build Settings path WITHOUT the .unity suffix.
+        // EditorSceneManager.LoadSceneInPlayMode instead needs the full asset path.
+        string buildScenePath = scenePath.Substring(0, scenePath.Length - ".unity".Length);
+        if (Application.CanStreamedLevelBeLoaded(buildScenePath))
         {
-            SceneManager.LoadScene(scenePath, LoadSceneMode.Single);
+            SceneManager.LoadScene(buildScenePath, LoadSceneMode.Single);
             return;
         }
 
