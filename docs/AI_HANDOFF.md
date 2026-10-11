@@ -21,6 +21,9 @@ Khảo sát tài nguyên Unity trong XAPK Hải Tặc (được phép sử dụn
 
 - **Safe Mode khi kiểm tra PR #3:** Nhánh source graph tạo từ `main` trước khi PR #2 về modules Spine merge, làm `Packages/manifest.json` mất 5 module Unity built-in và có thể gây `CS1069` khi mở Editor. Đã chép lại cấu hình `animation/physics/physics2d/audio/particlesystem` và regression test vào **chính nhánh PR #3**; CI chỉ xác minh manifest, vẫn cần Console Unity xác nhận loại lỗi thực tế. Không được khẳng định Safe Mode chỉ có một nguyên nhân khi chưa đọc mã CSxxxx.
 
+
+- **Đồng bộ PR #2 khi nhập nhánh #3:** PR #2 (`5ddad8f0`, squash vào `main`) đã bổ sung đủ năm Unity built-in modules `physics`, `physics2d`, `animation`, `audio`, `particlesystem`. Nhánh #3 giữ nguyên manifest và regression test tương ứng; Unity Editor sau nhập vẫn chưa được xác nhận compile/runtime. Không coi manifest test là Unity Play Mode PASS.
+
 ## Vấn đề còn lại / giới hạn chứng cứ
 1. Unity project hiện dùng **2022.3**, trong khi spine-unity 3.8 chính thức hỗ trợ đến Unity 2020.3. Thử runtime trong **bản sao project**; không coi Python CI là chứng cứ tương thích Unity Editor.
 2. Chưa xác minh skin/animation đang chạy và sáu nhân vật được chọn ở REF04; **không tự lấp vị trí bằng nhân vật đoán**.
