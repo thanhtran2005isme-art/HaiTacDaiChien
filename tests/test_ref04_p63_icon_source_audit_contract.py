@@ -45,8 +45,10 @@ class P63SourceIconEvidence(unittest.TestCase):
             "changesOriginalSourceEvidence = false",
         ):
             self.assertIn(token, AUDIT)
+        # Audit record serialization is allowed; mutation of Unity transforms is not.
+        self.assertIn("anchoredPosition = Values(trans.anchoredPosition)", AUDIT)
         for forbidden in (
-            "anchoredPosition =", "SetParent(", "SetSiblingIndex(",
+            "trans.anchoredPosition =", "SetParent(", "SetSiblingIndex(",
             "DestroyImmediate(", "AddComponent<Image>(",
             "AssetDatabase.DeleteAsset(", "AssetDatabase.CopyAsset(",
             "Image.sprite =", "Image.enabled =",
