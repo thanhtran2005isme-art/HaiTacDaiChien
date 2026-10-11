@@ -925,7 +925,7 @@ jobs:
               assert r[key]==hashlib.sha256(Path('output',name).read_bytes()).hexdigest()
           assert len(r['spriteGeometryAudit'])==265
           assert c['spriteLinkedImages']==265
-          assert c['sourceGeometryVerified']+c['sourceGeometryBlocked']==265
+          assert c['sourceGeometryVerified']+c.get('sourceGeometryBlocked',0)==265
           assert c['allDualVerifiedImages']==299
           assert c['verifiedImagesWithoutSourceSprite']==34
           assert c['layoutSerializedFieldsTwoSchemaVerified']==168
