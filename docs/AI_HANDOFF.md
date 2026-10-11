@@ -1,5 +1,14 @@
 # AI HANDOFF — Hải Tặc UI Viewer
 
+## 2026-10-12 — Home2Scene 47/47 click response follow-up
+
+- **Same branch:** `feat/htdc-localization-hold`; no new branch. 47 original OnClick remain byte-for-byte unchanged.
+- All 47 serialized buttons now have one extra offline response: **11 Scene**, **14 Popup** (incl. Events + Gem/Gold top-up UI), **3 Toggle**, **19 explicit unavailable-state notices** using original `PopupMessage` prefab. Shared `HomeSceneNavigationBridge.cs` supports `NoticeRoute`, no custom replacement layout and no removal of original handlers.
+- **P0 click-coverage** is mapped; **P0 gameplay/business** still blocked for 19 callbacks requiring real HeroModel, item data, mission state, external SDK and server. Popup preview is **not** a confirmed transaction or complete gameplay loop.
+- Regression test `tests/test_home2_scene_navigation.py` asserts exactly-once 47 route coverage and real resources. HomeScene's existing 55 OnClick + 36 routes remain serialized.
+- Still **not tested in Unity 2022.3.51f1** at the new revision. Require Windows Play Mode re-test with no compile errors, all 47 controls (where actually active), no dead click or popup close problems before claiming verified P0 UI.
+- Scope/evidence and test matrix: `docs/navigation/HOME2SCENE_NAVIGATION_AUDIT.md`.
+
 ## 2026-10-12 — Home2Scene navigation (P0)
 
 - **Branch:** `feat/htdc-localization-hold`. `Assets/Scenes/Home2Scene.unity` có 47 persistent OnClick, giữ nguyên đủ 47. Component bridge `HomeSceneNavigationBridge` fileID `2120` được nối vào `Scripts` GO `12`.
