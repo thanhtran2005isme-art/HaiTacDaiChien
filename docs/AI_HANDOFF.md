@@ -1,5 +1,7 @@
 # AI HANDOFF — Hải Tặc UI Viewer
 
+**Đồng bộ nhánh khi merge:** PR #2 (`5ddad8f0`) và PR #3 (`0333af9f`) đã squash merge vào `main`; nhánh tích hợp REF04 giữ nguyên 5 Unity built-in modules (`physics`, `physics2d`, `animation`, `audio`, `particlesystem`) cùng regression tests, và bổ sung các cải tiến P2–P6.3. CI mã nguồn không chứng minh Spine hay Unity Game View đã được kiểm thử đầy đủ trên máy người dùng.
+
 ## P6.3 icon layout / character slot provenance diagnosis (2026-10-11)
 
 User screenshot after P6.2 background cover: black bars gone; UI still wrong — horizontally floating circular fist icons across the sea, unpopulated hero shadows, sparse HUD text. Explicit complaint: "thế còn các icon sắp xếp lung tung thì sao". **Do not claim P6.2 fixed icons.** Cannot assume every fist icon belongs in top HUD; original game runtime unavailable, and source serial Transform fields alone don't prove original dynamic layout; icons might be PlayerHeroes markers and no Spine binding.
