@@ -51,7 +51,7 @@ public sealed class HomeSceneNavigationBridge : MonoBehaviour
             {
                 if (route == null || route.button == null || string.IsNullOrEmpty(route.scenePath))
                 {
-                    Debug.LogWarning("[HTDC Navigation] Skipped incomplete Scene route.", this);
+                    UnityEngine.Debug.LogWarning("[HTDC Navigation] Skipped incomplete Scene route.", this);
                     continue;
                 }
                 string destination = route.scenePath;
@@ -64,7 +64,7 @@ public sealed class HomeSceneNavigationBridge : MonoBehaviour
             {
                 if (route == null || route.button == null || string.IsNullOrEmpty(route.resourcePath))
                 {
-                    Debug.LogWarning("[HTDC Navigation] Skipped incomplete Popup route.", this);
+                    UnityEngine.Debug.LogWarning("[HTDC Navigation] Skipped incomplete Popup route.", this);
                     continue;
                 }
                 string destination = route.resourcePath;
@@ -77,7 +77,7 @@ public sealed class HomeSceneNavigationBridge : MonoBehaviour
     {
         if (!seen.Add(button))
         {
-            Debug.LogWarning("[HTDC Navigation] Duplicate route for Button: " + button.name, button);
+            UnityEngine.Debug.LogWarning("[HTDC Navigation] Duplicate route for Button: " + button.name, button);
             return;
         }
         button.onClick.AddListener(callback);
@@ -104,7 +104,7 @@ public sealed class HomeSceneNavigationBridge : MonoBehaviour
             || resourcePath.Contains("..")
             || resourcePath.IndexOf('\\') >= 0)
         {
-            Debug.LogError("[HTDC Navigation] Refusing unknown Popup resource: " + resourcePath, this);
+            UnityEngine.Debug.LogError("[HTDC Navigation] Refusing unknown Popup resource: " + resourcePath, this);
             return;
         }
 
@@ -113,14 +113,14 @@ public sealed class HomeSceneNavigationBridge : MonoBehaviour
         Canvas canvas = canvasObject != null ? canvasObject.GetComponent<Canvas>() : null;
         if (canvas == null)
         {
-            Debug.LogError("[HTDC Navigation] HomeScene Canvas not found; cannot open " + resourcePath, this);
+            UnityEngine.Debug.LogError("[HTDC Navigation] HomeScene Canvas not found; cannot open " + resourcePath, this);
             return;
         }
 
         GameObject prefab = Resources.Load<GameObject>(resourcePath);
         if (prefab == null)
         {
-            Debug.LogError("[HTDC Navigation] Missing Resources prefab: " + resourcePath, this);
+            UnityEngine.Debug.LogError("[HTDC Navigation] Missing Resources prefab: " + resourcePath, this);
             return;
         }
 
@@ -159,13 +159,13 @@ public sealed class HomeSceneNavigationBridge : MonoBehaviour
             }
 
             activePopupLayer = modalLayer;
-            Debug.Log("[HTDC Navigation] Opened offline Popup preview: " + resourcePath, this);
+            UnityEngine.Debug.Log("[HTDC Navigation] Opened offline Popup preview: " + resourcePath, this);
         }
         catch (Exception error)
         {
             if (modalLayer != null)
                 Destroy(modalLayer);
-            Debug.LogException(error, this);
+            UnityEngine.Debug.LogException(error, this);
         }
     }
 
@@ -184,7 +184,7 @@ public sealed class HomeSceneNavigationBridge : MonoBehaviour
             || !scenePath.StartsWith("Assets/Scenes/", StringComparison.Ordinal)
             || !scenePath.EndsWith(".unity", StringComparison.Ordinal))
         {
-            Debug.LogError("[HTDC Navigation] Refusing unknown scene path: " + scenePath);
+            UnityEngine.Debug.LogError("[HTDC Navigation] Refusing unknown scene path: " + scenePath);
             return;
         }
 
@@ -209,7 +209,7 @@ public sealed class HomeSceneNavigationBridge : MonoBehaviour
         }
 #endif
 
-        Debug.LogError("[HTDC Navigation] Scene unavailable: " + scenePath
+        UnityEngine.Debug.LogError("[HTDC Navigation] Scene unavailable: " + scenePath
             + ". Restore the scene asset and add it to Build Settings for player builds.");
     }
 }
