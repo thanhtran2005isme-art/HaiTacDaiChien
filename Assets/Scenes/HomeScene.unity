@@ -195,6 +195,7 @@ GameObject:
   - component: {fileID: 306}
   - component: {fileID: 876}
   - component: {fileID: 877}
+  - component: {fileID: 1385}
   m_Layer: 0
   m_Name: Scripts
   m_TagString: Untagged
@@ -28955,3 +28956,55 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &1385
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6486579f283b4602b1e711dc7ec913ab, type: 3}
+  m_Name:
+  m_EditorClassIdentifier:
+  routes:
+  - button: {fileID: 887}
+    scenePath: Assets/Scenes/GuildScene.unity
+  - button: {fileID: 891}
+    scenePath: Assets/Scenes/ItemListScene.unity
+  - button: {fileID: 1025}
+    scenePath: Assets/Scenes/MonsterScene.unity
+  - button: {fileID: 927}
+    scenePath: Assets/Scenes/AltarScene.unity
+  - button: {fileID: 1158}
+    scenePath: Assets/Scenes/AltarScene.unity
+  - button: {fileID: 933}
+    scenePath: Assets/Scenes/ArenaScene.unity
+  - button: {fileID: 1036}
+    scenePath: Assets/Scenes/ArenaScene.unity
+  - button: {fileID: 1204}
+    scenePath: Assets/Scenes/DungeonScene.unity
+  - button: {fileID: 919}
+    scenePath: Assets/Scenes/DungeonScene.unity
+  - button: {fileID: 1145}
+    scenePath: Assets/Scenes/FusingHeroScene.unity
+  - button: {fileID: 1165}
+    scenePath: Assets/Scenes/FusingHeroScene.unity
+  - button: {fileID: 1211}
+    scenePath: Assets/Scenes/TarvenScene.unity
+  - button: {fileID: 879}
+    scenePath: Assets/Scenes/TarvenScene.unity
+  - button: {fileID: 1010}
+    scenePath: Assets/Scenes/SealedLand.unity
+  - button: {fileID: 1181}
+    scenePath: Assets/Scenes/SealedLand.unity
+  - button: {fileID: 1097}
+    scenePath: Assets/Scenes/ForgeScene.unity
+  - button: {fileID: 936}
+    scenePath: Assets/Scenes/ForgeScene.unity
+  - button: {fileID: 1042}
+    scenePath: Assets/Scenes/TowerNewScene.unity
+  - button: {fileID: 1124}
+    scenePath: Assets/Scenes/TowerNewScene.unity
+  homeScenePath: Assets/Scenes/HomeScene.unity
