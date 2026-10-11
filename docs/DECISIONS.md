@@ -2,6 +2,11 @@
 
 > Mỗi quyết định mới ghi **ngày, vấn đề, lựa chọn, hệ quả**; chi tiết triển khai ở PR/commit. Không dùng file này để ghi mọi lần chỉnh text.
 
+## 2026-10-09 — Dừng coi Canvas preview là UI gốc
+- **Vấn đề:** bản xem thử đang đặt root `(1,1,1)`, CanvasScaler `1600×900`, Image `Simple`, thiếu các trường được serialize và runtime Spine.
+- **Quyết định:** trích xuất trực tiếp GameObject/Component/Transform/PPtr, kiểm kê bằng chứng Prefab/Scene; tạo riêng **Prefab nghiên cứu cấu trúc**, giữ nguyên giá trị gốc kể cả root zero-scale; KHÔNG tự gắn Image, Mask, CanvasScaler, Text hay Spine giả. Năm scene tham chiếu vẫn là **ứng viên**, chưa được chứng minh là file Editor gốc.
+- **Hệ quả:** Scene nghiên cứu có thể trống hình, nhưng không khiến người xem hiểu nhầm là UI gốc chính xác. Cần xác minh từng managed type trước khi bật hiển thị.
+
 ## 2026-10-09 — Một chức năng, một nhánh ngắn hạn và một PR
 - **Vấn đề:** lịch sử push thẳng lên `main` khó đánh giá, AI lần sau thiếu ngữ cảnh vì phải đọc nhiều commit.
 - **Lựa chọn:** `main` là nhánh ổn định; làm trên `feat/`, `fix/`, `docs/`, `test/`, `chore/` từ `origin/main`; CI + kết quả thực tế được chấp nhận rồi mới squash merge. Cập nhật `AI_HANDOFF` và history trong PR.
