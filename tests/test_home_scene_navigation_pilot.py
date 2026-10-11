@@ -19,6 +19,21 @@ ROUTES = {
     1010: "SealedLand", 1181: "SealedLand",
     1097: "ForgeScene", 936: "ForgeScene",
     1042: "TowerNewScene", 1124: "TowerNewScene",
+    1047: "HeroListNewScene", 1109: "CampaignMapScene",
+    964: "LuckySpinScene", 1147: "LuckySpinScene",
+    978: "BraveTrialScene", 1171: "BraveTrialScene",
+    1007: "SummonOrbScene", 1120: "SummonOrbScene",
+}
+POPUP_ROUTES = {
+    1022: "prefabs/home/PopupDailyQuest",
+    1076: "prefabs/home/PopupMailBox",
+    1207: "prefabs/friend/PopupFriend",
+    1040: "prefabs/home/PopupCheckin",
+    1071: "prefabs/home/PopupEventRaid",
+    951: "prefabs/common/PopupShop",
+    1060: "prefabs/common/PopupShop",
+    1169: "prefabs/common/PopupShop",
+    997: "prefabs/common/PopupChatNew",
 }
 
 class HomeNavigationChecks(unittest.TestCase):
@@ -56,6 +71,38 @@ class HomeNavigationChecks(unittest.TestCase):
             self.assertIsNotNone(m, str(button))
             self.assertIn("m_OnClick:", m.group(1), str(button))
             self.assertTrue((ROOT / "Assets/Scenes" / (name + ".unity")).is_file(), name)
+
+    def test_popup_routes_and_resources(self):
+        bridge = re.search(r"(?ms)^--- !u!114 &1385\nMonoBehaviour:\n(.*?)(?=^--- !u!|\Z)", self.scene)
+        self.assertIsNotNone(bridge)
+        body = bridge.group(1)
+        self.assertIn("  popupRoutes:\n", body)
+        candidates = re.findall(
+            r"(?m)^  - button: \{fileID: (\d+)\}\n    resourcePath: (prefabs/[A-Za-z0-9/]+)$",
+            body,
+        )
+        actual = {int(key): path for key, path in candidates}
+        self.assertEqual(actual, POPUP_ROUTES)
+        self.assertEqual(len(candidates), len(actual))
+        self.assertTrue(set(ROUTES).isdisjoint(POPUP_ROUTES))
+        for button, path in POPUP_ROUTES.items():
+            self.assertTrue((ROOT / "Assets/Resources" / (path + ".prefab")).is_file(), path)
+            match = re.search(
+                r"(?ms)^--- !u!114 &%d\nMonoBehaviour:\n(.*?)(?=^--- !u!|\Z)" % button,
+                self.scene,
+            )
+            self.assertIsNotNone(match, str(button))
+            self.assertIn("m_OnClick:", match.group(1), str(button))
+
+    def test_popup_close_is_safe_and_original_callbacks_kept(self):
+        self.assertIn('Resources.Load<GameObject>(resourcePath)', self.script)
+        self.assertIn('activePopupLayer', self.script)
+        self.assertIn('blocker.raycastTarget = true;', self.script)
+        self.assertIn('button.onClick.AddListener(() => { CloseOpenPopup(); });', self.script)
+        self.assertIn('public static bool CloseOpenPopup()', self.script)
+        hotkey = (ROOT / "Assets/Scripts/Assembly-CSharp/HomeSceneReturnHotkey.cs").read_text(encoding="utf-8")
+        self.assertIn('if (HomeSceneNavigationBridge.CloseOpenPopup())', hotkey)
+        self.assertNotIn('RemoveAllListeners', self.script)
 
     def test_no_original_event_replacement(self):
         self.assertIn("button.onClick.AddListener(callback)", self.script)
