@@ -1,5 +1,28 @@
 # REF04 P6 — Phục dựng UI Unity offline, backend tự xây
 
+## P6.2 bản sửa thực tế — lấp hai dải đen ở Background (2026-10-11)
+
+**Vấn đề được tái hiện qua ảnh Game View:** sau khi Build/Open `REF04-home-crew_NEW_CLIENT_FIT_STUDY`, CanvasScaler match-scale làm hình nền biển co vào giữa, tạo khoảng trống đen hai bên trong khi HUD vẫn bám mép ngoài. Nội dung UI vẫn y hệt bản cũ vì Scene P6.2 là *copy* của P6.1. Người dùng đúng khi nói chưa thấy phục dựng thành phần nào mới. Không gọi việc đổi CanvasScaler là “giao diện được sửa hoàn chỉnh”.
+
+Đã thêm **thao tác thực sự tác động bố cục trong client riêng**, không yêu cầu dựng Scene mới:
+- `unity-ui-viewer/Assets/Scripts/Ref04ClientBackgroundCover.cs`: tìm Image **có Sprite thật, đang bật, có diện tích Rect lớn nhất** trong nhánh `Background`, đo khung của nó trong Game View và tăng `localScale` cho **toàn bộ nhánh nền** theo một hệ số đồng đều `max(screenWidth/bgWidth, screenHeight/bgHeight)`. Không thay ảnh, không đổi Text, không đặt tọa độ hay kéo méo art. Có thể **crop mép nền** ở tỉ lệ rộng; đây là **NEW_PROJECT_DESIGN**, KHÔNG phải XAPK runtime.
+- `Ref04P62ClientSceneBuilder.FixClientBackground()`: **chỉ chạy trên `NEW_CLIENT_FIT_STUDY` đã có**, đối chiếu lại P5/P6 và P6.1 Study. Bắt buộc người dùng xác nhận, sao lưu nguyên Scene client trước thành `REF04-home-crew_NEW_CLIENT_FIT_BEFORE_BACKGROUND.unity` (gitignored), không cho phép chạy lại nếu backup đã tồn tại. Tìm duy nhất source UI root và GameObject `Background` có `OriginalSerializedEvidence` và Sprite-backed Image. Thêm cover, lưu Scene client. Khi lỗi, thử khôi phục từ backup; tuyệt đối không xóa Prefab/Scene P6.1 hoặc art.
+- Nút **8. Sua nen P6.2 - luu ban sao truoc** ở cuối cửa sổ **P6 - REF04 offline Unity workspace**. Nếu muốn thao tác từ menu: **Tools → HaiTac Offline UI Viewer → Source XAPK → P6.2 - Fix background bars in existing client scene**.
+
+**Để chạy trên máy Windows:**
+
+```cmd
+git pull --ff-only origin feat/ref04-p2-canvas-il2cpp-runtime-trace
+py -3 -m unittest discover -s tests -p test_ref04_p62_background_cover_contract.py -v
+```
+
+Quay về Unity 2022, đợi C# biên dịch, mở cửa sổ P6, bấm nút 8 một lần rồi trở về tab Game. Không cần dựng lại P6.1/P6.2. Chụp ảnh ở **cùng Free Aspect/Scale** trước và sau sửa, cho biết dải đen hai bên đã được lấp chưa; nếu có lỗi Console, gửi **lỗi đầu tiên sau khi bấm nút 8**. Không sửa bằng tay, xóa Scene hoặc Prefab nguồn.
+
+**Giới hạn cần nói rõ:** Bản này chỉ sửa **cách phủ nền**, KHÔNG làm xuất hiện nhân vật Spine, không khôi phục Text/Localization/Font, không sửa toàn bộ 503 layout hay nối backend mới. Các việc đó là mục tiêu tiếp theo cần thực hiện có bằng chứng, không tự gọi hoàn thành. Tests Python ở repo là *contract/static*, **chưa chứng minh code compile hoặc render đúng trong Unity**. Kiểm tra trên máy người dùng là bắt buộc.
+
+---
+
+
 ## P6.2 — Sửa hiển thị Game View bằng Scene mới, KHÔNG chỉ kiểm toán nữa
 
 **Nhận xét người dùng:** Scene P6.1 mở được nhưng UI **vẫn gần như main**: dưới màn hình bị cắt, bảng thiếu chữ, nhân vật Spine không xuất hiện. Lý do thực: P6.1 chỉ dùng lại `Ref04NativeBoundsPreviewImporter` và prefab Study đã có, Root Canvas 1600×900 PREVIEW; **P6.1 chưa triển khai UI playable/backend và không sửa hiện tượng cắt do viewport**. Các script audit PASS không phải bản UI mới.
