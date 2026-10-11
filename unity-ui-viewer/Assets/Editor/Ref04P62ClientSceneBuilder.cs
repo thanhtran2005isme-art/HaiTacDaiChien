@@ -134,6 +134,107 @@ namespace HaiTac.OfflineViewer.Editor
             }
         }
 
+        private const string BackupScene =
+            Folder + "/REF04-home-crew_NEW_CLIENT_FIT_BEFORE_BACKGROUND.unity";
+
+        [MenuItem("Tools/HaiTac Offline UI Viewer/Source XAPK/P6.2 - Fix background bars in existing client scene")]
+        public static void FixClientBackground()
+        {
+            if (EditorApplication.isPlaying)
+                throw new InvalidOperationException(
+                    "P6.2 BLOCKED: Exit Play Mode before editing a client Study.");
+            Ref04P6OfflineWorkspace.ValidateSourceStudyForClientDesign();
+            if (AssetDatabase.LoadAssetAtPath<SceneAsset>(ClientScene) == null)
+                throw new FileNotFoundException(
+                    "P6.2 client scene is missing; build it before editing the background.");
+            if (AssetDatabase.LoadAssetAtPath<SceneAsset>(BackupScene) != null)
+                throw new IOException(
+                    "P6.2 client background backup already exists. " +
+                    "Refusing repeated or destructive edits.");
+            if (!EditorUtility.DisplayDialog(
+                    "P6.2 - Background game moi (NEW_PROJECT_DESIGN)",
+                    "Only the NEW CLIENT FIT scene will be edited. " +
+                    "Unity creates one separate backup first. " +
+                    "The original P6.1 Study, source art, and child UI transforms " +
+                    "are never edited. Uniform background cover may crop scenery " +
+                    "at wide aspect ratios, and does not restore Spine or Text. " +
+                    "Continue?", "Apply to client", "Cancel"))
+                return;
+            if (!EditorSceneManager.SaveCurrentModifiedScenesIfUserWantsTo())
+                return;
+
+            var previous = SceneManager.GetActiveScene().path;
+            bool backedUp = false;
+            try
+            {
+                if (!AssetDatabase.CopyAsset(ClientScene, BackupScene))
+                    throw new IOException("Cannot create P6.2 client Scene backup.");
+                backedUp = true;
+                var scene = EditorSceneManager.OpenScene(
+                    ClientScene, OpenSceneMode.Single);
+                var roots = scene.GetRootGameObjects().Where(root =>
+                {
+                    var proof = root.GetComponent<VerifiedVisualPreviewEvidence>();
+                    return proof != null && proof.sourceSceneId == "REF04-home-crew";
+                }).ToArray();
+                if (roots.Length != 1)
+                    throw new InvalidDataException(
+                        "P6.2 requires exactly one source-proven UI root.");
+                var canvas = roots[0].GetComponent<Canvas>();
+                if (canvas == null ||
+                    canvas.renderMode != RenderMode.ScreenSpaceOverlay ||
+                    roots[0].GetComponent<Ref04ClientViewportFit>() == null ||
+                    roots[0].GetComponent<Ref04ClientBackgroundCover>() != null)
+                    throw new InvalidDataException(
+                        "P6.2 client Canvas is not a clean, independent fit study.");
+                var background = roots[0].transform.Find("Background");
+                if (background == null ||
+                    background.GetComponent<RectTransform>() == null ||
+                    background.GetComponent<OriginalSerializedEvidence>() == null ||
+                    !background.GetComponentsInChildren<Image>(true)
+                        .Any(x => x.sprite != null))
+                    throw new InvalidDataException(
+                        "P6.2 source Background or original Image pointers absent.");
+                var cover = roots[0].AddComponent<Ref04ClientBackgroundCover>();
+                cover.Initialize(background.GetComponent<RectTransform>());
+                EditorSceneManager.MarkSceneDirty(scene);
+                if (!EditorSceneManager.SaveScene(scene))
+                    throw new IOException("P6.2 failed saving client Scene background fix.");
+                AssetDatabase.SaveAssets();
+                Debug.Log("[P6.2 BACKGROUND COVER] Applied NEW_PROJECT_DESIGN " +
+                    "uniform background cover to the independent client Scene. " +
+                    "Backed up original P6.2 client Scene, P6.1 source Study and " +
+                    "all source Image/Sprite objects unchanged. This fixes only " +
+                    "letterboxing, not missing Spine characters or dynamic Text.");
+            }
+            catch
+            {
+                if (backedUp)
+                {
+                    try
+                    {
+                        // Revert only the client copy that THIS operation
+                        // may have edited, never the original source Study.
+                        EditorSceneManager.NewScene(
+                            NewSceneSetup.EmptyScene, NewSceneMode.Single);
+                        if (!AssetDatabase.DeleteAsset(ClientScene) ||
+                            !AssetDatabase.CopyAsset(BackupScene, ClientScene))
+                            Debug.LogError("[P6.2] Rollback incomplete; " +
+                                "the untouched backup is retained at " + BackupScene);
+                        else if (!string.IsNullOrEmpty(previous) &&
+                            AssetDatabase.LoadAssetAtPath<SceneAsset>(previous) != null)
+                            EditorSceneManager.OpenScene(previous, OpenSceneMode.Single);
+                    }
+                    catch (Exception rollbackError)
+                    {
+                        Debug.LogError("[P6.2] Automatic rollback failed; backup " +
+                            "retained for manual recovery: " + rollbackError.Message);
+                    }
+                }
+                throw;
+            }
+        }
+
         [MenuItem("Tools/HaiTac Offline UI Viewer/Source XAPK/P6.2 - Mo REF04 new-client fit scene")]
         public static void Open()
         {
