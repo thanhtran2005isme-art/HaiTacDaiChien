@@ -1,5 +1,33 @@
 # REF04 P6 — Phục dựng UI Unity offline, backend tự xây
 
+## P6.2 — Sửa hiển thị Game View bằng Scene mới, KHÔNG chỉ kiểm toán nữa
+
+**Nhận xét người dùng:** Scene P6.1 mở được nhưng UI **vẫn gần như main**: dưới màn hình bị cắt, bảng thiếu chữ, nhân vật Spine không xuất hiện. Lý do thực: P6.1 chỉ dùng lại `Ref04NativeBoundsPreviewImporter` và prefab Study đã có, Root Canvas 1600×900 PREVIEW; **P6.1 chưa triển khai UI playable/backend và không sửa hiện tượng cắt do viewport**. Các script audit PASS không phải bản UI mới.
+
+**Thay đổi UI nhìn được trong P6.2:** tạo Scene **mới độc lập**, copy Scene P6.1 nhưng thêm `Ref04ClientViewportFit` (thuộc **NEW_PROJECT_DESIGN**) vào instance Canvas trong Scene mới. Tự chọn `CanvasScaler.matchWidthOrHeight=0` khi viewport hẹp hơn tỉ lệ 1600:900 và `=1` khi viewport rộng hơn, giữ toàn bộ các Image/child RectTransform gốc không thay đổi; **giữ hình và nội dung nguyên, chỉ thay cách fit viewport**. Scene mới phục vụ game/backend tương lai, **không phải phép đo runtime gốc**. Có thể xuất hiện letterboxing khi tỉ lệ màn hình khác thiết kế; không kéo méo Sprite.
+
+Chạy trên Windows:
+
+```cmd
+git pull --ff-only origin feat/ref04-p2-canvas-il2cpp-runtime-trace
+py -3 -m unittest discover -s tests -p test_ref04_p62_client_fit_contract.py -v
+py -3 -m unittest discover -s tests -p test_ref04_p6_unity_workspace_contract.py -v
+py -3 tools/ref04_p6_offline_ui_plan.py
+```
+
+Sau khi Unity Editor biên dịch, mở **Tools → HaiTac Offline UI Viewer → Source XAPK → P6 - REF04 offline Unity workspace** và thao tác:
+
+1. Kiểm tra nguồn PASS và Prefab P6.1 hiện tại đã có (bước 4).
+2. Bấm **6. Tao P6.2 NEW CLIENT viewport Study**. Script kiểm tra byte-SHA P5, 299 Image, 265 Sprite, 503 RectTransform; KHÔNG chạy build nếu thiếu chứng cứ hoặc trùng đích.
+3. Bấm **7. Mo P6.2 NEW CLIENT Scene**. Mở `Assets/LocalReconstruction/Ref04OfflineClientScenes/REF04-home-crew_NEW_CLIENT_FIT_STUDY.unity` (gitignored), so sánh với bản cũ `Ref04NativeBoundsStudyScenes/...NATIVE_BOUNDS_STUDY.unity` trong cùng tỉ lệ Game View, ví dụ 16:9.
+4. Chụp toàn màn Game View cả P6.1 và P6.2; **kiểm tra trước tiên HUD đáy và các phần bị cắt**. Nếu cửa sổ Game đang ở `Free Aspect / Scale 1x`, hãy đặt Game View scale phù hợp khi chụp để không nhầm cropping do editor zoom với clipping thực.
+5. Khi Scene mới đã tồn tại, lệnh Tạo tự khóa để bảo vệ kết quả. Nếu lệnh tạo lỗi, script chỉ rollback Scene P6.2 vừa tạo, không đụng Scene/Prefab nguồn.
+
+**Chưa sửa trong P6.2:** nhân vật Spine/animation, Text động, các bảng gỗ trống dữ liệu, thao tác nút hoặc backend mới. Chúng phải được phát triển riêng trong bản Unity mới và cần bằng chứng/tài nguyên tương ứng; không được kết luận đã phục dựng 100% UI gốc chỉ vì viewport vừa khung. **CI kiểm tra hợp đồng mã và Python**, còn chạy thực tế Unity Editor/PlayMode vẫn do người dùng xác nhận.
+
+---
+
+
 ## Cập nhật trải nghiệm cửa sổ P6 — tự kiểm nguồn khi mở (2026-10-11)
 
 Trong ảnh người dùng chụp sau bản sửa trước: Unity **không có lỗi Console**, Prefab + Scene đã tồn tại, nhưng ô đầu vẫn ghi `Chưa kiểm tra dữ liệu P6 offline`. Lý do là phiên bản cũ khởi tạo ô trạng thái cố định; không tự chạy kiểm chứng cho đến khi bấm bước 1, và khi Unity domain reload trạng thái lại trở về dòng mặc định.
