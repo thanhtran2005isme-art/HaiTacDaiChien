@@ -37,6 +37,15 @@
 
 Các prefab đều đã xác minh **có tồn tại trong repo**, nhưng chưa xác minh đủ dữ liệu, binding, khởi tạo, Lua/network; **mở giao diện không đồng nghĩa chức năng chat, mua hàng, điểm danh, nhiệm vụ hoạt động**. Các nút nội bộ của prefab vẫn mang C# stub và chưa được sửa nghiệp vụ.
 
+## Unity Console follow-up: GroupButtonEvent
+
+Sau khi người dùng xác nhận mở được PopupShop, PopupCheckin và PopupChatNew, Unity Console vẫn lặp cảnh báo `The referenced script on this Behaviour (Game Object 'GroupButtonEvent') is missing!`.
+
+- Kiểm tra `Assets/Scenes/HomeScene.unity`: GameObject `136` chứa component `1141` với `m_Script: {fileID: 0}`, không có GUID/tên lớp/field nghiệp vụ nào để phục hồi. Toàn bộ Scene chỉ tham chiếu fileID 1141 hai lần (ở danh sách component và chính object header).
+- Đã xóa **chỉ** component rỗng không thể chạy `1141` và dòng liên kết của nó; giữ `RectTransform 700`, các thành phần LayoutGroup `1140`/`1142`, toàn bộ `m_OnClick` và 36 route mới.
+- Đây là sửa cảnh báo missing reference trong Scene, **không phải phục hồi logic script gốc**. Chờ Unity Play Mode xác nhận cảnh báo `GroupButtonEvent` đã biến mất.
+- Các log `Creating missing CanvasRenderer/RectTransform component for Text in Placeholder ... Prefab instance` là vấn đề riêng của Unity/AssetRipper; chưa xác định SerializedFile/Prefab owner đầy đủ nên không sửa hoặc xóa placeholder tự động.
+
 ## Chưa khôi phục
 
 - `HomeScene`: tài nguyên + Gem/Gold, VIP, FB, Support, Ưu đãi, sự kiện, Thành tựu; công trình Explore; các nút vật phẩm/callback tùy ngữ cảnh. Chưa gán đích nếu thiếu căn cứ.
