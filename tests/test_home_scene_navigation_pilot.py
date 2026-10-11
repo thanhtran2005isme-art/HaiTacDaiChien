@@ -1,0 +1,67 @@
+#!/usr/bin/env python3
+"""Static safety checks for HomeScene navigation recovery pilot (not a Unity runtime test)."""
+import re
+import unittest
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parents[1]
+SCENE = ROOT / "Assets/Scenes/HomeScene.unity"
+SCRIPT = ROOT / "Assets/Scripts/Assembly-CSharp/HomeSceneNavigationBridge.cs"
+META = ROOT / "Assets/Scripts/Assembly-CSharp/HomeSceneNavigationBridge.cs.meta"
+GUID = "6486579f283b4602b1e711dc7ec913ab"
+ROUTES = {
+    887: "GuildScene", 891: "ItemListScene", 1025: "MonsterScene",
+    927: "AltarScene", 1158: "AltarScene",
+    933: "ArenaScene", 1036: "ArenaScene",
+    1204: "DungeonScene", 919: "DungeonScene",
+    1145: "FusingHeroScene", 1165: "FusingHeroScene",
+    1211: "TarvenScene", 879: "TarvenScene",
+    1010: "SealedLand", 1181: "SealedLand",
+    1097: "ForgeScene", 936: "ForgeScene",
+    1042: "TowerNewScene", 1124: "TowerNewScene",
+}
+
+class HomeNavigationChecks(unittest.TestCase):
+    @classmethod
+    def setUpClass(cls):
+        cls.scene = SCENE.read_text(encoding="utf-8")
+        cls.script = SCRIPT.read_text(encoding="utf-8")
+        cls.meta = META.read_text(encoding="utf-8")
+
+    def test_original_onclick_count_preserved(self):
+        self.assertEqual(self.scene.count("m_OnClick:"), 55)
+        self.assertEqual(self.scene.count("m_TargetAssemblyTypeName:"), 55)
+
+    def test_bridge_attached_to_scripts_gameobject(self):
+        go = re.search(r"(?ms)^--- !u!1 &5\nGameObject:\n(.*?)(?=^--- !u!)", self.scene)
+        self.assertIsNotNone(go)
+        self.assertIn("m_Name: Scripts", go.group(1))
+        self.assertEqual(go.group(1).count("- component: {fileID: 1385}"), 1)
+        bridge = re.search(r"(?ms)^--- !u!114 &1385\nMonoBehaviour:\n(.*?)(?=^--- !u!|\Z)", self.scene)
+        self.assertIsNotNone(bridge)
+        self.assertIn("m_GameObject: {fileID: 5}", bridge.group(1))
+        self.assertIn("guid: " + GUID, bridge.group(1))
+        self.assertIn("guid: " + GUID, self.meta)
+
+    def test_unique_valid_buttons_and_scene_assets(self):
+        bridge = re.search(r"(?ms)^--- !u!114 &1385\nMonoBehaviour:\n(.*?)(?=^--- !u!|\Z)", self.scene)
+        entries = re.findall(
+            r"(?m)^  - button: \{fileID: (\d+)\}\n    scenePath: Assets/Scenes/([A-Za-z0-9]+)\.unity$",
+            bridge.group(1))
+        actual = {int(k): v for k, v in entries}
+        self.assertEqual(len(actual), len(entries))
+        self.assertEqual(actual, ROUTES)
+        for button, name in ROUTES.items():
+            m = re.search(r"(?ms)^--- !u!114 &%d\nMonoBehaviour:\n(.*?)(?=^--- !u!|\Z)" % button, self.scene)
+            self.assertIsNotNone(m, str(button))
+            self.assertIn("m_OnClick:", m.group(1), str(button))
+            self.assertTrue((ROOT / "Assets/Scenes" / (name + ".unity")).is_file(), name)
+
+    def test_no_original_event_replacement(self):
+        self.assertIn("button.onClick.AddListener(callback)", self.script)
+        self.assertNotIn("RemoveAllListeners", self.script)
+        self.assertIn("EditorSceneManager.LoadSceneInPlayMode", self.script)
+        self.assertTrue((ROOT / "Assets/Scripts/Assembly-CSharp/HomeSceneReturnHotkey.cs").is_file())
+
+if __name__ == "__main__":
+    unittest.main()
