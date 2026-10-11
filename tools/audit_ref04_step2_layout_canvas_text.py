@@ -44,7 +44,50 @@ RUNTIME_BLOCKERS={
 }
 
 
-def inventory(step1, third=None, text_probe=None):
+def independent_layout_proof(record, component):
+    """Re-check reported 2-schema proof against exact original source identity."""
+    evidence = record.get("independentSchemaRawSourceCheck", {})
+    names = sorted(component.get("singleBackendFieldNames", []))
+    if (sorted(record.get("sourceExpectedFieldNames", [])) != names or
+        record.get("sourceFieldCountBlocked") != len(names) or
+        evidence.get("unityImportAllowed") is not False or
+        evidence.get("runtimeLayoutProven") is not False or
+        evidence.get("originalSerializedFieldValuesPublished") is not False):
+        raise ValueError("Independent LayoutGroup source field proof untrusted")
+    status = evidence.get("status")
+    verified = evidence.get("sourceFieldsIndependentlyVerified")
+    fields = evidence.get("independentFieldNames")
+    if not isinstance(verified, int) or not isinstance(fields, list):
+        raise ValueError("Independent LayoutGroup field evidence incomplete")
+    if status == "TWO_SOURCE_SCHEMAS_RAW_FIELDS_AND_OFFSETS_AGREE_NOT_IMPORTED":
+        backends = evidence.get("backendEvidence", {})
+        if (verified != len(names) or sorted(fields) != names or
+            set(backends) != {"AssetStudio", "AssetRipper"}):
+            raise ValueError("Two-schema LayoutGroup source field list mismatch")
+        spans = []
+        for backend in ("AssetStudio", "AssetRipper"):
+            entry = backends[backend]
+            if (entry.get("status") !=
+                    "FULL_ORIGINAL_OBJECT_REPARSED_SOURCE_IDENTICAL" or
+                entry.get("sourceObjectSha256") != record["sourceObjectSha256"] or
+                set(entry.get("sourceFieldByteSpans", {})) != set(names)):
+                raise ValueError("Independent LayoutGroup source spans missing")
+            spans.append(entry["sourceFieldByteSpans"])
+        if spans[0] != spans[1]:
+            raise ValueError("Independent LayoutGroup raw offsets conflict")
+        if any(type(v.get("offset")) is not int or
+               type(v.get("length")) is not int or
+               v["offset"] < 0 or v["length"] < 1 or
+               not isinstance(v.get("rawFieldBytesSha256"), str) or
+               len(v["rawFieldBytesSha256"]) != 64 for v in spans[0].values()):
+            raise ValueError("Invalid independent LayoutGroup byte provenance")
+        return verified
+    if not isinstance(status, str) or not status.startswith("BLOCKED_") or verified != 0 or fields:
+        raise ValueError("Unproved LayoutGroup fields must remain blocked")
+    return 0
+
+
+def inventory(step1, third=None, text_probe=None, schema_probe=None):
     if (step1.get("classification") !=
             "REF04_ALL_SOURCE_CANDIDATE_UI_COMPONENT_INVENTORY_READ_ONLY" or
         step1.get("sceneId") != SCENE or
@@ -82,6 +125,29 @@ def inventory(step1, third=None, text_probe=None):
             raise ValueError("Original Text source PathIDs not unique")
     else:
         by_text={}
+
+    if schema_probe is not None:
+        if (schema_probe.get("classification") !=
+                "REF04_LAYOUTGROUP_SCHEMA_FORENSICS_READ_ONLY" or
+            schema_probe.get("sourceSerializedFile") !=
+                step1["sourceSerializedFile"] or
+            schema_probe.get("layoutGroupsInspected") != 24 or
+            schema_probe.get("sourceFieldValuesStillBlockedFromUnity") != 168 or
+            schema_probe.get("unityImportAllowed") is not False or
+            schema_probe.get("runtimeAlignmentProven") is not False or
+            schema_probe.get("originalUiAssetsChanged") is not False or
+            len(schema_probe.get("layoutGroups", [])) != 24 or
+            type(schema_probe.get("sourceFieldsVerifiedByTwoGeneratedSchemas")) is not int or
+            type(schema_probe.get("sourceFieldsMissingIndependentSchemaProof")) is not int or
+            schema_probe["sourceFieldsVerifiedByTwoGeneratedSchemas"] +
+                schema_probe["sourceFieldsMissingIndependentSchemaProof"] != 168):
+            raise ValueError("REF04 original LayoutGroup schema evidence untrusted")
+        by_schema = {row["componentPathId"]: row
+                     for row in schema_probe["layoutGroups"]}
+        if len(by_schema) != 24:
+            raise ValueError("Source schema forensic component IDs not unique")
+    else:
+        by_schema = {}
 
     found={group:[] for group in CLASSES}
     identity=set()
@@ -172,6 +238,33 @@ def inventory(step1, third=None, text_probe=None):
                     item["thirdBackendSourceVerification"] = (
                         third_record["thirdBackendStatus"] if third_record else
                         "NOT_YET_RUN")
+                    evidence=by_schema.get(cid)
+                    if evidence is not None and (
+                        evidence["sourceObjectSha256"] !=
+                            component.get("rawSourceObjectSha256") or
+                        evidence["gameObjectPathId"] != gid or
+                        evidence["rectTransformPathId"] != tid or
+                        evidence["sourceClass"] != classname or
+                        evidence["sourceFieldCountBlocked"] != len(
+                            item["singleBackendFieldNamesNotImportable"]) or
+                        evidence["unityImportAllowed"] is not False or
+                        evidence["runtimeLayoutProven"] is not False or
+                        evidence.get("rawByteReparse", {}).get(
+                            "unityImportAllowed", False) is not False):
+                        raise ValueError("REF04 LayoutGroup schema source ID/hash conflicts")
+                    item["layoutSchemaComparison"] = (
+                        evidence["schemaComparison"] if evidence else "NOT_YET_RUN")
+                    item["layoutStrictFieldAgreement"] = (
+                        evidence["fieldAgreement"] if evidence else "NOT_YET_RUN")
+                    item["layoutRawByteReplayStatus"] = (
+                        evidence.get("rawByteReparse", {}).get("status", "NOT_YET_RUN")
+                        if evidence else "NOT_YET_RUN")
+                    # Offsets are diagnostic, tied to the AssetStudio-generated
+                    # schema; they cannot prove independent source field layout.
+                    item["layoutRawByteReplayDerivedSchemaOnly"] = True
+                    item["independentSourceLayoutFieldsVerified"] = (
+                        independent_layout_proof(evidence, component)
+                        if evidence else 0)
                 found[name].append(item)
     if len(identity)!=1564:
         raise ValueError("REF04 source component traversal incomplete")
@@ -186,6 +279,15 @@ def inventory(step1, third=None, text_probe=None):
         i["componentPathId"] for i in found["Text"]
     }:
         raise ValueError("Text binary probe did not cover 62 exact source PathIDs")
+    if schema_probe is not None and set(by_schema)!={
+        i["componentPathId"] for i in found["LayoutGroup"]
+    }:
+        raise ValueError("Schema forensics did not cover all 24 source LayoutGroups")
+    verified_layout_fields = sum(x.get("independentSourceLayoutFieldsVerified", 0)
+                                 for x in found["LayoutGroup"])
+    if schema_probe is not None and verified_layout_fields != (
+            schema_probe["sourceFieldsVerifiedByTwoGeneratedSchemas"]):
+        raise ValueError("Independent source LayoutGroup field totals disagree")
 
     blockers=[{
         "category":name,"sourceComponents":counts[name],
@@ -205,6 +307,15 @@ def inventory(step1, third=None, text_probe=None):
             len(c["singleBackendFieldNamesNotImportable"])
             for c in found["LayoutGroup"]),
         "thirdBackendRunProvided":third is not None,
+        "layoutSchemaForensicsProvided":schema_probe is not None,
+        "layoutSchemaComparisonCounts":(
+            schema_probe["schemaComparisonCounts"] if schema_probe else {}),
+        "layoutRawByteReparseCounts":(
+            schema_probe.get("rawByteReparseCounts", {}) if schema_probe else {}),
+        "independentlyVerifiedSerializedLayoutFieldValues":
+            verified_layout_fields,
+        "serializedLayoutFieldValuesMissingIndependentSchemaProof":
+            168 - verified_layout_fields,
         "sourceTextBinaryProbeProvided":text_probe is not None,
         "originalTextComponentsVerifiedByTwoBackends":sum(
             c.get("textBinaryProbeStatus")==
@@ -264,7 +375,10 @@ def main():
     textpath=root/"output/ref04-text-source-binary-evidence.json"
     text=(json.loads(textpath.read_text(encoding="utf-8"))
           if textpath.is_file() else None)
-    report=inventory(step1,third,text)
+    schemapath=root/"output/ref04-layout-schema-forensics.json"
+    schema=(json.loads(schemapath.read_text(encoding="utf-8"))
+            if schemapath.is_file() else None)
+    report=inventory(step1,third,text,schema)
     dest=root/"output/ref04-step2-layout-canvas-text.json"
     write(report,dest)
     print(json.dumps({
@@ -273,6 +387,11 @@ def main():
         "unverifiedLayoutGroupFields":
             report["layoutGroupFieldValuesStillBlockedFromUnity"],
         "thirdBackendRunProvided":report["thirdBackendRunProvided"],
+        "layoutSchemaForensicsProvided":report["layoutSchemaForensicsProvided"],
+        "independentlyVerifiedSerializedLayoutFieldValues":
+            report["independentlyVerifiedSerializedLayoutFieldValues"],
+        "serializedLayoutFieldValuesMissingIndependentSchemaProof":
+            report["serializedLayoutFieldValuesMissingIndependentSchemaProof"],
         "sourceTextBinaryProbeProvided":report["sourceTextBinaryProbeProvided"],
         "originalTextComponentsVerifiedByTwoBackends":report[
             "originalTextComponentsVerifiedByTwoBackends"],
