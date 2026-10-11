@@ -1,5 +1,8 @@
 # QUY TẮC BẮT BUỘC: UI chỉ từ XAPK gốc — KHÔNG ĐOÁN
 
+> **Phạm vi triển khai phiên bản mới (2026-10-11):** game online gốc đã đóng cửa. Đây là dự án **Unity UI phục dựng từ XAPK + backend mới do chủ dự án xây**; không phụ thuộc đăng nhập, server hoặc APK chạy được. Các quy tắc “KHÔNG ĐOÁN” ở dưới áp dụng cho mọi dữ liệu mà mã nguồn/báo cáo **tuyên bố là gốc XAPK**. Thiết kế UI tương tác hoặc nghiệp vụ mới được phép triển khai sau khi phân biệt rõ `NEW_PROJECT_DESIGN` với `SOURCE_VERIFIED` và `SOURCE_BLOCKED`; không tự tuyên bố dữ liệu mới là bản gốc. Ảnh APK runtime tùy chọn, không phải điều kiện chặn phục dựng offline.
+
+
 **Phạm vi:** toàn bộ việc phân tích, xuất Sprite, phục dựng Canvas/HUD/RectTransform/LayoutGroup/Text/Animation, kiểm thử và sửa UI game Hải Tặc Đại Chiến; hiện ưu tiên **REF04 UI/icon**, **nhân vật Spine để sau**.
 
 ## Quy tắc tuyệt đối
