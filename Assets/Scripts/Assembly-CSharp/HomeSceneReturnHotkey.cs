@@ -21,6 +21,8 @@ public sealed class HomeSceneReturnHotkey : MonoBehaviour
         // Close a modal popup before attempting to leave the scene.
         if (HomeSceneNavigationBridge.CloseOpenPopup())
             return;
+        if (HomeSceneNavigationBridge.CloseOpenToggle())
+            return;
 
         Scene active = SceneManager.GetActiveScene();
         if (active.path == homeScenePath)
