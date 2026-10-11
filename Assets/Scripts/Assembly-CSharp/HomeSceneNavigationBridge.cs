@@ -24,13 +24,22 @@ public sealed class HomeSceneNavigationBridge : MonoBehaviour
         public string resourcePath;
     }
 
+    [Serializable]
+    public sealed class ToggleRoute
+    {
+        public Button button;
+        public GameObject target;
+    }
+
     public Route[] routes;
     public PopupRoute[] popupRoutes;
+    public ToggleRoute[] toggleRoutes;
     public string homeScenePath = "Assets/Scenes/HomeScene.unity";
 
     private readonly List<Button> subscribedButtons = new List<Button>();
     private readonly List<UnityAction> subscribedActions = new List<UnityAction>();
     private static GameObject activePopupLayer;
+    private static GameObject activeToggleTarget;
 
     private void Awake()
     {
@@ -71,6 +80,43 @@ public sealed class HomeSceneNavigationBridge : MonoBehaviour
                 Register(route.button, () => OpenPopup(destination), seen);
             }
         }
+        if (toggleRoutes != null)
+        {
+            foreach (ToggleRoute route in toggleRoutes)
+            {
+                if (route == null || route.button == null || route.target == null)
+                {
+                    UnityEngine.Debug.LogWarning("[HTDC Navigation] Skipped incomplete Toggle route.", this);
+                    continue;
+                }
+                GameObject target = route.target;
+                Register(route.button, () => TogglePanel(target), seen);
+            }
+        }
+    }
+
+    // Existing scene objects such as Home2Scene's PanelMenu and BoxSelect
+    // start inactive. Do not synthesize new menus or change their layout.
+    private static void TogglePanel(GameObject target)
+    {
+        if (target == null)
+            return;
+
+        bool wasOpen = target.activeSelf;
+        if (activeToggleTarget != null && activeToggleTarget != target)
+            activeToggleTarget.SetActive(false);
+        target.SetActive(!wasOpen);
+        activeToggleTarget = wasOpen ? null : target;
+    }
+
+    public static bool CloseOpenToggle()
+    {
+        if (activeToggleTarget == null || !activeToggleTarget.activeSelf)
+            return false;
+
+        activeToggleTarget.SetActive(false);
+        activeToggleTarget = null;
+        return true;
     }
 
     private void Register(Button button, UnityAction callback, HashSet<Button> seen)
