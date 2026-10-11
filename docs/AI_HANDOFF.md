@@ -4,10 +4,10 @@
 
 - **Source hiện tại để test:** nhánh `feat/homescene-navigation-pilot`, bắt đầu từ `feat/ui-navigation-audit` (HEAD nguồn `643673b4`). Dự án AssetRipper xuất Unity **2022.3.51f1**, không phải project `unity-ui-viewer/` mô tả trong các đoạn handoff cũ phía dưới.
 - **Main vẫn là `feee5b19`**, không phải baseline chứa AssetRipper; chưa merge pilot và không được pull `main` để kỳ vọng có source Unity mới.
-- **Đã sửa:** giữ nguyên 55 persistent OnClick của `Assets/Scenes/HomeScene.unity`; thêm `HomeSceneNavigationBridge` vào Scripts GO, có 19 callback điều hướng thử tới 11 Scene hiện có; Esc quay về HomeScene. `NEW_PROJECT_DESIGN`, không tuyên bố các đích là logic game XAPK gốc.
-- **Đã kiểm tra:** các nút tham chiếu component hợp lệ; 55 OnClick gốc không đổi; khác biệt chỉ ở 7 file mã, meta, Scene, test, tài liệu; chưa chạy Unity Editor Play Mode hoặc C# compiler.
-- **Còn thiếu:** đường đích mơ hồ (Heroes, Campaign, Shop, Summon, Lucky, Brave Trial, Popup); Scene đích có thể thiếu runtime data/manager; các C# stub gốc vẫn rỗng, chưa có gameplay. `HTDC_Localization_Hold` vẫn cách ly ngoài Assets.
-- **Tiếp theo:** người dùng pull pilot, chạy `py -3 -m unittest discover -s tests -p test_home_scene_navigation_pilot.py -v`, mở HomeScene Unity 2022.3.51f1 và thử nút + Esc; gửi Console/Play Mode nếu lỗi. Xem `docs/navigation/HOMESCENE_NAVIGATION_PILOT.md`.
+- **Đã sửa:** giữ nguyên 55 persistent OnClick của `Assets/Scenes/HomeScene.unity`; thêm `HomeSceneNavigationBridge` vào Scripts GO, có 27 callback chuyển Scene (19 tuyến đầu được người dùng test trong Unity + 8 tuyến mới chưa xác minh) và 9 callback mở Popup prefab offline; Esc đóng Popup trước, sau đó Esc ở Scene đích quay về HomeScene. `NEW_PROJECT_DESIGN`, không tuyên bố các đích là logic game XAPK gốc.
+- **Đã kiểm tra:** các nút tham chiếu component hợp lệ; 55 OnClick gốc không đổi; kiểm tra tĩnh trên GitHub. 19 tuyến đầu đã được người dùng xác nhận Play Mode hoạt động; 17 tuyến bổ sung (8 Scene + 9 Popup) chưa kiểm thử Unity Editor hoặc C# compiler.
+- **Còn thiếu:** Hero/Campaign/Summon/Lucky/Brave Trial hiện đã gán SCENE ỨNG VIÊN, chưa được xác minh đúng game cũ; nhiều Popup mới chỉ có UI, chưa có data/manager; sự kiện, achievement, VIP, tài nguyên và nghiệp vụ còn thiếu. Stub C# vẫn rỗng; chưa có gameplay. `HTDC_Localization_Hold` vẫn cách ly ngoài Assets.
+- **Tiếp theo:** người dùng pull trực tiếp `feat/htdc-localization-hold`, chạy `py -3 -m unittest discover -s tests -p test_home_scene_navigation_pilot.py -v`, mở HomeScene Unity 2022.3.51f1 và thử nút + Esc; gửi Console/Play Mode nếu lỗi. Xem `docs/navigation/HOMESCENE_NAVIGATION_PILOT.md`.
 - **Lưu ý:** nội dung lịch sử dưới đây trước lúc import AssetRipper, vì vậy một số lệnh `.bat` và đường dẫn `unity-ui-viewer/` không còn áp dụng cho HEAD hiện tại của nhánh này.
 
 **Cập nhật:** 2026-10-11 (Asia/Ho_Chi_Minh)
