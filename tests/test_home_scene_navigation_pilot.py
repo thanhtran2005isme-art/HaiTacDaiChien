@@ -104,6 +104,15 @@ class HomeNavigationChecks(unittest.TestCase):
         self.assertIn('if (HomeSceneNavigationBridge.CloseOpenPopup())', hotkey)
         self.assertNotIn('RemoveAllListeners', self.script)
 
+    def test_bridge_uses_real_unity_debug_not_decompiled_stub(self):
+        # AssetRipper project defines its own global Debug class without LogException.
+        # Unqualified Debug calls silently disappear or can fail compilation.
+        self.assertIn("UnityEngine.Debug.LogException(error, this);", self.script)
+        for method in ("Log(", "LogWarning(", "LogError(", "LogException("):
+            self.assertNotIn("            Debug." + method, self.script)
+        self.assertNotIn("Debug.LogException(error, this);", self.script.replace(
+            "UnityEngine.Debug.LogException(error, this);", ""))
+
     def test_no_original_event_replacement(self):
         self.assertIn("button.onClick.AddListener(callback)", self.script)
         self.assertNotIn("RemoveAllListeners", self.script)
