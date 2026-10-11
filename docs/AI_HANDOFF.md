@@ -1,5 +1,14 @@
 # AI HANDOFF — Hải Tặc UI Viewer
 
+## 2026-10-12 — Home2Scene navigation (P0)
+
+- **Branch:** `feat/htdc-localization-hold`. `Assets/Scenes/Home2Scene.unity` có 47 persistent OnClick, giữ nguyên đủ 47. Component bridge `HomeSceneNavigationBridge` fileID `2120` được nối vào `Scripts` GO `12`.
+- **Mới:** 11 chuyển Scene, 11 mở Popup preview qua Resources, 3 toggle từ 2 object `PanelMenu`/`BoxSelect` gốc; 25/47 callback có xử lý bổ sung. 22 callback chưa đủ bằng chứng dữ liệu/mô hình/SDK, giữ nguyên.
+- **Shared code:** `HomeSceneNavigationBridge.cs` thêm `ToggleRoute` và `CloseOpenToggle`; `HomeSceneReturnHotkey.cs` mở rộng Esc đóng menu; HomeScene đã có trước giữ nguyên 55 OnClick.
+- **Kiểm chứng:** serializer/GUID/target/47 callback đã đối chiếu; không có missing `m_Script: {fileID: 0}` trong Home2Scene được xuất. Chưa chạy Unity Play Mode cho Home2 mới; chưa tuyên bố đúng logic XAPK gốc.
+- **Hướng dẫn:** `docs/navigation/HOME2SCENE_NAVIGATION_AUDIT.md`; `py -3 -m unittest discover -s tests -p test_home2_scene_navigation.py -v`. Đợi người dùng pull và test Unity 2022.3.51f1.
+- **Bảo toàn:** main không thay đổi, `HTDC_Localization_Hold` vẫn ngoài Assets, không đụng tới binary XAPK/private.
+
 ## Bổ sung 2026-10-12 — AssetRipper HomeScene navigation pilot
 
 - **Source hiện tại để test:** nhánh `feat/homescene-navigation-pilot`, bắt đầu từ `feat/ui-navigation-audit` (HEAD nguồn `643673b4`). Dự án AssetRipper xuất Unity **2022.3.51f1**, không phải project `unity-ui-viewer/` mô tả trong các đoạn handoff cũ phía dưới.
