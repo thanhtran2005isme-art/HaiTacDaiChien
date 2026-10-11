@@ -1,5 +1,25 @@
 # REF04 P6 — Phục dựng UI Unity offline, backend tự xây
 
+## P6.3 — Những icon nắm đấm đang nằm giữa biển phải phân loại đúng (2026-10-11)
+
+Sau khi sửa nền P6.2, Unity Game View đã loại hai dải đen nhưng người dùng chỉ ra **các icon hình nắm đấm vẫn lơ lửng**, hàng bóng nhân vật trống, HUD Text thiếu. Việc **tự kéo icon thành một hàng menu** có thể sai: chúng có thể thuộc `PlayerHeroes`/hero slot trong khi Spine/animation chưa được bind, hoặc là các Image khác. Chưa có bằng chứng source đủ để khẳng định từng icon thuộc vị trí runtime gốc.
+
+Đã triển khai **công cụ phân loại đúng từ Scene Unity thật**:
+
+- Menu: **Tools → HaiTac Offline UI Viewer → Source XAPK → P6.3 - Audit icon owners and layout (read only)**.
+- Hoặc bước **9. Kiem tra icon, HUD va PlayerHeroes** trong cửa sổ P6.
+- Chỉ chạy khi **Scene `REF04-home-crew_NEW_CLIENT_FIT_STUDY.unity` đang mở**, giữ nguyên toàn bộ Scene và tài nguyên.
+- Xác minh lại SHA P5/P6 và 299 Image nguồn, rồi thu các Image hiện có cùng `hierarchyPath`, nhóm cha cấp 1 (`Background`, `PlayerHeroes`, `BarTop`, `PanelHomeCenter`...), tên Sprite, Image PathID/GameObject PathID/RectTransform PathID, source SHA, anchors/pivot/size/position hiện tại, world corners **trong Unity Study (không phải tọa độ runtime gốc)**, trạng thái active/raycast và quan hệ với `SpineReferenceEvidence` nếu có.
+- Lưu file báo cáo **chỉ ở máy người dùng**: `output/ref04-p63-client-icon-layout-audit.json`, được `.gitignore` loại khỏi Git. Công cụ từ chối ghi đè một báo cáo cũ; muốn chạy bản mới phải đổi tên/sao lưu file trước.
+- **Kết quả audit P6.3 KHÔNG thay đổi vị trí icon**. Đây là bằng chứng bắt buộc để xác định dãy nắm đấm thuộc HUD hay hero slots, tránh di chuyển sai hoặc tạm giấu dữ liệu đang có. User gửi JSON này hoặc kết quả bảng group từ Unity Console; khi phân loại rõ, triển khai riêng **NEW_PROJECT_DESIGN** trên Scene game mới (không ghi đè P6.1/source-XAPK) và có thể bắt đầu tích hợp nhân vật Spine thật.
+
+**Windows:** `git pull --ff-only origin feat/ref04-p2-canvas-il2cpp-runtime-trace` rồi `py -3 -m unittest discover -s tests -p test_ref04_p63_icon_source_audit_contract.py -v`, quay Unity đợi compile và bấm menu P6.3. Mã Python chỉ là static contract; chưa xác nhận Unity Editor audit thật hoặc xác định parent của các icon trên máy người dùng.
+
+**Không tái tạo font, hero skin, character animation hoặc vị trí pixel-perfect giả.** Đây là khối công việc UI chưa hoàn tất, không được báo đã sửa icon khi mới kiểm kê.
+
+---
+
+
 ## P6.2 bản sửa thực tế — lấp hai dải đen ở Background (2026-10-11)
 
 **Vấn đề được tái hiện qua ảnh Game View:** sau khi Build/Open `REF04-home-crew_NEW_CLIENT_FIT_STUDY`, CanvasScaler match-scale làm hình nền biển co vào giữa, tạo khoảng trống đen hai bên trong khi HUD vẫn bám mép ngoài. Nội dung UI vẫn y hệt bản cũ vì Scene P6.2 là *copy* của P6.1. Người dùng đúng khi nói chưa thấy phục dựng thành phần nào mới. Không gọi việc đổi CanvasScaler là “giao diện được sửa hoàn chỉnh”.
