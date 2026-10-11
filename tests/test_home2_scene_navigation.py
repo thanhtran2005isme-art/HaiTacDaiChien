@@ -33,8 +33,32 @@ POPUPS = {
     1657: "prefabs/common/PopupChatNew",
     1688: "prefabs/common/PopupChatNew",
     1743: "prefabs/home/PopupMailBox",
+    1477: "prefabs/gameevent/PopupGameEvent",
+    1513: "prefabs/common/PopupNap",
+    1686: "prefabs/common/PopupNap",
 }
 TOGGLES = {1444: 117, 1645: 117, 1555: 134}
+NOTICES = {
+    1453: "Boss thử nghiệm",
+    1576: "Facebook",
+    1619: "Thành tựu",
+    1667: "Đi tới nhiệm vụ",
+    1705: "Đi tới nhiệm vụ",
+    1754: "Phần thưởng",
+    1805: "Trang bị",
+    1822: "Chi tiết tướng",
+    1831: "Bảo vật",
+    1915: "Chi tiết tướng",
+    1916: "Chi tiết tướng",
+    1917: "Chi tiết tướng",
+    1918: "Chi tiết tướng",
+    1919: "Chi tiết tướng",
+    1920: "Chi tiết tướng",
+    1968: "Vật phẩm VIP",
+    1971: "Khung đại diện",
+    2081: "Vật phẩm tiêu hao",
+    2115: "Mảnh ghép",
+}
 
 
 class Home2NavigationChecks(unittest.TestCase):
@@ -109,14 +133,41 @@ class Home2NavigationChecks(unittest.TestCase):
             self.assertIn("m_Name: " + label, block)
             self.assertIn("m_IsActive: 0", block)
 
-    def test_all_mapped_button_ids_exist_and_have_original_clicks(self):
-        keys = list(SCENES) + list(POPUPS) + list(TOGGLES)
+    def test_notice_routes_use_original_message_prefab(self):
+        pairs = re.findall(
+            r"(?m)^  - button: \{fileID: (\d+)\}\n    title: ([^\n]+)\n    message: ([^\n]+)$",
+            self.bridge_block,
+        )
+        self.assertEqual({int(key): title for key, title, _ in pairs}, NOTICES)
+        self.assertEqual(len(pairs), len(NOTICES))
+        for button, title, message in pairs:
+            self.assertGreater(len(message.strip()), 15, button)
+        self.assertTrue((ROOT / "Assets/Resources/prefabs/common/PopupMessage.prefab").is_file())
+        self.assertIn('OpenPopup("prefabs/common/PopupMessage", title, message)', self.bridge)
+        self.assertIn('label.name == "TextTitle"', self.bridge)
+        self.assertIn('label.name == "TextMessage"', self.bridge)
+        self.assertIn('button.name == "ButtonAction1" || button.name == "ButtonAction2"', self.bridge)
+        self.assertIn('public NoticeRoute[] noticeRoutes;', self.bridge)
+
+    def test_every_onclick_is_mapped_exactly_once(self):
+        keys = list(SCENES) + list(POPUPS) + list(TOGGLES) + list(NOTICES)
+        self.assertEqual(len(keys), 47)
         self.assertEqual(len(keys), len(set(keys)))
-        self.assertEqual(len(keys), 25)
+        actual = {
+            int(match) for match in re.findall(
+                r"(?m)^  - button: \{fileID: (\d+)\}$", self.bridge_block)
+        }
+        self.assertEqual(actual, set(keys))
+        button_ids = set()
+        for match in re.finditer(
+            r"(?ms)^--- !u!114 &(\d+)\nMonoBehaviour:\n(.*?)(?=^--- !u!|\Z)",
+            self.scene,
+        ):
+            if "m_OnClick:" in match.group(2):
+                button_ids.add(int(match.group(1)))
+        self.assertEqual(button_ids, set(keys))
         for button in keys:
-            m = self.component(button)
-            self.assertIsNotNone(m, "Missing Button component %d" % button)
-            self.assertIn("m_OnClick:", m, str(button))
+            self.assertIn("m_OnClick:", self.component(button), str(button))
 
     def test_shared_bridge_does_not_break_home_scene(self):
         home = (ROOT / "Assets/Scenes/HomeScene.unity").read_text(encoding="utf-8")
