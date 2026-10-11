@@ -1,0 +1,64 @@
+# REF04 P2 — Canvas, SafeAreaAdapter, PanelHome2 from source IL2CPP
+
+## Bổ sung P2/P3 SafeAreaAdapter & PanelHome2 source graph (10/10/2026)
+
+- `tools/ref04_p2_canvas_graph.py` được gọi từ `audit_ref04_p2_runtime_alignment.py` sau kiểm tra danh tính component và pointer chain nguồn. Báo cáo `sourceCanvasGraph` phân loại **Canvas/CanvasScaler có cùng original GameObject hay không**, khoảng cách ancestor tính theo cạnh RectTransform, quan hệ có SafeAreaAdapter/PanelHome2 cùng ancestor và tình trạng parent pointer bị chặn. Các boolean này xác nhận **quan hệ serialized**, không cho phép nội suy runtime Canvas scale, scale mode hoặc vị trí.
+- `tests/test_ref04_p2_canvas_graph.py` kiểm tra co-location, thứ tự parent, ngoại lệ khi parent external, cycle, component trùng ID, và bác bỏ runtime giả.
+- `tools/ref04_p2_arm64_candidate_census.py` ghi direct ARM64 branch immediate khi opcode và immediate được Capstone phân tích từ đúng original ELF executable; nếu không kiểm chứng được đích thì gắn nhãn BLOCKED. Đây vẫn là **bounded entrypoint graph candidates**, không phải full call graph: `independentMethodCallEdgesProven=0`, `runtimeAlignmentFormula=null`.
+- Công việc được người dùng gọi là **P3 SafeAreaAdapter/PanelHome2** ở đây là bước tiếp nối P2 về căn chỉnh, **khác với P3 Text/Font/Localization** đang có trong `REF04_P3_TEXT_FONT_LOCALIZATION_SOURCE.md`. Không trộn hai bộ bằng chứng.
+- Để khôi phục công thức thật phải tiếp tục xác minh code-registration pointer → full CFG ARM64 → field writes/branch predicates/call flow, rồi đối chứng với Screen.safeArea và CanvasScale tại runtime thật. **Chưa thể tuyên bố đã khôi phục công thức từ những commit này.**
+
+
+## P2 — Kết quả ARM64 trên XAPK thật (10/10/2026)
+
+- [CI native #38053686338](https://github.com/thanhtran2005isme-art/HaiTacDaiChien/actions/runs/38053686338): từ 204 method declarations trong metadata v31 của nhóm Canvas, SafeAreaAdapter và PanelHome2 liên quan, decoder giải **strict Itanium ABI nested name** rồi đối chiếu ELF AArch64/file-backed SHA; tìm được **185 candidate method addresses**, còn **19 method definitions chưa ghép được**. Đây là ứng viên được kiểm tra byte nguồn, **không phải chứng cứ độc lập về code-registration method ownership**.
+- [CI native #38053979178](https://github.com/thanhtran2005isme-art/HaiTacDaiChien/actions/runs/38053979178): Capstone 5.0.6 giải mã **185/185 entry instruction blocks**, giới hạn tối đa 256 byte/entry, SHA đầu mã nguồn, không đi sang ngoài executable segment hoặc qua một entry khác đã biết. Bằng chứng riêng ghi các nhóm opcode, branch và điểm dừng; **0 native full body verified, 0 formula runtime verified**.
+- `tools/ref04_p2_arm64_candidate_census.py`, `tools/ref04_p2_native_method_candidates.py`, `tools/run_ref04_p2_native_dumper.py` và `tests/test_ref04_p2_arm64_candidate_census.py` fail-closed nếu token/địa chỉ/byte span/hàm ngoài ELF không khớp. Địa chỉ và opcode chỉ lưu `output/` ignored; không xuất nhị phân game.
+- **P2 chưa hoàn tất ở mức runtime**: để chứng minh quy tắc căn chỉnh cần map độc lập MethodDefinitionIndex→Il2CppCodeRegistration native pointer, phân tích toàn bộ control-flow/field writes và đối chiếu trạng thái Screen.safeArea/CanvasScaler/PanelHome2 khi game chạy ở viewport cụ thể. Không được ghi `runtimeAlignmentProven=true` chỉ vì 185 entry blocks được giải mã. `runtimeAlignmentFormula=null` tiếp tục giữ nguyên.
+
+
+## Bổ sung truy vết native ELF64 và chẩn đoán method (P2)
+
+- `tools/ref04_arm64_elf_regions.py` kiểm tra ELF64 little-endian AArch64, PT_LOAD, vùng có quyền thực thi, file-backed bounds, nguồn SHA. Nó **không** suy ra method từ metadata token.
+- `tools/ref04_p2_native_method_candidates.py` kiểm tra dữ liệu `script.json` của dumper độc lập với exact `libil2cpp.so`: chỉ chấp nhận định dạng method không nhập nhằng và file offset nằm trong executable segment. Bằng chứng dừng ở **ứng viên cho disassembly**; `methodOwnershipIndependentlyProven=false`, `runtimeExpressionProven=false`.
+- `tools/run_ref04_p2_native_dumper.py` thử công cụ `il2cpp_dumper v0.7.0` trong thư mục tạm, xóa file binary khi xong, không upload `script.json` hoặc dữ liệu XAPK.
+- [Actions #38051075759](https://github.com/thanhtran2005isme-art/HaiTacDaiChien/actions/runs/38051075759): dumper xử lý được **119.013 script method entries**, 98 tên chứa các lớp mục tiêu, nhưng lúc đó **0 method address candidates** đạt bộ ghép tên nghiêm ngặt; 204 method definitions trong source metadata còn chưa match. Đang đối chiếu **định dạng tên IL2CPP**, không phỏng đoán RVA hoặc công thức Canvas.
+- **P2 runtime chưa hoàn thành**: 0 phương trình được đối chiếu với ARM64 function body + device viewport/safe area; `runtimeAlignmentFormula=null`. Không dựng UI Unity.
+
+
+## Đúng phạm vi
+
+P1 đã xác minh **24 LayoutGroup / 168 field serialized** trên XAPK. P2 không được lấy các field này để suy ra tọa độ lúc chạy. Chỉ phân tích original SerializedFile/PathID/source byte SHA256, tên phương thức từ original IL2CPP metadata v31 và ELF libil2cpp.so. Không chỉnh giao diện Unity.
+
+## Công cụ
+
+- **tools/ref04_il2cpp_method_index_v31.py:** đọc bảng string/type/method của global-metadata.dat **v31 chính xác từ XAPK**, kiểm tra class/type ownership, methodDefinitionIndex, methodToken, Unity Screen/Canvas/CanvasScaler/RectTransform, SafeAreaAdapter và PanelHome2*. Method token không phải địa chỉ mã ARM64 hay bằng chứng phép tính lúc runtime.
+- **tools/audit_ref04_p2_runtime_alignment.py:** đối chiếu original 503 GameObject/1.564 component, 1 Canvas, 1 CanvasScaler, 6 SafeAreaAdapter, PanelHome2* nếu thuộc cây nguồn. Truy dấu parent pointer và Canvas ancestor chỉ khi tồn tại trong serialized hierarchy. So sánh exact SHA256 của libil2cpp.so và global-metadata.dat với báo cáo P1 và xác minh ELF64 ARM64.
+- **tests/test_ref04_il2cpp_method_index_v31.py** và **tests/test_ref04_p2_runtime_alignment.py** chống metadata corrupt, sai method owner, giả code address, sai PathID/hash và suy đoán parent nằm ngoài subtree.
+
+## Kết quả đã chạy trên original XAPK (2026-10-10)
+
+[GitHub Actions #38049542276](https://github.com/thanhtran2005isme-art/HaiTacDaiChien/actions/runs/38049542276) **PASS** trên commit code `8330bd84` (Linux/XAPK thật, Windows và P1 168/168): 1 Canvas, 1 CanvasScaler, 6 SafeAreaAdapter, 7 PanelHome2* source components, 8 PanelHome2* metadata type definitions, 1 SafeAreaAdapter metadata type, 204 method declarations trong các type mục tiêu (gồm Canvas/Scaler/Screen/RectTransform). **0 verified native method bodies**, **0 runtime formulas**. Đây là kết quả metadata declarations + serialized hierarchy, không có công thức thực thi.
+
+Giá trị serialized Canvas/CanvasScaler có nguồn được giữ trong báo cáo riêng **gitignored local** `originalSerializedFieldEvidence`; không log/commit các giá trị này. Những giá trị đó chưa phải runtime viewport/scaling.
+
+## Mức chứng cứ
+
+| Phạm vi | Có thể chứng minh | Không thể suy ra |
+|---|---|---|
+| Canvas/CanvasScaler | Component/serialized field và owner đúng nguồn | Viewport và scaling sau runtime mutations |
+| SafeAreaAdapter | Sáu source components, ancestor chain thật | Actual Screen.safeArea, device insets, công thức áp dụng |
+| PanelHome2* | Class/method definitions và token trong metadata v31 | ARM64 method body, nhánh và phép gán layout |
+| LayoutGroup | P1: 168/168 field nguồn được xác minh | Runtime layout rebuild và tọa độ hiển thị |
+
+**Báo cáo local-only:** output/ref04-p2-canvas-il2cpp-runtime-source.json + .md (ignored), không commit raw bytes/game values. Yêu cầu có output P1 gồm ref04-full-source-inventory, ref04-step2-layout-canvas-text, ref04-layout-schema-forensics rồi chạy:
+
+```powershell
+py -3 tools/audit_ref04_p2_runtime_alignment.py
+py -3 -m unittest discover -s tests -p test_ref04_il2cpp_method_index_v31.py -v
+py -3 -m unittest discover -s tests -p test_ref04_p2_runtime_alignment.py -v
+```
+
+## Blocker của công thức runtime
+
+Metadata chỉ chứa *khai báo* method, không phải code. Cần ánh xạ được method token/definition index tới function address gốc từ ELF code registration; chứng minh body ARM64, các field write/condition và device/screen/safe-area state thật. Trước đó giữ **runtimeAlignmentFormula=null**, **runtimeAlignmentProven=false**, **unityImportAllowed=false**. Không được dùng độ phân giải 1600×900 mặc định hay bất kỳ tọa độ ước lượng nào. Không tạo Scene/Prefab/Canvas/HUD và chưa xử lý nhân vật.

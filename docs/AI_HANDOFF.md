@@ -1,5 +1,147 @@
 # AI HANDOFF — Hải Tặc UI Viewer
 
+## P6.3 icon layout / character slot provenance diagnosis (2026-10-11)
+
+User screenshot after P6.2 background cover: black bars gone; UI still wrong — horizontally floating circular fist icons across the sea, unpopulated hero shadows, sparse HUD text. Explicit complaint: "thế còn các icon sắp xếp lung tung thì sao". **Do not claim P6.2 fixed icons.** Cannot assume every fist icon belongs in top HUD; original game runtime unavailable, and source serial Transform fields alone don't prove original dynamic layout; icons might be PlayerHeroes markers and no Spine binding.
+
+Added `unity-ui-viewer/Assets/Editor/Ref04P63IconLayoutAudit.cs`: read-only Unity Editor scene icon owner/parent/group/Component PathID/GO/RectTransform, source Sprite name/asset path, SHA, current new-client observed RectTransform anchor/position/size/worldCorners, active/raycast state and ancestor/descendant SpineReferenceEvidence. Strictly requires active `REF04-home-crew_NEW_CLIENT_FIT_STUDY`, original P6 proof and 299 source Image provenance. Exports **private gitignored** `output/ref04-p63-client-icon-layout-audit.json`, refuses overwrite, no UI modifications. Adds P6 window button 9 and Unity Source XAPK menu, plus 4 static Python tests `tests/test_ref04_p63_icon_source_audit_contract.py` in Linux/Windows CI.
+
+User must pull, run tests, open existing P6.2 Scene, run P6.3 icon audit, then share private JSON or Console `[P6.3 ICON GROUP]` lines before any targeted icon layout repairs. **No icon rearrangement implemented yet**, no Spine, Text or playable/backend behavior. PR7 remains Draft and Unity Editor test not yet confirmed. Next legitimate work is classification → NEW_PROJECT_DESIGN icon anchors/reflow in client scene (never P6.1 original) and source-backed hero Spine reconstruction separate.
+
+
+## P6.2 background/UI regression — existing new-client scene, 2026-10-11
+
+User's actual Game View screenshot confirmed P6.2 NEW_CLIENT_FIT_STUDY still displays almost identical incomplete UI to P6.1, but worse: black letterbox bands left/right and HUD disjoint from centered background. No characters Spine or dynamic Text. Root cause is code-proven: P6.2 only changes root CanvasScaler/viewport match and copies source Study content; the source `Background` subtree remains fixed native-size.
+
+Added `Ref04ClientBackgroundCover` (NEW_PROJECT_DESIGN) applying uniform max(widthFit,heightFit) scale to the **source-backed Background group** only, measured from largest active Sprite-backed Image; source Sprite pixels unchanged, may crop art. `Ref04P62ClientSceneBuilder.FixClientBackground()` is new, explicit operator action on EXISTING P6.2 editable client Scene, gated by P6 source SHA/P6.1 Study and valid Background/OriginalSerializedEvidence. It makes ONE preserved backup `REF04-home-crew_NEW_CLIENT_FIT_BEFORE_BACKGROUND.unity`, refuses repeat, and rollback restores client from backup if failure; no P6.1 Study or source assets touched. P6 workspace button 8 or Unity Source XAPK menu. Contract tests `tests/test_ref04_p62_background_cover_contract.py` added to CI, no Unity runtime result yet. User should pull and click button 8 once, send Game View/Console results.
+
+**Do NOT claim full UI fixed.** No Spine, font/text/localization, functional menus or backend recreated. Prior P6.2 user screenshot remains valid evidence of poor visual result and broken user expectation. New cover was not tested on actual Unity machine at last commit. PR7 Draft, no merge.
+
+
+## P6.2 actual UI-visible change, not another source audit (2026-10-11)
+
+User reported REF04 P6.1 UI "still looks like main." This is substantiated: the P6.1 Study reused the native-bounds prefab with 1600x900 preview Canvas and did NOT implement responsive client layout, characters, Text or backend. Rather than misclaim full UI restoration, added an actual independent client-study Scene generated from the user's 299 Image / 503 RectTransform source-proven P6.1 Study:
+
+- `unity-ui-viewer/Assets/Scripts/Ref04ClientViewportFit.cs` — `[ExecuteAlways]` CanvasScaler NEW_PROJECT_DESIGN, dynamically chooses match width when device/viewport aspect is narrower than 16:9, height when wider; only CanvasScaler state in the separate new-client scene, NEVER alters source child RectTransforms/Sprite text/character data.
+- `unity-ui-viewer/Assets/Editor/Ref04P62ClientSceneBuilder.cs` — validates P5/P6 SHA and original Study, copies native-bounds Scene to **new** `Assets/LocalReconstruction/Ref04OfflineClientScenes/REF04-home-crew_NEW_CLIENT_FIT_STUDY.unity` (ignored in Git), adds fitter to *copied scene prefab instance only*, refuses overwrite and rollbacks only newly created client scene on failure; separate Build/Open Unity menus.
+- Added P6 workspace buttons `6. Tao P6.2 NEW CLIENT viewport Study` and `7. Mo P6.2 NEW CLIENT Scene`; `tests/test_ref04_p62_client_fit_contract.py` (4 source-only contract tests), Linux/Windows CI wiring and `docs/REF04_P6_OFFLINE_UNITY_BACKEND.md` instructions.
+- **This is a real new Unity Scene/layout fit change, but NOT a complete UI fix**: source characters Spine/animations, runtime localization/dynamic Text, incomplete HUD fields and custom backend are unimplemented and not claimed recovered. Original Canvas runtime is unverified; reference 1600x900 and fit equation belong ONLY to NEW_PROJECT_DESIGN. No source Study Prefab/Scene, PNG, XAPK or main changed.
+- Latest P6.2 source contract tests and Unity Editor compile/render **not yet independently run on user machine**. User should pull branch, inspect P6 buttons 6/7, open new Game View at same resolution as prior P6.1 and send screenshot. Do not call viewport P6.2 pixel-perfect or fully operational.
+
+
+## P6.1 Unity Editor source-study workspace — 2026-10-11
+
+- User's Windows **real original-XAPK** offline P6 audit PASS: 5/5 synthetic tests + real output `sourceGeometryVerified=265`, `spriteLinkedImages=265`, `allDualVerifiedImages=299`, `verifiedImagesWithoutSourceSprite=34`, LayoutGroup 168, Text 62. The test fixture's `sourceGeometryVerified=200` and `sourceGeometryBlocked=65` are synthetic, NOT original XAPK.
+- Added actual Unity Editor window `unity-ui-viewer/Assets/Editor/Ref04P6OfflineWorkspace.cs`. Menu: **Tools → HaiTac Offline UI Viewer → Source XAPK → P6 - REF04 offline Unity workspace**. Provides original-source P5/P6/geometry SHA gate, optional separate 3C Build (strict no overwrite across any of 5 generated scenes), existing native Tight Sprite study Build, in-editor audit across all 299 Image identities, 265 Sprite pointers and 503 original RectTransform child values (preview root excepted), and Open Scene. Uses existing source-backed importer; NO invented runtime UI values.
+- P6 offline script now emits flat `p5ReportSha256`, `inventoryReportSha256`, `geometryReportSha256` so Unity `JsonUtility` can verify private file bytes. Windows must regenerate `output/ref04-p6-offline-ui-gaps.json` after pulling newest branch. If native source Tight Sprite manifest missing, run `py -3 tools/prepare_ref04_native_bounds_preview.py`.
+- Added static Unity workspace contract tests (5 tests) and Linux/Windows CI wiring; original-XAPK workflow compares flat SHA with real `output` files. Tests cover no overwrite, 299/265/34, 503 owner/child RectTransform integrity and no backend/ADB requirement. Still **NOT verified in Unity Editor/PlayMode** on user's machine; source-only CI does not compile Unity.
+- New script and docs stay on PR #7 Draft, no merging, no source art binary upload, no changes to original Unity Scenes/Prefabs. Created study scene under gitignored `Assets/LocalReconstruction/Ref04NativeBoundsStudyScenes`, 1600x900 root Canvas explicitly provisional. Backend new gameplay logic remains `NEW_PROJECT_DESIGN`, not yet implemented.
+
+
+## Clarified objective — P6 offline Unity UI + original game's server permanently retired (2026-10-11)
+
+User clarified **old Hải Tặc Đại Chiến online server has shut down**. They want the **original XAPK UI/assets as the source for a new Unity game with independent backend**, not to test against a still-running original Android game. Corrected P6: primary script `tools/ref04_p6_offline_ui_plan.py`, offline tests `tests/test_ref04_p6_offline_ui_plan.py`, source-gap ledger `output/ref04-p6-offline-ui-gaps.json`, documentation `docs/REF04_P6_OFFLINE_UNITY_BACKEND.md`. ADB screenshot tooling retained **only as optional reference**, not required for P6/Unity/backend. No existing backend endpoint inferred; deliberate new design must be labeled `NEW_PROJECT_DESIGN` rather than original-XAPK-verified. Latest HEAD still requires CI/user execution validation. PR #7 remains Draft, no merge or changes to Unity scene/prefab/source art.
+
+
+## P6 runtime capture groundwork — 2026-10-11
+
+- Added `tools/ref04_p6_runtime_capture.py` (live ADB foreground screenshot CLI, explicit Android app package and capture ID), `tools/ref04_p6_runtime_evidence.py` (source-bound image/viewport/peer device and SHA integrity, existing exact-size pixel comparison), `tests/test_ref04_p6_runtime_evidence.py` (synthetic negative/unit tests), `docs/REF04_P6_RUNTIME_CAPTURE.md`, and Linux/Windows CI test gates.
+- Capture reads **exact original XAPK IL2CPP metadata and library hashes** via `recover_managed_ui_fields.read_source_pair` and must match P5 report pair. Capture stores PNG and private manifest only under ignored `output/ref04-p6-runtime`. Captured ADB foreground activity and screenshot PNG SHA are local observations, **not device cryptographic attestation** and **not proof installed APK equals XAPK**.
+- Audit compares original vs study Android captures only when same device/build, same pixel dimensions, different foreground apps and same source-P5/XAPK pair. Reuses existing no-resize pixel diff. All outputs are read-only evidence; no Unity prefab/game art/source binaries modified.
+- **Not yet verified:** Windows/Linux new P6 unit tests, original real Android screenshot, study Android package, actual screenshot comparison. Even a zero pixel diff from two frames is NOT runtime Canvas/SafeArea/PanelHome2/Text logic proof; runtime formulas and Unity import remain blocked. PR #7 stays Draft, no merge.
+- To proceed on user's machine: pull the PR7 branch, run `py -3 -m unittest discover -s tests -p test_ref04_p6_runtime_evidence.py -v`; with authorized Android+original game foreground, use `py -3 tools/ref04_p6_runtime_capture.py capture --role original --package <actual-package> --capture-id original-ref04-01 --adb C:\platform-tools\adb.exe`; then `audit --original original-ref04-01`. User must discover real package ID; no hardcoded/guessed package name.
+
+
+## P5 final Windows source audit: 245 ledger rows; synthetic fixture alias bug (2026-10-11)
+
+- Windows original-XAPK P5 **PASS as source-only audit** with 245 entries: 168 P1 fields, 15 P2 components (14 raw-SHA-backed and 1 ID-only BLOCKED), 62 P4 Text. Six field names associated with SHA-missing P2 source object excluded; `runtimeCoordinates=null`, `runtimeLayoutProven=false`, `unityImportAllowed=false`, no UI assets changed. This does NOT prove runtime layout or pixel-perfect coordinates.
+- Windows P5 unit tests **9/10 PASS on commit `93a4268`**. The failed negative mutation test incorrectly shared the same in-memory nested `verifiedSerializedFields` dict in synthetic P2 and Step2 reports; when Step2 and inventory were mutated, synthetic P2 changed too. **Actual production reports are independent JSON files**. Corrected `synthetic_reports()` by `copy.deepcopy(p2_module.build(...))` and added `assertIsNot` to prevent this regression. **No changes to the production P5 auditor, original data, Unity UI, source rules or runtime evidence.** New HEAD unit test/CI has not yet been confirmed locally by user.
+- Pull PR7 branch and rerun `py -3 -m unittest discover -s tests -p test_ref04_p5_source_integrity.py -v`. PR7 remains Draft; original I2 term verification 0/52 and native dynamic layout/Text remain BLOCKED.
+
+
+## P5 second Windows regression and source-value quarantine (2026-10-11)
+
+- Windows update at commit `190894e` passed **8/8 synthetic P5 tests**, but original-XAPK P5 stopped at `P2 original raw object SHA missing for serialized values`. The exact component category is **not** shown by the exception; do not state that it definitely was Canvas/Scaler/PanelHome2.
+- Upstream Step2 and P2 may already report native source field observations whose `rawSourceObjectSha256=null` in original inventory. P5 previously rejected this data *just for being recorded*, even without intending to import it. New P5 rechecks **same original owner/type/serialized mapping in original inventory, Step2 and P2**, and places unhashable field **names only** into `unverifiedRecordedSourceFieldNames`/`P2SourceFieldNamesExcludedWithoutRawSha`. No source values are copied to P5's ledger; source byte provenance remains `BLOCKED_RAW_OBJECT_SHA_UNAVAILABLE_IDENTITY_ONLY` and import remains false.
+- **Hard blockers remain:** any forged field on unhashed PanelHome2, `TWO_BACKEND_SOURCE_VERIFIED_FIELDS` with null raw SHA, corrupted P2/Step2/inventory mappings, wrong original owner/class/parent, or fabricated runtime positions still FAIL. Regression tests added for unhashed native Canvas field quarantine and false dual-backend proof. **This new head has NOT passed real XAPK/CI yet; user must fetch and rerun tests and P5.**
+- `245` expected ledger rows means **audited identities/fields**, not every row has raw object byte evidence. Read P5 source coverage to see actual SHA-proven vs identity-only P2 component counts.
+
+## P5 hotfix after real Windows audit (2026-10-11)
+
+- On user Windows XAPK reports: LayoutGroup 168/168, Text 62/62 and P2/P3/P4 script generation succeeded. P3 52 localizers still have 0 independent localization term confirmations; 2 Font source objects are external, runtime font unresolved. P5 originally stopped in P2 source owner/SHA/ancestry gate. Root cause is not proven from traceback alone; P5 code was over-strict by treating every P2 source-identity-only component as raw-SHA verified.
+- Hotfix allows only exact NULL raw source digest (original and P2 agree) on **ID-only** source component, retains `BLOCKED_RAW_OBJECT_SHA_UNAVAILABLE_IDENTITY_ONLY`; fields and native Canvas value evidence without SHA still force failure. Added full source class/owner/parent chain guards and explicit P2 raw-SHA coverage counts.
+- Added unit regression for missing original PanelHome2 hash and injected serialized value; CI distinguishes ID-only source-blockers instead of declaring every SHA proven. New HEAD real-XAPK P5 result and CI remain unverified. User should fetch/pull same PR7 branch and rerun unit tests + `py -3 tools/audit_ref04_p5_source_integrity.py`; do not regenerate already-proven 168/62 reports unless content changes.
+
+
+
+## REF04 P5 — tổng hợp bằng chứng nguồn P1–P4, không đoán tọa độ (2026-10-10)
+
+- **Đã triển khai trên PR #7 Draft**, chưa merge: `tools/audit_ref04_p5_source_integrity.py` kiểm tra cùng SerializedFile/cặp IL2CPP SHA, original Component/GameObject/RectTransform owner, 24 LayoutGroup với 168 byte-span/hash trùng nhau giữa AssetStudio và AssetRipper, chuỗi Canvas/Scaler/SafeArea/PanelHome2 kiểm toán lại theo source-parent pointers, và 62 Text cùng Font/I2 localizers qua dữ liệu P3/P4 và Step2.
+- Báo cáo private: `output/ref04-p5-cross-phase-source-integrity.json` có field-level source ledger và đặt `runtimeCoordinates=null`, `runtimeCanvasScale=null`, `runtimeSafeAreaFormula=null`, `runtimeTextPositions=null`, `pixelPerfectUiProven=false`; tuyệt đối không áp dụng giá trị preview `1600×900` như runtime.
+- `tests/test_ref04_p5_source_integrity.py` kiểm tra fixture tổng hợp và các đột biến độc hại: SHA/byte-offset/owner khác nhau, P2 parent-chain sai, stale P4/font, localizer giả, tọa độ hay text runtime suy đoán. CI `.github/workflows/local-art-decode.yml` thêm Windows unit tests và Linux **original XAPK end-to-end** sau P4. Phạm vi dự kiến 168 field P1 + 15 component P2 + 62 Text P4 = 245 bản ghi nguồn; không phải 245 tọa độ đã khôi phục.
+- **Chưa xác nhận PASS CI của HEAD mới** hoặc Unity Play Mode, chưa chứng minh formula runtime từ ARM64 hay Text động. Cần xem Actions của đúng SHA và xử lý lỗi nếu có; chỉ xem P5 PASS khi chạy kiểm toán XAPK thật. Tài liệu chi tiết: `docs/REF04_P5_SOURCE_PROVENANCE.md`. Không chỉnh Unity Scene/Prefab/Canvas/Spine hay `main`.
+
+
+## REF04 P4 — 62 Text / 2 Font / 52 I2 localizer source matrix (2026-10-10)
+
+- P4 mở rộng danh sách các **IL2CPP declaration-only method candidates** liên quan Text/I2 bằng methodDefinitionIndex/token, xác minh declaring type và chỉ lưu SHA của tên phương thức trong private output. Cần code-registration mapping/verified ARM64 writes trước khi biến ứng viên này thành nội dung động có thật; `verifiedNativeFieldWriters=0`.
+
+
+- Trong **cùng nhánh PR #7 Draft**, đã thêm `tools/audit_ref04_p4_text_logic.py` và `tests/test_ref04_p4_text_logic.py` để nối 62 Text theo original GameObject/RectTransform/Component PathID, hash serialized `m_Text`, verified `m_Font` và đúng 2 Font source objects (bao gồm external SerializedFile), 52 I2 localizer với trạng thái term-source độc lập. Bằng chứng tổng hợp ghi trong `output/ref04-p4-62-text-logic-source-evidence.json` gitignored.
+- Báo cáo phân loại **empty/non-empty ở serialized source**, tìm localizer đồng GameObject nhưng **không** suy ra bản dịch hoặc UI Text runtime. `dynamicTextWriterStatus=UNKNOWN_NO_VERIFIED_RUNTIME_FIELD_WRITER` cho toàn bộ Text; `runtimeTextLogicRecovered=false`, `runtimeFontRenderingProven=false`, `runtimeLocalizedAssignmentsIndependentlyProven=0`, `unityImportAllowed=false`.
+- Bổ sung Linux/Windows unit tests và original-XAPK P4 audit gate vào `.github/workflows/local-art-decode.yml`; tài liệu: `docs/REF04_P4_TEXT_LOGIC_SOURCE.md`. **Chưa xác nhận CI PASS tại HEAD mới hoặc render thực**; không xem unit fixture là XAPK test.
+- Blocker P4 runtime: phân tích được I2 localization term bằng hai decoder, xác định key → Text binding, selected locale/fallback; code-registration ownership + full ARM64 field writes để chứng minh Text động; font runtime/glyph metrics và P2/P3 Canvas layout. Không sửa Scene/Prefab/Text/Canvas/Spine hoặc merge.
+- Công việc này được người dùng đặt tên **P4 — 62 Text** (khác mục Text/Font từng ghi P3 trong tài liệu cũ); coi P3 Text là baseline nguồn cho P4.
+
+
+## Tiếp tục PR #7 — source Canvas graph và native branch candidates (2026-10-10)
+
+- Từ nguyên gốc source-only P2, thêm `tools/ref04_p2_canvas_graph.py` và `tests/test_ref04_p2_canvas_graph.py`: báo cáo Canvas, CanvasScaler cùng GameObject hay không, các quan hệ RectTransform nguồn của 6 SafeAreaAdapter và PanelHome2, vị trí Canvas ancestor theo đúng pointer chain. Mối quan hệ **chỉ là serialized/source**, không phải runtime viewport hoặc scale.
+- Bổ sung thu thập direct branch immediate trong 256 byte ARM64 entry candidate; từng nhánh phải trỏ vào original ELF file-backed executable mới được gắn nhãn `SOURCE_EXECUTABLE_TARGET_CANDIDATE`. **Không** xem đó là native method ownership, đầy đủ CFG, hay công thức căn chỉnh.
+- CI được bổ sung P2 source-graph tests Linux/Windows và kiểm tra `independentMethodCallEdgesProven=0`. Những số liệu trước đó (185/204 candidates, 168/168 LayoutGroup) không bị đổi thành chứng cứ runtime.
+- Còn thiếu: độc lập map MethodDefinitionIndex → Il2CppCodeRegistration methodPointers, full ARM64 CFG và các lần ghi RectTransform/CanvasScaler, cùng runtime Screen.safeArea + device viewport để kiểm chứng công thức. **P2 runtime và P3 SafeAreaAdapter/PanelHome2 formula chưa hoàn thành; PR #7 vẫn Draft.** Các thay đổi chỉ trong branch #7, không nhập Unity/UI; chưa có kết quả CI mới xác nhận cho những commit bổ sung.
+
+
+## REF04 P2/P3 — xác định nguyên nhân localizer và kiểm tra font nguồn (2026-10-10)
+
+- CI mới [#38056216654](https://github.com/thanhtran2005isme-art/HaiTacDaiChien/actions/runs/38056216654): **Linux decode SUCCESS, Windows SUCCESS**. P3 `I2.Loc.Localize` có 26/26 `BLOCKED_RAW_RIPPER_UNTRUSTED_STRING_LENGTH` (schema offset đọc chuỗi sai), `TextLocalizeChecker` có 26/26 `BLOCKED_SOURCE_SCHEMA_native_header_NO_MANAGED_NODES`. **0 term được hai backend xác minh**; không sửa parser theo kích thước/phép canh giả định. Xem `tools/probe_ref04_p3_localizer_binary.py` và unit test lý do chặn không lộ text.
+- Font PPtrs: hai object ngoài bundle đã được xác minh nguyên bản theo externals filename/PathID/type/SHA. `originalFontAssetIdentityFullyResolved=true` phản ánh đúng **source asset identity** khi local hoặc external được xác minh; `runtimeFontRenderingProven=false`. CI yêu cầu đúng **2/2** object nguồn.
+- P2 runtime công thức **chưa chứng minh** vì chưa có mapping method ownership độc lập/full ARM64 CFG cùng thiết bị safe area và Canvas runtime. P3 bản dịch/ngôn ngữ/font render cũng chưa chứng minh. PR #7 vẫn Draft và không đổi Unity UI.
+
+
+## REF04 P2/P3 — rà soát cuối P3 Font identity và blockers (2026-10-10)
+
+- P3 đã đối chiếu 62/62 Text source fields và 2 Font PPtr nguồn. Bản sửa mới xác nhận **Font ngoài bundle** bằng bảng externals gốc, exact filename, PathID, type Font và source SHA-256; tổng hợp `originalFontAssetIdentityFullyResolved` giờ tính đủ cả Font trong hoặc ngoài bundle. CI gate mới yêu cầu **2/2 Font object source identity**, không nhận các pointer mồ côi hoặc target sai kiểu. Điều này **không chứng minh** Font nào được tải/render ở runtime.
+- [CI #38055119103](https://github.com/thanhtran2005isme-art/HaiTacDaiChien/actions/runs/38055119103) đã kiểm tra 52 I2 localizer trên XAPK: 26 `I2.Loc.Localize` còn `BLOCKED_RAW_RIPPER_RawWalkBlocked`, 26 `TextLocalizeChecker` thiếu managed TypeTree nodes sau native header; **0 localization term source values được xác minh độc lập**, không suy ra ngôn ngữ/key/dynamic Text.
+- P2 source có **185/204 method candidates** và chỉ đầu đoạn lệnh ARM64 được xác minh tại CI #38053979178, **không phải 185 body đã được chứng minh**. Thiếu mapping code registration, CFG/field writes và device Screen.safeArea/viewport nên công thức căn chỉnh vẫn `null`.
+- Vẫn một nhánh PR #7 Draft, không chỉnh Unity Scene/Prefab/Canvas/Spine hoặc đặt UI giả.
+
+
+## REF04 P2/P3 — kết quả truy vết bổ sung, giới hạn runtime (10/10/2026)
+
+- **P2 ARM64 source:** [CI #38053686338](https://github.com/thanhtran2005isme-art/HaiTacDaiChien/actions/runs/38053686338) cho **185/204** method definitions có địa chỉ ứng viên strict Itanium + ELF gốc, 19 chưa ghép. [CI #38053979178](https://github.com/thanhtran2005isme-art/HaiTacDaiChien/actions/runs/38053979178) dùng Capstone để kiểm chứng **185/185 đầu đoạn lệnh ARM64**, chưa chứng minh full-body/control-flow/code registration hoặc công thức SafeArea/PanelHome2. `runtimeAlignmentFormula=null`, `runtimeAlignmentProven=false`, không import Unity.
+- **P3 Text & Font:** [CI #38053733211](https://github.com/thanhtran2005isme-art/HaiTacDaiChien/actions/runs/38053733211) xác nhận 62 Text, 62 m_Text, 62 m_Font, 52 localizers, 2 con trỏ Font. [CI #38054361981](https://github.com/thanhtran2005isme-art/HaiTacDaiChien/actions/runs/38054361981) dùng bảng `externals` từ SerializedFile nguồn để đối chứng **2/2 Font object ngoài bundle** theo filename, PathID, native `Font` type và raw SHA; không chứng minh font đang render.
+- **P3 localization:** [CI #38054500441](https://github.com/thanhtran2005isme-art/HaiTacDaiChien/actions/runs/38054500441) đọc lại cả 52 component I2 source với AssetStudio/AssetRipper. Kết quả **0 term field dual-verified**, gồm 26 lỗi TypeTree parse/backend EOFError và 26 lỗi schema/header RecoveryBlocked. Đã thêm phân loại lỗi theo class/phase ở `tools/probe_ref04_p3_localizer_binary.py`, phải giữ `localizationKeyToTextBindingProven=false` và `runtimeLanguageChosen=null`.
+- **Kết luận:** P2 và P3 **chưa hoàn thành runtime**; không khai báo pixel-perfect hay công thức không có bằng chứng. Công cụ, tests, CI, tài liệu chỉ ở [PR #7](https://github.com/thanhtran2005isme-art/HaiTacDaiChien/pull/7) Draft, không sửa Unity Scene/Prefab/Canvas/nhân vật/Spine. Nhánh `feat/ref04-p2-canvas-il2cpp-runtime-trace` tiếp tục xếp trên PR #6.
+
+
+## REF04 P2/P3 — tiếp tục chung PR #7 (2026-10-10)
+
+- **P2 đã kiểm chứng dữ liệu nguồn**: 1 Canvas, 1 CanvasScaler, 6 SafeAreaAdapter, 7 PanelHome2 components, 8 class PanelHome2 metadata types và 204 method declarations liên quan. Thêm `tools/ref04_arm64_elf_regions.py`, `tools/ref04_p2_native_method_candidates.py`, `tools/run_ref04_p2_native_dumper.py` và CI optional trong `.github/workflows/ref04-p2-native-probe.yml`. ELF64/AArch64 original PT_LOAD/file-backed executable được kiểm tra theo SHA. Third-party IL2CPP dumper 0.7.0 đọc 119.013 script method entries; bước ghép class-method/source token vẫn **CHƯA chứng minh** một native method body hoặc công thức layout. `runtimeAlignmentProven=false`, `unityImportAllowed=false`.
+- **P3 source đã kiểm tra trên XAPK thật**: [CI #38051186270](https://github.com/thanhtran2005isme-art/HaiTacDaiChien/actions/runs/38051186270) PASS Linux/Windows: 62/62 original Text, 62 `m_Text` source hashes, 62 `m_Font` source pointers, 52 localization components và 2 con trỏ Font riêng biệt. Thêm `tools/audit_ref04_p3_text_localization.py` và `tests/test_ref04_p3_text_localization.py`; tài liệu `docs/REF04_P3_TEXT_FONT_LOCALIZATION_SOURCE.md`. Phân biệt field verified với font asset, locale đang chọn và Text runtime, vẫn `runtimeTextAndLocalizationProven=false`.
+- CI fail-closed bác bỏ field I2 giả, hash Text/font sai, địa chỉ code không nằm trong executable ELF, class/method không khớp nguồn. Báo cáo XAPK và original text values chỉ lưu `output/` gitignored; không sửa Scene/Prefab/Canvas, Spine hoặc nhân vật. PR #7 vẫn Draft, base PR #6.
+- **Không được gọi P2/P3 runtime 100%** cho đến khi chứng minh được native control flow của SafeAreaAdapter/PanelHome2, thiết bị Screen.safeArea/viewport, localization key/database/selected language và Font asset runtime. Không suy đoán tọa độ.
+
+
+## REF04 P2 — truy vết Canvas/CanvasScaler/SafeAreaAdapter/PanelHome2 (2026-10-10)
+
+- Nhánh `feat/ref04-p2-canvas-il2cpp-runtime-trace` tiếp nối PR #6, **không sửa** Scene/Prefab/Canvas/RectTransform/Sprite/Spine. Xem [docs/REF04_P2_CANVAS_IL2CPP_RUNTIME_TRACE.md](REF04_P2_CANVAS_IL2CPP_RUNTIME_TRACE.md).
+- Đã thêm `tools/ref04_il2cpp_method_index_v31.py` đọc metadata v31 **chính xác từ XAPK**: class và method definitions cho SafeAreaAdapter, PanelHome2*, Unity Canvas/CanvasScaler/Screen/RectTransform, xác minh declaringType/methodToken; không coi method metadata là code ARM64.
+- Đã thêm `tools/audit_ref04_p2_runtime_alignment.py`: ghép exact P1 IL2CPP source-pair SHA, REF04 503 nodes/1564 components, Canvas, CanvasScaler và 6 SafeAreaAdapter; truy xuất SerializedFile/Component/GO/RectTransform PathID và parent pointers để xác định Canvas ancestor **nếu có**. P2 tạo báo cáo gitignored `output/ref04-p2-canvas-il2cpp-runtime-source.json/.md`, **không đưa ra công thức runtime khi chưa chứng minh method body + viewport/device**.
+- **XAPK source P2 kiểm thử PASS** trên code SHA `1ebb8151` ở [Actions #38049435435](https://github.com/thanhtran2005isme-art/HaiTacDaiChien/actions/runs/38049435435): 1 native Canvas, 1 CanvasScaler, 6 SafeAreaAdapter, 7 PanelHome2* components trong cây, 8 PanelHome2* metadata types, 1 SafeAreaAdapter metadata type, 204 metadata method declarations trong các lớp được quét. Windows và Linux thành công; **0 thân hàm ARM64 hoặc công thức runtime được chứng minh**. **CI code mới nhất [Actions #38049542276](https://github.com/thanhtran2005isme-art/HaiTacDaiChien/actions/runs/38049542276) PASS** Linux/XAPK thật, Windows và P1 168/168 tại commit `8330bd84ceb7ed1caf5c19e33854c121b0559b06`; source-only Canvas/Scaler field evidence được lưu riêng trong báo cáo gitignored, **runtime formula vẫn BLOCKED**.
+- **P1 giữ nguyên:** 24/24 và 168/168 field nguồn đã verified; `sourceFieldValuesStillBlockedFromUnity=168`, `runtimeAlignmentProven=false`. P2 chưa thể kết luận pixel-perfect/đúng tọa độ runtime.
+
+
 ## REF04 P1 — CHỐT KIỂM CHỨNG 168/168 FIELD SERIALIZED (10/10/2026)
 
 **Trạng thái hiện tại:** 24/24 LayoutGroup REF04 và 168/168 field serialized đã được đối chiếu với hai TypeTree phát sinh độc lập bằng AssetStudio và AssetRipper trên XAPK gốc; `sourceFieldsMissingIndependentSchemaProof=0`. Mỗi bản ghi khớp Source Component/GameObject/RectTransform PathID, raw SHA-256 của toàn object, con trỏ MonoScript, field names/types/values, byte offsets/length/SHA-256, full-object consumption và IL2CPP original pair.

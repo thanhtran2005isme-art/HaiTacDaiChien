@@ -45,6 +45,42 @@ on:
       - 'tests/test_ref04_layout_schema_forensics.py'
       - 'tests/test_ref04_layout_third_backend.py'
       - 'tools/audit_ref04_step2_layout_canvas_text.py'
+      - 'tools/ref04_il2cpp_method_index_v31.py'
+      - 'tools/audit_ref04_p2_runtime_alignment.py'
+      - 'tools/ref04_p2_canvas_graph.py'
+      - 'tests/test_ref04_p2_canvas_graph.py'
+      - 'tools/ref04_arm64_elf_regions.py'
+      - 'tools/ref04_p2_native_method_candidates.py'
+      - 'tests/test_ref04_p2_native_method_candidates.py'
+      - 'tests/test_ref04_arm64_elf_regions.py'
+      - 'tools/audit_ref04_p3_text_localization.py'
+      - 'tools/probe_ref04_p3_original_font_objects.py'
+      - 'tools/probe_ref04_p3_localizer_binary.py'
+      - 'tools/audit_ref04_p4_text_logic.py'
+      - 'tools/audit_ref04_p5_source_integrity.py'
+      - 'tests/test_ref04_p5_source_integrity.py'
+      - 'tools/ref04_p6_runtime_evidence.py'
+      - 'tools/ref04_p6_runtime_capture.py'
+      - 'tests/test_ref04_p6_runtime_evidence.py'
+      - 'tools/ref04_p6_offline_ui_plan.py'
+      - 'tests/test_ref04_p6_offline_ui_plan.py'
+      - 'unity-ui-viewer/Assets/Editor/Ref04P6OfflineWorkspace.cs'
+      - 'tests/test_ref04_p6_unity_workspace_contract.py'
+      - 'unity-ui-viewer/Assets/Scripts/Ref04ClientViewportFit.cs'
+      - 'unity-ui-viewer/Assets/Editor/Ref04P62ClientSceneBuilder.cs'
+      - 'tests/test_ref04_p62_client_fit_contract.py'
+      - 'unity-ui-viewer/Assets/Scripts/Ref04ClientBackgroundCover.cs'
+      - 'tests/test_ref04_p62_background_cover_contract.py'
+      - 'unity-ui-viewer/Assets/Editor/Ref04P63IconLayoutAudit.cs'
+      - 'tests/test_ref04_p63_icon_source_audit_contract.py'
+      - 'docs/REF04_P6_RUNTIME_CAPTURE.md'
+      - 'docs/REF04_P6_OFFLINE_UNITY_BACKEND.md'
+      - 'tests/test_ref04_p4_text_logic.py'
+      - 'tests/test_ref04_p3_localizer_binary.py'
+      - 'tests/test_ref04_p3_original_font_objects.py'
+      - 'tests/test_ref04_p3_text_localization.py'
+      - 'tests/test_ref04_il2cpp_method_index_v31.py'
+      - 'tests/test_ref04_p2_runtime_alignment.py'
       - 'tests/test_ref04_step2_layout_canvas_text.py'
       - 'tools/probe_ref04_text_source_binary.py'
       - 'tests/test_ref04_text_source_binary.py'
@@ -391,6 +427,24 @@ jobs:
         run: python -m unittest discover -s tests -p test_ref04_layout_dual_schema_bytes.py -v
       - name: Verify REF04 LayoutGroup TypeTree schema forensics fail closed
         run: python -m unittest discover -s tests -p test_ref04_layout_schema_forensics.py -v
+      - name: Verify original IL2CPP v31 metadata method source ownership (P2)
+        run: python -m unittest discover -s tests -p test_ref04_il2cpp_method_index_v31.py -v
+      - name: Verify original AArch64 ELF code segment boundaries without fake method mapping (P2)
+        run: python -m unittest discover -s tests -p test_ref04_arm64_elf_regions.py -v
+      - name: Verify P2 native method candidates never masquerade as verified ARM64 code
+        run: python -m unittest discover -s tests -p test_ref04_p2_native_method_candidates.py -v
+      - name: Verify original I2 localizer term hash and source-backed schema guards (P3)
+        run: python -m unittest discover -s tests -p test_ref04_p3_localizer_binary.py -v
+      - name: Verify original Font source SHA pointers in same serialized file (P3)
+        run: python -m unittest discover -s tests -p test_ref04_p3_original_font_objects.py -v
+      - name: Verify P3 original Text fonts and source localization guards
+        run: python -m unittest discover -s tests -p test_ref04_p3_text_localization.py -v
+      - name: Verify P4 62-Text font and localization source graph refuses dynamic guesses
+        run: python -m unittest discover -s tests -p test_ref04_p4_text_logic.py -v
+      - name: Verify original Canvas/Scaler source graph (P2)
+        run: python -m unittest discover -s tests -p test_ref04_p2_canvas_graph.py -v
+      - name: Verify Canvas/SafeArea/PanelHome2 runtime evidence cannot be guessed (P2)
+        run: python -m unittest discover -s tests -p test_ref04_p2_runtime_alignment.py -v
       - name: Verify source-only Step 2 Canvas Text and LayoutGroup evidence
         run: python -m unittest discover -s tests -p test_ref04_step2_layout_canvas_text.py -v
       - name: Verify 62 Text source object bytes/font pointers guarded by XAPK provenance
@@ -647,6 +701,244 @@ jobs:
                 'source text strict probe attempted=',d['sourceTextBinaryProbeProvided'])
           PY
 
+      - name: Trace REF04 Canvas/CanvasScaler/SafeAreaAdapter/PanelHome2 IL2CPP metadata (P2 READ ONLY)
+        timeout-minutes: 8
+        run: |
+          python tools/audit_ref04_p2_runtime_alignment.py
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          p=json.loads(Path('output/ref04-p2-canvas-il2cpp-runtime-source.json').read_text(encoding='utf-8'))
+          assert p['classification']=='REF04_P2_CANVAS_SAFEAREA_PANELHOME2_SOURCE_TRACE_NO_RUNTIME_FORMULA'
+          assert p['counts']['Canvas']==1 and p['counts']['CanvasScaler']==1
+          assert p['sourceCanvasGraph']['classification']=='REF04_ORIGINAL_CANVAS_COMPONENT_PARENT_GRAPH_SOURCE_ONLY'
+          assert p['sourceCanvasGraph']['runtimeCanvasScaleFormula'] is None
+          assert p['sourceCanvasGraph']['runtimeSafeAreaPanelHome2Formula'] is None
+          assert p['sourceCanvasGraph']['runtimeLayoutProven'] is False
+          assert p['sourceCanvasGraph']['unityImportAllowed'] is False
+          assert p['counts']['SafeAreaAdapter']==6
+          assert p['counts']['layoutGroupSerializedFieldsTwoSchemaVerified']==168
+          assert all(row['unityImportAllowed'] is False and
+                     row['runtimeFormulaProven'] is False for row in p['sourceComponents'])
+          assert len(p['runtimeBlockers'])==4
+          assert p['runtimeAlignmentFormula'] is None and not p['runtimeAlignmentProven']
+          assert p['nativeFunctionPointerEvidence'] is None
+          assert p['sourceFieldApplicationAllowed'] is False
+          assert p['unityAssetsChanged'] is False and p['charactersOrSpineChanged'] is False
+          print('P2 original XAPK method TYPES:',p['counts']['metadataSafeAreaTypes'],
+                'safe area;',p['counts']['metadataPanelHome2Types'],
+                'PanelHome2; declarations=',p['counts']['metadataTargetMethods'])
+          print('P2 runtime formulas: BLOCKED until IL2CPP ARM64 method bodies are proven')
+          PY
+
+      - name: Trace P3 original 62 Text, font pointers and I2 localization metadata (NO runtime strings)
+        timeout-minutes: 8
+        run: |
+          python tools/audit_ref04_p3_text_localization.py
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          p=json.loads(Path('output/ref04-p3-text-font-localization-source.json').read_text(encoding='utf-8'))
+          assert p['classification']=='REF04_P3_ORIGINAL_TEXT_FONT_LOCALIZATION_SOURCE_ONLY'
+          assert p['sourceTextComponentsIndependentlyVerified']==62
+          assert p['sourceTextStringsIndependentlyVerified']==62
+          assert p['sourceTextFontPointersIndependentlyVerified']==62
+          assert p['sourceTextFieldsVerified'] is True
+          assert p['sourceLocalizationComponents']==52
+          assert p['uniqueOriginalFontPointerCount']==2
+          assert p['originalTextContentPublished'] is False
+          assert p['localizationKeyToTextBindingProven'] is False
+          assert p['runtimeTextAndLocalizationProven'] is False
+          assert p['runtimeFontRenderingProven'] is False
+          assert p['runtimePlacementProven'] is False
+          assert p['methodBodiesVerified']==0
+          assert p['unityImportAllowed'] is False
+          assert p['unityAssetsChanged'] is False
+          print('P3 original XAPK source:',p['sourceTextComponentsIndependentlyVerified'],
+                'dual-backend Text components;',
+                p['sourceTextStringsIndependentlyVerified'],'original m_Text fields;',
+                p['sourceTextFontPointersIndependentlyVerified'],'original m_Font fields;',
+                p['sourceLocalizationComponents'],'localization components;',
+                p['uniqueOriginalFontPointerCount'],'distinct source font pointers')
+          print('P3 source-verified localization components:',
+                p['sourceLocalizationComponentsWithDualBackendFields'],
+                'out of',p['sourceLocalizationComponents'])
+          print('P3 term-field-name candidate count:',sum(
+                len(row['sourceKeyOrTermFieldNameCandidates'])
+                for row in p['sourceLocalizationComponentsEvidence']))
+          print('P3 runtime text/localization/font: BLOCKED; no source strings printed')
+          PY
+
+      - name: Trace 52 original I2 localizer component serialized terms using two IL2CPP source schemas (P3)
+        timeout-minutes: 8
+        run: |
+          python tools/probe_ref04_p3_localizer_binary.py
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          d=json.loads(Path('output/ref04-p3-localizer-term-binary-probe.json').read_text(encoding='utf-8'))
+          assert d['classification']=='REF04_P3_ORIGINAL_I2_TERMS_TWO_GENERATOR_SOURCE_PROBE'
+          assert d['localizersChecked']==52
+          assert d['sourceTermValuesPublished'] is False
+          assert d['runtimeLanguageOrTranslationProven'] is False
+          assert d['localizerToTextTargetVerified'] is False
+          assert d['unityImportAllowed'] is False and d['unityAssetsChanged'] is False
+          print('P3 localizers:',d['localizersChecked'],
+                'verified term hashes:',d['sourceTermFieldsTwoBackendVerified'],
+                'source statuses:',d['sourceStatusCounts'])
+          PY
+
+      - name: Verify P3 original Font PPtrs against native Font source objects, no runtime assumptions
+        timeout-minutes: 6
+        run: |
+          python tools/probe_ref04_p3_original_font_objects.py
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          doc=json.loads(Path('output/ref04-p3-original-font-object-provenance.json').read_text(encoding='utf-8'))
+          assert doc['classification']=='REF04_P3_LOCAL_FONT_OBJECT_PROVENANCE_NO_RUNTIME_RENDER'
+          assert doc['originalFontPPtrReferences']==2
+          assert doc['originalLocalFontRawObjectsVerified'] + doc['originalExternalFontObjectsVerified'] == 2
+          assert doc['originalFontAssetIdentityFullyResolved'] is True
+          assert all(x.get('localOriginalFontObjectVerified') is True or
+                     x.get('externalOriginalFontObjectVerified') is True
+                     for x in doc['pointerResolutions'])
+          assert doc['runtimeFontRenderingProven'] is False
+          assert doc['runtimeGlyphMetricsProven'] is False
+          assert doc['unityAssetsChanged'] is False
+          assert doc['unityImportAllowed'] is False
+          print('Original Font native source verified',doc['originalLocalFontRawObjectsVerified'],
+                'of',doc['originalFontPPtrReferences'],'source pointers; runtime font BLOCKED')
+          PY
+
+      - name: Audit P4 original 62 Text through two Font sources and 52 I2 localizers
+        timeout-minutes: 3
+        run: |
+          python tools/audit_ref04_p4_text_logic.py
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          p=json.loads(Path('output/ref04-p4-62-text-logic-source-evidence.json').read_text(encoding='utf-8'))
+          assert p['classification']=='REF04_P4_TEXT_62_SOURCE_FONT_LOCALIZATION_DYNAMIC_EVIDENCE_ONLY'
+          assert p['sourceTextComponentsVerified']==62
+          assert p['sourceFontObjectsVerified']==2
+          assert p['sourceLocalizerComponentsChecked']==52
+          assert sum(row['originalTextComponentsReferencingFont'] for row in p['originalFontUsage'])==62
+          assert sum(p['sourceTextInitialStates'].values())==62
+          assert p['sourceIL2CPPMethodDeclarationHints']['sourceMethodDeclarationCount'] >= 0
+          assert p['sourceIL2CPPMethodDeclarationHints']['verifiedNativeFieldWriters']==0
+          assert all(row['runtimeTextFieldWriteProven'] is False
+                     for row in p['sourceIL2CPPMethodDeclarationHints']['sourceNameOnlyTextOrLocaleCandidates'])
+          assert p['runtimeDynamicTextWritersIndependentlyProven']==0
+          assert p['runtimeLocalizedAssignmentsIndependentlyProven']==0
+          assert p['runtimeTextLogicRecovered'] is False
+          assert p['runtimeFontRenderingProven'] is False
+          assert p['originalTextStringsPublished'] is False
+          assert p['unityImportAllowed'] is False
+          print('P4 strict source-only Text/Font/I2 matrix verified. Runtime dynamic assignments remain BLOCKED.')
+          PY
+
+      - name: P6.3 source-grounded icon ownership read-only evidence audit
+        run: python -m unittest discover -s tests -p test_ref04_p63_icon_source_audit_contract.py -v
+
+      - name: P6.2 client background fill only on backed-up new-client copy
+        run: python -m unittest discover -s tests -p test_ref04_p62_background_cover_contract.py -v
+
+      - name: P6.2 new Unity client viewport fit does not alter original studies
+        run: python -m unittest discover -s tests -p test_ref04_p62_client_fit_contract.py -v
+
+      - name: P6 Unity workspace source-only build and no-overwrite contract
+        run: python -m unittest discover -s tests -p test_ref04_p6_unity_workspace_contract.py -v
+
+      - name: P6 offline Unity UI source gap tests (original game server not required)
+        run: |
+          python -m unittest discover -s tests -p test_ref04_p6_offline_ui_plan.py -v
+        # Synthetic original-source fixtures test the offline gate, NOT a real live game.
+
+      - name: P6 reject fake ADB screenshots, stale P5 SHA and guessed runtime values
+        run: python -m unittest discover -s tests -p test_ref04_p6_runtime_evidence.py -v
+        # No Android device in CI. Synthetic fixtures never count as runtime proof.
+
+      - name: P5 audit exact REF04 P1-P4 provenance with no invented runtime coordinates
+        timeout-minutes: 4
+        run: |
+          python -m unittest discover -s tests -p test_ref04_p5_source_integrity.py -v
+          python tools/audit_ref04_p5_source_integrity.py
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          result=json.loads(Path('output/ref04-p5-cross-phase-source-integrity.json').read_text(encoding='utf-8'))
+          assert result['classification']=='REF04_P5_CROSS_PHASE_SOURCE_PROVENANCE_NO_RUNTIME_COORDINATES'
+          assert result['sourceCoverage']=={
+              'P1OriginalLayoutGroupFields':168,
+              'P2OriginalCanvasAndRelatedComponents':15,
+              'P2ComponentsWithOriginalRawSha': result['sourceCoverage']['P2ComponentsWithOriginalRawSha'],
+              'P2IdentityOnlyComponentsWithoutRawSha': result['sourceCoverage']['P2IdentityOnlyComponentsWithoutRawSha'],
+              'P2SourceFieldNamesExcludedWithoutRawSha': result['sourceCoverage']['P2SourceFieldNamesExcludedWithoutRawSha'],
+              'P4OriginalTextComponents':62,
+              'totalSourceProvenanceEntries':245,
+          }
+          assert len(result['fieldProvenance'])==168
+          assert result['sourceCoverage']['P2ComponentsWithOriginalRawSha'] + result['sourceCoverage']['P2IdentityOnlyComponentsWithoutRawSha'] == 15
+          assert sum(x['originalObjectByteProvenanceStatus'] ==
+                     'BLOCKED_RAW_OBJECT_SHA_UNAVAILABLE_IDENTITY_ONLY'
+                     for x in result['componentProvenance']) == result['sourceCoverage']['P2IdentityOnlyComponentsWithoutRawSha']
+          assert all(x['originalSerializedSourceValueProofAllowed'] is False
+                     for x in result['componentProvenance']
+                     if x['originalObjectByteProvenanceStatus'] ==
+                     'BLOCKED_RAW_OBJECT_SHA_UNAVAILABLE_IDENTITY_ONLY')
+          assert sum(len(x['unverifiedRecordedSourceFieldNames'])
+                     for x in result['componentProvenance']) == result['sourceCoverage']['P2SourceFieldNamesExcludedWithoutRawSha']
+          assert all(x['unverifiedRecordedSourceValuesExcluded'] ==
+                     bool(x['unverifiedRecordedSourceFieldNames'])
+                     for x in result['componentProvenance'])
+          assert len(result['componentProvenance'])==15
+          assert len(result['textProvenance'])==62
+          assert result['runtimeCoordinates'] is None
+          assert result['runtimeCanvasScale'] is None
+          assert result['runtimeSafeAreaFormula'] is None
+          assert result['runtimeTextPositions'] is None
+          assert result['assumedPreviewResolution1600x900'] is False
+          assert result['pixelPerfectUiProven'] is False
+          assert result['runtimeLayoutProven'] is False
+          assert result['unityImportAllowed'] is False
+          assert result['originalUiAssetsChanged'] is False
+          print('P5 source audit completed; ID-only SHA blockers retained; NO runtime proof:',
+                result['sourceCoverage'])
+          PY
+
+      - name: P6 independent-backend offline UI readiness from exact original XAPK source
+        run: |
+          python tools/ref04_p6_offline_ui_plan.py
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          r=json.loads(Path('output/ref04-p6-offline-ui-gaps.json').read_text(encoding='utf-8'))
+          c=r['counts']
+          assert r['classification']=='REF04_P6_OFFLINE_XAPK_TO_UNITY_SOURCE_GAP_AUDIT'
+          import hashlib
+          for key,name in (
+              ('p5ReportSha256','ref04-p5-cross-phase-source-integrity.json'),
+              ('inventoryReportSha256','ref04-full-source-inventory.json'),
+              ('geometryReportSha256','ref04-static-image-geometry.json'),
+          ):
+              assert r[key]==hashlib.sha256(Path('output',name).read_bytes()).hexdigest()
+          assert len(r['spriteGeometryAudit'])==265
+          assert c['spriteLinkedImages']==265
+          assert c['sourceGeometryVerified']+c['sourceGeometryBlocked']==265
+          assert c['allDualVerifiedImages']==299
+          assert c['verifiedImagesWithoutSourceSprite']==34
+          assert c['layoutSerializedFieldsTwoSchemaVerified']==168
+          assert c['originalTextSourceComponents']==62
+          assert r['requiresOriginalAndroidGameToRun'] is False
+          assert r['requiresOriginalGameServer'] is False
+          assert r['newBackendIsAuthoritativeForNewGameplay'] is True
+          assert r['originalXapkPixelPerfectMatchProven'] is False
+          assert r['runtimeCoordinates'] is None
+          assert r['unityAssetsChanged'] is False
+          print('P6 offline provenance accepted; Unity restoration and new backend work remain separate.')
+          PY
+
       - name: Classify all REF04 XAPK native Sprite rectangles against exported PNG dimensions
         run: |
           python tools/report_ref04_png_rect_mismatch.py
@@ -791,6 +1083,38 @@ jobs:
         run: python -m unittest discover -s tests -p test_ref04_layout_dual_schema_bytes.py -v
       - name: Verify REF04 source schema forensic guards on Windows
         run: python -m unittest discover -s tests -p test_ref04_layout_schema_forensics.py -v
+      - name: Verify original IL2CPP v31 metadata method ownership on Windows (P2)
+        run: python -m unittest discover -s tests -p test_ref04_il2cpp_method_index_v31.py -v
+      - name: Verify AArch64 ELF source code region bounds on Windows (P2)
+        run: python -m unittest discover -s tests -p test_ref04_arm64_elf_regions.py -v
+      - name: Verify P2 third-party native candidate validation on Windows
+        run: python -m unittest discover -s tests -p test_ref04_p2_native_method_candidates.py -v
+      - name: Verify P3 I2 localizer schema/hash source-only guards on Windows
+        run: python -m unittest discover -s tests -p test_ref04_p3_localizer_binary.py -v
+      - name: Verify original Font object pointer fail-closed logic on Windows (P3)
+        run: python -m unittest discover -s tests -p test_ref04_p3_original_font_objects.py -v
+      - name: Verify P3 source Text/localization/font honesty on Windows
+        run: python -m unittest discover -s tests -p test_ref04_p3_text_localization.py -v
+      - name: Verify P6.3 icon PathID/hero ownership audit remains read-only on Windows
+        run: python -m unittest discover -s tests -p test_ref04_p63_icon_source_audit_contract.py -v
+      - name: Verify P6.2 background cover safety on Windows
+        run: python -m unittest discover -s tests -p test_ref04_p62_background_cover_contract.py -v
+      - name: Verify P6.2 separate new-client viewport fit behavior on Windows
+        run: python -m unittest discover -s tests -p test_ref04_p62_client_fit_contract.py -v
+      - name: Verify P6 Unity study no-overwrite and source-only Editor workspace on Windows
+        run: python -m unittest discover -s tests -p test_ref04_p6_unity_workspace_contract.py -v
+      - name: Verify P6 offline source UI audit does not need discontinued game server on Windows
+        run: python -m unittest discover -s tests -p test_ref04_p6_offline_ui_plan.py -v
+      - name: Verify P6 ADB source-bound runtime screenshot guards on Windows
+        run: python -m unittest discover -s tests -p test_ref04_p6_runtime_evidence.py -v
+      - name: Verify P5 cross-phase source SHA/owner/byte-span/coordinate safety on Windows
+        run: python -m unittest discover -s tests -p test_ref04_p5_source_integrity.py -v
+      - name: Verify P4 62 Text font and I2 evidence cannot invent dynamic writers on Windows
+        run: python -m unittest discover -s tests -p test_ref04_p4_text_logic.py -v
+      - name: Verify original Canvas/Scaler source graph (P2) on Windows
+        run: python -m unittest discover -s tests -p test_ref04_p2_canvas_graph.py -v
+      - name: Verify P2 Canvas/SafeArea/PanelHome2 source-only runtime blockers on Windows
+        run: python -m unittest discover -s tests -p test_ref04_p2_runtime_alignment.py -v
       - name: Verify original Canvas Text Layout source-only field guards on Windows
         run: python -m unittest discover -s tests -p test_ref04_step2_layout_canvas_text.py -v
       - name: Verify original XAPK Text full strict parse and private string hash on Windows
