@@ -1,5 +1,14 @@
 # AI HANDOFF — Hải Tặc UI Viewer
 
+## P6.2 background/UI regression — existing new-client scene, 2026-10-11
+
+User's actual Game View screenshot confirmed P6.2 NEW_CLIENT_FIT_STUDY still displays almost identical incomplete UI to P6.1, but worse: black letterbox bands left/right and HUD disjoint from centered background. No characters Spine or dynamic Text. Root cause is code-proven: P6.2 only changes root CanvasScaler/viewport match and copies source Study content; the source `Background` subtree remains fixed native-size.
+
+Added `Ref04ClientBackgroundCover` (NEW_PROJECT_DESIGN) applying uniform max(widthFit,heightFit) scale to the **source-backed Background group** only, measured from largest active Sprite-backed Image; source Sprite pixels unchanged, may crop art. `Ref04P62ClientSceneBuilder.FixClientBackground()` is new, explicit operator action on EXISTING P6.2 editable client Scene, gated by P6 source SHA/P6.1 Study and valid Background/OriginalSerializedEvidence. It makes ONE preserved backup `REF04-home-crew_NEW_CLIENT_FIT_BEFORE_BACKGROUND.unity`, refuses repeat, and rollback restores client from backup if failure; no P6.1 Study or source assets touched. P6 workspace button 8 or Unity Source XAPK menu. Contract tests `tests/test_ref04_p62_background_cover_contract.py` added to CI, no Unity runtime result yet. User should pull and click button 8 once, send Game View/Console results.
+
+**Do NOT claim full UI fixed.** No Spine, font/text/localization, functional menus or backend recreated. Prior P6.2 user screenshot remains valid evidence of poor visual result and broken user expectation. New cover was not tested on actual Unity machine at last commit. PR7 Draft, no merge.
+
+
 ## P6.2 actual UI-visible change, not another source audit (2026-10-11)
 
 User reported REF04 P6.1 UI "still looks like main." This is substantiated: the P6.1 Study reused the native-bounds prefab with 1600x900 preview Canvas and did NOT implement responsive client layout, characters, Text or backend. Rather than misclaim full UI restoration, added an actual independent client-study Scene generated from the user's 299 Image / 503 RectTransform source-proven P6.1 Study:
