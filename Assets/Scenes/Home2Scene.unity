@@ -42777,6 +42777,12 @@ MonoBehaviour:
     resourcePath: prefabs/common/PopupChatNew
   - button: {fileID: 1743}
     resourcePath: prefabs/home/PopupMailBox
+  - button: {fileID: 1477}
+    resourcePath: prefabs/gameevent/PopupGameEvent
+  - button: {fileID: 1513}
+    resourcePath: prefabs/common/PopupNap
+  - button: {fileID: 1686}
+    resourcePath: prefabs/common/PopupNap
   toggleRoutes:
   - button: {fileID: 1444}
     target: {fileID: 117}
@@ -42784,4 +42790,62 @@ MonoBehaviour:
     target: {fileID: 117}
   - button: {fileID: 1555}
     target: {fileID: 134}
+  noticeRoutes:
+  - button: {fileID: 1453}
+    title: Boss thử nghiệm
+    message: Nút kiểm thử Boss chưa có dữ liệu trận đấu trong bản AssetRipper.
+  - button: {fileID: 1576}
+    title: Facebook
+    message: Thiếu liên kết fanpage và SDK Facebook từ ứng dụng gốc.
+  - button: {fileID: 1619}
+    title: Thành tựu
+    message: Chưa có dữ liệu thành tựu để hiển thị chính xác.
+  - button: {fileID: 1667}
+    title: Đi tới nhiệm vụ
+    message: Chưa khôi phục thông tin mục tiêu và trạng thái nhiệm vụ hiện tại.
+  - button: {fileID: 1705}
+    title: Đi tới nhiệm vụ
+    message: Chưa khôi phục thông tin mục tiêu và trạng thái nhiệm vụ hiện tại.
+  - button: {fileID: 1754}
+    title: Phần thưởng
+    message: Thiếu dữ liệu vật phẩm tương ứng với ô phần thưởng.
+  - button: {fileID: 1805}
+    title: Trang bị
+    message: Thiếu ItemEquipment được gán cho ô trang bị.
+  - button: {fileID: 1822}
+    title: Chi tiết tướng
+    message: Thiếu HeroModel được gán cho chân dung tướng.
+  - button: {fileID: 1831}
+    title: Bảo vật
+    message: Thiếu dữ liệu bảo vật được gán cho ô vật phẩm.
+  - button: {fileID: 1915}
+    title: Chi tiết tướng
+    message: Chưa có HeroModel của tướng đứng tại vị trí này.
+  - button: {fileID: 1916}
+    title: Chi tiết tướng
+    message: Chưa có HeroModel của tướng đứng tại vị trí này.
+  - button: {fileID: 1917}
+    title: Chi tiết tướng
+    message: Chưa có HeroModel của tướng đứng tại vị trí này.
+  - button: {fileID: 1918}
+    title: Chi tiết tướng
+    message: Chưa có HeroModel của tướng đứng tại vị trí này.
+  - button: {fileID: 1919}
+    title: Chi tiết tướng
+    message: Chưa có HeroModel của tướng đứng tại vị trí này.
+  - button: {fileID: 1920}
+    title: Chi tiết tướng
+    message: Chưa có HeroModel của tướng đứng tại vị trí này.
+  - button: {fileID: 1968}
+    title: Vật phẩm VIP
+    message: Thiếu dữ liệu vật phẩm VIP từ máy chủ gốc.
+  - button: {fileID: 1971}
+    title: Khung đại diện
+    message: Thiếu dữ liệu vật phẩm ảnh đại diện.
+  - button: {fileID: 2081}
+    title: Vật phẩm tiêu hao
+    message: Thiếu dữ liệu vật phẩm tiêu hao đã chọn.
+  - button: {fileID: 2115}
+    title: Mảnh ghép
+    message: Thiếu dữ liệu mảnh ghép được gán cho ô vật phẩm.
   homeScenePath: Assets/Scenes/Home2Scene.unity
