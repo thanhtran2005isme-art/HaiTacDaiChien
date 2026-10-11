@@ -45,6 +45,11 @@ namespace HaiTac.OfflineViewer
 
         private void OnEnable()
         {
+            // Unity domain reload does not preserve these nonserialized cache
+            // fields. Track the current existing design scene scale before
+            // doing any edit-time automatic resize.
+            if (sourceBackground != null)
+                lastAppliedScale = sourceBackground.localScale;
             lastWidth = -1;
             lastHeight = -1;
         }
