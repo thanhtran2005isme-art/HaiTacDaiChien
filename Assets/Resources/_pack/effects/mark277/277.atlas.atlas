@@ -1,0 +1,27 @@
+
+277.png
+size: 72,132
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+bodyqua1
+  rotate: true
+  xy: 41, 2
+  size: 94, 26
+  orig: 94, 26
+  offset: 0, 0
+  index: -1
+canh-qau1
+  rotate: true
+  xy: 2, 18
+  size: 78, 37
+  orig: 78, 37
+  offset: 0, 0
+  index: -1
+canhqua2
+  rotate: false
+  xy: 2, 98
+  size: 56, 31
+  orig: 56, 31
+  offset: 0, 0
+  index: -1

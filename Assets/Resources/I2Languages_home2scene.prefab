@@ -1,0 +1,430 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1709254077376921
+GameObject:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Component:
+  - component: {fileID: 4730242686860875}
+  - component: {fileID: 114724804207875695}
+  m_Layer: 0
+  m_Name: I2Languages_home2scene
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4730242686860875
+Transform:
+  serializedVersion: 2
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1709254077376921}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -0, z: -0}
+--- !u!114 &114724804207875695
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1709254077376921}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7554888af13e447d4982f6ad48f0af4b, type: 3}
+  m_Name:
+  m_EditorClassIdentifier:
+  mSource:
+    UserAgreesToHaveItOnTheScene: 1
+    UserAgreesToHaveItInsideThePluginsFolder: 0
+    GoogleLiveSyncIsUptoDate: 1
+    mTerms:
+    - Term: FONT
+      TermType: 1
+      Languages:
+      - Fonts/SVN-Titillium bold
+      - Fonts/SVN-Titillium bold
+      - Fonts/SVN-Titillium bold
+      - Fonts/SVN-Titillium bold
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_HOME_2_SCENE_ACHIEVEMENT
+      TermType: 0
+      Languages:
+      - Thành tựu
+      - Achieved
+      - ความสำเร็จ
+      - 成就
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_HOME_2_SCENE_ALTAR
+      TermType: 0
+      Languages:
+      - Huyết tế
+      - Altar
+      - ถอน
+      - 血祭
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_HOME_2_SCENE_BAG
+      TermType: 0
+      Languages:
+      - Túi đồ[i2s_Touch]Túi đồ
+      - Bag[i2s_Touch]Bag
+      - ถุงไอเทม[i2s_Touch]ถุงไอเทม
+      - 背包[i2s_Touch]背包
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_HOME_2_SCENE_BATTLE_SHIP
+      TermType: 0
+      Languages:
+      - Chiến hạm[i2s_Touch]Chiến hạm
+      - War Ship[i2s_Touch]War Ship
+      - เรือรบ[i2s_Touch]เรือรบ
+      - 戰船[i2s_Touch]戰船
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_HOME_2_SCENE_CHARACTER
+      TermType: 0
+      Languages:
+      - Tướng
+      - Heroes
+      - ฮีโร่
+      - 英雄
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_HOME_2_SCENE_CHAT
+      TermType: 0
+      Languages:
+      - Chat
+      - Chat
+      - แชท
+      - 聊天
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_HOME_2_SCENE_CHECK_IN
+      TermType: 0
+      Languages:
+      - Điểm danh
+      - Check in
+      - เช็คอิน
+      - 簽到
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_HOME_2_SCENE_DUTY
+      TermType: 0
+      Languages:
+      - Nhiệm vụ
+      - Quests
+      - ภารกิจ
+      - 任務
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_HOME_2_SCENE_EVENT
+      TermType: 0
+      Languages:
+      - Sự kiện
+      - Event
+      - อีเว้นท์
+      - 活動
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_HOME_2_SCENE_EXPERT
+      TermType: 0
+      Languages:
+      - Thông thạo
+      - Expert
+      - เชี่ยวชาญ
+      - 熟練
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_HOME_2_SCENE_EXPLORE
+      TermType: 0
+      Languages:
+      - Thám hiểm
+      - Adventure
+      - ผจญภัย
+      - 冒險
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_HOME_2_SCENE_FIRST_PURCHASE
+      TermType: 0
+      Languages:
+      - Nạp lần đầu
+      - First purchase
+      - เติมครั้งแรก
+      - 首次儲值
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_HOME_2_SCENE_FIRST_PURCHASE_2
+      TermType: 0
+      Languages:
+      - Nạp lần đầu tiên
+      - First purchase
+      - เติมครั้งแรก
+      - 首次儲值
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_HOME_2_SCENE_LUCKY_ROUND
+      TermType: 0
+      Languages:
+      - Vòng quay
+      - Lucky Spin
+      - วงล้อ
+      - 幸運轉盤
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_HOME_2_SCENE_RECRUIT
+      TermType: 0
+      Languages:
+      - Chiêu mộ
+      - Recruit
+      - อัญเชิญ
+      - 招募
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_HOME_2_SCENE_SENT_REQUEST_FRIEND
+      TermType: 0
+      Languages:
+      - Đã gửi kết bạn!
+      - Friend request has been sent!
+      - ส่งคำขอเป็นเพื่อนแล้ว!
+      - 已發送好友請求！
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_HOME_2_SCENE_SHOP
+      TermType: 0
+      Languages:
+      - Cửa hàng
+      - Shop
+      - ช็อป
+      - 商店
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_HOME_2_SCENE_SPECIAL_RECRUIT
+      TermType: 0
+      Languages:
+      - Chiêu mộ đăc biệt
+      - 'Exclusive Recruit '
+      - อัญเชิญพิเศษ
+      - 特殊招募
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_HOME_2_SCENE_STORE
+      TermType: 0
+      Languages:
+      - Tiệm đồ
+      - Enhance
+      - ร้านค้า
+      - 裝備店
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_HOME_2_SCENE_SUPPLEMENT
+      TermType: 0
+      Languages:
+      - Phụ bản
+      - Grand Line
+      - เสริม
+      - 副本
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_HOME_2_SCENE_TITILE_MAIL
+      TermType: 0
+      Languages:
+      - Hòm thư
+      - Mail Box
+      - กล่องจดหมาย
+      - 郵件箱
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_HOME_2_SCENE_TRAIN_HERO
+      TermType: 0
+      Languages:
+      - Luyện tướng
+      - Hero Fusion
+      - ฝึกฝนฮีโร่
+      - 英雄試煉
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_POPUP_CHANGE_AVATAR_IMAGE_HERO
+      TermType: 0
+      Languages:
+      - Ảnh tướng
+      - Image Hero
+      - รูปฮีโร่
+      - 英雄圖片
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_POPUP_CHANGE_AVATAR_TITLE_AVATAR
+      TermType: 0
+      Languages:
+      - Ảnh đại diện
+      - Avatar
+      - รูปโปรไฟล์
+      - 頭像
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_POPUP_CHANGE_AVATAR_TITLE_SPECIAL_IMAGE
+      TermType: 0
+      Languages:
+      - Ảnh đặc biệt
+      - Special Image
+      - รูปพิเศษ
+      - 特殊圖片
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_POPUP_CHAT_GROUP_FACEBOOK
+      TermType: 0
+      Languages:
+      - Nhóm Facebook
+      - Group facebook
+      - กลุ่ม Facebook
+      - Facebook群
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_POPUP_CHAT_RECRUIT
+      TermType: 0
+      Languages:
+      - Tuyển mộ
+      - Recruit
+      - อัญเชิญ
+      - 招募
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_POPUP_FRIEND_SEND_AND_QUICK_RECEIVE
+      TermType: 0
+      Languages:
+      - Gửi và nhận nhanh
+      - Send and Receive
+      - ส่งและรับ
+      - 一鍵發送和接收
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_POPUP_SHOP_TITLE_ALTAR
+      TermType: 0
+      Languages:
+      - Huyết tế
+      - Altar
+      - ถอน
+      - 血祭
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_POPUP_SHOP_TITLE_CASINO
+      TermType: 0
+      Languages:
+      - Vòng quay
+      - Lucky Spin
+      - วงล้อ
+      - 幸運轉盤
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_POPUP_SHOP_TITLE_MARKET
+      TermType: 0
+      Languages:
+      - Chợ đen
+      - Black Market
+      - ตลาดมืด
+      - 黑市
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MSG_POPUP_FRIEND_FIND_FRIEND
+      TermType: 0
+      Languages:
+      - Tìm bạn bè
+      - Find friend
+      - ค้นหาเพื่อน
+      - 搜尋好友
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MSG_POPUP_FRIEND_NO_FRIEND_FIND_ADD_FRIEND
+      TermType: 0
+      Languages:
+      - Chưa có bạn bè nào, hãy tìm và kết bạn thêm nhé?
+      - You have no friend, find and make new one?
+      - ยังไม่มีเพื่อน. ค้นหาและทำความรู้จักเพื่อน?
+      - 還沒有好友，請搜尋並添加好友！
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MSG_POPUP_MAIL_DELETE_ALL_MAIL
+      TermType: 0
+      Languages:
+      - Bạn có chắc chắn muốn xóa toàn bộ thư?
+      - Are you sure you want to delete All mails?
+      - คุณแน่ใจ จะลบจดหมายทั้งหมด?
+      - 您確定要將所有郵件刪除？
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MSG_POPUP_RENAME_LENGTH_SCREEN_NAME
+      TermType: 0
+      Languages:
+      - Tên người chơi phải trong khoảng 4-20 kí tự
+      - Player's name must be between 4-20 characters
+      - ชื่อผู้เล่นต้องมี 4-20 ตัวอักษร
+      - 玩家名字要有4-20字符
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MSG_POPUP_SHOP_ASK_REFRESH_SHOP
+      TermType: 0
+      Languages:
+      - Bạn có chắc muốn làm mới lại cửa hàng?
+      - Are you sure to refresh the store?
+      - คุณแน่ใจ จะรีเฟรชช็อปใหม่?
+      - 您確定要刷新商店？
+      Flags: 00000000
+      Languages_Touch: []
+    CaseInsensitiveTerms: 0
+    OnMissingTranslation: 1
+    mTerm_AppName:
+    mLanguages:
+    - Name: Vietnamese
+      Code: vi
+      Flags: 0
+    - Name: English
+      Code: en
+      Flags: 0
+    - Name: Thai
+      Code: th
+      Flags: 0
+    - Name: Chinese
+      Code: zh
+      Flags: 0
+    IgnoreDeviceLanguage: 0
+    _AllowUnloadingLanguages: 0
+    Google_WebServiceURL: https://script.google.com/a/k2tek.net/macros/s/AKfycbxGWq1zicj3HCr43BkJXwtRYOVSK1s-Zk7swHkaiw/exec
+    Google_SpreadsheetKey: 1VBjDrA3jxcX0TjIJI7t27S85U-WWvF1V8iV1eMm3-4w
+    Google_SpreadsheetName: I2Loc Hải Tặc Đại Chiến Assets/Scenes/LoginScene.unity I2Languages_home2scene
+    Google_LastUpdatedVersion: 1615795763269
+    GoogleUpdateFrequency: 1
+    GoogleInEditorCheckFrequency: 2
+    GoogleUpdateSynchronization: 1
+    GoogleUpdateDelay: 5
+    Assets: []
+  version: 1
+  NeverDestroy: 1
+  UserAgreesToHaveItOnTheScene: 1
+  UserAgreesToHaveItInsideThePluginsFolder: 0
+  GoogleLiveSyncIsUptoDate: 1
+  Assets: []
+  Google_WebServiceURL:
+  Google_SpreadsheetKey:
+  Google_SpreadsheetName:
+  Google_LastUpdatedVersion:
+  GoogleUpdateFrequency: 3
+  GoogleUpdateDelay: 5
+  mLanguages: []
+  IgnoreDeviceLanguage: 0
+  _AllowUnloadingLanguages: 0
+  mTerms: []
+  CaseInsensitiveTerms: 0
+  OnMissingTranslation: 1
+  mTerm_AppName:

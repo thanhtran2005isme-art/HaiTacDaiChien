@@ -1,0 +1,265 @@
+
+Skill_107_2.png
+size: 1012,956
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Char_ace_skill_3/000
+  rotate: true
+  xy: 943, 553
+  size: 111, 62
+  orig: 117, 69
+  offset: 4, 2
+  index: -1
+Char_ace_skill_3/002
+  rotate: false
+  xy: 297, 12
+  size: 121, 63
+  orig: 127, 72
+  offset: 4, 3
+  index: -1
+Char_ace_skill_3/006
+  rotate: true
+  xy: 918, 411
+  size: 117, 69
+  orig: 125, 75
+  offset: 5, 1
+  index: -1
+Char_ace_skill_3/010
+  rotate: true
+  xy: 894, 100
+  size: 123, 95
+  orig: 130, 102
+  offset: 5, 1
+  index: -1
+Char_ace_skill_3/012
+  rotate: true
+  xy: 475, 189
+  size: 144, 103
+  orig: 150, 111
+  offset: 4, 3
+  index: -1
+Char_ace_skill_3/014
+  rotate: false
+  xy: 148, 194
+  size: 151, 138
+  orig: 156, 144
+  offset: 2, 1
+  index: -1
+Char_ace_skill_3/016
+  rotate: false
+  xy: 145, 29
+  size: 150, 163
+  orig: 155, 169
+  offset: 2, 1
+  index: -1
+Char_ace_skill_3/018
+  rotate: true
+  xy: 580, 206
+  size: 154, 148
+  orig: 160, 157
+  offset: 4, 3
+  index: -1
+Char_ace_skill_3/020
+  rotate: false
+  xy: 730, 132
+  size: 162, 122
+  orig: 170, 128
+  offset: 5, 1
+  index: -1
+Char_ace_skill_3/021
+  rotate: false
+  xy: 730, 256
+  size: 162, 134
+  orig: 170, 142
+  offset: 5, 2
+  index: -1
+Char_ace_skill_3/022
+  rotate: false
+  xy: 461, 61
+  size: 145, 126
+  orig: 152, 135
+  offset: 4, 3
+  index: -1
+Char_ace_skill_3/024
+  rotate: false
+  xy: 728, 2
+  size: 154, 128
+  orig: 160, 137
+  offset: 4, 3
+  index: -1
+Char_ace_skill_3/028
+  rotate: false
+  xy: 301, 77
+  size: 158, 125
+  orig: 165, 132
+  offset: 5, 1
+  index: -1
+Char_ace_skill_3/030
+  rotate: true
+  xy: 608, 47
+  size: 157, 118
+  orig: 165, 125
+  offset: 5, 3
+  index: -1
+Char_ace_skill_3/033
+  rotate: false
+  xy: 296, 335
+  size: 139, 190
+  orig: 146, 196
+  offset: 4, 1
+  index: -1
+Char_ace_skill_3/035
+  rotate: false
+  xy: 148, 334
+  size: 146, 190
+  orig: 152, 197
+  offset: 4, 2
+  index: -1
+Char_ace_skill_3/037
+  rotate: false
+  xy: 142, 526
+  size: 151, 185
+  orig: 158, 193
+  offset: 4, 2
+  index: -1
+Char_ace_skill_3/039
+  rotate: false
+  xy: 578, 362
+  size: 150, 175
+  orig: 158, 184
+  offset: 5, 3
+  index: -1
+Char_ace_skill_3_hit/000
+  rotate: false
+  xy: 884, 38
+  size: 126, 60
+  orig: 130, 62
+  offset: 2, 0
+  index: -1
+Char_ace_skill_3_hit/002
+  rotate: true
+  xy: 894, 225
+  size: 165, 99
+  orig: 169, 101
+  offset: 2, 0
+  index: -1
+Char_ace_skill_3_hit/003
+  rotate: true
+  xy: 753, 666
+  size: 138, 226
+  orig: 142, 231
+  offset: 2, 2
+  index: -1
+Char_ace_skill_3_hit/005
+  rotate: true
+  xy: 528, 807
+  size: 144, 230
+  orig: 148, 235
+  offset: 2, 2
+  index: -1
+Char_ace_skill_3_hit/006
+  rotate: false
+  xy: 148, 721
+  size: 145, 230
+  orig: 148, 235
+  offset: 2, 2
+  index: -1
+Char_ace_skill_3_hit/007
+  rotate: true
+  xy: 295, 527
+  size: 138, 226
+  orig: 142, 231
+  offset: 2, 2
+  index: -1
+Char_ace_skill_3_hit/008
+  rotate: true
+  xy: 295, 667
+  size: 138, 227
+  orig: 142, 231
+  offset: 2, 1
+  index: -1
+Char_ace_skill_3_hit/009
+  rotate: true
+  xy: 295, 807
+  size: 144, 231
+  orig: 148, 235
+  offset: 2, 1
+  index: -1
+Char_ace_skill_3_hit/010
+  rotate: true
+  xy: 760, 806
+  size: 145, 230
+  orig: 148, 235
+  offset: 2, 2
+  index: -1
+Char_ace_skill_3_hit/011
+  rotate: false
+  xy: 2, 8
+  size: 141, 229
+  orig: 145, 233
+  offset: 3, 1
+  index: -1
+Char_ace_skill_3_hit/012
+  rotate: false
+  xy: 2, 471
+  size: 138, 240
+  orig: 142, 244
+  offset: 2, 1
+  index: -1
+Char_ace_skill_3_hit/013
+  rotate: false
+  xy: 2, 713
+  size: 144, 238
+  orig: 148, 243
+  offset: 2, 2
+  index: -1
+Char_ace_skill_3_hit/014
+  rotate: true
+  xy: 524, 667
+  size: 138, 227
+  orig: 142, 231
+  offset: 2, 1
+  index: -1
+Char_ace_skill_3_hit/016
+  rotate: false
+  xy: 2, 239
+  size: 144, 230
+  orig: 148, 235
+  offset: 2, 2
+  index: -1
+Char_ace_skill_3_hit/017
+  rotate: true
+  xy: 523, 539
+  size: 126, 223
+  orig: 133, 227
+  offset: 4, 2
+  index: -1
+Char_ace_skill_3_hit/020
+  rotate: true
+  xy: 748, 530
+  size: 134, 193
+  orig: 140, 200
+  offset: 4, 2
+  index: -1
+Char_ace_skill_3_hit/022
+  rotate: false
+  xy: 437, 335
+  size: 139, 190
+  orig: 146, 197
+  offset: 4, 2
+  index: -1
+Char_ace_skill_3_hit/024
+  rotate: true
+  xy: 730, 392
+  size: 136, 186
+  orig: 142, 193
+  offset: 4, 1
+  index: -1
+Char_ace_skill_3_hit/026
+  rotate: true
+  xy: 301, 204
+  size: 129, 172
+  orig: 135, 183
+  offset: 4, 5
+  index: -1

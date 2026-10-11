@@ -1,0 +1,13 @@
+
+279.png
+size: 76,84
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+spark copy
+  rotate: false
+  xy: 2, 2
+  size: 70, 80
+  orig: 72, 80
+  offset: 1, 0
+  index: -1

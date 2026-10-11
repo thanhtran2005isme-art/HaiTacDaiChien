@@ -1,0 +1,90 @@
+
+Soul.png
+size: 352,853
+format: RGBA4444
+filter: Linear,Linear
+repeat: none
+Eye
+  rotate: false
+  xy: 97, 80
+  size: 40, 15
+  orig: 41, 15
+  offset: 1, 0
+  index: -1
+Fire01
+  rotate: true
+  xy: 2, 706
+  size: 145, 183
+  orig: 157, 190
+  offset: 7, 5
+  index: -1
+Fire02
+  rotate: true
+  xy: 2, 404
+  size: 145, 179
+  orig: 157, 186
+  offset: 7, 5
+  index: -1
+Fire03
+  rotate: true
+  xy: 2, 97
+  size: 145, 174
+  orig: 157, 181
+  offset: 7, 5
+  index: -1
+Fire04
+  rotate: true
+  xy: 178, 27
+  size: 154, 172
+  orig: 162, 179
+  offset: 3, 5
+  index: -1
+Fire05
+  rotate: false
+  xy: 180, 183
+  size: 156, 172
+  orig: 163, 179
+  offset: 2, 5
+  index: -1
+Fire07
+  rotate: false
+  xy: 183, 357
+  size: 159, 159
+  orig: 166, 165
+  offset: 2, 5
+  index: -1
+Fire08
+  rotate: false
+  xy: 184, 518
+  size: 162, 162
+  orig: 169, 169
+  offset: 2, 5
+  index: -1
+Fire09
+  rotate: false
+  xy: 187, 682
+  size: 162, 169
+  orig: 170, 176
+  offset: 3, 5
+  index: -1
+Fire10
+  rotate: true
+  xy: 2, 244
+  size: 158, 176
+  orig: 165, 182
+  offset: 2, 4
+  index: -1
+Fire11
+  rotate: true
+  xy: 2, 551
+  size: 153, 180
+  orig: 160, 186
+  offset: 2, 5
+  index: -1
+Head
+  rotate: false
+  xy: 2, 2
+  size: 93, 93
+  orig: 95, 100
+  offset: 1, 6
+  index: -1

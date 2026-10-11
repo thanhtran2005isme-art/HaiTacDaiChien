@@ -1,0 +1,41 @@
+
+minion6.png
+size: 112,60
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+body
+  rotate: true
+  xy: 2, 4
+  size: 53, 52
+  orig: 53, 52
+  offset: 0, 0
+  index: -1
+eye
+  rotate: false
+  xy: 90, 2
+  size: 10, 10
+  orig: 10, 10
+  offset: 0, 0
+  index: -1
+eye_bow
+  rotate: true
+  xy: 90, 38
+  size: 19, 18
+  orig: 19, 18
+  offset: 0, 0
+  index: -1
+line
+  rotate: false
+  xy: 90, 14
+  size: 9, 22
+  orig: 9, 22
+  offset: 0, 0
+  index: -1
+shadow
+  rotate: true
+  xy: 56, 5
+  size: 52, 32
+  orig: 52, 32
+  offset: 0, 0
+  index: -1

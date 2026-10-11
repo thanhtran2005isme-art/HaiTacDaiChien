@@ -1,0 +1,178 @@
+
+Skill_113.png
+size: 992,904
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Char_Rayleigh_skill1_jian_baozha/000
+  rotate: true
+  xy: 142, 785
+  size: 115, 313
+  orig: 121, 324
+  offset: 4, 1
+  index: -1
+Char_Rayleigh_skill1_jian_baozha/001
+  rotate: true
+  xy: 457, 778
+  size: 122, 329
+  orig: 128, 342
+  offset: 5, 1
+  index: -1
+Char_Rayleigh_skill1_jian_baozha/002
+  rotate: true
+  xy: 2, 657
+  size: 126, 342
+  orig: 134, 359
+  offset: 7, 1
+  index: -1
+Char_Rayleigh_skill1_jian_baozha/010
+  rotate: false
+  xy: 565, 66
+  size: 364, 266
+  orig: 368, 270
+  offset: 3, 2
+  index: -1
+Char_Rayleigh_skill1_jian_baozha/011
+  rotate: true
+  xy: 788, 593
+  size: 307, 199
+  orig: 312, 202
+  offset: 3, 1
+  index: -1
+Char_Rayleigh_skill1_jian_baozha/015
+  rotate: true
+  xy: 346, 533
+  size: 243, 321
+  orig: 268, 339
+  offset: 7, 4
+  index: -1
+Char_Rayleigh_skill1_jian_baozha/016
+  rotate: true
+  xy: 2, 408
+  size: 247, 289
+  orig: 259, 308
+  offset: 7, 2
+  index: -1
+Char_Rayleigh_skill1_jian_baozha/017
+  rotate: true
+  xy: 669, 334
+  size: 257, 281
+  orig: 268, 302
+  offset: 6, 3
+  index: -1
+Char_Rayleigh_skill1_jian_baozha/018
+  rotate: true
+  xy: 2, 143
+  size: 263, 277
+  orig: 274, 300
+  offset: 7, 1
+  index: -1
+Char_Rayleigh_skill1_jian_baozha/019
+  rotate: true
+  xy: 281, 2
+  size: 266, 274
+  orig: 276, 302
+  offset: 7, 2
+  index: -1
+Char_Rayleigh_skill1_jian_baozha/020
+  rotate: true
+  xy: 293, 270
+  size: 261, 270
+  orig: 273, 293
+  offset: 8, 3
+  index: -1
+Char_Rayleigh_skill1_jian_baozha/021
+  rotate: true
+  xy: 2, 837
+  size: 63, 138
+  orig: 74, 162
+  offset: 7, 6
+  index: -1
+
+Skill_1132.png
+size: 864,892
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Char_Rayleigh_skill1_jian_baozha/004
+  rotate: true
+  xy: 367, 2
+  size: 299, 433
+  orig: 307, 444
+  offset: 5, 2
+  index: -1
+Char_Rayleigh_skill1_jian_baozha/005
+  rotate: true
+  xy: 512, 598
+  size: 292, 349
+  orig: 298, 363
+  offset: 3, 3
+  index: -1
+Char_Rayleigh_skill1_jian_baozha/007
+  rotate: true
+  xy: 382, 303
+  size: 293, 355
+  orig: 298, 370
+  offset: 4, 1
+  index: -1
+Char_Rayleigh_skill1_jian_baozha/009
+  rotate: false
+  xy: 2, 3
+  size: 363, 309
+  orig: 368, 315
+  offset: 4, 3
+  index: -1
+Char_Rayleigh_skill1_jian_baozha/012
+  rotate: true
+  xy: 2, 314
+  size: 292, 378
+  orig: 295, 383
+  offset: 2, 2
+  index: -1
+Char_Rayleigh_skill1_jian_baozha/014
+  rotate: true
+  xy: 2, 608
+  size: 282, 508
+  orig: 293, 527
+  offset: 7, 3
+  index: -1
+
+Skill_1133.png
+size: 988,680
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Char_Rayleigh_skill1_jian_baozha/003
+  rotate: true
+  xy: 558, 343
+  size: 335, 428
+  orig: 342, 440
+  offset: 4, 3
+  index: -1
+Char_Rayleigh_skill1_jian_baozha/006
+  rotate: true
+  xy: 2, 352
+  size: 326, 554
+  orig: 333, 566
+  offset: 3, 2
+  index: -1
+Char_Rayleigh_skill1_jian_baozha/008
+  rotate: false
+  xy: 2, 2
+  size: 351, 348
+  orig: 359, 351
+  offset: 4, 1
+  index: -1
+
+Skill_1134.png
+size: 476,712
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Char_Rayleigh_skill1_jian_baozha/013
+  rotate: false
+  xy: 2, 2
+  size: 471, 705
+  orig: 479, 717
+  offset: 5, 1
+  index: -1

@@ -1,0 +1,340 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1709254077376921
+GameObject:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Component:
+  - component: {fileID: 4730242686860875}
+  - component: {fileID: 114724804207875695}
+  m_Layer: 0
+  m_Name: I2Languages_bravetrial
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4730242686860875
+Transform:
+  serializedVersion: 2
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1709254077376921}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -0, z: -0}
+--- !u!114 &114724804207875695
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1709254077376921}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7554888af13e447d4982f6ad48f0af4b, type: 3}
+  m_Name:
+  m_EditorClassIdentifier:
+  mSource:
+    UserAgreesToHaveItOnTheScene: 1
+    UserAgreesToHaveItInsideThePluginsFolder: 0
+    GoogleLiveSyncIsUptoDate: 1
+    mTerms:
+    - Term: FONT
+      TermType: 1
+      Languages:
+      - Fonts/SVN-Titillium bold
+      - Fonts/SVN-Titillium bold
+      - Fonts/SVN-Titillium bold
+      - Fonts/SVN-Titillium bold
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_BLESSING
+      TermType: 0
+      Languages:
+      - Cường hóa
+      - Blessing
+      - แปลงร่าง
+      - 強化
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_BRAVE_TRIAL_CHEST_LEVEL
+      TermType: 0
+      Languages:
+      - Rương cấp
+      - Chest level
+      - หีบเลเวล
+      - 1級寶箱
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_BRAVE_TRIAL_CHEST_LEVEL_2
+      TermType: 0
+      Languages:
+      - Rương cấp 2
+      - Chest level 2
+      - หีบเลเวล 2
+      - 2級寶箱
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_BRAVE_TRIAL_CHEST_LEVEL_3
+      TermType: 0
+      Languages:
+      - Rương cấp 3
+      - Chest level 3
+      - หีบเลเวล 3
+      - 3級寶箱
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_BRAVE_TRIAL_OPEN_CHEST
+      TermType: 0
+      Languages:
+      - Mở rương
+      - Open chest
+      - เปิดหีบ
+      - 打開寶箱
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_BRAVE_TRIAL_TITLE_RAGE
+      TermType: 0
+      Languages:
+      - Cuồng nộ
+      - Rage
+      - โกรธ
+      - 狂怒
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_BRAVE_TRIAL_TITLE_ROCK
+      TermType: 0
+      Languages:
+      - Đá tảng
+      - Rock
+      - หิน
+      - 礎石
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_BRAVE_TRIAL_TITLE_STORM
+      TermType: 0
+      Languages:
+      - Bão tố
+      - Storm
+      - พายุ
+      - 暴風
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_BRAVE_TRIAL_TREASURE_CHEST
+      TermType: 0
+      Languages:
+      - Rương đồ
+      - Treasure chest
+      - หีบไอเทม
+      - 物品寶箱
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_HEALING
+      TermType: 0
+      Languages:
+      - Hồi máu
+      - Healing
+      - รักษา
+      - 回血
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_POPUP_ALTAR_OF_TRIAL_TITLE
+      TermType: 0
+      Languages:
+      - Tế đàn
+      - Altar
+      - แท่นบูชา
+      - 祭壇
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_REVIVAL
+      TermType: 0
+      Languages:
+      - Hồi sinh
+      - Revival
+      - การฟื้นฟู
+      - 復活
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MSG_BRAVE_TRIAL_SCENE_CHECK_OPEN_ALSTAR_OF_TRIAL
+      TermType: 0
+      Languages:
+      - Hoàn thành màn 6 để mở khóa Tế đàn
+      - Complete level 6 to unlock the altar
+      - สำเร็จเลเวล 6 เพื่อปลดล็อคแท่นบูชา
+      - 完成第6關進行解鎖祭壇功能
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MSG_BRAVE_TRIAL_SCENE_INFO_RAGE_1
+      TermType: 0
+      Languages:
+      - Với mỗi cấp độ phước lành, tấn công của đội tăng thêm 20%(chỉ có ở trận kế tiếp)
+      - For each level of blessing, team's attack increases by 20% (next match only)
+      - กับทุกๆเลเวลขอพร, การโจมตีของทีมเพิ่มขึ้น 20%( ในการแข่งขันครั้งต่อไปเท่านั้น)
+      - 隨著每級祝福，隊伍的攻擊會增加20%（只能在下一場生效）
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MSG_BRAVE_TRIAL_SCENE_INFO_RAGE_2
+      TermType: 0
+      Languages:
+      - Phước lành tế đàn chỉ kích hoạt trong trận đấu kế tiếp. Khi trận đấu kết thúc, nó sẽ biến mất
+      - The altar blessing will only activate during the next match.
+      - การขอพรแท่นบูชาจะเปิดใช้งานในแมตช์ต่อไปเท่านั้น. เมื่อการแข่งขันเสร็จสิ้น, มันจะหายไป
+      - 祭壇祝福只能在下一場激活。戰鬥結束後祭壇祝福會消失。
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MSG_BRAVE_TRIAL_SCENE_INFO_ROCK_1
+      TermType: 0
+      Languages:
+      - Với mỗi cấp độ phước lành, HP tối đa của đội tăng thêm 30% (chỉ có ở trận đấu kế tiếp)
+      - For each level of blessing, the team's maximum HP increases by 30% (next match only)
+      - กับทุกๆเลเวลขอพร, HP มากสุดของทีมเพี่มขื้น 30%( ในการแข่งขันครั้งต่อไปเท่านั้น)
+      - 隨著每級祝福，隊伍的最大生命值增加30%（只能在下一場生效）
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MSG_BRAVE_TRIAL_SCENE_INFO_ROCK_2
+      TermType: 0
+      Languages:
+      - Phước lành tế đàn chỉ kích hoạt trong trận đấu kế tiếp. Khi trận đấu kết thúc, nó sẽ biến mất
+      - The altar blessing will only activate during the next match.
+      - การขอพรแท่นบูชาจะเปิดใช้งานในแมตช์ต่อไปเท่านั้น. เมื่อการแข่งขันเสร็จสิ้น, มันจะหายไป
+      - 祭壇祝福只能在下一場激活。戰鬥結束後祭壇祝福會消失。
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MSG_BRAVE_TRIAL_SCENE_INFO_STORM_1
+      TermType: 0
+      Languages:
+      - Với mỗi cấp độ phước lành, tốc độ của đội tăng thêm 50(chỉ có ở trận kế tiếp)
+      - For each level of blessing, the team's speed increases by 50 (next match only)
+      - กับทุกๆเลเวลขอพร, ความเร็วของทีมเพิ่มขึ้น 50( ในการแข่งขันครั้งต่อไปเท่านั้น)
+      - 隨著每級祝福，隊伍的速度增加50（只能在下一場生效）
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MSG_BRAVE_TRIAL_SCENE_INFO_STORM_2
+      TermType: 0
+      Languages:
+      - Phước lành tế đàn chỉ kích hoạt trong trận đấu kế tiếp. Khi trận đấu kết thúc, nó sẽ biến mất
+      - The altar blessing will only activate during the next match.
+      - การขอพรแท่นบูชาจะเปิดใช้งานในแมตช์ต่อไปเท่านั้น. เมื่อการแข่งขันเสร็จสิ้น, มันจะหายไป
+      - 祭壇祝福只能在下一場激活。戰鬥結束後祭壇祝福會消失。
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MSG_POPUP_IDLOL_OF_BLESSING_DESC_RAGE
+      TermType: 0
+      Languages:
+      - Với mỗi cấp độ cường hóa, tấn công của đội tăng thêm 20% (chỉ có ở trận đấu kế tiếp)
+      - With each enhancement level, team attack increases by 20% (next match only)
+      - กับทุกๆเลเวลแปลงร่าง,การ โจมตีของทีมเพิ่มขึ้น 20%( ในการแข่งขันครั้งต่อไปเท่านั้น)
+      - 隨著每級強化，隊伍的攻擊增加20%（只能在下一場生效）
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MSG_POPUP_IDOL_OFBLESSING_DESC_STORM
+      TermType: 0
+      Languages:
+      - Với mỗi cấp độ cường hóa, tốc độ tăng thêm 50% (chỉ có ở trận đấu kế tiếp)
+      - With each enhancement level, the speed increases by 50% (next match only)
+      - กับทุกๆเลเวลแปลงร่าง, ความเร็วเพิ่มขึ้น 50%( ในการแข่งขันครั้งต่อไปเท่านั้น)
+      - 隨著每級強化，速度增加50%（只能在下一場生效）
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MSG_POPUP_IDOL_OF_BLESSING_DESC_NOTE
+      TermType: 0
+      Languages:
+      - Bạn có thể nhận một cường hóa ngẫu nhiên từ danh sách ở trên (kích hoạt trong trận đấu tiếp theo, có thể cộng dồn)
+      - You can get a random boost from the list above (trigger in next match, stackable)
+      - คุณสามารถได้รับหนึ่งการแปลงร่างแบบสุ่ม จากรายชื่อด้านบน ( เปิดใช้งานในแมตช์ต่อไป, สามารถสะสม)
+      - 你可以從以上的列表中隨機獲得一個強化（在下一場激活，可疊加）
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MSG_POPUP_IDOL_OF_BLESSING_DESC_ROCK
+      TermType: 0
+      Languages:
+      - Với mỗi cấp độ cường hóa, HP tối đa tăng thêm 30% (chỉ có ở trận đấu kế tiếp)
+      - With each enhancement level, maximum HP increases by 30% (next match only)
+      - กับทุกๆเลเวลแปลงร่าง, HP มากสุดเพี่มขื้น 30%( ในการแข่งขันครั้งต่อไปเท่านั้น)
+      - 隨著每級強化，生命值最大增加30%（只能在下一場生效）
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MSG_POPUP_IDOL_OF_HEALING_NOTIFY_NO_HERO
+      TermType: 0
+      Languages:
+      - Tuyệt vời, hiện tại chưa có anh hùng nào cần hồi máu.
+      - Great, currently there is no hero that needs healing.
+      - ดีมาก, ปัจจุบันไม่มีฮีโร่ต้องรักษา.
+      - 太棒了，目前沒有任何英雄需要回血。
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MSG_POPUP_IDOL_OF_REVIVAL_NOTIFY_NO_HERO
+      TermType: 0
+      Languages:
+      - Tuyệt vời, hiện tại chưa có anh hùng nào cần hồi sinh.
+      - Great, currently there is no hero that needs to be resurrected.
+      - ดีมาก, ปัจจุบันไม่มีฮีโร่ต้องฟื้นฟู.
+      - 太棒了，目前沒有任何英雄需要復活。
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MSG_POPUP_TRIAL_CHEST_DESC
+      TermType: 0
+      Languages:
+      - Sau mỗi 3 màn chơi được hoàn thành, bạn nhận được một rương thử thách ngẫu nhiên. Bạn cần giấy sinh mệnh để mở nó
+      - For every 3 stages are cleared, you will obtain a chest and an extra phase reward.
+      - หลังจากทุกๆ 3 สนามได้เสร็จสิ้น, คุณจะได้รับ 1 หีบท้าทายแบบสุ่ม.
+      - 每完成3個關卡，您可獲得1個隨機挑戰寶箱。您要用生命卷來打開。
+      Flags: 00000000
+      Languages_Touch: []
+    CaseInsensitiveTerms: 0
+    OnMissingTranslation: 1
+    mTerm_AppName:
+    mLanguages:
+    - Name: Vietnamese
+      Code: vi
+      Flags: 0
+    - Name: English
+      Code: en
+      Flags: 0
+    - Name: Thai
+      Code: th
+      Flags: 0
+    - Name: Chinese
+      Code: zh
+      Flags: 0
+    IgnoreDeviceLanguage: 0
+    _AllowUnloadingLanguages: 0
+    Google_WebServiceURL: https://script.google.com/a/k2tek.net/macros/s/AKfycbwnK_fhVcLFTPouNAcKkJAoeIYzHhdsN-mHXxyKOA/exec
+    Google_SpreadsheetKey: 1UVrxLnU9xEyoLqJO5Eq6I-s8cyLagbi249xm_sEUFCo
+    Google_SpreadsheetName: I2Loc Hải Tặc Đại Chiến Assets/Scenes/LoginScene.unity I2Languages_bravetrial
+    Google_LastUpdatedVersion: 1615781075134
+    GoogleUpdateFrequency: 1
+    GoogleInEditorCheckFrequency: 2
+    GoogleUpdateSynchronization: 1
+    GoogleUpdateDelay: 5
+    Assets: []
+  version: 1
+  NeverDestroy: 1
+  UserAgreesToHaveItOnTheScene: 1
+  UserAgreesToHaveItInsideThePluginsFolder: 0
+  GoogleLiveSyncIsUptoDate: 1
+  Assets: []
+  Google_WebServiceURL:
+  Google_SpreadsheetKey:
+  Google_SpreadsheetName:
+  Google_LastUpdatedVersion:
+  GoogleUpdateFrequency: 3
+  GoogleUpdateDelay: 5
+  mLanguages: []
+  IgnoreDeviceLanguage: 0
+  _AllowUnloadingLanguages: 0
+  mTerms: []
+  CaseInsensitiveTerms: 0
+  OnMissingTranslation: 1
+  mTerm_AppName:

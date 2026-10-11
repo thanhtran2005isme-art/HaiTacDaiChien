@@ -1,0 +1,10 @@
+public enum LineupType
+{
+	CAMPAIGN = 1,
+	FRIEND = 2,
+	CELESTIAL = 3,
+	GUILD_BOSS = 4,
+	ARENA_CRYSTAL = 5,
+	ARENA_TRIAL_CHAMPION = 6,
+	ARENA_ALL_STARS_LEAGUE = 7
+}

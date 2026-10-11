@@ -1,0 +1,34 @@
+
+Arrow_141.png
+size: 372,308
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+001
+  rotate: false
+  xy: 2, 2
+  size: 187, 150
+  orig: 192, 155
+  offset: 3, 2
+  index: -1
+002
+  rotate: false
+  xy: 2, 154
+  size: 191, 150
+  orig: 195, 155
+  offset: 2, 2
+  index: -1
+003
+  rotate: false
+  xy: 195, 153
+  size: 174, 151
+  orig: 177, 157
+  offset: 2, 3
+  index: -1
+004
+  rotate: false
+  xy: 191, 2
+  size: 175, 149
+  orig: 179, 154
+  offset: 2, 2
+  index: -1

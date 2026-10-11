@@ -1,0 +1,34 @@
+
+Arrow_150.png
+size: 284,80
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Char_kizaru_skill_2_light/000
+  rotate: false
+  xy: 2, 40
+  size: 140, 37
+  orig: 142, 42
+  offset: 2, 1
+  index: -1
+Char_kizaru_skill_2_light/001
+  rotate: false
+  xy: 144, 41
+  size: 138, 36
+  orig: 140, 43
+  offset: 2, 2
+  index: -1
+Char_kizaru_skill_2_light/002
+  rotate: false
+  xy: 145, 2
+  size: 134, 37
+  orig: 136, 42
+  offset: 2, 1
+  index: -1
+Char_kizaru_skill_2_light/003
+  rotate: false
+  xy: 2, 2
+  size: 141, 36
+  orig: 143, 42
+  offset: 2, 2
+  index: -1

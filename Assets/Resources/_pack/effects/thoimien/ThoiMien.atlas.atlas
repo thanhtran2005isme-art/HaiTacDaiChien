@@ -1,0 +1,48 @@
+
+ThoiMien.png
+size: 336,96
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Group 1
+  rotate: false
+  xy: 200, 15
+  size: 79, 79
+  orig: 79, 79
+  offset: 0, 0
+  index: -1
+Layer 1
+  rotate: false
+  xy: 2, 7
+  size: 99, 87
+  orig: 99, 87
+  offset: 0, 0
+  index: -1
+Layer 3
+  rotate: false
+  xy: 281, 44
+  size: 50, 50
+  orig: 50, 50
+  offset: 0, 0
+  index: -1
+Layer 4
+  rotate: false
+  xy: 281, 2
+  size: 40, 40
+  orig: 40, 40
+  offset: 0, 0
+  index: -1
+Layer 5
+  rotate: false
+  xy: 103, 24
+  size: 95, 70
+  orig: 95, 76
+  offset: 0, 3
+  index: -1
+glow_1007
+  rotate: false
+  xy: 103, 11
+  size: 11, 11
+  orig: 13, 13
+  offset: 1, 1
+  index: -1

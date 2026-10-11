@@ -1,0 +1,58 @@
+[
+ {
+   "spine_id": 232,
+   "name": "Binh nhì",
+   "base_atk": 25,
+   "base_hp": 250,
+   "base_speed": 10,
+   "cost_unlock": 0
+ },
+ {
+   "spine_id": 229,
+   "name": "Binh nhất ",
+   "base_atk": 30,
+   "base_hp": 280,
+   "base_speed": 12,
+   "cost_unlock": 500
+ },
+ {
+   "spine_id": 231,
+   "name": "Hạ sĩ ",
+   "base_atk": 35,
+   "base_hp": 340,
+   "base_speed": 14,
+   "cost_unlock": 500
+ },
+ {
+   "spine_id": 233,
+   "name": "Thượng sĩ",
+   "base_atk": 10,
+   "base_hp": 600,
+   "base_speed": 18,
+   "cost_unlock": 2000
+ },
+ {
+   "spine_id": 238,
+   "name": "Trung úy",
+   "base_atk": 80,
+   "base_hp": 800,
+   "base_speed": 20,
+   "cost_unlock": 5000
+ },
+ {
+   "spine_id": 239,
+   "name": "Đại tá ",
+   "base_atk": 100,
+   "base_hp": 1000,
+   "base_speed": 22,
+   "cost_unlock": 10000
+ },
+ {
+   "spine_id": 240,
+   "name": "Đô đốc",
+   "base_atk": 120,
+   "base_hp": 1500,
+   "base_speed": 24,
+   "cost_unlock": 20000
+ }
+]

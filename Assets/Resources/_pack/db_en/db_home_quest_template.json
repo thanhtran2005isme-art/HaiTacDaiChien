@@ -1,0 +1,42 @@
+[
+ {
+   "type": 1,
+   "desc": "Pass Magic Bean level {0}"
+ },
+ {
+   "type": 2,
+   "desc": "Own {0} crew member(s) at level {1}"
+ },
+ {
+   "type": 3,
+   "desc": "Pass stage {0} in Adventure"
+ },
+ {
+   "type": 4,
+   "desc": "Player's level reachs {0}"
+ },
+ {
+   "type": 5,
+   "desc": "Upgrade guardian stone {0} times"
+ },
+ {
+   "type": 6,
+   "desc": "Upgrade fleet skill {0} times"
+ },
+ {
+   "type": 7,
+   "desc": "Challenge Sky Island {0} times"
+ },
+ {
+   "type": 8,
+   "desc": "Recruit {0} hero"
+ },
+ {
+   "type": 9,
+   "desc": "Reset hero {0} times"
+ },
+ {
+   "type": 10,
+   "desc": "Buy {0} times in Operation"
+ }
+]

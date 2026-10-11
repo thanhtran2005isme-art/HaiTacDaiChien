@@ -1,0 +1,520 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1709254077376921
+GameObject:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Component:
+  - component: {fileID: 4730242686860875}
+  - component: {fileID: 114724804207875695}
+  m_Layer: 0
+  m_Name: I2Languages_tutorial
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4730242686860875
+Transform:
+  serializedVersion: 2
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1709254077376921}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -0, z: -0}
+--- !u!114 &114724804207875695
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1709254077376921}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7554888af13e447d4982f6ad48f0af4b, type: 3}
+  m_Name:
+  m_EditorClassIdentifier:
+  mSource:
+    UserAgreesToHaveItOnTheScene: 1
+    UserAgreesToHaveItInsideThePluginsFolder: 0
+    GoogleLiveSyncIsUptoDate: 1
+    mTerms:
+    - Term: FONT
+      TermType: 1
+      Languages:
+      - Fonts/SVN-Titillium bold
+      - Fonts/SVN-Titillium bold
+      - Fonts/SVN-Titillium bold
+      - Fonts/SVN-Titillium bold
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MSG_TUTORIALACTION_UP_HERO
+      TermType: 0
+      Languages:
+      - Các thuyền viên có thể nâng cấp và mang trang bị để trở nên mạnh mẽ hơn. Bạn hãy thử xem nào
+      - Crew members can be upgraded and armed, let's do it!
+      - สามารถอัพเกรดลูกเรือและเพิ่มอุปกรณ์, ลองเลย!
+      - 船員可以升級並穿戴裝備就可以更強大。您不妨試試
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MSG_TUTORIAL_ACTION_ARCHIEVEMENT
+      TermType: 0
+      Languages:
+      - Chúng ta sẽ là băng hải tặc vĩ đại nhất thế giới! Hãy xem thành tựu nào
+      - We will become the greatest Pirates in the world. Let's see our achievement!
+      - พวกเราจะเป็นมหาโจรสลัดที่ใหญ่ที่สุดในโลก! ดูความสำเร็จเลย
+      - 我們將成為世界最偉大的海賊團！來看看我們的成就吧
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MSG_TUTORIAL_ACTION_ARENA
+      TermType: 0
+      Languages:
+      - Thử sức cùng các siêu tân tinh khác
+      - Try to compete with other new players
+      - เปิดศึกกับผู้เล่นใหม่
+      - 嘗試與其他新玩家競爭吧
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MSG_TUTORIAL_ACTION_BRAVE_TRIAL
+      TermType: 0
+      Languages:
+      - Luyện tập để mạnh mẽ hơn nữa
+      - Train to get stronger
+      - ฝึกฝนเพื่อแข็งแกร่งกว่าเดิม
+      - 練功讓自己變得更強大吧
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MSG_TUTORIAL_ACTION_CAMP_1
+      TermType: 0
+      Languages:
+      - Hãy cùng nhau vượt qua thử thách đầu tiên nhé!
+      - Let's face the first challenge!
+      - ผ่านชาเลนจ์แรกไปด้วยกันนะ!
+      - 我們一起克服第一個挑戰吧！
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MSG_TUTORIAL_ACTION_CAMP_2
+      TermType: 0
+      Languages:
+      - Sau khi đánh thắng một ải, bạn sẽ được mở cửa ải tiếp theo. Mỗi ải chỉ bị đánh bại một lần. Sau đó thuyền viên sẽ càn quét tự động để lấy tài nguyên của ải đó.
+      - After beating a stage, you can unlock the next one. Your crew members will fight automatically in the current stage and collect resources for you.
+      - เมื่อผ่านด่านแรกประตูจะเปิดด่านต่อไป. ทุกด่านจะถูกโจมตีเพียงครั้งเดียว. หลังจากนั้นลูกเรือจะกวาดล้างเอาทรัพยากรของด่านนั้นโดย อัตโนมัติ.
+      - 通過第一關卡後，就會開啟下一個關卡。每個關卡只能打敗一次。然後船員可以自動掃蕩來獲得此關卡的資源。
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MSG_TUTORIAL_ACTION_CAMP_2_1
+      TermType: 0
+      Languages:
+      - Sức mạnh thuyền viên đã tăng lên đáng kể. Hãy thử sức mạnh lần nữa nhé
+      - Your crew are stronger now, let's try again!
+      - ความแข็งแกร่งลูกเรือได้เพิ่มขึ้น. ลองเลีย
+      - 船員的力量大幅提升了。再嘗試一下吧
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MSG_TUTORIAL_ACTION_CAMP_2_2
+      TermType: 0
+      Languages:
+      - Bạn hãy định kỳ vào thu thập tài nguyên vì sau 10 tiếng, hòm sẽ đầy không thể chứa thêm nữa.
+      - Rewards from auto battle will be stored up to 10 hours of idling
+      - เข้าไปเก็บทรัพยากรทุกๆ 10 ชั่วโมง, คลังจะเต็มไม่สามารถบรรจุได้.
+      - 您可定期進入領取資源，因為每10個小時寶箱會裝滿。
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MSG_TUTORIAL_ACTION_CAMP_2_3
+      TermType: 0
+      Languages:
+      - Ải càng cao thì cho càng nhiều tài nguyên và nhận được các vật phẩm có giá trị hơn. Hãy thu thập ngay nào!!!
+      - The higher stages provide better rewards from auto battle.
+      - ด่านยิ่งสูงยิ่งมีทรัพยากรมากและไอเทมเจ๋งๆ.ไปเกับเลีย!!!
+      - 關卡的等級越高產出的資源越多，獲得的物品也更有價值。快來體驗吧！
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MSG_TUTORIAL_ACTION_CAMP_2_4
+      TermType: 0
+      Languages:
+      - Hãy nhớ thu thập định kì trước khi rương đầy. Giờ thì hãy vượt ải để tăng phần thưởng đánh tự động!
+      - Remember to collect your rewards.
+      - ให้เข้าไปเก็บเป็นระยะก่อนที่หีบจะเต็ม. ตอนนี้เรามาผ่านด่านเพื่อรับรางวัลกันเถอะ!
+      - 在寶箱裝滿之前記得定期領取哦。現在就進行通關來增加自動戰鬥的獎勵吧！
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MSG_TUTORIAL_ACTION_CAMP_3
+      TermType: 0
+      Languages:
+      - Đây là nơi chọn đội hình ra trận. Bạn có thể thay đổi vị trí đứng của các thuyền viên bằng cách kéo thả vào vị trí mong muốn
+      - You can set your team formation here. Drag and drop crew members to desired positions
+      - นี่คือที่เลือกรูปแบบทีม. คุณสามารถเปลี่ยนตำแหน่งของลูกเรือ ด้วยวิธีลากแล้ววางใส่ตำแหน่งที่ต้องการ.
+      - 這裏是選擇出戰陣容。您可以將船員拖放到想要的位置以替換船員的位置
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MSG_TUTORIAL_ACTION_CAMP_4
+      TermType: 0
+      Languages:
+      - Bạn có thể tăng giảm tốc độ trận đấu theo ý muốn của mình.
+      - You can increase/decrease speed of the battle
+      - คุณสามารถเพิ่มลดความเร็วการต่อสู้.
+      - 你可以增加/減少戰鬥速度
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MSG_TUTORIAL_ACTION_CAMP_5
+      TermType: 0
+      Languages:
+      - Chúc mừng bạn đã chiến thắng trận đầu. Các thuyền viên sẽ tự động đánh để thu thập tài nguyên.
+      - Congratulation for the first win. You crew members will fight and collect resources automatically
+      - ยินดีด้วยคุณชนะการต่อสู้. ลูกเรือจะเก็บทรัพยากรอัตโนมัติ.
+      - 恭喜您戰勝第一場戰鬥。船員會自動戰鬥進行收集資源。
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MSG_TUTORIAL_ACTION_CHECK_IN
+      TermType: 0
+      Languages:
+      - Đếm những ngày chúng ta ra khơi. Đi điểm danh thôi!
+      - Let's check in and get rewards
+      - ไปเช็คอินแล้วรับของรางวัลกันเถอะ!
+      - 數一下我們出海的天數。去簽到領獎吧！
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MSG_TUTORIAL_ACTION_COLLECT_SHARD_HERO
+      TermType: 0
+      Languages:
+      - Khi nhận được mảnh thuyền viên có thể vào trong túi đồ để triệu hồi thuyền viên!
+      - You can recruit crew members from hero shards in your bag
+      - เมื่อได้รับจิ๊กซอว์ฮีโร่สามารถเข้า ถุงไอเทม เพื่ออัญเชิญฮีโร่!
+      - 獲得船員碎片時可以進入背包進行召喚船員！
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MSG_TUTORIAL_ACTION_COLLECT_SHARD_HERO_NAMI
+      TermType: 0
+      Languages:
+      - Hãy triệu hồi Nami!
+      - Let's recruit Nami!
+      - ลองอันเชิญ Nami!
+      - 請召喚娜美！
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MSG_TUTORIAL_ACTION_COLLECT_SHARD_HERO_SANJI
+      TermType: 0
+      Languages:
+      - Hãy triệu hồi Sanji!
+      - Let's recruit Sanji!
+      - ลองอันเชิญ Sanji!
+      - 請召喚山治！
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MSG_TUTORIAL_ACTION_COLLECT_SHARD_HERO_USOP
+      TermType: 0
+      Languages:
+      - Hãy triệu hồi Usop!
+      - Let's recruit Usopp!
+      - ลองอันเชิญ Usop!
+      - 請召喚烏索普！
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MSG_TUTORIAL_ACTION_COMPLETE_QUEST
+      TermType: 0
+      Languages:
+      - Bạn đã hoàn thành nhiệm vụ. Nhận phần thưởng thôi!
+      - You've completed your quest. Go get rewards!
+      - คุณสำเร็จภารกิจ. รับรางวัลกันเถอะ!
+      - 您已完成任務，趕快領獎吧！
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MSG_TUTORIAL_ACTION_DUNGEON
+      TermType: 0
+      Languages:
+      - Thử thách tại đảo bánh
+      - Challenge in Cake Island
+      - ชาเลนจ์ที่เกาะขนม
+      - 蛋糕島的挑戰
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MSG_TUTORIAL_ACTION_EVENT
+      TermType: 0
+      Languages:
+      - Sự kiện sẽ mang lại cho chúng ta thật nhiều quà giá trị
+      - Participate in Events to get valuable rewards
+      - เข้าร่วม อีเว้นท์ เพื่อรับของขวัญ
+      - 參加活動可獲得大量高價值的獎勵
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MSG_TUTORIAL_ACTION_EXPOLRE
+      TermType: 0
+      Languages:
+      - Đã tới lúc viễn chinh đảo trời","Đây là nhà của chúng ta!
+      - Time to go for Sky Island!
+      - ได้เวลาไปเกาะฟ้าแล้ว!
+      - 是時候遠征前往空島了，“這是我們的家！”
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MSG_TUTORIAL_ACTION_EXPOLRE_2
+      TermType: 0
+      Languages:
+      - Tiêu diệt kẻ thủ nào!
+      - Go get them!
+      - ทำรายล้างเลย!
+      - 消滅敵人吧！
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MSG_TUTORIAL_ACTION_FORGE
+      TermType: 0
+      Languages:
+      - Mở khóa tính năng ghép đồ!
+      - Clothing Store has been unlocked
+      - ปลดล็อกคุณสมบัติจิ๊กซอว์!
+      - 解鎖合成功能！
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MSG_TUTORIAL_ACTION_GUILD
+      TermType: 0
+      Languages:
+      - Kết bạn và cùng tạo lên hạm đội khổng lồ
+      - Let's make friends and have fun
+      - เพิ่มเพื่อนแล้วมาสนุกกันเถอะ
+      - 結交好友並與他們一起創建巨大公會
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MSG_TUTORIAL_ACTION_LUCKY
+      TermType: 0
+      Languages:
+      - Thuyền trưởng vào đây thử may mắn nha
+      - Come and try your luck
+      - กัปตันเข้ามาลองลุ้นโชคเลีย
+      - 船長進入這裏試試運氣吧
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MSG_TUTORIAL_ACTION_MISSION
+      TermType: 0
+      Languages:
+      - Làm nhiệm vụ mỗi ngày để nhận thưởng!
+      - Complete daily quest to get rewards
+      - ทำภารกิจทุกวันเพื่อรับรางวัล!
+      - 做日常任務可獲得獎勵！
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MSG_TUTORIAL_ACTION_NPC_SAY
+      TermType: 0
+      Languages:
+      - Kho báu, kho báu!! Tới lấy kho báu thôi
+      - Treasures! Go get them!
+      - หีบสมบัติ! ไปเอากันเถอะ
+      - 寶藏，寶藏！快來拿寶藏吧！
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MSG_TUTORIAL_ACTION_PET
+      TermType: 0
+      Languages:
+      - Nâng cấp thuyền để đồng hành cùng chúng ta
+      - Upgrade the Warship
+      - อัพเกรดเรือรบ
+      - 升級戰船陪你出海
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MSG_TUTORIAL_ACTION_SEALAND
+      TermType: 0
+      Languages:
+      - Mau mau đánh bại thủ vệ để nhận kho báu trong mê cung
+      - Beat the guards to get treasure in maze
+      - ชนะเร็วเข้าเพื่อรับหีบสมบัติในเขาวงกต
+      - 快打敗守衛來獲取迷宮裏的寶藏
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MSG_TUTORIAL_ACTION_SET_NAME
+      TermType: 0
+      Languages:
+      - Xin hãy cho biết quý danh!
+      - Your name, please!
+      - กรุณาบอกชื่อ!
+      - 請報上姓名！
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MSG_TUTORIAL_ACTION_SHOP_1
+      TermType: 0
+      Languages:
+      - Để mọi người sống sót bằng bất cứ giá nào. Chúng ta phải trang bị thêm nhiều vật phẩm.
+      - To help our crew members survive, we must arm them to the teeth
+      - เพื่อให้ลูกทีมเอาตัวรอด. พวกเราต้องเพิ่ม ไอเทม.
+      - 要保護大家的生命，我們需要裝備更多物品
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MSG_TUTORIAL_ACTION_SHOP_2
+      TermType: 0
+      Languages:
+      - Đi mua sắm thôi nào!
+      - Let's go shopping
+      - ไปช้อปปิ้งกันเถอะ!
+      - 快去購物唄！
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MSG_TUTORIAL_ACTION_SHOP_3
+      TermType: 0
+      Languages:
+      - Ở chợ có rất nhiều vật phẩm giá trị!
+      - There're many valuable items in shop
+      - อยู่ช็อปมีไอเทมเจ๋งๆมากมาย!
+      - 在市場有很多高價值的物品！
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MSG_TUTORIAL_ACTION_SHOP_4
+      TermType: 0
+      Languages:
+      - Đi triệu hồi thêm hải tặc thôi!
+      - Recruit more crew members!
+      - อัญเชิญโจรสลัดเพิ่มกันเถอะ!
+      - 去召喚更多海賊吧！
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MSG_TUTORIAL_ACTION_SHOP_5
+      TermType: 0
+      Languages:
+      - Khá lắm đã có thêm đồng đội
+      - Good job, you have more crew members now
+      - ดีมากตอนนี้คุณมีสมาชิกเพิ่ม
+      - 不錯，已經有新同伴了
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MSG_TUTORIAL_ACTION_STORY_1
+      TermType: 0
+      Languages:
+      - Chào mừng bạn đến với OnePiece. Hãy để mình hướng dẫn ngươi làm quen với trò chơi.
+      - Welcome to One Piece. Let me guide you through the game
+      - ยินดีต้อนรับเข้าสู่ One Piece.ให้ฉันแนะนำคุณทำความรู้จักกับเกม.
+      - 歡迎來到海賊大戰。讓我來指導您體驗遊戲吧！
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MSG_TUTORIAL_ACTION_STORY_2
+      TermType: 0
+      Languages:
+      - Đây là nơi chiêu mộ, sau một thời gian bạn có thể chiêu mộ miễn phí
+      - 'You can recruit crew members here. '
+      - นี่คือที่อัญเชิญ สมาชิก.
+      - 這是招募之地，過一段時間您可以免費招募了
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MSG_TUTORIAL_ACTION_STORY_3
+      TermType: 0
+      Languages:
+      - Cuộn chiêu mộ \"Đại Hải Tặc\" có tỉ lệ ra thuyền viên mạnh cao hơn chiêu mộ hải tặc
+      - The Great Pirate Recruitment has more chance to recruit strong pirates than the Pirate Recruitment
+      - มหาโจรสลัดจะอัญเชิญลูกเรือได้ดีกว่าโจรสลัด
+      - 比起海賊招募，“大海賊”招募獲得強大船員的幾率更高
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MSG_TUTORIAL_ACTION_STORY_4
+      TermType: 0
+      Languages:
+      - Rất tốt! Bạn đã chiêu mộ được hai thuyền viên. Hãy thử sức thôi
+      - Good! You have 2 crew members now. Let's fight!
+      - ดีมากคุณอัญเชิญได้ 2 ลูกเรือ. มาสู้กันเลีย
+      - 很好！您已招募獲得2位船員，趕快體驗吧
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MSG_TUTORIAL_ACTION_TARVEN
+      TermType: 0
+      Languages:
+      - Thật nhiều nhiệm vụ, thật nhiều beli
+      - There are so many quest and belly
+      - ภารกิจก็เยอะ, เบลีก็เยอะ
+      - 好多任務，好多貝利
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MSG_TUTORIAL_ACTION_TOWER
+      TermType: 0
+      Languages:
+      - Nơi thể hiện sức mạnh của ta đây rồi
+      - I can test my strength now
+      - ที่แสดงความแข็งแกร่งของฉันอยู่นี่แล้ว
+      - 這就是我展現實力的地方
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MSG_TUTORIAL_ACTION_UP_HERO_2
+      TermType: 0
+      Languages:
+      - Hãy cùng nâng cấp cho thuyền viên này
+      - Let's upgrade this crew member
+      - มาอัพเกรดลูกเรือนี้กันเถอะ
+      - 來一起給這位船員升級吧
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MSG_TUTORIAL_ACTION_UP_HERO_3
+      TermType: 0
+      Languages:
+      - Mang thêm trang bị cho thuyền viên này
+      - Arm this crew member better
+      - เพิ่มอุปกรณ์ให้ลูกเรือนี้
+      - 給這位船員穿戴更多裝備
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MSG_TUTORIAL_ACTION_UP_HERO_4
+      TermType: 0
+      Languages:
+      - Tốt lắm thuyền viên đã mạnh lên. Làm nhiệm vụ tiếp theo nào!
+      - Good, your crew member is stronger now. Let's go for the next quest!
+      - ดีมากลูกเรือแข็งแกร่งขึ้น. มาทำภารกิจต่อไปกัน!
+      - 不錯，船員更強大了。繼續做下一個任務吧！
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MSG_TUTORIAL_REQUIRE_COMPLETE
+      TermType: 0
+      Languages:
+      - Yêu cầu hoàn thành nhiệm vụ
+      - Requirements
+      - ต้องสำเร็จภารกิจ
+      - 要求完成任務
+      Flags: 00000000
+      Languages_Touch: []
+    CaseInsensitiveTerms: 0
+    OnMissingTranslation: 1
+    mTerm_AppName:
+    mLanguages:
+    - Name: Vietnamese
+      Code: vi
+      Flags: 0
+    - Name: English
+      Code: en
+      Flags: 0
+    - Name: Thai
+      Code: th
+      Flags: 0
+    - Name: Chinese
+      Code: zh
+      Flags: 0
+    IgnoreDeviceLanguage: 0
+    _AllowUnloadingLanguages: 0
+    Google_WebServiceURL: https://script.google.com/a/k2tek.net/macros/s/AKfycbxki8X91DzM4zUqR1FDK8BweV5FcwrdiGqSPXVb/exec
+    Google_SpreadsheetKey: 1Vf2yuFEMy8clcOag9IETE2U6mk3BqLcE7Jk2ydX3mUw
+    Google_SpreadsheetName: I2Loc Hải Tặc Đại Chiến Assets/Scenes/LoginScene.unity I2Languages_tutorial
+    Google_LastUpdatedVersion: 1615781115447
+    GoogleUpdateFrequency: 1
+    GoogleInEditorCheckFrequency: 2
+    GoogleUpdateSynchronization: 1
+    GoogleUpdateDelay: 5
+    Assets: []
+  version: 1
+  NeverDestroy: 1
+  UserAgreesToHaveItOnTheScene: 1
+  UserAgreesToHaveItInsideThePluginsFolder: 0
+  GoogleLiveSyncIsUptoDate: 1
+  Assets: []
+  Google_WebServiceURL:
+  Google_SpreadsheetKey:
+  Google_SpreadsheetName:
+  Google_LastUpdatedVersion:
+  GoogleUpdateFrequency: 3
+  GoogleUpdateDelay: 5
+  mLanguages: []
+  IgnoreDeviceLanguage: 0
+  _AllowUnloadingLanguages: 0
+  mTerms: []
+  CaseInsensitiveTerms: 0
+  OnMissingTranslation: 1
+  mTerm_AppName:

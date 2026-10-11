@@ -1,0 +1,27 @@
+
+270.png
+size: 224,252
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+4233
+  rotate: false
+  xy: 49, 171
+  size: 149, 76
+  orig: 149, 76
+  offset: 0, 0
+  index: -1
+hero_test
+  rotate: true
+  xy: 2, 2
+  size: 167, 217
+  orig: 167, 217
+  offset: 0, 0
+  index: -1
+ol-khoa
+  rotate: true
+  xy: 2, 210
+  size: 37, 45
+  orig: 38, 45
+  offset: 0, 0
+  index: -1

@@ -1,0 +1,118 @@
+
+Hover_summon.png
+size: 1451,158
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+hover/taozhuangkuang_1
+  rotate: true
+  xy: 1294, 2
+  size: 23, 102
+  orig: 105, 159
+  offset: 5, 13
+  index: -1
+hover/taozhuangkuang_10
+  rotate: false
+  xy: 323, 7
+  size: 105, 149
+  orig: 105, 159
+  offset: 0, 6
+  index: -1
+hover/taozhuangkuang_11
+  rotate: false
+  xy: 430, 7
+  size: 105, 149
+  orig: 105, 159
+  offset: 0, 6
+  index: -1
+hover/taozhuangkuang_12
+  rotate: false
+  xy: 537, 7
+  size: 102, 149
+  orig: 105, 159
+  offset: 3, 6
+  index: -1
+hover/taozhuangkuang_13
+  rotate: false
+  xy: 641, 7
+  size: 97, 149
+  orig: 105, 159
+  offset: 8, 6
+  index: -1
+hover/taozhuangkuang_14
+  rotate: false
+  xy: 944, 10
+  size: 90, 146
+  orig: 105, 159
+  offset: 15, 9
+  index: -1
+hover/taozhuangkuang_15
+  rotate: false
+  xy: 1211, 20
+  size: 81, 136
+  orig: 105, 159
+  offset: 24, 17
+  index: -1
+hover/taozhuangkuang_16
+  rotate: false
+  xy: 1294, 27
+  size: 61, 129
+  orig: 105, 159
+  offset: 44, 24
+  index: -1
+hover/taozhuangkuang_2
+  rotate: false
+  xy: 1357, 28
+  size: 92, 128
+  orig: 105, 159
+  offset: 0, 9
+  index: -1
+hover/taozhuangkuang_3
+  rotate: false
+  xy: 1128, 20
+  size: 81, 136
+  orig: 105, 159
+  offset: 0, 6
+  index: -1
+hover/taozhuangkuang_4
+  rotate: false
+  xy: 1036, 13
+  size: 90, 143
+  orig: 105, 159
+  offset: 0, 6
+  index: -1
+hover/taozhuangkuang_5
+  rotate: false
+  xy: 845, 10
+  size: 97, 146
+  orig: 105, 159
+  offset: 0, 6
+  index: -1
+hover/taozhuangkuang_6
+  rotate: false
+  xy: 740, 8
+  size: 103, 148
+  orig: 105, 159
+  offset: 0, 6
+  index: -1
+hover/taozhuangkuang_7
+  rotate: false
+  xy: 2, 7
+  size: 105, 149
+  orig: 105, 159
+  offset: 0, 6
+  index: -1
+hover/taozhuangkuang_8
+  rotate: false
+  xy: 109, 7
+  size: 105, 149
+  orig: 105, 159
+  offset: 0, 6
+  index: -1
+hover/taozhuangkuang_9
+  rotate: false
+  xy: 216, 7
+  size: 105, 149
+  orig: 105, 159
+  offset: 0, 6
+  index: -1

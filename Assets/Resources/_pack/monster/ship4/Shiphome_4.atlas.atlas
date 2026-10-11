@@ -1,0 +1,13 @@
+
+Shiphome_4.png
+size: 308,400
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+4
+  rotate: false
+  xy: 2, 2
+  size: 304, 396
+  orig: 540, 480
+  offset: 72, 37
+  index: -1

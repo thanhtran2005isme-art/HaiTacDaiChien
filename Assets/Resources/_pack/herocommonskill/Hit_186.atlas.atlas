@@ -1,0 +1,132 @@
+
+Hit_186.png
+size: 878,660
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Fx/Cast/0
+  rotate: false
+  xy: 766, 45
+  size: 60, 60
+  orig: 62, 62
+  offset: 1, 1
+  index: -1
+Fx/Cast/1
+  rotate: false
+  xy: 2, 2
+  size: 210, 210
+  orig: 221, 215
+  offset: 5, 0
+  index: -1
+Fx/Cast/2
+  rotate: false
+  xy: 226, 442
+  size: 217, 216
+  orig: 232, 224
+  offset: 7, 1
+  index: -1
+Fx/Cast/3
+  rotate: false
+  xy: 2, 436
+  size: 222, 222
+  orig: 241, 232
+  offset: 9, 1
+  index: -1
+Fx/Cast/4
+  rotate: false
+  xy: 2, 214
+  size: 219, 220
+  orig: 245, 236
+  offset: 13, 4
+  index: -1
+Fx/Cast/5
+  rotate: false
+  xy: 445, 455
+  size: 204, 203
+  orig: 249, 240
+  offset: 22, 15
+  index: -1
+Fx/Exp/1
+  rotate: false
+  xy: 673, 92
+  size: 91, 91
+  orig: 96, 96
+  offset: 2, 3
+  index: -1
+Fx/Exp/2
+  rotate: false
+  xy: 578, 89
+  size: 93, 94
+  orig: 101, 101
+  offset: 4, 4
+  index: -1
+Fx/Exp/3
+  rotate: false
+  xy: 578, 2
+  size: 85, 85
+  orig: 93, 93
+  offset: 4, 4
+  index: -1
+Fx/Exp/4
+  rotate: false
+  xy: 766, 107
+  size: 76, 76
+  orig: 86, 86
+  offset: 5, 5
+  index: -1
+Fx/Ghost/0
+  rotate: true
+  xy: 223, 191
+  size: 243, 158
+  orig: 247, 170
+  offset: 1, 9
+  index: -1
+Fx/Ghost/1
+  rotate: false
+  xy: 651, 335
+  size: 225, 151
+  orig: 234, 155
+  offset: 5, 1
+  index: -1
+Fx/Ghost/2
+  rotate: false
+  xy: 214, 25
+  size: 201, 164
+  orig: 203, 167
+  offset: 1, 1
+  index: -1
+Fx/Ghost/4
+  rotate: true
+  xy: 417, 2
+  size: 208, 159
+  orig: 213, 164
+  offset: 1, 4
+  index: -1
+Fx/Ghost/5
+  rotate: true
+  xy: 383, 212
+  size: 228, 141
+  orig: 230, 142
+  offset: 1, 1
+  index: -1
+Fx/Ghost/6
+  rotate: false
+  xy: 608, 185
+  size: 223, 148
+  orig: 225, 156
+  offset: 1, 7
+  index: -1
+Fx/Ghost/7
+  rotate: false
+  xy: 651, 488
+  size: 225, 170
+  orig: 227, 182
+  offset: 1, 8
+  index: -1
+Layer 1147 copy
+  rotate: true
+  xy: 526, 261
+  size: 192, 80
+  orig: 192, 80
+  offset: 0, 0
+  index: -1

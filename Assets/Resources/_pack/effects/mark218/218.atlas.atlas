@@ -1,0 +1,20 @@
+
+218.png
+size: 300,224
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Group 1
+  rotate: false
+  xy: 2, 2
+  size: 271, 220
+  orig: 271, 318
+  offset: 0, 52
+  index: -1
+trail_1068_1
+  rotate: false
+  xy: 275, 7
+  size: 20, 215
+  orig: 128, 256
+  offset: 53, 19
+  index: -1

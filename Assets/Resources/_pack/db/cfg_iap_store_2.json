@@ -1,0 +1,252 @@
+{
+  "prefix_pack_ios":"htht.goi",
+  "prefix_month_ios":"htht.mon",
+  "prefix_pack_android":"htht.goi",
+  "prefix_month_android":"htht.mon",
+  "iap_ios": [
+    {
+      "idItem": 1,
+      "name": "Thẻ quà lớn",
+      "productID": "afkop.month.10",
+      "valueIAP": 1000,
+      "typeItem": 2,
+      "desc": "Sau khi bạn mua thẻ quà lớn, bạn sẽ nhận ngay 1000 kim cương và 1000 Exp Vip\n\nTrong 30 ngày sau đó, mỗi ngày chúng tôi sẽ gửi tới hòm thư 200 kim cương\nTổng có 7000 kim cương! Hãy sở hữu thương phẩm siêu giá trị này nào!",
+      "totalBonus": 7000,
+      "pathIcon": "icon_1",
+      "cost": 249000
+    },
+    {
+      "idItem": 2,
+      "name": "Thẻ quà nhỏ",
+      "productID": "afkop.month.5",
+      "valueIAP": 500,
+      "typeItem": 1,
+      "desc": "Sau khi bạn mua thẻ quà nhỏ, bạn sẽ nhận ngay 500 kim cương và 500 Exp Vip\n\nTrong 30 ngày sau đó, mỗi ngày chúng tôi sẽ gửi tới hòm thư 75 kim cương",
+      "totalBonus": 2750,
+      "pathIcon": "icon_2",
+      "cost": 129000
+    },
+    {
+ "idItem": 11,
+      "name": "",
+      "productID": "afkop.pack.1",
+      "valueIAP": 100,
+      "typeItem": 0,
+      "desc": "",
+      "totalBonus": 0,
+      "pathIcon": "icon_3",
+      "cost": 22000
+    },
+    {
+"idItem": 10,
+      "name": "",
+      "productID": "afkop.pack.3",
+      "valueIAP": 250,
+      "typeItem": 0,
+      "desc": "",
+      "totalBonus": 0,
+      "pathIcon": "icon_3",
+      "cost": 69000
+    },
+    {
+      "idItem": 3,
+      "name": "",
+      "productID": "afkop.pack.5",
+      "valueIAP": 500,
+      "typeItem": 0,
+      "desc": "",
+      "totalBonus": 0,
+      "pathIcon": "icon_4",
+      "cost": 129000
+    },
+    {
+      "idItem": 4,
+      "name": "",
+      "productID": "afkop.pack.10",
+      "valueIAP": 1000,
+      "typeItem": 0,
+      "desc": "",
+      "totalBonus": 0,
+      "pathIcon": "icon_5",
+      "cost": 249000
+    },
+    {
+      "idItem": 5,
+      "name": "",
+      "productID": "afkop.pack.20",
+      "valueIAP": 2000,
+      "typeItem": 0,
+      "desc": "",
+      "totalBonus": 0,
+      "pathIcon": "icon_6",
+      "cost": 499000
+    },
+    {
+      "idItem": 6,
+      "name": "",
+      "productID": "afkop.pack.30",
+      "valueIAP": 3000,
+      "typeItem": 0,
+      "desc": "",
+      "totalBonus": 0,
+      "pathIcon": "icon_7",
+      "cost": 749000
+    },
+    {
+      "idItem": 7,
+      "name": "",
+      "productID": "afkop.pack.50",
+      "valueIAP": 5000,
+      "typeItem": 0,
+      "desc": "",
+      "totalBonus": 0,
+      "pathIcon": "icon_8",
+      "cost": 1299000
+    },
+    {
+      "idItem": 8,
+      "name": "",
+      "productID": "afkop.pack.70",
+      "valueIAP": 7000,
+      "typeItem": 0,
+      "desc": "",
+      "totalBonus": 0,
+      "pathIcon": "icon_9",
+      "cost": 1699000
+    },
+    {
+      "idItem": 9,
+      "name": "",
+      "productID": "afkop.pack.100",
+      "valueIAP": 10000,
+      "typeItem": 0,
+      "desc": "",
+      "totalBonus": 0,
+      "pathIcon": "icon_10",
+      "cost": 2199000
+    }
+  ],
+   "iap_android": [
+    {
+      "idItem": 20,
+      "name": "Thẻ quà lớn",
+      "productID": "ttg.mc.10",
+      "valueIAP": 1000,
+      "typeItem": 2,
+      "desc": "Sau khi bạn mua thẻ quà lớn, bạn sẽ nhận ngay 1000 Kim cương và 1000 Exp Vip\n\nTrong 30 ngày sau đó, mỗi ngày chúng tôi sẽ gửi tới hòm thư 200 kim cương\nTổng có 7000 kim cương! Hãy sở hữu thương phẩm siêu giá trị này nào!",
+      "totalBonus": 7000,
+      "pathIcon": "icon_1",
+      "cost": 249000
+    },
+    {
+      "idItem": 21,
+      "name": "Thẻ quà nhỏ",
+      "productID": "ttg.mc.5",
+      "valueIAP": 500,
+      "typeItem": 1,
+      "desc": "Sau khi bạn mua thẻ quà nhỏ, bạn sẽ nhận ngay 500 kim cương và 500 Exp Vip\n\nTrong 30 ngày sau đó, mỗi ngày chúng tôi sẽ gửi tới hòm thư 75 kim cương",
+      "totalBonus": 2750,
+      "pathIcon": "icon_2",
+      "cost": 129000
+    },
+     {
+       "idItem": 30,
+      "name": "",
+      "productID": "ttg.pack.1",
+      "valueIAP": 100,
+      "typeItem": 0,
+      "desc": "",
+      "totalBonus": 0,
+      "pathIcon": "icon_3",
+      "cost": 22000
+    },
+    {
+  "idItem": 29,
+      "name": "",
+      "productID": "ttg.pack.3",
+      "valueIAP": 250,
+      "typeItem": 0,
+      "desc": "",
+      "totalBonus": 0,
+      "pathIcon": "icon_3",
+      "cost": 69000
+    },
+    {
+      "idItem": 22,
+      "name": "",
+      "productID": "ttg.pack.5",
+      "valueIAP": 500,
+      "typeItem": 0,
+      "desc": "",
+      "totalBonus": 0,
+      "pathIcon": "icon_4",
+      "cost": 129000
+    },
+    {
+      "idItem": 23,
+      "name": "",
+      "productID": "ttg.pack.10",
+      "valueIAP": 1000,
+      "typeItem": 0,
+      "desc": "",
+      "totalBonus": 0,
+      "pathIcon": "icon_5",
+      "cost": 249000
+    },
+    {
+      "idItem": 24,
+      "name": "",
+      "productID": "ttg.pack.20",
+      "valueIAP": 2000,
+      "typeItem": 0,
+      "desc": "",
+      "totalBonus": 0,
+      "pathIcon": "icon_6",
+      "cost": 499000
+    },
+    {
+      "idItem": 25,
+      "name": "",
+      "productID": "ttg.pack.30",
+      "valueIAP": 3000,
+      "typeItem": 0,
+      "desc": "",
+      "totalBonus": 0,
+      "pathIcon": "icon_7",
+      "cost": 749000
+    },
+    {
+      "idItem": 26,
+      "name": "",
+      "productID": "ttg.pack.50",
+      "valueIAP": 5000,
+      "typeItem": 0,
+      "desc": "",
+      "totalBonus": 0,
+      "pathIcon": "icon_8",
+      "cost": 1299000
+    },
+    {
+      "idItem": 27,
+      "name": "",
+      "productID": "ttg.pack.70",
+      "valueIAP": 7000,
+      "typeItem": 0,
+      "desc": "",
+      "totalBonus": 0,
+      "pathIcon": "icon_9",
+      "cost": 1699000
+    },
+    {
+      "idItem": 28,
+      "name": "",
+      "productID": "ttg.pack.100",
+      "valueIAP": 10000,
+      "typeItem": 0,
+      "desc": "",
+      "totalBonus": 0,
+      "pathIcon": "icon_10",
+      "cost": 2199000
+    }
+  ]
+}

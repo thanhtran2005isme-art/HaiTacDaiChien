@@ -1,0 +1,27 @@
+
+Buff_459.png
+size: 360,164
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+effect1
+  rotate: false
+  xy: 166, 14
+  size: 143, 148
+  orig: 145, 150
+  offset: 1, 1
+  index: -1
+effect11
+  rotate: false
+  xy: 311, 105
+  size: 44, 57
+  orig: 46, 59
+  offset: 1, 1
+  index: -1
+effect2
+  rotate: false
+  xy: 2, 2
+  size: 162, 160
+  orig: 164, 164
+  offset: 1, 1
+  index: -1

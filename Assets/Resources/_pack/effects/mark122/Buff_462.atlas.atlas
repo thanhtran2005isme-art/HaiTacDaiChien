@@ -1,0 +1,27 @@
+
+Buff_462.png
+size: 320,224
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+tuyet 1
+  rotate: false
+  xy: 217, 109
+  size: 99, 113
+  orig: 101, 115
+  offset: 1, 1
+  index: -1
+tuyet 2
+  rotate: false
+  xy: 217, 4
+  size: 92, 103
+  orig: 94, 105
+  offset: 1, 1
+  index: -1
+tuyet 3
+  rotate: false
+  xy: 2, 2
+  size: 213, 220
+  orig: 221, 228
+  offset: 3, 2
+  index: -1

@@ -1,0 +1,13 @@
+
+248.png
+size: 48,60
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+spark copy
+  rotate: false
+  xy: 2, 2
+  size: 41, 55
+  orig: 48, 56
+  offset: 3, 0
+  index: -1

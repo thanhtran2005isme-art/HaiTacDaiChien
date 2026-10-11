@@ -1,0 +1,62 @@
+
+Mark17.png
+size: 176,452
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+3
+  rotate: false
+  xy: 3, 197
+  size: 113, 120
+  orig: 128, 128
+  offset: 8, 8
+  index: -1
+sequence_1008_01
+  rotate: true
+  xy: 85, 26
+  size: 168, 35
+  orig: 256, 56
+  offset: 16, 9
+  index: -1
+sequence_1008_02
+  rotate: true
+  xy: 44, 12
+  size: 182, 38
+  orig: 256, 56
+  offset: 10, 2
+  index: -1
+sequence_1008_03
+  rotate: true
+  xy: 3, 3
+  size: 191, 38
+  orig: 256, 56
+  offset: 25, 0
+  index: -1
+sequence_1008_04
+  rotate: true
+  xy: 123, 133
+  size: 161, 39
+  orig: 256, 56
+  offset: 55, 0
+  index: -1
+sequence_1008_05
+  rotate: true
+  xy: 130, 297
+  size: 151, 42
+  orig: 256, 56
+  offset: 69, 0
+  index: -1
+sequence_1008_06
+  rotate: true
+  xy: 123, 26
+  size: 104, 36
+  orig: 256, 56
+  offset: 144, 0
+  index: -1
+smoke_8
+  rotate: false
+  xy: 3, 320
+  size: 124, 128
+  orig: 128, 128
+  offset: 0, 0
+  index: -1

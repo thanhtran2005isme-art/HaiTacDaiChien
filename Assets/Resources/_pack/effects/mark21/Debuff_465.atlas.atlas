@@ -1,0 +1,13 @@
+
+Debuff_465.png
+size: 124,124
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+spark copy
+  rotate: false
+  xy: 2, 2
+  size: 120, 120
+  orig: 154, 154
+  offset: 17, 17
+  index: -1

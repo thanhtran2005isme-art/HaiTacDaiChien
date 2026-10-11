@@ -1,0 +1,83 @@
+
+Hit_187.png
+size: 882,122
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Fx/Exp/1
+  rotate: false
+  xy: 814, 2
+  size: 66, 53
+  orig: 121, 122
+  offset: 27, 35
+  index: -1
+Fx/Exp/2
+  rotate: true
+  xy: 580, 13
+  size: 107, 90
+  orig: 121, 122
+  offset: 10, 18
+  index: -1
+Fx/Exp/3
+  rotate: true
+  xy: 476, 8
+  size: 112, 102
+  orig: 121, 122
+  offset: 9, 9
+  index: -1
+Fx/Exp/4
+  rotate: false
+  xy: 247, 5
+  size: 115, 115
+  orig: 121, 122
+  offset: 6, 2
+  index: -1
+Fx/Exp/5
+  rotate: true
+  xy: 123, 7
+  size: 113, 122
+  orig: 121, 122
+  offset: 8, 0
+  index: -1
+Fx/Exp/6
+  rotate: true
+  xy: 2, 3
+  size: 117, 119
+  orig: 121, 122
+  offset: 4, 0
+  index: -1
+Fx/Exp/7
+  rotate: true
+  xy: 364, 4
+  size: 116, 110
+  orig: 121, 122
+  offset: 2, 9
+  index: -1
+Fx/Hit/0
+  rotate: false
+  xy: 744, 3
+  size: 52, 47
+  orig: 75, 77
+  offset: 10, 11
+  index: -1
+Fx/Hit/1
+  rotate: true
+  xy: 814, 57
+  size: 63, 64
+  orig: 75, 77
+  offset: 6, 5
+  index: -1
+Fx/Hit/2
+  rotate: false
+  xy: 744, 52
+  size: 68, 68
+  orig: 75, 77
+  offset: 4, 3
+  index: -1
+Fx/Hit/3
+  rotate: false
+  xy: 672, 49
+  size: 70, 71
+  orig: 75, 77
+  offset: 3, 2
+  index: -1

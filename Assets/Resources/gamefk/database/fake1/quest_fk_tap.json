@@ -1,0 +1,7 @@
+[{"id":1,"require":100,"bonus":1000},
+{"id":2,"require":300,"bonus":1500},
+{"id":3,"require":500,"bonus":2000},
+{"id":4,"require":1000,"bonus":5000},
+{"id":5,"require":5000,"bonus":10000},
+{"id":6,"require":10000,"bonus":30000},
+{"id":7,"require":50000,"bonus":50000}]

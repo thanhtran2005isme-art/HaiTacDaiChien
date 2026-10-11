@@ -1,0 +1,13 @@
+
+Weaken.png
+size: 113,21
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+cp_tiao
+  rotate: false
+  xy: 2, 2
+  size: 109, 17
+  orig: 125, 25
+  offset: 8, 3
+  index: -1

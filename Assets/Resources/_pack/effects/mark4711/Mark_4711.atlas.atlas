@@ -1,0 +1,20 @@
+
+Mark_4711.png
+size: 64,40
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+atk08/skill/leave
+  rotate: true
+  xy: 38, 5
+  size: 30, 22
+  orig: 30, 46
+  offset: 0, 12
+  index: -1
+atk08/skill/star
+  rotate: true
+  xy: 2, 2
+  size: 33, 34
+  orig: 47, 57
+  offset: 8, 12
+  index: -1

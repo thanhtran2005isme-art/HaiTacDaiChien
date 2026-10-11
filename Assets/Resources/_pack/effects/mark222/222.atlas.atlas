@@ -1,0 +1,118 @@
+
+222.png
+size: 1532,1024
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Char_046_AU_013
+  rotate: false
+  xy: 1297, 554
+  size: 146, 99
+  orig: 146, 99
+  offset: 0, 0
+  index: -1
+Char_046_AU_014
+  rotate: false
+  xy: 1301, 742
+  size: 224, 129
+  orig: 224, 129
+  offset: 0, 0
+  index: -1
+Char_046_AU_015
+  rotate: false
+  xy: 1283, 68
+  size: 249, 151
+  orig: 249, 151
+  offset: 0, 0
+  index: -1
+Char_046_AU_016
+  rotate: false
+  xy: 1027, 68
+  size: 253, 151
+  orig: 253, 151
+  offset: 0, 0
+  index: -1
+Char_046_AU_017
+  rotate: false
+  xy: 1027, 222
+  size: 260, 157
+  orig: 260, 157
+  offset: 0, 0
+  index: -1
+Char_046_AU_018
+  rotate: false
+  xy: 1027, 382
+  size: 264, 158
+  orig: 264, 158
+  offset: 0, 0
+  index: -1
+Char_046_AU_019
+  rotate: false
+  xy: 1027, 543
+  size: 267, 162
+  orig: 267, 162
+  offset: 0, 0
+  index: -1
+Char_046_AU_020
+  rotate: false
+  xy: 1027, 708
+  size: 271, 168
+  orig: 271, 168
+  offset: 0, 0
+  index: -1
+body1
+  rotate: false
+  xy: 1297, 455
+  size: 103, 96
+  orig: 103, 96
+  offset: 0, 0
+  index: -1
+body2
+  rotate: false
+  xy: 1454, 629
+  size: 54, 110
+  orig: 54, 110
+  offset: 0, 0
+  index: -1
+earthquake
+  rotate: false
+  xy: 1027, 879
+  size: 341, 145
+  orig: 341, 145
+  offset: 0, 0
+  index: -1
+eff_rock
+  rotate: false
+  xy: 1301, 656
+  size: 150, 83
+  orig: 150, 83
+  offset: 0, 0
+  index: -1
+la-2
+  rotate: false
+  xy: 1027, 24
+  size: 55, 41
+  orig: 55, 41
+  offset: 0, 0
+  index: -1
+la1
+  rotate: false
+  xy: 1403, 509
+  size: 26, 42
+  orig: 26, 42
+  offset: 0, 0
+  index: -1
+motion_12360_usopp_evolved_0001
+  rotate: false
+  xy: 0, 0
+  size: 1024, 1024
+  orig: 1024, 1024
+  offset: 0, 0
+  index: -1
+skill1a
+  rotate: false
+  xy: 1371, 874
+  size: 150, 150
+  orig: 150, 150
+  offset: 0, 0
+  index: -1

@@ -1,0 +1,20 @@
+
+Mark_2.png
+size: 388,292
+format: RGBA4444
+filter: Linear,Linear
+repeat: none
+dudai_1
+  rotate: true
+  xy: 292, 164
+  size: 126, 94
+  orig: 131, 96
+  offset: 3, 0
+  index: -1
+gj_bagua2
+  rotate: false
+  xy: 2, 2
+  size: 288, 288
+  orig: 300, 300
+  offset: 5, 4
+  index: -1

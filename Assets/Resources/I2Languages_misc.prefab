@@ -1,0 +1,1753 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1709254077376921
+GameObject:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Component:
+  - component: {fileID: 4730242686860875}
+  - component: {fileID: 114724804207875695}
+  m_Layer: 0
+  m_Name: I2Languages_misc
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4730242686860875
+Transform:
+  serializedVersion: 2
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1709254077376921}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -0, z: -0}
+--- !u!114 &114724804207875695
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1709254077376921}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7554888af13e447d4982f6ad48f0af4b, type: 3}
+  m_Name:
+  m_EditorClassIdentifier:
+  mSource:
+    UserAgreesToHaveItOnTheScene: 1
+    UserAgreesToHaveItInsideThePluginsFolder: 0
+    GoogleLiveSyncIsUptoDate: 1
+    mTerms:
+    - Term: FONT
+      TermType: 1
+      Languages:
+      - Fonts/SVN-Titillium bold
+      - Fonts/SVN-Titillium bold
+      - Fonts/SVN-Titillium bold
+      - Fonts/SVN-Titillium bold
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBLGET_TO_VIP
+      TermType: 0
+      Languages:
+      - dể đạt VIP
+      - to reach VIP
+      - เพื่อเข้าถึงVIP
+      - 來達到VIP
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_ACTION_STORE
+      TermType: 0
+      Languages:
+      - Nạp kim cương
+      - Top up
+      - เติมเพชร
+      - 儲值鉆石
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_AMOR_BREAK
+      TermType: 0
+      Languages:
+      - Xuyên Thủ
+      - Amor break
+      - เกราะ
+      - 防禦穿透
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_ANSWER
+      TermType: 0
+      Languages:
+      - 'Câu trả lời:'
+      - 'Answer:'
+      - 'คำตอบ:'
+      - 答案：
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_BACK_ROW
+      TermType: 0
+      Languages:
+      - Hàng sau
+      - Back line
+      - แถวหลัง
+      - 後排
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_BENEFIT
+      TermType: 0
+      Languages:
+      - Quyền Lợi
+      - Benefit
+      - ผลประโยชน์
+      - 權利
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_CHAR
+      TermType: 0
+      Languages:
+      - kí tự
+      - character
+      - ตัวอักษร
+      - 字符
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_COMMAND
+      TermType: 0
+      Languages:
+      - Chỉ huy
+      - Commad
+      - คำสั่ง
+      - 指揮
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_COORDINATION
+      TermType: 0
+      Languages:
+      - Phẩm đồ
+      - Tier
+      - ขั้น
+      - 品質
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_DAY_AGO
+      TermType: 0
+      Languages:
+      - ngày trước
+      - day(s) ago
+      - วันก่อน
+      - 天前
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_DICTIONAY
+      TermType: 0
+      Languages:
+      - Từ điển
+      - Dictionary
+      - วัดจนานุกรม
+      - 詞典
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_ENTER_ID
+      TermType: 0
+      Languages:
+      - Nhập ID bạn bè
+      - Enter friend's ID
+      - ป้อน ID เพื่อน
+      - 輸入好友ID
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_ENTER_NAME
+      TermType: 0
+      Languages:
+      - Nhập tên
+      - Enter name
+      - ป้อนชื่อ
+      - 輸入名字
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_FRONT
+      TermType: 0
+      Languages:
+      - Hàng trước
+      - Front line
+      - แถวหน้า
+      - 前排
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_FUSING_HERO_SCENE_HERO_MATERIAL
+      TermType: 0
+      Languages:
+      - Tướng nguyên liệu
+      - Material hero
+      - ฮีโร่วัตถุดิบ
+      - 材料英雄
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_FUSING_HERO_SCENE_SELECT_5_HERO
+      TermType: 0
+      Languages:
+      - Chọn 5 thuyền viên
+      - Select 5 crew members
+      - เลือก 5 ลูกเรือ
+      - 請選擇5位成員
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_HIDE_VIP
+      TermType: 0
+      Languages:
+      - Ẩn VIP
+      - Hide VIP
+      - ซ่อน VIP
+      - 屏蔽VIP
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_HOURS_AGO
+      TermType: 0
+      Languages:
+      - giờ trước
+      - hour(s) ago
+      - ชั่วโมงก่อน
+      - 小時前
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_IMMUNE_DAMAGE_AGAIST_STONE_FOE
+      TermType: 0
+      Languages:
+      - '% ST mục tiêu bị hóa đá'
+      - '% damage against stoned enemies'
+      - '% ความเสียหายเป้าหมายกลายเป็นหิน'
+      - 被化石目標的%傷害
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_INCREASED_BLOOD
+      TermType: 0
+      Languages:
+      - 'Tăng máu:'
+      - 'HP:'
+      - 'เพิ่มเลือด:'
+      - 生命提升：
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_INCREASED_COMBAT_POWER
+      TermType: 0
+      Languages:
+      - Tăng lực chiến
+      - Increased combat power
+      - 'เพิ่มพลัง:'
+      - 戰鬥力提升
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_JOIN_CLAN
+      TermType: 0
+      Languages:
+      - Gia nhập
+      - Join
+      - เข้าร่วม
+      - 加入
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_LINE_UP_DEFEN
+      TermType: 0
+      Languages:
+      - Đội hình thủ
+      - Defense lineup
+      - รูปแบบเกราะ
+      - 防禦陣容
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_LOGIN_CHOOSE_SERVER
+      TermType: 0
+      Languages:
+      - Chọn Server[i2s_Touch]Chọn Server
+      - Choose Server[i2s_Touch]Choose Server
+      - เลือก เซิฟเวอร์[i2s_Touch]เลือก เซิฟเวอร์
+      - 選擇伺服器[i2s_Touch]選擇伺服器
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_NEW_PASS_NOT_AVAILABLE
+      TermType: 0
+      Languages:
+      - Mật khẩu nhập lại không khớp
+      - The password confirmation does not match
+      - รหัสไม่ตรง
+      - 重新輸入的密碼不匹配
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_NOT_DEFINED
+      TermType: 0
+      Languages:
+      - chưa định nghĩa
+      - not defined
+      - ยังไม่ได้กำหนด
+      - 未定義
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_NOT_ENOUGH_AGE
+      TermType: 0
+      Languages:
+      - Bạn chưa đủ 18 tuổi
+      - You are under 18 years old
+      - คุณอายุไม่ถึง 18 ปี
+      - 您未滿18歲
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_NO_DATA
+      TermType: 0
+      Languages:
+      - Không có dữ liệu
+      - No data
+      - ไม่มีข้อมูล
+      - 無數據
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_NUMBER_TURN
+      TermType: 0
+      Languages:
+      - Lượt đánh
+      - Round
+      - รอบ
+      - 戰鬥次數
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_OLD_PASS_NOT_AVAILABLE
+      TermType: 0
+      Languages:
+      - Mật khẩu cũ không chính xác
+      - Old password is not correct
+      - รหัสเก่าไม่ถูกต้อง
+      - 舊密碼不正確
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_ONE_MONTH_AGO
+      TermType: 0
+      Languages:
+      - hơn 1 tháng trước
+      - one month ago
+      - 1 เดือนก่อน
+      - 一個月前
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_PASS_SYMBOL_SPECIAL
+      TermType: 0
+      Languages:
+      - Mật khẩu không được lưu ký tự đặc biệt
+      - Password must not contain special characters
+      - รหัสไม่สามารถมีตัวอักษรพิเศษ
+      - 密碼不能使用特殊符號
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_PERCENT_MISSION
+      TermType: 0
+      Languages:
+      - TỈ LỆ NHIỆM VỤ
+      - PERCENT MISSION
+      - อัตราภารกิจ
+      - 任務幾率
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_PLACE_HOLDER_NAME
+      TermType: 0
+      Languages:
+      - Tên...
+      - Name...
+      - ชื่อ…
+      - 名字
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_POPUP_AURA_DESC
+      TermType: 0
+      Languages:
+      - 'Các hiệu ứng hiện tại :'
+      - Aura effects
+      - 'เอฟเฟคปัจจุบัน:'
+      - 當前的效果：
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_POPUP_AURA_TITLE
+      TermType: 0
+      Languages:
+      - Hiệu ứng đội hình
+      - Team Aura
+      - เอฟเฟคทีม
+      - 陣容效果
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_POPUP_ITEM_INFO_EQUIPMENT_SET
+      TermType: 0
+      Languages:
+      - Bộ trang bị
+      - Equipment set
+      - ชุด อุปกรณ์
+      - 套裝
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_POPUP_ITEM_INFO_HERO_RANK
+      TermType: 0
+      Languages:
+      - Tướng rank
+      - Hero's rank
+      - ฮีโร่ rank
+      - 段位英雄
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_POPUP_SELECT_SERVER_ALL_SERVER
+      TermType: 0
+      Languages:
+      - Toàn bộ các Servers
+      - All Servers
+      - ทั้งเซิร์ฟเวอร์
+      - 全服
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_POPUP_SELECT_SERVER_RECENTLY_SERVER
+      TermType: 0
+      Languages:
+      - Server gần nhất
+      - Recently Server
+      - เซิร์ฟเวอร์ล่าสุด
+      - 最近登錄的伺服器
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_POPUP_SELECT_SERVER_SERVER_WITH_CHARACTER
+      TermType: 0
+      Languages:
+      - Servers có nhân vật
+      - Servers with character
+      - เซิฟเวอร์มีตัวละคร
+      - 
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_PRICE_OLD
+      TermType: 0
+      Languages:
+      - 'Giá cũ:'
+      - 'Old price:'
+      - 'ราคาเดิม:'
+      - 有角色的伺服器
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_RANK_GROUP
+      TermType: 0
+      Languages:
+      - Nhóm hạng
+      - Rank group
+      - กลุ่มอันดับ
+      - 排名群
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_RECENTLY
+      TermType: 0
+      Languages:
+      - vừa xong
+      - recently
+      - เพิ่งเสร็จ
+      - 剛才
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_RECOMMEND_FRIEND
+      TermType: 0
+      Languages:
+      - 'Gợi ý kết bạn:'
+      - 'Suggested friends:'
+      - เพื่อนที่แนะนำ
+      - 好友推薦：
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_REGENERATIVE
+      TermType: 0
+      Languages:
+      - Tái tạo
+      - Recreate
+      - สร้างใหม่
+      - 再創造
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_REGRESS
+      TermType: 0
+      Languages:
+      - Trùng sinh
+      - Regress
+      - เกิดใหม่
+      - 重生
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_REMOVE_EQUIP
+      TermType: 0
+      Languages:
+      - Gỡ trang bị
+      - Unequip
+      - ถอดอุปกรณ์
+      - 卸下裝備
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_RENAME
+      TermType: 0
+      Languages:
+      - Đổi tên
+      - Rename
+      - เปลี่ยนชื่อ
+      - 改名
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_REQUIRE_LOGIN
+      TermType: 0
+      Languages:
+      - Bạn cần đăng nhập lại
+      - You have to re-login
+      - คุณต้องล็อกอินใหม่
+      - 您需要重新登錄
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_ROLE
+      TermType: 0
+      Languages:
+      - Vai trò
+      - Role
+      - บทบาท
+      - 職能
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_SAIOR_FIRST_UPPER
+      TermType: 0
+      Languages:
+      - Thuyền viên
+      - Crew member
+      - ลูกเรือ
+      - 船員
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_SAIOR_LOWER
+      TermType: 0
+      Languages:
+      - thuyền viên
+      - crew membber
+      - ลูกเรือ
+      - 船員
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_SAVE_MEMBER
+      TermType: 0
+      Languages:
+      - Lưu thành viên
+      - Save member
+      - บันทึกสมาชิก
+      - 保存成員
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_SECOND
+      TermType: 0
+      Languages:
+      - Giây
+      - Second
+      - วินาที
+      - 秒
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_SELECT_TEAM_TO_BATTLE
+      TermType: 0
+      Languages:
+      - Bạn chưa thiết lập đội hình ra trận
+      - You have not set up a team for battle
+      - คุณยังไม่ได้สร้างทีมต่อสู้
+      - 您尚未設定出戰陣容
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_SET_FAST_EQUIP
+      TermType: 0
+      Languages:
+      - Trang bị nhanh
+      - Auto Equip
+      - อุปกรณ์อัตโนมัติ
+      - 一鍵裝備
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_SHARD
+      TermType: 0
+      Languages:
+      - Mảnh ghép
+      - Shard
+      - จิ๊กซอว์
+      - 碎片
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_SHARE_GUILD
+      TermType: 0
+      Languages:
+      - 'Khoe hạm đội '
+      - Share to fleet
+      - แชร์กองทัพ
+      - 公會炫耀
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_SHARE_WORLD
+      TermType: 0
+      Languages:
+      - Khoe thế giới
+      - Share to world
+      - แชร์สู่โลก
+      - 世界炫耀
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_SKIP_BATTLE
+      TermType: 0
+      Languages:
+      - Bỏ qua trận đánh
+      - Skip the battle
+      - ข้ามการต่อสู้
+      - 跳過戰鬥
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_SKIP_BATTLE_2
+      TermType: 0
+      Languages:
+      - Bỏ qua trận đấu
+      - Skip battle
+      - ข้ามการต่อสู้
+      - 跳過戰鬥
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_SPECIAL_EQUIP_TITLE
+      TermType: 0
+      Languages:
+      - Trang bị đặc thù
+      - Exclusive equipment
+      - อุปกรณ์พิเศษ
+      - 特殊裝備
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_SPEC_ADD_DAMAGE_AGAINST_BLOOD_FOE
+      TermType: 0
+      Languages:
+      - '% ST mục tiêu bị chảy máu'
+      - '% damage against bleeding enemies'
+      - '% ความเสียหายเป้าหมายเลือดไหล'
+      - 被流血目標的%傷害
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_SPEC_ADD_DAMAGE_AGAINST_POISON_FOE
+      TermType: 0
+      Languages:
+      - '% ST mục tiêu bị độc'
+      - '% damage against posioned enemies'
+      - '% ความเสียหายเป้าหมาย ถูกพิษ'
+      - 被中毒目標的%傷害
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_SPEC_DAMAGE_AGAINST_FREEZE_FOE
+      TermType: 0
+      Languages:
+      - '% ST mục tiêu bị đóng băng'
+      - '% damage aganst freezed enemies'
+      - '% ความเสียหายเป้าหมายเป็นน้ำแข็ง'
+      - 被冰凍目標的%傷害
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_SPEC_IMMUNE_AGAINST_STUN_FOE
+      TermType: 0
+      Languages:
+      - '% ST mục tiêu bị choáng'
+      - '% damage agaist stunned enemies'
+      - '% ความเสียหายเป้าหมายเป็น ช็อค'
+      - 被暈眩目標的%傷害
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_SPEC_IMMUNE_FREEZE
+      TermType: 0
+      Languages:
+      - '% kháng đóng băng'
+      - '% immune to freeze'
+      - '% ต้านการเป็นน้ำแข็ง'
+      - '%冰凍抗性'
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_SPEC_IMMUNE_SILENCE
+      TermType: 0
+      Languages:
+      - '% kháng câm lặng'
+      - '% immune to silence'
+      - '% ต้านความเงียบ'
+      - '%沈默抗性'
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_SPEC_IMMUNE_STONE
+      TermType: 0
+      Languages:
+      - '% kháng hóa đá'
+      - '% immune to stone'
+      - '% ต้านการเปันหิน'
+      - '%冰凍抗性'
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_SPEC_IMMUNE_STUN
+      TermType: 0
+      Languages:
+      - '% kháng choáng'
+      - '% immune to stun'
+      - '% ต้านการช็อค'
+      - '%暈眩抗性'
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_STRENG_THEN
+      TermType: 0
+      Languages:
+      - Cường hóa
+      - Strengthen
+      - เพิ่มความแข็งแกร่ง
+      - 強化
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_SUMMON_SCROLL_SCENE_RECRUIT_X_1
+      TermType: 0
+      Languages:
+      - Chiêu mộ x1
+      - Recruit x1
+      - อัญเชิญ ×1
+      - 單次招募
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_SUMMON_SCROLL_SCENE_RECRUIT_X_10
+      TermType: 0
+      Languages:
+      - Chiêu mộ x10
+      - Recruit x10
+      - อัญเชิญ ×10
+      - 十連招募
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_SYS_ERROR
+      TermType: 0
+      Languages:
+      - Hệ thống đang bảo trì!
+      - System Maintenance
+      - ระบบกำลังซ่อม
+      - 系統正在維護！
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_TITLE_PERCENT_DROP_HERO
+      TermType: 0
+      Languages:
+      - TỈ LỆ RA TƯỚNG
+      - HERO's DROP RATE
+      - อัตราออกฮีโร่
+      - 召喚出英雄幾率
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_TOP_CAMPAIGN
+      TermType: 0
+      Languages:
+      - Top vượt ải
+      - Ranking Stage
+      - ท็อป ผ่านด่าน
+      - 通關排行榜
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_TOP_CRYSTAL_CROWN_LAST_SEASON
+      TermType: 0
+      Languages:
+      - Top thách đấu mùa trước
+      - Top Arena Players (last season)
+      - ทอ็ป ท้าประลอง (ซีซั่นก่อน)
+      - 上屆挑戰榜
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_TOP_ISLAND_CAKE
+      TermType: 0
+      Languages:
+      - Top đảo bánh
+      - Top Cake Island Players
+      - ท็อป เกาะขนม
+      - 蛋糕島榜
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_TOP_TOWER
+      TermType: 0
+      Languages:
+      - Top leo đậu thần
+      - Top Magic Bean Players
+      - ท็อป ปีนถั่ววิเศษ
+      - 攀登蔓藤榜
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_TOP_TRIAL_CHAMPION_LAST_SEASON
+      TermType: 0
+      Languages:
+      - Top liên đấu mùa trước
+      - Top Grand Arena Players (last season)
+      - ท็อป ทัวร์นาเมนต์ (ซีซั่นก่อน)
+      - 上屆跨服賽榜
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_TOTAL_DAMAGE
+      TermType: 0
+      Languages:
+      - 'Tổng sát thương:'
+      - 'Total damage:'
+      - 'ความเสียหายทั้งหมด:'
+      - 總傷害：
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_TOTAL_DAMAGE_NO_CLON
+      TermType: 0
+      Languages:
+      - Tổng sát thương
+      - Total damage
+      - 'ความเสียหายทั้งหมด:'
+      - 總傷害
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_TOWER_ONE
+      TermType: 0
+      Languages:
+      - Đơn
+      - Single
+      - คี่
+      - 單
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_TOWER_TWO
+      TermType: 0
+      Languages:
+      - Đôi
+      - Double
+      - คู่
+      - 雙
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_UPDATE_DATA
+      TermType: 0
+      Languages:
+      - Cập nhật dữ liệu({0})
+      - Update data({0})
+      - อัพเดทข้อมูล ({0})
+      - 更新數據（{0}）
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_UPGRADE_TIER
+      TermType: 0
+      Languages:
+      - Nâng phẩm
+      - Upgrade tier
+      - เพิ่มขั้น
+      - 提升品質
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_WAKE_UP
+      TermType: 0
+      Languages:
+      - Thức tỉnh
+      - Awaken
+      - ปลุก
+      - 覺醒
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MISC_2_LBL_HISTORY
+      TermType: 0
+      Languages:
+      - Lịch sử
+      - History
+      - ประวัติ
+      - 歷史
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MISC_2_LOG_OUT_ERROR
+      TermType: 0
+      Languages:
+      - Đăng xuất thất bại!!!
+      - Logout error!
+      - ออกจากระบบล้มเหลว!!!
+      - 登出失敗！
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MISC_LBL_THUYEN_VIEN
+      TermType: 0
+      Languages:
+      - thuyền viên
+      - heroes
+      - ลูกเรือ
+      - 船員
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MSG_BUY_SUCCESS
+      TermType: 0
+      Languages:
+      - Mua thành công.
+      - Buy successfully
+      - ซื้อสำเร็จ
+      - 購買成功
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MSG_BUY_TURN
+      TermType: 0
+      Languages:
+      - Mua lượt đánh
+      - Buy more turn
+      - ซื้อครั้งโจมตี
+      - 購買戰鬥次數
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MSG_CELL_TARVEN_QUEST_SPEED_CLICK
+      TermType: 0
+      Languages:
+      - Dùng {0} kim cương để hoàn thành nhiệm vụ ngay?
+      - Use {0} diamonds to complete the quest now?
+      - ใช้ {0} เพชรเพื่อสำเร็จภารกิจ?
+      - 是否使用{0}鉆石立即完成任務？
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MSG_CELL_TARVEN_QUEST_UNLOCK_CLICK
+      TermType: 0
+      Languages:
+      - Khoá nhiệm vụ thì làm mới sẽ không mất
+      - Locked quest will not be lose upon refreshing
+      - ล็อกภารกิจเมื่อ รีเฟรช จะไม่หายไป
+      - 鎖定任務後刷新時不會被丟失
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MSG_CHOOSE_MATERIAL
+      TermType: 0
+      Languages:
+      - Lựa chọn các nguyên liệu được chỉ định
+      - Select the designated materials
+      - เลือกวัตถุดิบที่ให้ไป
+      - 選擇所指定的材料
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MSG_CONFIRM_CHANGE_LANGUAGE
+      TermType: 0
+      Languages:
+      - Bạn có muốn đổi sang ngôn ngữ này?
+      - Are you sure to change to new language?
+      - คุณต้องการเปลี่ยนเป็นภาษานี้?
+      - 您是否要替換為此語言？
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MSG_CONFIRM_SHARE_BATTLE
+      TermType: 0
+      Languages:
+      - 'Bạn sẽ mất {0} kim cương mỗi lượt share. Bạn chắc chắn muốn share trận đánh này? '
+      - Takes {0} diamonds to share the match. Would you like to share?
+      - คุณจะหมด {0} เพชรทุกครั้งที่แชร์. คุณแน่ใจที่จะแชร์การต่อสู้?
+      - 每次分享您將消耗{0}鉆石。您確定要分享此場戰鬥？
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MSG_DELETE_QUEST
+      TermType: 0
+      Languages:
+      - Xóa nhiệm vụ?
+      - Delete quest?
+      - ลบภารกิจ?
+      - 刪除任務？
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MSG_DESC_QUESTION_REMAIN
+      TermType: 0
+      Languages:
+      - 'Số câu còn lại:'
+      - 'Number of remaining question:'
+      - 'จำนวนคำถามที่เหลือ:'
+      - 剩余問題數：
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MSG_DESC_REFRESH
+      TermType: 0
+      Languages:
+      - Bạn chắc chắn muốn làm mới?
+      - Are you sure you want to refresh?
+      - คุณแน่ใจที่จะรีเฟรช?
+      - 您確定要刷新？
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MSG_DESC_UNLOCK
+      TermType: 0
+      Languages:
+      - Bạn chắc chắn muốn mở khóa?
+      - Are you sure you want to unlock it?
+      - คุณแน่ใจที่จะปลดล็อค?
+      - 您確定要解鎖？
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MSG_DUNGEON_SCENE_DESC_WOULD_YOU_LIKE_TO_USE_THIS_ITEM
+      TermType: 0
+      Languages:
+      - Bạn có muốn sử dụng vật phẩm này không?
+      - Do you want to use this item?
+      - คุณต้องการใช้ไอเท็มนี้ไหม?
+      - 您是否要使用此物品？
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MSG_ENOUGHT_RESOURCE_NEED_FOR_USE
+      TermType: 0
+      Languages:
+      - Nguyên liệu cần dùng
+      - Materials needed
+      - วัตถุดิบที่ต้องใช้
+      - 所需材料
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MSG_ERROR_LOAD_EVENT
+      TermType: 0
+      Languages:
+      - Lỗi tải sự kiện
+      - Error loading event
+      - ดาวน์โหลด อีเว้นท์ ล้มเหลว
+      - 活動加載錯誤
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MSG_EXCHANGE_ITEM
+      TermType: 0
+      Languages:
+      - Bạn muốn đổi vật phẩm?
+      - Do you want to exchange items?
+      - คุณต้องการเปลี่ยน ไอเทม?
+      - 您是否要替換物品？
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MSG_FEED_BACK_SUSS
+      TermType: 0
+      Languages:
+      - Gửi phản hồi thành công!
+      - Feed back was sent!
+      - ส่งฟีดแบคสำเร็จ!
+      - 發送反饋成功！
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MSG_FRIEND_REQUEST
+      TermType: 0
+      Languages:
+      - 'Yêu cầu kết bạn:'
+      - 'Friend request:'
+      - 'คำขอเป็นเพื่อน:'
+      - 加好友請求：
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MSG_FRIEND_REQUEST_LIST
+      TermType: 0
+      Languages:
+      - Danh sách kết bạn
+      - Friend Request List
+      - รายชื่อขอเป็นเพื่อน
+      - 加好友名單
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MSG_FUSING_HERO_SCENE_NOT_FILL_FUSION
+      TermType: 0
+      Languages:
+      - Chưa chọn đủ nguyên liệu luyện tướng
+      - You haven't selected enough materials
+      - 'วัตถุดิบฝึกฝนฮีโร่ยังไม่ครบ '
+      - 您沒有選擇足夠的材料
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MSG_HERO_LIST_SCENE_BUY_SLOT_HERO
+      TermType: 0
+      Languages:
+      - Bạn có đồng ý sử dụng {0} kim cương để thêm 5 ô chứa Thuyền viên?
+      - Would you like to spend {0} daimonds to purchase extra 5 hero capacity?
+      - คุณตกลงใช้ {0} เพชรเพื่อเพิ่ม 5 ลูกเรือ?
+      - 您是否同意消耗{0}鉆石來擴展5格？
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MSG_ITEM_IS_OUT
+      TermType: 0
+      Languages:
+      - Vật phẩm đã hết
+      - Sold out !!!
+      - ไอเทมหมดแล้ว
+      - 物品已售罄
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MSG_MAX_LEVEL
+      TermType: 0
+      Languages:
+      - Cấp VIP tối đa!
+      - Max VIP level!
+      - เลเวล VIP มากสุด!
+      - 最大VIP級！
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MSG_MAX_LEVEL_2
+      TermType: 0
+      Languages:
+      - 'Cấp độ tối đa:'
+      - 'Level Cap:'
+      - เลเวลมากสุด
+      - 最大等級：
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MSG_NEED_WRITE_MIN
+      TermType: 0
+      Languages:
+      - Cần nhập ít nhất
+      - You need to enter at least
+      - ต้องป้อนน้อยสุด
+      - 至少要輸入
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MSG_NOTI_BUY_ITEM
+      TermType: 0
+      Languages:
+      - Bạn chắc chắn muốn mua vật phẩm này?
+      - Are you sure to buy this item?
+      - คุณแน่ใจที่จะซื้อไอเทมนี้?
+      - 您確定要購買此物品？
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MSG_NOTI_QUIT_CLAN
+      TermType: 0
+      Languages:
+      - Bạn chắc chắn rời khỏi liên minh?
+      - Are you sure to leave the guild?
+      - คุณแน่ใจที่จะออกจากกิลด์?
+      - 您確定離開聯盟？
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MSG_NOT_ENOUGHT_COIN
+      TermType: 0
+      Languages:
+      - Không đủ xu
+      - Not enough beli
+      - เบลีไม่พอ
+      - 貝利不足
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MSG_NOT_ENOUGHT_DIAMOND
+      TermType: 0
+      Languages:
+      - Không đủ kim cương
+      - Not enough diamond
+      - เพชรไม่พอ
+      - 鉆石不足
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MSG_NOT_ENOUGHT_MATERIAL_TO_WAKE_UP
+      TermType: 0
+      Languages:
+      - Chưa lắp đủ nguyên liệu để thức tỉnh
+      - Not enough material for awakening
+      - วัตถุดิบไม่พอเพื่อปลุก
+      - 您尚未放入足夠的材料，不能覺醒
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MSG_NOT_ENOUGHT_RESOURCE
+      TermType: 0
+      Languages:
+      - Không đủ trang bị nguyên liệu
+      - Not enough resource
+      - วัตถุดิบไม่พอ
+      - 材料裝備不足
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MSG_NOT_ENOUGHT_RESOURCE_2
+      TermType: 0
+      Languages:
+      - Không đủ tài nguyên
+      - Not enough resource
+      - ทรัพยากรไม่พอ
+      - 資源不足
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MSG_NOT_ENOUGHT_RESOURCE_TO_AWAKE
+      TermType: 0
+      Languages:
+      - Chưa điền đủ nguyên liệu để thức tỉnh
+      - Not enough material for awakening
+      - วัตถุดิบไม่พอเพื่อปลุก
+      - 您尚未放入足夠的材料，不能覺醒
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MSG_NOT_ENOUGH_STONE
+      TermType: 0
+      Languages:
+      - Không đủ đá
+      - Not enough stone
+      - หินไม่พอ
+      - 寶石不足
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MSG_NOT_TURN_BUY_NEED_UPGRADE_VIP
+      TermType: 0
+      Languages:
+      - Không còn lượt mua. Hãy nâng VIP để thêm lượt mua
+      - Purchasing limit reached, please raise your VIP level to add more
+      - หมดคลั้งซื้อ.โปลด อัพ VIP เพื่อเพิ่มครั้งซื้อ
+      - 您的購買次數已用完。請提示VIP級來獲得更多購買次數
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MSG_NUMBER_ERROR
+      TermType: 0
+      Languages:
+      - Số lượng không hợp lệ
+      - 'The quantity is not valid '
+      - จำนวนไม่เหมาะสม
+      - 數量無效
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MSG_PANEL_ENABLE_HERO_TO_GHOST
+      TermType: 0
+      Languages:
+      - Chưa lắp đủ nguyên liệu để ma hóa
+      - Not enough material for awakening
+      - วัตถุดิบไม่พอเพื่อปลุก
+      - 您尚未放入足夠的材料，不能覺醒
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MSG_PANEL_HERO_ENABLE_REGRESS
+      TermType: 0
+      Languages:
+      - Thuyền viên từ 10 sao mới có thể trùng sinh
+      - Only 10 stars+ hero can be regressed
+      - ลูกเรือตั้งแต่ 10 ดาวจึงสามารถเกิดใหม่
+      - 10星以上的船員才可以重生
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MSG_POPUP_ARENA_REWARD_DESC
+      TermType: 0
+      Languages:
+      - Hạng hiện tại {0}. Giữ hạng này để nhận phần thưởng vào cuối mùa
+      - Current rank {0}. Hold this rank for rewards at the end of the season
+      - อันดับปัจจุบัน {0}. รักษาอันดับต่อไปเพื่อรับรางวัลในท้ายซีซั่น
+      - 目前排名為{0}。保持這個等級可以在賽季結束時獲得獎勵
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MSG_POPUP_AURA_CONTENT_1
+      TermType: 0
+      Languages:
+      - '1 Thuyền viên cùng một hệ: +2.0% Máu +1.5% Công'
+      - '1 crew member(s) from an identical faction: +2%HP +1.5%Attack'
+      - '1 ลูกเรือสายเดียวกัน : +2.0% เลือด +1.5% พลังโจมตี'
+      - 同一個技能系的1位船員：+2.0%生命 +1.5%攻擊
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MSG_POPUP_AURA_CONTENT_2
+      TermType: 0
+      Languages:
+      - '2 Thuyền viên cùng một hệ: +5.0% Máu +3.5% Công'
+      - '2 crew member(s) from an identical faction: +5%HP +3.5%Attack'
+      - '2 ลูกเรือสายเดียวกัน : +5.0% เลือด +3.5% พลังโจมตี'
+      - 同一個技能系的2位船員：+5.0%生命 +3.5%攻擊
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MSG_POPUP_AURA_CONTENT_3
+      TermType: 0
+      Languages:
+      - '3 Thuyền viên cùng một hệ: +8.0% Máu +5.5% Công'
+      - '3 crew member(s) from an identical faction: +8%HP +5.5%Attack'
+      - '3 ลูกเรือสายเดียวกัน : +8.0% เลือด +5.5% พลังโจมตี'
+      - 同一個技能系的3位船員：+8.0%生命 +5.5%攻擊
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MSG_POPUP_AURA_CONTENT_4
+      TermType: 0
+      Languages:
+      - '4 Thuyền viên cùng một hệ: +11.0% Máu +7.5% Công'
+      - '4 crew member(s) from an identical faction: +11%HP +7.5%Attack'
+      - '4 ลูกเรือสายเดียวกัน : +11.0% เลือด +7.5% พลังโจมตี'
+      - 同一個技能系的4位船員：+11.0%生命 +7.5%攻擊
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MSG_POPUP_AURA_CONTENT_5
+      TermType: 0
+      Languages:
+      - '5 Thuyền viên cùng một hệ: +14.0% Máu +9.5% Công'
+      - '5 crew member(s) from an identical faction: +14%HP +9.5%Attack'
+      - '5 ลูกเรือสายเดียวกัน : +14.0% เลือด +9.5% พลังโจมตี'
+      - 同一個技能系的5位船員：+14.0%生命 +9.5%攻擊
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MSG_POPUP_AURA_CONTENT_6
+      TermType: 0
+      Languages:
+      - '6 Thuyền viên cùng một hệ: +18.0% Máu +12.0% Công'
+      - '6 crew member(s) from an identical faction: +18%HP +12%Attack'
+      - '6 ลูกเรือสายเดียวกัน : +18.0% เลือด +12.0% พลังโจมตี'
+      - 同一個技能系的6位船員：+18.0%生命 +12.0%攻擊
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MSG_POPUP_AURA_DESC_2
+      TermType: 0
+      Languages:
+      - 'Thiết lập các thuyền viên cùng hệ trong đội hình để kích hoạt hiệu ứng :'
+      - Multiple crew members per faction bonues
+      - 'สร้างลูกเรือสายเดียวกันในรูปแบบทีมเพื่อเปิดใช้งานเอฟเฟค:'
+      - 設定陣容裏同一個技能系的船員可以激活效果：
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MSG_POPUP_AURA_PERCENT_IMMUNITY_AGAINST
+      TermType: 0
+      Languages:
+      - +4% Miễn chống
+      - +4% Control Immunity
+      - +4% ภูมิคุ้มกัน
+      - '#ERROR!'
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MSG_POPUP_AURA_PERCENT_REDUCE_DAMAGE
+      TermType: 0
+      Languages:
+      - +2% Giảm sát thương
+      - +1% Damage Reduction
+      - +2% ลดความเสียหาย
+      - '#ERROR!'
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MSG_POPUP_BUY_ITEM_OVER
+      TermType: 0
+      Languages:
+      - Vượt quá giới hạn
+      - Buying limit reached!
+      - เกินขีดจำกัด
+      - 超過購買限製
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MSG_POPUP_GUILD_MANAGER_SENT_RECRUIT
+      TermType: 0
+      Languages:
+      - Gửi tuyển mộ quá nhanh
+      - You are sending recruitment news too fast
+      - ส่งคำเชิญเร็วไป
+      - 發送招募太快
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MSG_POPUP_HERO_INFO_ALL_GUILD_SKILL_TO_LEVEL_2
+      TermType: 0
+      Languages:
+      - Tăng toàn bộ kĩ năng lên cấp 2
+      - Increases all skills to level 2
+      - เพิ่มทุกสกิลขึ้นเลเวล 2
+      - 將所有技能提升到2級
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MSG_POPUP_HERO_INFO_LEVEL_UP_TO_100
+      TermType: 0
+      Languages:
+      - Cấp độ tối đa 100
+      - Max level is 100
+      - เลเวลสูงสุด100
+      - 最大等級100級
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MSG_POPUP_HERO_INFO_MAX_LEVEL
+      TermType: 0
+      Languages:
+      - Thuyền viên đã đạt cấp tối đa
+      - Hero has reached maximum level
+      - ลูกเรือถึงเลเวลสูงสุด
+      - 船員等級已達到最大等級
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MSG_POPUP_HERO_INFO_MORE_COMBAT_POWER
+      TermType: 0
+      Languages:
+      - Tăng 30% lực chiến
+      - 30% more combat power
+      - เพิ่มพลัง 30%
+      - 提升30%戰鬥力
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MSG_POPUP_HERO_INFO_NOT_MAX_LEVEL
+      TermType: 0
+      Languages:
+      - Thuyền viên chưa đạt phẩm tối đa
+      - Crew members have not reached the maximum level
+      - ลูกเรือยังไม่ถึงเลเวลสูงสุด
+      - 船員品質階級未達到上限
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MSG_POPUP_HERO_INFO_UNLOCK
+      TermType: 0
+      Languages:
+      - Chưa thể lên sao tiếp ở phiên bản này
+      - This function is locked now. We will open soon
+      - ไม่สามารถเพิ่มดาวต่อในเวอร์ชั่นนี้
+      - 在此版本還沒能繼續升星
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MSG_POPUP_ITEM_INFO_COLLECT_SHARD
+      TermType: 0
+      Languages:
+      - Thu thập {0} mảnh ghép để hợp thành
+      - Collect {0} fragments to summon
+      - รวบรวม {0} จิ๊กซอว์เพื่อประกอบ
+      - 收集{0}個碎片可以合成
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MSG_POPUP_PET_REBIRTH
+      TermType: 0
+      Languages:
+      - Tái tạo chiến hạm đưa chiến hạm về cấp độ 1. Các tài nguyên đã dùng để nâng cấp được hoàn lại (trừ beli)
+      - Warship reset brings warship back to level 1. Resources used for upgrades are refunded (except for beli)
+      - รีเซ็ตเรือรบนำเรือรบกลับไป เลเวล 1. ทรัพยากรที่เคยใช้อัพเลเวลถูกส่งคืน (ยกเว้น เบลี)
+      - 戰船重造使戰船回到1級。用於升級的資源將被退還(貝利除外)
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MSG_POPUP_SELECT_HERO_DESC
+      TermType: 0
+      Languages:
+      - Không có tướng yêu cầu, bạn có thể chiêu mộ hoặc mua trong cửa hàng
+      - You don't have required hero, you can recruit or buy in the store
+      - ไม่มีฮีโร่ที่ต้องการ, คุณสามารถอัญเชิญหรือซื้อในร้านค้า
+      - 沒有所需的英雄，您可以進行招募或在商店裏購買
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MSG_POPUP_SEND_MAIL_CONTENT_EMPTY
+      TermType: 0
+      Languages:
+      - Nội dung mail trống!
+      - Mail's content is empty
+      - เนื้อหาอีเมล์ว่าง!
+      - 郵件內容為空！
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MSG_POPUP_SEND_MAIL_ID_EMPTY
+      TermType: 0
+      Languages:
+      - ID người chơi trống!
+      - Player's ID is empty
+      - id ผู้เล่นว่าง!
+      - 玩家ID為空！
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MSG_POPUP_SETTING_ACC_VERIFICATION
+      TermType: 0
+      Languages:
+      - Xác thực tài khoản thành công. Vào thành tựu để nhận thưởng
+      - Account verification is successful. Go to Achievements to receive rewards
+      - ยืนยันบัญชีสำเร็จ. เข้าไปดูผลสำเร็จเพื่อรับรางวัล
+      - 賬號驗證成功。進入成就界面領獎
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MSG_POPUP_TARVEN_QUEST_ENTER_ENOUGHT_CREW
+      TermType: 0
+      Languages:
+      - Hãy nhập đủ Thuyền viên
+      - Please select enough crew members
+      - โปรดป้อนลูกเรือให้ครบ
+      - 請輸入足夠船員
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MSG_POPUP_TARVEN_QUEST_HELP
+      TermType: 0
+      Languages:
+      - 1. Thuyền viên không bị mất khi thực hiện nhiệm vụ.2. Mỗi Thuyền viên chỉ thực hiện một nhiệm vụ tại một thời điểm. Sau khi nhận phần thưởng, Thuyền viên có thể thực hiện các nhiệm vụ khác.
+      - 1. Your hero will not be lost on assignment.2. You can only assign one hero per mission, upon completion, he will be available for another mission .
+      - 1. ลูกเรือจะไม่หายเมื่อปฏิบัติภารกิจ.2. ทุกๆลูกเรือปฏิบัติเพียง 1 ภารกิจใน 1 สถานที่. หลังจากรับรางวัล, ลูกเรือสามารถปฏิบัติภารกิจอื่น.
+      - 1、執行任務時船員不會丟失。 2、每個成員在同一個時間點只能執行一個任務。領獎後，船員可以執行其他任務。
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MSG_POPUP_TARVEN_QUEST_SAILOR_INCORRECT
+      TermType: 0
+      Languages:
+      - Thuyền viên không thỏa mãn yêu cầu
+      - Crew members do not meet the requirements
+      - ลูกเรือไม่ตอบสนองความต้องการ
+      - 船員不滿足條件
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MSG_REQUIRE_HERO
+      TermType: 0
+      Languages:
+      - Chọn ít nhất {0} tướng
+      - Choose at least {0} heroes
+      - เลือกน้อยสุด {0} ฮีโร่
+      - 選擇至少{0}個英雄
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MSG_REQUIRE_LEVEL_2
+      TermType: 0
+      Languages:
+      - Yêu cầu cấp độ {0}
+      - Requires level {0}
+      - ต้องถึงเลเวล {0}
+      - 要求等級為{0}級
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MSG_REQUIRE_VIP_OR_LEVEL
+      TermType: 0
+      Languages:
+      - Yêu cầu cấp độ {0} hoặc VIP cấp độ {1}
+      - Requires level {0} or VIP level {1}
+      - ต้องถึงเลเวล {0} หรือ VIP เลเวล {1}
+      - 要求等級為{0}級或VIP級為{1}
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MSG_SAILOR_LOCKED
+      TermType: 0
+      Languages:
+      - Thuyền viên đã khóa
+      - Hero has been locked
+      - ลูกเรือถูกล็อค
+      - 船員已被鎖定
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MSG_SAILOR_LOCKED_ALL_STAR_LEAGUE
+      TermType: 0
+      Languages:
+      - Thuyền viên trong đấu trường, đội hình phòng thủ thiên hạ võ đấu
+      - Hero is locked because he is in defensive formation of Arena All Stars
+      - ลูกเรืออยู่ในสนามรบ, กำลังป้องกันวรยุทธยุทธภพ
+      - 競技場裏的船員，天下武鬥防守陣容
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MSG_SAILOR_LOCKED_CRYSTALCROWN
+      TermType: 0
+      Languages:
+      - Thuyền viên trong đấu trường, đội hình phòng thủ thách đấu
+      - Hero is locked because he is in defensive formation of Arena
+      - ลูกเรืออยู่ในสนามรบ, กำลังป้องกัน สังเวียนท้าประลอง
+      - 競技場裏的船員，挑戰賽防守陣容
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MSG_SAILOR_LOCKED_TRIAL_CHAMPION
+      TermType: 0
+      Languages:
+      - Thuyền viên trong đấu trường, đội hình phòng thủ liên đấu
+      - Hero is locked because he is in defensive formation of Grand Arena
+      - ลูกเรืออยู่ในสนามรบ, กำลังป้องกัน ทัวร์นาเมนต์
+      - 競技場裏的船員，跨服賽防守陣容
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MSG_SEND_SUCCESS
+      TermType: 0
+      Languages:
+      - Gửi thư thành công
+      - Mail sent successfully
+      - ส่งจดหมายสำเร็จ
+      - 郵件發送成功
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MSG_SHARE_BATTLE
+      TermType: 0
+      Languages:
+      - Share trận đánh thành công
+      - Share successfully
+      - แชร์ การต่อสู้สำเร็จ
+      - 戰鬥分享成功
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MSG_SHARE_BATTLE_2
+      TermType: 0
+      Languages:
+      - Share trận đánh thành công
+      - Share successfully!
+      - แชร์ การต่อสู้สำเร็จ
+      - 戰鬥分享成功
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MSG_SKILL_NOT_UNLOCK_IN_THIS_VERSON
+      TermType: 0
+      Languages:
+      - Kĩ năng chưa mở khóa ở phiên bản này
+      - Skills are not unlocked in this version
+      - สกิลยังไม่ได้ปลดล็อคในเวอร์ชั่นนี้
+      - 在此版本內此技能未解鎖
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MSG_SUBMIT_TO_MEMBER
+      TermType: 0
+      Languages:
+      - Gửi thành viên
+      - Send to member
+      - ส่งถึงสมาชิก
+      - 發送給成員
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MSG_TARVEN_SCENE_DESC
+      TermType: 0
+      Languages:
+      - Có nhiệm vụ 4 sao trở lên. Bạn có muốn làm mới không?
+      - There are 4+ star missions. Do you want to refresh?
+      - มีภารกิจ 4 ดาวขึ้นไป. คุณต้องการทำใหม่ไหม?
+      - 有4星以上的人物。您是否要刷新?
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MSG_TITLE_CARD_MONTH
+      TermType: 0
+      Languages:
+      - Tổng VIP EXP +
+      - Total VIP EXP +
+      - รวม VIP EXP +
+      - VIP經驗總數+
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MSG_TITLE_LIST_FRIEND
+      TermType: 0
+      Languages:
+      - Danh sách bạn
+      - Friend list
+      - รายชื่อเพื่อน
+      - 好友名單
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MSG_TITLE_MAKE_FRIEND
+      TermType: 0
+      Languages:
+      - Kết bạn
+      - Add friend
+      - เพิ่มเพื่อน
+      - 結交好友
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MSG_TITLE_SCOUT
+      TermType: 0
+      Languages:
+      - Trinh thám
+      - Scout
+      - สอดแนม
+      - 偵探
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MSG_UNLOCK_SUSSCESS
+      TermType: 0
+      Languages:
+      - Bạn đã mở khóa thành công!
+      - Unlock successfully!
+      - คุณปลดล็อคสำเร็จ!
+      - 您已解鎖成功！
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MSG_UNLOCK_WHEN
+      TermType: 0
+      Languages:
+      - Mở khóa khi đạt phẩm
+      - Unlock with tier
+      - ปลดล็อคเมื่อถึงขั้น
+      - 達到品質後解鎖
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MSG_UPGRADE_ALL_SKILL
+      TermType: 0
+      Languages:
+      - Nâng cấp toàn bộ kĩ năng
+      - Upgrade all skills
+      - อัพเดทสกิลทั้งหมด
+      - 提升所有技能
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MSG_UPGRADE_CREW_TO_LEVEL_TO_UNLOCK
+      TermType: 0
+      Languages:
+      - Nâng cấp thuyền viên lên câp {0} để mở khóa
+      - Upgrade crew members to level {0} to unlock
+      - อัพเกรดลูกเรือขึ้นเลเวล {0} เพื่อปลดล็อค
+      - 將船員升級到{0}級進行解鎖
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MSG_UPGRADE_SUCCESS
+      TermType: 0
+      Languages:
+      - Nâng cấp thành công!
+      - Upgrade successfully!
+      - อัพเกรดสำเร็จ!
+      - 升級成功！
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MSG_UPGRADE_VIP_TO_BONUS_PURCHASE
+      TermType: 0
+      Languages:
+      - Tăng cấp VIP để thêm lượt mua
+      - Increase VIP level to increase purchasing limit
+      - เพิ่มเลเวล VIP เพื่อเพิ่มครั้งซื้อ
+      - 提升VIP級可以獲得更多購買次數
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MSG_USE_DIAMONDS_TO_SUMMON
+      TermType: 0
+      Languages:
+      - Dùng {0} Kim cương để chiêu mộ {1} đại hải tặc?
+      - Use {0} Diamonds to recruit {1} great pirates?
+      - ใช้ {0} เพชรเพื่ออัญเชิญ {1} มหาโจรสลัด?
+      - 用{0}鉆石進行招募{1}位大海賊？
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MSG_YOU_HAVE_RUN_OUT_OF_BUY
+      TermType: 0
+      Languages:
+      - Bạn đã hết lượt mua
+      - Purchasing limit reached
+      - คุณหมดจำนวนครั้งซื้อ
+      - 您的購買次數已用完
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MSG_YOU_HAVE_RUN_OUT_OF_TURNS
+      TermType: 0
+      Languages:
+      - Bạn đã hết lượt đánh
+      - You have run out of turns
+      - คุณหมดจำนวนครั้งโจมตี
+      - 您的戰鬥次數已用完
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: TITLE_TIER
+      TermType: 0
+      Languages:
+      - Phẩm
+      - Tier
+      - ขั้น
+      - 品質
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_ADD_FRIEND
+      TermType: 0
+      Languages:
+      - Kết bạn
+      - Add Friend
+      - เพิ่มเพื่อน
+      - 添加好友
+      Flags: 00000000
+      Languages_Touch: []
+    CaseInsensitiveTerms: 0
+    OnMissingTranslation: 1
+    mTerm_AppName:
+    mLanguages:
+    - Name: Vietnamese
+      Code: vi
+      Flags: 0
+    - Name: English
+      Code: en
+      Flags: 0
+    - Name: Thai
+      Code: th
+      Flags: 0
+    - Name: Chinese
+      Code: zh
+      Flags: 0
+    IgnoreDeviceLanguage: 0
+    _AllowUnloadingLanguages: 0
+    Google_WebServiceURL: https://script.google.com/a/k2tek.net/macros/s/AKfycbyVsT4q_NcwMnuiazHtXFj4L79FD-2X5lRwRwqS/exec
+    Google_SpreadsheetKey: 1VYzJt0RwiesRBMYDPZdmJJzKXOkDXpa8zmDBfp6BY2Y
+    Google_SpreadsheetName: I2Loc Hải Tặc Đại Chiến Assets/Scenes/LoginScene.unity I2Languages_misc
+    Google_LastUpdatedVersion: 1615792493978
+    GoogleUpdateFrequency: 1
+    GoogleInEditorCheckFrequency: 2
+    GoogleUpdateSynchronization: 1
+    GoogleUpdateDelay: 5
+    Assets: []
+  version: 1
+  NeverDestroy: 1
+  UserAgreesToHaveItOnTheScene: 1
+  UserAgreesToHaveItInsideThePluginsFolder: 0
+  GoogleLiveSyncIsUptoDate: 1
+  Assets: []
+  Google_WebServiceURL:
+  Google_SpreadsheetKey:
+  Google_SpreadsheetName:
+  Google_LastUpdatedVersion:
+  GoogleUpdateFrequency: 3
+  GoogleUpdateDelay: 5
+  mLanguages: []
+  IgnoreDeviceLanguage: 0
+  _AllowUnloadingLanguages: 0
+  mTerms: []
+  CaseInsensitiveTerms: 0
+  OnMissingTranslation: 1
+  mTerm_AppName:

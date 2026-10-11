@@ -1,0 +1,2284 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1709254077376921
+GameObject:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Component:
+  - component: {fileID: 4730242686860875}
+  - component: {fileID: 114724804207875695}
+  m_Layer: 0
+  m_Name: I2Languages_misc_2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4730242686860875
+Transform:
+  serializedVersion: 2
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1709254077376921}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -0, z: -0}
+--- !u!114 &114724804207875695
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1709254077376921}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7554888af13e447d4982f6ad48f0af4b, type: 3}
+  m_Name:
+  m_EditorClassIdentifier:
+  mSource:
+    UserAgreesToHaveItOnTheScene: 1
+    UserAgreesToHaveItInsideThePluginsFolder: 0
+    GoogleLiveSyncIsUptoDate: 1
+    mTerms:
+    - Term: FONT
+      TermType: 1
+      Languages:
+      - Fonts/SVN-Titillium bold
+      - Fonts/SVN-Titillium bold
+      - Fonts/SVN-Titillium bold
+      - Fonts/SVN-Titillium bold
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_BRAVE_TRIAL_CHEST_LEVEL_1
+      TermType: 0
+      Languages:
+      - Rương cấp 1
+      - Chest level 1
+      - หีบเลเวล 1
+      - 1級寶箱
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_FRIEND
+      TermType: 0
+      Languages:
+      - Bạn bè
+      - Friends
+      - เพื่อน
+      - 好友
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_HOUR
+      TermType: 0
+      Languages:
+      - Giờ
+      - Hour
+      - ชั่วโมง
+      - 小時
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_UPDATE
+      TermType: 0
+      Languages:
+      - Cập nhật
+      - Update
+      - อัพเดท
+      - 更新
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MISC_2LBL_SUPER_CASINO
+      TermType: 0
+      Languages:
+      - Vòng quay siêu cấp
+      - Super Lucky Spin
+      - ซุปเปอร์ วงล้อ
+      - 超級轉盤
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MISC_2_ARR_CHAT_CAMPAIGN_1
+      TermType: 0
+      Languages:
+      - Thuyền trưởng cứ việc nghỉ ngơi, chúng tôi sẽ thu thập tài nguyên tại đại hải trình
+      - We can do this all day
+      - กัปตันไปพักเถอะ, พวกเราจะเก็บทรัพยากรเอง
+      - 船長休息一下，我們將在偉大航路收集資源
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MISC_2_ARR_CHAT_CAMPAIGN_2
+      TermType: 0
+      Languages:
+      - Thường xuyên ghé thăm để thu thập tài nguyên nhé
+      - Remember to collect resources frequently
+      - อย่าลืมเก็บทรัพยากรเป็นประจำนะ
+      - 經常來收集資源哦
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MISC_2_ARR_CHAT_TOWER_1
+      TermType: 0
+      Languages:
+      - Ta không bao giờ thua một tên hải tặc bỏ tên họ của mình rồi chạy trốn khỏi biển cả đâu! Hải tặc chỉ có thể bỏ tên họ của mình vào lúc chết mà thôi!
+      - na
+      - ฉันไม่เคยแพ้โจรสลัด ที่ทิ้งชื่อนามสกุลแล้ววิ่งหนีออกจากมหาสมุทรหรอกนะ! โจรสลัดสามารถทิ้งชื่อนามสกุลในตอนตายเท่านั้น!
+      - 我永遠不會輸給一個放棄自己的姓名逃離大海的海賊！海賊只可以在死亡時才放棄自己姓名！
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MISC_2_ARR_CHAT_TOWER_2
+      TermType: 0
+      Languages:
+      - Chết không phải là cách đến ơn!!! Người ta cứu anh không phải vì lý do đó!!! Được cứu mạng rồi lại nguyện chết, chỉ có những thằng bạc nhược mới làm thế!
+      - na
+      - ตายไม่ใช่วิธีตอบแทนบุญคุณ!!! เขาสวยคนไม่ใช่เพราะเหตุผลนั้น!!! เขาช่วยชีวิตแล้วแต่อาสาไปตาย, มีแค่คนอ่อนแอที่ทำแบบนั้น!
+      - 死不是報恩的辦法！！人家救你不是要你那樣做！！救你的命你卻願意死，只有沒用的人才這樣！
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MISC_2_ARR_CHAT_TOWER_3
+      TermType: 0
+      Languages:
+      - Sức mạnh không thể đo bằng kích cỡ cơ thể, mà phải đo bằng độ lớn của trái tim và hoài bão!
+      - na
+      - ความแข็งแกร่งไม่สามารถวัดดว้ยรูปร่าง, แต่ต้องวัดด้วยหัวใจ!
+      - 力量不能通過身體的大小來衡量，而要通過您的心胸來衡量！
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MISC_2_ARR_CHAT_TOWER_4
+      TermType: 0
+      Languages:
+      - Muốn giữ cho tất cả mọi người không phải chết sao!? Đừng có viển vông! Đây là một cuộc chiến, sẽ có người phải chết!!
+      - na
+      - ไม่อยากให้ทุกคนต้องตายใช่ไหม!? อย่าฝันเลย! นี่คือการต่อสู้, จะต้องมีคนตาย!!
+      - 想讓所有人不會喪命？別妄想了！這是一場戰鬥，總會有人死亡！！
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MISC_2_ARR_CHAT_TOWER_5
+      TermType: 0
+      Languages:
+      - Nếu phải như thế thì… Tôi sẽ chết trong hạnh phúc!
+      - na
+      - ถ้าเป็นเช่นนั้น...ฉันจะตายอย่างมีความสุข!
+      - 如果要這樣。。。我會快樂地死！
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MISC_2_ARR_CHAT_TOWER_6
+      TermType: 0
+      Languages:
+      - Bạn bè của ta… dù ta chết… cũng đừng hòng cướp đi bất cứ người nào!!!
+      - na
+      - เพื่อนฝูงของฉัน... ถึงแม้ฉันตาย... ก็อย่าได้มาทำร้ายสักคน!!!
+      - 我的朋友。。。我寧死。。。也不會讓任何人喪命！！！
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MISC_2_ARR_CHAT_TOWER_7
+      TermType: 0
+      Languages:
+      - Bạn hay thù hả? Mấy cái chuyện đó… các người… Tự quyết định đi!
+      - na
+      - มิตรหรือศัตรู? เรื่องพวกนี้... พวกคุณ...ตัดสินใจเอง!
+      - 朋友還是仇人？這些事情。。。你們。。。自己決定吧！
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MISC_2_ARR_CHAT_TOWER_8
+      TermType: 0
+      Languages:
+      - Thế giới này chỉ cần có một vua hải tặc thôi!
+      - na
+      - โลกใบนี้มีราชาโจรสลัดคนเดียวเท่านั้น!
+      - 這世界只能有唯一一位海賊王！
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MISC_2_BAN_DA_HET_LUOT_DOI
+      TermType: 0
+      Languages:
+      - Bạn đã hết lượt đổi !
+      - You can not exchange anymore!
+      - คุณหมดจำนวนครั้ง เปลี่ยน!
+      - 您的兌換次數已用完！
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MISC_2_BONUS_STRONG
+      TermType: 0
+      Languages:
+      - Tăng sức mạnh cho đội hình ra trận
+      - Increase power
+      - เพิ่มความแข็งแกร่งให้รูปแบบทีม
+      - 給出戰陣容提升力量
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MISC_2_BOX_GUILD_ORDER_NOTE
+      TermType: 0
+      Languages:
+      - Không có nhiệm vụ đang thực thi. Hãy nhận nhiệm vụ ngay!
+      - There is no quest at the moment!
+      - หมดภารกิจ. รับภารกิจเลย!
+      - 沒有正在進行的人物。請立即接受任務！
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MISC_2_BOX_ORB_SUMMON_DESC
+      TermType: 0
+      Languages:
+      - Bạn chưa chọn hệ thuyền viên muốn chiêu mộ
+      - You have not chosen any hero's faction
+      - คุณยังไม่ได้เลือกสายลูกเรือที่ต้องการอัญเชิญ
+      - 您未選擇要招募的船員
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MISC_2_BOX_REGISTER_DESC_1
+      TermType: 0
+      Languages:
+      - Tên đầy đủ người giám hộ
+      - na
+      - ชื่อเต็มของผู้พิทักษ์
+      - 監護者姓名
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MISC_2_BOX_REGISTER_DESC_2
+      TermType: 0
+      Languages:
+      - Chứng minh thư người giám hộ
+      - na
+      - บัตรประชาชนผู้พิทักษ์
+      - 監護者身份證
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MISC_2_BOX_REGISTER_DESC_3
+      TermType: 0
+      Languages:
+      - Ngày sinh người giám hộ
+      - na
+      - เบอร์โทรผู้พิทักษ์
+      - 監護者生日
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MISC_2_BOX_REGISTER_DESC_5
+      TermType: 0
+      Languages:
+      - Điện thoại người giám hộ
+      - na
+      - เบอร์โทรผู้พิทักษ์
+      - 監護者電話號碼
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MISC_2_BOX_REGRESS_HERO
+      TermType: 0
+      Languages:
+      - Bạn có chắc chắn muốn phân rã thuyền viên?
+      - Are you sure you want to regress this hero
+      - คุณแน่ใจที่จะสลายตัวลูกเรือ?
+      - 您確定要分解船員？
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MISC_2_BOX_REPLACE_HERO_CONFIRM
+      TermType: 0
+      Languages:
+      - Chưa điền đủ thuyền viên thay thế
+      - Not enough materials
+      - ลูกเรือสำรองยังไม่ครบ
+      - 還沒放入要替換的船員
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MISC_2_BOX_REPLACE_HERO_CONFIRM_2
+      TermType: 0
+      Languages:
+      - Bạn có chắc chắn muốn thay thế thuyền viên?
+      - Are you sure you want to replace this hero
+      - คุณแน่ใจที่จะเปลี่ยนลูกเรือ?
+      - 您確定要替換船員？
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MISC_2_BOX_REPLACE_HERO_CONFIRM_3
+      TermType: 0
+      Languages:
+      - Chưa đủ số lượng thuyền viên nguyên liệu thay thế
+      - Not enough materials
+      - จำนวนลูกเรือวัตถุดิบสำรองยังไม่ครบ
+      - 用於替換的材料船員數量不足
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MISC_2_BOX_REPLACE_HERO_CONFIRM_4
+      TermType: 0
+      Languages:
+      - Nguyên liệu hoán đổi phải là cùng 1 thuyền viên
+      - Please select the same hero
+      - วัตถุดิบเปลี่ยนต้องเหมือนกันกับลูกเรือ
+      - 替換材料必須是同一個船員
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MISC_2_BOX_REPLACE_HERO_CONFIRM_5
+      TermType: 0
+      Languages:
+      - Thuyền viên nguyên liệu chỉ có thể lên tối đa 9 sao
+      - This hero can only be ascended to 9 stars
+      - ฮีโร่วัตถุดิบมีได้มากสุดแค่ 9 ดาว
+      - 材料船員最大只能升到9星
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MISC_2_BOX_REPLACE_HERO_CONFIRM_6
+      TermType: 0
+      Languages:
+      - Thuyền viên hoán đổi phải khác thuyền viên nguyên liệu
+      - You can not replace the same hero
+      - ฮีโร่เปลี่ยน ต้องแตกต่างจากฮีโร่วัตถุดิบ
+      - 替換船員必須與材料船員不同
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MISC_2_BOX_REPLACE_HERO_DATA_ERROR
+      TermType: 0
+      Languages:
+      - Nguyên liệu không hợp lệ
+      - Invalid materials!
+      - วัตถุดิบไม่เหมาะสม
+      - 材料不合規
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MISC_2_BUY_TO_UNLOCK
+      TermType: 0
+      Languages:
+      - Mua gói để mở khóa
+      - Buy package to unlock
+      - ซื้อแพ็กเกจเพื่อปลดล็อค
+      - 購買禮包來解鎖
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MISC_2_CACH_NHAN
+      TermType: 0
+      Languages:
+      - Cách nhận
+      - How to get
+      - วิธีรับ
+      - 獲得途徑
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MISC_2_CAMPAIGN_FIRST_NAMI_S
+      TermType: 0
+      Languages:
+      - Hoàn thành ải 5-10 sẽ nhận ngay Nami-S
+      - Completing stage 5-10 will receive Nami-S
+      - สำเร็จด่าน 5-10 จะได้รับ Nami-S
+      - 完成第5-10關卡立即獲得S級娜美
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MISC_2_CAMPAIGN_FIRST_NAMi
+      TermType: 0
+      Languages:
+      - Hoàn thành ải 2-10 sẽ nhận ngay Nami
+      - Completing stage 2-10 will receive Nami
+      - สำเร็จด่าน 4-10 จะได้รับ Sanji
+      - 完成第2-10關卡立即獲得娜美
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MISC_2_CAMPAIGN_FIRST_SANJI
+      TermType: 0
+      Languages:
+      - Hoàn thành ải 4-10 sẽ nhận ngay Sanji
+      - Completing stage 4-10 will receive Sanji
+      - สำเร็จด่าน 2-10 จะได้รับ Nami
+      - 完成第4-10關卡立即獲得山治
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MISC_2_CAMPAIGN_MAP_1
+      TermType: 0
+      Languages:
+      - Thị trấn Shells
+      - Shells Town
+      - เมือง Shells
+      - 謝爾茲鎮
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MISC_2_CAMPAIGN_MAP_INFO_10
+      TermType: 0
+      Languages:
+      - Đảo trời Skypiea
+      - Skypiea Island
+      - เกาะฟ้า Skypiea
+      - 空島
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MISC_2_CAMPAIGN_MAP_INFO_2
+      TermType: 0
+      Languages:
+      - Thị trấn Orange
+      - Orange Town
+      - เมือง Orange
+      - 橘子鎮
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MISC_2_CAMPAIGN_MAP_INFO_3
+      TermType: 0
+      Languages:
+      - Làng Syrup
+      - Syrup Village
+      - หมู่บ้าน Syrup
+      - 糖汁村
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MISC_2_CAMPAIGN_MAP_INFO_4
+      TermType: 0
+      Languages:
+      - Nhà hàng Baratie
+      - Baratie Restaurant
+      - ร้านอาหาร Baratie
+      - 海上餐廳
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MISC_2_CAMPAIGN_MAP_INFO_5
+      TermType: 0
+      Languages:
+      - Công viên Arlong
+      - Arlong Park
+      - สวน Arlong
+      - 阿龍公園
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MISC_2_CAMPAIGN_MAP_INFO_6
+      TermType: 0
+      Languages:
+      - Vương quốc Alabasta
+      - Alabasta Kingdom
+      - ราชอาณาจักร Alabasta
+      - 阿拉巴斯坦王國
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MISC_2_CAMPAIGN_MAP_INFO_7
+      TermType: 0
+      Languages:
+      - Đảo trời Skypiea
+      - Skypiea Island
+      - เกาะฟ้า Skypiea
+      - 空島
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MISC_2_CAMPAIGN_MAP_INFO_8
+      TermType: 0
+      Languages:
+      - Thời Đại Mới
+      - New Age
+      - ยุคใหม่
+      - 新時代
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MISC_2_CAMPAIGN_MAP_INFO_9
+      TermType: 0
+      Languages:
+      - Vương quốc Alabasta
+      - Alabasta Kingdom
+      - ราชอาณาจักร Alabasta
+      - 阿拉巴斯坦王國
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MISC_2_CAMPAIGN_USOPP
+      TermType: 0
+      Languages:
+      - Hoàn thành ải 3-10 sẽ nhận ngay Usopp
+      - Completing stage 3-10 will receive Usopp
+      - สำเร็จด่าน 3-10 จะได้รับ Usopp
+      - 完成第3-10關卡立即獲得烏索普
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MISC_2_CAPTAIN
+      TermType: 0
+      Languages:
+      - Thuyền trưởng
+      - Captain
+      - กัปตัน
+      - 船長
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MISC_2_CAPTAIN_2
+      TermType: 0
+      Languages:
+      - Đội trưởng
+      - Captain
+      - กัปตัน
+      - 隊長
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MISC_2_CHAMPION_STORE
+      TermType: 0
+      Languages:
+      - Cửa hàng đấu trường
+      - Arena Store
+      - ร้านค้าสนามรบ
+      - 競技場商店
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MISC_2_CHAT_SYSTEM
+      TermType: 0
+      Languages:
+      - Hệ thống
+      - System
+      - ระบบ
+      - 系統
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MISC_2_CREW
+      TermType: 0
+      Languages:
+      - Thuyền viên
+      - Crew
+      - ลูกเรือ
+      - 船員
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MISC_2_DAILY_QUEST
+      TermType: 0
+      Languages:
+      - Nhiệm vụ hàng ngày
+      - Daily quest
+      - ภารกิจประจำวัน
+      - 日常任務
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MISC_2_DAMBISLAND_DESC_LOCK
+      TermType: 0
+      Languages:
+      - Đánh bại đảo trước để mở khóa
+      - Beat previous island to unlock
+      - เอาชนะเกาะเพื่อปลดล็อค
+      - 打敗前島進行解鎖
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MISC_2_DAY_REWARD
+      TermType: 0
+      Languages:
+      - Quà hàng ngày
+      - Daily reward
+      - ของขวัญประจำวัน
+      - 日常禮包
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MISC_2_DESC_NOT_ENOUGH_RESOURCE_2
+      TermType: 0
+      Languages:
+      - Không đủ nguyên liệu
+      - Not enough resources
+      - วัตถุดิบไม่ครบ
+      - 材料不足
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MISC_2_DESC_SPIRIT_CHALLENGE
+      TermType: 0
+      Languages:
+      - 1. Cấp 25 sẽ được mở khiêu chiến Nguyên Liệu, chiến thắng sẽ được nhiều Đá EXP, Đá đột phá
+      - 1. Material Challenge is unlocked at level 25. Win Hero EXP, promotion stone as challenge rewards
+      - 1. เลเวล 25 จะเปิดการเปิดศึกวัตถุดิบ, ผู้ชนะจะได้หิน EXP, หินก้าวหน้า
+      - 1、 25級會開啟材料挑戰，勝利可以獲得大量經驗石、突破石
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MISC_2_DISASEMBLE_2
+      TermType: 0
+      Languages:
+      - Huyết tế
+      - Disassembles
+      - ถอน
+      - 血祭
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MISC_2_DO_NOT_FOUND_SLOT
+      TermType: 0
+      Languages:
+      - Đã hết chỗ thêm nguyên liệu
+      - There is no available slot
+      - ไม่มีที่เติมวัตถุดิบ
+      - 放入材料槽位已滿
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MISC_2_DUMMY_HOME_SCENE_DESC_TUTORIAL
+      TermType: 0
+      Languages:
+      - Hãy bắt đầu khám phá thế giới nhé, sau đây chúng tôi sẽ hướng dẫn bạn cách chơi!
+      - Let's start exploring the world, we will guide you throughout the game
+      - เริ่มสำรวจโลกกันเถอะ, ต่อไปเราจะแนะนำวิธีการเล่นให้คุณ!
+      - 讓我們開始探索這個世界吧，接下來我們將引導你玩遊戲！
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MISC_2_DUMMY_STAGE_SCENE_DESC_HELP
+      TermType: 0
+      Languages:
+      - 'Tiêu diệt toàn bộ địch sau 1.5 phút. Đánh giá thành tích vượt ải: 1 sao : Qua màn thông thường 2 sao : Qua màn với máu trên 50% 3 sao :Qua màn với máu trên 85% '
+      - 'Destroy enemies in 1.5 minutes. Rating: 1 star: Destroy all enemies 2 stars: Destroy all enemies and you HP>50% 3 stars: Destroy all enemies and you HP>80%'
+      - 'ทำลายศัตรูหลังจาก 1.5 นาที.ประเมินผลการผ่านด่าน:1 ดาว: ผ่านด่านธรรมดา2 ดาว: ผ่านด่านด้วยเลือด เกิน 50%3 ดาว: ผ่านด่านด้วยเลือดเกิน 85%'
+      - 1.5分鐘後擊殺全部敵人。 通關成績評價： 1星：擊殺所有敵人 2星：擊殺所有敵人，您剩余的血量>50% 3星：擊殺所有敵人，您剩余的血量>80%
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MISC_2_END
+      TermType: 0
+      Languages:
+      - Kết thúc
+      - End
+      - จบ
+      - 結束
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MISC_2_FORMAT_BIRTHDAY
+      TermType: 0
+      Languages:
+      - Nhập ngày sinh theo định dạng dd/mm/yyyy
+      - NA
+      - ป้อนวันเกิดตามรูปแบบ dd/mm/yy
+      - 輸入您的生日，格式dd/mm/yyyy
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MISC_2_GUILD_MEMBER_ONLINE
+      TermType: 0
+      Languages:
+      - Đang Online
+      - Online
+      - ออนไลน์
+      - 在線
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MISC_2_HAVE_NOT_ARTIFACT
+      TermType: 0
+      Languages:
+      - Không có bảo vật
+      - There is no artifact
+      - ไม่มีสมบัติ
+      - 沒有寶物
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MISC_2_HEAD_CAMPAIGN_DESC_LOCKED
+      TermType: 0
+      Languages:
+      - Hãy đánh bại kẻ địch ở màn trước
+      - Beat previous stage to unlock
+      - โปรดเอาชนะศัตรูในด่านก่อน
+      - 請先擊殺前關卡的敵人
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MISC_2_HEALING_SUCCESS
+      TermType: 0
+      Languages:
+      - Hồi máu thành công
+      - Healed Successfully
+      - รักษาสำเร็จ
+      - 回血成功
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MISC_2_ISLAND
+      TermType: 0
+      Languages:
+      - Đảo
+      - island
+      - เกาะ
+      - 島
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MISC_2_LBL_10_TURN
+      TermType: 0
+      Languages:
+      - 10 lượt
+      - 10 turn
+      - 10 ครั้ง
+      - 10回合
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MISC_2_LBL_1_TURN
+      TermType: 0
+      Languages:
+      - 1 lượt
+      - 1 turn
+      - 1 ครั้ง
+      - 1回合
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MISC_2_LBL_ACTIVE
+      TermType: 0
+      Languages:
+      - Kích hoạt
+      - Active
+      - เปิดใช้งาน
+      - 激活
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MISC_2_LBL_ALTAR_STORE
+      TermType: 0
+      Languages:
+      - Cửa hàng huyết tế
+      - Disassemble Store
+      - ร้านค้าถอน
+      - 血祭商店
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MISC_2_LBL_ARENA_GUILD
+      TermType: 0
+      Languages:
+      - Chiến trường
+      - Guild War
+      - สนามรบ
+      - 公會戰場
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MISC_2_LBL_ARENA_INSTANCE
+      TermType: 0
+      Languages:
+      - Chiến trường
+      - Materials Instance
+      - สนามรบ
+      - 戰場
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MISC_2_LBL_BAO_TRI_LBL_BTN
+      TermType: 0
+      Languages:
+      - Thông tin
+      - Details
+      - ข้อมูล
+      - 信息
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MISC_2_LBL_BAO_TRI_TIME_END
+      TermType: 0
+      Languages:
+      - Thời gian kết thúc
+      - 'End in:'
+      - หมดเวลา
+      - 結束時間：
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MISC_2_LBL_BAO_TRI_TITLE
+      TermType: 0
+      Languages:
+      - Thông báo
+      - Notices
+      - แจ้งเตือน
+      - 通知
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MISC_2_LBL_BEANS
+      TermType: 0
+      Languages:
+      - Tiệm Hạt Đậu
+      - Beans
+      - ร้านค้าเมล็ดถั่ว
+      - 豆子商店
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MISC_2_LBL_BIG_EYE
+      TermType: 0
+      Languages:
+      - Tiệm Mắt To
+      - Big Eye
+      - ร้านค้าตาโต
+      - 大眼商店
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MISC_2_LBL_BOUGHT
+      TermType: 0
+      Languages:
+      - Đã mua
+      - Already bought
+      - 'ซื้อแล้ว:'
+      - 已購買
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MISC_2_LBL_BUY_COIN
+      TermType: 0
+      Languages:
+      - Khu giao dịch
+      - Purchase belly
+      - พื้นที่ธุรกรรม
+      - 交易區
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MISC_2_LBL_CAMPAIGN
+      TermType: 0
+      Languages:
+      - Chiến dịch
+      - Operation
+      - แคมเปญ
+      - 戰役
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MISC_2_LBL_CAMPAIGN_2
+      TermType: 0
+      Languages:
+      - Vượt ải
+      - Campaign
+      - ผ่านด่าน
+      - 通關
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MISC_2_LBL_CASINO
+      TermType: 0
+      Languages:
+      - Vòng quay thường
+      - Lucky Spin
+      - วงล้อ
+      - 普通轉盤
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MISC_2_LBL_CASINO_STORE
+      TermType: 0
+      Languages:
+      - Cửa hàng vòng quay
+      - Lucky Spin Store
+      - ร้านค้าวงล้อ
+      - 轉盤商店
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MISC_2_LBL_CHANGE_HERO
+      TermType: 0
+      Languages:
+      - Đổi tướng
+      - Convert
+      - เปลี่ยนฮีโร่
+      - 替換英雄
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MISC_2_LBL_CITY_HALL
+      TermType: 0
+      Languages:
+      - Thành
+      - City Hall
+      - ซิตี้ ฮอลล์
+      - 城市
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MISC_2_LBL_COME_TO
+      TermType: 0
+      Languages:
+      - Đi đến
+      - Come to
+      - ไปที่
+      - 前往
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MISC_2_LBL_COMPOSE
+      TermType: 0
+      Languages:
+      - Hợp thành
+      - Recruit
+      - อัญเชิญ
+      - 合成
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MISC_2_LBL_CONFIRM_0
+      TermType: 0
+      Languages:
+      - Xác nhận
+      - Confirm
+      - คอนเฟิร์ม
+      - 確認
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MISC_2_LBL_DAY_2
+      TermType: 0
+      Languages:
+      - Ngày
+      - Day
+      - วัน
+      - 天
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MISC_2_LBL_DELETE_FRIEND
+      TermType: 0
+      Languages:
+      - Xóa bạn
+      - Remove friend
+      - ลบเพื่อน
+      - 刪除好友
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MISC_2_LBL_DE_SAU
+      TermType: 0
+      Languages:
+      - Để sau
+      - Later
+      - ไว้ภายหลัง
+      - 以後再說
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MISC_2_LBL_DISASEMBLE
+      TermType: 0
+      Languages:
+      - Huyết tế
+      - Disassemble
+      - ถอน
+      - 血祭
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MISC_2_LBL_DONE
+      TermType: 0
+      Languages:
+      - Xong
+      - Done
+      - เสร็จ
+      - 完成
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MISC_2_LBL_EVENT
+      TermType: 0
+      Languages:
+      - Chẵn
+      - Even
+      - คู่
+      - 偶數
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MISC_2_LBL_FLOOR_2
+      TermType: 0
+      Languages:
+      - Ải
+      - Floor
+      - ด่าน
+      - 關卡
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MISC_2_LBL_FORCE_REFRESH
+      TermType: 0
+      Languages:
+      - Bắt buộc làm mới
+      - 'Next force refresh in:'
+      - ต้องรีเฟรช
+      - 必須刷新
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MISC_2_LBL_GIAP
+      TermType: 0
+      Languages:
+      - Giáp
+      - Armor
+      - เกราะ
+      - 鎧甲
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MISC_2_LBL_GO_TO
+      TermType: 0
+      Languages:
+      - Đi đến
+      - Go to
+      - ไปที่
+      - 前往
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MISC_2_LBL_GUILD_INFO
+      TermType: 0
+      Languages:
+      - Thông tin
+      - Fleet Info
+      - ข้อมูล
+      - 信息
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MISC_2_LBL_HERO_SHARD_INSTANCE
+      TermType: 0
+      Languages:
+      - Anh Hùng
+      - Hero Shard Instance
+      - ฮีโร่
+      - 英雄碎片
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MISC_2_LBL_HIEU_UNG
+      TermType: 0
+      Languages:
+      - Hiệu Ứng
+      - Effect
+      - เอฟเฟค
+      - 效果
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MISC_2_LBL_KHAC_HE
+      TermType: 0
+      Languages:
+      - Khắc Hệ
+      - Constrain
+      - แกะสาย
+      - 相克
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MISC_2_LBL_LUOT_DANH_2
+      TermType: 0
+      Languages:
+      - Lượt đánh
+      - Remaining Battles
+      - ครั้งตี
+      - 戰鬥回合
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MISC_2_LBL_MISS
+      TermType: 0
+      Languages:
+      - Chặn
+      - Block
+      - บล็อค
+      - 屏蔽
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MISC_2_LBL_NEW_SKILL
+      TermType: 0
+      Languages:
+      - Kĩ năng mới
+      - New Skills
+      - สกิลใหม่
+      - 新技能
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MISC_2_LBL_NOT_OPEN
+      TermType: 0
+      Languages:
+      - Chưa mở
+      - Not open yet
+      - ยังไม่ได้เปิด
+      - 未開啟
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MISC_2_LBL_ODD
+      TermType: 0
+      Languages:
+      - Lẻ
+      - Odd
+      - คี่
+      - 單數
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MISC_2_LBL_OPEN
+      TermType: 0
+      Languages:
+      - Đổi
+      - Open
+      - เปลี่ยน
+      - 兌換
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MISC_2_LBL_PENDING
+      TermType: 0
+      Languages:
+      - Đang chờ...
+      - Pending...
+      - กำลังรอ...
+      - 等待中…
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MISC_2_LBL_PRICE
+      TermType: 0
+      Languages:
+      - 'Giá:'
+      - 'Price:'
+      - 'ราคา:'
+      - 價格：
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MISC_2_LBL_RECEIVED
+      TermType: 0
+      Languages:
+      - Đã nhận
+      - Received
+      - ได้รับแล้ว
+      - 已領
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MISC_2_LBL_REGISTER_DESC_4
+      TermType: 0
+      Languages:
+      - Email người giám hộ
+      - na
+      - อีเมลผู้พิทักษ์
+      - 監護者郵箱
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MISC_2_LBL_REGISTRATION
+      TermType: 0
+      Languages:
+      - Đăng ký thành công
+      - You have successfully registered
+      - ลงทะเบียนสำเร็จ
+      - 註冊成功
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MISC_2_LBL_REGRESS
+      TermType: 0
+      Languages:
+      - Phân rã
+      - Disassemble
+      - สลายตัว
+      - 分解
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MISC_2_LBL_REMOVE_2
+      TermType: 0
+      Languages:
+      - Gỡ bỏ
+      - Remove
+      - ลบออก
+      - 卸下
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MISC_2_LBL_REPLACE_1
+      TermType: 0
+      Languages:
+      - Hoán đổi
+      - Replace
+      - เปลี่ยน
+      - 替換
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MISC_2_LBL_REPLACE_2
+      TermType: 0
+      Languages:
+      - Thay
+      - Replace
+      - เปลี่ยน
+      - 替換
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MISC_2_LBL_ROUND
+      TermType: 0
+      Languages:
+      - Vòng
+      - Round
+      - รอบ
+      - 輪
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MISC_2_LBL_SELECT_ITEM
+      TermType: 0
+      Languages:
+      - Chọn vật phẩm
+      - Select item
+      - เลือกไอเทม
+      - 選擇物品
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MISC_2_LBL_SERVER
+      TermType: 0
+      Languages:
+      - Máy chủ
+      - Server
+      - เซิฟเวอร์
+      - 伺服器
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MISC_2_LBL_SHARE
+      TermType: 0
+      Languages:
+      - Chia sẻ
+      - Share
+      - แชร์
+      - 分享
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MISC_2_LBL_SHARE_TO
+      TermType: 0
+      Languages:
+      - 'Chia sẻ vào:'
+      - 'Share to:'
+      - 'แชร์ถืง:'
+      - 分享到：
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MISC_2_LBL_SHOP_MERCHANT
+      TermType: 0
+      Languages:
+      - Cửa hàng Đảo Bánh
+      - Cake Island Shop
+      - ร้านค้าเกาะขนม
+      - 蛋糕島商店
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MISC_2_LBL_SMASH
+      TermType: 0
+      Languages:
+      - Tự động
+      - Smash
+      - อัตโนมัติ
+      - 自動
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MISC_2_LBL_SMASH_2
+      TermType: 0
+      Languages:
+      - Ủy thác
+      - Smash
+      - มอบหมาย
+      - 掛機
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MISC_2_LBL_SPIN
+      TermType: 0
+      Languages:
+      - Lượt
+      - Spins
+      - ครั้ง
+      - 次數
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MISC_2_LBL_STONE
+      TermType: 0
+      Languages:
+      - Đá hộ mệnh
+      - Stone
+      - หินนำโชค
+      - 護命石
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MISC_2_LBL_SUMMON
+      TermType: 0
+      Languages:
+      - Hợp
+      - Combine
+      - ผสาน
+      - 合成
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MISC_2_LBL_TANG
+      TermType: 0
+      Languages:
+      - Tăng
+      - Increase
+      - เพิ่ม
+      - 增加
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MISC_2_LBL_TOOTH_DECAY
+      TermType: 0
+      Languages:
+      - Tiệm Răng Sún
+      - Tooth Decay
+      - ร้านค้าฟัน
+      - 齵齒商店
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MISC_2_LBL_TRUE
+      TermType: 0
+      Languages:
+      - Chính xác
+      - Accurate
+      - ถูกต้อง
+      - 命中
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MISC_2_LBL_TURN
+      TermType: 0
+      Languages:
+      - Lượt
+      - Turn
+      - ครั้ง
+      - 次數
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MISC_2_LBL_YES
+      TermType: 0
+      Languages:
+      - Có
+      - Yes
+      - ใช่
+      - 是
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MISC_2_LOGIN_ERROR_2
+      TermType: 0
+      Languages:
+      - Lỗi đọc cấu trúc dữ liệu cập nhật
+      - Error reading update
+      - การอ่านข้อมูลอัพเดทล้มเหลว
+      - 加載數據讀取錯誤
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MISC_2_LOGIN_ERROR_LOAD_DATA_2
+      TermType: 0
+      Languages:
+      - Lỗi tải dữ liệu cập nhật. Kiểm tra lại mạng
+      - Error loading data, please check your network
+      - การดาวน์โหลดข้อมูลล้มเหลว.โปรดตรวจสอบเครือข่าย
+      - 加載數據錯誤，請檢查網絡
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MISC_2_LUCKY_SCENE_ERROR_NUMBER_REWARD
+      TermType: 0
+      Languages:
+      - 'Lỗi số lượng phần thưởng:'
+      - Number of Rewards error
+      - 'จำนวนรางวัลผิดพลาด:'
+      - 獎勵數量錯誤：
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MISC_2_LUCKY_SCENE_ERROR_STAGE_REWARD
+      TermType: 0
+      Languages:
+      - 'Lỗi trạng thái của phần thưởng:'
+      - State of Rewards error
+      - 'ข้อผิดพลาดสถานะของรางวัล:'
+      - 獎勵狀態錯誤：
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MISC_2_LUNAR_EVENT_MSG_DAY_REWARD
+      TermType: 0
+      Languages:
+      - Nhận thưởng mỗi ngày trong vòng 15 ngày
+      - Get rewards for 15 days
+      - รับรางวัลทุกวันในระยะ 15 วัน
+      - 15天內每天領獎
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MISC_2_MATE
+      TermType: 0
+      Languages:
+      - Thuyền phó
+      - First Mate
+      - รองกับตัน
+      - 副船長
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MISC_2_MINI_BOSS
+      TermType: 0
+      Languages:
+      - Kẻ địch
+      - Mini Boss
+      - ศัตรู
+      - 敵人
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MISC_2_MISC_POPUP_ATK_BOSS_SCOUT
+      TermType: 0
+      Languages:
+      - 'Phần thưởng trận đấu:'
+      - 'Battle rewards:'
+      - 'รางวัลการแข่งขัน:'
+      - 戰鬥獎勵：
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MISC_2_MSG_AVAIABLE_WITH_CLASS
+      TermType: 0
+      Languages:
+      - 'Kích hoạt với vai trò: '
+      - 'Activate with heroes of class:'
+      - 'เปิดใช้งานด้วยบทบาท:'
+      - 激活的職業英雄：
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MISC_2_MSG_AVAIABLE_WITH_FACTION
+      TermType: 0
+      Languages:
+      - 'Kích hoạt với hệ: '
+      - 'Activate with heroes of faction:'
+      - 'เปิดใช้งานด้วยสาย:'
+      - 激活的英雄陣營：
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MISC_2_MSG_BOSS_KILLED
+      TermType: 0
+      Languages:
+      - Boss đã bị tiêu diệt
+      - Boss has been killed
+      - บอสได้ถูกฆ่า
+      - BOSS已被擊殺
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MISC_2_MSG_CHANGE_PASS_SUCCESS
+      TermType: 0
+      Languages:
+      - Đổi mật khẩu thành công!
+      - NA
+      - เปลี่ยนรหัสสำเร็จ!
+      - 修改密碼成功！
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MISC_2_MSG_CONTENT_EMPTY
+      TermType: 0
+      Languages:
+      - Không được để nội dung trống!
+      - Content must not be empty
+      - อย่าปล่อยให้เนื้อหาว่าง!
+      - 內容不能為空！
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MISC_2_MSG_CURR_RANK_ARENA
+      TermType: 0
+      Languages:
+      - 'Hạng hiện tại:'
+      - 'Current ranking in arena:'
+      - 'แรงค์ปัจจุบัน:'
+      - 當前排名：
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MISC_2_MSG_DELETE_FRIEND
+      TermType: 0
+      Languages:
+      - Bạn muốn xóa người chơi này?
+      - Do you really want to delete this player?
+      - คุณต้องการลบผู้เล่นคนนี้?
+      - 您確定要刪除此玩家？
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MISC_2_MSG_DESC_COMMON_CHALLENGE
+      TermType: 0
+      Languages:
+      - 2. Mỗi ngày có 2 lượt khiêu chiến miễn phí, chiến thắng sẽ bị trừ, thua không bị trừ.3. Tăng cấp độ người chơi có thể tăng mức khiêu chiến khó hơn, mức khó càng cao thì thưởng nhận được càng nhiều.4. Cấp VIP càng cao thì lần khiêu chiến được mua thêm càng nhiều.
+      - 2. You have 2 free challenge times per day, only victories count3. Level up your account to unlock more difficult challenges4. The higher your VIP level is the more additional challenge times you can buy
+      - 2. ทุกๆวันจะมีการเปิดศึกฟรี 2 ครั้ง, ชนะจะถูกลบ, แพ้ไม่ถูกลบ.3. เพิ่มเลเวลผู้เล่นสามารถเพิ่มการเปิดศึกที่ยากขื้น, ยิ่งยากรางวัลยิ่งเยอะ.4. เลเวล VIP ยิ่งสูงการเปิดศึกได้ซื้อเพิ่มยิ่งมาก.
+      - 2、每天免費挑戰2次，勝利時將扣除次數，失敗不消耗次數 3、玩家升級可提升挑戰難度，難度越大獲得的獎勵越多 4、VIP級越高，挑戰次數可購買越多
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MISC_2_MSG_DESC_GOLD_CHALLENGE
+      TermType: 0
+      Languages:
+      - 1. Cấp 20 sẽ được mở khiêu chiến Beli, chiến thắng sẽ được nhiều Beli.
+      - '1. Belly Challenge is unlocked at level 20. '
+      - 1. เลเวล 20 จะเปิดการเปิดศึก เบลี.
+      - 1、20級可以開啟貝利挑戰，勝利可獲得更多貝利
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MISC_2_MSG_DESC_HERO_CHALLENGE
+      TermType: 0
+      Languages:
+      - 1. Cấp 30 sẽ được mở khiêu chiến Mảnh Hải Tặc, chiến thắng sẽ được nhiều Mảnh Hải Tặc.
+      - '1. Hero Shard Challenge is unlocked at level 30. '
+      - 1. เลเวล 30 จะเปิดการเปิดศึก จิ๊กซอว์โจรสลัด.
+      - 1/30級可以開啟海賊碎片挑戰，勝利可獲得更多海賊碎片
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MISC_2_MSG_FEATURE_ARENA
+      TermType: 0
+      Languages:
+      - Tính năng Chiến Trường đã mở!!!
+      - Arena has been unlocked!!!
+      - คุณสมบัติสนามรบได้เปิดแล้ว!!!
+      - 戰場玩法已開啟！！！
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MISC_2_MSG_FEATURE_BRAVE
+      TermType: 0
+      Languages:
+      - Tính năng Luyện Tập đã mở!!!
+      - Training Field has been unlocked!!!
+      - คุณสมบัติฝึกฝนได้เปิดแล้ว!!!
+      - 練功島玩法已開啟！！！
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MISC_2_MSG_FEATURE_DUNGEON
+      TermType: 0
+      Languages:
+      - Tính năng Đảo Bánh đã mở!!!
+      - Cake Island has been unlocked!!!
+      - คุณสมบัติเกาะขนมได้เปิดแล้ว!!!
+      - 蛋糕島玩法已開啟！！！
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MISC_2_MSG_FEATURE_EVENT_RAID
+      TermType: 0
+      Languages:
+      - Tính năng Chiến Dịch đã mở!!!
+      - Operation has been unlocked!!!
+      - คุณสมบัติแคมเปญได้เปิดแล้ว!!!
+      - 戰役玩法已開啟！！！
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MISC_2_MSG_FEATURE_FRIEND_SCOUNT
+      TermType: 0
+      Languages:
+      - Tính năng Mê Cung đã mở!!!
+      - Maze has been unlocked!!!
+      - คุณสมบัติเขาวงกตได้เปิดแล้ว!!!
+      - 迷宮玩法已開啟！！！
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MISC_2_MSG_FEATURE_GUILD
+      TermType: 0
+      Languages:
+      - Tính năng Hạm Đội đã mở!!!
+      - Fleet has been unlocked!!!
+      - คุณสมบัติกองทัพเรือได้เปิดแล้ว!!!
+      - 公會功能已開啟！！！
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MISC_2_MSG_FEATURE_ISLAND
+      TermType: 0
+      Languages:
+      - Tính năng Đảo Trời đã mở!!!
+      - Sky Island has been unlocked!!!
+      - คุณสมบัติเกาะฟ้าได้เปิดแล้ว!!!
+      - 空島玩法已開啟！！！
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MISC_2_MSG_FEATURE_PET
+      TermType: 0
+      Languages:
+      - Tính năng Chiến Hạm đã mở!!!
+      - War Ship has been unlocked!!!
+      - คุณสมบัติเรือรบได้เปิดแล้ว!!!
+      - 戰船玩法已開啟！！！
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MISC_2_MSG_FEATURE_TARVEN
+      TermType: 0
+      Languages:
+      - Tính năng Tổng Bộ đã mở!!!
+      - Marine Headquarters has been unlocked!!!
+      - คุณสมบัติสำนักงานใหญ่ได้เปิดแล้ว!!!
+      - 總部玩法已開啟！！！
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MISC_2_MSG_FEATURE_TOWER
+      TermType: 0
+      Languages:
+      - Tính năng Leo Đậu Thần đã mở!!!
+      - Magic Bean has been unlocked!!!
+      - คุณสมบัติถั่ววิเศษได้เปิดแล้ว!!!
+      - 攀登蔓藤已開啟！！！
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MISC_2_MSG_FILL_PWD_USERNAME
+      TermType: 0
+      Languages:
+      - Chưa nhập tên đăng nhập hoặc mật khẩu
+      - NA
+      - ยังไม่ทันป้อนชื่อและรหัส
+      - 未輸入登錄賬號或密碼
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MISC_2_MSG_GUILD_JOINED
+      TermType: 0
+      Languages:
+      - Bạn đã là thành viên trong bang
+      - You already joined a fleet
+      - คุณได้เป็นสมาชิกในกิลด์
+      - 您已經是公會成員
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MISC_2_MSG_HELP_SOUT
+      TermType: 0
+      Languages:
+      - 1. Mỗi 8 giờ sẽ có một lượt trinh thám, mỗi lần trinh thám có xác suất nhận được các vật phẩm và nguyên liệu, ngoài ra có thể gặp phải Loạn Quân.2. Bạn phải sử dụng thể lực để tiêu diệt Loạn Quân mới được có thể tiếp tục trinh thám.3. Khi Loạn Quân bị tiêu diệt, người cuối cùng tiêu diệt Loạn Quân sẽ được trao phần thưởng.4. Bạn cũng có thể trợ giúp bạn bè tiêu diệt Loạn Quân. Mỗi lần tấn công Loạn Quân bạn sẽ tiêu hao thể lực.
+      - 1. Gain 1 Scout every 8 hours and have a chance to encounter mini Boss. 2. Mini boss could be seen by your lvl 36+ friends, then they can help you to fight the Boss3. You can also help your friends in their battle with mini Boss.4. Players gain rewards when mini Boss is dead.
+      - 1. ทุกๆ 8 ชั่วโมงจะมีการสอดแนม. ทุกๆครั้งที่สอดแนมจะมีโอกาสได้รับไอเทม และวัตถุดิบ, นอกนี้ยังสามารถพบกำลังทหาร.2. คุณต้องใช้กำลังฆ่าทหารจึงจะสามารถสืบต่อสอดแนม.3. เมื่อทหารถูกฆ่า, คนสุดท้ายที่ฆ่าทหารจะได้รับรางวัล.4. คุณก็สามารถช่วยเพื่อนของคุณเพื่อฆ่าทหาร. ทุกๆครั้งที่โจมตีทหารควรจะเผาผลาญกำลัง.
+      - 1、每8個小時會有一次偵探，每次偵探有幾率獲得各種物品和材料，也可以遇到亂軍。 2、你要使用體力來擊殺亂軍後才可以繼續偵探。 3、亂軍被擊殺時，釋放最後一擊的玩家可以獲得獎勵。 4、你也可以協助你的好友擊殺亂軍。每次攻擊亂軍會消耗你的體力
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MISC_2_MSG_JOINED_OTHER_GUILD
+      TermType: 0
+      Languages:
+      - Bạn đang trong bang khác
+      - You joined another fleet
+      - คุณกำลังอยู่ในกิลด์อื่น
+      - 您已加入其他公會
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MISC_2_MSG_KEEP_ATTRIBUTE
+      TermType: 0
+      Languages:
+      - Giữ loại thuộc tính hiện tại
+      - Lock current attributes
+      - รักษาคุณสมบัตินี้
+      - 保留當前屬性
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MISC_2_MSG_LABEL_TOWER_OF_OBLIVION
+      TermType: 0
+      Languages:
+      - Leo tháp
+      - Magic bean
+      - ปีนหอคอย
+      - 攀登蔓藤
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MISC_2_MSG_LENGTH_USER_NAME
+      TermType: 0
+      Languages:
+      - Tên đăng nhập phải dài từ 4 - 25 ký tự
+      - NA
+      - ชื่อเข้าสู่ระบบต้องมี 4-25 ตัวอักษร
+      - 登錄賬號名要4-25個字符
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MISC_2_MSG_LIMIT_LEVEL_ATK_BOSS
+      TermType: 0
+      Languages:
+      - 'Yêu cầu cấp người chơi <= '
+      - Requires player level <=
+      - ผู้เล่นต้องมีเลเวล <=
+      - 玩家等級要求小於等於
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MISC_2_MSG_MAX_LEVEL_NEXT_LEVEL
+      TermType: 0
+      Languages:
+      - Đã qua tầng cao nhất. Hãy đợi cập nhật ở phiên bản tiếp
+      - Passed the max level.Waiting for updates in the next version
+      - ได้ผ่านเลเวลสูงสุด.โปรดอัพเกรดเวอร์ชั่นใหม่
+      - 已通關最高層。請等待下一個版本的更新吧
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MISC_2_MSG_NEXT_BATTLE
+      TermType: 0
+      Languages:
+      - Đạt cấp độ {0} để bỏ qua trận đánh
+      - Reach level {0} to skip battles
+      - ถึงเลเวล {0} เพื่อข้ามการโจมตี
+      - 達到{0}級可跳過戰鬥
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MISC_2_MSG_NOTIFY_NO_HAVE_EQUIP
+      TermType: 0
+      Languages:
+      - Không có trang bị
+      - There is no equipment
+      - ไม่มีอุปกรณ์
+      - 沒有裝備
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MISC_2_MSG_NOT_SEND_MESSAGE_TO_OTHER_CHANNEL
+      TermType: 0
+      Languages:
+      - Bạn không thể gửi tin nhắn ở kênh này! Vui lòng thử kênh khác!
+      - You cannot send message in this channel! Please use other channel!
+      - คุณไม่สามารถส่งข้อความในช่องนี้! โปรดลองช่องอื่น!
+      - 您不能在此渠道發言！請嘗試其他渠道！
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MISC_2_MSG_NO_HAVE_LIST_SEVER
+      TermType: 0
+      Languages:
+      - Không có danh sách máy chủ!!!
+      - Can not load list of servers
+      - ไม่มีรายชื่อเซิร์ฟเวอร์!!!
+      - 沒有伺服器列表！！！
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MISC_2_MSG_PLZ_CHOOSE_EVEN_OR_ODD
+      TermType: 0
+      Languages:
+      - Hãy chọn chẵn hoặc lẻ
+      - Please select even or odd
+      - เลือกคู่หรือคี่
+      - 請選擇偶數或單數
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MISC_2_MSG_POPUP_ALL_STAR_BET_SUCCESS
+      TermType: 0
+      Languages:
+      - Bạn đã đặt cược thành công
+      - Your bet has been placed
+      - คุณพนันได้สำเร็จ
+      - 您已押註成功
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MISC_2_MSG_POPUP_UPGRADE_ARTIFACT_ACTION
+      TermType: 0
+      Languages:
+      - Điểm dư sẽ trả lại đủ bằng bảo vật cấp thấp, bạn có chắc chắn nâng cấp?
+      - Are you sure you want to upgrade this artifact?
+      - คะแนนที่เหลือจะถูกส่งคืนด้วย ไอเทมเลเวลต่ำ, คุณแน่ใจจะเพิ่มเลเวล?
+      - 剩余的積分會以低級物品退還，您確定要升級？
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MISC_2_MSG_REVIVE_SUCCESS
+      TermType: 0
+      Languages:
+      - Hồi sinh thành công
+      - Revived Successfully
+      - ฟื้นฟูสำเร็จ
+      - 復活成功
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MISC_2_MSG_SAT_THUONG_THUYEN_VIEN
+      TermType: 0
+      Languages:
+      - sát thương vào thuyền viên
+      - damage to hero
+      - ความเสียหายต่อลูกเรือ
+      - 對船員造成傷害
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MISC_2_MSG_SKIP_BATTLE
+      TermType: 0
+      Languages:
+      - Đạt Vip 1 hoặc cấp độ {0} để x3 tốc độ trận đánh
+      - Reach Vip 1 or level {0} to x3 the battle speed
+      - ถึง Vip 1 หรือ เลเวล {0} เพื่อ ×3 ความเร็วการโจมตี
+      - 達到VIP1或{0}級讓戰鬥速度x3
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MISC_2_MSG_TANG_SUC_MANH_CHO_DOI_HINH
+      TermType: 0
+      Languages:
+      - 'Tăng sức mạnh cho đội hình:'
+      - xdgsdfg
+      - 'เพิ่มความแข็งแกร่งให้รูปแบบทีม:'
+      - 增加陣容的力量：
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MISC_2_NEXT_BATTLE
+      TermType: 0
+      Languages:
+      - Trận tiếp
+      - Next battle
+      - สู้ต่อ
+      - 下一場
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MISC_2_NO_MESSAGE
+      TermType: 0
+      Languages:
+      - Không có thư
+      - No messages
+      - ไม่มีจดหมาย
+      - 暫無郵件
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MISC_2_OUT_OF_BUY_2
+      TermType: 0
+      Languages:
+      - Bạn đã hết lượt đổi
+      - You are out of chance to replace
+      - คุณได้หมดครั้งเปลี่ยน
+      - 您已沒有兌換次數了
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MISC_2_PANEL_DAU_DANH_TRANG_MSG_UPGRADE
+      TermType: 0
+      Languages:
+      - Bạn phải nâng cấp đầu danh trạng để mở vật phẩm này
+      - You have to upgrade to buy this item
+      - คุณต้องอัพเกรดเพื่อซื้อไอเทมนี้
+      - 您要升級投名狀才能打開此物品
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MISC_2_PET_REQUIRE_TIER
+      TermType: 0
+      Languages:
+      - Yêu cầu chiến xa nâng lên phẩm {0}
+      - Requires Warship tier {0}
+      - ต้องอัพเกรดรถถังขึ้นเลเวล {0}
+      - 要求戰船提升到{0}品
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MISC_2_POPUP_COUTER_DESC
+      TermType: 0
+      Languages:
+      - Khắc hệ gây thêm <color="#85FC4A">30%</color> sát thương và tăng <color="#85FC4A">15%</color> chính xác
+      - Faction Advantages deal <color="#85FC4A">30%</color> more damage and increase <color="#85FC4A">15%</color> Precison
+      - แกะสายเพิ่ม <color="#85FC4A">30%</color> ความเสียหายและเพิ่ม <color="#85FC4A">15%</color> แม่นยำ
+      - 技能系相克額外造成<color="#85FC4A">30%</color>傷害並增加<color="#85FC4A">15%</color>命中
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MISC_2_POPUP_CROSS_NEXT_QUES
+      TermType: 0
+      Languages:
+      - Câu tiếp theo sẽ bắt đầu sau
+      - Next question in
+      - ประโยคถัดไปจะเริ่มในภายหลัง
+      - 離下一個問題還有
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MISC_2_POPUP_HERO_E_SKILL_TITLE
+      TermType: 0
+      Languages:
+      - Bảng Haki
+      - Haki
+      - Haki
+      - 霸氣榜
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MISC_2_POPUP_LUNAR_YEAR_LBL_KET_THUC
+      TermType: 0
+      Languages:
+      - 'Kết thúc sau:'
+      - 'Ends in:'
+      - 'สิ้นสุด:'
+      - 離結束還有：
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MISC_2_POPUP_LUNAR_YEAR_LBL_TAI_LOC
+      TermType: 0
+      Languages:
+      - Tài lộc
+      - Fortune
+      - โชคลาภ
+      - 財運
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MISC_2_POPUP_LUNAR_YEAR_TAB_2_DESC
+      TermType: 0
+      Languages:
+      - Trong thời gian sự kiện, sử dụng <color=#AB2626>[Câu Đối]</color> <color=#AB2626>[Pháo]</color> và <color=#AB2626>[Hoa Mai]</color> để đổi quà.
+      - During event periods, use <color=#AB2626>[Parallel sentences]</color> <color=#AB2626>[firecrackers]</color> and <color=#AB2626>[Precot Blossom]</color> to exchange gifts.
+      - ในช่วงอีเว้นท์, ใช้ เพื่อแลกของขวัญ.
+      - 活動期間，使用<color=#AB2626>【對聯】</color>、<color=#AB2626>【鞭炮】</color>以及<color=#AB2626>【梅花】</color>進行兌換獎勵
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MISC_2_POPUP_LUNAR_YEAR_TAB_3_DESC
+      TermType: 0
+      Languages:
+      - Trong thời gian sự kiện, sử dụng vàng để mua nhưng phần quà giá trị.
+      - During event periods, use gems to buy valuable gifts.
+      - ใช้ทองคำเพื่อซื้อของขวัญที่มีค่า
+      - 活動期間，可使用钻石來購買超值禮包。
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MISC_2_POPUP_PET_LBL_REBIRTH
+      TermType: 0
+      Languages:
+      - Tái tạo
+      - Reset
+      - รีเซ็ต
+      - 重造
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MISC_2_POPUP_PET_MSG_NOTE
+      TermType: 0
+      Languages:
+      - Cần nâng cấp tối đa bảng kỹ năng chiến hạm mục 2
+      - Unlock at max Ship Aura
+      - ต้องอัพเกรดตารางสกิลสู้รบ สว่นที่ 2
+      - 需要最大升級戰船第二項的技能榜
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MISC_2_POPUP_PREPARE_TIP_1
+      TermType: 0
+      Languages:
+      - Đăng nhập hằng ngày để nhận các phần thưởng miễn phí
+      - Login daily to get valuable rewards
+      - เข้าสู่ระบบทุกวันเพื่อรับของรางวัลฟรี
+      - 每日登錄可獲得獎勵
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MISC_2_POPUP_PREPARE_TIP_2
+      TermType: 0
+      Languages:
+      - Xếp thuyền viên có máu, giáp cao đứng đầu để gánh chịu sát thương là một lựa chọn tốt
+      - It is recommended to put crew members with high HP, Armor in front line
+      - วางลูกเรือที่มีเลือด, เกราะสูงไว้แถวหน้า เพื่อแบกรับความเสียหาย
+      - 將高生命值、高物防的船員排在前排來抵擋傷害是個很不錯的選擇
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MISC_2_POPUP_PREPARE_TIP_3
+      TermType: 0
+      Languages:
+      - Tốc độ thuyền viên quyết định thứ tự đánh qua mỗi lượt
+      - Speed of crew members decides who attacks first
+      - ความเร็วลูกเรือตัดสินลำดับการโจมตี
+      - 船員的速度決定每回合的攻擊循序
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MISC_2_POPUP_SELECT_SERVER_ALL_SERVER
+      TermType: 0
+      Languages:
+      - Tất cả
+      - All Servers
+      - ทั้งหมด
+      - 全部
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MISC_2_POPUP_SELECT_SERVER_RECOMMENDED
+      TermType: 0
+      Languages:
+      - Đề cử
+      - New Servers
+      - เสนอ
+      - 推薦
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MISC_2_POPUP_SELECT_SERVER_YOUR_SERVER
+      TermType: 0
+      Languages:
+      - Đang chơi
+      - Recent Servers
+      - กำลังเล่น
+      - 最近玩過
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MISC_2_POPUP_UP_BATTLE_END_TITLE_LOSE
+      TermType: 0
+      Languages:
+      - Hãy nâng sức mạnh tướng
+      - Please strengthen your crew members
+      - โปรดเพิ่มความแข็งให้ฮีโร่
+      - 請提升英雄的力量
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MISC_2_POUP_HAND_OF_MIDAS_TITLE
+      TermType: 0
+      Languages:
+      - Khu giao dịch
+      - Belly Market
+      - พื้นที่ธุรกรรม
+      - 交易區
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MISC_2_POUP_HERO_EQUI_TITLE_SET
+      TermType: 0
+      Languages:
+      - Bộ trang bị
+      - Set of equipments
+      - ชุดอุปกรณ์
+      - 裝備套裝
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MISC_2_POUP_LOGIN_ERROR_LOAD_DATA
+      TermType: 0
+      Languages:
+      - Lỗi tải dữ liệu cập nhật. Kiểm tra lại cấu hình mạng
+      - Error loading data, please check your network
+      - ข้อผิดพลาดดาวน์โหลดข้อมูลอัพเดท. โปรดตรวจสอบเครือข่าย
+      - 加載數據錯誤。請檢查網絡
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MISC_2_RECRUIT_CREW
+      TermType: 0
+      Languages:
+      - Chiêu mộ thuyền viên
+      - Heroes
+      - อัญเชิญลูกเรือ
+      - 招募船員
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MISC_2_REPLACE_CREW_SUSSCESS
+      TermType: 0
+      Languages:
+      - Đổi thuyền viên thành công
+      - Replaced hero successfully
+      - เปลี่ยนลูกเรือสำเร็จ
+      - 替換船員成功
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MISC_2_REPLACE_HERO_LBL_CHOSE
+      TermType: 0
+      Languages:
+      - Hãy chọn thuyền viên để thực hiện hoán đổi
+      - Please choose hero for replacement
+      - โปรดเลือกลูกเรือเพื่อเปลี่ยน
+      - 請選擇船員進行替換
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MISC_2_ROUND
+      TermType: 0
+      Languages:
+      - 
+      - 
+      - 
+      - 
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MISC_2_SIDE_ATTACK
+      TermType: 0
+      Languages:
+      - Bên tấn công
+      - Attacker
+      - ฝ่ายโจมตี
+      - 進攻方
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MISC_2_SIDE_DEF
+      TermType: 0
+      Languages:
+      - Bên phòng thủ
+      - Defender
+      - ฝ่ายป้องกัน
+      - 防守方
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MISC_2_STAGE_ERROR
+      TermType: 0
+      Languages:
+      - Trạng thái không hợp lệ
+      - Invalid state
+      - สถานภาพไม่เหมาะสม
+      - 狀態無效
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MISC_2_TITLE_SHARE_BATTLE
+      TermType: 0
+      Languages:
+      - Chia sẻ trận đánh
+      - Share battle
+      - แชร์การต่อสู้
+      - 分享戰鬥
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MISC_2_TUTORIAL_STORY_1
+      TermType: 0
+      Languages:
+      - Của cải, danh tiếng, quyền lực!
+      - Wealth, fame, power!
+      - ข้าวของ, ซื้อเสียง, อำนาจ!
+      - 財富、名聲、權力！
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MISC_2_TUTORIAL_STORY_2
+      TermType: 0
+      Languages:
+      - Gol Roger một hải tặc huyền thoại tung hoành ngang dọc trên biển cả
+      - Gol D Roger, The "King of the Prites" had achieved it all.
+      - Gol Roger โจรสลัดในตำนานผู้โด่งดังไปทั่วมหาสมุทร
+      - 哥爾·D·羅傑，一位傳說中在海洋上縱橫馳騁的海盜
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MISC_2_TUTORIAL_STORY_3
+      TermType: 0
+      Languages:
+      - 'Trước khi bị hành hình ông ta đã tiết lộ một bí mật khiến mọi người đều đổ xô ra biển '
+      - His final words inspired adventurers throughout the world
+      - ก่อนจะถูกประหารเขาได้เปิดเผยความลับที่ทำให้ทุกคนพากันแห่ออกสู่มหาสมุทร
+      - 臨刑前，他透露了一個秘密，使人們都沖向大海
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MISC_2_TUTORIAL_STORY_4
+      TermType: 0
+      Languages:
+      - 'Các ngươi muốn lấy kho báu của ta! '
+      - My Treasure? Why, it's Right where i left it
+      - พวกเจ้าอยากได้อีกสมบัติของข้า!
+      - 你們想奪取我的寶藏!
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MISC_2_TUTORIAL_STORY_5
+      TermType: 0
+      Languages:
+      - Hãy giỏi thì lấy đi! Ta để ở ngoài biển hết đó
+      - But you'll have to search the whole world!
+      - ถ้าเก่งก็เอาไป! ข้าทิ้งไว้ในมหาสมุทร
+      - 有本事就拿走啊！我放在海洋上了
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MISC_2_UPGRADE_ARTIFACT
+      TermType: 0
+      Languages:
+      - Nâng cấp bảo vật
+      - Upgrade Artifact
+      - เพิ่มเลเวลสมบัติ
+      - 提升寶物
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MISC_2_UPGRADE_EQUIP
+      TermType: 0
+      Languages:
+      - Nâng cấp trang bị
+      - Store
+      - เพิ่มเลเวลอุปกรณ์
+      - 提升裝備
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MISC_2_UPGRADE_SAILOR
+      TermType: 0
+      Languages:
+      - Nâng cấp thuyền viên
+      - Recruit
+      - เพิ่มเลเวลลูกเรือ
+      - 提升船員
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MISC_2_UTILS_LBL_COOL_EVENT
+      TermType: 0
+      Languages:
+      - Sự kiện ưu đãi
+      - Cool Event
+      - อีเว้นท์ สิทธิพิเศษ
+      - 優惠活動
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MISC_2_UTILS_LBL_SHOP_BIRD_FEATURE
+      TermType: 0
+      Languages:
+      - Shop Đại hải tặc
+      - Great Pirated Shop
+      - ช็อปมหาโจรสลัด
+      - 大海賊商店
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MISC_2_UTILS_MSG_ENDOW_EVENT
+      TermType: 0
+      Languages:
+      - Để tích lũy VIP EXP bạn cần nạp gói quà trong game.Bạn có muốn xem qua gói quà không?
+      - To get VIP EXP you need to purchase in game packages.Do you want to have a look at those packages?
+      - เพื่อสะสม VIP EXP คุณต้องเติมแพ็คเกจของขวัญในเกม. คุณอยากดูแพ็คเกจของขวัญไหม?
+      - 要累計VIP經驗，您需要購買遊戲裏的儲值禮包。您是否想預覽禮包呢？
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MISC_2_UTILS_MSG_ERROR_PAYMENT
+      TermType: 0
+      Languages:
+      - Lỗi thanh toán
+      - Payment error!
+      - ข้อผิดพลาดการชำระเงิน
+      - 支付錯誤！
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MISC_2_UTILS_MSG_MONTH_EVENT
+      TermType: 0
+      Languages:
+      - Tù và được bán trong khiêu chiến của sự kiện tháng.Bạn muốn tới sự kiện tháng không?
+      - Horns are sold in monthly boss event.Do you want to go to boss event?
+      - เขาถูกขายในการเปิดศึก อีเว้นท์เดือนคุณต้องการดู อีเว้นท์เดือนไหม?
+      - 號角在每月活動的挑戰活動裏出售。您要前往每月活動嗎？
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MISC_2_UTILS_REQUIRED_JOIN_GUILD
+      TermType: 0
+      Languages:
+      - Bạn cần gia nhập hạm đội để làm nhiệm vụ này
+      - You have to join a fleet to do this quest
+      - คุณต้องเข้าร่วมกองทัพเพื่อทำภารกิจนี้
+      - 您要先加入公會才能進行此任務
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MISC_2_WAIT_LUCKY_END
+      TermType: 0
+      Languages:
+      - Hãy đợi vòng quay kết thúc
+      - Please wait for spin to finish
+      - โปรดรอวงล้อสิ้นสุด
+      - 請等待轉盤結束
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MISC_CAMPAIGN_MAP_GATE_SUCCES
+      TermType: 0
+      Languages:
+      - Đảo đã thám hiểm xong!!!
+      - Finished discovering this island
+      - สำเร็จการสำรวจเกาะแล้ว!!!
+      - 此島已完成探索！！！
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MSG_LABEL_ALTAR
+      TermType: 0
+      Languages:
+      - Huyết tế
+      - Altar
+      - ถอน
+      - 血祭
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MSG_LOADING_DATA_ERROR
+      TermType: 0
+      Languages:
+      - Lỗi tải dữ liệu game. Hãy kiểm tra mạng và thử lại
+      - Data error! Please restart the game
+      - ข้อผิดพลาดการดาวน์โหลดข้อมูล. โปรดตรวจสอบเครือข่าย
+      - 加載遊戲數據錯誤。請檢查網絡後重試
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MSG_MISC_BENEFITSLOT_HERO
+      TermType: 0
+      Languages:
+      - '* Ô chứa thuyền viên: '
+      - '* Max Characters slots:'
+      - '* โอ้พระเจ้าลูกเรือ'
+      - '*船員格：'
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MSG_MISC_BENEFIT_AUTO_FIGHT
+      TermType: 0
+      Languages:
+      - '* Phần thưởng beli, kinh nghiệm, đá Exp khi tự động đánh: '
+      - '* Bonus Auto-Battle Belly, Hero EXP, EXP: '
+      - '* รางวัลเบลี, ประสบการณ์, หิน EXP เมื่อโจมตีอัตโนมัติ:'
+      - '*自動戰鬥獲得的貝利、經驗、經驗石等獎勵：'
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MSG_MISC_BENEFIT_BUY_GOLD
+      TermType: 0
+      Languages:
+      - '* Mua beli tăng thêm: '
+      - '* Belly of belly Market:'
+      - '* ซื้อเบลีเพิ่ม:'
+      - '*購買貝利增加：'
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MSG_MISC_BENEFIT_TAVERN
+      TermType: 0
+      Languages:
+      - '* Số lần làm nhiệm vụ tổng bộ: '
+      - '* Max daily Marine Headquarters times:'
+      - '* จำนวนครั้งทำภารกิจสำนักงานใหญ่:'
+      - '*做總部任務的次數：'
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MSG_MISC_BENEFIT_TIMES_BUY
+      TermType: 0
+      Languages:
+      - '* Số lần mua hoạt động chiến dịch: '
+      - '* Operation buy times:'
+      - '* จำนวนครั้งซื้อแคมเปญ:'
+      - '*購買戰役活動的次數：'
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MSG_MISC_BENEFIT_TITILE_BONUS
+      TermType: 0
+      Languages:
+      - '* Đạt được cấp VIP này sẽ nhận được:'
+      - '* Benefit of this VIP level'
+      - '* ถึงเลเวล VIP จะได้รับ:'
+      - '*達到此VIP級可獲得：'
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MSG_MISC_BENEFIT_TITLE_DAILY_BONUS
+      TermType: 0
+      Languages:
+      - '* Sau khi mua thẻ tháng, mỗi ngày sẽ nhận được:'
+      - '* After purchasing Monthly Card, you will get daily rewards:'
+      - '* หลังจากซื้อบัตรรายเดือนทุกวันจะได้รับ:'
+      - '*購買月卡後，每天可獲得：'
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MSG_MISC_BENEFIT_X2_SPEED
+      TermType: 0
+      Languages:
+      - '* Được nhân 3 tốc độ chiến đấu'
+      - '* Allow battle speed x3'
+      - '* ความเร็วการต่อสู้ ×3'
+      - '*獲得戰鬥速度x3'
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: s
+      TermType: 0
+      Languages:
+      - Mật khẩu phải dài từ 4- 25 kí tự
+      - NA
+      - รหัสต้องมี 4-25 ตัวอักษร
+      - 密碼要有4-25個字符
+      Flags: 00000000
+      Languages_Touch: []
+    CaseInsensitiveTerms: 0
+    OnMissingTranslation: 1
+    mTerm_AppName:
+    mLanguages:
+    - Name: Vietnamese
+      Code: vi
+      Flags: 0
+    - Name: English
+      Code: en
+      Flags: 0
+    - Name: Thai
+      Code: th
+      Flags: 0
+    - Name: Chinese
+      Code: zh
+      Flags: 0
+    IgnoreDeviceLanguage: 0
+    _AllowUnloadingLanguages: 0
+    Google_WebServiceURL: https://script.google.com/a/k2tek.net/macros/s/AKfycbwPOznsmBXu0u3e2Y-sFcV75YdCSJH1gn1zSdKm/exec
+    Google_SpreadsheetKey: 1NzI7Te0JngaDun8hh74fzQYpAxpOHYV6GAZ2QZhzkHI
+    Google_SpreadsheetName: I2Loc Hải Tặc Đại Chiến Assets/Scenes/LoginScene.unity I2Languages_misc_2
+    Google_LastUpdatedVersion: 1615963355820
+    GoogleUpdateFrequency: 1
+    GoogleInEditorCheckFrequency: 2
+    GoogleUpdateSynchronization: 1
+    GoogleUpdateDelay: 5
+    Assets: []
+  version: 1
+  NeverDestroy: 1
+  UserAgreesToHaveItOnTheScene: 1
+  UserAgreesToHaveItInsideThePluginsFolder: 0
+  GoogleLiveSyncIsUptoDate: 1
+  Assets: []
+  Google_WebServiceURL:
+  Google_SpreadsheetKey:
+  Google_SpreadsheetName:
+  Google_LastUpdatedVersion:
+  GoogleUpdateFrequency: 3
+  GoogleUpdateDelay: 5
+  mLanguages: []
+  IgnoreDeviceLanguage: 0
+  _AllowUnloadingLanguages: 0
+  mTerms: []
+  CaseInsensitiveTerms: 0
+  OnMissingTranslation: 1
+  mTerm_AppName:

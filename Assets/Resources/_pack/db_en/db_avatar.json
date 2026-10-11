@@ -1,0 +1,68 @@
+[
+  {
+    "id": "1",
+    "name": "Hạng Đồng",
+    "short_desc": "Ảnh đại diện đặc biệt",
+    "desc": "Vinh danh cao thủ trong tân thế giới"
+  },
+  {
+    "id": "2",
+    "name": "Hạng Bạc",
+    "short_desc": "Ảnh đại diện đặc biệt",
+    "desc": "Vinh danh cao thủ trong tân thế giới"
+  },
+  {
+    "id": "3",
+    "name": "Hạng Vàng",
+    "short_desc": "Ảnh đại diện đặc biệt",
+    "desc": "Vinh danh cao thủ trong tân thế giới"
+  },
+  {
+    "id": "4",
+    "name": "Hạng Bạch Kim",
+    "short_desc": "Ảnh đại diện đặc biệt",
+    "desc": "Vinh danh cao thủ trong tân thế giới"
+  },
+  {
+    "id": "5",
+    "name": "Hạng Kim Cương",
+    "short_desc": "Ảnh đại diện đặc biệt",
+    "desc": "Vinh danh cao thủ trong tân thế giới"
+  },
+  {
+    "id": "6",
+    "name": "Hạng Cao Thủ",
+    "short_desc": "Ảnh đại diện đặc biệt",
+    "desc": "Vinh danh cao thủ trong tân thế giới"
+  },
+  {
+    "id": "7",
+    "name": "Hạng Thách Đấu",
+    "short_desc": "Ảnh đại diện đặc biệt",
+    "desc": "Vinh danh cao thủ trong tân thế giới"
+  },
+  {
+    "id": "8",
+    "name": "Hạng Vô Song",
+    "short_desc": "Ảnh đại diện đặc biệt",
+    "desc": "Vinh danh cao thủ trong tân thế giới"
+  },
+  {
+    "id": "9",
+    "name": "Hạng Sắt",
+    "short_desc": "Ảnh đại diện đặc biệt",
+    "desc": "Vinh danh cao thủ trong tân thế giới"
+  },
+  {
+    "id": "10",
+    "name": "Hạng Đại Cao thủ",
+    "short_desc": "Ảnh đại diện đặc biệt",
+    "desc": "Vinh danh cao thủ trong tân thế giới"
+  },
+  {
+    "id": "11",
+    "name": "Tết Nguyên đán Canh Tý",
+    "short_desc": "Ảnh đại diện đặc biệt",
+    "desc": "Ảnh tết nguyên đán 2020"
+  }
+]

@@ -1,0 +1,384 @@
+
+Hero_50003.png
+size: 1012,696
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+arm_L_04
+  rotate: false
+  xy: 623, 175
+  size: 18, 31
+  orig: 19, 32
+  offset: 1, 0
+  index: -1
+arm_R_01
+  rotate: false
+  xy: 62, 2
+  size: 18, 29
+  orig: 24, 33
+  offset: 3, 1
+  index: -1
+arm_R_04
+  rotate: false
+  xy: 753, 2
+  size: 35, 23
+  orig: 36, 24
+  offset: 1, 0
+  index: -1
+body_01
+  rotate: true
+  xy: 176, 20
+  size: 33, 67
+  orig: 34, 68
+  offset: 1, 0
+  index: -1
+body_04
+  rotate: false
+  xy: 955, 89
+  size: 46, 66
+  orig: 47, 67
+  offset: 1, 0
+  index: -1
+cloth_11
+  rotate: false
+  xy: 955, 157
+  size: 55, 62
+  orig: 56, 63
+  offset: 1, 0
+  index: -1
+cloth_41
+  rotate: true
+  xy: 541, 348
+  size: 84, 62
+  orig: 85, 63
+  offset: 1, 0
+  index: -1
+cloth_42
+  rotate: false
+  xy: 308, 14
+  size: 31, 39
+  orig: 32, 40
+  offset: 1, 0
+  index: -1
+cloth_43
+  rotate: false
+  xy: 894, 255
+  size: 18, 30
+  orig: 19, 31
+  offset: 1, 0
+  index: -1
+f-arm_L_04
+  rotate: false
+  xy: 643, 184
+  size: 26, 22
+  orig: 27, 23
+  offset: 1, 0
+  index: -1
+f-arm_R_01
+  rotate: true
+  xy: 598, 442
+  size: 13, 23
+  orig: 16, 29
+  offset: 2, 3
+  index: -1
+f-arm_R_04
+  rotate: true
+  xy: 82, 2
+  size: 29, 17
+  orig: 30, 18
+  offset: 1, 0
+  index: -1
+foot_L_04
+  rotate: false
+  xy: 943, 2
+  size: 28, 20
+  orig: 29, 21
+  offset: 1, 0
+  index: -1
+foot_R_04
+  rotate: true
+  xy: 823, 2
+  size: 23, 22
+  orig: 24, 24
+  offset: 1, 0
+  index: -1
+gedatsu_beat_01
+  rotate: true
+  xy: 351, 212
+  size: 127, 181
+  orig: 128, 182
+  offset: 1, 0
+  index: -1
+gedatsu_beat_02
+  rotate: true
+  xy: 841, 558
+  size: 136, 161
+  orig: 137, 162
+  offset: 1, 0
+  index: -1
+gedatsu_beat_03
+  rotate: false
+  xy: 191, 198
+  size: 158, 165
+  orig: 176, 184
+  offset: 7, 9
+  index: -1
+gedatsu_beat_04
+  rotate: false
+  xy: 2, 201
+  size: 187, 162
+  orig: 188, 163
+  offset: 1, 0
+  index: -1
+gedatsu_beat_05
+  rotate: false
+  xy: 2, 33
+  size: 172, 166
+  orig: 173, 167
+  offset: 1, 0
+  index: -1
+gedatsu_damage
+  rotate: true
+  xy: 176, 55
+  size: 141, 177
+  orig: 142, 178
+  offset: 1, 0
+  index: -1
+gedatsu_skill1_01
+  rotate: false
+  xy: 623, 208
+  size: 107, 174
+  orig: 108, 175
+  offset: 1, 0
+  index: -1
+gedatsu_skill1_02
+  rotate: false
+  xy: 355, 99
+  size: 177, 111
+  orig: 178, 112
+  offset: 1, 0
+  index: -1
+gedatsu_skill1_03
+  rotate: false
+  xy: 616, 569
+  size: 223, 125
+  orig: 224, 126
+  offset: 1, 0
+  index: -1
+gedatsu_skill1_04
+  rotate: false
+  xy: 369, 520
+  size: 245, 174
+  orig: 246, 175
+  offset: 1, 0
+  index: -1
+gedatsu_skill1_05
+  rotate: false
+  xy: 2, 365
+  size: 348, 147
+  orig: 349, 148
+  offset: 1, 0
+  index: -1
+gedatsu_skill1_06
+  rotate: false
+  xy: 2, 514
+  size: 365, 180
+  orig: 366, 181
+  offset: 1, 0
+  index: -1
+gedatsu_skill2_01
+  rotate: true
+  xy: 355, 8
+  size: 89, 180
+  orig: 90, 181
+  offset: 1, 0
+  index: -1
+gedatsu_skill2_02
+  rotate: true
+  xy: 616, 478
+  size: 89, 199
+  orig: 90, 200
+  offset: 1, 0
+  index: -1
+gedatsu_skill2_03
+  rotate: true
+  xy: 369, 434
+  size: 84, 199
+  orig: 85, 200
+  offset: 1, 0
+  index: -1
+gedatsu_skill2_04
+  rotate: false
+  xy: 753, 27
+  size: 100, 155
+  orig: 101, 156
+  offset: 1, 0
+  index: -1
+gedatsu_skill2_05
+  rotate: false
+  xy: 917, 221
+  size: 92, 153
+  orig: 171, 270
+  offset: 43, 0
+  index: -1
+gedatsu_skill2_06
+  rotate: false
+  xy: 643, 23
+  size: 108, 159
+  orig: 168, 277
+  offset: 41, 0
+  index: -1
+gedatsu_skill2_07
+  rotate: false
+  xy: 855, 31
+  size: 98, 151
+  orig: 168, 267
+  offset: 44, 0
+  index: -1
+gedatsu_skill2_08
+  rotate: true
+  xy: 732, 184
+  size: 101, 160
+  orig: 248, 337
+  offset: 30, 176
+  index: -1
+gedatsu_standby_01
+  rotate: true
+  xy: 817, 465
+  size: 91, 185
+  orig: 92, 186
+  offset: 1, 0
+  index: -1
+gedatsu_standby_02
+  rotate: true
+  xy: 352, 341
+  size: 91, 187
+  orig: 92, 188
+  offset: 1, 0
+  index: -1
+gedatsu_tunagi
+  rotate: false
+  xy: 537, 15
+  size: 104, 137
+  orig: 105, 138
+  offset: 1, 0
+  index: -1
+gedatsu_win_01
+  rotate: true
+  xy: 809, 376
+  size: 87, 183
+  orig: 88, 184
+  offset: 1, 0
+  index: -1
+gedatsu_win_02
+  rotate: true
+  xy: 732, 287
+  size: 87, 183
+  orig: 88, 184
+  offset: 1, 0
+  index: -1
+gedatsu_win_03
+  rotate: false
+  xy: 534, 154
+  size: 87, 185
+  orig: 88, 186
+  offset: 1, 0
+  index: -1
+gedatsu_win_04
+  rotate: true
+  xy: 623, 384
+  size: 92, 184
+  orig: 93, 185
+  offset: 1, 0
+  index: -1
+hand_L_01
+  rotate: true
+  xy: 352, 455
+  size: 17, 15
+  orig: 19, 21
+  offset: 2, 3
+  index: -1
+hand_L_04
+  rotate: true
+  xy: 902, 2
+  size: 27, 20
+  orig: 28, 21
+  offset: 1, 0
+  index: -1
+hand_L_07
+  rotate: false
+  xy: 671, 184
+  size: 26, 22
+  orig: 27, 23
+  offset: 1, 0
+  index: -1
+hand_R_01
+  rotate: true
+  xy: 570, 438
+  size: 17, 26
+  orig: 23, 33
+  offset: 4, 3
+  index: -1
+hand_R_04
+  rotate: false
+  xy: 699, 184
+  size: 26, 22
+  orig: 27, 23
+  offset: 1, 0
+  index: -1
+head_01
+  rotate: false
+  xy: 955, 24
+  size: 47, 63
+  orig: 48, 64
+  offset: 1, 0
+  index: -1
+head_04
+  rotate: false
+  xy: 570, 457
+  size: 43, 61
+  orig: 44, 62
+  offset: 1, 0
+  index: -1
+head_07
+  rotate: true
+  xy: 245, 10
+  size: 43, 61
+  orig: 44, 62
+  offset: 1, 0
+  index: -1
+shank_L_04
+  rotate: false
+  xy: 924, 2
+  size: 17, 27
+  orig: 18, 28
+  offset: 1, 0
+  index: -1
+shank_R_04
+  rotate: true
+  xy: 790, 2
+  size: 23, 31
+  orig: 24, 32
+  offset: 1, 0
+  index: -1
+skill_11
+  rotate: false
+  xy: 2, 3
+  size: 58, 28
+  orig: 63, 30
+  offset: 2, 1
+  index: -1
+thigh_L_04
+  rotate: false
+  xy: 352, 474
+  size: 15, 38
+  orig: 16, 39
+  offset: 1, 0
+  index: -1
+thigh_R_04
+  rotate: true
+  xy: 855, 2
+  size: 27, 45
+  orig: 28, 46
+  offset: 1, 0
+  index: -1

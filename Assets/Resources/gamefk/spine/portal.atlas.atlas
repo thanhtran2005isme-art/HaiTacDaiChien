@@ -1,0 +1,55 @@
+
+portal.png
+size: 594,69
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+portal-bg
+  rotate: false
+  xy: 393, 2
+  size: 65, 65
+  orig: 65, 65
+  offset: 0, 0
+  index: -1
+portal-flare1
+  rotate: false
+  xy: 220, 13
+  size: 103, 54
+  orig: 111, 60
+  offset: 4, 3
+  index: -1
+portal-flare2
+  rotate: false
+  xy: 2, 12
+  size: 107, 55
+  orig: 114, 61
+  offset: 4, 3
+  index: -1
+portal-flare3
+  rotate: false
+  xy: 111, 14
+  size: 107, 53
+  orig: 115, 59
+  offset: 5, 3
+  index: -1
+portal-shade
+  rotate: false
+  xy: 460, 2
+  size: 65, 65
+  orig: 65, 65
+  offset: 0, 0
+  index: -1
+portal-streaks1
+  rotate: true
+  xy: 325, 3
+  size: 64, 66
+  orig: 65, 66
+  offset: 0, 0
+  index: -1
+portal-streaks2
+  rotate: false
+  xy: 527, 2
+  size: 65, 65
+  orig: 65, 65
+  offset: 0, 0
+  index: -1

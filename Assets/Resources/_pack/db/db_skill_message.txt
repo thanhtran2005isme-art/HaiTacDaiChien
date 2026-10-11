@@ -1,0 +1,488 @@
+﻿[
+ {
+   "Chapter": 1,
+   "IndexWave": 1,
+   "urlImageLeft": 190,
+   "urlImageRight": 237,
+   "HeroName": "Luffy ",
+   "Message": "Chú Sharks, cháu sẽ sẽ trở thành Vua Hải Tặc! ",
+   "Float": 0
+ },
+ {
+   "Chapter": 1,
+   "IndexWave": 1,
+   "urlImageLeft": 190,
+   "urlImageRight": 237,
+   "HeroName": "Sơn Tặc",
+   "Message": "Hải tặc à, trông tụi bay chán quá",
+   "Float": 1
+ },
+ {
+   "Chapter": 1,
+   "IndexWave": 2,
+   "urlImageLeft": 190,
+   "urlImageRight": 237,
+   "HeroName": "Sơn Tặc",
+   "Message": "Lũ hải tặc hèn nhát dám chống đối à",
+   "Float": 1
+ },
+ {
+   "Chapter": 1,
+   "IndexWave": 2,
+   "urlImageLeft": 190,
+   "urlImageRight": 237,
+   "HeroName": "Luffy ",
+   "Message": "  Gomu gomu no Pistol",
+   "Float": 0
+ },
+ {
+   "Chapter": 1,
+   "IndexWave": 3,
+   "urlImageLeft": 190,
+   "urlImageRight": 228,
+   "HeroName": "Alvira",
+   "Message": "Coby, ai là người đẹp nhất thế gian !",
+   "Float": 1
+ },
+ {
+   "Chapter": 1,
+   "IndexWave": 3,
+   "urlImageLeft": 190,
+   "urlImageRight": 228,
+   "HeroName": "Luffy",
+   "Message": "Mụ già béo này là ai thế?",
+   "Float": 0
+ },
+ {
+   "Chapter": 1,
+   "IndexWave": 3,
+   "urlImageLeft": 190,
+   "urlImageRight": 228,
+   "HeroName": "Alvira",
+   "Message": "Thằng nhãi muốn ăn đòn!!!",
+   "Float": 1
+ },
+ {
+   "Chapter": 1,
+   "IndexWave": 5,
+   "urlImageLeft": 190,
+   "urlImageRight": 234,
+   "HeroName": "Helmeppo",
+   "Message": "Quỳ xuống, không tao méch ba tao đó",
+   "Float": 1
+ },
+ {
+   "Chapter": 1,
+   "IndexWave": 5,
+   "urlImageLeft": 190,
+   "urlImageRight": 234,
+   "HeroName": "Luffy",
+   "Message": "Phải dạy tên \"con trai cưng\" này 1 bài học",
+   "Float": 0
+ },
+ {
+   "Chapter": 1,
+   "IndexWave": 6,
+   "urlImageLeft": 190,
+   "urlImageRight": 234,
+   "HeroName": "Helmeppo",
+   "Message": "Chặn hắn lại để ta về méch ba",
+   "Float": 1
+ },
+ {
+   "Chapter": 1,
+   "IndexWave": 6,
+   "urlImageLeft": 190,
+   "urlImageRight": 234,
+   "HeroName": "Luffy",
+   "Message": "Mau thả Zozo ra mau",
+   "Float": 0
+ },
+ {
+   "Chapter": 1,
+   "IndexWave": 7,
+   "urlImageLeft": 190,
+   "urlImageRight": 230,
+   "HeroName": "Morgan",
+   "Message": "Thằng nhóc Helmeppo vô dụng nhưng cũng là con ta",
+   "Float": 1
+ },
+ {
+   "Chapter": 1,
+   "IndexWave": 7,
+   "urlImageLeft": 190,
+   "urlImageRight": 230,
+   "HeroName": "Luffy ",
+   "Message": "Ồ ngươi là đại tá hải quân sao",
+   "Float": 0
+ },
+ {
+   "Chapter": 1,
+   "IndexWave": 8,
+   "urlImageLeft": 190,
+   "urlImageRight": 230,
+   "HeroName": "Morgan",
+   "Message": "Người đâu, bắt lấy chúng",
+   "Float": 1
+ },
+ {
+   "Chapter": 1,
+   "IndexWave": 8,
+   "urlImageLeft": 190,
+   "urlImageRight": 230,
+   "HeroName": "Luffy ",
+   "Message": "Đừng hỏng cản ta",
+   "Float": 0
+ },
+ {
+   "Chapter": 1,
+   "IndexWave": 9,
+   "urlImageLeft": 190,
+   "urlImageRight": 230,
+   "HeroName": "Morgan",
+   "Message": "Lũ vô dụng, cùng ta bao vây chúng",
+   "Float": 1
+ },
+ {
+   "Chapter": 1,
+   "IndexWave": 9,
+   "urlImageLeft": 190,
+   "urlImageRight": 230,
+   "HeroName": "Luffy ",
+   "Message": "Ta sẽ đánh bay ngươi!",
+   "Float": 0
+ },
+ {
+   "Chapter": 1,
+   "IndexWave": 10,
+   "urlImageLeft": 190,
+   "urlImageRight": 230,
+   "HeroName": "Morgan",
+   "Message": "Ta tuyên án, ngươi sẽ bị tử hình !!",
+   "Float": 1
+ },
+ {
+   "Chapter": 1,
+   "IndexWave": 10,
+   "urlImageLeft": 190,
+   "urlImageRight": 230,
+   "HeroName": "Luffy ",
+   "Message": "Không dám chết đâu!",
+   "Float": 0
+ },
+ {
+   "Chapter": 2,
+   "IndexWave": 1,
+   "urlImageLeft": 164,
+   "urlImageRight": 236,
+   "HeroName": "Băng Buggy",
+   "Message": "Dừng lại, bọn ta thuộc băng hải tặc chú hề Buggy hùng mạnh",
+   "Float": 1
+ },
+ {
+   "Chapter": 2,
+   "IndexWave": 1,
+   "urlImageLeft": 164,
+   "urlImageRight": 236,
+   "HeroName": "Zoro",
+   "Message": "Cái gì cơ?",
+   "Float": 0
+ },
+ {
+   "Chapter": 2,
+   "IndexWave": 3,
+   "urlImageLeft": 161,
+   "urlImageRight": 235,
+   "HeroName": "Băng Buggy",
+   "Message": "Đứng lại, trả bản đồ kho báu cho chúng ta",
+   "Float": 1
+ },
+ {
+   "Chapter": 2,
+   "IndexWave": 3,
+   "urlImageLeft": 161,
+   "urlImageRight": 235,
+   "HeroName": "Nami",
+   "Message": "C... Chủ nhân ! Ngài đến cứu tôi ư",
+   "Float": 0
+ },
+ {
+   "Chapter": 2,
+   "IndexWave": 3,
+   "urlImageLeft": 161,
+   "urlImageRight": 235,
+   "HeroName": "Băng Buggy",
+   "Message": "Á à, ngươi đến cứu con nhỏ này ư",
+   "Float": 1
+ },
+ {
+   "Chapter": 2,
+   "IndexWave": 5,
+   "urlImageLeft": 190,
+   "urlImageRight": 161,
+   "HeroName": "Nami",
+   "Message": "Các cậu mạnh thật, xử lý được bọn chúng",
+   "Float": 1
+ },
+ {
+   "Chapter": 2,
+   "IndexWave": 5,
+   "urlImageLeft": 190,
+   "urlImageRight": 161,
+   "HeroName": "Luffy",
+   "Message": "Cô là ai ?",
+   "Float": 0
+ },
+ {
+   "Chapter": 2,
+   "IndexWave": 5,
+   "urlImageLeft": 190,
+   "urlImageRight": 161,
+   "HeroName": "Nami",
+   "Message": "Ta là kẻ trộm đồ của hải tặc, hãy xem sức mạnh của ta",
+   "Float": 1
+ },
+ {
+   "Chapter": 2,
+   "IndexWave": 7,
+   "urlImageLeft": 190,
+   "urlImageRight": 226,
+   "HeroName": "MoHJo ",
+   "Message": "Xin ngài Buggy hãy cho tôi vinh dự được lấy đầu của chúng!",
+   "Float": 1
+ },
+ {
+   "Chapter": 2,
+   "IndexWave": 7,
+   "urlImageLeft": 190,
+   "urlImageRight": 226,
+   "HeroName": "Luffy ",
+   "Message": "Wow, con mèo to quá",
+   "Float": 0
+ },
+ {
+   "Chapter": 2,
+   "IndexWave": 9,
+   "urlImageLeft": 164,
+   "urlImageRight": 222,
+   "HeroName": "Cabaji",
+   "Message": "Hãy đối mặt với tham mưu trưởng băng buggy",
+   "Float": 1
+ },
+ {
+   "Chapter": 2,
+   "IndexWave": 9,
+   "urlImageLeft": 164,
+   "urlImageRight": 222,
+   "HeroName": "Zoro",
+   "Message": "Kiếm sĩ à?",
+   "Float": 0
+ },
+ {
+   "Chapter": 2,
+   "IndexWave": 10,
+   "urlImageLeft": 190,
+   "urlImageRight": 203,
+   "HeroName": "Buggy",
+   "Message": "Các ngươi sẽ phải hối hận khi đối đầu với một băng hải tặc đích thực!",
+   "Float": 1
+ },
+ {
+   "Chapter": 2,
+   "IndexWave": 10,
+   "urlImageLeft": 190,
+   "urlImageRight": 203,
+   "HeroName": "Luffy ",
+   "Message": "Băng hải tặc mũi to à",
+   "Float": 0
+ },
+ {
+   "Chapter": 3,
+   "IndexWave": 1,
+   "urlImageLeft": 161,
+   "urlImageRight": 178,
+   "HeroName": "Usopp ",
+   "Message": "Ta là thuyển trưởng Usopp vĩ đại, mau rời đi trước khi 80 triệu thuộc hạ của ta tới !!!",
+   "Float": 1
+ },
+ {
+   "Chapter": 3,
+   "IndexWave": 1,
+   "urlImageLeft": 161,
+   "urlImageRight": 178,
+   "HeroName": "Nami",
+   "Message": "Nói dối !",
+   "Float": 0
+ },
+ {
+   "Chapter": 3,
+   "IndexWave": 1,
+   "urlImageLeft": 161,
+   "urlImageRight": 178,
+   "HeroName": "Usopp",
+   "Message": "Oái lộ rồi @@ vậy ta đành tự tay ngăn cản các ngươi vậy",
+   "Float": 1
+ },
+ {
+   "Chapter": 3,
+   "IndexWave": 3,
+   "urlImageLeft": 178,
+   "urlImageRight": 219,
+   "HeroName": "Sham",
+   "Message": "Tất cả tiến lên phá hủy ngôi làng",
+   "Float": 1
+ },
+ {
+   "Chapter": 3,
+   "IndexWave": 3,
+   "urlImageLeft": 178,
+   "urlImageRight": 219,
+   "HeroName": "Usopp",
+   "Message": "Đừng hòng",
+   "Float": 0
+ },
+ {
+   "Chapter": 3,
+   "IndexWave": 5,
+   "urlImageLeft": 178,
+   "urlImageRight": 220,
+   "HeroName": "Buchi",
+   "Message": "Anh em nhà nyaban tiến lên",
+   "Float": 1
+ },
+ {
+   "Chapter": 3,
+   "IndexWave": 5,
+   "urlImageLeft": 178,
+   "urlImageRight": 219,
+   "HeroName": "Usopp",
+   "Message": "Coi chừng, 2 tên này có vẻ rất mạnh",
+   "Float": 0
+ },
+ {
+   "Chapter": 3,
+   "IndexWave": 7,
+   "urlImageLeft": 190,
+   "urlImageRight": 225,
+   "HeroName": "Jango",
+   "Message": "Khi ta nói \"one, two, jango\" thì các ngươi sẽ thấy ta cực kỳ mạnh mẽ",
+   "Float": 1
+ },
+ {
+   "Chapter": 3,
+   "IndexWave": 7,
+   "urlImageLeft": 190,
+   "urlImageRight": 225,
+   "HeroName": "Luffy ",
+   "Message": "Oái, hắn mạnh thật",
+   "Float": 0
+ },
+ {
+   "Chapter": 3,
+   "IndexWave": 10,
+   "urlImageLeft": 178,
+   "urlImageRight": 218,
+   "HeroName": "Kuro",
+   "Message": "Lũ vô dụng ! Chính tay ta sẽ tiêu diệt từng đứa !!!",
+   "Float": 1
+ },
+ {
+   "Chapter": 3,
+   "IndexWave": 10,
+   "urlImageLeft": 178,
+   "urlImageRight": 218,
+   "HeroName": "Usopp",
+   "Message": "Đừng hòng, ta sẽ bảo vệ làng !!!",
+   "Float": 0
+ },
+ {
+   "Chapter": 4,
+   "IndexWave": 1,
+   "urlImageLeft": 190,
+   "urlImageRight": 174,
+   "HeroName": "Luffy ",
+   "Message": "Sanji hãy trở thành đầu bếp của chúng tôi",
+   "Float": 0
+ },
+ {
+   "Chapter": 4,
+   "IndexWave": 1,
+   "urlImageLeft": 190,
+   "urlImageRight": 174,
+   "HeroName": "Sanji ",
+   "Message": "Hừ! Lũ vô danh này là ai",
+   "Float": 1
+ },
+ {
+   "Chapter": 4,
+   "IndexWave": 5,
+   "urlImageLeft": 68,
+   "urlImageRight": 212,
+   "HeroName": "Don Krieg",
+   "Message": "Nhà hàng này rất thích hợp để làm nguỵ trang, chiếm lấy nó !!!",
+   "Float": 1
+ },
+ {
+   "Chapter": 4,
+   "IndexWave": 5,
+   "urlImageLeft": 68,
+   "urlImageRight": 212,
+   "HeroName": "Sanji ",
+   "Message": "Đừng hòng, chúng ta sẽ bảo vệ nhà hàng",
+   "Float": 0
+ },
+ {
+   "Chapter": 4,
+   "IndexWave": 10,
+   "urlImageLeft": 190,
+   "urlImageRight": 212,
+   "HeroName": "Luffy ",
+   "Message": "Wow, nhìn bộ áo giáp là thấy đẹp trai !",
+   "Float": 0
+ },
+ {
+   "Chapter": 4,
+   "IndexWave": 10,
+   "urlImageLeft": 190,
+   "urlImageRight": 212,
+   "HeroName": "Don Krieg",
+   "Message": "Để ta cho thằng nhóc mơ mộng này xem thế nào mới là một kẻ mạnh !!!",
+   "Float": 1
+ },
+ {
+   "Chapter": 5,
+   "IndexWave": 1,
+   "urlImageLeft": 190,
+   "urlImageRight": 161,
+   "HeroName": "Nami",
+   "Message": "Xin lỗi mọi người, chỉ có nghe theo Arlong tôi mới cứu được làng",
+   "Float": 1
+ },
+ {
+   "Chapter": 5,
+   "IndexWave": 1,
+   "urlImageLeft": 190,
+   "urlImageRight": 161,
+   "HeroName": "Luffy",
+   "Message": "Đồ ngốc, hãy để chúng tôi giúp",
+   "Float": 0
+ },
+ {
+   "Chapter": 5,
+   "IndexWave": 10,
+   "urlImageLeft": 190,
+   "urlImageRight": 194,
+   "HeroName": "Arlong",
+   "Message": "Thằng ngốc, ngươi sẽ làm được gì chứ!",
+   "Float": 1
+ },
+ {
+   "Chapter": 5,
+   "IndexWave": 10,
+   "urlImageLeft": 190,
+   "urlImageRight": 194,
+   "HeroName": "Luffy",
+   "Message": "Ta sẽ trở thành Vua Hải Tặc !!!",
+   "Float": 0
+ }
+]

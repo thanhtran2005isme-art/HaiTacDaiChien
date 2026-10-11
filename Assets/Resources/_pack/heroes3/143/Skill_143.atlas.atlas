@@ -1,0 +1,115 @@
+
+Skill_143.png
+size: 1004,896
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Char_akainu_skill2_boomB_000
+  rotate: true
+  xy: 295, 494
+  size: 399, 414
+  orig: 600, 500
+  offset: 100, 57
+  index: -1
+Char_akainu_skill2_boomB_003
+  rotate: false
+  xy: 2, 85
+  size: 569, 407
+  orig: 600, 500
+  offset: 15, 20
+  index: -1
+Char_akainu_skill2_boomB_010
+  rotate: true
+  xy: 573, 2
+  size: 490, 429
+  orig: 600, 500
+  offset: 65, 20
+  index: -1
+Char_akainu_skill2_fly_000
+  rotate: true
+  xy: 2, 777
+  size: 116, 291
+  orig: 160, 300
+  offset: 22, 4
+  index: -1
+
+Skill_1432.png
+size: 1012,888
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Char_akainu_skill2_boomB_002
+  rotate: false
+  xy: 2, 2
+  size: 545, 444
+  orig: 600, 500
+  offset: 27, 22
+  index: -1
+Char_akainu_skill2_boomB_006
+  rotate: false
+  xy: 2, 448
+  size: 582, 435
+  orig: 600, 500
+  offset: 9, 2
+  index: -1
+Char_akainu_skill2_boomB_008
+  rotate: true
+  xy: 586, 311
+  size: 572, 423
+  orig: 600, 500
+  offset: 14, 20
+  index: -1
+
+Skill_1433.png
+size: 1004,832
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Char_akainu_skill2_boomB_004
+  rotate: false
+  xy: 2, 2
+  size: 561, 410
+  orig: 600, 500
+  offset: 19, 20
+  index: -1
+Char_akainu_skill2_boomB_005
+  rotate: false
+  xy: 2, 414
+  size: 577, 413
+  orig: 600, 500
+  offset: 11, 20
+  index: -1
+Char_akainu_skill2_boomB_007
+  rotate: true
+  xy: 581, 269
+  size: 558, 420
+  orig: 600, 500
+  offset: 21, 20
+  index: -1
+
+Skill_1434.png
+size: 944,864
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Char_akainu_skill2_boomB_001
+  rotate: true
+  xy: 2, 368
+  size: 494, 444
+  orig: 600, 500
+  offset: 54, 24
+  index: -1
+Char_akainu_skill2_boomB_009
+  rotate: false
+  xy: 448, 2
+  size: 491, 426
+  orig: 600, 500
+  offset: 65, 20
+  index: -1
+Char_akainu_skill2_boomB_011
+  rotate: false
+  xy: 448, 430
+  size: 491, 432
+  orig: 600, 500
+  offset: 65, 20
+  index: -1

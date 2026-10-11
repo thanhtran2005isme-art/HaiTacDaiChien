@@ -1,0 +1,232 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1709254077376921
+GameObject:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Component:
+  - component: {fileID: 4730242686860875}
+  - component: {fileID: 114724804207875695}
+  m_Layer: 0
+  m_Name: I2Languages_misc_3
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4730242686860875
+Transform:
+  serializedVersion: 2
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1709254077376921}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -0, z: -0}
+--- !u!114 &114724804207875695
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1709254077376921}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7554888af13e447d4982f6ad48f0af4b, type: 3}
+  m_Name:
+  m_EditorClassIdentifier:
+  mSource:
+    UserAgreesToHaveItOnTheScene: 1
+    UserAgreesToHaveItInsideThePluginsFolder: 0
+    GoogleLiveSyncIsUptoDate: 1
+    mTerms:
+    - Term: MISC_3_DESC_BUY_PACKAGE_TO_UNLOCK
+      TermType: 0
+      Languages:
+      - Mua gói để mở khóa
+      - Buy package to unlock
+      - ซื้อแพคเกจเพื่อปลดล็อค
+      - 購買充值包進行解鎖
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MISC_3_DESC_ERROR_SENDING_DATA
+      TermType: 0
+      Languages:
+      - Lỗi gửi dữ liệu service:{0}
+      - Error sending data in service:{0}
+      - ข้อผิดพลาดการส่งข้อมูลเซอร์วิส:{0}
+      - 發送服務數據錯誤：{0}
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MISC_3_DESC_HOI_MAU
+      TermType: 0
+      Languages:
+      - '% hiệu ứng hồi máu'
+      - '% healing effect'
+      - เอฟเฟ็กต์การรักษา
+      - 回血效果百分比
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MISC_3_DESC_MAIL_LEAST
+      TermType: 0
+      Languages:
+      - Cần nhập ít nhất {0} kí tự
+      - Mail must be at least {0} characters
+      - ต้องป้อนอย่างน้อย {0} ตัวอักษร
+      - 最少需要輸入{0}字符
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MISC_3_DESC_REQUIRE_COMPLETE_QUEST
+      TermType: 0
+      Languages:
+      - Yêu cầu hoàn thành nhiệm vụ
+      - Requires complete quest
+      - ต้องสำเร็จภารกิจ
+      - 需要完成任務
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MISC_3_LBL_PROGRESS
+      TermType: 0
+      Languages:
+      - 'Progress: {0}/{1}'
+      - 'Hoàn thành: {0}/{1}'
+      - 'เสร็จสิ้น: {0}/{1}'
+      - 進度：{0}/{1}
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MISC_3_NOTI_NOT_JOIN_GUILD
+      TermType: 0
+      Languages:
+      - Hãy tạo hoặc gia nhập hạm đội
+      - You need to create or join a Guild!
+      - โปรดสร้างหรือเข้าร่วมกิลด์
+      - 請創建或加入公會
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MISC_3_LBL_MATERIALS
+      TermType: 0
+      Languages:
+      - Nguyên liệu
+      - Materials
+      - วัสดุ
+      - 材料
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MISC_3_LBL_PIRATE_SHARD
+      TermType: 0
+      Languages:
+      - Mảnh hải tặc
+      - Pirate Shards
+      - เศษโจรสลัด
+      - 海盜碎片
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MISC_3_LBL_PIRATE
+      TermType: 0
+      Languages:
+      - Hải tặc
+      - Pirate
+      - โจรสลัด
+      - 海盜
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MISC_3_LBL_GREAT_PIRATE
+      TermType: 0
+      Languages:
+      - Đại hải tặc
+      - Great Pirate
+      - โจรสลัดผู้ยิ่งใหญ่
+      - 大海盜
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MISC_3_LBL_PIRATE
+      TermType: 0
+      Languages:
+      - Hải tặc
+      - Pirate
+      - โจรสลัด
+      - 海盜
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MISC_3_LBL_GREAT_PIRATE
+      TermType: 0
+      Languages:
+      - Đại hải tặc
+      - Great Pirate
+      - โจรสลัดผู้ยิ่งใหญ่
+      - 大海盜
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MISC_3_LBL_GET_SS
+      TermType: 0
+      Languages:
+      - Nhận hải tặc SS và quà trong 3 ngày liên tiếp
+      - Get SS Pirate and valuable rewards in 3 days
+      - รับ SS Pirate และรางวัลล้ำค่าใน 3 วัน
+      - 在 3 天內獲得 SS 海盜和寶貴的獎勵
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MISC_3_LBL_FIRST_PURCHASE
+      TermType: 0
+      Languages:
+      - Quà nạp lần đầu
+      - First purchase reward
+      - รางวัลการซื้อครั้งแรก
+      - 首次購買獎勵
+      Flags: 00000000
+      Languages_Touch: []
+    CaseInsensitiveTerms: 0
+    OnMissingTranslation: 1
+    mTerm_AppName:
+    mLanguages:
+    - Name: Vietnamese
+      Code: vi
+      Flags: 0
+    - Name: English
+      Code: en
+      Flags: 0
+    - Name: Thai
+      Code: th
+      Flags: 0
+    - Name: Chinese
+      Code: zh
+      Flags: 0
+    IgnoreDeviceLanguage: 0
+    _AllowUnloadingLanguages: 0
+    Google_WebServiceURL: https://docs.google.com/spreadsheets/d/1_XpIAUNxumq2GcBEbGB0uKaZLnZgBgOEm2O26-SUfN0/edit#gid=945326439
+    Google_SpreadsheetKey:
+    Google_SpreadsheetName:
+    Google_LastUpdatedVersion:
+    GoogleUpdateFrequency: 3
+    GoogleInEditorCheckFrequency: 2
+    GoogleUpdateSynchronization: 1
+    GoogleUpdateDelay: 5
+    Assets: []
+  version: 1
+  NeverDestroy: 1
+  UserAgreesToHaveItOnTheScene: 1
+  UserAgreesToHaveItInsideThePluginsFolder: 0
+  GoogleLiveSyncIsUptoDate: 1
+  Assets: []
+  Google_WebServiceURL:
+  Google_SpreadsheetKey:
+  Google_SpreadsheetName:
+  Google_LastUpdatedVersion:
+  GoogleUpdateFrequency: 3
+  GoogleUpdateDelay: 5
+  mLanguages: []
+  IgnoreDeviceLanguage: 0
+  _AllowUnloadingLanguages: 0
+  mTerms: []
+  CaseInsensitiveTerms: 0
+  OnMissingTranslation: 1
+  mTerm_AppName:

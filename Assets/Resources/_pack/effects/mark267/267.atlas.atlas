@@ -1,0 +1,20 @@
+
+267.png
+size: 256,84
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Layer-6
+  rotate: false
+  xy: 237, 22
+  size: 14, 57
+  orig: 14, 57
+  offset: 0, 0
+  index: -1
+khien
+  rotate: true
+  xy: 2, 2
+  size: 77, 233
+  orig: 77, 233
+  offset: 0, 0
+  index: -1

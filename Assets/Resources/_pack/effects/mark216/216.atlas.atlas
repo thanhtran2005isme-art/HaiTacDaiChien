@@ -1,0 +1,27 @@
+
+216.png
+size: 172,40
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+gong-kinh
+  rotate: false
+  xy: 2, 2
+  size: 74, 33
+  orig: 76, 36
+  offset: 0, 0
+  index: -1
+kinh
+  rotate: false
+  xy: 78, 9
+  size: 73, 26
+  orig: 76, 42
+  offset: 1, 16
+  index: -1
+light
+  rotate: false
+  xy: 153, 7
+  size: 17, 28
+  orig: 17, 28
+  offset: 0, 0
+  index: -1

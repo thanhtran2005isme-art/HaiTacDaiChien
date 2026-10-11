@@ -1,0 +1,102 @@
+[
+  {
+    "id": 1,
+    "name": "Lọ máu",
+    "desc": "Hồi 10% máu",
+    "type": 0,
+    "price": 15,
+    "capacity": 3,
+    "time_reload": 0,
+    "effect": [
+      {
+        "type": 1,
+        "time": 0,
+        "data": [
+          0,
+          0.1
+        ]
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "name": "Lọ tấn công",
+    "desc": "Tăng 20% tấn công trong 20s",
+    "type": 0,
+    "price": 20,
+    "capacity": 1,
+    "time_reload": 0,
+    "effect": [
+      {
+        "type": 1,
+        "time": 20,
+        "data": [
+          1,
+          0.2
+        ]
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "name": "Lọ tốc",
+    "desc": "Tăng 20% tốc tấn công trong 20s",
+    "type": 0,
+    "price": 15,
+    "capacity": 1,
+    "time_reload": 0,
+    "effect": [
+      {
+        "type": 1,
+        "time": 20,
+        "data": [
+          2,
+          0.2
+        ]
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "name": "Bomb khói",
+    "desc": "Khi sử dụng sẽ tàng hình trong 5s",
+    "type": 1,
+    "price": 20,
+    "capacity": 2,
+    "time_reload": 0,
+    "effect": [
+      {
+        "type": 2,
+        "time": 5,
+        "data": [
+          8
+        ]
+      },
+      {
+        "type": 2,
+        "time": 5,
+        "data": [
+          9
+        ]
+      }
+    ]
+  }, {
+    "id": 5,
+    "name": "Lọ máu",
+    "desc": "Hồi 10% máu",
+    "type": 0,
+    "price": 15,
+    "capacity": 3,
+    "time_reload": 0,
+    "effect": [
+      {
+        "type": 1,
+        "time": 0,
+        "data": [
+          0,
+          0.1
+        ]
+      }
+    ]
+  }
+]

@@ -1,0 +1,34 @@
+
+Arrow_93.png
+size: 832,332
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Char_Sogeking_skill1_niao/000
+  rotate: true
+  xy: 2, 3
+  size: 327, 209
+  orig: 335, 212
+  offset: 4, 2
+  index: -1
+Char_Sogeking_skill1_niao/001
+  rotate: true
+  xy: 213, 2
+  size: 328, 207
+  orig: 335, 211
+  offset: 4, 3
+  index: -1
+Char_Sogeking_skill1_niao/002
+  rotate: true
+  xy: 627, 3
+  size: 327, 202
+  orig: 334, 208
+  offset: 4, 2
+  index: -1
+Char_Sogeking_skill1_niao/003
+  rotate: true
+  xy: 422, 4
+  size: 326, 203
+  orig: 333, 209
+  offset: 4, 2
+  index: -1

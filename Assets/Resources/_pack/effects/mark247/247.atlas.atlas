@@ -1,0 +1,20 @@
+
+247.png
+size: 364,248
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Layer 61 copy
+  rotate: false
+  xy: 2, 2
+  size: 258, 244
+  orig: 266, 254
+  offset: 4, 4
+  index: -1
+light
+  rotate: true
+  xy: 262, 112
+  size: 134, 99
+  orig: 134, 99
+  offset: 0, 0
+  index: -1

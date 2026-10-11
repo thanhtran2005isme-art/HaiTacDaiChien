@@ -1,0 +1,20 @@
+
+Arrow_224.png
+size: 162,95
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+library/gin_skill3_11
+  rotate: false
+  xy: 82, 2
+  size: 78, 91
+  orig: 79, 96
+  offset: 1, 4
+  index: -1
+library/gin_skill3_12
+  rotate: false
+  xy: 2, 2
+  size: 78, 91
+  orig: 79, 92
+  offset: 1, 0
+  index: -1

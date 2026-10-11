@@ -1,0 +1,62 @@
+
+Star_462.png
+size: 476,80
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+star_0000_Layer-2
+  rotate: false
+  xy: 437, 2
+  size: 35, 76
+  orig: 35, 76
+  offset: 0, 0
+  index: -1
+star_0001_Layer-3
+  rotate: false
+  xy: 293, 2
+  size: 52, 76
+  orig: 52, 76
+  offset: 0, 0
+  index: -1
+star_0002_Layer-4
+  rotate: false
+  xy: 76, 5
+  size: 73, 73
+  orig: 73, 73
+  offset: 0, 0
+  index: -1
+star_0003_Layer-5
+  rotate: true
+  xy: 2, 3
+  size: 75, 72
+  orig: 75, 72
+  offset: 0, 0
+  index: -1
+star_0004_Layer-6
+  rotate: false
+  xy: 151, 5
+  size: 73, 73
+  orig: 73, 73
+  offset: 0, 0
+  index: -1
+star_0005_Layer-7
+  rotate: false
+  xy: 226, 3
+  size: 65, 75
+  orig: 65, 75
+  offset: 0, 0
+  index: -1
+star_0006_Layer-8
+  rotate: false
+  xy: 347, 2
+  size: 51, 76
+  orig: 51, 76
+  offset: 0, 0
+  index: -1
+star_0007_Layer-9
+  rotate: false
+  xy: 400, 2
+  size: 35, 76
+  orig: 35, 76
+  offset: 0, 0
+  index: -1

@@ -1,0 +1,363 @@
+
+Hero_50005.png
+size: 976,932
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+arm_L_04
+  rotate: false
+  xy: 181, 9
+  size: 32, 19
+  orig: 33, 20
+  offset: 1, 0
+  index: -1
+arm_R_04
+  rotate: false
+  xy: 329, 716
+  size: 37, 15
+  orig: 38, 16
+  offset: 1, 0
+  index: -1
+body_04
+  rotate: false
+  xy: 874, 93
+  size: 100, 92
+  orig: 109, 102
+  offset: 1, 0
+  index: -1
+cloth_41
+  rotate: true
+  xy: 242, 715
+  size: 62, 33
+  orig: 63, 34
+  offset: 1, 0
+  index: -1
+cloth_42
+  rotate: true
+  xy: 359, 750
+  size: 27, 53
+  orig: 28, 54
+  offset: 1, 0
+  index: -1
+cloth_43
+  rotate: true
+  xy: 277, 715
+  size: 16, 50
+  orig: 17, 51
+  offset: 1, 0
+  index: -1
+cloth_44
+  rotate: false
+  xy: 415, 742
+  size: 34, 35
+  orig: 35, 36
+  offset: 1, 0
+  index: -1
+cloth_45
+  rotate: false
+  xy: 294, 2
+  size: 15, 13
+  orig: 16, 14
+  offset: 1, 0
+  index: -1
+cloth_47
+  rotate: true
+  xy: 194, 717
+  size: 60, 46
+  orig: 67, 54
+  offset: 1, 4
+  index: -1
+f-arm_L_04
+  rotate: true
+  xy: 269, 17
+  size: 11, 30
+  orig: 12, 31
+  offset: 1, 0
+  index: -1
+f-arm_R_04
+  rotate: true
+  xy: 269, 4
+  size: 11, 23
+  orig: 12, 24
+  offset: 1, 0
+  index: -1
+foot_L_04
+  rotate: false
+  xy: 215, 6
+  size: 27, 22
+  orig: 28, 23
+  offset: 1, 0
+  index: -1
+foot_R_04
+  rotate: true
+  xy: 386, 718
+  size: 30, 27
+  orig: 31, 28
+  offset: 1, 0
+  index: -1
+hand_L_04
+  rotate: false
+  xy: 244, 4
+  size: 23, 24
+  orig: 24, 25
+  offset: 1, 0
+  index: -1
+hand_R_04
+  rotate: true
+  xy: 145, 6
+  size: 22, 34
+  orig: 23, 35
+  offset: 1, 0
+  index: -1
+head_04
+  rotate: true
+  xy: 277, 733
+  size: 44, 39
+  orig: 45, 40
+  offset: 1, 0
+  index: -1
+head_05
+  rotate: true
+  xy: 318, 733
+  size: 44, 39
+  orig: 45, 40
+  offset: 1, 0
+  index: -1
+satori_beat_01
+  rotate: false
+  xy: 619, 794
+  size: 175, 136
+  orig: 192, 159
+  offset: 7, 11
+  index: -1
+satori_beat_02
+  rotate: true
+  xy: 636, 169
+  size: 156, 143
+  orig: 176, 164
+  offset: 8, 12
+  index: -1
+satori_beat_03
+  rotate: false
+  xy: 661, 503
+  size: 128, 141
+  orig: 140, 161
+  offset: 8, 6
+  index: -1
+satori_beat_04
+  rotate: true
+  xy: 747, 31
+  size: 136, 125
+  orig: 147, 135
+  offset: 6, 6
+  index: -1
+satori_beat_05
+  rotate: true
+  xy: 509, 286
+  size: 143, 125
+  orig: 154, 136
+  offset: 5, 4
+  index: -1
+satori_beat_06
+  rotate: true
+  xy: 604, 22
+  size: 145, 141
+  orig: 158, 156
+  offset: 7, 10
+  index: -1
+satori_damage
+  rotate: false
+  xy: 796, 610
+  size: 170, 156
+  orig: 179, 177
+  offset: 1, 10
+  index: -1
+satori_newmotion
+  rotate: false
+  xy: 781, 187
+  size: 124, 137
+  orig: 145, 154
+  offset: 9, 8
+  index: -1
+satori_skill1_01
+  rotate: true
+  xy: 442, 15
+  size: 121, 143
+  orig: 141, 160
+  offset: 7, 10
+  index: -1
+satori_skill1_02
+  rotate: true
+  xy: 661, 646
+  size: 146, 133
+  orig: 163, 149
+  offset: 10, 10
+  index: -1
+satori_skill1_03
+  rotate: false
+  xy: 431, 779
+  size: 186, 151
+  orig: 200, 164
+  offset: 8, 7
+  index: -1
+satori_skill1_04
+  rotate: false
+  xy: 647, 327
+  size: 134, 174
+  orig: 155, 192
+  offset: 6, 8
+  index: -1
+satori_skill1_05
+  rotate: false
+  xy: 194, 779
+  size: 235, 151
+  orig: 256, 166
+  offset: 11, 6
+  index: -1
+satori_skill1_06
+  rotate: false
+  xy: 292, 88
+  size: 148, 189
+  orig: 160, 204
+  offset: 7, 6
+  index: -1
+satori_skill1_07
+  rotate: false
+  xy: 333, 534
+  size: 162, 180
+  orig: 180, 195
+  offset: 9, 6
+  index: -1
+satori_skill2_01
+  rotate: true
+  xy: 2, 472
+  size: 239, 171
+  orig: 267, 191
+  offset: 15, 3
+  index: -1
+satori_skill2_02
+  rotate: false
+  xy: 346, 361
+  size: 161, 171
+  orig: 185, 203
+  offset: 5, 11
+  index: -1
+satori_skill2_03
+  rotate: true
+  xy: 145, 30
+  size: 221, 145
+  orig: 248, 185
+  offset: 20, 12
+  index: -1
+satori_skill2_04
+  rotate: false
+  xy: 182, 279
+  size: 162, 194
+  orig: 183, 214
+  offset: 15, 6
+  index: -1
+satori_skill2_05
+  rotate: true
+  xy: 175, 475
+  size: 236, 156
+  orig: 263, 178
+  offset: 13, 10
+  index: -1
+satori_skill2_06
+  rotate: false
+  xy: 2, 713
+  size: 190, 217
+  orig: 218, 231
+  offset: 13, 7
+  index: -1
+satori_skill2_07
+  rotate: false
+  xy: 2, 253
+  size: 178, 217
+  orig: 210, 237
+  offset: 20, 7
+  index: -1
+satori_skill2_08
+  rotate: true
+  xy: 2, 7
+  size: 244, 141
+  orig: 255, 157
+  offset: 4, 7
+  index: -1
+satori_standby_01
+  rotate: true
+  xy: 509, 431
+  size: 175, 136
+  orig: 192, 159
+  offset: 7, 11
+  index: -1
+satori_standby_02
+  rotate: false
+  xy: 791, 474
+  size: 175, 134
+  orig: 192, 159
+  offset: 7, 11
+  index: -1
+satori_win_01
+  rotate: false
+  xy: 497, 608
+  size: 162, 169
+  orig: 178, 186
+  offset: 9, 5
+  index: -1
+satori_win_02
+  rotate: true
+  xy: 783, 326
+  size: 146, 160
+  orig: 160, 177
+  offset: 8, 7
+  index: -1
+satori_win_03
+  rotate: true
+  xy: 796, 768
+  size: 162, 169
+  orig: 183, 198
+  offset: 12, 12
+  index: -1
+satori_win_04
+  rotate: true
+  xy: 442, 138
+  size: 146, 160
+  orig: 167, 178
+  offset: 12, 7
+  index: -1
+shank_L_04
+  rotate: false
+  xy: 200, 253
+  size: 9, 9
+  orig: 10, 10
+  offset: 1, 0
+  index: -1
+shank_R_04
+  rotate: false
+  xy: 200, 264
+  size: 11, 13
+  orig: 12, 14
+  offset: 1, 0
+  index: -1
+shank_R_41
+  rotate: false
+  xy: 213, 264
+  size: 11, 13
+  orig: 12, 14
+  offset: 1, 0
+  index: -1
+thigh_L_04
+  rotate: false
+  xy: 359, 734
+  size: 25, 14
+  orig: 26, 15
+  offset: 1, 0
+  index: -1
+thigh_R_04
+  rotate: true
+  xy: 182, 257
+  size: 20, 16
+  orig: 21, 17
+  offset: 1, 0
+  index: -1

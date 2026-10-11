@@ -1,0 +1,178 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1709254077376921
+GameObject:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Component:
+  - component: {fileID: 4730242686860875}
+  - component: {fileID: 114724804207875695}
+  m_Layer: 0
+  m_Name: I2Languages_campaign
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4730242686860875
+Transform:
+  serializedVersion: 2
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1709254077376921}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -0, z: -0}
+--- !u!114 &114724804207875695
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1709254077376921}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7554888af13e447d4982f6ad48f0af4b, type: 3}
+  m_Name:
+  m_EditorClassIdentifier:
+  mSource:
+    UserAgreesToHaveItOnTheScene: 1
+    UserAgreesToHaveItInsideThePluginsFolder: 0
+    GoogleLiveSyncIsUptoDate: 1
+    mTerms:
+    - Term: FONT
+      TermType: 1
+      Languages:
+      - Fonts/SVN-Titillium bold
+      - Fonts/SVN-Titillium bold
+      - Fonts/SVN-Titillium bold
+      - Fonts/SVN-Titillium bold
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_AUTO_ATTACK_GATE
+      TermType: 0
+      Languages:
+      - Tự động đánh ải
+      - Afk rewards
+      - โจมตีอัตโนมัติ
+      - 自動戰鬥
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_CAMPAIGN_GATE
+      TermType: 0
+      Languages:
+      - Ải
+      - Stage
+      - ด่าน
+      - 關卡
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_CAMPAINGN_SCENE_TIME_AUTO_ATTACK_GATE
+      TermType: 0
+      Languages:
+      - Thời gian tự động đánh ải
+      - Idling Time
+      - เวลาโจมตีอัตโนมัติ
+      - 自動戰鬥時間
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_ISLAND_CAMPAIGN_REWARD_PASS_GATE
+      TermType: 0
+      Languages:
+      - Phần thưởng qua ải
+      - Stage Loot
+      - รางวัลผ่านด่าน
+      - 通關獎勵
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MSG_POPUP_CAMPAIGN_REWARD_WILL_BE_MORE
+      TermType: 0
+      Languages:
+      - sẽ tăng lên
+      - idling Efficiency
+      - จะเพิ่มขึ้น
+      - 會增加
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MSG_POPUP_CAMPAINGN_REWARD_BONUS
+      TermType: 0
+      Languages:
+      - Phần thưởng tăng thêm
+      - Idling Efficiency
+      - รางวัลเพิ่มขึ้น
+      - 獎勵增加
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MSG_POPUP_CAMPAINGN_REWARD_UPGRADE
+      TermType: 0
+      Languages:
+      - nâng lên
+      - upgrade to
+      - อัพเกรด
+      - 提升
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MSG_THE_CHEST_EMPTY_WAIT_FOR_CREW_MEMBERS_TO_AUTO_STRIKE_FOR_A_WHILE
+      TermType: 0
+      Languages:
+      - Rương trống. Hãy đợi thuyền viên đánh tự động thêm một thời gian nữa
+      - The chest is empty. Please wait for the crew grinding for a while.
+      - หีบว่าง. โปรดรอลูกเรือโจมตีอัตโนมัติอีกสักคู่
+      - 寶箱是空的。請等船員再自動戰鬥一段時間吧
+      Flags: 00000000
+      Languages_Touch: []
+    CaseInsensitiveTerms: 0
+    OnMissingTranslation: 1
+    mTerm_AppName:
+    mLanguages:
+    - Name: Vietnamese
+      Code: vi
+      Flags: 0
+    - Name: English
+      Code: en
+      Flags: 0
+    - Name: Thai
+      Code: th
+      Flags: 0
+    - Name: Chinese
+      Code: zh
+      Flags: 0
+    IgnoreDeviceLanguage: 0
+    _AllowUnloadingLanguages: 0
+    Google_WebServiceURL: https://script.google.com/a/k2tek.net/macros/s/AKfycbxrtBLAqFns_CavffeO2Q6OZne0cp3Cf41sR2vZKw/exec
+    Google_SpreadsheetKey: 1q9ucYtFIgLuZuPJawkhQcysGoMNqUl8yXuj4ayReDqw
+    Google_SpreadsheetName: I2Loc Hải Tặc Đại Chiến Assets/Scenes/LoginScene.unity I2Languages_campaign
+    Google_LastUpdatedVersion: 1615781079554
+    GoogleUpdateFrequency: 1
+    GoogleInEditorCheckFrequency: 2
+    GoogleUpdateSynchronization: 1
+    GoogleUpdateDelay: 5
+    Assets: []
+  version: 1
+  NeverDestroy: 1
+  UserAgreesToHaveItOnTheScene: 1
+  UserAgreesToHaveItInsideThePluginsFolder: 0
+  GoogleLiveSyncIsUptoDate: 1
+  Assets: []
+  Google_WebServiceURL:
+  Google_SpreadsheetKey:
+  Google_SpreadsheetName:
+  Google_LastUpdatedVersion:
+  GoogleUpdateFrequency: 3
+  GoogleUpdateDelay: 5
+  mLanguages: []
+  IgnoreDeviceLanguage: 0
+  _AllowUnloadingLanguages: 0
+  mTerms: []
+  CaseInsensitiveTerms: 0
+  OnMissingTranslation: 1
+  mTerm_AppName:

@@ -1,0 +1,27 @@
+
+Bird.png
+size: 62,66
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Layer 133
+  rotate: true
+  xy: 2, 2
+  size: 41, 30
+  orig: 41, 30
+  offset: 0, 0
+  index: -1
+Layer 134
+  rotate: false
+  xy: 2, 45
+  size: 46, 19
+  orig: 46, 19
+  offset: 0, 0
+  index: -1
+Layer 135
+  rotate: true
+  xy: 34, 7
+  size: 36, 26
+  orig: 36, 27
+  offset: 0, 0
+  index: -1

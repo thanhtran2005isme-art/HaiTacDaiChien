@@ -1,0 +1,97 @@
+
+boss_fake3.png
+size: 748,224
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Layer 1
+  rotate: false
+  xy: 2, 110
+  size: 186, 110
+  orig: 188, 112
+  offset: 1, 1
+  index: -1
+Layer 2
+  rotate: false
+  xy: 361, 122
+  size: 179, 98
+  orig: 181, 100
+  offset: 1, 1
+  index: -1
+Layer 3
+  rotate: false
+  xy: 361, 69
+  size: 133, 51
+  orig: 135, 53
+  offset: 1, 1
+  index: -1
+Layer 4
+  rotate: false
+  xy: 460, 21
+  size: 73, 46
+  orig: 75, 48
+  offset: 1, 1
+  index: -1
+Layer 4 copy
+  rotate: false
+  xy: 496, 82
+  size: 42, 38
+  orig: 44, 40
+  offset: 1, 1
+  index: -1
+Layer 5
+  rotate: false
+  xy: 542, 149
+  size: 200, 71
+  orig: 204, 75
+  offset: 2, 2
+  index: -1
+Layer 5 copy
+  rotate: true
+  xy: 699, 26
+  size: 121, 47
+  orig: 126, 52
+  offset: 3, 2
+  index: -1
+glow_1007
+  rotate: false
+  xy: 176, 3
+  size: 104, 104
+  orig: 128, 128
+  offset: 12, 12
+  index: -1
+tongue
+  rotate: false
+  xy: 282, 18
+  size: 66, 89
+  orig: 66, 89
+  offset: 0, 0
+  index: -1
+tua1
+  rotate: false
+  xy: 542, 30
+  size: 155, 117
+  orig: 155, 117
+  offset: 0, 0
+  index: -1
+tua2
+  rotate: false
+  xy: 2, 2
+  size: 172, 106
+  orig: 172, 106
+  offset: 0, 0
+  index: -1
+tua3
+  rotate: false
+  xy: 350, 28
+  size: 108, 39
+  orig: 108, 39
+  offset: 0, 0
+  index: -1
+tua4
+  rotate: false
+  xy: 190, 109
+  size: 169, 111
+  orig: 169, 111
+  offset: 0, 0
+  index: -1

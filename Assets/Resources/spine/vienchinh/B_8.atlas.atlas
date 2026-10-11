@@ -1,0 +1,20 @@
+
+B_8.png
+size: 332,194
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+fx/star
+  rotate: true
+  xy: 2, 2
+  size: 190, 200
+  orig: 200, 200
+  offset: 0, 0
+  index: -1
+vc_building_0000s_0007_Layer-10-copy-5
+  rotate: true
+  xy: 204, 56
+  size: 136, 126
+  orig: 136, 129
+  offset: 0, 3
+  index: -1

@@ -1,0 +1,109 @@
+﻿{
+"FAQ":
+	[
+	  {
+	    "header": "Câu hỏi về trò chơi thường gặp",
+	    "list_quest": [
+	      {
+	        "quest": "Sau khi đổi thiết bị, làm sao để tiếp tục trò chơi",
+	        "anwser": "Sau khi tải và vào game, trong giao diện đăng nhập, nhập tên tài khoản và mật mã của bạn là vào được game"
+	      },
+	      {
+	        "quest": "Quên tài khoản có tìm lại được không",
+	        "anwser": "Quên tài khoản sẽ không thể tìm lại, vì vậy hãy ghi nhớ tên tài khoản và mật mã của bạn"
+	      },
+	      {
+	        "quest": "Tài khoản bị hack, đổi mật mã thì phải làm sao",
+	        "anwser": "Khi mật mã tài khoản của bạn bị đổi, hãy lien hệ với bộ phận hỗ trợ của chúng tôi"
+	      },
+	      {
+	        "quest": "Khi lỗi mạng, không thể đăng nhập thì phải làm sao",
+	        "anwser": "Nếu bạn không thể đăng nhập. Hãy thử liên kết lại, hoặc đóng rồi khởi động lại game"
+	      },
+	      {
+	        "quest": "Khi game cứ cạp nhật suốt không thể vào game thì phải làm sao",
+	        "anwser": "Khi bạn vào game mà gặp trường hợp cập nhật suốt không thể vào game thì hãy đóng rồi khởi động lại game hoặc đổi mạng rồi thử lại, nếu vẫn không được thì hãy liên hệ với hệ thống hỗ trợ chúng tôi"
+	      },
+	      {
+	        "quest": "Khi dữ liệu tài khoản bị mất thì phải làm sao",
+	        "anwser": "Nếu gặp trường hợp mất dữ liệu, trước hết hãy kiểm tra xem bạn có đăng nhậ đúng server không, vì mỗi server có dữ liệu khác nhau, nếu xác nhận đăng nhập đúng server mà không có dữ liệu thì hẫy liên hệ với chúng tôi, khi liên hệ hãy cung cấp ID Game, số điện thoại đăng ký và các thông tin liên quan, chúng tôi sẽ cố gắng giải quyết"
+	      },
+	      {
+	        "quest": "Game  cứ bị đứt mạng khi chơi thì phải làm sao",
+	        "anwser": "Nếu đang chơi game mà đứt mạng liên tục, hãy kiểm tra trạng thái liên kết mạng của thiết bị, đồng thời kết nối lại mạng, nếu vẫn bị như vậy thì hãy liên hệ với hệ thống hỗ trợ của chúng tôi"
+	      },
+	      {
+	        "quest": "Chơi game tự nhiên bị thoát ra thì phải làm sao",
+	        "anwser": "Khi bạn tự nhiên bị thoát khỏi game, hãy đóng tất cả các ứng dụng ẩn của thiết bị rồi vào lại game, nếu vẫn tự động thoát thì hãy khởi động lại thiết bị hoặc liên hệ bộ phận hỗ trợ , cung cấp thông tin thiết bị đó của bạn"
+	      },
+	      {
+	        "quest": "Phát hiện có người chơi gian lận thì phải làm sao",
+	        "anwser": "Chúng tôi nỗ lực tạo nên môi trường game công bằng, cấm tất cả người chơi lợi dụng BUG game để phá vỡ sự công bằng đó. Khi bạn phát hiện có người chơi ăn gian, hãy phản hồi với chúng tôi, chúng tôi sẽ xử lý những người chơi gian lận"
+	      }
+	    ]
+	  },
+	  {
+	    "header": "Câu hỏi về tương tác thường gặp",
+	    "list_quest": [
+	      {
+	        "quest": "Làm sao để thêm bạn trong game",
+	        "anwser": "Bạn có thể nhấp vào avatar người chơi trên kênh chat rồi gửi yêu cầu, cũng có thể tới giao diện bạn bè nhập id người chơi hoặc gửi yêu cầu kết bạn với bạn bè được đề xuất"
+	      },
+	      {
+	        "quest": "Bạn bè ương tác với nhau thế nào",
+	        "anwser": "Bạn bè có thể giúp nhau đánh BOSS, cũng có thể tặng Rượu cho nhau để tính hành chiêu mộ hảo hữu, bạn còn có thể gửi thư giao lưu với bạn bè mình"
+	      },
+	      {
+	        "quest": "Làm thế nào để gia nhập hạm đội",
+	        "anwser": "Bạn có thể nhấp nút hạm đội trong giao diện chính , chọn hạm đội được đề xuất rồi gửi yêu cầu hoặc nhấp ID Bang Hội để tìm hạm đội rồi gửi yêu cầu, bạn cũng có thể tạo bang và mời người khác gia nhập bang của mình"
+	      },
+	      {
+	        "quest": "Gia nhập hạm đội được tham gia những gì",
+	        "anwser": "Sau khi gia nhập hạm đội, bạn có thể thông qua báo danh mà tăng cấp cho hạm đội đồng thời nhận được huy hiệu hạm đội, cũng có thể nhận được vàng nhất định trong nhiệm vụ, đánh Boss. Còn có thể báo danh hoạt động Bang chiến mỗi tuần 1 lần để dành được nhiều huy hiệu hạm đội và các phần thưởng khác"
+	      },
+	      {
+	        "quest": "Đổi hạm đội có ảnh hưởng gì",
+	        "anwser": "Nếu bạn đã báo danh tham gia Bang chiến tuần này, thì sau khi đổi bang bạn sẽ không thể tham gia bang chiến tuần này, đồng thời không nhận được bất cứ phần thưởng nào trong Bang chiến tuần này"
+	      },
+	      {
+	        "quest": "Huy hiệu hạm đội có tác dụng gì",
+	        "anwser": "Huy hiệu hạm đội dùng để mua đạo cụ trong Shop Bang hội, cũng có thể dùng trong Kỹ năng giúp tăng cấp kỹ năng của bạn"
+	      },
+	      {
+	        "quest": "Tăng cấp kỹ năng có tác dụng gì",
+	        "anwser": "Tăng cấp 5 kỹ năng trong Kỹ năng hạm đội để giúp bản thân tăng năng lực thuyền viên tương ứng mà bạn sở hữu"
+	      }
+	    ]
+	  },
+	  {
+	    "header": "Câu hỏi về thanh toán thường gặp",
+	    "list_quest": [
+	      {
+	        "quest": "Làm thế nào để trở thành người chơi VIP",
+	        "anwser": "Khi bạn mua số lượng Kim nguyên bảo nhất định là được trở thành VIP, mua càng nhiều Kim nguyên bảo thì cấp VIP càng cao, đặc quyền cũng càng nhiều"
+	      },
+	      {
+	        "quest": "Nạp lần đầu có thưởng gì",
+	        "anwser": "Nạp lần đầu sẽ nhận được Kim nguyên bảo gấp đôi và nhiều phần thưởng khác"
+	      },
+	      {
+	        "quest": "Khi nạp rồi mà không nhận được phần thưởng thì phải xử lý thế nào",
+	        "anwser": "Khi bạn phát hiện đã nạp thành công mà không nhận được phần thưởng, hãy thử khởi động lại game. Nếu thử mà vẫn không được, hãy liên hệ với chúng tôi"
+	      },
+	      {
+	        "quest": "Tại sao sau khi nạp thành công thì số tiền trừ đi tại mỗi quốc gia lại khác nhau",
+	        "anwser": "Tiền trừ đi khi nạp căn cứ vào loại tiền tệ quốc gia bạn đang ở, được dựa vào tỷ giá để đổi, vif vậy sẽ thay đổi vì lý do tỷ giá"
+	      }
+	    ]
+	  },
+	  {
+	    "header": "Liên hệ chúng tôi",
+	     "list_quest": [
+		    {
+			    "quest": "",
+			    "anwser": "Khi bạn gặp bất cứ vấn đề gì trong game hoặc có ý kiến gì, bạn có thể gửi thông tin tới chúng tôi trong Phản Hồi, cũng có thể gửi thư cho chúng tôi. Hòm thư của chúng tôi là: grepgame@gmail.com"
+		    }
+	    ]
+	  }
+	]
+}

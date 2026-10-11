@@ -1,0 +1,62 @@
+
+255.png
+size: 1784,128
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+bang
+  rotate: true
+  xy: 1647, 10
+  size: 115, 133
+  orig: 115, 133
+  offset: 0, 0
+  index: -1
+images/ice2_01
+  rotate: false
+  xy: 1402, 11
+  size: 243, 114
+  orig: 341, 128
+  offset: 0, 1
+  index: -1
+images/ice2_02
+  rotate: false
+  xy: 849, 3
+  size: 276, 122
+  orig: 342, 128
+  offset: 3, 0
+  index: -1
+images/ice2_03
+  rotate: false
+  xy: 1127, 3
+  size: 273, 122
+  orig: 341, 128
+  offset: 14, 0
+  index: -1
+images/ice2_04
+  rotate: false
+  xy: 2, 2
+  size: 282, 123
+  orig: 341, 128
+  offset: 56, 3
+  index: -1
+images/ice2_05
+  rotate: false
+  xy: 286, 2
+  size: 279, 123
+  orig: 342, 128
+  offset: 61, 5
+  index: -1
+images/ice2_06
+  rotate: false
+  xy: 567, 3
+  size: 280, 122
+  orig: 341, 128
+  offset: 61, 6
+  index: -1
+light
+  rotate: false
+  xy: 1402, 2
+  size: 173, 7
+  orig: 173, 7
+  offset: 0, 0
+  index: -1

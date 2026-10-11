@@ -1,0 +1,26 @@
+{
+    "ios":[
+        "htht.goi.1",
+        "htht.goi.3",
+        "htht.goi.5",
+        "htht.goi.10",
+        "htht.goi.20",
+        "htht.goi.30",
+	"htht.goi.50",
+	"htht.goi.70",
+	"htht.goi.80",
+	"htht.goi.100",
+        "htht.mon.5",
+        "htht.mon.10"
+    ],
+    "android":[
+        "htht.goi.1",
+        "htht.goi.3",
+        "htht.goi.5",
+        "htht.goi.10",
+        "htht.goi.20",
+        "htht.goi.30",
+        "htht.mon.5",
+        "htht.mon.10"
+    ]
+}

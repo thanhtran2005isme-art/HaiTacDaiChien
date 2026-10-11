@@ -1,0 +1,520 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1709254077376921
+GameObject:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Component:
+  - component: {fileID: 4730242686860875}
+  - component: {fileID: 114724804207875695}
+  m_Layer: 0
+  m_Name: I2Languages_celestialscene
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4730242686860875
+Transform:
+  serializedVersion: 2
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1709254077376921}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -0, z: -0}
+--- !u!114 &114724804207875695
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1709254077376921}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7554888af13e447d4982f6ad48f0af4b, type: 3}
+  m_Name:
+  m_EditorClassIdentifier:
+  mSource:
+    UserAgreesToHaveItOnTheScene: 1
+    UserAgreesToHaveItInsideThePluginsFolder: 0
+    GoogleLiveSyncIsUptoDate: 1
+    mTerms:
+    - Term: FONT
+      TermType: 1
+      Languages:
+      - Fonts/SVN-Titillium bold
+      - Fonts/SVN-Titillium bold
+      - Fonts/SVN-Titillium bold
+      - Fonts/SVN-Titillium bold
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_AGI_HOME
+      TermType: 0
+      Languages:
+      - Nhà nội chính
+      - Research Building
+      - อาคารพายใน
+      - 內政所
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_BUILDING_AGI
+      TermType: 0
+      Languages:
+      - Nhà nghiên cứu
+      - Research Building
+      - อาคารวิจัย
+      - 研究所
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_BUILDING_DAFFODIL
+      TermType: 0
+      Languages:
+      - Nhà vỏ ốc
+      - Magic Shell Building
+      - อาคารเปลือกหอย
+      - 貝殼屋
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_BUILDING_MILI
+      TermType: 0
+      Languages:
+      - Nhà khoa kĩ
+      - Technology Building
+      - อาคารเทคโนโลยี
+      - 科技所
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_CELESTIAL_SCENE_TITILE_ENEMY
+      TermType: 0
+      Languages:
+      - Thảo khấu
+      - Invader
+      - โจรภูเขา
+      - 草寇
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_DAFFODIL
+      TermType: 0
+      Languages:
+      - Vỏ ốc
+      - Shell
+      - เปลือกหอย
+      - 貝殼
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_DAFFODIL_BUILD_NAME
+      TermType: 0
+      Languages:
+      - Nhà quân lương
+      - Magic Shell Building
+      - อาคารเสบียง
+      - 軍糧屋
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_DAFFODIL_NAME
+      TermType: 0
+      Languages:
+      - Trồng trọt thuật
+      - Shell Production
+      - การเพาะปลูก
+      - 種植技術
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_MAIN_HOME
+      TermType: 0
+      Languages:
+      - Nhà chính
+      - City Hall
+      - อาคารหลัก
+      - 主屋
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_MAX_LEVEL
+      TermType: 0
+      Languages:
+      - Cấp tối đa
+      - Max level
+      - เลเวลสูงสุด
+      - 最大等級
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_MINE_DIAMOND
+      TermType: 0
+      Languages:
+      - Mỏ kim cương
+      - Diamond Mine
+      - เหมืองเพชร
+      - 鉆石礦
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_MINE_GEM
+      TermType: 0
+      Languages:
+      - Mỏ kim cương
+      - Diamond Mine
+      - เหมืองเพชร
+      - 鉆石礦
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_MINE_GOLD
+      TermType: 0
+      Languages:
+      - Mỏ đồng
+      - Copper Mine
+      - เหมืองทองแดง
+      - 銅礦
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_MINE_GOLD_1
+      TermType: 0
+      Languages:
+      - Mỏ vàng
+      - Gold Mine
+      - เหมืองทองคำ
+      - 金礦
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_MINE_MAGIC_DUST
+      TermType: 0
+      Languages:
+      - Quáng ma thuật
+      - Magic Dust
+      - ฝุ่นวิเศษ
+      - 魔法粉末
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_NAME_MAGIC_DUST_MINE
+      TermType: 0
+      Languages:
+      - Thái học
+      - Magic Dust Mine
+      - เหมืองฝุ่นวิเศษ
+      - 魔法粉末礦
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_POPUP_AGI_MINING
+      TermType: 0
+      Languages:
+      - Khai thác
+      - Mining
+      - ขุดค้น
+      - 開采
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_POPUP_AGI_UPGRADE_MINING
+      TermType: 0
+      Languages:
+      - Nâng cấp khai thác
+      - Mining Upgrade
+      - อัพเกรดขุดค้น
+      - 開采升級
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_POPUP_INVITATION_LIST_TITLE
+      TermType: 0
+      Languages:
+      - Danh sách mời
+      - Invitation list
+      - รายชื่อเชิญ
+      - 邀請名單
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_POPUP_MILI_TITLE
+      TermType: 0
+      Languages:
+      - Nâng cấp khoa kỹ
+      - Technical upgrade
+      - อัพเกรดเทคโนโลยี
+      - 科技升級
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_TECH_HARVEST_NAME
+      TermType: 0
+      Languages:
+      - Khai thác thuật
+      - 'Harvesting upgrade '
+      - วิชาการขุดค้น
+      - 開采技術
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_TECH_HP_NAME
+      TermType: 0
+      Languages:
+      - Phòng hộ kỹ
+      - Defensive techniques
+      - เทคนิคการป้องกัน
+      - 防護技能
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_TECK_ATK_NAME
+      TermType: 0
+      Languages:
+      - Công phá kỹ
+      - Attacking techniques
+      - เทคนิคการโจมตี
+      - 攻擊技能
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MSG_BONUS_HP
+      TermType: 0
+      Languages:
+      - 'Tăng máu: '
+      - 'Bonus HP:'
+      - เพิ่มเลือด
+      - 血量增加：
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MSG_CELESTIAL_CAN_LIMIT_MINE
+      TermType: 0
+      Languages:
+      - Không thể xây dựng quá {0} {1}
+      - Can't build more than {0} {1}
+      - ไม่สามารถสร้างเกีน {0} {1}
+      - 不能建設超過{0}{1}
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MSG_CELESTIAL_CHOOSE_CONSTRUCTION
+      TermType: 0
+      Languages:
+      - Hãy chọn công trình để xây dựng
+      - Choose a building to build
+      - โปรดเลือกอาคารเพื่อสร้าง
+      - 請選擇要建設的建築物
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MSG_CELESTIAL_CONFIRM_SMASH
+      TermType: 0
+      Languages:
+      - Bạn muốn càn quét tất cả các sơn trại?
+      - Do you want to smash all the invaders?
+      - คุณต้องการกวาดล้างแค้มป์สีทั้งหมดไหม?
+      - 您要掃蕩所有山寨？
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MSG_CELESTIAL_DESC_TECH_DAFFODIL_UPGRADE
+      TermType: 0
+      Languages:
+      - 'Tăng sản lượng quân lương: '
+      - 'Increase production of shell:'
+      - 'เพิ่มผลผลิตเสบียง:'
+      - 增加軍糧產量：
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MSG_CELESTIAL_DESC_TOWER_DAFFODIL
+      TermType: 0
+      Languages:
+      - 'Giới hạn quân lương: '
+      - 'Shells Toplimit:'
+      - 'ขีดจำกัดเสบียง:'
+      - 軍糧上限：
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MSG_CELESTIAL_NUMBER_DAFFORDILIMIT
+      TermType: 0
+      Languages:
+      - 'Giới hạn số vỏ ốc:'
+      - 'Shells Toplimit:'
+      - 'ขีดจำกัดเปลือกหอย:'
+      - 貝殼量上限：
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MSG_CELESTIAL_SCENE_CONFIRM_DESTROY_MINE
+      TermType: 0
+      Languages:
+      - Bạn muốn phá hủy công trình này?
+      - You want to destroy this building?
+      - คุณอยากทำลายอาคารนี้ไหม?
+      - 您要摧毀此建築物？
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MSG_CELESTIAL_SCENE_DESC_AGI_BUILD
+      TermType: 0
+      Languages:
+      - Tăng giới hạn nâng cấp sản lượng
+      - Increase limit of mining upgrade
+      - เพิ่มขีดจำกัดอัพเกรดขุดค้น
+      - 提升產量升級上限
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MSG_CELESTIAL_SCENE_DESC_MILI_BUILD
+      TermType: 0
+      Languages:
+      - Tăng giới hạn nâng cấp kỹ thuật
+      - Increase limit of technical upgrade
+      - เพิ่มขีดจำกัดอัพเกรดเทคโนโลยี.
+      - 提升技術升級上限
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MSG_CELESTIAL_SCENE_DESC_TECH_HARVEST_UPGRADE
+      TermType: 0
+      Languages:
+      - beli, bụi ma thuật khi thu hoạch.
+      - belly, magic dust at harvest.
+      - เบลี, ฝุ่นวิเศษเมื่อเก็บเกี่ยว.
+      - 收獲時的貝利、魔法粉末
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MSG_CELESTIAL_SCENE_DESC_TOWER_ISLAND
+      TermType: 0
+      Languages:
+      - 'Số lượng sơn trại: '
+      - 'Invader: '
+      - 'จำนวนแค้มป์สี:'
+      - 山寨數量：
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MSG_CELESTIAL_SCENE_NUMBER_MINE
+      TermType: 0
+      Languages:
+      - 'Số lượng mỏ:'
+      - 'Mine: '
+      - 'จำนวนเหมือง:'
+      - 礦數量：
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MSG_CELESTIAL_SCENE_NUMNER_MINION_ISLAND
+      TermType: 0
+      Languages:
+      - 'Số lượng thảo khấu:'
+      - 'Invader: '
+      - 'จำนวนโจรภูเขา:'
+      - 草寇數量：
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MSG_CELESTIAL_SCENE_REQ_TECH_MILI_LEVEL
+      TermType: 0
+      Languages:
+      - 'Yêu cầu nhà khoa kỹ cấp '
+      - Requires Technology Building level
+      - ต้องมีอาคาร เทคโนโลยี เลเวล
+      - 要求科技所等級為
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MSG_CELESTIAL_SCENE_TOWER_PIT
+      TermType: 0
+      Languages:
+      - 'Số lượng mỏ: '
+      - 'Mine: '
+      - 'จำนวนเหมือง:'
+      - 礦數量：
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MSG_CELESTIAL_UPGRADE_DAFFODIL
+      TermType: 0
+      Languages:
+      - Tăng sản lượng vỏ ốc
+      - 'Increase production of shells '
+      - เพิ่มผลผลิตเปลือกหอย
+      - 提升貝殼產量
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MSG_POPUP_UPGRADE_BUILDING_MAX_LEVEL
+      TermType: 0
+      Languages:
+      - Cấp độ tối đa
+      - Maximum level
+      - เลเวลสูงสุด
+      - 最大等級
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MSG_POUP_UPGRADE_REQ_TOWER_LEVEL
+      TermType: 0
+      Languages:
+      - 'Yêu cầu thành cấp '
+      - Requites City Hall level
+      - ต้องมีอาคารหลัก เลเวล
+      - 要求城市等級為
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MSG_REQ_AGI_LEVEL
+      TermType: 0
+      Languages:
+      - Yêu cầu nhà nghiên cứu cấp
+      - Requires Research Building level
+      - ต้องมีอาคาร วิจัย เลเวล
+      - 要求研究所等級為
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MSG_REQ_TECH_AGI_LEVEL
+      TermType: 0
+      Languages:
+      - 'Yêu cầu nhà nội chính cấp '
+      - Requires Research Building level
+      - ต้องมีอาคารภายใน เลเวล
+      - 要求內政所等級為
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MSG_UPGRADE_ATK
+      TermType: 0
+      Languages:
+      - 'Tăng công: '
+      - 'Attack: '
+      - 'เพิ่มพลังโจมตี:'
+      - 提升攻擊：
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MSG_UPGRADE_HARVEST
+      TermType: 0
+      Languages:
+      - beli và bụi ma thuật
+      - beli and magic dust
+      - เบลี และ ฝุ่นวิเศษ
+      - 貝利和魔法粉末
+      Flags: 00000000
+      Languages_Touch: []
+    CaseInsensitiveTerms: 0
+    OnMissingTranslation: 1
+    mTerm_AppName:
+    mLanguages:
+    - Name: Vietnamese
+      Code: vi
+      Flags: 0
+    - Name: English
+      Code: en
+      Flags: 0
+    - Name: Thai
+      Code: th
+      Flags: 0
+    - Name: Chinese
+      Code: zh
+      Flags: 0
+    IgnoreDeviceLanguage: 0
+    _AllowUnloadingLanguages: 0
+    Google_WebServiceURL: https://script.google.com/a/k2tek.net/macros/s/AKfycbzvv1ufdBLhfu4UP2-GPDZkiEh7ZEP_d8y-46Np/exec
+    Google_SpreadsheetKey: 19kVK1tBv7PkCQaryQtVBl6DFdq5unKt7Uk2n0c5rC6A
+    Google_SpreadsheetName: I2Loc Hải Tặc Đại Chiến Assets/Scenes/LoginScene.unity I2Languages_celestialscene
+    Google_LastUpdatedVersion: 1615781083818
+    GoogleUpdateFrequency: 1
+    GoogleInEditorCheckFrequency: 2
+    GoogleUpdateSynchronization: 1
+    GoogleUpdateDelay: 5
+    Assets: []
+  version: 1
+  NeverDestroy: 1
+  UserAgreesToHaveItOnTheScene: 1
+  UserAgreesToHaveItInsideThePluginsFolder: 0
+  GoogleLiveSyncIsUptoDate: 1
+  Assets: []
+  Google_WebServiceURL:
+  Google_SpreadsheetKey:
+  Google_SpreadsheetName:
+  Google_LastUpdatedVersion:
+  GoogleUpdateFrequency: 3
+  GoogleUpdateDelay: 5
+  mLanguages: []
+  IgnoreDeviceLanguage: 0
+  _AllowUnloadingLanguages: 0
+  mTerms: []
+  CaseInsensitiveTerms: 0
+  OnMissingTranslation: 1
+  mTerm_AppName:

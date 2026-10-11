@@ -1,0 +1,132 @@
+
+Mark_1.png
+size: 1562,376
+format: RGBA4444
+filter: Linear,Linear
+repeat: none
+Layer 19
+  rotate: false
+  xy: 937, 25
+  size: 162, 162
+  orig: 164, 164
+  offset: 1, 1
+  index: -1
+Layer 20 copy
+  rotate: false
+  xy: 1101, 27
+  size: 144, 160
+  orig: 146, 162
+  offset: 1, 1
+  index: -1
+Layer 20 copy 2
+  rotate: false
+  xy: 1124, 214
+  size: 144, 160
+  orig: 146, 162
+  offset: 1, 1
+  index: -1
+Layer 20 copy 3
+  rotate: false
+  xy: 1247, 52
+  size: 144, 160
+  orig: 146, 162
+  offset: 1, 1
+  index: -1
+Layer 20 copy 4
+  rotate: false
+  xy: 1270, 214
+  size: 144, 160
+  orig: 146, 162
+  offset: 1, 1
+  index: -1
+Layer 20 copy 5
+  rotate: true
+  xy: 1393, 68
+  size: 144, 160
+  orig: 146, 162
+  offset: 1, 1
+  index: -1
+Layer 20 copy 6
+  rotate: false
+  xy: 1416, 214
+  size: 144, 160
+  orig: 146, 162
+  offset: 1, 1
+  index: -1
+wudibuff
+  rotate: false
+  xy: 2, 189
+  size: 185, 185
+  orig: 189, 189
+  offset: 2, 2
+  index: -1
+wudidun_1
+  rotate: false
+  xy: 2, 2
+  size: 185, 185
+  orig: 185, 185
+  offset: 0, 0
+  index: -1
+wudidun_10
+  rotate: false
+  xy: 937, 189
+  size: 185, 185
+  orig: 185, 185
+  offset: 0, 0
+  index: -1
+wudidun_2
+  rotate: false
+  xy: 189, 189
+  size: 185, 185
+  orig: 185, 185
+  offset: 0, 0
+  index: -1
+wudidun_3
+  rotate: false
+  xy: 189, 2
+  size: 185, 185
+  orig: 185, 185
+  offset: 0, 0
+  index: -1
+wudidun_4
+  rotate: false
+  xy: 376, 189
+  size: 185, 185
+  orig: 185, 185
+  offset: 0, 0
+  index: -1
+wudidun_5
+  rotate: false
+  xy: 376, 2
+  size: 185, 185
+  orig: 185, 185
+  offset: 0, 0
+  index: -1
+wudidun_6
+  rotate: false
+  xy: 563, 189
+  size: 185, 185
+  orig: 185, 185
+  offset: 0, 0
+  index: -1
+wudidun_7
+  rotate: false
+  xy: 563, 2
+  size: 185, 185
+  orig: 185, 185
+  offset: 0, 0
+  index: -1
+wudidun_8
+  rotate: false
+  xy: 750, 189
+  size: 185, 185
+  orig: 185, 185
+  offset: 0, 0
+  index: -1
+wudidun_9
+  rotate: false
+  xy: 750, 2
+  size: 185, 185
+  orig: 185, 185
+  offset: 0, 0
+  index: -1

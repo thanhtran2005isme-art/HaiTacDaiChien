@@ -1,0 +1,48 @@
+
+262.png
+size: 452,256
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+font_09
+  rotate: false
+  xy: 364, 37
+  size: 39, 53
+  orig: 48, 59
+  offset: 5, 3
+  index: -1
+font_13
+  rotate: false
+  xy: 405, 37
+  size: 39, 53
+  orig: 56, 60
+  offset: 7, 5
+  index: -1
+font_16
+  rotate: true
+  xy: 364, 10
+  size: 25, 53
+  orig: 56, 56
+  offset: 14, 3
+  index: -1
+glow
+  rotate: false
+  xy: 287, 26
+  size: 75, 64
+  orig: 79, 68
+  offset: 2, 2
+  index: -1
+lightsun
+  rotate: false
+  xy: 2, 2
+  size: 283, 252
+  orig: 283, 252
+  offset: 0, 0
+  index: -1
+sun
+  rotate: false
+  xy: 287, 92
+  size: 160, 162
+  orig: 206, 208
+  offset: 23, 23
+  index: -1

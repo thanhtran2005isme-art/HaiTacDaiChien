@@ -1,0 +1,61 @@
+
+Hit_148.png
+size: 868,664
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Char_kuma_skill_1_hit/000
+  rotate: true
+  xy: 375, 2
+  size: 403, 437
+  orig: 406, 441
+  offset: 2, 2
+  index: -1
+Char_kuma_skill_1_hit/003
+  rotate: false
+  xy: 547, 407
+  size: 318, 252
+  orig: 319, 256
+  offset: 1, 0
+  index: -1
+Char_kuma_skill_1_hit/004
+  rotate: false
+  xy: 200, 410
+  size: 345, 249
+  orig: 346, 254
+  offset: 1, 0
+  index: -1
+Char_kuma_skill_1_hit/005
+  rotate: false
+  xy: 2, 154
+  size: 371, 254
+  orig: 372, 257
+  offset: 1, 0
+  index: -1
+Char_kuma_skill_1_hit/006
+  rotate: true
+  xy: 2, 503
+  size: 156, 196
+  orig: 161, 202
+  offset: 3, 2
+  index: -1
+
+Hit_1482.png
+size: 1004,696
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Char_kuma_skill_1_hit/001
+  rotate: false
+  xy: 555, 224
+  size: 447, 468
+  orig: 451, 471
+  offset: 2, 1
+  index: -1
+Char_kuma_skill_1_hit/002
+  rotate: true
+  xy: 2, 2
+  size: 690, 551
+  orig: 690, 556
+  offset: 0, 3
+  index: -1

@@ -1,0 +1,48 @@
+
+Hit_149.png
+size: 260,312
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Char_boa hancock_skill_1_hit/Char_boa 000
+  rotate: false
+  xy: 2, 2
+  size: 80, 80
+  orig: 85, 85
+  offset: 3, 3
+  index: -1
+Char_boa hancock_skill_1_hit/Char_boa 001
+  rotate: false
+  xy: 119, 12
+  size: 97, 74
+  orig: 99, 79
+  offset: 1, 2
+  index: -1
+Char_boa hancock_skill_1_hit/Char_boa 002
+  rotate: false
+  xy: 119, 88
+  size: 139, 86
+  orig: 144, 88
+  offset: 3, 1
+  index: -1
+Char_boa hancock_skill_1_hit/Char_boa 003
+  rotate: true
+  xy: 139, 176
+  size: 134, 109
+  orig: 138, 112
+  offset: 2, 1
+  index: -1
+Char_boa hancock_skill_1_hit/Char_boa 004
+  rotate: false
+  xy: 2, 194
+  size: 135, 116
+  orig: 139, 120
+  offset: 2, 2
+  index: -1
+Char_boa hancock_skill_1_hit/Char_boa 005
+  rotate: false
+  xy: 2, 84
+  size: 115, 108
+  orig: 116, 110
+  offset: 1, 0
+  index: -1

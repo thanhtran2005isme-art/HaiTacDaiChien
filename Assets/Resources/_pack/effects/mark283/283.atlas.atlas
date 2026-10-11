@@ -1,0 +1,41 @@
+
+283.png
+size: 176,112
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+facebao2
+  rotate: false
+  xy: 2, 6
+  size: 89, 104
+  orig: 89, 104
+  offset: 0, 0
+  index: -1
+font_06
+  rotate: false
+  xy: 93, 57
+  size: 40, 53
+  orig: 51, 59
+  offset: 4, 2
+  index: -1
+font_09
+  rotate: false
+  xy: 93, 2
+  size: 39, 53
+  orig: 48, 59
+  offset: 5, 3
+  index: -1
+font_13
+  rotate: false
+  xy: 134, 2
+  size: 39, 53
+  orig: 56, 60
+  offset: 7, 5
+  index: -1
+font_16
+  rotate: false
+  xy: 135, 57
+  size: 25, 53
+  orig: 56, 56
+  offset: 14, 3
+  index: -1

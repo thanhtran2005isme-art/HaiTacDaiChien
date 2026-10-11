@@ -1,0 +1,97 @@
+
+230.png
+size: 400,348
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Layer 1
+  rotate: true
+  xy: 232, 20
+  size: 102, 108
+  orig: 108, 110
+  offset: 4, 1
+  index: -1
+Layer 2
+  rotate: true
+  xy: 371, 320
+  size: 24, 26
+  orig: 26, 28
+  offset: 1, 1
+  index: -1
+Layer 2 copy
+  rotate: true
+  xy: 371, 294
+  size: 24, 26
+  orig: 26, 28
+  offset: 1, 1
+  index: -1
+Layer 2 copy 2
+  rotate: false
+  xy: 342, 82
+  size: 40, 40
+  orig: 43, 44
+  offset: 1, 2
+  index: -1
+f1 (1)
+  rotate: true
+  xy: 119, 19
+  size: 107, 111
+  orig: 107, 111
+  offset: 0, 0
+  index: -1
+f1 (2)
+  rotate: true
+  xy: 2, 2
+  size: 105, 111
+  orig: 105, 111
+  offset: 0, 0
+  index: -1
+f1 (3)
+  rotate: false
+  xy: 254, 230
+  size: 115, 114
+  orig: 115, 114
+  offset: 0, 0
+  index: -1
+f1 (4)
+  rotate: true
+  xy: 2, 223
+  size: 121, 124
+  orig: 121, 124
+  offset: 0, 0
+  index: -1
+f1 (5)
+  rotate: true
+  xy: 128, 238
+  size: 106, 124
+  orig: 106, 124
+  offset: 0, 0
+  index: -1
+f1 (6)
+  rotate: true
+  xy: 251, 124
+  size: 104, 116
+  orig: 104, 116
+  offset: 0, 0
+  index: -1
+f1 (7)
+  rotate: false
+  xy: 2, 109
+  size: 115, 112
+  orig: 115, 112
+  offset: 0, 0
+  index: -1
+f1 (8)
+  rotate: false
+  xy: 128, 128
+  size: 121, 108
+  orig: 121, 108
+  offset: 0, 0
+  index: -1
+trail
+  rotate: false
+  xy: 342, 43
+  size: 43, 37
+  orig: 49, 37
+  offset: 3, 0
+  index: -1

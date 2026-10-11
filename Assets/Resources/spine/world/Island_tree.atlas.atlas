@@ -1,0 +1,34 @@
+
+Island_tree.png
+size: 504,214
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+o
+  rotate: true
+  xy: 244, 80
+  size: 132, 118
+  orig: 135, 122
+  offset: 2, 1
+  index: -1
+tree
+  rotate: true
+  xy: 2, 6
+  size: 206, 240
+  orig: 211, 240
+  offset: 3, 0
+  index: -1
+wave1
+  rotate: false
+  xy: 364, 111
+  size: 138, 101
+  orig: 142, 118
+  offset: 1, 17
+  index: -1
+wave2
+  rotate: true
+  xy: 364, 2
+  size: 107, 116
+  orig: 112, 116
+  offset: 3, 0
+  index: -1

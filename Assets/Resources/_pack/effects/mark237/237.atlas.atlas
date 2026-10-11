@@ -1,0 +1,20 @@
+
+237.png
+size: 328,204
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+silent
+  rotate: false
+  xy: 2, 2
+  size: 198, 198
+  orig: 198, 198
+  offset: 0, 0
+  index: -1
+talkframe
+  rotate: true
+  xy: 202, 13
+  size: 187, 122
+  orig: 193, 127
+  offset: 4, 3
+  index: -1

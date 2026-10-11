@@ -1,0 +1,139 @@
+
+285.png
+size: 824,132
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+facebody
+  rotate: true
+  xy: 2, 5
+  size: 124, 135
+  orig: 124, 135
+  offset: 0, 0
+  index: -1
+fxx/huoba_0
+  rotate: false
+  xy: 594, 67
+  size: 74, 62
+  orig: 90, 80
+  offset: 4, 7
+  index: -1
+fxx/huoba_1
+  rotate: false
+  xy: 290, 66
+  size: 74, 63
+  orig: 90, 80
+  offset: 4, 8
+  index: -1
+fxx/huoba_10
+  rotate: false
+  xy: 214, 2
+  size: 73, 61
+  orig: 90, 80
+  offset: 5, 8
+  index: -1
+fxx/huoba_11
+  rotate: false
+  xy: 743, 5
+  size: 72, 59
+  orig: 90, 80
+  offset: 5, 9
+  index: -1
+fxx/huoba_12
+  rotate: false
+  xy: 214, 65
+  size: 74, 64
+  orig: 90, 80
+  offset: 4, 7
+  index: -1
+fxx/huoba_13
+  rotate: false
+  xy: 670, 67
+  size: 74, 62
+  orig: 90, 80
+  offset: 4, 8
+  index: -1
+fxx/huoba_14
+  rotate: false
+  xy: 366, 2
+  size: 73, 62
+  orig: 90, 80
+  offset: 5, 7
+  index: -1
+fxx/huoba_15
+  rotate: false
+  xy: 441, 2
+  size: 73, 62
+  orig: 90, 80
+  offset: 5, 7
+  index: -1
+fxx/huoba_16
+  rotate: false
+  xy: 290, 4
+  size: 74, 60
+  orig: 90, 80
+  offset: 4, 9
+  index: -1
+fxx/huoba_17
+  rotate: false
+  xy: 594, 5
+  size: 73, 60
+  orig: 90, 80
+  offset: 5, 9
+  index: -1
+fxx/huoba_2
+  rotate: false
+  xy: 366, 66
+  size: 74, 63
+  orig: 90, 80
+  offset: 4, 8
+  index: -1
+fxx/huoba_3
+  rotate: false
+  xy: 139, 64
+  size: 73, 65
+  orig: 90, 80
+  offset: 5, 6
+  index: -1
+fxx/huoba_4
+  rotate: false
+  xy: 516, 2
+  size: 72, 62
+  orig: 90, 80
+  offset: 5, 9
+  index: -1
+fxx/huoba_5
+  rotate: false
+  xy: 669, 4
+  size: 72, 61
+  orig: 90, 80
+  offset: 5, 9
+  index: -1
+fxx/huoba_6
+  rotate: false
+  xy: 746, 66
+  size: 73, 63
+  orig: 90, 80
+  offset: 4, 8
+  index: -1
+fxx/huoba_7
+  rotate: false
+  xy: 442, 66
+  size: 74, 63
+  orig: 90, 80
+  offset: 4, 8
+  index: -1
+fxx/huoba_8
+  rotate: false
+  xy: 518, 66
+  size: 74, 63
+  orig: 90, 80
+  offset: 4, 8
+  index: -1
+fxx/huoba_9
+  rotate: false
+  xy: 139, 2
+  size: 73, 60
+  orig: 90, 80
+  offset: 4, 9
+  index: -1

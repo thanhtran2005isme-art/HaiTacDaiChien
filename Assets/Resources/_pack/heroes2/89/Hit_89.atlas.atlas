@@ -1,0 +1,125 @@
+
+Hit_89.png
+size: 804,208
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Char_Gecko Moria_skill2/000
+  rotate: true
+  xy: 392, 31
+  size: 71, 21
+  orig: 75, 23
+  offset: 2, 0
+  index: -1
+Char_Gecko Moria_skill2/001
+  rotate: true
+  xy: 354, 25
+  size: 77, 36
+  orig: 81, 38
+  offset: 2, 0
+  index: -1
+Char_Gecko Moria_skill2/002
+  rotate: true
+  xy: 242, 19
+  size: 83, 110
+  orig: 87, 113
+  offset: 2, 0
+  index: -1
+Char_Gecko Moria_skill2/003
+  rotate: true
+  xy: 2, 15
+  size: 86, 111
+  orig: 90, 114
+  offset: 2, 0
+  index: -1
+Char_Gecko Moria_skill2/004
+  rotate: true
+  xy: 665, 8
+  size: 90, 129
+  orig: 94, 132
+  offset: 2, 0
+  index: -1
+Char_Gecko Moria_skill2/005
+  rotate: true
+  xy: 434, 9
+  size: 94, 129
+  orig: 98, 132
+  offset: 3, 0
+  index: -1
+Char_Gecko Moria_skill2/006
+  rotate: true
+  xy: 434, 105
+  size: 99, 134
+  orig: 102, 137
+  offset: 2, 0
+  index: -1
+Char_Gecko Moria_skill2/007
+  rotate: true
+  xy: 298, 104
+  size: 100, 134
+  orig: 104, 137
+  offset: 2, 0
+  index: -1
+Char_Gecko Moria_skill2/008
+  rotate: true
+  xy: 2, 103
+  size: 101, 145
+  orig: 105, 148
+  offset: 3, 0
+  index: -1
+Char_Gecko Moria_skill2/009
+  rotate: true
+  xy: 149, 104
+  size: 100, 147
+  orig: 104, 149
+  offset: 2, 0
+  index: -1
+Char_Gecko Moria_skill2/010
+  rotate: true
+  xy: 570, 106
+  size: 98, 107
+  orig: 102, 110
+  offset: 2, 0
+  index: -1
+Char_Gecko Moria_skill2/011
+  rotate: false
+  xy: 679, 100
+  size: 95, 104
+  orig: 99, 106
+  offset: 2, 0
+  index: -1
+Char_Gecko Moria_skill2/012
+  rotate: false
+  xy: 570, 3
+  size: 93, 101
+  orig: 97, 104
+  offset: 2, 0
+  index: -1
+Char_Gecko Moria_skill2/013
+  rotate: true
+  xy: 149, 12
+  size: 90, 91
+  orig: 94, 95
+  offset: 2, 0
+  index: -1
+Char_Gecko Moria_skill2/014
+  rotate: true
+  xy: 115, 16
+  size: 85, 30
+  orig: 89, 32
+  offset: 2, 0
+  index: -1
+Char_Gecko Moria_skill2/015
+  rotate: true
+  xy: 776, 124
+  size: 80, 25
+  orig: 83, 27
+  offset: 2, 0
+  index: -1
+Char_Gecko Moria_skill2/016
+  rotate: false
+  xy: 354, 2
+  size: 74, 21
+  orig: 78, 23
+  offset: 2, 0
+  index: -1

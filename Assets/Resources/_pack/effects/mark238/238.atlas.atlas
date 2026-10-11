@@ -1,0 +1,62 @@
+
+238.png
+size: 336,136
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+1
+  rotate: false
+  xy: 321, 49
+  size: 14, 35
+  orig: 14, 35
+  offset: 0, 0
+  index: -1
+2
+  rotate: false
+  xy: 297, 4
+  size: 18, 39
+  orig: 18, 39
+  offset: 0, 0
+  index: -1
+3
+  rotate: false
+  xy: 322, 100
+  size: 14, 34
+  orig: 14, 34
+  offset: 0, 0
+  index: -1
+4
+  rotate: false
+  xy: 318, 6
+  size: 14, 37
+  orig: 14, 37
+  offset: 0, 0
+  index: -1
+5
+  rotate: false
+  xy: 297, 87
+  size: 22, 47
+  orig: 22, 47
+  offset: 0, 0
+  index: -1
+6
+  rotate: false
+  xy: 297, 46
+  size: 21, 38
+  orig: 21, 38
+  offset: 0, 0
+  index: -1
+Layer-2
+  rotate: false
+  xy: 0, 0
+  size: 163, 134
+  orig: 163, 134
+  offset: 0, 0
+  index: -1
+glow_6182
+  rotate: false
+  xy: 166, 6
+  size: 128, 128
+  orig: 128, 128
+  offset: 0, 0
+  index: -1

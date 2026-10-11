@@ -1,0 +1,39 @@
+require 'g_table'
+local cs_coroutine = require 'cs_coroutine'
+local pluginJson=require("json")
+
+function start()
+    cs_coroutine.start
+	(function()
+		local url= CS.System.String.Concat( CS.StaticData.URL_GAME_PREFIX ,":9030/specialEventIcons?userId=")
+		local urlEvent=CS.System.String.Concat(CS.System.String.Concat(url,CS.GameContext.GetIntance().m_UserId),"&lua=true")
+	    local GetData = CS.XLuaTest.Util();
+   		coroutine.yield(GetData:GetText(urlEvent))
+	    local data = pluginJson.decode(GetData.response)
+        CS.UnityEngine.Debug.Log(urlEvent)
+		LoadEvent(data)
+	end)
+end
+
+
+
+function LoadEvent(data)
+	for i=1,#data do
+		local type=data[i].type
+		local name=data[i].name
+		local icon=data[i].icon
+
+		local prefabButtonEvent= CS.ResourceHelper.LoadLuaPrefab("ButtonNewEvent")
+		local gameObj= CS.UnityEngine.Object.Instantiate(prefabButtonEvent,_Parent:GetComponent("Transform"), false)
+		gameObj.transform:SetAsFirstSibling()
+		gameObj:GetComponent("ButtonSpecialEvent"):InitButton(type,icon,name)
+		gameObj:GetComponent("Button").onClick:AddListener(function()
+			   local prefabSpecialEventForLua= CS.ResourceHelper.LoadLuaPrefab("PopupSpecialEventForLua")
+			   CS.UnityEngine.Object.Instantiate(prefabSpecialEventForLua,CS.CanvasHelper.GetCanvas().transform, false)
+			   gTable["EVENT_TYPE_LUA"](type)
+		end)
+	end
+end
+
+
+
