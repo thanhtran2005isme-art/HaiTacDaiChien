@@ -104,6 +104,21 @@ class HomeNavigationChecks(unittest.TestCase):
         self.assertIn('if (HomeSceneNavigationBridge.CloseOpenPopup())', hotkey)
         self.assertNotIn('RemoveAllListeners', self.script)
 
+    def test_group_button_event_missing_script_stub_removed(self):
+        # AssetRipper serialized an unusable MonoBehaviour with m_Script: {fileID: 0}.
+        # Keep the two original Unity layout behaviours untouched.
+        owner = re.search(
+            r"(?ms)^--- !u!1 &136\nGameObject:\n(.*?)(?=^--- !u!)",
+            self.scene,
+        )
+        self.assertIsNotNone(owner)
+        self.assertIn("m_Name: GroupButtonEvent", owner.group(1))
+        self.assertIn("- component: {fileID: 1140}", owner.group(1))
+        self.assertIn("- component: {fileID: 1142}", owner.group(1))
+        self.assertNotIn("- component: {fileID: 1141}", owner.group(1))
+        self.assertNotRegex(self.scene, r"(?m)^--- !u!114 &1141$")
+        self.assertNotRegex(self.scene, r"(?m)^  m_Script: \{fileID: 0\}$")
+
     def test_bridge_uses_real_unity_debug_not_decompiled_stub(self):
         # AssetRipper project defines its own global Debug class without LogException.
         # Unqualified Debug calls silently disappear or can fail compilation.
