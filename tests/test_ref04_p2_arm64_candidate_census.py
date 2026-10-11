@@ -80,7 +80,7 @@ class SourceCensus(unittest.TestCase):
         blob, regions, inventory = source()
         class Stub:
             mnemonic = "bl"
-            op_str = "#0x999999999"
+            op_str = "#0x999999998"
         self.assertEqual(
             p.bounded_source_branch(Stub(),regions)["status"],
             "TARGET_NOT_IN_ORIGINAL_EXECUTABLE_FILE_BYTES")
