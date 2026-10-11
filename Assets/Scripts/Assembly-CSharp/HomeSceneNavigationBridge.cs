@@ -17,16 +17,24 @@ public sealed class HomeSceneNavigationBridge : MonoBehaviour
         public string scenePath;
     }
 
+    [Serializable]
+    public sealed class PopupRoute
+    {
+        public Button button;
+        public string resourcePath;
+    }
+
     public Route[] routes;
+    public PopupRoute[] popupRoutes;
     public string homeScenePath = "Assets/Scenes/HomeScene.unity";
 
     private readonly List<Button> subscribedButtons = new List<Button>();
     private readonly List<UnityAction> subscribedActions = new List<UnityAction>();
+    private static GameObject activePopupLayer;
 
     private void Awake()
     {
-        // Keep only the keyboard return helper alive across scene transitions,
-        // never the original Scripts GameObject with its recovered components.
+        // Preserve the original Scene and its serialized callbacks.
         HomeSceneReturnHotkey returnHotkey = FindObjectOfType<HomeSceneReturnHotkey>();
         if (returnHotkey == null)
         {
@@ -34,33 +42,47 @@ public sealed class HomeSceneNavigationBridge : MonoBehaviour
             DontDestroyOnLoad(holder);
             returnHotkey = holder.AddComponent<HomeSceneReturnHotkey>();
         }
-
         returnHotkey.SetHomeScene(homeScenePath);
 
-        if (routes == null)
-            return;
-
         HashSet<Button> seen = new HashSet<Button>();
-        foreach (Route route in routes)
+        if (routes != null)
         {
-            if (route == null || route.button == null || string.IsNullOrEmpty(route.scenePath))
+            foreach (Route route in routes)
             {
-                Debug.LogWarning("[HTDC Navigation] Skipped incomplete HomeScene route.", this);
-                continue;
+                if (route == null || route.button == null || string.IsNullOrEmpty(route.scenePath))
+                {
+                    Debug.LogWarning("[HTDC Navigation] Skipped incomplete Scene route.", this);
+                    continue;
+                }
+                string destination = route.scenePath;
+                Register(route.button, () => NavigateTo(destination), seen);
             }
-
-            if (!seen.Add(route.button))
-            {
-                Debug.LogWarning("[HTDC Navigation] Duplicate Button mapping: " + route.button.name, route.button);
-                continue;
-            }
-
-            string destination = route.scenePath;
-            UnityAction callback = () => NavigateTo(destination);
-            route.button.onClick.AddListener(callback);
-            subscribedButtons.Add(route.button);
-            subscribedActions.Add(callback);
         }
+        if (popupRoutes != null)
+        {
+            foreach (PopupRoute route in popupRoutes)
+            {
+                if (route == null || route.button == null || string.IsNullOrEmpty(route.resourcePath))
+                {
+                    Debug.LogWarning("[HTDC Navigation] Skipped incomplete Popup route.", this);
+                    continue;
+                }
+                string destination = route.resourcePath;
+                Register(route.button, () => OpenPopup(destination), seen);
+            }
+        }
+    }
+
+    private void Register(Button button, UnityAction callback, HashSet<Button> seen)
+    {
+        if (!seen.Add(button))
+        {
+            Debug.LogWarning("[HTDC Navigation] Duplicate route for Button: " + button.name, button);
+            return;
+        }
+        button.onClick.AddListener(callback);
+        subscribedButtons.Add(button);
+        subscribedActions.Add(callback);
     }
 
     private void OnDestroy()
@@ -70,6 +92,90 @@ public sealed class HomeSceneNavigationBridge : MonoBehaviour
             if (subscribedButtons[i] != null)
                 subscribedButtons[i].onClick.RemoveListener(subscribedActions[i]);
         }
+    }
+
+    private void OpenPopup(string resourcePath)
+    {
+        // Only one popup is open at a time; clicking behind it cannot trigger another route.
+        if (activePopupLayer != null)
+            return;
+        if (string.IsNullOrEmpty(resourcePath)
+            || !resourcePath.StartsWith("prefabs/", StringComparison.Ordinal)
+            || resourcePath.Contains("..")
+            || resourcePath.IndexOf('\\') >= 0)
+        {
+            Debug.LogError("[HTDC Navigation] Refusing unknown Popup resource: " + resourcePath, this);
+            return;
+        }
+
+        // The imported HomeScene contains a root named Canvas.
+        GameObject canvasObject = GameObject.Find("Canvas");
+        Canvas canvas = canvasObject != null ? canvasObject.GetComponent<Canvas>() : null;
+        if (canvas == null)
+        {
+            Debug.LogError("[HTDC Navigation] HomeScene Canvas not found; cannot open " + resourcePath, this);
+            return;
+        }
+
+        GameObject prefab = Resources.Load<GameObject>(resourcePath);
+        if (prefab == null)
+        {
+            Debug.LogError("[HTDC Navigation] Missing Resources prefab: " + resourcePath, this);
+            return;
+        }
+
+        GameObject modalLayer = null;
+        try
+        {
+            // Invisible raycast blocker: preserve the original HomeScene graphics
+            // and prevent click-through while the prefab overlay is visible.
+            modalLayer = new GameObject("HTDC Offline Popup Layer",
+                typeof(RectTransform), typeof(CanvasRenderer), typeof(Image));
+            modalLayer.transform.SetParent(canvas.transform, false);
+            RectTransform rect = modalLayer.GetComponent<RectTransform>();
+            rect.anchorMin = Vector2.zero;
+            rect.anchorMax = Vector2.one;
+            rect.offsetMin = Vector2.zero;
+            rect.offsetMax = Vector2.zero;
+            Image blocker = modalLayer.GetComponent<Image>();
+            blocker.color = new Color(0f, 0f, 0f, 0f);
+            blocker.raycastTarget = true;
+            modalLayer.transform.SetAsLastSibling();
+
+            GameObject instance = Instantiate(prefab, modalLayer.transform, false);
+            instance.SetActive(true);
+
+            // The exported C# close handlers are stubs. Add only the closing
+            // callback (not gameplay/data actions) to existing close controls.
+            foreach (Button button in instance.GetComponentsInChildren<Button>(true))
+            {
+                if (button.name == "ButtonClose"
+                    || button.name == "ButtonBack"
+                    || button.name == "CloseButton"
+                    || (resourcePath == "prefabs/home/PopupCheckin" && button.name == "BgrPopup"))
+                {
+                    button.onClick.AddListener(() => { CloseOpenPopup(); });
+                }
+            }
+
+            activePopupLayer = modalLayer;
+            Debug.Log("[HTDC Navigation] Opened offline Popup preview: " + resourcePath, this);
+        }
+        catch (Exception error)
+        {
+            if (modalLayer != null)
+                Destroy(modalLayer);
+            Debug.LogException(error, this);
+        }
+    }
+
+    public static bool CloseOpenPopup()
+    {
+        if (activePopupLayer == null)
+            return false;
+        Destroy(activePopupLayer);
+        activePopupLayer = null;
+        return true;
     }
 
     public static void NavigateTo(string scenePath)
