@@ -144,6 +144,23 @@ class OfflineHeroUiTests(unittest.TestCase):
                             for row in self.rows if row["passive3"] is not None))
         self.assertEqual(len(self.rows), 751)
 
+    def test_direct_scene_start_bootstrap_in_addition_to_scene_loaded(self):
+        # When hitting Play in an already opened editor Scene, the sceneLoaded
+        # event alone is insufficient evidence that the runtime presenter ran.
+        home = (SCRIPTS / "Home2Scene.cs").read_text(encoding="utf-8")
+        hero_list = (SCRIPTS / "HeroListNewScene.cs").read_text(encoding="utf-8")
+        runtime = self.texts["OfflineHeroSceneRuntime"]
+        self.assertIn("protected override void Start()", home)
+        self.assertIn("GetComponent<OfflineHeroHomePresenter>() == null", home)
+        self.assertIn("gameObject.AddComponent<OfflineHeroHomePresenter>()", home)
+        self.assertIn("GetComponent<OfflineHeroListPresenter>() == null", hero_list)
+        self.assertIn("gameObject.AddComponent<OfflineHeroListPresenter>()", hero_list)
+        # Both attach paths must be idempotent and keep original scene serialization.
+        self.assertIn("GetComponent<OfflineHeroHomePresenter>() == null", runtime)
+        self.assertIn("GetComponent<OfflineHeroListPresenter>() == null", runtime)
+        self.assertIn("Home2 presenter Start; initializing 6 offline slots.", self.texts["OfflineHeroHomePresenter"])
+        self.assertIn("HeroList presenter Start; loading offline source catalog.", self.texts["OfflineHeroListPresenter"])
+
     def test_script_file_names_and_meta_guids(self):
         guids = set()
         for name in FILES:
