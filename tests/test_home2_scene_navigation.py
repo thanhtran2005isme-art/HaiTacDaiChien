@@ -4,6 +4,7 @@
 These checks do not demonstrate Unity Editor compilation, UI render, or
 the original IL2CPP game behavior. Run the Unity Play Mode matrix separately.
 """
+import ast
 import re
 import unittest
 from pathlib import Path
@@ -138,7 +139,11 @@ class Home2NavigationChecks(unittest.TestCase):
             r"(?m)^  - button: \{fileID: (\d+)\}\n    title: ([^\n]+)\n    message: ([^\n]+)$",
             self.bridge_block,
         )
-        self.assertEqual({int(key): title for key, title, _ in pairs}, NOTICES)
+        self.assertEqual(
+            {int(key): ast.literal_eval(title) if title.startswith('"') else title
+             for key, title, _ in pairs},
+            NOTICES,
+        )
         self.assertEqual(len(pairs), len(NOTICES))
         for button, title, message in pairs:
             self.assertGreater(len(message.strip()), 15, button)
