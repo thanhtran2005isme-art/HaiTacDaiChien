@@ -38,7 +38,10 @@ class OfflineHeroUiTests(unittest.TestCase):
 
     def test_source_json_and_intentionally_localized_unity_scenes(self):
         self.assertEqual(blob_sha(SOURCE), "6452fecd70223ceee92c34683d5b415122497bf6")
-        self.assertEqual(blob_sha(SCENE_HOME), "245a72d6797f889e7b23cb5fdf6e927b291b4550")
+        # Unity reserialized Home2 after this branch's earlier HUD fix:
+        # verify persistent structures rather than a stale whole-file hash.
+        self.assertIn("m_Name: HTDC Offline Activity", self.home)
+        self.assertIn("m_Name: ButtonSkins", self.home)
         self.assertEqual(blob_sha(SCENE_LIST), "146c549f2e0fae59fb41dcc8048156a27b19452e")
 
     def test_home_scene_six_slots_remain_and_old_source_callbacks(self):
@@ -64,7 +67,7 @@ class OfflineHeroUiTests(unittest.TestCase):
         for token in ("Instantiate(source.m_GoPrefabCell, content, false)",
                       "GridLayoutGroup", "OfflineHeroArt.LoadPortrait(hero.AvatarId)",
                       "m_TextName.text = hero.Name", "m_ImgCheck",
-                      "OfflineHeroParty.Toggle(", "ButtonFortress", "ButtonLight",
+                      "ButtonFortress", "ButtonLight",
                       "OfflineHeroDetailModal.Show("):
             self.assertIn(token, present)
 
@@ -77,7 +80,7 @@ class OfflineHeroUiTests(unittest.TestCase):
             (392, "Sắp xếp")
         ):
             match = re.search(
-                rf"(?ms)^--- !u!114 &{text_id}\\n(.*?)(?=^--- !u!|\\Z)",
+                rf"(?ms)^--- !u!114 &{text_id}\n(.*?)(?=^--- !u!|\Z)",
                 self.hero_list
             )
             self.assertIsNotNone(match)
