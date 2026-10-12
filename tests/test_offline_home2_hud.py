@@ -23,7 +23,7 @@ HUD_META = SRC / "OfflineHome2HudCorrection.cs.meta"
 def git_blob_sha(path):
     data = path.read_bytes()
     return hashlib.sha1(
-        b"blob " + str(len(data)).encode() + b"\\x00" + data
+        b"blob " + str(len(data)).encode() + b"\x00" + data
     ).hexdigest()
 
 
@@ -64,11 +64,11 @@ class Home2HudSourceContract(unittest.TestCase):
 
     def test_activity_is_inserted_between_real_shop_ship_from_source(self):
         original_order = (
-            "m_Children:\\n"
-            "  - {fileID: 928}\\n"  # ButtonShop
-            "  - {fileID: 919}\\n"  # ButtonShip
-            "  - {fileID: 975}\\n"  # ButtonSummon
-            "  - {fileID: 1048}\\n"  # ButtonHeroes
+            "m_Children:\n"
+            "  - {fileID: 928}\n"  # ButtonShop
+            "  - {fileID: 919}\n"  # ButtonShip
+            "  - {fileID: 975}\n"  # ButtonSummon
+            "  - {fileID: 1048}\n"  # ButtonHeroes
             "  - {fileID: 990}"      # ButtonBag
         )
         self.assertIn(original_order, self.scene)
