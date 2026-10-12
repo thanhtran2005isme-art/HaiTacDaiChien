@@ -37,7 +37,10 @@
 - `OfflineHeroDetailModal` opens existing original `prefabs/heroinfo/PanelHeroInfo.prefab`,
   binds `HeroSpineInfo.m_TextHeroName` and portrait where available, displays source
   ID, faction, star, class and raw 4 skill IDs as source configuration.
-  A null passive3 in hero ID 51101 remains **absent** (not changed to a fictional skill).
+  The source `passive3: null` for hero ID 51101 is deserialized by Unity `JsonUtility`
+  as `""` (empty string); `ParseOptionalSkillId` now accepts null, empty and whitespace
+  as an absent optional skill (internal `-1`), distinct from explicit `"0"`.
+  This fixes the Unity Play Mode `FormatException` reported at catalog line 232.
   Existing gameplay tabs remain stub/notice-only. Does NOT generate a working `HeroModel`
   or server statistics.
 
