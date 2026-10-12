@@ -60,7 +60,7 @@ CREATE TABLE IF NOT EXISTS `skill_definitions` (
 CREATE TABLE IF NOT EXISTS `item_definitions` (
   kind ENUM('equipment','consumable','shard','artifact') NOT NULL,
   id INT UNSIGNED NOT NULL,
-  display_name VARCHAR(200) NOT NULL,
+  display_name VARCHAR(200) NULL,
   quality SMALLINT DEFAULT NULL,
   source_json JSON NOT NULL,
   PRIMARY KEY(kind,id),
