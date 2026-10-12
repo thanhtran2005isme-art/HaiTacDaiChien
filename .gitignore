@@ -7,3 +7,6 @@
 /UserSettings/
 /Build/
 /Builds/
+
+# Generated MySQL import SQL and source-data audits (do not commit)
+/database/mysql/generated/
