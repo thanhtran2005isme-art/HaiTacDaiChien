@@ -11,10 +11,10 @@ MARIADB=(ROOT/"database/xampp/001_schema_mariadb.sql").read_text(encoding="utf-8
 class MariaDBSchemaTests(unittest.TestCase):
     def test_schema_is_equivalent_except_portable_collation(self):
         actual=MARIADB[MARIADB.index("-- HTDC / KaitoKidShop MySQL 8.0.36+"):]
-        expected=MYSQL.replace("utf8mb4_0900_ai_ci","utf8mb4_unicode_ci")
+        expected=MYSQL.replace("utf8mb4_0900_ai_ci","utf8mb4_general_ci")
         self.assertEqual(actual,expected)
         self.assertNotIn("utf8mb4_0900_ai_ci",actual)
-        self.assertIn("utf8mb4_unicode_ci",actual)
+        self.assertIn("utf8mb4_general_ci",actual)
 
     def test_all_84_tables_preserved(self):
         pattern=r"CREATE TABLE IF NOT EXISTS \`([a-z_]+)\`"
