@@ -1,0 +1,42 @@
+name: PanelHeroInfo P1 offline event coverage (static)
+
+on:
+  push:
+    branches: [feat/htdc-localization-hold]
+    paths:
+      - 'Assets/Resources/prefabs/heroinfo/PanelHeroInfo.prefab'
+      - 'Assets/Scripts/Assembly-CSharp/PanelHeroInfoOfflineBridge.cs'
+      - 'Assets/Scripts/Assembly-CSharp/PanelHeroInfoOfflineBridge.cs.meta'
+      - 'Assets/Resources/prefabs/common/PopupMessage.prefab'
+      - 'tests/test_panel_hero_info_navigation.py'
+      - 'tests/test_home_scene_navigation_pilot.py'
+      - 'tests/test_home2_scene_navigation.py'
+      - 'tests/test_celestial_scene_navigation.py'
+      - 'Assets/Scenes/HomeScene.unity'
+      - 'Assets/Scenes/Home2Scene.unity'
+      - 'Assets/Scenes/CelestialScene.unity'
+      - 'docs/AI_HANDOFF.md'
+      - 'docs/navigation/PANEL_HERO_INFO_NAVIGATION_AUDIT.md'
+      - '.github/workflows/panel-hero-info-navigation.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  prefab-source-contract:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout tracked Unity prefab YAML, skip proprietary LFS binaries
+        uses: actions/checkout@v4
+        with:
+          lfs: false
+      - name: Prove original PanelHeroInfo blob and all 79 offline responses
+        run: python3 -m unittest discover -s tests -p test_panel_hero_info_navigation.py -v
+      - name: Preserve HomeScene P0
+        run: python3 -m unittest discover -s tests -p test_home_scene_navigation_pilot.py -v
+      - name: Preserve Home2Scene P0
+        run: python3 -m unittest discover -s tests -p test_home2_scene_navigation.py -v
+      - name: Preserve CelestialScene P1
+        run: python3 -m unittest discover -s tests -p test_celestial_scene_navigation.py -v
