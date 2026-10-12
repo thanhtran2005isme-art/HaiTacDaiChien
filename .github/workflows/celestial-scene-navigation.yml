@@ -16,6 +16,8 @@ on:
       - 'tests/test_celestial_scene_navigation.py'
       - 'tests/test_home_scene_navigation_pilot.py'
       - 'tests/test_home2_scene_navigation.py'
+      - 'docs/AI_HANDOFF.md'
+      - 'docs/navigation/CELESTIALSCENE_NAVIGATION_AUDIT.md'
       - '.github/workflows/celestial-scene-navigation.yml'
   workflow_dispatch:
 
