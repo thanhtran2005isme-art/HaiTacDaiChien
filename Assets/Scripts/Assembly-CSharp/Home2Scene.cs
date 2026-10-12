@@ -73,6 +73,8 @@ public class Home2Scene : BaseScene, IG2UIEventHandler
 	protected override void Start()
 	{
 		base.Start();
+		// Apply the three user-requested Home2 HUD changes only in Play Mode.
+		OfflineHome2HudCorrection.Apply(this);
 		// AssetRipper restored an empty Start. Attach the new offline UI
 		// presenter here as a deterministic fallback when entering Play Mode
 		// directly in Home2Scene (Editor domain reload / sceneLoaded differences).
