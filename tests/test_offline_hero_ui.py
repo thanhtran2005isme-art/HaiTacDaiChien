@@ -42,7 +42,7 @@ class OfflineHeroUiTests(unittest.TestCase):
         # verify persistent structures rather than a stale whole-file hash.
         self.assertIn("m_Name: HTDC Offline Activity", self.home)
         self.assertIn("m_Name: ButtonSkins", self.home)
-        self.assertEqual(blob_sha(SCENE_LIST), "146c549f2e0fae59fb41dcc8048156a27b19452e")
+        self.assertEqual(blob_sha(SCENE_LIST), "11b0541e396dae901366d519fc7a2b2f9b969788")
 
     def test_home_scene_six_slots_remain_and_old_source_callbacks(self):
         self.assertEqual(self.home.count("m_Text: Naruto"), 6)
@@ -99,6 +99,48 @@ class OfflineHeroUiTests(unittest.TestCase):
         self.assertIn('"Bỏ khỏi đội hình"', modal)
         self.assertIn("OfflineHeroParty.Toggle(catalog, hero.Id, out notice)", modal)
         self.assertIn("onPartyChanged()", modal)
+
+    def test_eight_hero_cards_are_visible_in_saved_edit_mode_scene(self):
+        # Both Editor (Play OFF) and runtime (Play ON) have actual source-
+        # backed cards; no fake account inventory or auto-selected party.
+        scene = self.hero_list
+        block = lambda kind, ident: re.search(
+            rf"(?ms)^--- !u!{kind} &{ident}\\n(.*?)(?=^--- !u!|\\Z)",
+            scene
+        ).group(1)
+        self.assertIn("m_LocalScale: {x: 1, y: 1, z: 1}", block(224, 258))
+        content = block(224, 186)
+        self.assertIn("m_SizeDelta: {x: 860, y: 560}", content)
+        data = [
+            (4, 182, "Califa"), (13, 161, "Nami"),
+            (14, 156, "Brook"), (17, 157, "Blamenco"),
+            (24, 164, "Zoro"), (30, 165, "Hina"),
+            (31, 169, "Dalmatian"), (37, 175, "Momonga"),
+        ]
+        self.assertEqual(scene.count("m_Name: HTDC EDIT PREVIEW HERO "), 8)
+        all_ids = re.findall(r"(?m)^--- !u!\\d+ &(\\d+)$", scene)
+        self.assertEqual(len(all_ids), len(set(all_ids)))
+        for i, (id_, avatar, name) in enumerate(data):
+            base = 10000 + i * 1000
+            root = block(1, base + 1)
+            self.assertIn(f"m_Name: HTDC EDIT PREVIEW HERO {id_}", root)
+            self.assertIn("m_TagString: EditorOnly", root)
+            self.assertIn("m_IsActive: 1", root)
+            self.assertIn(f"fileID: {base + 184}", content)
+            self.assertIn("m_Father: {fileID: 186}", block(224, base + 184))
+            self.assertIn(f"m_Text: {name}", block(114, base + 367))
+            self.assertIn("m_Text: \"★6\"", block(114, base + 360))
+            original_meta = ROOT / f"Assets/Resources/_pack/herohead/{avatar}.asset.meta"
+            guid = re.search(r"(?m)^guid: ([0-9a-f]{32})$", original_meta.read_text())
+            self.assertIsNotNone(guid)
+            self.assertIn(f"guid: {guid.group(1)}", block(114, base + 344))
+
+        presenter = self.texts["OfflineHeroListPresenter"]
+        self.assertIn('StartsWith("HTDC EDIT PREVIEW HERO "', presenter)
+        self.assertIn('child.gameObject.CompareTag("EditorOnly")', presenter)
+        self.assertIn('child.gameObject.SetActive(false);', presenter)
+        self.assertIn('Destroy(child.gameObject);', presenter)
+        self.assertNotIn('new GameObject("OfflineTeamSelect"', presenter)
 
     def test_selection_is_opt_in_bounded_and_offline(self):
         src = self.texts["OfflineHeroParty"]
