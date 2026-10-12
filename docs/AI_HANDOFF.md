@@ -1,5 +1,15 @@
 # AI HANDOFF — Hải Tặc UI Viewer
 
+## 2026-10-12 — Independent MySQL 8.4 foundation (separate from Hero UI PR #9)
+
+- Source feature branch `feat/htdc-mysql-foundation` was created from `feat/offline-hero-ui` @ `2cec061c` to **avoid mixing database work into the HeroList PR #9**. MySQL deliverable is PR #10 Draft: https://github.com/thanhtran2005isme-art/HaiTacDaiChien/pull/10
+- Primary deliverables: `database/mysql/001_schema.sql` (**84 MySQL 8.4 InnoDB tables**), `database/mysql/import_configs.py` (stdlib full-source import), `tests/test_mysql_foundation.py`, `.github/workflows/mysql-foundation.yml` (real disposable MySQL 8.4.11) and `database/mysql/README.md`. Generated SQL and audit are ignored under `database/mysql/generated/`.
+- Repo source audit: `Assets/Resources/_pack/db` 53 config files (46 JSON + 7 TXT), `db_en` 50, `db_th` 18, `db_zh` 18; **139 source files, 66,191 decoded records, 20,591 typed-source projections**, **751 main hero records**. Some source items have `name:null` (**17 records**) and raw text may include UTF-8 BOM; preserve both, never fabricate display names.
+- Core models checked: `DbManager`, `DatabaseFK`, `NetworkController`, `PlayerInventory`, `BoxLogin`, `LineUpSaveLoad` contain restored stubs; no original backend has been recovered. `OfflineHeroParty` uses local PlayerPrefs and is unrelated to SQL player-owned hero instances.
+- Schema covers server-side accounts, sessions, players, currency ledger, owned heroes/items, six-slot formations, pet progression, battles, quests, summons, shops, guild/PvP/social and auditable transaction logs. Only static config tables get seeded; **no account/wallet/owned hero/purchase player rows are invented**. Python exporter reads all JSON/TXT from the checked-out repo and writes SQL; user MySQL is not touched automatically.
+- 84-table schema + full-source seed **passed disposable MySQL 8.4.11** in CI on prior commit; latest CI may additionally run BOM and repeat-import checks. Always cite/check newest SHA before claiming final PASS. Full install directions and caveats in `database/mysql/README.md`.
+- **Next work remains**: review transaction ownership/security policy and build a new authenticated backend/API, migrate local PlayerPrefs to server-owned party only with user task, implement tested battles/economy and live MySQL migration. Do not conflate source static configuration with original network backend or claim a playable MMO. `main` and PR #9 unchanged.
+
 ## 2026-10-12 — BẮT BUỘC Edit Mode = Play Mode cho giao diện cố định; HeroList đã có preview lưu Scene
 
 - User trực tiếp xác nhận: **"sửa thì sửa cả 2 cả play lẫn thoát play"**, **"không quan trọng gốc"**. Đây là tiêu chí bắt buộc từ nay cho *mọi* UI; xem quyết định đứng đầu `docs/DECISIONS.md`. Không báo "đã sửa UI" chỉ vì `Start()` hoạt động khi Play.
