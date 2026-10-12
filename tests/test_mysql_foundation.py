@@ -43,6 +43,16 @@ class MySqlTests(unittest.TestCase):
             q.write_text("{not json}",encoding="utf-8")
             self.assertFalse(imp.load_source(q)[1])
 
+    def test_utf8_bom_is_preserved_in_raw_source(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            p=Path(tmp)/"source.json"
+            payload="\\ufeff"+json.dumps([{"name":"Đảo Hải Tặc"}],ensure_ascii=False)
+            p.write_text(payload,encoding="utf-8")
+            raw,parsed,rows=imp.load_source(p)
+            self.assertEqual(raw,payload)
+            self.assertTrue(parsed)
+            self.assertEqual(rows[0][1]["name"],"Đảo Hải Tặc")
+
     def test_real_config_folders_and_hero_import(self):
         counts={}
         for folder,locale in imp.LOCALES.items():
