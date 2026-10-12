@@ -18,6 +18,10 @@ public sealed class HomeSceneReturnHotkey : MonoBehaviour
         if (!Input.GetKeyDown(KeyCode.Escape))
             return;
 
+        // Close the original PanelHeroInfo preview before scene navigation.
+        if (OfflineHeroDetailModal.CloseActive())
+            return;
+
         // Close a modal popup before attempting to leave the scene.
         if (HomeSceneNavigationBridge.CloseOpenPopup())
             return;
