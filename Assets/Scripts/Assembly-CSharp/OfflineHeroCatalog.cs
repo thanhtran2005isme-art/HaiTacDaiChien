@@ -174,7 +174,7 @@ public sealed class OfflineHeroCatalog
                 ParseNonNegativeInt(row.active, "active"),
                 ParseNonNegativeInt(row.passive1, "passive1"),
                 ParseNonNegativeInt(row.passive2, "passive2"),
-                ParseNonNegativeInt(row.passive3, "passive3"));
+                ParseOptionalSkillId(row.passive3, "passive3"));
             result.Add(hero);
             index.Add(id, hero);
         }
@@ -214,6 +214,14 @@ public sealed class OfflineHeroCatalog
             matches.Add(hero);
         }
         return matches;
+    }
+
+    // One original hero record (id 51101) has passive3=null.
+    // -1 means NOT PRESENT in source, distinct from the source's explicit "0".
+    private static int ParseOptionalSkillId(string value, string field)
+    {
+        if (value == null) return -1;
+        return ParseNonNegativeInt(value, field);
     }
 
     private static int ParseNonNegativeInt(string value, string field)
