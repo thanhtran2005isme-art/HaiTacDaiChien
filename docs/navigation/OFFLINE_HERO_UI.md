@@ -12,6 +12,13 @@
 - Source `Home2Scene.unity`, original art, serialized `Button.onClick`, Scene/Prefab and player data are unchanged. Idempotent runtime child, no invented icon, no auto-claim that this matches the exact 2026 screenshot pixel-for-pixel. If the verified Sprite cannot load (Git LFS/import), warn and do not substitute a fake.
 - **Validation**: `py -3 -m unittest discover -s tests -p test_offline_home2_hud.py -v` (static regression), then Unity 2022.3.51f1 with `git lfs pull`: open `Home2Scene.unity`, Play, confirm one Fb only (plus Friend and Mail), no Skins, six bottom buttons ordered Shop → Hoạt động → Ship → Summon → Heroes → Bag, activity opens existing offline Event popup, and no Console exception. Compare source art against supplied screenshot. **Unity Play Mode still requires user confirmation** before PR #9 merge.
 
+## 2026-10-12 — Runtime fix for Home2 HUD Canvas not found
+
+- On Unity Play Mode, user saw original duplicated Facebook/Skins/missing Activity and warning `[HTDC Home2 HUD] Original Canvas not found.`. This was **a real bug in the new adapter**, not proof source assets are missing. Their Console also confirmed `[HTDC Heroes] Offline party 6/6 loaded`; hero display logic was executing.
+- Serialized root proof in `Home2Scene.unity`: `Scripts` GO 12 / Transform 510 and `Canvas` GO 121 / RectTransform 1024 with Canvas component 908 both have `m_Father: {fileID: 0}`. They are siblings; `home.transform.root.Find("Canvas")` cannot find the sibling.
+- Fixed `OfflineHome2HudCorrection.cs` to use `home.gameObject.scene.GetRootGameObjects()` and exact root `Canvas` with `Canvas` component. Added structural regression `tests/test_offline_home2_hud.py::test_canvas_is_resolved_from_sibling_scene_roots`. Expected new log: `[HTDC Home2 HUD] Scene Canvas located: Canvas`. Original Scene and serialized callbacks unchanged.
+- Requires `git pull --ff-only origin feat/offline-hero-ui`, `git lfs pull`, Unity Play Mode, and screenshot/Console confirmation on latest SHA. Static CI alone is insufficient. If finding Canvas succeeds but the Activity Sprite is still unavailable, diagnose exact imported `home_button_events.asset` via Unity before changing icon identity.
+
 ## What is implemented
 
 ## 2026-10-12 — Home2 Naruto placeholders remained in Play Mode
