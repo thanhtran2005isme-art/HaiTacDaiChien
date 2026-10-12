@@ -92,7 +92,9 @@ public sealed class OfflineHeroListPresenter : MonoBehaviour
                 HomeSceneNavigationBridge.NavigateTo("Assets/Scenes/Home2Scene.unity"));
 
         // Display dictionary entries, not a forged player collection.
-        if (source.m_TextTitle != null) source.m_TextTitle.text = "Tướng · Offline";
+        // Labels stay Vietnamese after source I2 localization initializes.
+        SetVietnameseControls();
+        if (source.m_TextTitle != null) source.m_TextTitle.text = "Tướng";
         Render();
     }
 
@@ -135,7 +137,7 @@ public sealed class OfflineHeroListPresenter : MonoBehaviour
             CellHeroThumb cell = card.GetComponent<CellHeroThumb>();
             if (cell == null) continue;
             if (cell.m_TextName != null) cell.m_TextName.text = hero.Name;
-            if (cell.m_TextLevel != null) cell.m_TextLevel.text = hero.Star + " sao";
+            if (cell.m_TextLevel != null) cell.m_TextLevel.text = "★" + hero.Star;
             if (cell.m_ImageThumb != null)
             {
                 Sprite portrait = OfflineHeroArt.LoadPortrait(hero.AvatarId);
@@ -148,7 +150,6 @@ public sealed class OfflineHeroListPresenter : MonoBehaviour
 
             Button info = card.GetComponent<Button>();
             if (info != null) info.onClick.AddListener(() => ShowInfo(captured));
-            CreateTeamButton(card.transform, cell.m_TextName, captured, selected.Contains(hero.AvatarId));
         }
 
         UpdateCaption();
@@ -159,64 +160,66 @@ public sealed class OfflineHeroListPresenter : MonoBehaviour
         Canvas canvas = GetComponent<HeroListNewScene>() != null
             ? GetComponent<HeroListNewScene>().m_GoScrollView.GetComponentInParent<Canvas>()
             : null;
-        OfflineHeroDetailModal.Show(hero, canvas);
-    }
-
-    private void CreateTeamButton(Transform card, Text fontSource,
-        OfflineHeroRecord hero, bool selected)
-    {
-        GameObject go = new GameObject("OfflineTeamSelect",
-            typeof(RectTransform), typeof(CanvasRenderer), typeof(Image), typeof(Button));
-        go.transform.SetParent(card, false);
-        RectTransform rect = go.GetComponent<RectTransform>();
-        rect.anchorMin = new Vector2(0.20f, 0f);
-        rect.anchorMax = new Vector2(0.80f, 0f);
-        rect.pivot = new Vector2(0.5f, 0f);
-        rect.anchoredPosition = new Vector2(0f, 2f);
-        rect.sizeDelta = new Vector2(0f, 34f);
-
-        Image back = go.GetComponent<Image>();
-        back.color = selected ? new Color(0.25f, 0.48f, 0.20f, 0.95f)
-            : new Color(0.56f, 0.33f, 0.11f, 0.95f);
-        Button button = go.GetComponent<Button>();
-        button.targetGraphic = back;
-        button.onClick.AddListener(() =>
+        // Selection is a secondary action inside the original detail popup,
+        // never a large button obscuring the source hero-card artwork.
+        OfflineHeroDetailModal.Show(hero, canvas, catalog, () =>
         {
-            string message;
-            if (OfflineHeroParty.Toggle(catalog, hero.Id, out message))
-            {
-                status = "";
-                Render();
-            }
-            else
-            {
-                status = message;
-                UpdateCaption();
-            }
+            status = "";
+            Render();
         });
-
-        GameObject label = new GameObject("Text", typeof(RectTransform), typeof(CanvasRenderer),
-            typeof(Text));
-        label.transform.SetParent(go.transform, false);
-        RectTransform labelRect = label.GetComponent<RectTransform>();
-        labelRect.anchorMin = Vector2.zero;
-        labelRect.anchorMax = Vector2.one;
-        labelRect.offsetMin = Vector2.zero;
-        labelRect.offsetMax = Vector2.zero;
-        Text text = label.GetComponent<Text>();
-        text.font = fontSource != null ? fontSource.font : Resources.GetBuiltinResource<Font>("Arial.ttf");
-        text.fontSize = 20;
-        text.alignment = TextAnchor.MiddleCenter;
-        text.color = Color.white;
-        text.text = selected ? "Bỏ đội" : "Chọn";
-        text.raycastTarget = false;
     }
 
     private void UpdateCaption()
     {
         if (source == null || source.m_TextHeroCapacity == null || catalog == null) return;
-        source.m_TextHeroCapacity.text = string.IsNullOrEmpty(status)
-            ? "Đội hình offline: " + OfflineHeroParty.Read(catalog).Count + "/6"
-            : status;
+        // The original narrow capacity counter cannot fit a sentence:
+        // keep it numeric, without claiming source account inventory.
+        source.m_TextHeroCapacity.text =
+            OfflineHeroParty.Read(catalog).Count + "/" + OfflineHeroParty.Capacity;
+        if (!string.IsNullOrEmpty(status))
+            UnityEngine.Debug.LogWarning("[HTDC Heroes] " + status, this);
     }
+    private void SetVietnameseControls()
+    {
+        if (source == null || source.m_TabFaction == null) return;
+        Dictionary<string, string> labels = new Dictionary<string, string>
+        {
+            { "ButtonFortress", "Nhanh nhẹn" },
+            { "ButtonAbyss", "Bền bỉ" },
+            { "ButtonForest", "Chính xác" },
+            { "ButtonShadow", "Sinh khí" },
+            { "ButtonDark", "Thông minh" },
+            { "ButtonLight", "Minh mẫn" }
+        };
+
+        foreach (Button button in source.m_TabFaction.GetComponentsInChildren<Button>(true))
+        {
+            string translation;
+            if (!labels.TryGetValue(button.name, out translation)) continue;
+            Text text = button.GetComponentInChildren<Text>(true);
+            if (text != null) text.text = translation;
+        }
+
+        // Source ButtonSort is a child of the same original root Canvas.
+        Canvas canvas = source.m_GoScrollView.GetComponentInParent<Canvas>(true);
+        Transform sort = canvas != null ? FindChildRecursive(canvas.transform, "ButtonSort") : null;
+        if (sort != null)
+        {
+            Text sortText = sort.GetComponentInChildren<Text>(true);
+            if (sortText != null) sortText.text = "Sắp xếp";
+        }
+    }
+
+    private static Transform FindChildRecursive(Transform root, string name)
+    {
+        if (root == null) return null;
+        if (root.name == name) return root;
+        foreach (Transform child in root)
+        {
+            Transform found = FindChildRecursive(child, name);
+            if (found != null) return found;
+        }
+        return null;
+    }
+
 }
