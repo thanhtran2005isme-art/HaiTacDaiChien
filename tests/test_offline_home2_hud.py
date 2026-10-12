@@ -93,19 +93,19 @@ class Home2HudSourceContract(unittest.TestCase):
     @classmethod
     def component(cls, component_id, class_id):
         match = re.search(
-            rf"(?ms)^--- !u!{class_id} &{component_id}\\n"
-            rf"(.*?)(?=^--- !u!|\\Z)", cls.scene
+            rf"(?ms)^--- !u!{class_id} &{component_id}\n"
+            rf"(.*?)(?=^--- !u!|\Z)", cls.scene
         )
         return match.group(1) if match else ""
 
     def test_persisted_activity_is_between_shop_and_ship_in_edit_mode(self):
         order = (
-            "m_Children:\\n"
-            "  - {fileID: 928}\\n"   # Original ButtonShop
-            "  - {fileID: 3001}\\n"  # New Activity button
-            "  - {fileID: 919}\\n"   # Original ButtonShip
-            "  - {fileID: 975}\\n"   # Summon
-            "  - {fileID: 1048}\\n"  # Heroes
+            "m_Children:\n"
+            "  - {fileID: 928}\n"   # Original ButtonShop
+            "  - {fileID: 3001}\n"  # New Activity button
+            "  - {fileID: 919}\n"   # Original ButtonShip
+            "  - {fileID: 975}\n"   # Summon
+            "  - {fileID: 1048}\n"  # Heroes
             "  - {fileID: 990}"       # Bag
         )
         self.assertIn(order, self.component(935, 224))
@@ -127,7 +127,7 @@ class Home2HudSourceContract(unittest.TestCase):
         self.assertIn("eventButton.onClick.Invoke()", self.hud)
 
     def test_serialized_activity_references_are_valid_and_unique(self):
-        ids = re.findall(r"(?m)^--- !u!\\d+ &(\\d+)$", self.scene)
+        ids = re.findall(r"(?m)^--- !u!\d+ &(\d+)$", self.scene)
         self.assertEqual(len(ids), len(set(ids)))
         self.assertEqual(len(ids), 2108)
         for obj in (3000, 3005, 3009):
