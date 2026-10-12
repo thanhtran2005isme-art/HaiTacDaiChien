@@ -1,5 +1,13 @@
 # AI HANDOFF — Hải Tặc UI Viewer
 
+## 2026-10-12 — Permanent Home2 HUD fixes in Edit Mode **and** Play Mode (supersedes runtime-only handoff)
+
+- User clarified the fixed UI must be correct with Play **off as well as on**; editing `Home2Scene.unity` was explicitly authorized for the three HUD differences. On branch `feat/offline-hero-ui` PR #9, edited the serialized Home2 Scene itself: `ButtonTest` (GO 10, extra FB) `m_IsActive=0`, `ButtonSkins` (GO 106) `m_IsActive=0`; inserted new `HTDC Offline Activity` GO 3000 directly under `GroupButton` between original `ButtonShop` and `ButtonShip`, with original game `home_button_events.asset` Sprite GUID `86cbb642c2b57314eabcb83baa79b219` and the existing source label panel/text style.
+- This is a **deliberate, documented change to the serialized Scene**, unlike the earlier runtime-only correction. Original Scene blob before edit `ff2cb00d590a38d4c4b1384f15e5d5af0574d535` remains accessible in Git history; new Scene blob `245a72d6797f889e7b23cb5fdf6e927b291b4550`. All **47 old UnityEvent persistent callbacks** are preserved; there is **one additional empty** UnityEvent on the new button (48 `m_OnClick` blocks, 47 original targets). No source sprites or Prefabs were modified.
+- `OfflineHome2HudCorrection.Apply` now detects the serialized Activity GameObject and binds only its click to the existing Home2 `ButtonEvents` offline popup while running. It cannot duplicate an already saved button. Player-selected hero roster remains runtime/PlayerPrefs only; editing must **not** bake account-specific hero data into the Scene.
+- Static tests updated for intentional source-scene snapshot and original 47 callbacks. Require Unity 2022.3.51f1 Editor **with Play off and on** confirming one FB, no Skins, bottom order Shop → Hoạt động → Ship → Summon → Heroes → Bag, correct icon and functional Event click. GitHub CI tests do NOT prove visual rendering. Do not merge PR #9 until user verifies.
+- **Supersession:** historical handoff entries saying `Home2Scene.unity` unchanged or HUD runtime-only refer to earlier commits; they are no longer true at current branch HEAD. `main` remains unchanged.
+
 ## 2026-10-12 — Follow-up from actual Unity Play Mode: Home2 HUD Canvas lookup failure
 
 - User Play Mode Console reported `[HTDC Home2 HUD] Original Canvas not found.`; no Facebook/Skins/Activity visual changes occurred. Hero presenter DID run, logging `Offline party 6/6 loaded`, with names/stars visible and only some portraits.
