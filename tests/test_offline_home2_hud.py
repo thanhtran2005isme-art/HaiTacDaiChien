@@ -34,12 +34,13 @@ class Home2HudSourceContract(unittest.TestCase):
         cls.hud = HUD.read_text(encoding="utf-8")
         cls.home = ORIGINAL_HOME.read_text(encoding="utf-8")
 
-    def test_original_scene_unchanged(self):
+    def test_intentional_edit_mode_home2_scene_is_persisted(self):
         self.assertEqual(
             git_blob_sha(SCENE),
-            "ff2cb00d590a38d4c4b1384f15e5d5af0574d535",
+            "245a72d6797f889e7b23cb5fdf6e927b291b4550",
         )
-        self.assertEqual(self.scene.count("m_OnClick:"), 47)
+        self.assertEqual(self.scene.count("m_OnClick:"), 48)
+        self.assertEqual(self.scene.count("m_TargetAssemblyTypeName:"), 47)
         self.assertEqual(self.scene.count("m_Text: Naruto"), 6)
 
     def test_canvas_is_resolved_from_sibling_scene_roots(self):
@@ -81,27 +82,60 @@ class Home2HudSourceContract(unittest.TestCase):
         self.assertIn("extraFb.gameObject.SetActive(false);", self.hud)
         self.assertNotIn("originalFb.gameObject.SetActive(false)", self.hud)
 
-    def test_skins_hidden_only_at_runtime(self):
+    def test_skins_hidden_in_saved_scene_and_at_runtime(self):
         self.assertIn("m_Name: ButtonSkins", self.scene)
         self.assertIn('canvas.Find("PanelHomeBottomLeft/ButtonSkins")', self.hud)
         self.assertIn("skins.gameObject.SetActive(false);", self.hud)
+        self.assertIn("m_IsActive: 0", self.component(106, 1))
+        self.assertIn("m_IsActive: 0", self.component(10, 1))
+        self.assertIn("m_IsActive: 1", self.component(82, 1))
 
-    def test_activity_is_inserted_between_real_shop_ship_from_source(self):
-        original_order = (
-            "m_Children:\n"
-            "  - {fileID: 928}\n"  # ButtonShop
-            "  - {fileID: 919}\n"  # ButtonShip
-            "  - {fileID: 975}\n"  # ButtonSummon
-            "  - {fileID: 1048}\n"  # ButtonHeroes
-            "  - {fileID: 990}"      # ButtonBag
+    @classmethod
+    def component(cls, component_id, class_id):
+        match = re.search(
+            rf"(?ms)^--- !u!{class_id} &{component_id}\\n"
+            rf"(.*?)(?=^--- !u!|\\Z)", cls.scene
         )
-        self.assertIn(original_order, self.scene)
-        self.assertIn('group.Find("ButtonShop")', self.hud)
-        self.assertIn('group.Find("ButtonShip")', self.hud)
-        self.assertIn("ship.GetSiblingIndex() != shop.GetSiblingIndex() + 1", self.hud)
-        self.assertIn("activity.transform.SetSiblingIndex(shop.GetSiblingIndex() + 1)", self.hud)
-        self.assertIn('activityLabel.text = "Hoạt động";', self.hud)
-        self.assertIn("Object.Instantiate(shop.gameObject, group, false)", self.hud)
+        return match.group(1) if match else ""
+
+    def test_persisted_activity_is_between_shop_and_ship_in_edit_mode(self):
+        order = (
+            "m_Children:\\n"
+            "  - {fileID: 928}\\n"   # Original ButtonShop
+            "  - {fileID: 3001}\\n"  # New Activity button
+            "  - {fileID: 919}\\n"   # Original ButtonShip
+            "  - {fileID: 975}\\n"   # Summon
+            "  - {fileID: 1048}\\n"  # Heroes
+            "  - {fileID: 990}"       # Bag
+        )
+        self.assertIn(order, self.component(935, 224))
+        self.assertIn("m_Name: HTDC Offline Activity", self.component(3000, 1))
+        self.assertIn("m_IsActive: 1", self.component(3000, 1))
+        self.assertIn("m_Text: Hoạt động", self.component(3012, 114))
+        self.assertIn(
+            "m_Sprite: {fileID: 21300000, "
+            "guid: 86cbb642c2b57314eabcb83baa79b219, type: 2}",
+            self.component(3003, 114),
+        )
+        self.assertIn("m_TargetGraphic: {fileID: 3003}", self.component(3004, 114))
+        self.assertIn("m_Calls: []", self.component(3004, 114))
+        # Newly serialized controls have no copied source Shop callbacks.
+        self.assertNotIn("ButtonShopClick", self.component(3004, 114))
+        self.assertNotIn("mTerm:", self.component(3012, 114))
+        self.assertIn("savedActivity = group.Find(ActivityName)", self.hud)
+        self.assertIn("savedButton.onClick.AddListener(", self.hud)
+        self.assertIn("eventButton.onClick.Invoke()", self.hud)
+
+    def test_serialized_activity_references_are_valid_and_unique(self):
+        ids = re.findall(r"(?m)^--- !u!\\d+ &(\\d+)$", self.scene)
+        self.assertEqual(len(ids), len(set(ids)))
+        self.assertEqual(len(ids), 2108)
+        for obj in (3000, 3005, 3009):
+            self.assertIn("GameObject:", self.component(obj, 1))
+        self.assertIn("m_Father: {fileID: 935}", self.component(3001, 224))
+        self.assertIn("m_Father: {fileID: 3001}", self.component(3006, 224))
+        self.assertIn("m_Father: {fileID: 3006}", self.component(3010, 224))
+        self.assertEqual(self.scene.count("m_Name: HTDC Offline Activity"), 1)
 
     def test_activity_uses_original_home_event_sprite_and_existing_popup(self):
         self.assertIn("m_Name: ButtonEvent", self.home)
