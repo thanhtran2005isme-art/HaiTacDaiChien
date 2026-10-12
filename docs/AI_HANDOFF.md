@@ -1,5 +1,12 @@
 # AI HANDOFF — Hải Tặc UI Viewer
 
+## 2026-10-12 — User Home2 visual comparison: duplicate Fb, unwanted Skins, missing Activity
+
+- User-provided original vs current Unity Home2 screenshots established three narrowly scoped HUD differences. Source `Home2Scene.unity` proves `ButtonTest` and `ButtonFb` use the same Facebook Sprite; `ButtonSkins` is separately serialized, and the bottom `GroupButton` has five buttons in original order.
+- On `feat/offline-hero-ui` / PR #9, new **runtime-only** `OfflineHome2HudCorrection.cs` (called in `Home2Scene.Start`) disables duplicate `ButtonTest` and `ButtonSkins`, then clones the source Shop button and inserts **Hoạt động** between Shop and Ship. Uses original `home_button_events.asset` Sprite already bound in `HomeScene`, with the existing Home2 Events popup for safe offline interaction. New control is explicitly `NEW_PROJECT_DESIGN`, not a verified original game runtime route.
+- Regressions: `tests/test_offline_home2_hud.py` locks source Scene blob and Sprite GUIDs; GitHub static CI must be checked on this new SHA. No original `.unity`, source PNG/Spine, original serialized button callbacks or DB are changed. **Must run Unity 2022.3.51f1 Play Mode, visually verify correct art/order and Console before PR merge.** Procedure in `docs/navigation/OFFLINE_HERO_UI.md`.
+
+
 ## 2026-10-12 — Home2Scene empty team still shows original Naruto labels
 
 - **User Play Mode screenshot:** six original `Naruto` / `Lv.200` placeholders persisted; no reliable evidence of presenter activation in visible Console (999+ legacy warnings). Screenshot alone does not prove a specific failure cause or exact local HEAD.
