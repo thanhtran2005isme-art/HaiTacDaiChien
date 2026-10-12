@@ -2,8 +2,8 @@ using UnityEngine;
 using UnityEngine.UI;
 
 // NEW_PROJECT_DESIGN: adjust only the running Home2 scene against the user
-// reference screenshot. The original AssetRipper Scene YAML, callbacks and
-// source Sprite assets remain untouched.
+// reference screenshot. Three explicit serialized HUD edits are now saved in
+// Home2Scene; the original callbacks and source Sprite assets remain untouched.
 public static class OfflineHome2HudCorrection
 {
     private const string ActivityName = "HTDC Offline Activity";
@@ -48,11 +48,33 @@ public static class OfflineHome2HudCorrection
         if (skins != null) skins.gameObject.SetActive(false);
 
         Transform group = canvas.Find("PanelHomeBottom/GroupContent/GroupButton");
-        if (group == null || group.Find(ActivityName) != null) return;
-        Transform shop = group.Find("ButtonShop");
-        Transform ship = group.Find("ButtonShip");
+        if (group == null) return;
         Transform eventControl = canvas.Find("PaneHomeCenter/GroupButtons/ButtonEvents");
         Button eventButton = eventControl != null ? eventControl.GetComponent<Button>() : null;
+
+        // The corrected Activity control now exists in the serialized Scene,
+        // so it is visible in Edit Mode too. Bind only its offline interaction
+        // when entering Play Mode; never create a duplicate GameObject.
+        Transform savedActivity = group.Find(ActivityName);
+        if (savedActivity != null)
+        {
+            Button savedButton = savedActivity.GetComponent<Button>();
+            if (savedButton != null && eventButton != null)
+            {
+                savedButton.onClick.AddListener(() => eventButton.onClick.Invoke());
+                UnityEngine.Debug.Log(
+                    "[HTDC Home2 HUD] Saved Edit/Play Activity button bound to offline Events.", home);
+            }
+            else
+                UnityEngine.Debug.LogWarning(
+                    "[HTDC Home2 HUD] Saved Activity has no Button or original Events route.", home);
+            return;
+        }
+
+        // Compatibility with stale local Scenes. Normal PR #9 path has the
+        // serialized control and never executes this fallback.
+        Transform shop = group.Find("ButtonShop");
+        Transform ship = group.Find("ButtonShip");
         if (shop == null || ship == null || eventButton == null ||
             ship.GetSiblingIndex() != shop.GetSiblingIndex() + 1)
         {
