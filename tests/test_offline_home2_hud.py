@@ -49,7 +49,7 @@ class Home2HudSourceContract(unittest.TestCase):
         # cannot reach the separate Canvas scene root.
         def object_block(kind, file_id):
             pattern = re.compile(
-                rf"(?ms)^--- !u!{kind} &{file_id}\\n(.*?)(?=^--- !u!|\\Z)"
+                rf"(?ms)^--- !u!{kind} &{file_id}\n(.*?)(?=^--- !u!|\Z)"
             )
             match = pattern.search(self.scene)
             self.assertIsNotNone(match, f"Unity {kind} object {file_id}")
