@@ -1,5 +1,13 @@
 # AI HANDOFF — Hải Tặc UI Viewer
 
+## 2026-10-12 — Original HeroList + six-slot Home2 offline UI (Unity test required)
+
+- **Branch:** `feat/offline-hero-ui` based on `feat/offline-hero-catalog`; PR #9 draft; `main`, original scenes and prefabs not modified.
+- **NEW_PROJECT_DESIGN runtime:** `OfflineHeroSceneRuntime` installs `OfflineHeroListPresenter` and `OfflineHeroHomePresenter` on original Scene scripts. 147 selectable source avatars from 154 released mainline entries. Original CellHeroThumb/ScrollView, six tab buttons, six HeroHome2/CanvasHero, original PanelHeroInfo prefab used. Click card = source detail; Chọn/Bỏ đội = PlayerPrefs opt-in party ≤6; empty slot opens list; selected slot opens info. No fake inventory or original `HeroModel`.
+- **Assets:** exact hero `avatar` maps to `_pack/herohead/{avatar}` or `_pack/heroes2..5/{avatar}/Hero_{avatar}_SkeletonData`; Garp avatar 105 has LFS source, Uta avatar 456/Hiyori avatar 522 lack matching inspected source art. Missing asset never replaced with other character. `passive3=null` in ID 51101 now handled as absent (-1 internal sentinel), not invented as zero.
+- **Testing:** `tests/test_offline_hero_ui.py` plus 5 previous static suites, `.github/workflows/offline-hero-ui.yml`, see `docs/navigation/OFFLINE_HERO_UI.md`. GitHub CI is STATIC ONLY; compile, Spine import, Game View and performance on Unity 2022.3.51f1 still unverified. Do not merge PR #9 before user Play Mode verification.
+- **Deferred:** complete HeroModel/gameplay/stats, server inventory and ownership, skill descriptions, updated hero assets (Uta Last Wish), 2026 source version, real battles/purchases/account.
+
 ## 2026-10-12 — Offline hero catalog (giai đoạn 1, dữ liệu thật)
 
 - **Nhánh làm việc mới:** `feat/offline-hero-catalog`, tách từ `feat/htdc-localization-hold`; không sửa `main`.
