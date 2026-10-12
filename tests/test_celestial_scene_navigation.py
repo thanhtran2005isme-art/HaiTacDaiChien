@@ -165,7 +165,7 @@ class CelestialOfflineNavigationTests(unittest.TestCase):
         home = (ROOT / "Assets/Scenes/HomeScene.unity").read_text(encoding="utf-8")
         home2 = (ROOT / "Assets/Scenes/Home2Scene.unity").read_text(encoding="utf-8")
         self.assertEqual(home.count("m_OnClick:"), 55)
-        self.assertEqual(home2.count("m_OnClick:"), 47)
+        self.assertEqual(home2.count("m_OnClick:"), 48)  # Home2: 47 original + 1 new Activity
         self.assertIn("public static bool CloseOpenPopup()", self.bridge)
         self.assertIn("EditorSceneManager.LoadSceneInPlayMode", self.bridge)
 
