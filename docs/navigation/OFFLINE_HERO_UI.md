@@ -4,6 +4,14 @@
 **Status:** source implementation + static CI; **Unity Editor compile and Play Mode NOT verified by GitHub Actions**.  
 **Architecture:** `NEW_PROJECT_DESIGN`, never recovered original IL2CPP gameplay.
 
+## 2026-10-12 — Home2 HUD screenshot-specific fix (not original XAPK runtime proof)
+
+- User compared a running-game reference image with Unity Home2 Game View. Current imported Scene had two Facebook sprites at the top right, a left-side Skins button absent from the reference, and only five bottom controls (Shop, Ship, Summon, Heroes, Bag) where the reference shows Activity between Shop and Ship.
+- **Verified serialized source**: `PanelHomeTopRight/ButtonTest` (GameObject 10) and `ButtonFb` (82) have identical Sprite GUID `d92d3ea43dc24764984b369b7761206e`; hide only the test/Boss stub, retain `ButtonFb`. `PanelHomeBottomLeft/ButtonSkins` (106) is independent; hide at runtime, preserve its source callback. `GroupButton` (29) currently has children [Shop 21, Ship 11, Summon 71, Heroes 145, Bag 87] under a source HorizontalLayoutGroup.
+- **Implementation**: `OfflineHome2HudCorrection.Apply(this)` from `Home2Scene.Start()` on **Play Mode only**. Source-backed editor Sprite `Assets/Resources/images/home/homebutton/home_button_events.asset` (GUID `86cbb642c2b57314eabcb83baa79b219`, already referenced in `HomeScene/ButtonEvent`) is used for a *runtime cloned* source `ButtonShop` template inserted at sibling index 1. The clone's old Shop click event is replaced **on the clone alone**; its label becomes **Hoạt động**, and its click invokes the already supported original `Home2Scene/ButtonEvents` offline popup route. New action is `NEW_PROJECT_DESIGN`, not recovered original activity gameplay.
+- Source `Home2Scene.unity`, original art, serialized `Button.onClick`, Scene/Prefab and player data are unchanged. Idempotent runtime child, no invented icon, no auto-claim that this matches the exact 2026 screenshot pixel-for-pixel. If the verified Sprite cannot load (Git LFS/import), warn and do not substitute a fake.
+- **Validation**: `py -3 -m unittest discover -s tests -p test_offline_home2_hud.py -v` (static regression), then Unity 2022.3.51f1 with `git lfs pull`: open `Home2Scene.unity`, Play, confirm one Fb only (plus Friend and Mail), no Skins, six bottom buttons ordered Shop → Hoạt động → Ship → Summon → Heroes → Bag, activity opens existing offline Event popup, and no Console exception. Compare source art against supplied screenshot. **Unity Play Mode still requires user confirmation** before PR #9 merge.
+
 ## What is implemented
 
 ## 2026-10-12 — Home2 Naruto placeholders remained in Play Mode
