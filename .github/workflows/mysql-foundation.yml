@@ -49,8 +49,15 @@ jobs:
           test "$HERO_COUNT" = "751"
           test "$FILE_COUNT" = "139"
           test "$TABLE_COUNT" = "84"
+          test "$(docker exec "$CID" mysql -uroot --password=ci_only_mysql_password -N -s -e "SELECT COUNT(*) FROM htdc_game.catalog_records")" = "66191"
+          test "$(docker exec "$CID" mysql -uroot --password=ci_only_mysql_password -N -s -e "SELECT COUNT(*) FROM htdc_game.item_definitions WHERE display_name IS NULL")" = "17"
           test "$(docker exec "$CID" mysql -uroot --password=ci_only_mysql_password -N -s -e "SELECT COUNT(*) FROM htdc_game.players")" = "0"
-          echo "PASS: 84 tables; 139 source files; 751 heroes; zero invented players"
+          # Import again to prove deduplication/upsert and transactional refresh.
+          docker exec -i "$CID" mysql -uroot --password=ci_only_mysql_password < database/mysql/generated/002_game_config_seed.sql
+          test "$(docker exec "$CID" mysql -uroot --password=ci_only_mysql_password -N -s -e "SELECT COUNT(*) FROM htdc_game.catalog_records")" = "66191"
+          test "$(docker exec "$CID" mysql -uroot --password=ci_only_mysql_password -N -s -e "SELECT COUNT(*) FROM htdc_game.hero_definitions")" = "751"
+          test "$(docker exec "$CID" mysql -uroot --password=ci_only_mysql_password -N -s -e "SELECT COUNT(*) FROM htdc_game.players")" = "0"
+          echo "PASS: 84 tables; 139 source files; 66191 source records; 751 heroes; 17 source null names; repeat import stable; zero invented players"
       - name: Save manifest-only audit report
         if: always()
         uses: actions/upload-artifact@v4
