@@ -1,5 +1,12 @@
 # AI HANDOFF — Hải Tặc UI Viewer
 
+## 2026-10-12 — Fix Unity Play Mode optional passive3 FormatException
+
+- **User confirmed:** `OfflineHeroCatalog.ParseOptionalSkillId` threw `FormatException: Hero field passive3 is not an unsigned integer:` while entering `Home2Scene`.
+- **Root cause:** source `db_heroes.json`, hero ID `51101` (Magellan BossC) stores `passive3: null`; Unity `JsonUtility` supplies empty string for this optional string field, bypassing old `value == null` guard.
+- **Fix on `feat/offline-hero-ui`:** `string.IsNullOrWhiteSpace(value)` → internal `-1` (missing), keeps explicit source `"0"` distinct and rejects invalid nonempty IDs. Added regression in `tests/test_offline_hero_ui.py`; original source JSON, Scenes, prefabs untouched.
+- **Verification:** GitHub CI static only; **needs user to `git pull --ff-only` and rerun Unity 2022.3.51f1 Play Mode**, see `docs/navigation/OFFLINE_HERO_UI.md`. Do not merge before Unity pass.
+
 ## 2026-10-12 — Original HeroList + six-slot Home2 offline UI (Unity test required)
 
 - **Branch:** `feat/offline-hero-ui` based on `feat/offline-hero-catalog`; PR #9 draft; `main`, original scenes and prefabs not modified.
