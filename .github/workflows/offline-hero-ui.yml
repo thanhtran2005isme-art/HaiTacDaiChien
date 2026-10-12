@@ -1,0 +1,27 @@
+name: Offline hero UI source contract (static)
+
+on:
+  push:
+    branches:
+      - feat/offline-hero-ui
+  pull_request:
+    paths:
+      - "Assets/Scripts/Assembly-CSharp/OfflineHero*.cs"
+      - "Assets/Scripts/Assembly-CSharp/HomeSceneNavigationBridge.cs"
+      - "Assets/Scripts/Assembly-CSharp/HomeSceneReturnHotkey.cs"
+      - "tests/test_offline_hero_ui.py"
+      - ".github/workflows/offline-hero-ui.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  source-contract:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          lfs: false
+      - name: Validate source references and all UI navigation regressions
+        run: python3 -m unittest discover -s tests -p 'test_*.py' -v
