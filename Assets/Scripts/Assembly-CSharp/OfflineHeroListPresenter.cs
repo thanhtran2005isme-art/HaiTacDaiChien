@@ -28,6 +28,12 @@ public sealed class OfflineHeroListPresenter : MonoBehaviour
         try { catalog = OfflineHeroCatalog.LoadFromResources(); }
         catch (Exception ex) { UnityEngine.Debug.LogException(ex, this); return; }
 
+        // AssetRipper serialized this Scene Canvas localScale as (0,0,0).
+        // Fix only the runtime instance so the original scene file stays unchanged.
+        Canvas ownerCanvas = source.m_GoScrollView.GetComponentInParent<Canvas>(true);
+        if (ownerCanvas != null && ownerCanvas.transform.localScale == Vector3.zero)
+            ownerCanvas.transform.localScale = Vector3.one;
+
         ScrollRect scroll = source.m_GoScrollView.GetComponent<ScrollRect>();
         if (scroll == null || scroll.content == null)
         {
