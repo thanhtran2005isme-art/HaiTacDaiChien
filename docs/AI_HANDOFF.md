@@ -1,5 +1,14 @@
 # AI HANDOFF — Hải Tặc UI Viewer
 
+## 2026-10-12 — Offline hero catalog (giai đoạn 1, dữ liệu thật)
+
+- **Nhánh làm việc mới:** `feat/offline-hero-catalog`, tách từ `feat/htdc-localization-hold`; không sửa `main`.
+- **Đã thêm:** `Assets/Scripts/Assembly-CSharp/OfflineHeroCatalog.cs` + `.meta`, đọc `Resources/_pack/db/db_heroes.json` bằng `JsonUtility`, trả 751 bản ghi sắp tăng theo ID; chuẩn hóa sáu `type` không phân biệt hoa/thường; lọc `faction`, `star`, `release` và tra cứu theo ID. Không thay dữ liệu nguồn, không phát sinh ID, không có dữ liệu sở hữu tướng.
+- **Đã xác thực từ nguồn:** 751 ID duy nhất, 203 `release=1`, 548 `release=0`; sáu hệ Fortress 135, Abyss 142, Forest 133, Shadow 131, Dark 93, Light 117. 406 tên riêng (bao gồm NPC/boss/test và nhiều cấp sao).
+- **Kiểm tra:** `tests/test_offline_hero_catalog.py`, workflow `.github/workflows/offline-hero-catalog.yml`, Unity Editor menu **Tools → HTDC → Offline Heroes → Validate db_heroes.json**.
+- **Giới hạn:** chỉ cung cấp repository dữ liệu + menu kiểm kê; `Home2Scene`, `HeroListNewScene`, `PanelHeroInfo` chưa được nối. Python static test PASS không chứng minh Unity Editor compile/Play Mode; cần người dùng xác minh tại máy.
+- **Chi tiết:** `docs/navigation/OFFLINE_HERO_CATALOG.md`. Tiếp theo mới tích hợp danh sách tướng vào `HeroListNewScene`, tách dictionary khỏi inventory và ghép Sprite/Spine theo ID thực.
+
 ## 2026-10-12 — PanelHeroInfo 79/79 P1 offline responses
 
 - **Branch giữ nguyên:** `feat/htdc-localization-hold`; không sửa P0 HomeScene (55), Home2Scene (47), P1 CelestialScene (47) hoặc `main`.
