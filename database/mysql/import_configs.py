@@ -183,9 +183,11 @@ def materialize(filename: str, row: object, index: int) -> str:
 
 
 def load_source(path: Path) -> tuple[str, bool, list[tuple[str | None, object]]]:
-    raw = path.read_text(encoding="utf-8-sig")
+    # Retain U+FEFF BOM in raw_text for exact UTF-8 byte reconstruction.
+    # Remove only for JSON parsing; SHA-256 still covers original file bytes.
+    raw = path.read_text(encoding="utf-8")
     try:
-        decoded = json.loads(raw)
+        decoded = json.loads(raw.removeprefix("\ufeff"))
         return raw, True, rows_from_root(decoded)
     except json.JSONDecodeError as exc:
         if path.suffix == ".json":
