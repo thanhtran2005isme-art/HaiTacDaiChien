@@ -46,7 +46,7 @@ class MySqlTests(unittest.TestCase):
     def test_utf8_bom_is_preserved_in_raw_source(self):
         with tempfile.TemporaryDirectory() as tmp:
             p=Path(tmp)/"source.json"
-            payload="\\ufeff"+json.dumps([{"name":"Đảo Hải Tặc"}],ensure_ascii=False)
+            payload="\ufeff"+json.dumps([{"name":"Đảo Hải Tặc"}],ensure_ascii=False)
             p.write_text(payload,encoding="utf-8")
             raw,parsed,rows=imp.load_source(p)
             self.assertEqual(raw,payload)
