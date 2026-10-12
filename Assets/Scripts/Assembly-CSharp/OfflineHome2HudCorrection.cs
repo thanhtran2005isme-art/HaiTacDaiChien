@@ -17,7 +17,7 @@ public static class OfflineHome2HudCorrection
         Transform canvas = home.transform.root.Find("Canvas");
         if (canvas == null)
         {
-            Debug.LogWarning("[HTDC Home2 HUD] Original Canvas not found.", home);
+            UnityEngine.Debug.LogWarning("[HTDC Home2 HUD] Original Canvas not found.", home);
             return;
         }
 
@@ -34,7 +34,7 @@ public static class OfflineHome2HudCorrection
                 extraImage.sprite != null && extraImage.sprite == originalImage.sprite)
                 extraFb.gameObject.SetActive(false);
             else
-                Debug.LogWarning("[HTDC Home2 HUD] FB Sprite identity changed; refusing to hide.", home);
+                UnityEngine.Debug.LogWarning("[HTDC Home2 HUD] FB Sprite identity changed; refusing to hide.", home);
         }
 
         // Keep the original Skins GameObject and its serialized callback, but
@@ -51,7 +51,7 @@ public static class OfflineHome2HudCorrection
         if (shop == null || ship == null || eventButton == null ||
             ship.GetSiblingIndex() != shop.GetSiblingIndex() + 1)
         {
-            Debug.LogWarning("[HTDC Home2 HUD] Expected Shop -> Ship and source Event button not found; no replacement UI guessed.", home);
+            UnityEngine.Debug.LogWarning("[HTDC Home2 HUD] Expected Shop -> Ship and source Event button not found; no replacement UI guessed.", home);
             return;
         }
 
@@ -60,7 +60,7 @@ public static class OfflineHome2HudCorrection
             ? shop.Find("TagName").GetComponentInChildren<Text>(true) : null;
         if (shopButton == null || shopLabel == null)
         {
-            Debug.LogWarning("[HTDC Home2 HUD] Original bottom button template incomplete.", home);
+            UnityEngine.Debug.LogWarning("[HTDC Home2 HUD] Original bottom button template incomplete.", home);
             return;
         }
 
@@ -69,7 +69,7 @@ public static class OfflineHome2HudCorrection
         Sprite originalActivitySprite = LoadActivitySprite();
         if (originalActivitySprite == null)
         {
-            Debug.LogWarning("[HTDC Home2 HUD] Source event Sprite unavailable. Run git lfs pull; not substituting another icon.", home);
+            UnityEngine.Debug.LogWarning("[HTDC Home2 HUD] Source event Sprite unavailable. Run git lfs pull; not substituting another icon.", home);
             return;
         }
 
@@ -82,7 +82,7 @@ public static class OfflineHome2HudCorrection
         if (activityImage == null || activityButton == null || activityLabel == null)
         {
             Object.Destroy(activity);
-            Debug.LogError("[HTDC Home2 HUD] Could not initialize the source-backed activity control.", home);
+            UnityEngine.Debug.LogError("[HTDC Home2 HUD] Could not initialize the source-backed activity control.", home);
             return;
         }
 
@@ -95,7 +95,7 @@ public static class OfflineHome2HudCorrection
         // PopupGameEvent. Reuse that available UI; no new gameplay claim.
         activityButton.onClick.AddListener(() => eventButton.onClick.Invoke());
         activity.SetActive(true);
-        Debug.Log("[HTDC Home2 HUD] Extra FB and Skins hidden; Activity added after Shop using source art.", home);
+        UnityEngine.Debug.Log("[HTDC Home2 HUD] Extra FB and Skins hidden; Activity added after Shop using source art.", home);
     }
 
     private static Sprite LoadActivitySprite()
