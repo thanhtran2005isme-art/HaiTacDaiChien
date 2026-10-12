@@ -68,15 +68,18 @@ public sealed class OfflineHeroDetailModal : MonoBehaviour
         ir.anchorMax = new Vector2(0.5f, 0f);
         ir.pivot = new Vector2(0.5f, 0f);
         ir.anchoredPosition = new Vector2(0f, 8f);
-        ir.sizeDelta = new Vector2(760f, 35f);
+        ir.sizeDelta = new Vector2(860f, 56f);
         Text labelData = info.GetComponent<Text>();
         labelData.font = Resources.GetBuiltinResource<Font>("Arial.ttf");
-        labelData.fontSize = 18;
+        labelData.fontSize = 16;
         labelData.alignment = TextAnchor.MiddleCenter;
         labelData.color = new Color(1f, 0.85f, 0.42f);
         labelData.raycastTarget = false;
         labelData.text = hero.Name + " | ID " + hero.Id + " | " +
-            hero.Faction + " | " + hero.Star + " sao | " + hero.ClassName;
+            hero.Faction + " | " + hero.Star + " sao | " + hero.ClassName +
+            "\nID kỹ năng gốc: " + hero.ActiveSkillId + " / " +
+            hero.Passive1SkillId + " / " + hero.Passive2SkillId + " / " +
+            hero.Passive3SkillId;
     }
 
     public static bool CloseActive()
