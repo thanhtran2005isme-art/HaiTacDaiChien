@@ -12,6 +12,7 @@ public sealed class OfflineHeroHomePresenter : MonoBehaviour
 
     private void Start()
     {
+        UnityEngine.Debug.Log("[HTDC Heroes] Home2 presenter Start; initializing 6 offline slots.", this);
         original = GetComponent<Home2Scene>();
         if (original == null || original.m_ListHeroHome == null
             || original.m_ListHeroHome.Count != OfflineHeroParty.Capacity)
