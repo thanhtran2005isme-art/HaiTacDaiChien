@@ -11,6 +11,18 @@
 - Reviewed source C# types: `DbManager`, `DatabaseFK`, `NetworkController`, `BoxLogin`, `PlayerInventory`, `PlayerData`, `LineUpSaveLoad`, `OfflineHeroCatalog`, `OfflineHeroParty`. Original AssetRipper runtime methods frequently return null/default or contain no body. `OfflineHeroParty` is an independent local PlayerPrefs roster of at most 6 heroes, **not** an owned-hero inventory. No deployable backend, API endpoints, SQL server, original authentication or live wallet exists.
 - `db_hero_skill.json` is large; this migration imports the **complete file from the local checkout**. Remote snippets and partial API fetches are not used to truncate or reconstruct it.
 
+## Verified baseline (GitHub Actions — disposable MySQL 8.4.11)
+
+The first full real-DB CI run with corrected nullable source item names **passed**:
+- **84 tables** created with real MySQL 8.4.11.
+- **139 data files** imported: vi 53 / en 50 / th 18 / zh 18.
+- **66,191 decoded configuration records**, with **20,591 source-backed typed projections**.
+- **751 real hero catalog definitions**, **zero fabricated players**.
+- **4 non-JSON text files** preserved as raw text + JSON-string records (not silently discarded).
+- Source data includes `name: null` in **16 consumables** and **1 artifact**; `item_definitions.display_name` intentionally accepts SQL NULL, while the original full record is kept in `source_json`.
+- UTF-8 BOM, if present, is preserved in `catalog_files.raw_text`; JSON decoding removes BOM only for parsing. SHA-256 always covers original file bytes.
+- CI URL: https://github.com/thanhtran2005isme-art/HaiTacDaiChien/actions/runs/38278693621 (subsequent commits require their own recheck).
+
 ## SQL schema
 
 `database/mysql/001_schema.sql` creates **84 MySQL 8.0.36+/8.4 tables**. InnoDB + UTF8MB4 with PK/FK/unique/indexes, explicit state machines where appropriate:
