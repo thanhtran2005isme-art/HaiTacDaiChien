@@ -1,5 +1,15 @@
 # AI HANDOFF — Hải Tặc UI Viewer
 
+## 2026-10-12 — CelestialScene 47/47 P1 source-only offline routes
+
+- **Branch:** `feat/htdc-localization-hold`, tiếp tục branch đã có; hai P0 `HomeScene.unity` (55 callback) và `Home2Scene.unity` (47 callback) **không chỉnh sửa**.
+- **Code:** thêm đúng một `HomeSceneNavigationBridge` có sẵn vào `Assets/Scenes/CelestialScene.unity`, trên `Scripts` GO 62, component fileID 1106; giữ nguyên 47 persistent `m_OnClick`. Thêm **1 Scene** trở về HomeScene, **2 PopupNap** preview (Gem/Gold), **44 PopupMessage** nói rõ thiếu `IslandModel`/`MineModel`/`BuildingModel`/`CelestialModel`/SDK và dữ liệu thật. Không thay UI, asset, bố cục hay gameplay.
+- **Test:** `tests/test_celestial_scene_navigation.py` khóa từng cặp original Button target/method và tính đúng-một-lần 47 route, kiểm tra prefab tồn tại + regression P0. `.github/workflows/celestial-scene-navigation.yml` chạy static tests trên nhánh; phải xem Actions của **SHA mới nhất** trước khi tuyên bố PASS.
+- **Giới hạn:** một số mỏ/công trình ở trạng thái inactive trong SerializedFile, không thể nhấn khi thiếu dữ liệu game. C# AssetRipper vẫn là các stub rỗng; 44 thông báo không tương đương khai thác/xây/nâng cấp/chiến đấu. `PopupNap` chỉ preview, không thực hiện thanh toán. **Unity Play Mode chưa được kiểm tra tại HEAD mới**.
+- **Test tại Windows Unity 2022.3.51f1:** mở `Assets/Scenes/CelestialScene.unity`, kiểm tra Back, hai PopupNap/Close/Escape, PopupMessage đảo/mỏ/công trình và không có Console exception, so sánh P0. Chi tiết: `docs/navigation/CELESTIALSCENE_NAVIGATION_AUDIT.md`.
+- **Tiếp theo:** nhận kết quả Unity Editor trước khi sửa UI cụ thể hoặc tuyên bố P1 gameplay PASS; không merge vào main tự động.
+
+
 ## 2026-10-12 — Home2Scene 47/47 click response follow-up
 
 - **Same branch:** `feat/htdc-localization-hold`; no new branch. 47 original OnClick remain byte-for-byte unchanged.
