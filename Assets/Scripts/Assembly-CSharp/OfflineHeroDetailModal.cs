@@ -79,7 +79,7 @@ public sealed class OfflineHeroDetailModal : MonoBehaviour
             hero.Faction + " | " + hero.Star + " sao | " + hero.ClassName +
             "\nID kỹ năng gốc: " + hero.ActiveSkillId + " / " +
             hero.Passive1SkillId + " / " + hero.Passive2SkillId + " / " +
-            hero.Passive3SkillId;
+            (hero.Passive3SkillId < 0 ? "không có" : hero.Passive3SkillId.ToString());
     }
 
     public static bool CloseActive()
