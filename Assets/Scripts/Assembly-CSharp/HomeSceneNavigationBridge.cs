@@ -144,6 +144,23 @@ public sealed class HomeSceneNavigationBridge : MonoBehaviour
         return true;
     }
 
+    // Replace only the six source ClickArea offline notices AFTER a real
+    // offline hero adapter is bound; keep every persistent original onClick.
+    public bool RemoveOfflineNoticeForButton(Button button)
+    {
+        if (button == null || noticeRoutes == null) return false;
+        bool isNotice = false;
+        foreach (NoticeRoute route in noticeRoutes)
+            if (route != null && route.button == button) { isNotice = true; break; }
+        if (!isNotice) return false;
+        int index = subscribedButtons.IndexOf(button);
+        if (index < 0) return false;
+        button.onClick.RemoveListener(subscribedActions[index]);
+        subscribedButtons.RemoveAt(index);
+        subscribedActions.RemoveAt(index);
+        return true;
+    }
+
     private void Register(Button button, UnityAction callback, HashSet<Button> seen)
     {
         if (!seen.Add(button))
