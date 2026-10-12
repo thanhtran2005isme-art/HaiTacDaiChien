@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 222668567464662426}
   - component: {fileID: 114894109217530713}
   - component: {fileID: 114389919106099790}
+  - component: {fileID: 114898765432101234}
   m_Layer: 5
   m_Name: PanelHeroInfo
   m_TagString: Untagged
@@ -81502,3 +81503,424 @@ MonoBehaviour:
           m_StringArgument:
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &114898765432101234
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1709254077376921}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d5a2c0f1b3e4d6789a0bcde12345678, type: 3}
+  m_Name:
+  m_EditorClassIdentifier:
+  responses:
+  - button: {fileID: 114157225796802554}
+    kind: 1
+    target: {fileID: 0}
+    title: 
+    message: 
+  - button: {fileID: 114768484119557068}
+    kind: 0
+    target: {fileID: 0}
+    title: Khóa hoặc trang phục
+    message: Thiếu quyền sở hữu, trạng thái mở khóa và dữ liệu trang phục tướng.
+  - button: {fileID: 114686181799252378}
+    kind: 0
+    target: {fileID: 0}
+    title: Khóa hoặc trang phục
+    message: Thiếu quyền sở hữu, trạng thái mở khóa và dữ liệu trang phục tướng.
+  - button: {fileID: 114040491821372589}
+    kind: 0
+    target: {fileID: 0}
+    title: Khóa hoặc trang phục
+    message: Thiếu quyền sở hữu, trạng thái mở khóa và dữ liệu trang phục tướng.
+  - button: {fileID: 114849003914875799}
+    kind: 2
+    target: {fileID: 0}
+    title: 
+    message: 
+  - button: {fileID: 114620280719387133}
+    kind: 0
+    target: {fileID: 0}
+    title: Chia sẻ tướng
+    message: Thiếu tài khoản, HeroModel và dịch vụ chat hoặc bang hội; chưa thể gửi thông tin tướng.
+  - button: {fileID: 114936454201843581}
+    kind: 0
+    target: {fileID: 0}
+    title: Chia sẻ tướng
+    message: Thiếu tài khoản, HeroModel và dịch vụ chat hoặc bang hội; chưa thể gửi thông tin tướng.
+  - button: {fileID: 114014688489722358}
+    kind: 0
+    target: {fileID: 0}
+    title: Trang bị tướng
+    message: Thiếu HeroModel, EquipmentModel, kho đồ và điều kiện trang bị; chưa thay đổi vật phẩm.
+  - button: {fileID: 114854023233086460}
+    kind: 0
+    target: {fileID: 0}
+    title: Trang bị tướng
+    message: Thiếu HeroModel, EquipmentModel, kho đồ và điều kiện trang bị; chưa thay đổi vật phẩm.
+  - button: {fileID: 114458129775049929}
+    kind: 0
+    target: {fileID: 0}
+    title: Trang bị tướng
+    message: Thiếu HeroModel, EquipmentModel, kho đồ và điều kiện trang bị; chưa thay đổi vật phẩm.
+  - button: {fileID: 114277054475460536}
+    kind: 0
+    target: {fileID: 0}
+    title: Trang bị tướng
+    message: Thiếu HeroModel, EquipmentModel, kho đồ và điều kiện trang bị; chưa thay đổi vật phẩm.
+  - button: {fileID: 114921561213022343}
+    kind: 0
+    target: {fileID: 0}
+    title: Trang bị tướng
+    message: Thiếu HeroModel, EquipmentModel, kho đồ và điều kiện trang bị; chưa thay đổi vật phẩm.
+  - button: {fileID: 114154215509322802}
+    kind: 0
+    target: {fileID: 0}
+    title: Trang bị tướng
+    message: Thiếu HeroModel, EquipmentModel, kho đồ và điều kiện trang bị; chưa thay đổi vật phẩm.
+  - button: {fileID: 114843565151526147}
+    kind: 0
+    target: {fileID: 0}
+    title: Trang bị tướng
+    message: Thiếu HeroModel, EquipmentModel, kho đồ và điều kiện trang bị; chưa thay đổi vật phẩm.
+  - button: {fileID: 114573904452112436}
+    kind: 0
+    target: {fileID: 0}
+    title: Trang bị tướng
+    message: Thiếu HeroModel, EquipmentModel, kho đồ và điều kiện trang bị; chưa thay đổi vật phẩm.
+  - button: {fileID: 114482330091005650}
+    kind: 0
+    target: {fileID: 0}
+    title: Trang bị tướng
+    message: Thiếu HeroModel, EquipmentModel, kho đồ và điều kiện trang bị; chưa thay đổi vật phẩm.
+  - button: {fileID: 114504365323825880}
+    kind: 0
+    target: {fileID: 0}
+    title: Trang bị tướng
+    message: Thiếu HeroModel, EquipmentModel, kho đồ và điều kiện trang bị; chưa thay đổi vật phẩm.
+  - button: {fileID: 114644364330909280}
+    kind: 0
+    target: {fileID: 0}
+    title: Trang bị tướng
+    message: Thiếu HeroModel, EquipmentModel, kho đồ và điều kiện trang bị; chưa thay đổi vật phẩm.
+  - button: {fileID: 114092839867560389}
+    kind: 0
+    target: {fileID: 0}
+    title: Trang bị tướng
+    message: Thiếu HeroModel, EquipmentModel, kho đồ và điều kiện trang bị; chưa thay đổi vật phẩm.
+  - button: {fileID: 114939057062620904}
+    kind: 0
+    target: {fileID: 0}
+    title: Trang bị tướng
+    message: Thiếu HeroModel, EquipmentModel, kho đồ và điều kiện trang bị; chưa thay đổi vật phẩm.
+  - button: {fileID: 114138770155796879}
+    kind: 0
+    target: {fileID: 0}
+    title: Trang bị tướng
+    message: Thiếu HeroModel, EquipmentModel, kho đồ và điều kiện trang bị; chưa thay đổi vật phẩm.
+  - button: {fileID: 114771771165603003}
+    kind: 0
+    target: {fileID: 0}
+    title: Phát triển tướng
+    message: Thiếu cấp tướng, nguyên liệu, tỷ lệ và dữ liệu máy chủ; chưa tiêu hao hay cấp tài nguyên.
+  - button: {fileID: 114416748782378338}
+    kind: 0
+    target: {fileID: 0}
+    title: Phát triển tướng
+    message: Thiếu cấp tướng, nguyên liệu, tỷ lệ và dữ liệu máy chủ; chưa tiêu hao hay cấp tài nguyên.
+  - button: {fileID: 114905984569091657}
+    kind: 0
+    target: {fileID: 0}
+    title: Phát triển tướng
+    message: Thiếu cấp tướng, nguyên liệu, tỷ lệ và dữ liệu máy chủ; chưa tiêu hao hay cấp tài nguyên.
+  - button: {fileID: 114249466731515246}
+    kind: 0
+    target: {fileID: 0}
+    title: Chỉ số tướng
+    message: Thiếu HeroModel và các giá trị thuộc tính; không hiển thị chỉ số giả.
+  - button: {fileID: 114194641596278120}
+    kind: 7
+    target: {fileID: 0}
+    title: 
+    message: 
+  - button: {fileID: 114212334113515110}
+    kind: 0
+    target: {fileID: 0}
+    title: Phát triển tướng
+    message: Thiếu cấp tướng, nguyên liệu, tỷ lệ và dữ liệu máy chủ; chưa tiêu hao hay cấp tài nguyên.
+  - button: {fileID: 114795826972346488}
+    kind: 0
+    target: {fileID: 0}
+    title: Phát triển tướng
+    message: Thiếu cấp tướng, nguyên liệu, tỷ lệ và dữ liệu máy chủ; chưa tiêu hao hay cấp tài nguyên.
+  - button: {fileID: 114764680373260257}
+    kind: 0
+    target: {fileID: 0}
+    title: Phát triển tướng
+    message: Thiếu cấp tướng, nguyên liệu, tỷ lệ và dữ liệu máy chủ; chưa tiêu hao hay cấp tài nguyên.
+  - button: {fileID: 114376540739510835}
+    kind: 0
+    target: {fileID: 0}
+    title: Phát triển tướng
+    message: Thiếu cấp tướng, nguyên liệu, tỷ lệ và dữ liệu máy chủ; chưa tiêu hao hay cấp tài nguyên.
+  - button: {fileID: 114948867914994238}
+    kind: 0
+    target: {fileID: 0}
+    title: Phát triển tướng
+    message: Thiếu cấp tướng, nguyên liệu, tỷ lệ và dữ liệu máy chủ; chưa tiêu hao hay cấp tài nguyên.
+  - button: {fileID: 114260188750324072}
+    kind: 0
+    target: {fileID: 0}
+    title: Phát triển tướng
+    message: Thiếu cấp tướng, nguyên liệu, tỷ lệ và dữ liệu máy chủ; chưa tiêu hao hay cấp tài nguyên.
+  - button: {fileID: 114013337880340906}
+    kind: 0
+    target: {fileID: 0}
+    title: Phát triển tướng
+    message: Thiếu cấp tướng, nguyên liệu, tỷ lệ và dữ liệu máy chủ; chưa tiêu hao hay cấp tài nguyên.
+  - button: {fileID: 114886640491627190}
+    kind: 0
+    target: {fileID: 0}
+    title: Phát triển tướng
+    message: Thiếu cấp tướng, nguyên liệu, tỷ lệ và dữ liệu máy chủ; chưa tiêu hao hay cấp tài nguyên.
+  - button: {fileID: 114117105137174839}
+    kind: 0
+    target: {fileID: 0}
+    title: Phát triển tướng
+    message: Thiếu cấp tướng, nguyên liệu, tỷ lệ và dữ liệu máy chủ; chưa tiêu hao hay cấp tài nguyên.
+  - button: {fileID: 114481927319256784}
+    kind: 0
+    target: {fileID: 0}
+    title: Phát triển tướng
+    message: Thiếu cấp tướng, nguyên liệu, tỷ lệ và dữ liệu máy chủ; chưa tiêu hao hay cấp tài nguyên.
+  - button: {fileID: 114899019013336501}
+    kind: 0
+    target: {fileID: 0}
+    title: Phát triển tướng
+    message: Thiếu cấp tướng, nguyên liệu, tỷ lệ và dữ liệu máy chủ; chưa tiêu hao hay cấp tài nguyên.
+  - button: {fileID: 114629656394442510}
+    kind: 0
+    target: {fileID: 0}
+    title: Phát triển tướng
+    message: Thiếu cấp tướng, nguyên liệu, tỷ lệ và dữ liệu máy chủ; chưa tiêu hao hay cấp tài nguyên.
+  - button: {fileID: 114617057841703203}
+    kind: 0
+    target: {fileID: 0}
+    title: Phát triển tướng
+    message: Thiếu cấp tướng, nguyên liệu, tỷ lệ và dữ liệu máy chủ; chưa tiêu hao hay cấp tài nguyên.
+  - button: {fileID: 114937352850718673}
+    kind: 0
+    target: {fileID: 0}
+    title: Phát triển tướng
+    message: Thiếu cấp tướng, nguyên liệu, tỷ lệ và dữ liệu máy chủ; chưa tiêu hao hay cấp tài nguyên.
+  - button: {fileID: 114516644830501210}
+    kind: 0
+    target: {fileID: 0}
+    title: Phát triển tướng
+    message: Thiếu cấp tướng, nguyên liệu, tỷ lệ và dữ liệu máy chủ; chưa tiêu hao hay cấp tài nguyên.
+  - button: {fileID: 114650314481455274}
+    kind: 0
+    target: {fileID: 0}
+    title: Phát triển tướng
+    message: Thiếu cấp tướng, nguyên liệu, tỷ lệ và dữ liệu máy chủ; chưa tiêu hao hay cấp tài nguyên.
+  - button: {fileID: 114335071138204199}
+    kind: 0
+    target: {fileID: 0}
+    title: Kỹ năng tướng
+    message: Thiếu HeroModel, cấp kỹ năng và điều kiện kích hoạt; chưa nâng hay mở khóa kỹ năng.
+  - button: {fileID: 114005975135513866}
+    kind: 0
+    target: {fileID: 0}
+    title: Kỹ năng tướng
+    message: Thiếu HeroModel, cấp kỹ năng và điều kiện kích hoạt; chưa nâng hay mở khóa kỹ năng.
+  - button: {fileID: 114786346669490602}
+    kind: 0
+    target: {fileID: 0}
+    title: Kỹ năng tướng
+    message: Thiếu HeroModel, cấp kỹ năng và điều kiện kích hoạt; chưa nâng hay mở khóa kỹ năng.
+  - button: {fileID: 114806928132528559}
+    kind: 0
+    target: {fileID: 0}
+    title: Kỹ năng tướng
+    message: Thiếu HeroModel, cấp kỹ năng và điều kiện kích hoạt; chưa nâng hay mở khóa kỹ năng.
+  - button: {fileID: 114646033343171984}
+    kind: 0
+    target: {fileID: 0}
+    title: Kỹ năng tướng
+    message: Thiếu HeroModel, cấp kỹ năng và điều kiện kích hoạt; chưa nâng hay mở khóa kỹ năng.
+  - button: {fileID: 114898453428721119}
+    kind: 0
+    target: {fileID: 0}
+    title: Phát triển tướng
+    message: Thiếu cấp tướng, nguyên liệu, tỷ lệ và dữ liệu máy chủ; chưa tiêu hao hay cấp tài nguyên.
+  - button: {fileID: 114140400340907168}
+    kind: 0
+    target: {fileID: 0}
+    title: Kỹ năng tướng
+    message: Thiếu HeroModel, cấp kỹ năng và điều kiện kích hoạt; chưa nâng hay mở khóa kỹ năng.
+  - button: {fileID: 114429246990495191}
+    kind: 0
+    target: {fileID: 0}
+    title: Kỹ năng tướng
+    message: Thiếu HeroModel, cấp kỹ năng và điều kiện kích hoạt; chưa nâng hay mở khóa kỹ năng.
+  - button: {fileID: 114328642643841301}
+    kind: 0
+    target: {fileID: 0}
+    title: Kỹ năng tướng
+    message: Thiếu HeroModel, cấp kỹ năng và điều kiện kích hoạt; chưa nâng hay mở khóa kỹ năng.
+  - button: {fileID: 114883082147969800}
+    kind: 0
+    target: {fileID: 0}
+    title: Kỹ năng tướng
+    message: Thiếu HeroModel, cấp kỹ năng và điều kiện kích hoạt; chưa nâng hay mở khóa kỹ năng.
+  - button: {fileID: 114331579626406510}
+    kind: 0
+    target: {fileID: 0}
+    title: Kỹ năng tướng
+    message: Thiếu HeroModel, cấp kỹ năng và điều kiện kích hoạt; chưa nâng hay mở khóa kỹ năng.
+  - button: {fileID: 114228642618569554}
+    kind: 0
+    target: {fileID: 0}
+    title: Kỹ năng tướng
+    message: Thiếu HeroModel, cấp kỹ năng và điều kiện kích hoạt; chưa nâng hay mở khóa kỹ năng.
+  - button: {fileID: 114919956442135330}
+    kind: 6
+    target: {fileID: 0}
+    title: 
+    message: 
+  - button: {fileID: 114783428451750126}
+    kind: 0
+    target: {fileID: 0}
+    title: Trang bị đặc biệt
+    message: Thiếu dữ liệu mở khóa và nguyên liệu nâng cấp; không thể thực hiện giao dịch.
+  - button: {fileID: 114711704537669174}
+    kind: 0
+    target: {fileID: 0}
+    title: Thông tin tướng
+    message: Thiếu HeroModel hoặc dữ liệu trạng thái; thao tác này chưa thể xử lý chính xác.
+  - button: {fileID: 114706105838165147}
+    kind: 0
+    target: {fileID: 0}
+    title: Trang bị đặc biệt
+    message: Thiếu dữ liệu mở khóa và nguyên liệu nâng cấp; không thể thực hiện giao dịch.
+  - button: {fileID: 114359931199290889}
+    kind: 0
+    target: {fileID: 0}
+    title: Khóa hoặc trang phục
+    message: Thiếu quyền sở hữu, trạng thái mở khóa và dữ liệu trang phục tướng.
+  - button: {fileID: 114474860191130215}
+    kind: 0
+    target: {fileID: 0}
+    title: Trang bị đặc biệt
+    message: Thiếu dữ liệu mở khóa và nguyên liệu nâng cấp; không thể thực hiện giao dịch.
+  - button: {fileID: 114753478772634236}
+    kind: 0
+    target: {fileID: 0}
+    title: Khóa hoặc trang phục
+    message: Thiếu quyền sở hữu, trạng thái mở khóa và dữ liệu trang phục tướng.
+  - button: {fileID: 114182939637751607}
+    kind: 8
+    target: {fileID: 1083739296819378}
+    title: Trang thông tin tướng
+    message: Đã mở tab gốc, nhưng thiếu HeroModel và dữ liệu tướng để cập nhật chỉ số chính xác.
+  - button: {fileID: 114769000420084825}
+    kind: 8
+    target: {fileID: 1719342369648492}
+    title: Trang thông tin tướng
+    message: Đã mở tab gốc, nhưng thiếu HeroModel và dữ liệu tướng để cập nhật chỉ số chính xác.
+  - button: {fileID: 114275608186828602}
+    kind: 8
+    target: {fileID: 1760480127920944}
+    title: Trang thông tin tướng
+    message: Đã mở tab gốc, nhưng thiếu HeroModel và dữ liệu tướng để cập nhật chỉ số chính xác.
+  - button: {fileID: 114696562466561301}
+    kind: 8
+    target: {fileID: 1433881075115309}
+    title: Trang thông tin tướng
+    message: Đã mở tab gốc, nhưng thiếu HeroModel và dữ liệu tướng để cập nhật chỉ số chính xác.
+  - button: {fileID: 114224515126651668}
+    kind: 8
+    target: {fileID: 1251666133023005}
+    title: Trang thông tin tướng
+    message: Đã mở tab gốc, nhưng thiếu HeroModel và dữ liệu tướng để cập nhật chỉ số chính xác.
+  - button: {fileID: 114774516583502458}
+    kind: 8
+    target: {fileID: 1808008904197051}
+    title: Trang thông tin tướng
+    message: Đã mở tab gốc, nhưng thiếu HeroModel và dữ liệu tướng để cập nhật chỉ số chính xác.
+  - button: {fileID: 114977941605037310}
+    kind: 8
+    target: {fileID: 1177900317477814}
+    title: Trang thông tin tướng
+    message: Đã mở tab gốc, nhưng thiếu HeroModel và dữ liệu tướng để cập nhật chỉ số chính xác.
+  - button: {fileID: 114959207276301250}
+    kind: 5
+    target: {fileID: 0}
+    title: 
+    message: 
+  - button: {fileID: 114708998942925673}
+    kind: 4
+    target: {fileID: 0}
+    title: 
+    message: 
+  - button: {fileID: 114989097877331718}
+    kind: 0
+    target: {fileID: 0}
+    title: Lọc hệ tướng
+    message: Thiếu danh sách tướng và hệ phái thực tế; chưa thể tính kết quả bộ lọc.
+  - button: {fileID: 114395444076459136}
+    kind: 0
+    target: {fileID: 0}
+    title: Lọc hệ tướng
+    message: Thiếu danh sách tướng và hệ phái thực tế; chưa thể tính kết quả bộ lọc.
+  - button: {fileID: 114665260968642048}
+    kind: 0
+    target: {fileID: 0}
+    title: Lọc hệ tướng
+    message: Thiếu danh sách tướng và hệ phái thực tế; chưa thể tính kết quả bộ lọc.
+  - button: {fileID: 114365705593763200}
+    kind: 0
+    target: {fileID: 0}
+    title: Lọc hệ tướng
+    message: Thiếu danh sách tướng và hệ phái thực tế; chưa thể tính kết quả bộ lọc.
+  - button: {fileID: 114568763460057462}
+    kind: 0
+    target: {fileID: 0}
+    title: Lọc hệ tướng
+    message: Thiếu danh sách tướng và hệ phái thực tế; chưa thể tính kết quả bộ lọc.
+  - button: {fileID: 114424060920519758}
+    kind: 0
+    target: {fileID: 0}
+    title: Lọc hệ tướng
+    message: Thiếu danh sách tướng và hệ phái thực tế; chưa thể tính kết quả bộ lọc.
+  - button: {fileID: 114417611521646659}
+    kind: 3
+    target: {fileID: 0}
+    title: 
+    message: 
+  - button: {fileID: 114091078363373978}
+    kind: 0
+    target: {fileID: 0}
+    title: Chuyển tướng
+    message: Thiếu danh sách HeroModel và thứ tự tướng hợp lệ; không tự chọn tướng khác.
+  - button: {fileID: 114132704615343179}
+    kind: 0
+    target: {fileID: 0}
+    title: Chuyển tướng
+    message: Thiếu danh sách HeroModel và thứ tự tướng hợp lệ; không tự chọn tướng khác.
+  shareBox: {fileID: 1808113985169905}
+  filterPanel: {fileID: 1750672133102756}
+  pointDetail: {fileID: 1235180746187507}
+  skillDetail: {fileID: 1100532463973045}
+  skillDescription: {fileID: 1415925016355036}
+  originalTabPanels:
+  - {fileID: 1083739296819378}
+  - {fileID: 1719342369648492}
+  - {fileID: 1760480127920944}
+  - {fileID: 1433881075115309}
+  - {fileID: 1251666133023005}
+  - {fileID: 1808008904197051}
+  - {fileID: 1177900317477814}
