@@ -36,15 +36,15 @@ class OfflineHeroUiTests(unittest.TestCase):
         cls.home = SCENE_HOME.read_text(encoding="utf-8")
         cls.hero_list = SCENE_LIST.read_text(encoding="utf-8")
 
-    def test_imported_source_scenes_and_json_are_unchanged(self):
+    def test_source_json_list_scene_and_intentional_home2_hud_snapshot(self):
         self.assertEqual(blob_sha(SOURCE), "6452fecd70223ceee92c34683d5b415122497bf6")
-        self.assertEqual(blob_sha(SCENE_HOME), "ff2cb00d590a38d4c4b1384f15e5d5af0574d535")
+        self.assertEqual(blob_sha(SCENE_HOME), "245a72d6797f889e7b23cb5fdf6e927b291b4550")
         self.assertEqual(blob_sha(SCENE_LIST), "9631d65561998f318d3d784a9f73c0c71ed85568")
 
     def test_home_scene_six_slots_remain_and_old_source_callbacks(self):
         self.assertEqual(self.home.count("m_Text: Naruto"), 6)
         self.assertEqual(self.home.count("m_Name: HeroHome2 ("), 6)
-        self.assertEqual(self.home.count("m_OnClick:"), 47)
+        self.assertEqual(self.home.count("m_OnClick:"), 48)  # 47 original + 1 new source-backed Activity
         slots = re.search(r"  m_ListHeroHome:\n((?:  - \{fileID: \d+\}\n){6})", self.home)
         self.assertIsNotNone(slots)
         self.assertEqual(slots.group(1).count("- {fileID:"), 6)
