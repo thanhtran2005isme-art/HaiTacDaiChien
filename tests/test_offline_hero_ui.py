@@ -132,7 +132,12 @@ class OfflineHeroUiTests(unittest.TestCase):
             self.assertTrue(all(row[field].isdigit() for row in self.rows))
         self.assertIn("public string passive3;", catalog)
         self.assertIn('ParseOptionalSkillId(row.passive3, "passive3")', catalog)
-        self.assertIn("if (value == null) return -1;", catalog)
+        # Unity JsonUtility maps a JSON null string into "", not necessarily null.
+        # The optional parser must accept both plus whitespace, but NOT confuse
+        # the explicit original "0" with an absent skill.
+        self.assertIn("if (string.IsNullOrWhiteSpace(value)) return -1;", catalog)
+        self.assertIn("return ParseNonNegativeInt(value, field);", catalog)
+        self.assertIn('ParseOptionalSkillId(row.passive3, "passive3")', catalog)
         missing = [int(row["id"]) for row in self.rows if row["passive3"] is None]
         self.assertEqual(missing, [51101])
         self.assertTrue(all(row["passive3"].isdigit()
