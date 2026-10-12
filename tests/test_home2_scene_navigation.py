@@ -84,7 +84,7 @@ class Home2NavigationChecks(unittest.TestCase):
         return m.group(1) if m else None
 
     def test_original_callbacks_kept(self):
-        self.assertEqual(self.scene.count("m_OnClick:"), 47)
+        self.assertEqual(self.scene.count("m_OnClick:"), 48)  # 47 original + 1 empty Activity event
         self.assertEqual(self.scene.count("m_TargetAssemblyTypeName:"), 47)
 
     def test_bridge_attached_to_original_scripts_game_object(self):
