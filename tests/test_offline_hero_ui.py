@@ -36,10 +36,10 @@ class OfflineHeroUiTests(unittest.TestCase):
         cls.home = SCENE_HOME.read_text(encoding="utf-8")
         cls.hero_list = SCENE_LIST.read_text(encoding="utf-8")
 
-    def test_source_json_list_scene_and_intentional_home2_hud_snapshot(self):
+    def test_source_json_and_intentionally_localized_unity_scenes(self):
         self.assertEqual(blob_sha(SOURCE), "6452fecd70223ceee92c34683d5b415122497bf6")
         self.assertEqual(blob_sha(SCENE_HOME), "245a72d6797f889e7b23cb5fdf6e927b291b4550")
-        self.assertEqual(blob_sha(SCENE_LIST), "9631d65561998f318d3d784a9f73c0c71ed85568")
+        self.assertEqual(blob_sha(SCENE_LIST), "146c549f2e0fae59fb41dcc8048156a27b19452e")
 
     def test_home_scene_six_slots_remain_and_old_source_callbacks(self):
         self.assertEqual(self.home.count("m_Text: Naruto"), 6)
@@ -67,6 +67,35 @@ class OfflineHeroUiTests(unittest.TestCase):
                       "OfflineHeroParty.Toggle(", "ButtonFortress", "ButtonLight",
                       "OfflineHeroDetailModal.Show("):
             self.assertIn(token, present)
+
+    def test_hero_list_uses_saved_vietnamese_labels_and_no_card_overlay(self):
+        # Static Scene is also correct with Play off. Localization components
+        # for these seven labels are disabled to prevent I2 restoring English.
+        for text_id, label in (
+            (302, "Sinh khí"), (307, "Nhanh nhẹn"), (326, "Minh mẫn"),
+            (333, "Thông minh"), (407, "Chính xác"), (410, "Bền bỉ"),
+            (392, "Sắp xếp")
+        ):
+            match = re.search(
+                rf"(?ms)^--- !u!114 &{text_id}\\n(.*?)(?=^--- !u!|\\Z)",
+                self.hero_list
+            )
+            self.assertIsNotNone(match)
+            self.assertIn("m_Text: " + label, match.group(1))
+        presenter = self.texts["OfflineHeroListPresenter"]
+        self.assertNotIn('new GameObject("OfflineTeamSelect"', presenter)
+        self.assertNotIn("CreateTeamButton(", presenter)
+        self.assertNotIn('text.text = selected ? "Bỏ đội" : "Chọn"', presenter)
+        self.assertIn("OfflineHeroDetailModal.Show(hero, canvas, catalog", presenter)
+        self.assertIn('cell.m_TextLevel.text = "★" + hero.Star;', presenter)
+        self.assertIn("OfflineHeroParty.Read(catalog).Count", presenter)
+        self.assertNotIn('"Đội hình offline: " + OfflineHeroParty.Read(catalog)', presenter)
+        self.assertIn("SetVietnameseControls();", presenter)
+        modal = self.texts["OfflineHeroDetailModal"]
+        self.assertIn('"Thêm vào đội hình"', modal)
+        self.assertIn('"Bỏ khỏi đội hình"', modal)
+        self.assertIn("OfflineHeroParty.Toggle(catalog, hero.Id, out notice)", modal)
+        self.assertIn("onPartyChanged()", modal)
 
     def test_selection_is_opt_in_bounded_and_offline(self):
         src = self.texts["OfflineHeroParty"]
