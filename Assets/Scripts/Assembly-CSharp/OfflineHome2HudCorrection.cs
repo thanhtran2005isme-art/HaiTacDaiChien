@@ -14,12 +14,17 @@ public static class OfflineHome2HudCorrection
     public static void Apply(Home2Scene home)
     {
         if (home == null) return;
-        Transform canvas = home.transform.root.Find("Canvas");
+        // AssetRipper imports "Scripts" and "Canvas" as SIBLING scene roots.
+        // home.transform.root is the Scripts root, so root.Find("Canvas")
+        // cannot see the original Canvas. Resolve it within the same Scene.
+        Transform canvas = FindSceneCanvas(home);
         if (canvas == null)
         {
-            UnityEngine.Debug.LogWarning("[HTDC Home2 HUD] Original Canvas not found.", home);
+            UnityEngine.Debug.LogWarning(
+                "[HTDC Home2 HUD] No Canvas root in Home2 scene; HUD unchanged.", home);
             return;
         }
+        UnityEngine.Debug.Log("[HTDC Home2 HUD] Scene Canvas located: " + canvas.name, home);
 
         // Source IDs: PanelHomeTopRight/ButtonTest (GO 10) and ButtonFb
         // (GO 82) reference the SAME Facebook Sprite GUID. Preserve ButtonFb.
@@ -96,6 +101,21 @@ public static class OfflineHome2HudCorrection
         activityButton.onClick.AddListener(() => eventButton.onClick.Invoke());
         activity.SetActive(true);
         UnityEngine.Debug.Log("[HTDC Home2 HUD] Extra FB and Skins hidden; Activity added after Shop using source art.", home);
+    }
+
+    private static Transform FindSceneCanvas(Home2Scene home)
+    {
+        if (home == null || !home.gameObject.scene.IsValid()) return null;
+
+        // Do not use the active global Scene or a cross-scene GameObject.Find.
+        // It could pick a different Scene's Canvas during additive loading.
+        GameObject[] roots = home.gameObject.scene.GetRootGameObjects();
+        foreach (GameObject root in roots)
+        {
+            if (root != null && root.name == "Canvas" && root.GetComponent<Canvas>() != null)
+                return root.transform;
+        }
+        return null;
     }
 
     private static Sprite LoadActivitySprite()
