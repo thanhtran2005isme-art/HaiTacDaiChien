@@ -2,7 +2,7 @@
 
 ## Xác nhận trước khi nhập
 
-XAMPP trên Windows ghi nút **MySQL** trong Control Panel nhưng thường chạy **MariaDB**. Bản MySQL 8.4 dùng `utf8mb4_0900_ai_ci` có thể không chạy trên MariaDB 10.4; PR #10 có riêng bản tương thích `database/xampp/001_schema_mariadb.sql`. Đây vẫn là **84 bảng**, bảo toàn quan hệ/key/index và dùng cùng công cụ import nguồn.
+XAMPP trên Windows ghi nút **MySQL** trong Control Panel nhưng thường chạy **MariaDB**. Bản MySQL 8.4 dùng `utf8mb4_0900_ai_ci` có thể không chạy trên MariaDB 10.4; PR #10 có riêng bản tương thích `database/xampp/001_schema_mariadb.sql`. Đây vẫn là **84 bảng**, bảo toàn quan hệ/key/index và dùng cùng công cụ import nguồn. Bản XAMPP dùng `utf8mb4_general_ci` (được MariaDB 10.4 hỗ trợ và nhất quán với chuỗi `CONVERT(... USING utf8mb4)` do importer sinh ra), không dùng collation đặc thù của MySQL 8.4.
 
 **Quan trọng:** MySQL 8.4 và XAMPP MariaDB là **hai server khác nhau**. Nếu cả hai muốn dùng TCP 3306, XAMPP báo "MySQL shutdown unexpectedly" hoặc port occupied. Kiểm tra server và chọn một cổng duy nhất. **Không xóa data, không thay tên thư mục `mysql/data`, không dừng database đang phục vụ ứng dụng khác khi chưa sao lưu.**
 
