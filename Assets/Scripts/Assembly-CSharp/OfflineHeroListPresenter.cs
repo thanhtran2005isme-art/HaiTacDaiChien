@@ -18,6 +18,7 @@ public sealed class OfflineHeroListPresenter : MonoBehaviour
 
     private void Start()
     {
+        UnityEngine.Debug.Log("[HTDC Heroes] HeroList presenter Start; loading offline source catalog.", this);
         source = GetComponent<HeroListNewScene>();
         if (source == null || source.m_GoPrefabCell == null || source.m_GoScrollView == null)
         {
