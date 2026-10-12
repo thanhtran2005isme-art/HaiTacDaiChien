@@ -1,0 +1,39 @@
+name: CelestialScene P1 offline navigation (static)
+
+on:
+  push:
+    branches:
+      - feat/htdc-localization-hold
+    paths:
+      - 'Assets/Scenes/CelestialScene.unity'
+      - 'Assets/Scenes/HomeScene.unity'
+      - 'Assets/Scenes/Home2Scene.unity'
+      - 'Assets/Scripts/Assembly-CSharp/HomeSceneNavigationBridge.cs'
+      - 'Assets/Scripts/Assembly-CSharp/HomeSceneNavigationBridge.cs.meta'
+      - 'Assets/Scripts/Assembly-CSharp/HomeSceneReturnHotkey.cs'
+      - 'Assets/Resources/prefabs/common/PopupNap.prefab'
+      - 'Assets/Resources/prefabs/common/PopupMessage.prefab'
+      - 'tests/test_celestial_scene_navigation.py'
+      - 'tests/test_home_scene_navigation_pilot.py'
+      - 'tests/test_home2_scene_navigation.py'
+      - '.github/workflows/celestial-scene-navigation.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  source-contract:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout serialized Unity YAML without downloading game LFS artwork
+        uses: actions/checkout@v4
+        with:
+          lfs: false
+      - name: Check CelestialScene original callbacks and offline routes
+        run: python3 -m unittest discover -s tests -p test_celestial_scene_navigation.py -v
+      - name: Check HomeScene P0 regression
+        run: python3 -m unittest discover -s tests -p test_home_scene_navigation_pilot.py -v
+      - name: Check Home2Scene P0 regression
+        run: python3 -m unittest discover -s tests -p test_home2_scene_navigation.py -v
