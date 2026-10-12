@@ -6,8 +6,31 @@
 
 ## What is implemented
 
+## 2026-10-12 — Home2 Naruto placeholders remained in Play Mode
+
+- User Game View still displayed six source `Naruto` labels and `Lv.200`, demonstrating
+  that `OfflineHeroHomePresenter.Display` had not updated those labels (whether due
+  to bootstrap not firing, early return, or an older checkout cannot be conclusively
+  determined from the screenshot alone). A zero-person offline party **must**
+  appear as six empty slots; source labels must be cleared at runtime.
+- Added a second, idempotent presenter bootstrap in the **decompiled C# stubs**
+  `Home2Scene.Start()` and `HeroListNewScene.Start()`. Original `.unity`
+  Scene YAML, callback serialization, imported prefab assets and source JSON remain
+  **unchanged**. `OfflineHeroSceneRuntime` continues to handle sceneLoaded; all
+  attach paths check `GetComponent` to avoid duplicates.
+- Both presenters now log entry messages with the prefix `[HTDC Heroes]`
+  before loading data. After pulling latest branch, restart Play Mode and
+  filter Unity Console by this prefix. If still no entry log, verify local
+  branch/HEAD and attached component in Play Mode before inferring data issues.
+- **Manual expectations:** first Play on a clean offline PlayerPrefs selection
+  shows zero models and six blank labels by design. Go via the original **Tướng**
+  button, select 1–6 released heroes, then return to `Home2Scene`; names/stars
+  and corresponding available art will appear. No fabricated default team.
+- GitHub workflow checks the source contract, not Unity Editor compile,
+  actual C# runtime component lifecycle, image visibility, or Spine animation.
+
 - `OfflineHeroSceneRuntime` automatically attaches runtime-only presenters after opening the real
-  `HeroListNewScene` or `Home2Scene`. No change to imported `.unity` files or 47 source `m_OnClick` callbacks.
+  `HeroListNewScene` or `Home2Scene`. Original `.unity` files and 47 source `m_OnClick` callbacks remain unmodified.
 - `OfflineHeroListPresenter` uses existing `CellHeroThumb`, `ScrollView/Content`, existing
   `TabFaction` six buttons, `ButtonDictionary` (all), and original `ButtonBack`.
   Layout 190×260, 10px gap, four columns is from the serialized `GridPoolGroup`, not an invented replacement UI.
