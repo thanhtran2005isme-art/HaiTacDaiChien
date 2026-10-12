@@ -10,7 +10,8 @@ public sealed class OfflineHeroDetailModal : MonoBehaviour
     private static GameObject activeLayer;
     private GameObject originalPanel;
 
-    public static void Show(OfflineHeroRecord hero, Canvas canvas)
+    public static void Show(OfflineHeroRecord hero, Canvas canvas,
+        OfflineHeroCatalog catalog = null, Action onPartyChanged = null)
     {
         if (hero == null || canvas == null)
         {
@@ -80,6 +81,66 @@ public sealed class OfflineHeroDetailModal : MonoBehaviour
             "\nID kỹ năng gốc: " + hero.ActiveSkillId + " / " +
             hero.Passive1SkillId + " / " + hero.Passive2SkillId + " / " +
             (hero.Passive3SkillId < 0 ? "không có" : hero.Passive3SkillId.ToString());
+        // Keep list cards untouched: optional offline party editing belongs
+        // inside detail, not as an overlay hiding character artwork.
+        CreatePartyAction(layer, hero, catalog, onPartyChanged);
+    }
+
+    private static void CreatePartyAction(GameObject layer, OfflineHeroRecord hero,
+        OfflineHeroCatalog catalog, Action onPartyChanged)
+    {
+        if (layer == null || hero == null || catalog == null) return;
+
+        GameObject go = new GameObject("OfflineDetailPartyAction",
+            typeof(RectTransform), typeof(CanvasRenderer), typeof(Image), typeof(Button));
+        go.transform.SetParent(layer.transform, false);
+        RectTransform rect = go.GetComponent<RectTransform>();
+        rect.anchorMin = new Vector2(1f, 0f);
+        rect.anchorMax = new Vector2(1f, 0f);
+        rect.pivot = new Vector2(1f, 0f);
+        rect.anchoredPosition = new Vector2(-26f, 18f);
+        rect.sizeDelta = new Vector2(195f, 46f);
+
+        Image background = go.GetComponent<Image>();
+        background.color = new Color(0.49f, 0.29f, 0.10f, 0.96f);
+        Button button = go.GetComponent<Button>();
+        button.targetGraphic = background;
+
+        GameObject textGO = new GameObject("Text",
+            typeof(RectTransform), typeof(CanvasRenderer), typeof(Text));
+        textGO.transform.SetParent(go.transform, false);
+        RectTransform textRect = textGO.GetComponent<RectTransform>();
+        textRect.anchorMin = Vector2.zero;
+        textRect.anchorMax = Vector2.one;
+        textRect.offsetMin = Vector2.zero;
+        textRect.offsetMax = Vector2.zero;
+        Text text = textGO.GetComponent<Text>();
+        text.font = Resources.GetBuiltinResource<Font>("Arial.ttf");
+        text.fontSize = 18;
+        text.alignment = TextAnchor.MiddleCenter;
+        text.color = Color.white;
+        text.raycastTarget = false;
+
+        Action update = () =>
+        {
+            bool selected = OfflineHeroParty.Read(catalog).Exists(
+                item => item.AvatarId == hero.AvatarId);
+            text.text = selected ? "Bỏ khỏi đội hình" : "Thêm vào đội hình";
+        };
+        update();
+        button.onClick.AddListener(() =>
+        {
+            string notice;
+            if (OfflineHeroParty.Toggle(catalog, hero.Id, out notice))
+            {
+                update();
+                if (onPartyChanged != null) onPartyChanged();
+            }
+            else
+            {
+                UnityEngine.Debug.LogWarning("[HTDC Heroes] " + notice);
+            }
+        });
     }
 
     public static bool CloseActive()
