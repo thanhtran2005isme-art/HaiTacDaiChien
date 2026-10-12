@@ -216,11 +216,12 @@ public sealed class OfflineHeroCatalog
         return matches;
     }
 
-    // One original hero record (id 51101) has passive3=null.
-    // -1 means NOT PRESENT in source, distinct from the source's explicit "0".
+    // Source row 51101 contains passive3=null. Unity JsonUtility deserializes
+    // that null into an empty string on the imported HeroDbRow class.
+    // -1 means MISSING (null/empty/whitespace), not the explicit source "0".
     private static int ParseOptionalSkillId(string value, string field)
     {
-        if (value == null) return -1;
+        if (string.IsNullOrWhiteSpace(value)) return -1;
         return ParseNonNegativeInt(value, field);
     }
 
