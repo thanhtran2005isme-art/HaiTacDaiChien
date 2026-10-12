@@ -35,11 +35,16 @@ public sealed class OfflineHeroRecord
     public string ClassName { get; private set; }
     public int Star { get; private set; }
     public int Rank { get; private set; }
+    public int ActiveSkillId { get; private set; }
+    public int Passive1SkillId { get; private set; }
+    public int Passive2SkillId { get; private set; }
+    public int Passive3SkillId { get; private set; }
     public int ReleaseFlag { get; private set; }
     public bool IsReleased { get { return ReleaseFlag == 1; } }
 
     internal OfflineHeroRecord(int id, int avatarId, string name, string sourceFaction,
-        OfflineHeroFaction faction, string className, int star, int rank, int releaseFlag)
+        OfflineHeroFaction faction, string className, int star, int rank, int releaseFlag,
+        int active, int passive1, int passive2, int passive3)
     {
         Id = id;
         AvatarId = avatarId;
@@ -50,6 +55,10 @@ public sealed class OfflineHeroRecord
         Star = star;
         Rank = rank;
         ReleaseFlag = releaseFlag;
+        ActiveSkillId = active;
+        Passive1SkillId = passive1;
+        Passive2SkillId = passive2;
+        Passive3SkillId = passive3;
     }
 }
 
@@ -73,6 +82,10 @@ public sealed class OfflineHeroCatalog
         public string @class;
         public string star;
         public string rank;
+        public string active;
+        public string passive1;
+        public string passive2;
+        public string passive3;
         public int release;
     }
 
@@ -157,7 +170,11 @@ public sealed class OfflineHeroCatalog
 
             OfflineHeroRecord hero = new OfflineHeroRecord(
                 id, avatarId, row.name, row.type, faction, row.@class,
-                star, rank, row.release);
+                star, rank, row.release,
+                ParseNonNegativeInt(row.active, "active"),
+                ParseNonNegativeInt(row.passive1, "passive1"),
+                ParseNonNegativeInt(row.passive2, "passive2"),
+                ParseNonNegativeInt(row.passive3, "passive3"));
             result.Add(hero);
             index.Add(id, hero);
         }
