@@ -1,5 +1,14 @@
 # Offline hero UI — integration test handoff
 
+## 2026-10-12 — Persistent Edit Mode + Play Mode Home2 HUD (supersedes runtime-only section below)
+
+The user requested fixed HUD changes visible without Play. Unlike the previous runtime-only design, `Assets/Scenes/Home2Scene.unity` is **now deliberately modified in PR #9**. The preceding sections describe prior steps, not the current implementation.
+
+- Saved Scene UI: `ButtonTest` FB duplicate and left `ButtonSkins` are inactive; Activity GameObject `HTDC Offline Activity` (GO 3000, RectTransform 3001) sits as **second** sibling after Shop (928), before Ship (919) within the original `GroupButton` layout. Its Sprite GUID `86cbb642c2b57314eabcb83baa79b219` comes from `HomeScene/ButtonEvent`, the label reads **Hoạt động**, and it is visible in the Unity Editor with Play off.
+- Runtime: new Activity button contains **no cloned Shop callback**; `OfflineHome2HudCorrection` detects the saved GameObject and connects the click to the existing original `ButtonEvents` offline Event popup. Six selected heroes remain loaded dynamically in Play Mode only. No extra clone is created if the saved button exists.
+- Provenance: prior `Home2Scene.unity` Git blob `ff2cb00d590a38d4c4b1384f15e5d5af0574d535`; current corrected scene blob `245a72d6797f889e7b23cb5fdf6e927b291b4550`. Existing serialized `m_OnClick` callbacks and references remain unchanged (47 original plus 1 empty Event for the new button). AssetRipper raw image files and prefabs unchanged.
+- Acceptance on Unity 2022.3.51f1 after pulling branch and LFS: open original `Home2Scene.unity`, confirm corrected static HUD **before pressing Play**; then press Play, confirm identical static HUD and that Activity opens the offline Event popup; check Console, 6 heroes and art availability. Do not claim Unity PASS until tested.
+
 **Branch:** `feat/offline-hero-ui` (parent: `feat/offline-hero-catalog`)  
 **Status:** source implementation + static CI; **Unity Editor compile and Play Mode NOT verified by GitHub Actions**.  
 **Architecture:** `NEW_PROJECT_DESIGN`, never recovered original IL2CPP gameplay.
