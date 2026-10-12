@@ -165,7 +165,12 @@ class Home2NavigationChecks(unittest.TestCase):
         ):
             if "m_OnClick:" in match.group(2):
                 button_ids.add(int(match.group(1)))
-        self.assertEqual(button_ids, set(keys))
+        # Source still has exactly 47 original bridged callbacks. The new
+        # serialized Edit Mode Activity button has one EMPTY UnityEvent, bound
+        # to offline Events only in Home2Scene.Start() during Play Mode.
+        self.assertEqual(button_ids, set(keys) | {3004})
+        self.assertIn("m_Calls: []", self.component(3004))
+        self.assertNotIn("m_TargetAssemblyTypeName:", self.component(3004))
         for button in keys:
             self.assertIn("m_OnClick:", self.component(button), str(button))
 
