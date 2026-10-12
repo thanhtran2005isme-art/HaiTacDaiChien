@@ -42,6 +42,22 @@ public sealed class OfflineHeroListPresenter : MonoBehaviour
             return;
         }
         content = scroll.content;
+
+        // HeroListNewScene now stores eight ORIGINAL-catalog, EditorOnly
+        // preview cards so the design is visible with Play OFF. They must
+        // never appear in live party/catalog rendering or inflate counts.
+        // Disable immediately, then destroy the runtime instances.
+        for (int i = content.childCount - 1; i >= 0; i--)
+        {
+            Transform child = content.GetChild(i);
+            if (child.name.StartsWith("HTDC EDIT PREVIEW HERO ", StringComparison.Ordinal)
+                && child.gameObject.CompareTag("EditorOnly"))
+            {
+                child.gameObject.SetActive(false);
+                Destroy(child.gameObject);
+            }
+        }
+
         content.anchorMin = new Vector2(0f, 1f);
         content.anchorMax = new Vector2(1f, 1f);
         content.pivot = new Vector2(0.5f, 1f);
