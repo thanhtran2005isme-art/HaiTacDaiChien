@@ -1255,6 +1255,7 @@ GameObject:
   m_Component:
   - component: {fileID: 230}
   - component: {fileID: 780}
+  - component: {fileID: 1106}
   m_Layer: 0
   m_Name: Scripts
   m_TagString: Untagged
@@ -23360,3 +23361,158 @@ MonoBehaviour:
   mGUI_ShowCallback: 0
   mLocalizeTarget: {fileID: 0}
   mLocalizeTargetName: I2.Loc.LocalizeTarget_UnityUI_Text
+--- !u!114 &1106
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 62}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6486579f283b4602b1e711dc7ec913ab, type: 3}
+  m_Name:
+  m_EditorClassIdentifier:
+  routes:
+  - button: {fileID: 723}
+    scenePath: Assets/Scenes/HomeScene.unity
+  popupRoutes:
+  - button: {fileID: 727}
+    resourcePath: prefabs/common/PopupNap
+  - button: {fileID: 829}
+    resourcePath: prefabs/common/PopupNap
+  toggleRoutes: []
+  noticeRoutes:
+  - button: {fileID: 675}
+    title: Đảo đối thủ
+    message: Thiếu IslandModel, trạng thái mở khóa và đội hình chiến đấu; chưa thể vào trận.
+  - button: {fileID: 952}
+    title: Đảo đối thủ
+    message: Thiếu IslandModel, trạng thái mở khóa và đội hình chiến đấu; chưa thể vào trận.
+  - button: {fileID: 955}
+    title: Đảo đối thủ
+    message: Thiếu IslandModel, trạng thái mở khóa và đội hình chiến đấu; chưa thể vào trận.
+  - button: {fileID: 978}
+    title: Đảo đối thủ
+    message: Thiếu IslandModel, trạng thái mở khóa và đội hình chiến đấu; chưa thể vào trận.
+  - button: {fileID: 982}
+    title: Đảo đối thủ
+    message: Thiếu IslandModel, trạng thái mở khóa và đội hình chiến đấu; chưa thể vào trận.
+  - button: {fileID: 994}
+    title: Đảo đối thủ
+    message: Thiếu IslandModel, trạng thái mở khóa và đội hình chiến đấu; chưa thể vào trận.
+  - button: {fileID: 1001}
+    title: Đảo đối thủ
+    message: Thiếu IslandModel, trạng thái mở khóa và đội hình chiến đấu; chưa thể vào trận.
+  - button: {fileID: 1015}
+    title: Đảo đối thủ
+    message: Thiếu IslandModel, trạng thái mở khóa và đội hình chiến đấu; chưa thể vào trận.
+  - button: {fileID: 1022}
+    title: Đảo đối thủ
+    message: Thiếu IslandModel, trạng thái mở khóa và đội hình chiến đấu; chưa thể vào trận.
+  - button: {fileID: 1027}
+    title: Đảo đối thủ
+    message: Thiếu IslandModel, trạng thái mở khóa và đội hình chiến đấu; chưa thể vào trận.
+  - button: {fileID: 1043}
+    title: Đảo đối thủ
+    message: Thiếu IslandModel, trạng thái mở khóa và đội hình chiến đấu; chưa thể vào trận.
+  - button: {fileID: 1052}
+    title: Đảo đối thủ
+    message: Thiếu IslandModel, trạng thái mở khóa và đội hình chiến đấu; chưa thể vào trận.
+  - button: {fileID: 1067}
+    title: Đảo đối thủ
+    message: Thiếu IslandModel, trạng thái mở khóa và đội hình chiến đấu; chưa thể vào trận.
+  - button: {fileID: 1078}
+    title: Đảo đối thủ
+    message: Thiếu IslandModel, trạng thái mở khóa và đội hình chiến đấu; chưa thể vào trận.
+  - button: {fileID: 801}
+    title: Boss thiên giới
+    message: Thiếu IslandModel Boss, HP và điều kiện trận đấu; không thể mở trận đánh.
+  - button: {fileID: 694}
+    title: Thu hoạch mỏ
+    message: Chưa có MineModel, tiến độ sản xuất và phần thưởng đã xác thực; không phát tài nguyên.
+  - button: {fileID: 860}
+    title: Thu hoạch mỏ
+    message: Chưa có MineModel, tiến độ sản xuất và phần thưởng đã xác thực; không phát tài nguyên.
+  - button: {fileID: 862}
+    title: Thu hoạch mỏ
+    message: Chưa có MineModel, tiến độ sản xuất và phần thưởng đã xác thực; không phát tài nguyên.
+  - button: {fileID: 868}
+    title: Thu hoạch mỏ
+    message: Chưa có MineModel, tiến độ sản xuất và phần thưởng đã xác thực; không phát tài nguyên.
+  - button: {fileID: 871}
+    title: Thu hoạch mỏ
+    message: Chưa có MineModel, tiến độ sản xuất và phần thưởng đã xác thực; không phát tài nguyên.
+  - button: {fileID: 873}
+    title: Thu hoạch mỏ
+    message: Chưa có MineModel, tiến độ sản xuất và phần thưởng đã xác thực; không phát tài nguyên.
+  - button: {fileID: 769}
+    title: Ô mỏ tài nguyên
+    message: Thiếu MineModel và trạng thái ô mỏ; chưa thể xác định xây mới hay nâng cấp.
+  - button: {fileID: 886}
+    title: Ô mỏ tài nguyên
+    message: Thiếu MineModel và trạng thái ô mỏ; chưa thể xác định xây mới hay nâng cấp.
+  - button: {fileID: 900}
+    title: Ô mỏ tài nguyên
+    message: Thiếu MineModel và trạng thái ô mỏ; chưa thể xác định xây mới hay nâng cấp.
+  - button: {fileID: 904}
+    title: Ô mỏ tài nguyên
+    message: Thiếu MineModel và trạng thái ô mỏ; chưa thể xác định xây mới hay nâng cấp.
+  - button: {fileID: 908}
+    title: Ô mỏ tài nguyên
+    message: Thiếu MineModel và trạng thái ô mỏ; chưa thể xác định xây mới hay nâng cấp.
+  - button: {fileID: 915}
+    title: Ô mỏ tài nguyên
+    message: Thiếu MineModel và trạng thái ô mỏ; chưa thể xác định xây mới hay nâng cấp.
+  - button: {fileID: 774}
+    title: Công trình mỏ
+    message: Thiếu MineModel, cấp mỏ, giá và điều kiện nâng cấp từ dữ liệu game.
+  - button: {fileID: 888}
+    title: Công trình mỏ
+    message: Thiếu MineModel, cấp mỏ, giá và điều kiện nâng cấp từ dữ liệu game.
+  - button: {fileID: 897}
+    title: Công trình mỏ
+    message: Thiếu MineModel, cấp mỏ, giá và điều kiện nâng cấp từ dữ liệu game.
+  - button: {fileID: 901}
+    title: Công trình mỏ
+    message: Thiếu MineModel, cấp mỏ, giá và điều kiện nâng cấp từ dữ liệu game.
+  - button: {fileID: 912}
+    title: Công trình mỏ
+    message: Thiếu MineModel, cấp mỏ, giá và điều kiện nâng cấp từ dữ liệu game.
+  - button: {fileID: 918}
+    title: Công trình mỏ
+    message: Thiếu MineModel, cấp mỏ, giá và điều kiện nâng cấp từ dữ liệu game.
+  - button: {fileID: 706}
+    title: Công trình nghiên cứu
+    message: Thiếu BuildingModel, trạng thái xây dựng và nguyên liệu; chưa thể xây hoặc nâng cấp.
+  - button: {fileID: 719}
+    title: Công trình nghiên cứu
+    message: Thiếu BuildingModel, trạng thái xây dựng và nguyên liệu; chưa thể xây hoặc nâng cấp.
+  - button: {fileID: 744}
+    title: Công trình nghiên cứu
+    message: Thiếu BuildingModel, trạng thái xây dựng và nguyên liệu; chưa thể xây hoặc nâng cấp.
+  - button: {fileID: 825}
+    title: Công trình nghiên cứu
+    message: Thiếu BuildingModel, trạng thái xây dựng và nguyên liệu; chưa thể xây hoặc nâng cấp.
+  - button: {fileID: 784}
+    title: Vườn thủy tiên
+    message: Thiếu BuildingModel và trạng thái ô vườn; chưa thể thực hiện xây dựng.
+  - button: {fileID: 787}
+    title: Nhận thủy tiên
+    message: Thiếu tiến độ và lượng thủy tiên từ dữ liệu game; không tự cộng vật phẩm.
+  - button: {fileID: 796}
+    title: Công trình thủy tiên
+    message: Thiếu BuildingModel và cấp công trình; chưa thể mở chức năng nâng cấp.
+  - button: {fileID: 732}
+    title: Tháp chính
+    message: Thiếu cấp tháp và CelestialModel; không mở nâng cấp giả hay tính giá giả.
+  - button: {fileID: 748}
+    title: Mua thủy tiên
+    message: Chưa có tồn kho, hạn mức và giá từ CelestialModel; không tạo giao dịch.
+  - button: {fileID: 764}
+    title: Trợ giúp thiên giới
+    message: Chưa xác minh nội dung trợ giúp theo cấu hình help_island của game gốc.
+  - button: {fileID: 831}
+    title: Càn quét
+    message: Thiếu trạng thái chiến dịch, lượt càn quét và phần thưởng; không tự thực hiện.
+  homeScenePath: Assets/Scenes/HomeScene.unity
