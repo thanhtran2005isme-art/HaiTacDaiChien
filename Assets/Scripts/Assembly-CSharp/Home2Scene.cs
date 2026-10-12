@@ -72,6 +72,12 @@ public class Home2Scene : BaseScene, IG2UIEventHandler
 
 	protected override void Start()
 	{
+		base.Start();
+		// AssetRipper restored an empty Start. Attach the new offline UI
+		// presenter here as a deterministic fallback when entering Play Mode
+		// directly in Home2Scene (Editor domain reload / sceneLoaded differences).
+		if (GetComponent<OfflineHeroHomePresenter>() == null)
+			gameObject.AddComponent<OfflineHeroHomePresenter>();
 	}
 
 	public override void OnDestroy()
