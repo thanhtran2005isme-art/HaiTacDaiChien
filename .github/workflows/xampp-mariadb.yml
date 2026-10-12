@@ -1,0 +1,55 @@
+name: HTDC XAMPP / MariaDB 10.4 database compatibility
+on:
+  push:
+    branches: [feat/htdc-mysql-foundation]
+    paths:
+      - "database/xampp/**"
+      - "database/mysql/**"
+      - "tests/test_xampp_mariadb_schema.py"
+      - ".github/workflows/xampp-mariadb.yml"
+  workflow_dispatch:
+jobs:
+  mariadb-xampp:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    services:
+      mariadb:
+        image: mariadb:10.4
+        env:
+          MYSQL_ROOT_PASSWORD: temporary_ci_only_password
+          MYSQL_DATABASE: htdc_game
+        ports:
+          - 3306:3306
+        options: >-
+          --health-cmd="mysqladmin ping -h 127.0.0.1 --silent"
+          --health-interval=10s
+          --health-timeout=10s
+          --health-retries=20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Verify portable XAMPP schema matches all 84 MySQL tables
+        run: python -m unittest discover -s tests -p 'test_xampp_mariadb_schema.py' -v
+      - name: Generate SQL seed directly from all 139 repository source files
+        run: python database/mysql/import_configs.py --repo-root . --output database/mysql/generated/002_game_config_seed.sql
+      - name: Create and import into real MariaDB 10.4 (XAMPP-compatible)
+        shell: bash
+        run: |
+          set -euo pipefail
+          CID="$(docker ps --filter ancestor=mariadb:10.4 --format '{{.ID}}' | head -n 1)"
+          test -n "$CID"
+          docker exec -i "$CID" mysql -uroot --password=temporary_ci_only_password < database/xampp/001_schema_mariadb.sql
+          docker exec -i "$CID" mysql -uroot --password=temporary_ci_only_password < database/mysql/generated/002_game_config_seed.sql
+          query() { docker exec "$CID" mysql -uroot --password=temporary_ci_only_password -N -s -e "$1"; }
+          test "$(query "SELECT COUNT(*) FROM information_schema.tables WHERE table_schema='htdc_game'")" = "84"
+          test "$(query "SELECT COUNT(*) FROM htdc_game.catalog_files")" = "139"
+          test "$(query "SELECT COUNT(*) FROM htdc_game.catalog_records")" = "66191"
+          test "$(query "SELECT COUNT(*) FROM htdc_game.hero_definitions")" = "751"
+          test "$(query "SELECT COUNT(*) FROM htdc_game.item_definitions WHERE display_name IS NULL")" = "17"
+          test "$(query "SELECT COUNT(*) FROM htdc_game.players")" = "0"
+          docker exec -i "$CID" mysql -uroot --password=temporary_ci_only_password < database/mysql/generated/002_game_config_seed.sql
+          test "$(query "SELECT COUNT(*) FROM htdc_game.catalog_records")" = "66191"
+          test "$(query "SELECT COUNT(*) FROM htdc_game.hero_definitions")" = "751"
+          echo "PASS MariaDB 10.4: 84 tables, 139 source files, 66191 records, 751 heroes, repeat seed stable"
