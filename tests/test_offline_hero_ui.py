@@ -105,7 +105,7 @@ class OfflineHeroUiTests(unittest.TestCase):
         # backed cards; no fake account inventory or auto-selected party.
         scene = self.hero_list
         block = lambda kind, ident: re.search(
-            rf"(?ms)^--- !u!{kind} &{ident}\\n(.*?)(?=^--- !u!|\\Z)",
+            rf"(?ms)^--- !u!{kind} &{ident}\n(.*?)(?=^--- !u!|\Z)",
             scene
         ).group(1)
         self.assertIn("m_LocalScale: {x: 1, y: 1, z: 1}", block(224, 258))
@@ -118,7 +118,7 @@ class OfflineHeroUiTests(unittest.TestCase):
             (31, 169, "Dalmatian"), (37, 175, "Momonga"),
         ]
         self.assertEqual(scene.count("m_Name: HTDC EDIT PREVIEW HERO "), 8)
-        all_ids = re.findall(r"(?m)^--- !u!\\d+ &(\\d+)$", scene)
+        all_ids = re.findall(r"(?m)^--- !u!\d+ &(\d+)$", scene)
         self.assertEqual(len(all_ids), len(set(all_ids)))
         for i, (id_, avatar, name) in enumerate(data):
             base = 10000 + i * 1000
