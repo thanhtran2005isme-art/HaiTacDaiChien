@@ -57,6 +57,29 @@ Mở **CMD** ở thư mục gốc repo; ký hiệu `<` là chuyển hướng inp
 - Nếu xuất hiện `max_allowed_packet` hoặc timeout, kiểm tra `my.ini` của MariaDB, giới hạn bộ nhớ/dung lượng và kích thước các file JSON trước khi tiếp tục. Không tự xóa/chia seed làm mất record.
 - Nếu gặp `Unknown collation utf8mb4_0900_ai_ci`, bạn đã dùng **nhầm** schema MySQL 8.4; phải dùng file `database/xampp/001_schema_mariadb.sql` như trên.
 
+## Xử lý lỗi XAMPP MariaDB 10.4.32 khi import tới dòng 1233: ERROR 2013
+
+**Quan sát máy người dùng**: source SQL sinh đủ 139 files/66.191 records; schema đã tạo; import rớt ở `line 1233` với `ERROR 2013 (HY000): Lost connection to MySQL server during query`. Đã commit 27/139 `catalog_files`, 681 `catalog_records`, 0 `hero_definitions`. File tiếp theo theo thứ tự tên là `db_hero_skill.json` (~1,88 MB JSON); importer lưu **nguyên văn file này** bằng UTF-8 dạng câu lệnh HEX lớn hơn nhiều kích thước file. **Ưu tiên kiểm tra `max_allowed_packet`**, nhưng ERROR 2013 cũng có thể do server crash/timeouts/OOM; không khẳng định nếu chưa kiểm tra.
+
+**Lệnh dưới đây chạy trong CMD**, không cần `-p` nếu root XAMPP của máy vẫn để trống mật khẩu:
+
+```cmd
+"C:\xampp\mysql\bin\mysql.exe" -h 127.0.0.1 -P 3306 -u root -e "SELECT @@global.max_allowed_packet AS global_packet_bytes, @@session.max_allowed_packet AS session_packet_bytes;"
+```
+
+Nếu packet hiện tại nhỏ hơn 64 MiB, **điều chỉnh tạm thời mà không xóa database, không restart server** (yêu cầu root có quyền SET GLOBAL):
+
+```cmd
+"C:\xampp\mysql\bin\mysql.exe" -h 127.0.0.1 -P 3306 -u root -e "SET GLOBAL max_allowed_packet = 67108864; SELECT @@global.max_allowed_packet;"
+"C:\xampp\mysql\bin\mysql.exe" --max_allowed_packet=64M -h 127.0.0.1 -P 3306 -u root < database\mysql\generated\002_game_config_seed.sql
+```
+
+Lệnh import phải chạy bằng **kết nối mới** sau `SET GLOBAL`; không cần tạo lại schema. Trình nhập dùng transaction per-file, `ON DUPLICATE KEY UPDATE` và refresh `catalog_records` theo file ID, vì thế có thể **nhập lại từ đầu** sau một lần lỗi mà không lặp 27 file đã commit. Không thêm `--force` để phớt lờ lỗi SQL.
+
+Nếu muốn cài đặt **bền vững** qua việc restart XAMPP: XAMPP Control Panel → MySQL → Config → `my.ini` (thường `C:\xampp\mysql\bin\my.ini`), chỉ thêm hoặc sửa dưới mục `[mysqld]` thành **một** dòng `max_allowed_packet=64M`; lưu và Stop/Start MySQL sau khi sao lưu `my.ini` và bảo đảm không có tác vụ DB đang chạy. Cần cấu hình client riêng hoặc tiếp tục tham số `--max_allowed_packet=64M`. `SET GLOBAL` tự mất sau khi server restart.
+
+Nếu **vẫn** báo ERROR 2013 dù cả server+client đã 64 MiB, kiểm tra XAMPP MySQL còn xanh hay đã tắt; đọc `C:\xampp\mysql\data\mysql_error.log` hoặc đường dẫn thực của `log_error` (truy vấn `SHOW VARIABLES LIKE 'log_error';`), `SHOW GLOBAL STATUS LIKE 'Aborted_connects';`, RAM/dung lượng ổ đĩa. Gửi log quanh thời điểm lỗi, `@@global.max_allowed_packet` và dòng `ERROR`; **không xóa data, không reset MySQL, không đổi port ngẫu nhiên**. Sau khi nhập chạy bảng kiểm tra ở Bước 5.
+
 ## Bước 5 — Mở phpMyAdmin để kiểm tra
 
 Mở `http://localhost/phpmyadmin/` → database `htdc_game` → tab **SQL**:
