@@ -1,0 +1,293 @@
+3. Cấu trúc toàn bộ Source Code Backend C# cho Unity Game lớn
+Mình đề xuất sử dụng ASP.NET Core 10 + Modular Monolith + Vertical Slice + Clean Architecture principles.
+Kiến trúc này phù hợp cho Backend game multiplayer quy mô lớn, có Gateway, hệ thống tài khoản, nhân vật, trang bị, vật phẩm, kinh tế, matchmaking và giao tiếp với Dedicated Game Server.
+3.1. Cấu trúc toàn bộ thư mục backend/
+Đây là cây thư mục đề xuất để triển khai thực tế, không phải danh sách những file bắt buộc phải tạo ngay từ đầu.
+Backend Solution Structure
+ Copy tree
+backend/
+├── Game.Backend.slnx
+├── global.json
+├── Directory.Build.props
+├── Directory.Packages.props
+├── .editorconfig
+│
+├── src/
+│   │
+│   ├── Hosts/
+│   │   ├── Game.Api/
+│   │   ├── Game.Gateway/
+│   │   └── Game.Worker/
+│   │
+│   ├── BuildingBlocks/
+│   │   ├── Game.SharedKernel/
+│   │   ├── Game.Application.Abstractions/
+│   │   ├── Game.Infrastructure.Shared/
+│   │   └── Game.Contracts/
+│   │
+│   └── Modules/
+│       ├── Identity/
+│       ├── Players/
+│       ├── Characters/
+│       ├── Inventory/
+│       ├── Equipment/
+│       ├── Economy/
+│       ├── Progression/
+│       ├── Quests/
+│       ├── Matchmaking/
+│       ├── GameSessions/
+│       ├── Social/
+│       ├── Leaderboards/
+│       ├── Commerce/
+│       └── LiveOps/
+│
+├── tests/
+│   ├── Game.UnitTests/
+│   ├── Game.IntegrationTests/
+│   ├── Game.ArchitectureTests/
+│   ├── Game.ContractTests/
+│   └── Game.LoadTests/
+│
+├── deploy/
+│   ├── docker/
+│   ├── compose/
+│   └── environments/
+│
+└── docs/
+
+
+
+Mỗi module trong Modules/ sở hữu nghiệp vụ riêng. Không tạo thêm Game.Domain, Game.Application, Game.Infrastructure toàn cục chứa lại nghiệp vụ của các module.
+Microsoft cũng có hướng dẫn về tổ chức ASP.NET Core theo feature/vertical slice thay vì chỉ gom các file theo loại như Controller và Service. 
+
+Microsoft Learn
+
+
+
+3.2. Chi tiết tầng Hosts
+src/Hosts/
+│
+├── Game.Api/
+│   ├── Program.cs
+│   ├── Game.Api.csproj
+│   ├── appsettings.json
+│   ├── appsettings.Development.json
+│   ├── Composition/
+│   │   └── ModuleRegistration.cs
+│   ├── Middleware/
+│   │   └── ExceptionHandlingMiddleware.cs
+│   ├── Health/
+│   │   └── HealthEndpoints.cs
+│   └── OpenApi/
+│       └── OpenApiConfiguration.cs
+│
+├── Game.Gateway/
+│   ├── Program.cs
+│   ├── Game.Gateway.csproj
+│   ├── appsettings.json
+│   ├── ReverseProxy/
+│   │   └── GatewayConfiguration.cs
+│   └── Health/
+│       └── HealthEndpoints.cs
+│
+└── Game.Worker/
+    ├── Program.cs
+    ├── Game.Worker.csproj
+    ├── Jobs/
+    │   ├── SessionCleanupJob.cs
+    │   └── SeasonResetJob.cs
+    ├── Consumers/
+    │   └── GameResultConsumer.cs
+    └── HostedServices/
+        └── OutboxDispatcher.cs
+
+
+Project	Trách nhiệm
+Game.Api	Điểm vào của Backend, đăng ký module, authentication, endpoints
+Game.Gateway	Reverse proxy cho HTTP API bằng YARP
+Game.Worker	Xử lý tác vụ nền, định kỳ, hàng đợi, sự kiện
+Game.Gateway là thành phần triển khai độc lập khi cần. YARP hỗ trợ cấu hình routes/clusters và định tuyến HTTP qua ASP.NET Core. 
+
+Microsoft Learn
+
+
+
+3.3. Chi tiết BuildingBlocks
+src/BuildingBlocks/
+│
+├── Game.SharedKernel/
+│   ├── Game.SharedKernel.csproj
+│   ├── Entity.cs
+│   ├── AggregateRoot.cs
+│   ├── ValueObject.cs
+│   ├── IDomainEvent.cs
+│   ├── Result.cs
+│   └── Error.cs
+│
+├── Game.Application.Abstractions/
+│   ├── Game.Application.Abstractions.csproj
+│   ├── Clock/
+│   │   └── IClock.cs
+│   ├── Security/
+│   │   └── ICurrentUser.cs
+│   ├── Messaging/
+│   │   └── IEventBus.cs
+│   └── Idempotency/
+│       └── IIdempotencyStore.cs
+│
+├── Game.Infrastructure.Shared/
+│   ├── Game.Infrastructure.Shared.csproj
+│   ├── Messaging/
+│   ├── Observability/
+│   ├── Authentication/
+│   └── Resilience/
+│
+└── Game.Contracts/
+    ├── Game.Contracts.csproj
+    ├── Api/
+    ├── IntegrationEvents/
+    └── GameServer/
+        ├── JoinSessionTicket.cs
+        ├── GameResultMessage.cs
+        └── PlayerRewardMessage.cs
+
+
+Quy tắc: BuildingBlocks chỉ chứa những phần thực sự được dùng chung. Không chuyển logic Inventory, Combat, Economy vào đó chỉ vì có nhiều module sử dụng.
+Game.Contracts chứa DTO và hợp đồng giao tiếp ổn định. Không dùng EF Core Entity trực tiếp làm hợp đồng truyền dữ liệu cho Unity.
+3.4. Toàn bộ module nghiệp vụ Backend
+Những module phù hợp cho game online có tài khoản, nhân vật, vật phẩm và tiến trình. Module tùy chọn chỉ triển khai khi thiết kế game thực sự cần.
+Module	Trách nhiệm
+Identity	Account, login, authentication, ban
+Players	Hồ sơ người chơi, thiết lập cá nhân
+Characters	Nhân vật, lựa chọn nhân vật, dữ liệu lâu dài
+Inventory	Túi đồ, thêm/xóa/chuyển vật phẩm
+Equipment	Trang bị, ô trang bị, chỉ số lưu trữ
+Economy	Tiền tệ, ví, giao dịch, sổ cái
+Progression	Cấp độ, kinh nghiệm, tiến trình
+Quests	Nhiệm vụ và phần thưởng
+Matchmaking	Tìm trận, ghép đội
+GameSessions	Phiên chơi, vé vào server, reconnect
+Social	Bạn bè, tổ đội, bang hội nếu có
+Leaderboards	Bảng xếp hạng, mùa giải
+Commerce	Cửa hàng, đơn mua, xác minh thanh toán
+LiveOps	Sự kiện, cấu hình vận hành, phân phối phần thưởng
+3.5. Cấu trúc chuẩn bên trong một Module
+Lấy Inventory làm ví dụ đầy đủ. Các module khác tổ chức theo cùng nguyên tắc.
+src/Modules/Inventory/
+└── Game.Modules.Inventory/
+    │
+    ├── Game.Modules.Inventory.csproj
+    ├── InventoryModule.cs
+    │
+    ├── Domain/
+    │   ├── Entities/
+    │   │   ├── Inventory.cs
+    │   │   └── InventoryItem.cs
+    │   ├── ValueObjects/
+    │   │   └── ItemQuantity.cs
+    │   ├── Events/
+    │   │   └── ItemGrantedEvent.cs
+    │   ├── Rules/
+    │   │   └── InventoryCapacityRule.cs
+    │   └── Errors/
+    │       └── InventoryErrors.cs
+    │
+    ├── Features/
+    │   ├── GetInventory/
+    │   │   ├── Endpoint.cs
+    │   │   ├── Query.cs
+    │   │   ├── Handler.cs
+    │   │   └── Response.cs
+    │   │
+    │   ├── GrantItem/
+    │   │   ├── Command.cs
+    │   │   ├── Handler.cs
+    │   │   └── Validator.cs
+    │   │
+    │   ├── RemoveItem/
+    │   ├── TransferItem/
+    │   ├── ConsumeItem/
+    │   └── GetTransactions/
+    │
+    ├── Infrastructure/
+    │   ├── Persistence/
+    │   │   ├── InventoryDbContext.cs
+    │   │   ├── Configurations/
+    │   │   └── Migrations/
+    │   ├── Repositories/
+    │   └── Integrations/
+    │
+    └── Contracts/
+        ├── InventoryDto.cs
+        └── IInventoryModule.cs
+
+
+Ở cấu trúc này, mỗi module ban đầu có một .csproj để tránh tạo hàng chục project nhỏ khi chưa cần. Các folder Domain, Features, Infrastructure vẫn là các ranh giới logic, được kiểm soát qua architecture tests.
+Nếu đội ngũ rất lớn, có thể tách từng module thành các assembly Domain, Application, Infrastructure để thực thi quy tắc phụ thuộc ở mức compiler.
+3.6. Luồng phụ thuộc giữa các project
+Game.Api / Game.Worker
+
+Modules
+Domain · Features · Infrastructure
+
+SharedKernel / Contracts / Abstractions
+
+Gateway đứng trước API và không phụ thuộc trực tiếp vào các module nghiệp vụ. Domain không được phụ thuộc Infrastructure.
+Các quy tắc cần áp dụng:
+- Domain không tham chiếu EF Core, HTTP, Redis hoặc lớp truy cập database.
+- Features điều phối use case, không viết trực tiếp logic truy cập dữ liệu vào endpoint.
+- Infrastructure triển khai các interface do lõi nghiệp vụ cần.
+- Các module không truy cập trực tiếp repository hoặc bảng riêng của module khác; ưu tiên contract và application service.
+- Giao dịch mua vật phẩm, tiêu tiền, nhận thưởng phải có kiểm soát đồng thời, transaction và idempotency.
+- Không tạo GenericRepository, BaseService, Manager khổng lồ cho toàn hệ thống.
+3.7. Game Server nằm ở đâu?
+Game Server xử lý real-time nên tách riêng khỏi Backend Web API:
+GameProject/
+├── client/
+│   └── UnityGame/
+│
+├── backend/
+│   └── src/
+│       ├── Hosts/
+│       ├── BuildingBlocks/
+│       └── Modules/
+│
+├── game-server/
+│   ├── README.md
+│   ├── ServerConfig/
+│   └── BuildScripts/
+│
+└── shared/
+    └── ProtocolSchemas/
+
+
+Với Unity Dedicated Server, mã gameplay có thể được chia sẻ từ chính Unity project, sau đó build thành executable headless cho máy chủ. Không cần tạo một bộ combat C# thứ hai trong ASP.NET Core. Unity hỗ trợ Dedicated Server build và điều kiện biên dịch UNITY_SERVER. 
+
+Unity Docs
+
+
+
+3.8. Những phần bắt buộc kiểm thử
+backend/tests/
+├── Game.UnitTests/
+│   ├── Inventory/
+│   ├── Economy/
+│   └── Quests/
+│
+├── Game.IntegrationTests/
+│   ├── Authentication/
+│   ├── Persistence/
+│   └── Transactions/
+│
+├── Game.ArchitectureTests/
+│   ├── ModuleBoundaryTests.cs
+│   └── DependencyRuleTests.cs
+│
+├── Game.ContractTests/
+│   └── GameServerProtocolTests.cs
+│
+└── Game.LoadTests/
+    └── Scenarios/
+
+
+Bên cạnh đó, phần Unity Game Server cần được kiểm thử riêng về simulation, tính đúng đắn của trạng thái authoritative, networking, reconnect, packet loss và tải đồng thời.
