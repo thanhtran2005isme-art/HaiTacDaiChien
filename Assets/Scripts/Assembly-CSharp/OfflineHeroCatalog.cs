@@ -258,7 +258,7 @@ public static class OfflineHeroCatalogEditorAudit
         }
         catch (Exception ex)
         {
-            Debug.LogException(ex);
+            UnityEngine.Debug.LogException(ex);
         }
     }
 }
