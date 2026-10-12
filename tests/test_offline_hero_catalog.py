@@ -100,6 +100,11 @@ class OfflineHeroCatalogSourceTests(unittest.TestCase):
         self.assertIn('MenuItem("Tools/HTDC/Offline Heroes/Validate db_heroes.json")', self.code)
         self.assertRegex(self.meta, r"(?m)^guid: [0-9a-f]{32}$")
 
+    def test_unity_log_exception_has_explicit_namespace(self):
+        # AssetRipper project may contain another Debug class; avoid CS0117.
+        self.assertIn("UnityEngine.Debug.LogException(ex);", self.code)
+        self.assertNotIn("            Debug.LogException(ex);", self.code)
+
     def test_stage_one_does_not_claim_backend_or_gameplay(self):
         self.assertIn("NOT a player inventory", self.code)
         self.assertIn("does not mutate the scene", self.code)
