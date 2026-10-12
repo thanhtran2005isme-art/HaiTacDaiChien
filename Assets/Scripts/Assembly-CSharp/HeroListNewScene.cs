@@ -64,6 +64,12 @@ public class HeroListNewScene : BaseScene, ITabListener
 
 	protected override void Start()
 	{
+		base.Start();
+		// AssetRipper restored an empty Start. Attach the new offline UI
+		// presenter here as a deterministic fallback when entering Play Mode
+		// directly in HeroListNewScene (Editor domain reload / sceneLoaded differences).
+		if (GetComponent<OfflineHeroListPresenter>() == null)
+			gameObject.AddComponent<OfflineHeroListPresenter>();
 	}
 
 	protected override void ReciveTutorial(TutorialAction tutAct)
