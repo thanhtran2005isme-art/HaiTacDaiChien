@@ -1,5 +1,12 @@
 # AI HANDOFF — Hải Tặc UI Viewer
 
+## 2026-10-12 — Home2Scene empty team still shows original Naruto labels
+
+- **User Play Mode screenshot:** six original `Naruto` / `Lv.200` placeholders persisted; no reliable evidence of presenter activation in visible Console (999+ legacy warnings). Screenshot alone does not prove a specific failure cause or exact local HEAD.
+- **Fix:** `Home2Scene.Start` and `HeroListNewScene.Start` (empty recovered C# stubs) now attach their own `OfflineHeroHomePresenter` / `OfflineHeroListPresenter` if absent, in addition to existing `OfflineHeroSceneRuntime.sceneLoaded`; explicit diagnostic `[HTDC Heroes]` Start log. These C# stub files **are modified**, but original `.unity` scene serialization, 47 Home2 callbacks and JSON are preserved.
+- **Expected:** no selected offline party means six **blank** positions, not automatically populated heroes; user must select up to six source-released heroes under Tướng and return to Home2. Real imported art remains conditional on exact ID and Spine asset import.
+- **Check:** GitHub CI source tests, then Unity 2022.3.51f1 Play Mode **must** verify zero red Console errors, presenter log, list, party storage, home names and artwork. Keep PR #9 draft/unmerged until confirmed. See `docs/navigation/OFFLINE_HERO_UI.md`.
+
 ## 2026-10-12 — Fix Unity Play Mode optional passive3 FormatException
 
 - **User confirmed:** `OfflineHeroCatalog.ParseOptionalSkillId` threw `FormatException: Hero field passive3 is not an unsigned integer:` while entering `Home2Scene`.
