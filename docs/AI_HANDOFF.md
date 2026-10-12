@@ -1,5 +1,12 @@
 # AI HANDOFF — Hải Tặc UI Viewer
 
+## 2026-10-12 — Follow-up from actual Unity Play Mode: Home2 HUD Canvas lookup failure
+
+- User Play Mode Console reported `[HTDC Home2 HUD] Original Canvas not found.`; no Facebook/Skins/Activity visual changes occurred. Hero presenter DID run, logging `Offline party 6/6 loaded`, with names/stars visible and only some portraits.
+- Confirmed via actual `Assets/Scenes/Home2Scene.unity` serialized object IDs: `Scripts` (GO 12, Transform 510) and `Canvas` (GO 121, RectTransform 1024, Canvas component 908) both have `m_Father: {fileID: 0}`: **two sibling Scene roots**, not parent/child. Incorrect code `home.transform.root.Find("Canvas")` searched children of Scripts and always failed.
+- Fix: `OfflineHome2HudCorrection.FindSceneCanvas` now searches `home.gameObject.scene.GetRootGameObjects()` and checks the original root name and Canvas component; never looks for Canvas under Scripts or in unrelated loaded Scenes. Regression `test_canvas_is_resolved_from_sibling_scene_roots` locks original Scene structure and lookup. Runtime now logs `[HTDC Home2 HUD] Scene Canvas located: Canvas` before applying the requested HUD changes.
+- Verify latest GitHub Actions static results and **user Unity Play Mode Game View** for one FB, no Skins, activity between shop and ship; if `Source event Sprite unavailable` arises, check correct Git LFS checkout/import; do not invent icon. PR #9 remains draft until verified. Original Scene/Prefabs/art unchanged.
+
 ## 2026-10-12 — User Home2 visual comparison: duplicate Fb, unwanted Skins, missing Activity
 
 - User-provided original vs current Unity Home2 screenshots established three narrowly scoped HUD differences. Source `Home2Scene.unity` proves `ButtonTest` and `ButtonFb` use the same Facebook Sprite; `ButtonSkins` is separately serialized, and the bottom `GroupButton` has five buttons in original order.
