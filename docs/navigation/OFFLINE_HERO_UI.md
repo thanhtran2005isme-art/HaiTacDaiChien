@@ -14,6 +14,10 @@
   For this dictionary/selectable subset, display `release=1`, main hero ID ≤530, star ≥5,
   one highest-star released source variant **per avatar ID**: 154 eligible records → 147 distinct avatar IDs.
   This is NOT the player's inventory.
+  Source-tree resource coverage for these 147 distinct avatars: **95 portraits present**,
+  **77 corresponding `Hero_{avatar}_SkeletonData.asset` entries present**
+  (all 77 also have a portrait), **52 avatars without either matching source path**.
+  Existence in Git LFS does not prove Unity runtime import/render.
 - `OfflineHeroParty` stores an **explicit** 0–6-item selection using `PlayerPrefs` key
   `htdc.offline.party.v1.ids`. Default is empty, never generates player-owned heroes.
   The list card opens source `PanelHeroInfo` on click; the small `Chọn/Bỏ đội`
