@@ -1,5 +1,14 @@
 # AI HANDOFF — Hải Tặc UI Viewer
 
+## 2026-10-12 — BẮT BUỘC Edit Mode = Play Mode cho giao diện cố định; HeroList đã có preview lưu Scene
+
+- User trực tiếp xác nhận: **"sửa thì sửa cả 2 cả play lẫn thoát play"**, **"không quan trọng gốc"**. Đây là tiêu chí bắt buộc từ nay cho *mọi* UI; xem quyết định đứng đầu `docs/DECISIONS.md`. Không báo "đã sửa UI" chỉ vì `Start()` hoạt động khi Play.
+- Screenshot Edit Mode cho thấy `Sort`, `Fortress`, `12/100` và danh sách trống. Lúc kiểm tra GitHub, nhánh đã có `Sắp xếp`, `Nhanh nhẹn`, `—/6` trong YAML: **khác biệt giữa local Unity Scene đang mở và HEAD**; sau pull phải *đóng và mở lại Scene*, đồng thời kiểm tra `git status` để tránh ghi đè bản người dùng.
+- **Sửa trực tiếp Scene lần này**: `Assets/Scenes/HeroListNewScene.unity` giữ text tiếng Việt và thêm 8 thẻ `HTDC EDIT PREVIEW HERO <id>` nằm trong `ScrollView/Viewport/Content`, 4 cột × 2 hàng, portrait source theo `Assets/Resources/_pack/herohead/<avatar>.asset`. Tất cả là released mainline catalog, các record nguồn: `4/182 Califa`, `13/161 Nami`, `14/156 Brook`, `17/157 Blamenco`, `24/164 Zoro`, `30/165 Hina`, `31/169 Dalmatian`, `37/175 Momonga`. Thẻ đều có `EditorOnly` tag, không tuyên bố sở hữu/cấp tài khoản; số `★6` là sao gốc, không phải Level 6. Canvas RectTransform từ localScale zero sang one **lưu vào Scene**.
+- **Play Mode:** `OfflineHeroListPresenter` tìm đúng 8 thẻ preview EditorOnly trong Content, `SetActive(false)` và `Destroy()`, sau đó sinh danh sách tướng thực từ catalog JSON. Điều này tránh ảnh/mô tả bị lặp. Nút `Chọn` phủ chân dung vẫn đã bị bỏ; thao tác chọn đội hình nằm trong chi tiết.
+- **Acceptance bắt buộc ở Unity**: 1) tắt Play, mở lại `HeroListNewScene.unity`: nhãn tiếng Việt, Canvas đúng, 8 portrait thực trong 4 cột, không nút Chọn; 2) bật Play: preview không chồng danh sách, tướng đúng data, click detail/chọn đội, kiểm tra Console; 3) tắt Play: nhãn + 8 preview vẫn hiện, không về bản cũ. GitHub static CI không xác minh hình ảnh thực tế. PR #9 Draft, chưa merge.
+- **Stale docs**: đoạn handoff cũ nói HeroList Scene chưa sửa hoặc Edit Mode có danh sách trống là snapshot lịch sử. Quyết định hiện hành được ghi phía trên, ưu tiên Git HEAD + diff thực tế.
+
 ## 2026-10-12 — HeroListNewScene screenshot comparison: Vietnamese labels and clean hero cards
 
 - User supplied running-game reference for the original HeroList and a current Unity Game View comparison. Reference has **Sắp xếp** and six Vietnamese faction captions; cards have source portrait/rank/metadata and **no overlaid Chọn button**. Current `OfflineHeroListPresenter` had created a large brown `OfflineTeamSelect` button on every card, which obstructed artwork and changed the original composition.
