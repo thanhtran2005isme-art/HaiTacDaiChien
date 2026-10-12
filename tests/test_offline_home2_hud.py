@@ -42,6 +42,30 @@ class Home2HudSourceContract(unittest.TestCase):
         self.assertEqual(self.scene.count("m_OnClick:"), 47)
         self.assertEqual(self.scene.count("m_Text: Naruto"), 6)
 
+    def test_canvas_is_resolved_from_sibling_scene_roots(self):
+        # Serialized GameObjects 12 (Scripts) and 121 (Canvas) both have
+        # RectTransforms with m_Father {fileID: 0}, NOT parent/child.
+        # Runtime MonoBehaviour sits under Scripts; transform.root.Find
+        # cannot reach the separate Canvas scene root.
+        def object_block(kind, file_id):
+            pattern = re.compile(
+                rf"(?ms)^--- !u!{kind} &{file_id}\\n(.*?)(?=^--- !u!|\\Z)"
+            )
+            match = pattern.search(self.scene)
+            self.assertIsNotNone(match, f"Unity {kind} object {file_id}")
+            return match.group(1)
+
+        self.assertIn("m_Name: Scripts", object_block(1, 12))
+        self.assertIn("m_Name: Canvas", object_block(1, 121))
+        self.assertIn("m_Father: {fileID: 0}", object_block(4, 510))
+        self.assertIn("m_Father: {fileID: 0}", object_block(224, 1024))
+        self.assertIn("m_GameObject: {fileID: 121}", object_block(223, 908))
+        self.assertIn("home.gameObject.scene.GetRootGameObjects()", self.hud)
+        self.assertIn('root.name == "Canvas"', self.hud)
+        self.assertIn("root.GetComponent<Canvas>() != null", self.hud)
+        self.assertNotIn('home.transform.root.Find("Canvas")', self.hud)
+        self.assertIn("Scene Canvas located", self.hud)
+
     def test_two_fb_objects_have_source_proven_sprite_identity(self):
         for name in ("ButtonTest", "ButtonFb", "PanelHomeTopRight"):
             self.assertIn("m_Name: " + name, self.scene)
