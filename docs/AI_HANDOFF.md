@@ -1,5 +1,15 @@
 # AI HANDOFF — Hải Tặc UI Viewer
 
+## 2026-10-12 — PanelHeroInfo 79/79 P1 offline responses
+
+- **Branch giữ nguyên:** `feat/htdc-localization-hold`; không sửa P0 HomeScene (55), Home2Scene (47), P1 CelestialScene (47) hoặc `main`.
+- **Source:** `Assets/Resources/prefabs/heroinfo/PanelHeroInfo.prefab` gốc 954 GameObject/3.997 block và 79 Button persistent `m_OnClick`. Đã gắn **một** `PanelHeroInfoOfflineBridge` mới vào root với đúng 79 bổ sung callback; giữ nguyên tất cả callback cũ, m_RectTransform, Sprite/Spine và active defaults. Original prefab Git SHA `e90f30707e4fccc14a350fd2eec58837cdbf765b` được regression test đối chiếu lại bằng cách loại phần bổ sung (source preservation).
+- **14 local UI responses:** mở/đóng BoxShare; đóng panel chính, filter, detail; 7 tab bật tắt đúng 7 panel gốc cùng notice khi dữ liệu tướng không đủ. **65 callbacks còn lại** mở `PopupMessage` gốc để giải thích thiếu HeroModel/kho/trang bị/kỹ năng/server; không phát hàng/tiền, không thực hiện giao dịch.
+- **Đã thêm:** `Assets/Scripts/Assembly-CSharp/PanelHeroInfoOfflineBridge.cs` + `.meta`, cập nhật `PanelHeroInfo.prefab`; test `tests/test_panel_hero_info_navigation.py`, workflow `.github/workflows/panel-hero-info-navigation.yml`, docs `docs/navigation/PANEL_HERO_INFO_NAVIGATION_AUDIT.md`.
+- **Chưa xác nhận:** Unity Editor compile/Play Mode trong Scene sở hữu prefab, hoạt động mở lại sau nút Back, Canvas/popup layering, mọi control inactive, gameplay/account/backend. Test static/CI không chứng minh bản có thể chơi. Phải xem Actions của **HEAD mới nhất**.
+- **Tiếp theo:** kiểm tra Unity 2022.3.51f1 bằng `py -3 -m unittest discover -s tests -p test_panel_hero_info_navigation.py -v` rồi Play Mode + Console, chưa merge; chuyển sang P1 khác khi có task tiếp theo.
+
+
 ## 2026-10-12 — CelestialScene 47/47 P1 source-only offline routes
 
 - **Branch:** `feat/htdc-localization-hold`, tiếp tục branch đã có; hai P0 `HomeScene.unity` (55 callback) và `Home2Scene.unity` (47 callback) **không chỉnh sửa**.
