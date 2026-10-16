@@ -1,0 +1,74 @@
+[
+ {
+   "id": 1,
+   "name": "Gangster",
+   "effect": [{\"clazz\":0,\"faction\":0,\"point\":[102,20]},{\"clazz\":0,\"faction\":0,\"point\":[100,30]},{\"clazz\":0,\"faction\":0,\"point\":[102,10]}],
+   "set": [9,30,51,72]
+ },
+ {
+   "id": 2,
+   "name": "Apprentice",
+   "effect": [{\"clazz\":0,\"faction\":0,\"point\":[102,30]},{\"clazz\":0,\"faction\":0,\"point\":[100,40]},{\"clazz\":0,\"faction\":0,\"point\":[102,10]}],
+   "set": [10,31,52,73]
+ },
+ {
+   "id": 3,
+   "name": "Casual",
+   "effect": [{\"clazz\":0,\"faction\":0,\"point\":[102,40]},{\"clazz\":0,\"faction\":0,\"point\":[100,50]},{\"clazz\":0,\"faction\":0,\"point\":[102,20]}],
+   "set": [11,32,53,74]
+ },
+ {
+   "id": 4,
+   "name": "Warrior",
+   "effect": [{\"clazz\":0,\"faction\":0,\"point\":[102,50]},{\"clazz\":0,\"faction\":0,\"point\":[100,70]},{\"clazz\":0,\"faction\":0,\"point\":[102,40]}],
+   "set": [12,33,54,75]
+ },
+ {
+   "id": 5,
+   "name": "Officer",
+   "effect": [{\"clazz\":0,\"faction\":0,\"point\":[102,70]},{\"clazz\":0,\"faction\":0,\"point\":[100,90]},{\"clazz\":0,\"faction\":0,\"point\":[102,40]}],
+   "set": [13,34,55,76]
+ },
+ {
+   "id": 6,
+   "name": "Sailor",
+   "effect": [{\"clazz\":0,\"faction\":0,\"point\":[102,80]},{\"clazz\":0,\"faction\":0,\"point\":[100,110]},{\"clazz\":0,\"faction\":0,\"point\":[102,50]}],
+   "set": [14,35,56,77]
+ },
+ {
+   "id": 7,
+   "name": "Captain",
+   "effect": [{\"clazz\":0,\"faction\":0,\"point\":[102,100]},{\"clazz\":0,\"faction\":0,\"point\":[100,130]},{\"clazz\":0,\"faction\":0,\"point\":[102,50]}],
+   "set": [15,36,57,78]
+ },
+ {
+   "id": 8,
+   "name": "Avivator",
+   "effect": [{\"clazz\":0,\"faction\":0,\"point\":[102,110]},{\"clazz\":0,\"faction\":0,\"point\":[100,150]},{\"clazz\":0,\"faction\":0,\"point\":[102,60]}],
+   "set": [16,37,58,79]
+ },
+ {
+   "id": 9,
+   "name": "Noble",
+   "effect": [{\"clazz\":0,\"faction\":0,\"point\":[102,120]},{\"clazz\":0,\"faction\":0,\"point\":[100,170]},{\"clazz\":0,\"faction\":0,\"point\":[102,70]}],
+   "set": [17,38,59,80]
+ },
+ {
+   "id": 10,
+   "name": "Businessman",
+   "effect": [{\"clazz\":0,\"faction\":0,\"point\":[102,140]},{\"clazz\":0,\"faction\":0,\"point\":[100,190]},{\"clazz\":0,\"faction\":0,\"point\":[102,70]}],
+   "set": [18,39,60,81]
+ },
+ {
+   "id": 11,
+   "name": "Blue Wolf",
+   "effect": [{\"clazz\":0,\"faction\":0,\"point\":[102,150]},{\"clazz\":0,\"faction\":0,\"point\":[100,200]},{\"clazz\":0,\"faction\":0,\"point\":[102,80]}],
+   "set": [19,40,61,82]
+ },
+ {
+   "id": 12,
+   "name": "Seagull",
+   "effect": [{\"clazz\":0,\"faction\":0,\"point\":[102,160]},{\"clazz\":0,\"faction\":0,\"point\":[100,210]},{\"clazz\":0,\"faction\":0,\"point\":[102,80]}],
+   "set": [20,41,62,83]
+ }
+]

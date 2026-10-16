@@ -1,0 +1,403 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1709254077376921
+GameObject:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Component:
+  - component: {fileID: 4730242686860875}
+  - component: {fileID: 114724804207875695}
+  m_Layer: 0
+  m_Name: I2Languages_arena
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4730242686860875
+Transform:
+  serializedVersion: 2
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1709254077376921}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -0, z: -0}
+--- !u!114 &114724804207875695
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1709254077376921}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7554888af13e447d4982f6ad48f0af4b, type: 3}
+  m_Name:
+  m_EditorClassIdentifier:
+  mSource:
+    UserAgreesToHaveItOnTheScene: 1
+    UserAgreesToHaveItInsideThePluginsFolder: 0
+    GoogleLiveSyncIsUptoDate: 1
+    mTerms:
+    - Term: FONT
+      TermType: 1
+      Languages:
+      - Fonts/SVN-Titillium bold
+      - Fonts/SVN-Titillium bold
+      - Fonts/SVN-Titillium bold
+      - Fonts/SVN-Titillium bold
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LB L_ARENA_SCENE_ALLSTAR_REQUIRE_LEVEL
+      TermType: 0
+      Languages:
+      - Thiên hạ võ đấu liên server. Yêu cầu cấp {0} để tham dự.
+      - The inter-server Arena All Stars. Requires level {0} to attend.
+      - วรยุทธยุทธพบ ระหว่างเซิฟเวอร์. ต้องมีเลเวล {0} เพื่อเข้าร่วม.
+      - 跨服天下武鬥。需要達到{0}級才可參與。
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_ALL_STAR_LEAGUE_TITLE
+      TermType: 0
+      Languages:
+      - Tân Thế Giới
+      - Corrida Colosseum
+      - โลกใหม่
+      - 新世界
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_ARENA_ALL_STAR
+      TermType: 0
+      Languages:
+      - Võ đấu
+      - Arena All Stars
+      - วรยุทธ
+      - 武鬥
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_ARENA_SCENE_CRYSTAL_CROWN
+      TermType: 0
+      Languages:
+      - Đơn đấu
+      - Arena
+      - ต่อสู้เดี่ยว
+      - 單鬥
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_ARENA_SCENE_GROUP_STAGE
+      TermType: 0
+      Languages:
+      - Vòng bảng
+      - Group stage
+      - รอบแบ่งกลุ่ม
+      - 淘汰賽
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_ARENA_SCENE_ROUND_1_16
+      TermType: 0
+      Languages:
+      - Vòng 1/16
+      - Round 1/16
+      - รอบ 1/16
+      - 16強賽
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_ARENA_TRIAL_CHAMPION
+      TermType: 0
+      Languages:
+      - Liên đấu
+      - Grand Arena
+      - ทัวร์นาเมนต์
+      - 錦標賽
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_CRYSTAL_CROWN_SCENE_TITILE
+      TermType: 0
+      Languages:
+      - Giải thách đấu
+      - League of Pirates
+      - รางวัลท้าประลอง
+      - 挑戰賽
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_MATCH
+      TermType: 0
+      Languages:
+      - Trận đấu
+      - Match
+      - การต่อสู้
+      - 場次
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_POPUP_ALL_STAR_RESULT
+      TermType: 0
+      Languages:
+      - KẾT QUẢ
+      - RESULT
+      - ผลการแข่งขัน
+      - 結果
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_POPUP_ALL_STAR_RESULT_FINAL
+      TermType: 0
+      Languages:
+      - CHUNG KẾT
+      - FINAL
+      - รอบชิงชนะเลิศ
+      - 中決賽
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_POPUP_ALL_STAR_RESULT_QUATER_FINAL
+      TermType: 0
+      Languages:
+      - TỨ KẾT
+      - QUATER FINAL
+      - รอบก่อนรองชนะเลิศ
+      - 四分之一決賽
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_POPUP_ALL_STAR_RESULT_ROUND_1_16
+      TermType: 0
+      Languages:
+      - VÒNG 1/16
+      - ROUND 1/16
+      - รอบ 1/16
+      - 16強賽
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_POPUP_ALL_STAR_REWARD_CAL_POINT
+      TermType: 0
+      Languages:
+      - Tính điểm
+      - Point
+      - คิดคะแนน
+      - 積分計算
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_POPUP_ALL_STAR_REWARD_KNOCK_OUT
+      TermType: 0
+      Languages:
+      - Vô song
+      - Knock Out
+      - ไม่มีใครเทียบ
+      - 無雙
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_POPUP_ALL_STAR_REWARD_SEASON
+      TermType: 0
+      Languages:
+      - Thưởng mùa
+      - Season
+      - โบนัส
+      - 賽季獎勵
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_RESULT
+      TermType: 0
+      Languages:
+      - Kết quả
+      - Result
+      - ผลการแข่งขัน
+      - 結果
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_TRIAL_OF_CHAMPION_SCENE
+      TermType: 0
+      Languages:
+      - Giải liên đấu
+      - League Of MarineFord
+      - รางวัล ทัวร์นาเมนต์
+      - 跨服錦標賽
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MSG_ARENA_SCENE_DESC_TRIAL_OF_CHAMPION
+      TermType: 0
+      Languages:
+      - Yêu cầu người chơi cấp độ 55 trở lên.
+      - Requires level 55 or higher.
+      - ผู้เล่นต้องอยู่เลเวล 55 ขึ้นไป.
+      - 要求55級以上的玩家
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MSG_ARENA_SCENE_GROUP_STAGE_END
+      TermType: 0
+      Languages:
+      - Vòng bảng đã kết thúc
+      - The group stage has finished
+      - รอบแบ่งกลุ่มได้เสร็จสิ้น
+      - 淘汰賽已結束
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MSG_ARENA_SCENE_NOT_OPEN
+      TermType: 0
+      Languages:
+      - Đấu trường chưa mở
+      - The arena is not open yet
+      - สนามแข่งยังไม่ได้เปิด
+      - 競技場尚未開啟
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MSG_ARENA_SCENE_NOT_YET_START
+      TermType: 0
+      Languages:
+      - Đấu trường chưa bắt đầu
+      - The arena has not yet started
+      - สนามแข่งยังไม่ทันเริ่ม
+      - 競技場尚未開始
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MSG_ARENA_TITLE_REWARD
+      TermType: 0
+      Languages:
+      - Phần thưởng sẽ được trao vào 21:00 (UTC/GMT 0) dựa vào hạng hiện tại trong ngày.
+      - Rewards will be awarded at 21:00 (UTC / GMT 0) based on current class for the day.
+      - รางวัลจะถูกมอบตอน 21:00 (UTC/GMT 0) ขึ้นอยู่กับอันดับของวันนี้.
+      - 獎勵將根據當日排名於21:00（UTC/GMT 0）發放。
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MSG_ARENA_TITLE_SEASON_REWARD
+      TermType: 0
+      Languages:
+      - Phần thưởng sẽ được trao dựa trên thứ hạng của bạn khi mùa giải kết thúc.
+      - Rewards will be given out based on your ranking at the end of the season.
+      - รางวัลจะถูกมอบขึ้นอยู่กับอันดับของคุณ เมื่อเราดูการแข่งขันเสร็จสิ้น.
+      - 賽季結束後將根據您的排名進行發獎
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MSG_CALL_ALL_STAR_POINT_PER_HOUR_ADD_SCORE
+      TermType: 0
+      Languages:
+      - +{0} điểm mỗi 15 phút
+      - + {0} points per 15 minutes
+      - + {0} คะแนนทุกๆ 15 นาที
+      - 每15分鐘增加{0}點
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MSG_CELL_PET_SELECT_BATTLE_NOT_ACTIVED
+      TermType: 0
+      Languages:
+      - Chiến hạm chưa được kích hoạt
+      - The warship has not been activated
+      - เรือรบยังไม่ได้เปิดใช้งาน.
+      - 戰船尚未激活
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MSG_FULL_HERO_FORMATION
+      TermType: 0
+      Languages:
+      - Danh sách tướng ra trận đã đầy
+      - You have selected enough heroes
+      - รายชื่อฮีโร่ออกรบเต็มแล้ว
+      - 出戰英雄已滿
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MSG_LOCK_LINE_UP_1_16
+      TermType: 0
+      Languages:
+      - Không thể xem đội hình người chơi khi chuẩn bị cho vòng 1/16
+      - You are not allowed to see other player's formation in this round
+      - ไม่สามารถดูทีมของผู้เล่นเมื่อเตรียมตัวสำหรับรอบ1/16
+      - 16強賽準備期間不可查看玩家陣容
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MSG_POPUP_ALL_STAR_BET_DESC
+      TermType: 0
+      Languages:
+      - Trong trận cuối cùng, tổng sát thương của tướng có sát thương cao nhất là chẵn hay lẻ
+      - In the last match, total damage of hero with highest damage is odd or even?
+      - ในสนามสุดท้าย, ความเสียหายทั้งหมดของฮีโร่มีความเสียหายสูงสุดคู่หรือคี่
+      - 在最後一場比賽中，英雄最高傷害的總傷害是奇數還是偶數?
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MSG_POPUP_ALL_STAR_RESULT_SEMI_FINAL
+      TermType: 0
+      Languages:
+      - BÁN KẾT
+      - SEMI FINAL
+      - รอบรองชนะเลิศ
+      - 半決賽
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MSG_POPUP_FORMATION_3_HAS_HERO_ON_ALL_LINE_UP
+      TermType: 0
+      Languages:
+      - Cần xếp thuyền viên vào tất cả các đội hình
+      - Crew members need to be placed in all formations
+      - ต้องจัดเรียงลูกเรือ ใส่ในทุกรูปแบบการเล่น
+      - 需要將船員排到所有陣容
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MSG_POPUP_SELECT_PET_BATTLE_SHIP_NOT_ALLOW_CHOOSE
+      TermType: 0
+      Languages:
+      - Chiến hạm không được phép chọn
+      - This warships is not allowed to choose
+      - เรือรบไม่อนุญาตให้เลือก
+      - 戰船不可選
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MSG_POPUP_SELECT_PET_CHOOSE_BATTLE_SHIP
+      TermType: 0
+      Languages:
+      - Chọn chiến hạm
+      - Choose your warship
+      - เลือกเรือรบ
+      - 選擇戰船
+      Flags: 00000000
+      Languages_Touch: []
+    CaseInsensitiveTerms: 0
+    OnMissingTranslation: 1
+    mTerm_AppName:
+    mLanguages:
+    - Name: Vietnamese
+      Code: vi
+      Flags: 0
+    - Name: English
+      Code: en
+      Flags: 0
+    - Name: Thai
+      Code: th
+      Flags: 0
+    - Name: Chinese
+      Code: zh
+      Flags: 0
+    IgnoreDeviceLanguage: 0
+    _AllowUnloadingLanguages: 0
+    Google_WebServiceURL: https://script.google.com/a/k2tek.net/macros/s/AKfycbxm_cUSypIwCEW3CHY1u40TkXx2ixdrMWTjSUbB/exec
+    Google_SpreadsheetKey: 1VCHRbJlBKQZ7NyVVuShKBxbrOvy_Oo9ERmYEdIptP90
+    Google_SpreadsheetName: I2Loc Hải Tặc Đại Chiến Assets/Scenes/LoginScene.unity I2Languages_arena
+    Google_LastUpdatedVersion: 1615781071304
+    GoogleUpdateFrequency: 1
+    GoogleInEditorCheckFrequency: 2
+    GoogleUpdateSynchronization: 1
+    GoogleUpdateDelay: 5
+    Assets: []
+  version: 1
+  NeverDestroy: 1
+  UserAgreesToHaveItOnTheScene: 1
+  UserAgreesToHaveItInsideThePluginsFolder: 0
+  GoogleLiveSyncIsUptoDate: 1
+  Assets: []
+  Google_WebServiceURL:
+  Google_SpreadsheetKey:
+  Google_SpreadsheetName:
+  Google_LastUpdatedVersion:
+  GoogleUpdateFrequency: 3
+  GoogleUpdateDelay: 5
+  mLanguages: []
+  IgnoreDeviceLanguage: 0
+  _AllowUnloadingLanguages: 0
+  mTerms: []
+  CaseInsensitiveTerms: 0
+  OnMissingTranslation: 1
+  mTerm_AppName:

@@ -1,0 +1,69 @@
+
+Hit_129.png
+size: 888,800
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Char_law_skill_1_hit1/000
+  rotate: false
+  xy: 610, 168
+  size: 238, 42
+  orig: 241, 46
+  offset: 2, 2
+  index: -1
+Char_law_skill_1_hit1/001
+  rotate: false
+  xy: 2, 378
+  size: 615, 166
+  orig: 620, 170
+  offset: 3, 1
+  index: -1
+Char_law_skill_1_hit1/002
+  rotate: false
+  xy: 2, 3
+  size: 447, 189
+  orig: 456, 193
+  offset: 2, 1
+  index: -1
+Char_law_skill_1_hit1/003
+  rotate: false
+  xy: 619, 212
+  size: 255, 244
+  orig: 260, 249
+  offset: 3, 3
+  index: -1
+Char_law_skill_1_hit1/004
+  rotate: true
+  xy: 619, 458
+  size: 337, 266
+  orig: 343, 270
+  offset: 5, 2
+  index: -1
+Char_law_skill_1_hit1/005
+  rotate: false
+  xy: 2, 546
+  size: 615, 249
+  orig: 620, 255
+  offset: 3, 3
+  index: -1
+Char_law_skill_1_hit1/006
+  rotate: false
+  xy: 2, 194
+  size: 471, 182
+  orig: 483, 186
+  offset: 3, 2
+  index: -1
+Char_law_skill_1_hit1/007
+  rotate: true
+  xy: 451, 2
+  size: 164, 197
+  orig: 172, 202
+  offset: 2, 3
+  index: -1
+Char_law_skill_1_hit1/008
+  rotate: true
+  xy: 475, 210
+  size: 166, 133
+  orig: 169, 136
+  offset: 2, 1
+  index: -1

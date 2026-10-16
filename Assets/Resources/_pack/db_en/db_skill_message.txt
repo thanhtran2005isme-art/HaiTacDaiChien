@@ -1,0 +1,488 @@
+﻿[
+ {
+   "Chapter": 1,
+   "IndexWave": 1,
+   "urlImageLeft": 190,
+   "urlImageRight": 237,
+   "HeroName": "Luffy ",
+   "Message": "Uncle Sharks, I will become  Pirate King! ",
+   "Float": 0
+ },
+ {
+   "Chapter": 1,
+   "IndexWave": 1,
+   "urlImageLeft": 190,
+   "urlImageRight": 237,
+   "HeroName": "Bandit",
+   "Message": "You are pirates? Pathetic!",
+   "Float": 1
+ },
+ {
+   "Chapter": 1,
+   "IndexWave": 2,
+   "urlImageLeft": 190,
+   "urlImageRight": 237,
+   "HeroName": "Bandit",
+   "Message": "You coward pirates dare to resist?",
+   "Float": 1
+ },
+ {
+   "Chapter": 1,
+   "IndexWave": 2,
+   "urlImageLeft": 190,
+   "urlImageRight": 237,
+   "HeroName": "Luffy ",
+   "Message": "  Gomu gomu no Pistol",
+   "Float": 0
+ },
+ {
+   "Chapter": 1,
+   "IndexWave": 3,
+   "urlImageLeft": 190,
+   "urlImageRight": 228,
+   "HeroName": "Alvira",
+   "Message": "Coby, who is the fairest of them all !",
+   "Float": 1
+ },
+ {
+   "Chapter": 1,
+   "IndexWave": 3,
+   "urlImageLeft": 190,
+   "urlImageRight": 228,
+   "HeroName": "Luffy",
+   "Message": "Who is this fat old granny?",
+   "Float": 0
+ },
+ {
+   "Chapter": 1,
+   "IndexWave": 3,
+   "urlImageLeft": 190,
+   "urlImageRight": 228,
+   "HeroName": "Alvira",
+   "Message": "You little punk!!!",
+   "Float": 1
+ },
+ {
+   "Chapter": 1,
+   "IndexWave": 5,
+   "urlImageLeft": 190,
+   "urlImageRight": 234,
+   "HeroName": "Helmeppo",
+   "Message": "On your knees, or I tell my father",
+   "Float": 1
+ },
+ {
+   "Chapter": 1,
+   "IndexWave": 5,
+   "urlImageLeft": 190,
+   "urlImageRight": 234,
+   "HeroName": "Luffy",
+   "Message": "I have to teach this spoiled kid a lession",
+   "Float": 0
+ },
+ {
+   "Chapter": 1,
+   "IndexWave": 6,
+   "urlImageLeft": 190,
+   "urlImageRight": 234,
+   "HeroName": "Helmeppo",
+   "Message": "Keep him busy while I'm going home and tell my father",
+   "Float": 1
+ },
+ {
+   "Chapter": 1,
+   "IndexWave": 6,
+   "urlImageLeft": 190,
+   "urlImageRight": 234,
+   "HeroName": "Luffy",
+   "Message": "Release Zoro, now!",
+   "Float": 0
+ },
+ {
+   "Chapter": 1,
+   "IndexWave": 7,
+   "urlImageLeft": 190,
+   "urlImageRight": 230,
+   "HeroName": "Morgan",
+   "Message": "Helmeppo is useless but he is my son!",
+   "Float": 1
+ },
+ {
+   "Chapter": 1,
+   "IndexWave": 7,
+   "urlImageLeft": 190,
+   "urlImageRight": 230,
+   "HeroName": "Luffy ",
+   "Message": "Oh are you really a Navy Colonel?",
+   "Float": 0
+ },
+ {
+   "Chapter": 1,
+   "IndexWave": 8,
+   "urlImageLeft": 190,
+   "urlImageRight": 230,
+   "HeroName": "Morgan",
+   "Message": "Catch them all",
+   "Float": 1
+ },
+ {
+   "Chapter": 1,
+   "IndexWave": 8,
+   "urlImageLeft": 190,
+   "urlImageRight": 230,
+   "HeroName": "Luffy ",
+   "Message": "No one can stop me!",
+   "Float": 0
+ },
+ {
+   "Chapter": 1,
+   "IndexWave": 9,
+   "urlImageLeft": 190,
+   "urlImageRight": 230,
+   "HeroName": "Morgan",
+   "Message": "Useless people, help me surround them",
+   "Float": 1
+ },
+ {
+   "Chapter": 1,
+   "IndexWave": 9,
+   "urlImageLeft": 190,
+   "urlImageRight": 230,
+   "HeroName": "Luffy ",
+   "Message": "I will kick your butt!",
+   "Float": 0
+ },
+ {
+   "Chapter": 1,
+   "IndexWave": 10,
+   "urlImageLeft": 190,
+   "urlImageRight": 230,
+   "HeroName": "Morgan",
+   "Message": "I sentence you to death !!",
+   "Float": 1
+ },
+ {
+   "Chapter": 1,
+   "IndexWave": 10,
+   "urlImageLeft": 190,
+   "urlImageRight": 230,
+   "HeroName": "Luffy ",
+   "Message": "It is not a good day to die!",
+   "Float": 0
+ },
+ {
+   "Chapter": 2,
+   "IndexWave": 1,
+   "urlImageLeft": 164,
+   "urlImageRight": 236,
+   "HeroName": "Buggy Pirates",
+   "Message": "Stop, we are ther powerful Buggy Pirates",
+   "Float": 1
+ },
+ {
+   "Chapter": 2,
+   "IndexWave": 1,
+   "urlImageLeft": 164,
+   "urlImageRight": 236,
+   "HeroName": "Zoro",
+   "Message": "What?",
+   "Float": 0
+ },
+ {
+   "Chapter": 2,
+   "IndexWave": 3,
+   "urlImageLeft": 161,
+   "urlImageRight": 235,
+   "HeroName": "Buggy Pirates",
+   "Message": "You stop right there, give me back the treasure map!",
+   "Float": 1
+ },
+ {
+   "Chapter": 2,
+   "IndexWave": 3,
+   "urlImageLeft": 161,
+   "urlImageRight": 235,
+   "HeroName": "Nami",
+   "Message": "M... Master ! You really come to save me?",
+   "Float": 0
+ },
+ {
+   "Chapter": 2,
+   "IndexWave": 3,
+   "urlImageLeft": 161,
+   "urlImageRight": 235,
+   "HeroName": "Buggy Pirates",
+   "Message": "Hmm, you come to rescue this little girl?",
+   "Float": 1
+ },
+ {
+   "Chapter": 2,
+   "IndexWave": 5,
+   "urlImageLeft": 190,
+   "urlImageRight": 161,
+   "HeroName": "Nami",
+   "Message": "You are really strong, you handle them easily",
+   "Float": 1
+ },
+ {
+   "Chapter": 2,
+   "IndexWave": 5,
+   "urlImageLeft": 190,
+   "urlImageRight": 161,
+   "HeroName": "Luffy",
+   "Message": "Who are you ?",
+   "Float": 0
+ },
+ {
+   "Chapter": 2,
+   "IndexWave": 5,
+   "urlImageLeft": 190,
+   "urlImageRight": 161,
+   "HeroName": "Nami",
+   "Message": "I am a Cat Burglar, watch my power!",
+   "Float": 1
+ },
+ {
+   "Chapter": 2,
+   "IndexWave": 7,
+   "urlImageLeft": 190,
+   "urlImageRight": 226,
+   "HeroName": "MoHJo ",
+   "Message": "Sir Buggy, please let met chop thier heads off!",
+   "Float": 1
+ },
+ {
+   "Chapter": 2,
+   "IndexWave": 7,
+   "urlImageLeft": 190,
+   "urlImageRight": 226,
+   "HeroName": "Luffy ",
+   "Message": "Wow, what a big cat!",
+   "Float": 0
+ },
+ {
+   "Chapter": 2,
+   "IndexWave": 9,
+   "urlImageLeft": 164,
+   "urlImageRight": 222,
+   "HeroName": "Cabaji",
+   "Message": "You are facing Chief of Staff of Buggy Pirates!",
+   "Float": 1
+ },
+ {
+   "Chapter": 2,
+   "IndexWave": 9,
+   "urlImageLeft": 164,
+   "urlImageRight": 222,
+   "HeroName": "Zoro",
+   "Message": "Are you a sword man?",
+   "Float": 0
+ },
+ {
+   "Chapter": 2,
+   "IndexWave": 10,
+   "urlImageLeft": 190,
+   "urlImageRight": 203,
+   "HeroName": "Buggy",
+   "Message": "You will regret fighting with a real Pirates!",
+   "Float": 1
+ },
+ {
+   "Chapter": 2,
+   "IndexWave": 10,
+   "urlImageLeft": 190,
+   "urlImageRight": 203,
+   "HeroName": "Luffy ",
+   "Message": "Big nose Pirates?",
+   "Float": 0
+ },
+ {
+   "Chapter": 3,
+   "IndexWave": 1,
+   "urlImageLeft": 161,
+   "urlImageRight": 178,
+   "HeroName": "Usopp ",
+   "Message": "I am Usopp The Great Captain, run for your life before my 80 million inferiors come !!!",
+   "Float": 1
+ },
+ {
+   "Chapter": 3,
+   "IndexWave": 1,
+   "urlImageLeft": 161,
+   "urlImageRight": 178,
+   "HeroName": "Nami",
+   "Message": "Liar !",
+   "Float": 0
+ },
+ {
+   "Chapter": 3,
+   "IndexWave": 1,
+   "urlImageLeft": 161,
+   "urlImageRight": 178,
+   "HeroName": "Usopp",
+   "Message": "Oops, I will handle you myself then",
+   "Float": 1
+ },
+ {
+   "Chapter": 3,
+   "IndexWave": 3,
+   "urlImageLeft": 178,
+   "urlImageRight": 219,
+   "HeroName": "Sham",
+   "Message": "Go destroy the village!",
+   "Float": 1
+ },
+ {
+   "Chapter": 3,
+   "IndexWave": 3,
+   "urlImageLeft": 178,
+   "urlImageRight": 219,
+   "HeroName": "Usopp",
+   "Message": "Over my dead body",
+   "Float": 0
+ },
+ {
+   "Chapter": 3,
+   "IndexWave": 5,
+   "urlImageLeft": 178,
+   "urlImageRight": 220,
+   "HeroName": "Buchi",
+   "Message": "Nyaban bothers, go!",
+   "Float": 1
+ },
+ {
+   "Chapter": 3,
+   "IndexWave": 5,
+   "urlImageLeft": 178,
+   "urlImageRight": 219,
+   "HeroName": "Usopp",
+   "Message": "Be careful, those two guys look very strong",
+   "Float": 0
+ },
+ {
+   "Chapter": 3,
+   "IndexWave": 7,
+   "urlImageLeft": 190,
+   "urlImageRight": 225,
+   "HeroName": "Jango",
+   "Message": "When I say \"one, two, jango\" you will see how strong I am",
+   "Float": 1
+ },
+ {
+   "Chapter": 3,
+   "IndexWave": 7,
+   "urlImageLeft": 190,
+   "urlImageRight": 225,
+   "HeroName": "Luffy ",
+   "Message": "Darn, he is really strong!",
+   "Float": 0
+ },
+ {
+   "Chapter": 3,
+   "IndexWave": 10,
+   "urlImageLeft": 178,
+   "urlImageRight": 218,
+   "HeroName": "Kuro",
+   "Message": "Useless people ! I will kill each of you by myself !!!",
+   "Float": 1
+ },
+ {
+   "Chapter": 3,
+   "IndexWave": 10,
+   "urlImageLeft": 178,
+   "urlImageRight": 218,
+   "HeroName": "Usopp",
+   "Message": "Do not even think about it, I will protect my village !!!",
+   "Float": 0
+ },
+ {
+   "Chapter": 4,
+   "IndexWave": 1,
+   "urlImageLeft": 190,
+   "urlImageRight": 174,
+   "HeroName": "Luffy ",
+   "Message": "Sanji, will you be our Chef? ",
+   "Float": 0
+ },
+ {
+   "Chapter": 4,
+   "IndexWave": 1,
+   "urlImageLeft": 190,
+   "urlImageRight": 174,
+   "HeroName": "Sanji ",
+   "Message": "Hmm! Who the heck are you?",
+   "Float": 1
+ },
+ {
+   "Chapter": 4,
+   "IndexWave": 5,
+   "urlImageLeft": 68,
+   "urlImageRight": 212,
+   "HeroName": "Don Krieg",
+   "Message": "This restaurant is good for hiding, take it!!!",
+   "Float": 1
+ },
+ {
+   "Chapter": 4,
+   "IndexWave": 5,
+   "urlImageLeft": 68,
+   "urlImageRight": 212,
+   "HeroName": "Sanji ",
+   "Message": "Do not be tempted, we will protect our village",
+   "Float": 0
+ },
+ {
+   "Chapter": 4,
+   "IndexWave": 10,
+   "urlImageLeft": 190,
+   "urlImageRight": 212,
+   "HeroName": "Luffy ",
+   "Message": "Wow, what an Armor !",
+   "Float": 0
+ },
+ {
+   "Chapter": 4,
+   "IndexWave": 10,
+   "urlImageLeft": 190,
+   "urlImageRight": 212,
+   "HeroName": "Don Krieg",
+   "Message": "Let me show this stupid kid who is the mighty one !!!",
+   "Float": 1
+ },
+ {
+   "Chapter": 5,
+   "IndexWave": 1,
+   "urlImageLeft": 190,
+   "urlImageRight": 161,
+   "HeroName": "Nami",
+   "Message": "I am sorry, I have to follow Arlong's order to save my village",
+   "Float": 1
+ },
+ {
+   "Chapter": 5,
+   "IndexWave": 1,
+   "urlImageLeft": 190,
+   "urlImageRight": 161,
+   "HeroName": "Luffy",
+   "Message": "Stupid, let us help you",
+   "Float": 0
+ },
+ {
+   "Chapter": 5,
+   "IndexWave": 10,
+   "urlImageLeft": 190,
+   "urlImageRight": 194,
+   "HeroName": "Arlong",
+   "Message": "Idiot, what can you do!",
+   "Float": 1
+ },
+ {
+   "Chapter": 5,
+   "IndexWave": 10,
+   "urlImageLeft": 190,
+   "urlImageRight": 194,
+   "HeroName": "Luffy",
+   "Message": "I will become Pirate King!!!",
+   "Float": 0
+ }
+]

@@ -1,0 +1,104 @@
+
+Hit_87.png
+size: 507,526
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Layer 1065 copy
+  rotate: false
+  xy: 398, 19
+  size: 84, 89
+  orig: 84, 89
+  offset: 0, 0
+  index: -1
+Layer 249 copy
+  rotate: true
+  xy: 398, 2
+  size: 15, 42
+  orig: 15, 42
+  offset: 0, 0
+  index: -1
+Layer 249 copy 2
+  rotate: true
+  xy: 442, 2
+  size: 15, 42
+  orig: 15, 42
+  offset: 0, 0
+  index: -1
+fx/Explosion_02/0
+  rotate: true
+  xy: 327, 110
+  size: 135, 124
+  orig: 151, 125
+  offset: 6, 1
+  index: -1
+fx/Explosion_02/1
+  rotate: false
+  xy: 251, 5
+  size: 145, 99
+  orig: 151, 103
+  offset: 4, 2
+  index: -1
+fx/Explosion_02/2
+  rotate: true
+  xy: 437, 385
+  size: 139, 68
+  orig: 151, 74
+  offset: 6, 3
+  index: -1
+fx/Explosion_02/3
+  rotate: true
+  xy: 437, 248
+  size: 135, 62
+  orig: 151, 74
+  offset: 8, 6
+  index: -1
+fx/Explosion_02/4
+  rotate: true
+  xy: 289, 110
+  size: 128, 36
+  orig: 138, 50
+  offset: 7, 8
+  index: -1
+fx/Smoke_hit/0
+  rotate: true
+  xy: 453, 150
+  size: 96, 38
+  orig: 96, 38
+  offset: 0, 0
+  index: -1
+fx/Smoke_hit/1
+  rotate: false
+  xy: 2, 5
+  size: 247, 99
+  orig: 247, 99
+  offset: 0, 0
+  index: -1
+fx/Smoke_hit/2
+  rotate: true
+  xy: 307, 247
+  size: 277, 128
+  orig: 277, 128
+  offset: 0, 0
+  index: -1
+fx/Smoke_hit/3
+  rotate: false
+  xy: 2, 106
+  size: 285, 132
+  orig: 285, 132
+  offset: 0, 0
+  index: -1
+fx/Smoke_hit/4
+  rotate: false
+  xy: 2, 240
+  size: 287, 137
+  orig: 287, 137
+  offset: 0, 0
+  index: -1
+fx/Smoke_hit/5
+  rotate: false
+  xy: 2, 379
+  size: 303, 145
+  orig: 303, 145
+  offset: 0, 0
+  index: -1

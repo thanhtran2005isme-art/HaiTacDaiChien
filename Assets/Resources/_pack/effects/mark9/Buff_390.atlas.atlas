@@ -1,0 +1,83 @@
+
+Buff_390.png
+size: 456,140
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+6/images/typhoon3_01
+  rotate: true
+  xy: 172, 48
+  size: 90, 110
+  orig: 128, 128
+  offset: 19, 4
+  index: -1
+6/images/typhoon3_02
+  rotate: true
+  xy: 166, 2
+  size: 44, 104
+  orig: 128, 128
+  offset: 64, 13
+  index: -1
+6/images/typhoon3_03
+  rotate: true
+  xy: 284, 45
+  size: 28, 90
+  orig: 128, 128
+  offset: 80, 32
+  index: -1
+6/images/typhoon3_04
+  rotate: true
+  xy: 376, 47
+  size: 26, 69
+  orig: 128, 128
+  offset: 83, 56
+  index: -1
+naruto1_17
+  rotate: false
+  xy: 284, 107
+  size: 138, 31
+  orig: 154, 35
+  offset: 5, 1
+  index: -1
+naruto1_30
+  rotate: true
+  xy: 424, 80
+  size: 58, 24
+  orig: 62, 27
+  offset: 4, 2
+  index: -1
+naruto1_33
+  rotate: false
+  xy: 272, 14
+  size: 86, 29
+  orig: 99, 35
+  offset: 4, 6
+  index: -1
+naruto1_41
+  rotate: true
+  xy: 2, 52
+  size: 86, 168
+  orig: 93, 177
+  offset: 6, 2
+  index: -1
+naruto1_44
+  rotate: true
+  xy: 2, 9
+  size: 41, 162
+  orig: 48, 162
+  offset: 5, 0
+  index: -1
+naruto1_50
+  rotate: false
+  xy: 376, 22
+  size: 75, 23
+  orig: 77, 25
+  offset: 2, 2
+  index: -1
+naruto1_70
+  rotate: false
+  xy: 284, 75
+  size: 131, 30
+  orig: 144, 37
+  offset: 13, 4
+  index: -1

@@ -1,0 +1,153 @@
+
+Status_5.png
+size: 796,410
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+heal
+  rotate: false
+  xy: 632, 15
+  size: 67, 67
+  orig: 67, 67
+  offset: 0, 0
+  index: -1
+images/heal_003_01
+  rotate: true
+  xy: 751, 140
+  size: 132, 43
+  orig: 192, 192
+  offset: 28, 11
+  index: -1
+images/heal_003_02
+  rotate: false
+  xy: 632, 84
+  size: 134, 48
+  orig: 192, 192
+  offset: 28, 11
+  index: -1
+images/heal_003_03
+  rotate: true
+  xy: 726, 274
+  size: 134, 53
+  orig: 192, 192
+  offset: 28, 11
+  index: -1
+images/heal_003_04
+  rotate: true
+  xy: 659, 272
+  size: 136, 65
+  orig: 192, 192
+  offset: 27, 10
+  index: -1
+images/heal_003_05
+  rotate: true
+  xy: 518, 132
+  size: 137, 95
+  orig: 192, 192
+  offset: 26, 10
+  index: -1
+images/heal_003_06
+  rotate: false
+  xy: 134, 11
+  size: 138, 108
+  orig: 192, 192
+  offset: 26, 10
+  index: -1
+images/heal_003_07
+  rotate: true
+  xy: 279, 269
+  size: 139, 107
+  orig: 192, 192
+  offset: 25, 11
+  index: -1
+images/heal_003_08
+  rotate: true
+  xy: 136, 122
+  size: 141, 120
+  orig: 192, 192
+  offset: 24, 11
+  index: -1
+images/heal_003_09
+  rotate: true
+  xy: 2, 121
+  size: 142, 132
+  orig: 192, 192
+  offset: 24, 11
+  index: -1
+images/heal_003_10
+  rotate: true
+  xy: 2, 265
+  size: 143, 136
+  orig: 192, 192
+  offset: 24, 11
+  index: -1
+images/heal_003_11
+  rotate: true
+  xy: 140, 269
+  size: 139, 137
+  orig: 192, 192
+  offset: 29, 10
+  index: -1
+images/heal_003_12
+  rotate: true
+  xy: 523, 272
+  size: 136, 134
+  orig: 192, 192
+  offset: 29, 11
+  index: -1
+images/heal_003_13
+  rotate: true
+  xy: 615, 134
+  size: 136, 134
+  orig: 192, 192
+  offset: 29, 10
+  index: -1
+images/heal_003_14
+  rotate: true
+  xy: 388, 271
+  size: 137, 133
+  orig: 192, 192
+  offset: 28, 10
+  index: -1
+images/heal_003_15
+  rotate: true
+  xy: 387, 129
+  size: 138, 129
+  orig: 192, 192
+  offset: 27, 11
+  index: -1
+images/heal_003_16
+  rotate: true
+  xy: 258, 128
+  size: 139, 127
+  orig: 192, 192
+  offset: 26, 14
+  index: -1
+images/heal_003_17
+  rotate: false
+  xy: 274, 6
+  size: 136, 120
+  orig: 192, 192
+  offset: 29, 17
+  index: -1
+images/heal_003_18
+  rotate: false
+  xy: 2, 9
+  size: 130, 110
+  orig: 192, 192
+  offset: 35, 21
+  index: -1
+images/heal_003_19
+  rotate: false
+  xy: 412, 19
+  size: 130, 108
+  orig: 192, 192
+  offset: 35, 25
+  index: -1
+images/heal_003_20
+  rotate: true
+  xy: 544, 2
+  size: 128, 86
+  orig: 192, 192
+  offset: 36, 31
+  index: -1

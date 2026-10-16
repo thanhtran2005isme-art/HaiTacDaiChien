@@ -1,0 +1,187 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1709254077376921
+GameObject:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Component:
+  - component: {fileID: 4730242686860875}
+  - component: {fileID: 114724804207875695}
+  m_Layer: 0
+  m_Name: I2Languages_image
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4730242686860875
+Transform:
+  serializedVersion: 2
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1709254077376921}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -0, z: -0}
+--- !u!114 &114724804207875695
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1709254077376921}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7554888af13e447d4982f6ad48f0af4b, type: 3}
+  m_Name:
+  m_EditorClassIdentifier:
+  mSource:
+    UserAgreesToHaveItOnTheScene: 1
+    UserAgreesToHaveItInsideThePluginsFolder: 0
+    GoogleLiveSyncIsUptoDate: 1
+    mTerms:
+    - Term: FONT
+      TermType: 1
+      Languages:
+      - Fonts/SVN-Titillium bold
+      - Fonts/SVN-Titillium bold
+      - Fonts/SVN-Titillium bold
+      - Fonts/SVN-Titillium bold
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: IMAGE_ARENA_DAI_CHIEN_HAI_TAC
+      TermType: 5
+      Languages:
+      - Images/Arena/hai_tac_daichien[hai_tac_daichien]
+      - Images/Arena/hai_tac_daichien2[hai_tac_daichien2]
+      - Images/Arena/hai_tac_daichien2[hai_tac_daichien2]
+      - Images/Arena/hai_tac_daichien2[hai_tac_daichien2]
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: IMAGE_ARENA_DAU_TRUONG
+      TermType: 5
+      Languages:
+      - Images/Arena/dautruong_cori[dautruong_cori]
+      - Images/Arena/dautruong_cori2[dautruong_cori2]
+      - Images/Arena/dautruong_cori2[dautruong_cori2]
+      - Images/Arena/dautruong_cori2[dautruong_cori2]
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: IMAGE_ARENA_THANH_CHIEN
+      TermType: 5
+      Languages:
+      - Images/Arena/thanh_chien[thanh_chien]
+      - Images/Arena/thanh_chien2[thanh_chien2]
+      - Images/Arena/thanh_chien2[thanh_chien2]
+      - Images/Arena/thanh_chien2[thanh_chien2]
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: IMAGE_BGR_LOGIN
+      TermType: 5
+      Languages:
+      - Images/Common/bgr_login[bgr_login]
+      - Images/Common/bgr_login_en[bgr_login_en]
+      - Images/Common/bgr_login_en[bgr_login_en]
+      - Images/Common/bgr_login_en[bgr_login_en]
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: IMAGE_ICON_LOGO
+      TermType: 5
+      Languages:
+      - Images/Common/logo_game[logo_game]
+      - Images/Common/icon_logo_qt[icon_logo_qt]
+      - Images/Common/icon_logo_qt[icon_logo_qt]
+      - Images/Common/icon_logo_qt[icon_logo_qt]
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: IMAGE_LOGO
+      TermType: 5
+      Languages:
+      - Images/Login/logo_small[logo_small]
+      - Images/Common/logo_global[logo_global]
+      - Images/Common/logo_global[logo_global]
+      - Images/Common/logo_global[logo_global]
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: IMAGE_LOGO_18_PLUS
+      TermType: 5
+      Languages:
+      - Images/Common/logo 18+[logo 18+]
+      - 
+      - 
+      - 
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: IMAGE_LOGO_SPLASH_THEME
+      TermType: 5
+      Languages:
+      - Images/Login/logo_small[logo_small]
+      - Images/Common/icon_logo_qt_new[icon_logo_qt_new]
+      - Images/Common/icon_logo_qt_new[icon_logo_qt_new]
+      - Images/Common/icon_logo_qt_new[icon_logo_qt_new]
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: IMAGE_PREPARE_SCENE
+      TermType: 5
+      Languages:
+      - Images/Arena/bgr_arena[bgr_arena]
+      - Images/Battle/BattleArena5[BattleArena5]
+      - Images/Battle/BattleArena5[BattleArena5]
+      - Images/Battle/BattleArena5[BattleArena5]
+      Flags: 00000000
+      Languages_Touch: []
+    CaseInsensitiveTerms: 0
+    OnMissingTranslation: 1
+    mTerm_AppName:
+    mLanguages:
+    - Name: Vietnamese
+      Code: vi
+      Flags: 0
+    - Name: English
+      Code: en
+      Flags: 0
+    - Name: Thai
+      Code: th
+      Flags: 0
+    - Name: Chinese
+      Code: zh
+      Flags: 0
+    IgnoreDeviceLanguage: 0
+    _AllowUnloadingLanguages: 0
+    Google_WebServiceURL:
+    Google_SpreadsheetKey:
+    Google_SpreadsheetName:
+    Google_LastUpdatedVersion:
+    GoogleUpdateFrequency: 3
+    GoogleInEditorCheckFrequency: 2
+    GoogleUpdateSynchronization: 1
+    GoogleUpdateDelay: 5
+    Assets: []
+  version: 1
+  NeverDestroy: 1
+  UserAgreesToHaveItOnTheScene: 1
+  UserAgreesToHaveItInsideThePluginsFolder: 0
+  GoogleLiveSyncIsUptoDate: 1
+  Assets: []
+  Google_WebServiceURL:
+  Google_SpreadsheetKey:
+  Google_SpreadsheetName:
+  Google_LastUpdatedVersion:
+  GoogleUpdateFrequency: 3
+  GoogleUpdateDelay: 5
+  mLanguages: []
+  IgnoreDeviceLanguage: 0
+  _AllowUnloadingLanguages: 0
+  mTerms: []
+  CaseInsensitiveTerms: 0
+  OnMissingTranslation: 1
+  mTerm_AppName:

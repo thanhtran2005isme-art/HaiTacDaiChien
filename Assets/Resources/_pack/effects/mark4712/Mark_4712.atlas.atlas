@@ -1,0 +1,48 @@
+
+Mark_4712.png
+size: 280,232
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+atk08/skill/C_KaiFuLa_v03
+  rotate: true
+  xy: 183, 149
+  size: 80, 91
+  orig: 128, 128
+  offset: 21, 18
+  index: -1
+atk08/skill/chan
+  rotate: false
+  xy: 2, 116
+  size: 179, 113
+  orig: 187, 129
+  offset: 5, 4
+  index: -1
+atk08/skill/leave
+  rotate: true
+  xy: 183, 120
+  size: 27, 43
+  orig: 30, 46
+  offset: 2, 1
+  index: -1
+atk08/skill/smoke1
+  rotate: true
+  xy: 2, 3
+  size: 111, 147
+  orig: 115, 150
+  offset: 2, 2
+  index: -1
+atk08/skill/smoke2
+  rotate: true
+  xy: 151, 2
+  size: 112, 124
+  orig: 114, 128
+  offset: 0, 2
+  index: -1
+atk08/skill/star
+  rotate: true
+  xy: 228, 122
+  size: 25, 44
+  orig: 47, 57
+  offset: 12, 7
+  index: -1

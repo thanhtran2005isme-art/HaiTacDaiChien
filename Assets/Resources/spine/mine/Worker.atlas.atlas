@@ -1,0 +1,83 @@
+
+Worker.png
+size: 258,224
+format: RGBA4444
+filter: Linear,Linear
+repeat: none
+a (1)
+  rotate: false
+  xy: 121, 107
+  size: 10, 10
+  orig: 10, 10
+  offset: 0, 0
+  index: -1
+a (2)
+  rotate: false
+  xy: 133, 107
+  size: 8, 10
+  orig: 10, 10
+  offset: 1, 0
+  index: -1
+a (3)
+  rotate: false
+  xy: 153, 107
+  size: 6, 10
+  orig: 10, 10
+  offset: 2, 0
+  index: -1
+a (4)
+  rotate: true
+  xy: 133, 101
+  size: 4, 10
+  orig: 10, 10
+  offset: 3, 0
+  index: -1
+a (5)
+  rotate: true
+  xy: 121, 99
+  size: 6, 10
+  orig: 10, 10
+  offset: 2, 0
+  index: -1
+a (6)
+  rotate: false
+  xy: 143, 107
+  size: 8, 10
+  orig: 10, 10
+  offset: 1, 0
+  index: -1
+hit (1)
+  rotate: true
+  xy: 91, 43
+  size: 74, 28
+  orig: 74, 28
+  offset: 0, 0
+  index: -1
+hit (2)
+  rotate: false
+  xy: 121, 2
+  size: 116, 76
+  orig: 116, 76
+  offset: 0, 0
+  index: -1
+hit (3)
+  rotate: true
+  xy: 164, 80
+  size: 142, 92
+  orig: 142, 92
+  offset: 0, 0
+  index: -1
+hit (4)
+  rotate: false
+  xy: 2, 119
+  size: 160, 103
+  orig: 160, 103
+  offset: 0, 0
+  index: -1
+worker
+  rotate: true
+  xy: 2, 5
+  size: 112, 87
+  orig: 112, 87
+  offset: 0, 0
+  index: -1

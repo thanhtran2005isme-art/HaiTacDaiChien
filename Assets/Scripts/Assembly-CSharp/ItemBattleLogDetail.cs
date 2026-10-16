@@ -1,0 +1,62 @@
+using System;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.UI;
+
+public class ItemBattleLogDetail : MonoBehaviour
+{
+	[SerializeField]
+	private Text m_TextTeam1;
+
+	[SerializeField]
+	private Text m_TextTeam2;
+
+	[SerializeField]
+	private Text m_TextAtkPower1;
+
+	[SerializeField]
+	private Text m_TextAtkPower2;
+
+	[SerializeField]
+	private Text m_BattleId;
+
+	[SerializeField]
+	private GameObject m_GoStatusWin;
+
+	[SerializeField]
+	private GameObject m_GoStatusLost;
+
+	[SerializeField]
+	private GameObject m_DoiHinh1;
+
+	[SerializeField]
+	private GameObject m_DoiHinh2;
+
+	[SerializeField]
+	private List<Image> Team1;
+
+	[SerializeField]
+	private List<Image> Team2;
+
+	[SerializeField]
+	private PlayerAvatar m_Avatar1;
+
+	[SerializeField]
+	private PlayerAvatar m_Avatar2;
+
+	public Action<DataItemBattleLog> m_ItemHistoryDetailCB;
+
+	private DataItemBattleLog itemData;
+
+	public void SetData(DataItemBattleLog data)
+	{
+	}
+
+	public void ButtonShowInfoDetailClick()
+	{
+	}
+
+	public void ButtonCloseDoiHinhClick()
+	{
+	}
+}

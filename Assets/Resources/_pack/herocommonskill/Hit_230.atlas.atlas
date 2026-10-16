@@ -1,0 +1,62 @@
+
+Hit_230.png
+size: 171,401
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+fx/arrow
+  rotate: true
+  xy: 2, 258
+  size: 141, 154
+  orig: 170, 185
+  offset: 18, 20
+  index: -1
+images/fx5_12
+  rotate: false
+  xy: 92, 2
+  size: 50, 46
+  orig: 96, 96
+  offset: 24, 0
+  index: -1
+images/fx5_13
+  rotate: false
+  xy: 94, 50
+  size: 58, 50
+  orig: 96, 96
+  offset: 17, 0
+  index: -1
+images/fx5_14
+  rotate: false
+  xy: 94, 102
+  size: 75, 68
+  orig: 96, 96
+  offset: 8, 0
+  index: -1
+images/fx5_15
+  rotate: true
+  xy: 94, 172
+  size: 84, 75
+  orig: 96, 96
+  offset: 2, 0
+  index: -1
+images/fx5_16
+  rotate: false
+  xy: 2, 3
+  size: 88, 80
+  orig: 96, 96
+  offset: 0, 0
+  index: -1
+images/fx5_17
+  rotate: false
+  xy: 2, 85
+  size: 90, 84
+  orig: 96, 96
+  offset: 0, 0
+  index: -1
+images/fx5_18
+  rotate: false
+  xy: 2, 171
+  size: 90, 85
+  orig: 96, 96
+  offset: 0, 0
+  index: -1

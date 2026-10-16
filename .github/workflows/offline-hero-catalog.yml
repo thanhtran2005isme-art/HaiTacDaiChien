@@ -1,0 +1,35 @@
+name: Offline hero catalog (static source contract)
+
+on:
+  push:
+    branches:
+      - feat/offline-hero-catalog
+    paths:
+      - "Assets/Resources/_pack/db/db_heroes.json"
+      - "Assets/Scripts/Assembly-CSharp/OfflineHeroCatalog.cs"
+      - "Assets/Scripts/Assembly-CSharp/OfflineHeroCatalog.cs.meta"
+      - "tests/**"
+      - ".github/workflows/offline-hero-catalog.yml"
+  pull_request:
+    paths:
+      - "Assets/Resources/_pack/db/db_heroes.json"
+      - "Assets/Scripts/Assembly-CSharp/OfflineHeroCatalog.cs"
+      - "Assets/Scripts/Assembly-CSharp/OfflineHeroCatalog.cs.meta"
+      - "tests/**"
+      - ".github/workflows/offline-hero-catalog.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  json-and-regression-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          lfs: false
+      - name: Python version
+        run: python3 --version
+      - name: Offline catalog source-data tests and navigation regressions
+        run: python3 -m unittest discover -s tests -p 'test_*.py' -v

@@ -1,0 +1,41 @@
+
+244.png
+size: 844,220
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Group 1
+  rotate: false
+  xy: 2, 2
+  size: 209, 216
+  orig: 271, 318
+  offset: 32, 41
+  index: -1
+Group 2
+  rotate: true
+  xy: 446, 5
+  size: 213, 205
+  orig: 271, 318
+  offset: 28, 47
+  index: -1
+Group 3
+  rotate: false
+  xy: 653, 10
+  size: 189, 208
+  orig: 271, 318
+  offset: 40, 54
+  index: -1
+Group 4
+  rotate: true
+  xy: 235, 4
+  size: 214, 209
+  orig: 271, 318
+  offset: 26, 53
+  index: -1
+trail_1068_1
+  rotate: false
+  xy: 213, 3
+  size: 20, 215
+  orig: 128, 256
+  offset: 53, 19
+  index: -1

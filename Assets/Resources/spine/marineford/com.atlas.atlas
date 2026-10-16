@@ -1,0 +1,41 @@
+
+com.png
+size: 940,180
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Layer 1
+  rotate: false
+  xy: 2, 2
+  size: 395, 173
+  orig: 395, 173
+  offset: 0, 0
+  index: -1
+Layer 3
+  rotate: false
+  xy: 399, 48
+  size: 395, 127
+  orig: 395, 127
+  offset: 0, 0
+  index: -1
+Layer 5 copy 13
+  rotate: true
+  xy: 796, 27
+  size: 148, 139
+  orig: 151, 142
+  offset: 2, 2
+  index: -1
+com
+  rotate: true
+  xy: 529, 29
+  size: 17, 9
+  orig: 21, 11
+  offset: 2, 1
+  index: -1
+glow_1085
+  rotate: false
+  xy: 399, 23
+  size: 128, 23
+  orig: 128, 64
+  offset: 0, 20
+  index: -1

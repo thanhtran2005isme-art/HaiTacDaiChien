@@ -1,0 +1,83 @@
+
+269.png
+size: 928,308
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Layer 1 copy
+  rotate: true
+  xy: 658, 107
+  size: 199, 268
+  orig: 201, 270
+  offset: 1, 1
+  index: -1
+Layer 2
+  rotate: true
+  xy: 453, 3
+  size: 30, 92
+  orig: 30, 92
+  offset: 0, 0
+  index: -1
+Layer 3
+  rotate: true
+  xy: 547, 2
+  size: 31, 87
+  orig: 31, 87
+  offset: 0, 0
+  index: -1
+Layer 4
+  rotate: false
+  xy: 892, 22
+  size: 34, 83
+  orig: 34, 83
+  offset: 0, 0
+  index: -1
+Layer 5
+  rotate: true
+  xy: 658, 7
+  size: 33, 73
+  orig: 33, 73
+  offset: 0, 0
+  index: -1
+Layer 6
+  rotate: true
+  xy: 658, 42
+  size: 63, 111
+  orig: 63, 111
+  offset: 0, 0
+  index: -1
+Layer 7 copy
+  rotate: true
+  xy: 771, 9
+  size: 50, 90
+  orig: 50, 90
+  offset: 0, 0
+  index: -1
+Layer 8 copy
+  rotate: true
+  xy: 771, 61
+  size: 44, 119
+  orig: 44, 119
+  offset: 0, 0
+  index: -1
+sword
+  rotate: false
+  xy: 453, 35
+  size: 203, 271
+  orig: 284, 300
+  offset: 44, 18
+  index: -1
+sword2
+  rotate: false
+  xy: 2, 8
+  size: 234, 298
+  orig: 284, 300
+  offset: 28, 2
+  index: -1
+sww
+  rotate: false
+  xy: 238, 15
+  size: 213, 291
+  orig: 215, 294
+  offset: 1, 2
+  index: -1

@@ -1,0 +1,25 @@
+{
+    "ios":[
+        "afkop.month.5",
+        "afkop.month.10",
+        "afkop.pack.1",
+        "afkop.pack.3",
+        "afkop.pack.5",
+        "afkop.pack.10",
+        "afkop.pack.20",
+        "afkop.pack.30",
+        "afkop.pack.50",
+        "afkop.pack.70",
+        "afkop.pack.100"
+    ],
+    "android":[
+        "htht.goi.1",
+        "htht.goi.3",
+        "htht.goi.5",
+        "htht.goi.10",
+        "htht.goi.20",
+        "htht.goi.30",
+        "htht.mon.5",
+        "htht.mon.10"
+    ]
+}

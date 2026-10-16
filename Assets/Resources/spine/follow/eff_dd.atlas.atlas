@@ -1,0 +1,20 @@
+
+eff_dd.png
+size: 223,236
+format: RGBA4444
+filter: Linear,Linear
+repeat: none
+a1
+  rotate: false
+  xy: 2, 15
+  size: 219, 219
+  orig: 219, 219
+  offset: 0, 0
+  index: -1
+b1
+  rotate: false
+  xy: 2, 2
+  size: 11, 11
+  orig: 11, 11
+  offset: 0, 0
+  index: -1

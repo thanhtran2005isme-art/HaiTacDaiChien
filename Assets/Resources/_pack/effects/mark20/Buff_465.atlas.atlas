@@ -1,0 +1,83 @@
+
+Buff_465.png
+size: 560,512
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+chao2
+  rotate: false
+  xy: 2, 362
+  size: 399, 146
+  orig: 399, 231
+  offset: 0, 0
+  index: -1
+chao3
+  rotate: false
+  xy: 2, 206
+  size: 363, 154
+  orig: 363, 154
+  offset: 0, 0
+  index: -1
+chao4
+  rotate: false
+  xy: 2, 76
+  size: 269, 128
+  orig: 269, 128
+  offset: 0, 0
+  index: -1
+chao5
+  rotate: false
+  xy: 473, 54
+  size: 84, 105
+  orig: 84, 105
+  offset: 0, 0
+  index: -1
+chaox1
+  rotate: false
+  xy: 273, 76
+  size: 96, 128
+  orig: 96, 128
+  offset: 0, 0
+  index: -1
+chaox2
+  rotate: false
+  xy: 326, 19
+  size: 75, 45
+  orig: 75, 45
+  offset: 0, 0
+  index: -1
+chaox4
+  rotate: false
+  xy: 251, 2
+  size: 73, 72
+  orig: 73, 72
+  offset: 0, 0
+  index: -1
+lon toc phai
+  rotate: false
+  xy: 371, 66
+  size: 100, 193
+  orig: 100, 193
+  offset: 0, 0
+  index: -1
+lon toc trai
+  rotate: true
+  xy: 2, 10
+  size: 64, 247
+  orig: 64, 247
+  offset: 0, 0
+  index: -1
+mask
+  rotate: false
+  xy: 403, 261
+  size: 136, 247
+  orig: 138, 250
+  offset: 1, 2
+  index: -1
+rau
+  rotate: false
+  xy: 473, 161
+  size: 85, 98
+  orig: 85, 98
+  offset: 0, 0
+  index: -1

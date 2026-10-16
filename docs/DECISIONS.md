@@ -1,3 +1,15 @@
+## 2026-10-12 — BẮT BUỘC: UI Unity phải đúng cả Edit Mode (tắt Play) lẫn Play Mode (bật Play)
+
+**Quy tắc áp dụng cho toàn bộ sửa UI của KaitoKidShop, bắt đầu từ PR #9:**
+
+1. **Cấm xem chỉ sửa trong Start/Awake/OnEnable hoặc instantiate khi Play là hoàn tất UI.** Những thay đổi cố định (chữ tiếng Việt, icon, thứ tự nút, kích thước, anchor, Canvas scale, bật/tắt nút, nền và vị trí layout) phải được **lưu trực tiếp vào Scene/Prefab** được commit. Mở Unity khi chưa Play phải thấy kết quả đúng.
+2. **Dữ liệu động cần có cách xem trước trung thực ở Edit Mode**: dùng asset, ảnh, ID và text thực có nguồn; đánh dấu rõ EditorOnly/preview, không giả mạo tài khoản, cấp nhân vật, sở hữu hay gameplay. Khi Play phải loại bỏ preview và hiển thị logic/dữ liệu thật, không nhân đôi đối tượng.
+3. Với mỗi yêu cầu UI, **kiểm tra cả hai trạng thái** trên cùng branch/SHA, cùng Game View resolution: (A) tắt Play, đóng/mở lại Scene, quan sát Scene View + Game View; (B) bật Play kiểm tra tương tác/nội dung/Console; (C) tắt Play lần nữa, xác minh UI không quay về bản cũ.
+4. **Không xóa callback gốc vô cớ** và không ghi đè thay đổi local chưa lưu. Được sửa bản Scene gốc đã import nếu cần đáp ứng UI, nhưng diff phải giới hạn/giải thích, có regression test và Git history khôi phục. Chỉ chấp nhận kết quả "UI PASS" khi kiểm tra Unity Editor thực tế; static GitHub CI PASS là điều kiện cần, không đủ.
+5. Nếu screenshot Edit Mode hiện chữ/ảnh cũ nhưng GitHub Scene đã có bản mới, phải kiểm tra **git HEAD, git status, Unity file đang mở và re-open Scene**, không tự nhận code runtime đã giải quyết lỗi. Cảnh báo khi local Scene bị chỉnh khác và không được ép reset/checkout làm mất công việc của người dùng.
+
+**Áp dụng tại PR #9 / `feat/offline-hero-ui`:** `HeroListNewScene.unity` đã lưu bảy nhãn tiếng Việt, counter `—/6`, Canvas scale `(1,1,1)` và **8 thẻ preview EditorOnly** từ source `db_heroes.json` + portrait Sprite đúng avatar. `OfflineHeroListPresenter.Start()` ẩn và hủy preview trước khi dựng list runtime, không gộp preview vào đội hình hay PlayerPrefs. Đây là sửa cả Edit/Play, không chỉ runtime; `main` chưa thay đổi.
+
 ## 2026-10-10 — REF04 P5: bắt buộc provenance trước khi dùng giá trị UI
 
 - **Vấn đề:** báo cáo đơn lẻ có thể được sao chép từ XAPK khác hoặc bị chỉnh ID/hash/tọa độ, khiến một giá trị preview trông như dữ liệu runtime thật.

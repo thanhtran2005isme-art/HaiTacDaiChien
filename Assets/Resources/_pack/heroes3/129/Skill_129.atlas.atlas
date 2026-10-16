@@ -1,0 +1,206 @@
+
+Skill_129.png
+size: 1016,908
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Char_law_skill_1_room/000
+  rotate: false
+  xy: 332, 742
+  size: 226, 161
+  orig: 239, 165
+  offset: 8, 2
+  index: -1
+Char_law_skill_1_room/001
+  rotate: false
+  xy: 2, 538
+  size: 321, 209
+  orig: 326, 217
+  offset: 4, 2
+  index: -1
+Char_law_skill_1_room/009
+  rotate: false
+  xy: 2, 17
+  size: 467, 256
+  orig: 473, 258
+  offset: 3, 1
+  index: -1
+Char_law_skill_1_room/011
+  rotate: false
+  xy: 471, 2
+  size: 414, 256
+  orig: 417, 258
+  offset: 2, 1
+  index: -1
+Char_law_skill_1_room/021
+  rotate: false
+  xy: 472, 260
+  size: 461, 248
+  orig: 466, 251
+  offset: 3, 2
+  index: -1
+Char_law_skill_1_room/022
+  rotate: false
+  xy: 325, 510
+  size: 484, 224
+  orig: 489, 230
+  offset: 3, 2
+  index: -1
+Char_law_skill_1_room/023
+  rotate: false
+  xy: 2, 275
+  size: 468, 233
+  orig: 473, 241
+  offset: 4, 3
+  index: -1
+Char_law_skill_1_room/024
+  rotate: false
+  xy: 560, 736
+  size: 454, 167
+  orig: 459, 173
+  offset: 3, 2
+  index: -1
+Char_law_skill_1_room/025
+  rotate: false
+  xy: 2, 749
+  size: 328, 154
+  orig: 329, 158
+  offset: 1, 0
+  index: -1
+
+Skill_1292.png
+size: 940,780
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Char_law_skill_1_room/008
+  rotate: false
+  xy: 2, 261
+  size: 441, 257
+  orig: 447, 259
+  offset: 4, 1
+  index: -1
+Char_law_skill_1_room/010
+  rotate: false
+  xy: 445, 261
+  size: 490, 257
+  orig: 498, 259
+  offset: 4, 1
+  index: -1
+Char_law_skill_1_room/012
+  rotate: false
+  xy: 2, 2
+  size: 414, 257
+  orig: 417, 259
+  offset: 2, 1
+  index: -1
+Char_law_skill_1_room/013
+  rotate: false
+  xy: 2, 520
+  size: 414, 256
+  orig: 417, 258
+  offset: 2, 1
+  index: -1
+Char_law_skill_1_room/014
+  rotate: false
+  xy: 418, 2
+  size: 414, 257
+  orig: 417, 259
+  offset: 2, 1
+  index: -1
+Char_law_skill_1_room/015
+  rotate: false
+  xy: 418, 520
+  size: 414, 256
+  orig: 417, 258
+  offset: 2, 1
+  index: -1
+
+Skill_1293.png
+size: 868,792
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Char_law_skill_1_room/002
+  rotate: false
+  xy: 422, 271
+  size: 414, 259
+  orig: 417, 262
+  offset: 2, 2
+  index: -1
+Char_law_skill_1_room/003
+  rotate: false
+  xy: 2, 6
+  size: 415, 264
+  orig: 418, 269
+  offset: 2, 3
+  index: -1
+Char_law_skill_1_room/016
+  rotate: false
+  xy: 2, 532
+  size: 414, 257
+  orig: 417, 259
+  offset: 2, 1
+  index: -1
+Char_law_skill_1_room/017
+  rotate: false
+  xy: 418, 532
+  size: 414, 257
+  orig: 417, 259
+  offset: 2, 1
+  index: -1
+Char_law_skill_1_room/018
+  rotate: false
+  xy: 2, 272
+  size: 418, 258
+  orig: 421, 260
+  offset: 2, 1
+  index: -1
+Char_law_skill_1_room/019
+  rotate: false
+  xy: 419, 2
+  size: 447, 267
+  orig: 452, 270
+  offset: 3, 2
+  index: -1
+
+Skill_1294.png
+size: 948,856
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Char_law_skill_1_room/004
+  rotate: false
+  xy: 2, 2
+  size: 464, 302
+  orig: 468, 309
+  offset: 2, 5
+  index: -1
+Char_law_skill_1_room/005
+  rotate: true
+  xy: 2, 306
+  size: 547, 331
+  orig: 552, 335
+  offset: 3, 2
+  index: -1
+Char_law_skill_1_room/006
+  rotate: false
+  xy: 468, 11
+  size: 463, 293
+  orig: 468, 296
+  offset: 3, 1
+  index: -1
+Char_law_skill_1_room/007
+  rotate: true
+  xy: 335, 306
+  size: 547, 331
+  orig: 552, 335
+  offset: 3, 2
+  index: -1
+Char_law_skill_1_room/020
+  rotate: true
+  xy: 668, 406
+  size: 447, 276
+  orig: 452, 279
+  offset: 3, 2
+  index: -1

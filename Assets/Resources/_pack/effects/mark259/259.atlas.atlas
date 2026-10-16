@@ -1,0 +1,13 @@
+
+259.png
+size: 52,60
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+spark copy
+  rotate: false
+  xy: 2, 2
+  size: 48, 56
+  orig: 48, 56
+  offset: 0, 0
+  index: -1

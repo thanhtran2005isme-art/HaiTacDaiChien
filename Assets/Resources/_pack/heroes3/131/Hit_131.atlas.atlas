@@ -1,0 +1,41 @@
+
+Hit_131.png
+size: 440,496
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Char_doflamingo_skill_1_hit/000
+  rotate: false
+  xy: 255, 2
+  size: 183, 231
+  orig: 189, 237
+  offset: 4, 1
+  index: -1
+Char_doflamingo_skill_1_hit/001
+  rotate: true
+  xy: 2, 109
+  size: 193, 251
+  orig: 198, 254
+  offset: 3, 1
+  index: -1
+Char_doflamingo_skill_1_hit/002
+  rotate: true
+  xy: 2, 304
+  size: 188, 262
+  orig: 193, 304
+  offset: 3, 19
+  index: -1
+Char_doflamingo_skill_1_hit/003
+  rotate: false
+  xy: 266, 235
+  size: 168, 257
+  orig: 173, 260
+  offset: 3, 1
+  index: -1
+Char_doflamingo_skill_1_hit/004
+  rotate: false
+  xy: 2, 15
+  size: 89, 92
+  orig: 93, 96
+  offset: 2, 1
+  index: -1

@@ -1,0 +1,1924 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1709254077376921
+GameObject:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Component:
+  - component: {fileID: 4730242686860875}
+  - component: {fileID: 114724804207875695}
+  m_Layer: 0
+  m_Name: I2Languages_common
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4730242686860875
+Transform:
+  serializedVersion: 2
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1709254077376921}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -0, z: -0}
+--- !u!114 &114724804207875695
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1709254077376921}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7554888af13e447d4982f6ad48f0af4b, type: 3}
+  m_Name:
+  m_EditorClassIdentifier:
+  mSource:
+    UserAgreesToHaveItOnTheScene: 1
+    UserAgreesToHaveItInsideThePluginsFolder: 0
+    GoogleLiveSyncIsUptoDate: 1
+    mTerms:
+    - Term: ACTION_ACCEPT
+      TermType: 0
+      Languages:
+      - Đồng ý
+      - Ok
+      - ตกลง
+      - 同意
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: ACTION_NO
+      TermType: 0
+      Languages:
+      - Không
+      - No
+      - ไม่
+      - 拒絕
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: ACTION_PERFORM
+      TermType: 0
+      Languages:
+      - Thực hiện
+      - Proceed
+      - ดำเนินการ
+      - 執行
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: ACTION_TRY
+      TermType: 0
+      Languages:
+      - Thử lại
+      - Try again
+      - ลองอีกครั้ง
+      - 重試
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: FONT
+      TermType: 1
+      Languages:
+      - Fonts/SVN-Titillium bold
+      - Fonts/SVN-Titillium bold
+      - Fonts/SVN-Titillium bold
+      - Fonts/SVN-Titillium bold
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_ABYSS
+      TermType: 0
+      Languages:
+      - Bền bỉ
+      - Strength
+      - ทนทาน
+      - 堅韌
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_ACCOUNT_HAVE_COLON
+      TermType: 0
+      Languages:
+      - 'Tài khoản:'
+      - 'Account:'
+      - บัญชี
+      - 賬號：
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_ACTIVATE
+      TermType: 0
+      Languages:
+      - Kích hoạt
+      - Activate
+      - เปิดใช้งาน
+      - 激活
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_ACTIVE_2
+      TermType: 0
+      Languages:
+      - Hoạt động
+      - Activities
+      - กิจกรรม
+      - 活動
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_ALLY
+      TermType: 0
+      Languages:
+      - Đồng mình
+      - Ally
+      - พันธมิตร
+      - 同盟
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_ALTAR_UPPER
+      TermType: 0
+      Languages:
+      - HUYẾT TẾ
+      - DISASSEMBLE
+      - ถอน
+      - 血祭
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_ANALYSIS
+      TermType: 0
+      Languages:
+      - Nghiên cứu
+      - Analysis
+      - วิจัย
+      - 研究
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_ANGER
+      TermType: 0
+      Languages:
+      - Nộ
+      - Anger
+      - โกรธ
+      - 怒氣
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_ARENA
+      TermType: 0
+      Languages:
+      - Đấu trường
+      - Arena
+      - สนามรบ
+      - 競技場
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_ARTIFACT
+      TermType: 0
+      Languages:
+      - Bảo vật
+      - Artifact
+      - สมบัติ
+      - 寶物
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_ASSASSIN
+      TermType: 0
+      Languages:
+      - Kiếm sĩ
+      - Slasher
+      - นักดาบ
+      - 劍士
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_ASSIST
+      TermType: 0
+      Languages:
+      - Hỗ trợ
+      - Assist
+      - ช่วยเหลือ
+      - 協助
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_ATTACK
+      TermType: 0
+      Languages:
+      - Công
+      - Attack
+      - พลังโจมตี
+      - 攻擊
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_AUTO
+      TermType: 0
+      Languages:
+      - Tự động
+      - Auto
+      - อัตโนมัติ
+      - 自動
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_BATTLE
+      TermType: 0
+      Languages:
+      - Đánh
+      - Attack
+      - ตี
+      - 攻擊
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_BATTLE_RECORD
+      TermType: 0
+      Languages:
+      - Chiến sử
+      - Battle record
+      - ประวัติการต่อสู้
+      - 戰報
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_BET
+      TermType: 0
+      Languages:
+      - Cược
+      - Bet
+      - พนัน
+      - 押註
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_BET_HISTORY
+      TermType: 0
+      Languages:
+      - Lịch sử cược
+      - Bet history
+      - ประวัติการพนัน
+      - 押註日誌
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_BLOCK
+      TermType: 0
+      Languages:
+      - Chặn
+      - Block
+      - บล็อก
+      - 格擋
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_BLOOD
+      TermType: 0
+      Languages:
+      - Máu
+      - HP
+      - เลือด
+      - 生命
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_BREAK_ARMOR
+      TermType: 0
+      Languages:
+      - Phá giáp
+      - Armor break
+      - ทำลายพรมแดน
+      - 破甲
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_BRID_FEATHER_HERO
+      TermType: 0
+      Languages:
+      - Đại hải tặc
+      - Devil Fruit
+      - มหาโจรสลัด
+      - 大海賊
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_BUILD
+      TermType: 0
+      Languages:
+      - Xây dựng
+      - Build
+      - ก่อสร้าง
+      - 建設
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_BUY
+      TermType: 0
+      Languages:
+      - Mua
+      - Buy
+      - ซื้อ
+      - 購買
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_CAL_SCORE
+      TermType: 0
+      Languages:
+      - Tính điểm
+      - Score calculation
+      - คิดคะแนน
+      - 積分計算
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_CANCEL
+      TermType: 0
+      Languages:
+      - Hủy
+      - Cancel
+      - ยกเลิก
+      - 取消
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_CAN_GET
+      TermType: 0
+      Languages:
+      - Có thể nhận
+      - Preview
+      - สามารถรับ
+      - 可獲得
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_CHALLENGE
+      TermType: 0
+      Languages:
+      - Thách đấu
+      - Challenge
+      - ท้าประลอง
+      - 挑戰
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_CHANGE
+      TermType: 0
+      Languages:
+      - Đổi
+      - Change
+      - เปลี่ยน
+      - 兌換
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_CHANGE_SERVER
+      TermType: 0
+      Languages:
+      - Đổi Server
+      - Change Server
+      - เปลี่ยน Server
+      - 兌換伺服器
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_CHIEN
+      TermType: 0
+      Languages:
+      - Chiến
+      - Attack
+      - รบ
+      - 戰鬥
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_CHOOSE
+      TermType: 0
+      Languages:
+      - Chọn
+      - Choose
+      - เลือก
+      - 選擇
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_CHOOSE_OPPONENT
+      TermType: 0
+      Languages:
+      - Đối thủ
+      - Choose Opponent
+      - ศัตรู
+      - 對手
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_CLAIM
+      TermType: 0
+      Languages:
+      - Nhận thưởng
+      - Claim
+      - รับรางวัล
+      - 領獎
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_CLOSE
+      TermType: 0
+      Languages:
+      - Đóng
+      - Close
+      - ปิด
+      - 關閉
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_CLOSE_AFTER
+      TermType: 0
+      Languages:
+      - 'Đóng cửa sau:'
+      - 'Close after:'
+      - 'ปิดหลังจาก:'
+      - 離關閉時間還有：
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_COLLECT
+      TermType: 0
+      Languages:
+      - Thu hoạch
+      - Collect
+      - เก็บเกี่ยว
+      - 收獲
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_COMMISSION
+      TermType: 0
+      Languages:
+      - Ủy thác
+      - Smash
+      - มอบหมาย
+      - 委托
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_COMPONENT
+      TermType: 0
+      Languages:
+      - Hợp thành
+      - Fuse
+      - รวมเป็น
+      - 合成
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_CONTENT
+      TermType: 0
+      Languages:
+      - Nội dung
+      - Content
+      - เนื้อหา
+      - 內容
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_CONVERT
+      TermType: 0
+      Languages:
+      - Hoán đổi
+      - Convert
+      - เปลี่ยน
+      - 替換
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_CRITICAL
+      TermType: 0
+      Languages:
+      - Chí mạng
+      - 'Crit '
+      - ถึงชีวิต
+      - 致命
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_CRITICAL_DAMAGE
+      TermType: 0
+      Languages:
+      - Sát thương chí mạng
+      - Crit damage
+      - ความเสียหายถึงชีวิต
+      - 致命傷害
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_DAMAGE
+      TermType: 0
+      Languages:
+      - Sát thương
+      - Damage
+      - ความเสียหาย
+      - 傷害
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_DARK
+      TermType: 0
+      Languages:
+      - Thông minh
+      - Intelligence
+      - อัจฉริยะ
+      - 智力
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_DAY
+      TermType: 0
+      Languages:
+      - Ngày
+      - Day(s)
+      - วัน
+      - 天
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_DAY_REWARD
+      TermType: 0
+      Languages:
+      - Thưởng ngày
+      - Daily reward
+      - รางวัลประจำวัน
+      - 日常獎勵
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_DEFENCE
+      TermType: 0
+      Languages:
+      - Thủ
+      - Armor
+      - เกราะ
+      - 防禦
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_DEFENSCE_2
+      TermType: 0
+      Languages:
+      - Phòng thủ
+      - Defense
+      - ป้องกัน
+      - 防禦
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_DEFENSER
+      TermType: 0
+      Languages:
+      - Đối thủ
+      - Defenser
+      - ศัตรู
+      - 敵對
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_DEFENSE_3
+      TermType: 0
+      Languages:
+      - Xuyên Thủ
+      - Defense
+      - ป้องกัน
+      - 防禦穿透
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_DELETE
+      TermType: 0
+      Languages:
+      - Xóa
+      - Delete
+      - ลบ
+      - 刪除
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_DELETE_ALL
+      TermType: 0
+      Languages:
+      - Xóa tất cả
+      - Delete All
+      - ลบทั้งหมด
+      - 全部刪除
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_DESTROY
+      TermType: 0
+      Languages:
+      - Phá hủy
+      - Destroy
+      - ทำลาย
+      - 摧毀
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_DETAIL
+      TermType: 0
+      Languages:
+      - Chi tiết
+      - Details
+      - รายละเอียด
+      - 明細
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_EDIT
+      TermType: 0
+      Languages:
+      - Sửa
+      - Rename
+      - เปลี่ยนแปลง
+      - 修改
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_END
+      TermType: 0
+      Languages:
+      - Kết thúc
+      - End
+      - จบ
+      - 結束
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_END_AFTER
+      TermType: 0
+      Languages:
+      - Kết thúc sau
+      - End in
+      - จบพายหลัง
+      - 離結束時間還有
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_END_AFTER_2
+      TermType: 0
+      Languages:
+      - 'Kết thúc sau:'
+      - 'End after:'
+      - 'จบพายหลัง:'
+      - 離結束時間還有
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_ENEMY
+      TermType: 0
+      Languages:
+      - Kẻ địch
+      - Enemy
+      - ศัตรู
+      - 敵方
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_ENEMY_2
+      TermType: 0
+      Languages:
+      - Quân địch
+      - Enemy
+      - ศัตรู
+      - 敵軍
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_EQUIPMENT
+      TermType: 0
+      Languages:
+      - Trang bị
+      - Equipment
+      - อุปกรณ์
+      - 裝備
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_EXACTLY
+      TermType: 0
+      Languages:
+      - Chính xác
+      - Accuracy
+      - ถูกต้อง
+      - 命中
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_FEED_BACK
+      TermType: 0
+      Languages:
+      - Phản hồi
+      - Feed Back
+      - ฟีดแบค
+      - 反饋
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_FEED_BACK_2
+      TermType: 0
+      Languages:
+      - Phản Hồi
+      - Feed Back
+      - ฟีดแบค
+      - 反饋
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_FIGHT
+      TermType: 0
+      Languages:
+      - Chiến đấu
+      - Fight
+      - ต่อสู้
+      - 戰鬥
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_FIGHTING_2
+      TermType: 0
+      Languages:
+      - 'Tham chiến:'
+      - 'Fighting:'
+      - การต่อสู้
+      - 參戰：
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_FINISH
+      TermType: 0
+      Languages:
+      - Hoàn thành
+      - Finish
+      - เสร็จสิ้น
+      - 完成
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_FLEET
+      TermType: 0
+      Languages:
+      - 'Hạm đội:'
+      - 'Guild:'
+      - 'กองทัพเรือ:'
+      - 公會
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_FLEET_NO_COLON
+      TermType: 0
+      Languages:
+      - Hạm đội
+      - Guild
+      - กองทัพเรือ
+      - 公會
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_FLOOR
+      TermType: 0
+      Languages:
+      - Tầng
+      - Floor
+      - ชั้น
+      - 層
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_FOREST
+      TermType: 0
+      Languages:
+      - Chính xác
+      - Dexterity
+      - ถูกต้อง
+      - 命中
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_FORGE
+      TermType: 0
+      Languages:
+      - Tiệm đồ
+      - Enhance
+      - ร้านค้า
+      - 裝備店
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_FORTRESS
+      TermType: 0
+      Languages:
+      - Nhanh nhẹn
+      - Agility
+      - ว่องไว
+      - 敏捷
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_FREE
+      TermType: 0
+      Languages:
+      - Miễn phí
+      - Free
+      - ฟรี
+      - 免費
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_HAVE
+      TermType: 0
+      Languages:
+      - Có
+      - Yes
+      - ใช่
+      - 是
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_HELP
+      TermType: 0
+      Languages:
+      - Trợ giúp
+      - Help
+      - ช่วยเหลือ
+      - 協助
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_HERO
+      TermType: 0
+      Languages:
+      - Tướng[i2s_Touch]Tướng
+      - Hero[i2s_Touch]Hero
+      - ฮีโร่[i2s_Touch]ฮีโร่
+      - 英雄[i2s_Touch]英雄
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_HOW_TO_GET
+      TermType: 0
+      Languages:
+      - 'Cách nhận:'
+      - 'How to get:'
+      - 'วิธีรับ:'
+      - 獲得途徑：
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_HURDLES
+      TermType: 0
+      Languages:
+      - Vượt ải
+      - Battle
+      - ผ่านด่าน
+      - 通關
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_ID_RECEIVER
+      TermType: 0
+      Languages:
+      - ID người nhận
+      - ID of reciever
+      - ID ผู้รับ
+      - 接收者ID
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_IMMUNITY_AGAINST
+      TermType: 0
+      Languages:
+      - Miễn chống
+      - Immunity
+      - ภูมิคุ้มกัน
+      - 免格擋
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_INFO
+      TermType: 0
+      Languages:
+      - Thông tin
+      - Player Info
+      - ข้อมูล
+      - 信息
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_INTO
+      TermType: 0
+      Languages:
+      - Vào[i2s_Touch]Vào
+      - Enter[i2s_Touch]Enter
+      - เข้า[i2s_Touch]เข้า
+      - 進入[i2s_Touch]進入
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_KNOCK_OUT
+      TermType: 0
+      Languages:
+      - Vô song
+      - Knock out
+      - ไม่มีใครเทียบ
+      - 無敵
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_LANGUAGES
+      TermType: 0
+      Languages:
+      - Ngôn ngữ
+      - Languages
+      - ภาษา
+      - 語言
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_LEVEL
+      TermType: 0
+      Languages:
+      - Cấp độ
+      - Level
+      - เลเวล
+      - 等級
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_LIGHT
+      TermType: 0
+      Languages:
+      - Minh mẫn
+      - Psycho
+      - จิตใจ
+      - 聰敏
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_LIMIT
+      TermType: 0
+      Languages:
+      - Giới hạn
+      - Limit
+      - ขีดจำกัด
+      - 限製
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_LIMIT_BUY
+      TermType: 0
+      Languages:
+      - Hạn mua
+      - Limit
+      - ขีดจำกัด
+      - 購買限製
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_LINE_UP
+      TermType: 0
+      Languages:
+      - Đội hình
+      - Line up
+      - รูปแบบทีม
+      - 陣容
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_LOADING_CONFIG
+      TermType: 0
+      Languages:
+      - Tải cấu hình...[i2s_Touch]Tải cấu hình...
+      - Loading Config[i2s_Touch]Loading Config
+      - ดาวน์โหลดรูปทรง…[i2s_Touch]ดาวน์โหลดรูปทรง…
+      - 加載配置…[i2s_Touch]加載配置…
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_LOADING_DATA
+      TermType: 0
+      Languages:
+      - Tải dữ liệu[i2s_Touch]Tải dữ liệu
+      - Loading data[i2s_Touch]Loading data
+      - ดาวน์โหลดข้อมูล[i2s_Touch]ดาวน์โหลดข้อมูล
+      - 加載資源[i2s_Touch]加載資源
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_LOADING_EQUIP
+      TermType: 0
+      Languages:
+      - Tải trang bị...[i2s_Touch]Tải trang bị...
+      - Loading Equipment[i2s_Touch]Loading Equipment
+      - ดาวน์โหลดอุปกรณ์…[i2s_Touch]ดาวน์โหลดอุปกรณ์…
+      - 加載裝備...[i2s_Touch]加載裝備…
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_LOADING_EQUIP_2
+      TermType: 0
+      Languages:
+      - Tải trang bị 2...[i2s_Touch]Tải trang bị 2...
+      - Loading Equipment 2[i2s_Touch]Loading Equipment 2
+      - ดาวน์โหลดอุปกรณ์ 2…[i2s_Touch]ดาวน์โหลดอุปกรณ์ 2…
+      - 加載裝備2...[i2s_Touch]加載裝備2…
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_LOADING_EQUIP_3
+      TermType: 0
+      Languages:
+      - Tải trang bị 3...[i2s_Touch]Tải trang bị 3...
+      - Loading Equipment 3[i2s_Touch]Loading Equipment 3
+      - ดาวน์โหลดอุปกรณ์[i2s_Touch]ดาวน์โหลดอุปกรณ์
+      - 加載裝備3...[i2s_Touch]加載裝備3...
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_LOADING_EVENT
+      TermType: 0
+      Languages:
+      - Tải sự kiện...[i2s_Touch]Tải sự kiện...
+      - Loading Event[i2s_Touch]Loading Event
+      - ดาวน์โหลดอีเว้นท์...[i2s_Touch]ดาวน์โหลดอีเว้นท์...
+      - 加載活動...[i2s_Touch]加載活動…
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_LOADING_HERO
+      TermType: 0
+      Languages:
+      - Tải tướng...[i2s_Touch]Tải tướng...
+      - Loading Hero[i2s_Touch]Loading Hero
+      - ดาวน์โหลดฮีโร่…[i2s_Touch]ดาวน์โหลดฮีโร่…
+      - 加載英雄...[i2s_Touch]加載英雄…
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_LOSE
+      TermType: 0
+      Languages:
+      - Bại
+      - Lose
+      - แพ้
+      - 失敗
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_MAGE
+      TermType: 0
+      Languages:
+      - Chỉ Huy
+      - Captain
+      - กัปตัน
+      - 指揮
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_MANAGE
+      TermType: 0
+      Languages:
+      - 
+      - 
+      - 
+      - 
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: Quản lý
+      TermType: 0
+      Languages:
+      - 
+      - 
+      - 
+      - 
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_MAX
+      TermType: 0
+      Languages:
+      - Tối Đa
+      - Max
+      - มากสุด
+      - 最多
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_MINUTE
+      TermType: 0
+      Languages:
+      - phút
+      - minute(s)
+      - นาที
+      - 分鐘
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_MINUTE_2
+      TermType: 0
+      Languages:
+      - Phút
+      - Minute(s)
+      - นาที
+      - 分鐘
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_MINUTE_AGO
+      TermType: 0
+      Languages:
+      - phút trước
+      - minute(s) ago
+      - นาทีก่อน
+      - 分鐘前
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_MINUTE_AGO_2
+      TermType: 0
+      Languages:
+      - phút trước
+      - minute(s) ago
+      - นาทีก่อน
+      - 分鐘前
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_MISSION
+      TermType: 0
+      Languages:
+      - Nhiệm vụ
+      - Mission
+      - ภารกิจ
+      - 任務
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_MUSIC
+      TermType: 0
+      Languages:
+      - Nhạc nền
+      - Music
+      - เพลง
+      - 背景音樂
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_NEW_ROLE
+      TermType: 0
+      Languages:
+      - Chức vụ mới
+      - New role
+      - ตำแหน่งใหม่
+      - 新職務
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_NOTIFY
+      TermType: 0
+      Languages:
+      - Thông báo[i2s_Touch]Thông báo
+      - Notice[i2s_Touch]Notice
+      - แจ้งเตือน[i2s_Touch]แจ้งเตือน
+      - 通知[i2s_Touch]通知
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_NOT_UPGRADED_YET
+      TermType: 0
+      Languages:
+      - Chưa nâng cấp
+      - Not upgraded yet
+      - ยังไม่ได้อัพเกรด
+      - 尚未升級
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_OPEN
+      TermType: 0
+      Languages:
+      - Mở
+      - Open
+      - เปิด
+      - 開啟
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_OPEN_AFTER
+      TermType: 0
+      Languages:
+      - 'Mở sau:'
+      - 'Open after:'
+      - 'เปิดหลังจาก:'
+      - 離開啟時間還有：
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_OPEN_AFTER_NO_COLON
+      TermType: 0
+      Languages:
+      - Mở sau
+      - Open after
+      - เปิดหลังจาก
+      - 離開啟時間還有
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_OUT_OF_STOCK
+      TermType: 0
+      Languages:
+      - Hết lượt mua!
+      - Out of stock!
+      - หมดสต๊อก!
+      - 購買次數已用完！
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_OUT_PUT
+      TermType: 0
+      Languages:
+      - 'Sản lượng:'
+      - 'Output:'
+      - 'ผลผลิต:'
+      - 產量：
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_PLACE_ID
+      TermType: 0
+      Languages:
+      - Nhập ID...
+      - Enter ID...
+      - ป้อน ID
+      - 輸入ID…
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_POINT
+      TermType: 0
+      Languages:
+      - Điểm
+      - Point
+      - คะแนน
+      - 積分
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_POINT_HAVE_COLON
+      TermType: 0
+      Languages:
+      - 'Điểm:'
+      - 'Point:'
+      - 'คะแนน:'
+      - 積分：
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_PREVIEW
+      TermType: 0
+      Languages:
+      - Xem trước
+      - Preview
+      - ดูก่อน
+      - 預覽
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_PRIEST
+      TermType: 0
+      Languages:
+      - Hỗ Trợ
+      - Support
+      - ช่วยเหลือ
+      - 協助
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_PURCHASE
+      TermType: 0
+      Languages:
+      - Nạp
+      - Purchase
+      - เติม
+      - 儲值
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_QUESTION
+      TermType: 0
+      Languages:
+      - Câu
+      - Question
+      - คำถาม
+      - 問題
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_QUICK_RECEIVE
+      TermType: 0
+      Languages:
+      - Nhận nhanh
+      - Receive all
+      - รับหมด
+      - 一鍵領取
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_RANGER
+      TermType: 0
+      Languages:
+      - Xạ Thủ
+      - Shooter
+      - นักยิง
+      - 射手
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_RANK
+      TermType: 0
+      Languages:
+      - 'Hạng:'
+      - 'Rank:'
+      - ขั้น
+      - 排名：
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_RANK_NO_CO_LON
+      TermType: 0
+      Languages:
+      - Hạng
+      - Rank
+      - ขั้น
+      - 排名
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_RATE
+      TermType: 0
+      Languages:
+      - Tỉ lệ
+      - Rate
+      - อัตรา
+      - 幾率
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_RECEIVE
+      TermType: 0
+      Languages:
+      - Nhận
+      - Collect
+      - รับ
+      - 領取
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_REDUCTION_DAMAGE
+      TermType: 0
+      Languages:
+      - Giảm sát thương
+      - Damage reduction
+      - ลดความเสียหาย
+      - 傷害減少
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_REFESH_AFTER
+      TermType: 0
+      Languages:
+      - 'Làm mới sau:'
+      - 'Refresh in:'
+      - 'รีเฟรชหลังจาก:'
+      - 離刷新時間還有：
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_REFRESH
+      TermType: 0
+      Languages:
+      - Làm mới
+      - Refresh
+      - รีเฟรช
+      - 刷新
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_REFUSE
+      TermType: 0
+      Languages:
+      - Từ chối
+      - Refuse
+      - ปฏิเสธ
+      - 拒絕
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_REGISTER
+      TermType: 0
+      Languages:
+      - Đăng ký
+      - Register
+      - ลงทะเบียน
+      - 註冊
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_REMOVE_HERO
+      TermType: 0
+      Languages:
+      - Bỏ tướng
+      - Remove
+      - ลบฮีโร่
+      - 移除英雄
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_REMUNERATE
+      TermType: 0
+      Languages:
+      - thưởng
+      - resources
+      - รางวัล
+      - 獎勵
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_REPLAY
+      TermType: 0
+      Languages:
+      - Xem lại
+      - Replay
+      - ดูก่อน
+      - 重播
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_REPLY
+      TermType: 0
+      Languages:
+      - Trả lời
+      - Reply
+      - ตอบ
+      - 回復
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_REQUEST
+      TermType: 0
+      Languages:
+      - Yêu cầu
+      - Requirements
+      - ความต้องการ
+      - 要求
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_REQUEST_2
+      TermType: 0
+      Languages:
+      - 'Yêu cầu:'
+      - 'Request:'
+      - 'ต้องการ:'
+      - 要求：
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_RESET
+      TermType: 0
+      Languages:
+      - Thiết lập lại
+      - Reset
+      - รีเซ็ต
+      - 重設
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_RESOURCE
+      TermType: 0
+      Languages:
+      - Nguyên liệu
+      - Resource
+      - วัตถุดิบ
+      - 材料
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_RESOURCES_HAVE_COLON
+      TermType: 0
+      Languages:
+      - 'Tài nguyên:'
+      - 'Resources:'
+      - 'ทรัพยากร:'
+      - 資源：
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_RESULT
+      TermType: 0
+      Languages:
+      - Kết quả
+      - Result
+      - ผลการแข่งขัน
+      - 結果
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_RESULT_UPPER
+      TermType: 0
+      Languages:
+      - KẾT QUẢ
+      - RESULT
+      - ผลการแข่งขัน
+      - 結果
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_RETURN
+      TermType: 0
+      Languages:
+      - Hoàn trả
+      - Reset
+      - กลับคืน
+      - 重生
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_REVENGE
+      TermType: 0
+      Languages:
+      - Trả thù
+      - Revenge
+      - แก้แค้น
+      - 復仇
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_REWARD_PREVIEW
+      TermType: 0
+      Languages:
+      - Xem trước phần thưởng
+      - Reward preview
+      - ดูรางวัล
+      - 獎勵預覽
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_SAVE
+      TermType: 0
+      Languages:
+      - Lưu
+      - Save
+      - บันทึก
+      - 保存
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_SCOUT
+      TermType: 0
+      Languages:
+      - Do thám
+      - Scout
+      - สอดแนม
+      - 刺探
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_SEALAND
+      TermType: 0
+      Languages:
+      - Mê cung
+      - Maze
+      - เขาวงกต
+      - 迷宮
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_SEARCH
+      TermType: 0
+      Languages:
+      - Tra cứu
+      - Search
+      - ตรวจสอบ
+      - 搜索
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_SEARCH_2
+      TermType: 0
+      Languages:
+      - Tìm kiếm
+      - Search
+      - ค้นหา
+      - 搜尋
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_SEASON_REWARD
+      TermType: 0
+      Languages:
+      - Thưởng mùa
+      - Season reward
+      - โบนัส
+      - 賽季獎勵
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_SEE
+      TermType: 0
+      Languages:
+      - Xem
+      - See
+      - ดู
+      - 查看
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_SELECT
+      TermType: 0
+      Languages:
+      - Chọn
+      - Select
+      - เลือก
+      - 選擇
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_SELECT_QUICK
+      TermType: 0
+      Languages:
+      - Chọn nhanh
+      - Quick select
+      - เลือกเร็ว
+      - 一鍵選擇
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_SELL
+      TermType: 0
+      Languages:
+      - Bán
+      - Sell
+      - ขาย
+      - 出售
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_SEND
+      TermType: 0
+      Languages:
+      - Gửi
+      - Send
+      - ส่ง
+      - 發送
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_SEND_MSG
+      TermType: 0
+      Languages:
+      - Gửi thư
+      - Send
+      - ส่งจดหมาย
+      - 發郵件
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_SERVER
+      TermType: 0
+      Languages:
+      - Servers[i2s_Touch]Servers
+      - Servers[i2s_Touch]Servers
+      - เซิฟเวอร์[i2s_Touch]เซิฟเวอร์
+      - 伺服器[i2s_Touch]伺服器
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_SERVER_HAVE_COLON
+      TermType: 0
+      Languages:
+      - 'Server:'
+      - 'Server:'
+      - 'เซิฟเวอร์:'
+      - 伺服器
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_SETTING
+      TermType: 0
+      Languages:
+      - Cài đặt
+      - Settings
+      - ตั้งค่า
+      - 設定
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_SET_NAME
+      TermType: 0
+      Languages:
+      - Đặt tên
+      - Set name
+      - ตั้งชื่อ
+      - 取名
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_SFX
+      TermType: 0
+      Languages:
+      - Hiệu ứng
+      - Effect
+      - เอฟเฟค
+      - 效果
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_SHADOW
+      TermType: 0
+      Languages:
+      - Sinh khí
+      - Vitality
+      - จิตใจ
+      - 活力
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_SIGN_OUT
+      TermType: 0
+      Languages:
+      - Đăng xuất
+      - Sign Out
+      - ออกจากระบบ
+      - 登出
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_SKILL
+      TermType: 0
+      Languages:
+      - Kỹ năng
+      - Skill
+      - สกิล
+      - 技能
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_SKILL_DAMAGE
+      TermType: 0
+      Languages:
+      - Sát thương kĩ năng
+      - Skill damage
+      - สกิล ความเสียหาย
+      - 技能傷害
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_SORT
+      TermType: 0
+      Languages:
+      - Sắp xếp
+      - Sort
+      - จัดเรียง
+      - 整理
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_SPEC_DAMAGE_AGAINST_BURN_FOE
+      TermType: 0
+      Languages:
+      - '% ST mục tiêu bị đốt'
+      - '% damage against burnt enemies'
+      - '% ความเสียหายของเป้าหมายที่ถูกเผา'
+      - 被灼燒目標的傷害百分比
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_SPEED
+      TermType: 0
+      Languages:
+      - Tốc độ
+      - Speed
+      - ความไว
+      - 速度
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_SPEED_UP
+      TermType: 0
+      Languages:
+      - Hoàn thành
+      - Speed up
+      - เสร็จสิ้น
+      - 完成
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_STAGE
+      TermType: 0
+      Languages:
+      - Ải
+      - Stage
+      - ด่าน
+      - 關卡
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_STAR
+      TermType: 0
+      Languages:
+      - Sao
+      - Star
+      - ดาว
+      - 星
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_START
+      TermType: 0
+      Languages:
+      - Bắt đầu
+      - Start
+      - เริ่ม
+      - 開始
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_START_AFTER_2
+      TermType: 0
+      Languages:
+      - 'Bắt đầu sau:'
+      - 'Start after:'
+      - 'เริ่มหลังจาก:'
+      - 離開始時間還有：
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_STAR_AFTER
+      TermType: 0
+      Languages:
+      - Bắt đầu sau
+      - Start after
+      - เริ่มหลังจาก
+      - 離開始時間還有
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_SWEEPING
+      TermType: 0
+      Languages:
+      - Càn quét
+      - Smash
+      - กวาดล้าง
+      - 掃蕩
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_SWITCH_ACCOUNT
+      TermType: 0
+      Languages:
+      - Đổi tài khoản[i2s_Touch]Đổi tài khoản
+      - Switch account[i2s_Touch]Switch account
+      - เปลี่ยนบัญชี[i2s_Touch]เปลี่ยนบัญชี
+      - 替換賬號[i2s_Touch]替換賬號
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_TIME_LEFT
+      TermType: 0
+      Languages:
+      - Thời gian còn lại
+      - Time left
+      - เวลาที่เหลือ
+      - 剩余時間
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_TITLE_ATTACK
+      TermType: 0
+      Languages:
+      - Tấn công
+      - Attack
+      - โจมตี
+      - 攻擊
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_TITLE_HERO
+      TermType: 0
+      Languages:
+      - Anh Hùng
+      - Hero
+      - ฮีโร่
+      - 英雄
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_TITLE_LEVEL
+      TermType: 0
+      Languages:
+      - Cấp
+      - Level
+      - เลเวล
+      - 等級
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_TITLE_REWARD
+      TermType: 0
+      Languages:
+      - Phần thưởng
+      - Reward
+      - รางวัล
+      - 獎勵
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_TITLE_WORLD
+      TermType: 0
+      Languages:
+      - Thế giới
+      - World
+      - โลก
+      - 世界
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_TOWER
+      TermType: 0
+      Languages:
+      - Thành
+      - Tower
+      - หอคอย
+      - 城市
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_TRUE_DAMAGE
+      TermType: 0
+      Languages:
+      - Sát thương chuẩn
+      - True damage
+      - ความเสียหายจริง
+      - 標準傷害
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_UNLOCK
+      TermType: 0
+      Languages:
+      - Mở khóa
+      - Unlock
+      - ปลดล็อค
+      - 解鎖
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_UPGRADE
+      TermType: 0
+      Languages:
+      - Nâng cấp
+      - Upgrade
+      - อัพเกรด
+      - 升級
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_USE
+      TermType: 0
+      Languages:
+      - Dùng
+      - Use
+      - ใช้
+      - 使用
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_WARRIOR
+      TermType: 0
+      Languages:
+      - Đấu Sĩ
+      - Fighter
+      - นักสู้
+      - 戰士
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_WIN
+      TermType: 0
+      Languages:
+      - Thắng
+      - Win
+      - ชนะ
+      - 勝利
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MISC_2_LBL_BUY_TURN
+      TermType: 0
+      Languages:
+      - 'Lượt mua:'
+      - 'In Total:'
+      - 'ซื้อ:'
+      - '購買次數:'
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MSG_CAPACITY
+      TermType: 0
+      Languages:
+      - 'Sức chứa: '
+      - 'Capacity:'
+      - 'ความจุ:'
+      - 容量：
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: PLACE_HOLDER_ENTER_CONTENT
+      TermType: 0
+      Languages:
+      - Nhập nội dung...
+      - Enter content...
+      - ป้อนเนื้อหา...
+      - 輸入內容……
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_NEW
+      TermType: 0
+      Languages:
+      - Mới
+      - New
+      - ใหม่
+      - 新的
+      Flags: 00000000
+      Languages_Touch: []
+    CaseInsensitiveTerms: 0
+    OnMissingTranslation: 1
+    mTerm_AppName:
+    mLanguages:
+    - Name: Vietnamese
+      Code: vi
+      Flags: 0
+    - Name: English
+      Code: en
+      Flags: 0
+    - Name: Thai
+      Code: th
+      Flags: 0
+    - Name: Chinese
+      Code: zh
+      Flags: 0
+    IgnoreDeviceLanguage: 0
+    _AllowUnloadingLanguages: 0
+    Google_WebServiceURL: https://script.google.com/a/k2tek.net/macros/s/AKfycbyKVKCf7VBMNDaHMYGbYX1BzP4KAaKGpNj72YdZ/exec
+    Google_SpreadsheetKey: 1bnZYlEEQmf7vAonU0GH2SYC8yDK3ZPOhkQC9_fjzlEA
+    Google_SpreadsheetName: I2Loc Hải Tặc Đại Chiến Assets/Scenes/LoginScene.unity I2Languages_common
+    Google_LastUpdatedVersion: 1615795753423
+    GoogleUpdateFrequency: 1
+    GoogleInEditorCheckFrequency: 2
+    GoogleUpdateSynchronization: 1
+    GoogleUpdateDelay: 5
+    Assets: []
+  version: 1
+  NeverDestroy: 1
+  UserAgreesToHaveItOnTheScene: 1
+  UserAgreesToHaveItInsideThePluginsFolder: 0
+  GoogleLiveSyncIsUptoDate: 1
+  Assets: []
+  Google_WebServiceURL:
+  Google_SpreadsheetKey:
+  Google_SpreadsheetName:
+  Google_LastUpdatedVersion:
+  GoogleUpdateFrequency: 3
+  GoogleUpdateDelay: 5
+  mLanguages: []
+  IgnoreDeviceLanguage: 0
+  _AllowUnloadingLanguages: 0
+  mTerms: []
+  CaseInsensitiveTerms: 0
+  OnMissingTranslation: 1
+  mTerm_AppName:

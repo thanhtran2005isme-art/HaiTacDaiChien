@@ -1,0 +1,83 @@
+
+Lvl_up_OP.png
+size: 1364,148
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Layer 2
+  rotate: true
+  xy: 879, 30
+  size: 113, 118
+  orig: 115, 120
+  offset: 1, 1
+  index: -1
+Layer 3
+  rotate: true
+  xy: 1247, 5
+  size: 61, 70
+  orig: 63, 72
+  offset: 1, 1
+  index: -1
+Layer 4
+  rotate: true
+  xy: 1174, 4
+  size: 62, 71
+  orig: 64, 73
+  offset: 1, 1
+  index: -1
+Layer 5
+  rotate: true
+  xy: 1228, 68
+  size: 75, 73
+  orig: 77, 75
+  offset: 1, 1
+  index: -1
+Layer 6
+  rotate: true
+  xy: 1101, 5
+  size: 63, 71
+  orig: 65, 73
+  offset: 1, 1
+  index: -1
+Layer 7
+  rotate: false
+  xy: 1303, 73
+  size: 58, 70
+  orig: 60, 72
+  offset: 1, 1
+  index: -1
+Layer 8
+  rotate: false
+  xy: 1101, 70
+  size: 125, 73
+  orig: 127, 75
+  offset: 1, 1
+  index: -1
+Win/star1
+  rotate: true
+  xy: 999, 44
+  size: 99, 100
+  orig: 99, 100
+  offset: 0, 0
+  index: -1
+Win/star2
+  rotate: true
+  xy: 569, 16
+  size: 127, 128
+  orig: 130, 132
+  offset: 1, 2
+  index: -1
+low
+  rotate: false
+  xy: 2, 2
+  size: 565, 141
+  orig: 565, 161
+  offset: 0, 20
+  index: -1
+start
+  rotate: true
+  xy: 699, 21
+  size: 122, 178
+  orig: 128, 190
+  offset: 3, 6
+  index: -1

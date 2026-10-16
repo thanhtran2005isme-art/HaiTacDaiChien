@@ -1,0 +1,48 @@
+
+ef_fire.png
+size: 333,136
+format: RGBA4444
+filter: Linear,Linear
+repeat: none
+ef1
+  rotate: true
+  xy: 99, 72
+  size: 62, 100
+  orig: 72, 117
+  offset: 4, 0
+  index: -1
+ef2
+  rotate: true
+  xy: 2, 6
+  size: 64, 100
+  orig: 72, 117
+  offset: 3, 0
+  index: -1
+ef3
+  rotate: true
+  xy: 104, 3
+  size: 66, 108
+  orig: 72, 117
+  offset: 6, 0
+  index: -1
+ef4
+  rotate: true
+  xy: 201, 71
+  size: 63, 115
+  orig: 72, 117
+  offset: 6, 0
+  index: -1
+ef5
+  rotate: true
+  xy: 214, 2
+  size: 67, 117
+  orig: 72, 117
+  offset: 0, 0
+  index: -1
+ef6
+  rotate: true
+  xy: 2, 73
+  size: 61, 95
+  orig: 72, 117
+  offset: 5, 0
+  index: -1

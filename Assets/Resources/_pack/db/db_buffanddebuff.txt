@@ -1,0 +1,98 @@
+﻿[
+ {
+   "Icon": "icon_buff_armor",
+   "HieuQua": "Tăng x% giáp"
+ },
+ {
+   "Icon": "icon_buff_armor_break",
+   "HieuQua": "Tăng xuyên giáp x%"
+ },
+ {
+   "Icon": "icon_buff_attack",
+   "HieuQua": "Tăng x% công"
+ },
+ {
+   "Icon": "icon_buff_block",
+   "HieuQua": "Tăng x% chặn"
+ },
+ {
+   "Icon": "icon_buff_controll_immune",
+   "HieuQua": "Tăng x% miễn chống"
+ },
+ {
+   "Icon": "icon_buff_crit",
+   "HieuQua": "Tăng x% chí mạng"
+ },
+ {
+   "Icon": "icon_buff_crit_dmg",
+   "HieuQua": "Tăng x% sát thương chí mạng"
+ },
+ {
+   "Icon": "icon_buff_holy_dmg",
+   "HieuQua": "Tăng x% sát thương chuẩn"
+ },
+ {
+   "Icon": "icon_buff_precision",
+   "HieuQua": "Tăng x% chính xác"
+ },
+ {
+   "Icon": "icon_buff_reduce_dmg",
+   "HieuQua": "Tặng giảm x% sát thương"
+ },
+ {
+   "Icon": "icon_buff_skill_dmg",
+   "HieuQua": "Tăng x% sát thương kỹ năng"
+ },
+ {
+   "Icon": "icon_buff_speed",
+   "HieuQua": "Tăng x tốc độ"
+ },
+ {
+   "Icon": "icon_debuff_armor",
+   "HieuQua": "Giảm x% giáp"
+ },
+ {
+   "Icon": "icon_debuff_armor_break",
+   "HieuQua": "Giảm x% xuyên giáp"
+ },
+ {
+   "Icon": "icon_debuff_attack",
+   "HieuQua": "Giảm x% công"
+ },
+ {
+   "Icon": "icon_debuff_block",
+   "HieuQua": "Giảm x% chặn"
+ },
+ {
+   "Icon": "icon_debuff_controll_immune_new",
+   "HieuQua": "Giảm x% miễn chống"
+ },
+ {
+   "Icon": "icon_debuff_crit",
+   "HieuQua": "Giảm x% chí mạng"
+ },
+ {
+   "Icon": "icon_debuff_crit_dmg",
+   "HieuQua": "Giảm x% sát thương chí mạng"
+ },
+ {
+   "Icon": "icon_debuff_holy_dmg",
+   "HieuQua": "Giảm x% sát thương chuẩn"
+ },
+ {
+   "Icon": "icon_debuff_precision",
+   "HieuQua": "Giảm x% chính xác"
+ },
+ {
+   "Icon": "icon_debuff_reduce_dmg",
+   "HieuQua": "Giảm x% giảm sát thương"
+ },
+ {
+   "Icon": "icon_debuff_skill_dmg",
+   "HieuQua": "Giảm x% sát thương kỹ năng"
+ },
+ {
+   "Icon": "icon_debuff_speed",
+   "HieuQua": "Giảm x tốc độ"
+ }
+]

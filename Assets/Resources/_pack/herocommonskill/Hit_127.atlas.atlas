@@ -1,0 +1,41 @@
+
+Hit_127.png
+size: 538,136
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Hit/hit.0_0
+  rotate: false
+  xy: 334, 3
+  size: 100, 131
+  orig: 135, 131
+  offset: 20, 0
+  index: -1
+Hit/hit.0_1
+  rotate: true
+  xy: 436, 21
+  size: 113, 100
+  orig: 135, 131
+  offset: 15, 9
+  index: -1
+Hit/hit.0_2
+  rotate: true
+  xy: 112, 7
+  size: 127, 111
+  orig: 135, 131
+  offset: 7, 5
+  index: -1
+Hit/hit.0_3
+  rotate: true
+  xy: 225, 3
+  size: 131, 107
+  orig: 135, 131
+  offset: 2, 5
+  index: -1
+Hit/hit.0_4
+  rotate: true
+  xy: 2, 2
+  size: 132, 108
+  orig: 135, 131
+  offset: 0, 5
+  index: -1

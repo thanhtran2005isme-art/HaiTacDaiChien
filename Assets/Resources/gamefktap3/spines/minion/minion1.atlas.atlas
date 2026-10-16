@@ -1,0 +1,111 @@
+
+minion1.png
+size: 644,76
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+1
+  rotate: false
+  xy: 247, 10
+  size: 57, 61
+  orig: 57, 61
+  offset: 0, 0
+  index: -1
+2
+  rotate: false
+  xy: 69, 10
+  size: 61, 61
+  orig: 61, 61
+  offset: 0, 0
+  index: -1
+3
+  rotate: false
+  xy: 306, 14
+  size: 56, 57
+  orig: 56, 57
+  offset: 0, 0
+  index: -1
+4
+  rotate: false
+  xy: 419, 14
+  size: 53, 57
+  orig: 55, 57
+  offset: 0, 0
+  index: -1
+5
+  rotate: false
+  xy: 364, 11
+  size: 53, 60
+  orig: 53, 61
+  offset: 0, 1
+  index: -1
+6
+  rotate: true
+  xy: 525, 24
+  size: 47, 44
+  orig: 47, 44
+  offset: 0, 0
+  index: -1
+body1
+  rotate: true
+  xy: 189, 6
+  size: 65, 56
+  orig: 65, 56
+  offset: 0, 0
+  index: -1
+body2
+  rotate: true
+  xy: 132, 4
+  size: 67, 55
+  orig: 67, 55
+  offset: 0, 0
+  index: -1
+body3
+  rotate: true
+  xy: 2, 2
+  size: 69, 65
+  orig: 69, 65
+  offset: 0, 0
+  index: -1
+hand1
+  rotate: false
+  xy: 571, 2
+  size: 35, 27
+  orig: 35, 27
+  offset: 0, 0
+  index: -1
+hand2
+  rotate: true
+  xy: 525, 2
+  size: 20, 29
+  orig: 20, 29
+  offset: 0, 0
+  index: -1
+hand3
+  rotate: false
+  xy: 608, 3
+  size: 34, 27
+  orig: 34, 27
+  offset: 0, 0
+  index: -1
+mouth1
+  rotate: true
+  xy: 607, 32
+  size: 39, 31
+  orig: 39, 31
+  offset: 0, 0
+  index: -1
+mouth2
+  rotate: true
+  xy: 571, 31
+  size: 40, 34
+  orig: 40, 34
+  offset: 0, 0
+  index: -1
+shas
+  rotate: true
+  xy: 474, 10
+  size: 61, 49
+  orig: 61, 49
+  offset: 0, 0
+  index: -1

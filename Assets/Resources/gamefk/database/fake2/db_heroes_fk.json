@@ -1,0 +1,8 @@
+[{"id":197,"hero_name":"Binh nhì","baseAtk":15,"baseHp":30,"unlock":0},
+{"id":229,"hero_name":"Binh nhất","baseAtk":16,"baseHp":45,"unlock":500},
+{"id":231,"hero_name":"Hạ sĩ","baseAtk":16,"baseHp":45,"unlock":500},
+{"id":230,"hero_name":"Trung sĩ","baseAtk":26,"baseHp":60,"unlock":1000},
+{"id":233,"hero_name":"Thương sĩ","baseAtk":30,"baseHp":66,"unlock":2000},
+{"id":238,"hero_name":"Trung úy","baseAtk":40,"baseHp":75,"unlock":5000},
+{"id":239,"hero_name":"Đại tá","baseAtk":50,"baseHp":90,"unlock":10000},
+{"id":240,"hero_name":"Đô đốc","baseAtk":60,"baseHp":115,"unlock":20000}]

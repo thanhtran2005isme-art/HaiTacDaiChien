@@ -1,0 +1,34 @@
+
+Mark_6.png
+size: 644,403
+format: RGBA4444
+filter: Linear,Linear
+repeat: none
+1
+  rotate: true
+  xy: 312, 238
+  size: 163, 330
+  orig: 165, 332
+  offset: 0, 1
+  index: -1
+2
+  rotate: false
+  xy: 2, 93
+  size: 308, 308
+  orig: 308, 308
+  offset: 0, 0
+  index: -1
+3
+  rotate: true
+  xy: 2, 2
+  size: 89, 308
+  orig: 90, 308
+  offset: 0, 0
+  index: -1
+li
+  rotate: false
+  xy: 312, 30
+  size: 196, 206
+  orig: 214, 224
+  offset: 9, 9
+  index: -1

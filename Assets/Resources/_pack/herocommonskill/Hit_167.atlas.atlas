@@ -1,0 +1,48 @@
+
+Hit_167.png
+size: 974,172
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+fx/hit (1)
+  rotate: true
+  xy: 770, 18
+  size: 152, 142
+  orig: 152, 142
+  offset: 0, 0
+  index: -1
+fx/hit (2)
+  rotate: true
+  xy: 611, 2
+  size: 168, 157
+  orig: 168, 157
+  offset: 0, 0
+  index: -1
+fx/hit (3)
+  rotate: false
+  xy: 417, 8
+  size: 192, 162
+  orig: 192, 162
+  offset: 0, 0
+  index: -1
+fx/hit (4)
+  rotate: false
+  xy: 209, 7
+  size: 206, 163
+  orig: 206, 163
+  offset: 0, 0
+  index: -1
+fx/hit (5)
+  rotate: false
+  xy: 2, 5
+  size: 205, 165
+  orig: 205, 165
+  offset: 0, 0
+  index: -1
+fx/hit (6)
+  rotate: false
+  xy: 914, 7
+  size: 58, 163
+  orig: 58, 163
+  offset: 0, 0
+  index: -1

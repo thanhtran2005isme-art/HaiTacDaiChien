@@ -1,0 +1,565 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1709254077376921
+GameObject:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Component:
+  - component: {fileID: 4730242686860875}
+  - component: {fileID: 114724804207875695}
+  m_Layer: 0
+  m_Name: I2Languages_guild
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4730242686860875
+Transform:
+  serializedVersion: 2
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1709254077376921}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -0, z: -0}
+--- !u!114 &114724804207875695
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1709254077376921}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7554888af13e447d4982f6ad48f0af4b, type: 3}
+  m_Name:
+  m_EditorClassIdentifier:
+  mSource:
+    UserAgreesToHaveItOnTheScene: 1
+    UserAgreesToHaveItInsideThePluginsFolder: 0
+    GoogleLiveSyncIsUptoDate: 1
+    mTerms:
+    - Term: FONT
+      TermType: 1
+      Languages:
+      - Fonts/SVN-Titillium bold
+      - Fonts/SVN-Titillium bold
+      - Fonts/SVN-Titillium bold
+      - Fonts/SVN-Titillium bold
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_BOSS
+      TermType: 0
+      Languages:
+      - Tinh Anh
+      - Boss
+      - บอส มิฮอว์ค
+      - 精英
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_CHANGE_GUILD_NAME
+      TermType: 0
+      Languages:
+      - Đổi tên bang
+      - Change Guild's name
+      - เปลี่ยนชื่อ กิลด์
+      - 修改公會名
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_CHANGE_LINE_UP
+      TermType: 0
+      Languages:
+      - Đổi đội hình
+      - Change line up
+      - เปลี่ยนรูปแบบทีม
+      - 替換陣容
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_CONTRIBUTE
+      TermType: 0
+      Languages:
+      - Đóng góp
+      - Contribute
+      - มีส่วนร่วม
+      - 貢獻
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_FLEET_MANAGE
+      TermType: 0
+      Languages:
+      - Quản lí hạm đội
+      - Fleet management
+      - บริหารกองทัพเรือ
+      - 公會管理
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_GUILD_SCENE_ATTACK_BOSS
+      TermType: 0
+      Languages:
+      - Đánh Boss
+      - Attack Boss
+      - โจมตีบอส
+      - 攻擊Boss
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_GUILD_SCENE_HALL
+      TermType: 0
+      Languages:
+      - Hội trường
+      - Hall
+      - ฮอลล์
+      - 大廳
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_GUILD_STORE
+      TermType: 0
+      Languages:
+      - Cửa hàng bang hội
+      - Guild Store
+      - ร้านค้า กิลด์
+      - 公會商店
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_Guild_MANAGE
+      TermType: 0
+      Languages:
+      - Quản lí hạm đội
+      - Guild management
+      - บริหารกองทัพเรือ
+      - 公會管理
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_KICK
+      TermType: 0
+      Languages:
+      - Khai trừ
+      - Kick
+      - ขับไล่
+      - 開除
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_NOMINATION
+      TermType: 0
+      Languages:
+      - Đề bạt
+      - Promotion
+      - เลื่อนตำแหน่ง
+      - 提撥
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_PLACE_HOLDER_ENTER
+      TermType: 0
+      Languages:
+      - Nhập...
+      - Enter...
+      - ป้อน...
+      - 輸入…
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_POPUP_CREATE_GUILD_FIND_TEAM
+      TermType: 0
+      Languages:
+      - Tìm đội
+      - Find Guild
+      - ค้นหากิลด์
+      - 搜尋隊伍
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_POPUP_CREATE_GUILD_FLAG_TEAM
+      TermType: 0
+      Languages:
+      - Cờ đội
+      - Flag
+      - ธง
+      - 公會旗
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_POPUP_CREATE_GUILD_JOIN
+      TermType: 0
+      Languages:
+      - Xin vào
+      - Join
+      - เข้าร่วม
+      - 申請加入
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_POPUP_CREATE_GUILD_TEAM_NAME
+      TermType: 0
+      Languages:
+      - Tên đội
+      - Name Guild
+      - ชื่อกิลด์
+      - 公會名
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_POPUP_CREATE_GUILD_TEAM_UP
+      TermType: 0
+      Languages:
+      - Lập đội
+      - Create Guild
+      - ส้างกิลด์
+      - 創建公會
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_POPUP_GUILD_HALL_BROWSER_SUB
+      TermType: 0
+      Languages:
+      - Duyệt đăng ký
+      - Approval
+      - อนุมัติ
+      - 審核申請
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_POPUP_GUILD_HALL_LEAVE
+      TermType: 0
+      Languages:
+      - Rời đội
+      - Leave
+      - ออก
+      - 退出公會
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_POPUP_GUILD_HALL_MEMBER
+      TermType: 0
+      Languages:
+      - Thành viên
+      - Member
+      - สมาชิก
+      - 成員
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_POPUP_GUILD_MILL_BELI_AVAIABLE
+      TermType: 0
+      Languages:
+      - Beli hiện có
+      - Belly Available
+      - เบลีใช้ได้
+      - 現有貝利
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_POPUP_GUILD_MILL_DEDICATION
+      TermType: 0
+      Languages:
+      - Cống hiến
+      - Dedication
+      - อุทิศ
+      - 貢獻
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_POPUP_GUILD_WAR_HISTORY_TITLE
+      TermType: 0
+      Languages:
+      - Chiến tích hạm đội
+      - Guild trophy
+      - ถ้วยรางวัลกองทัพเรือ
+      - 公會戰績
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_POPUP_GUILD_WAR_TITLE
+      TermType: 0
+      Languages:
+      - Phần thưởng hạm đội chiến
+      - Guild War Rewards
+      - รางวัลสงครามกองทัพเรือ
+      - 公會戰獎勵
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_POPUP_PRAY_FOR_FIRE_RANK_DAMAGE
+      TermType: 0
+      Languages:
+      - Xếp hạng sát thương
+      - Damage rating
+      - อันดับความเสียหาย
+      - 傷害排行
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_POPUP_RANKING_REWARD_TITLE
+      TermType: 0
+      Languages:
+      - Phần thưởng xếp hạng sát thương
+      - Damage rating rewards
+      - รางวัลอันดับความเสียหาย
+      - 傷害排行獎勵
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_PRAY_FOR_FIRE_BONUS_REWARD
+      TermType: 0
+      Languages:
+      - Thưởng thêm
+      - Bonus
+      - โบนัส
+      - 額外獎勵
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_PRAY_FOR_FIRE_CHECK_IN
+      TermType: 0
+      Languages:
+      - Báo danh
+      - Check in
+      - เช็คอิน
+      - 報名
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_PROMOTION
+      TermType: 0
+      Languages:
+      - Đề Bạt
+      - Promotion
+      - เลื่อนตำแหน่ง
+      - 提撥
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_RECEIVED_MISSION
+      TermType: 0
+      Languages:
+      - Nhận nhiệm vụ
+      - Recevied mission
+      - รับภารกิจ
+      - 接受任務
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_REGISTER_STAGE_OF_WAR
+      TermType: 0
+      Languages:
+      - Đăng ký hạm đội chiến
+      - Register stage of Guild war
+      - ลงทะเบียนสงครามกองทัพเรือ
+      - 公會戰報名
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_SAVE_CHANGE
+      TermType: 0
+      Languages:
+      - Lưu sửa đổi
+      - Save change
+      - บันทึกการเปลี่ยนแปลง
+      - 保存修改
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_WAR_HISTORY
+      TermType: 0
+      Languages:
+      - Chiến sử
+      - War history
+      - ประวัติการต่อสู้
+      - 戰鬥歷史
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MSG_CELL_WAR_REGISTER_MAX_MEMBER
+      TermType: 0
+      Languages:
+      - Đã chọn đủ thành viên tham chiến
+      - You have selected enough members to join Guild war
+      - สมาชิกเข้าร่วมสงครามกองทัพเรือเต็มแล้ว
+      - 參戰成員已滿
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MSG_CHANGE_GUILD_NAME
+      TermType: 0
+      Languages:
+      - Tên bang phải từ 6 đến 20 kí tự
+      - Guild's name must be between 6 and 20 characters
+      - ชื่อกิลด์ต้องมี 6-20 ตัวอักษร
+      - 公會名要有6-20字符
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MSG_GUILD_REQUIRED_JOIN_CLAN
+      TermType: 0
+      Languages:
+      - Bạn chưa gia nhập bang hội
+      - You have not joined any Guild
+      - คุณยังไม่ได้เข้าร่วมกิลด์
+      - 您還沒加入公會
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MSG_POPOUP_GUILD_WAR_HISTORY_NOTE
+      TermType: 0
+      Languages:
+      - Hạm đội chiến hiện không diễn ra.
+      - There is no Guild war for now
+      - ขณะนี้ไม่มีสงครามกองทัพเรือ
+      - 當前公會戰尚未開始。
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MSG_POPUP_CREATE_GUILD_DESC_APPLY
+      TermType: 0
+      Languages:
+      - Đợi đăng ký được xét duyệt
+      - Wait for the registration to be approved
+      - รออนุมัติการลงทะเบียน
+      - 等待報名被批核
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MSG_POPUP_CREATE_GUILD_DESC_FIND_GUILD
+      TermType: 0
+      Languages:
+      - Không tìm được hạm đội. Hãy thử với từ khóa khác
+      - The Guild could not be found. Please try with another keyword
+      - ไม่พบกิลด์. กรุณาลองด้วย คีย์ เวิร์ด ใหม่.
+      - 找不到公會。請使用其他關鍵詞進行搜索
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MSG_POPUP_GUILD_MEMBER_DESC_KICK
+      TermType: 0
+      Languages:
+      - Bạn chắc chắn khai trừ {0} ?
+      - Are you sure you want to kick {0}?
+      - คุณแน่ใจจะขับไล่ {0}?
+      - 您確定要開除{0}？
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MSG_POPUP_GUILD_SKILL_DESC_RESET
+      TermType: 0
+      Languages:
+      - Thiết lập lại hệ kỹ năng. Toàn bộ beli và huy hiệu bang sẽ được hoàn trả (Lần đầu thiết lập lại không mất phí)
+      - Reset skill system. All Belly and Guild badge will be refund (First reset is free)
+      - รีเซ็ตระบบสกิล. เบลีทั้งหมดและตรากิลด์ จะถูกส่งคืน ( รีเซ็ตครั้งแรกฟรี)
+      - 重新設定技能系。所有貝利和公會徽章將會退還（首次設定不消耗費用）
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MSG_POPUP_GUILD_SKILL_NEED_MAXIMIZE_SKILLS
+      TermType: 0
+      Languages:
+      - Bạn cần nâng cấp tối đa các kĩ năng đã
+      - 'You need to maximize the skills '
+      - คุณต้องอัพเกรดสกิลก่อน
+      - 您要先將技能升級到最大級
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MSG_POPUP_GUILD_WAR_NOTE
+      TermType: 0
+      Languages:
+      - Cấp độ boss hạm càng cao phần thưởng càng lớn
+      - The higher the Guild boss level, the greater the reward
+      - เลเวลบอสยิ่งสูงรางวัลยิ่งใหญ่
+      - 公會BOSS的等級越高獎勵越豐厚
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MSG_POPUP_PRAY_FOR_FIRE_NOT_REGISTERED
+      TermType: 0
+      Languages:
+      - Bạn chưa đăng kí
+      - You are not registered
+      - คุณยังไม่ได้ลงทะเบียน
+      - 您尚未註冊
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MSG_POUP_CREATE_GUILD_DESC
+      TermType: 0
+      Languages:
+      - Tên bang phải từ 6 đến 20 kí tự
+      - Guild's name must be between 6 and 20 characters
+      - ชื่อกิลด์ต้องมี 6-20 ตัวอักษร
+      - 公會名要有6-20字符
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MSG_POUP_GUILD_SKILL_SYSTEM_HAS_NOT_BEEN_UPGRADED
+      TermType: 0
+      Languages:
+      - Hệ kĩ năng chưa nâng cấp
+      - Skill system has not been upgraded
+      - คุณยังไม่ได้อัพเกรด ระบบสกิล
+      - 技能系尚未升級
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MSG_PREPARE_GUILD_WAR_REQUIRE_MEMBER
+      TermType: 0
+      Languages:
+      - Số thành viên tham gia phải là
+      - The number of participants must be
+      - จำนวนสมาชิกเข้าร่วมต้อง
+      - 參與的成員數要達到
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MSG_REACHED_MAXIMUM_LEVEL
+      TermType: 0
+      Languages:
+      - Đã đạt cấp độ tối đa
+      - Has reached its maximum level
+      - ถึงเลเวลสูงสุดแล้ว
+      - 已達到等級上限
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MSG_REQUIRE_LEVEL_GUILD
+      TermType: 0
+      Languages:
+      - Yêu cầu bang đạt cấp độ
+      - Requires Guild level
+      - กิลด์ต้องถึงเลเวล
+      - 要求公會等級達到
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MSG_SEND_RECRUIT_SUCCESS
+      TermType: 0
+      Languages:
+      - Gửi thông tin tuyển mộ thành công
+      - Recruitment news have been sent
+      - ส่งข้อมูลการรับสมัครสำเร็จ
+      - 發送招募信息成功
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MSG_SIGN_UP_SUCCESS
+      TermType: 0
+      Languages:
+      - Bạn đã đăng kí thành công
+      - You have successfully registered
+      - คุณลงทะเบียนสำเร็จ
+      - 您已註冊成功
+      Flags: 00000000
+      Languages_Touch: []
+    CaseInsensitiveTerms: 0
+    OnMissingTranslation: 1
+    mTerm_AppName:
+    mLanguages:
+    - Name: Vietnamese
+      Code: vi
+      Flags: 0
+    - Name: English
+      Code: en
+      Flags: 0
+    - Name: Thai
+      Code: th
+      Flags: 0
+    - Name: Chinese
+      Code: zh
+      Flags: 0
+    IgnoreDeviceLanguage: 0
+    _AllowUnloadingLanguages: 0
+    Google_WebServiceURL: https://script.google.com/a/k2tek.net/macros/s/AKfycbxdFTFLVCgwi6BF9R2DE7NyMBpdZj9vksKlAEdZ/exec
+    Google_SpreadsheetKey: 1TOJsZkXSf6O6zCA2gSKFGkjSmY_cclWPxqWrqxFJbqg
+    Google_SpreadsheetName: I2Loc Hải Tặc Đại Chiến Assets/Scenes/LoginScene.unity I2Languages_guild
+    Google_LastUpdatedVersion: 1615781098206
+    GoogleUpdateFrequency: 1
+    GoogleInEditorCheckFrequency: 2
+    GoogleUpdateSynchronization: 1
+    GoogleUpdateDelay: 5
+    Assets: []
+  version: 1
+  NeverDestroy: 1
+  UserAgreesToHaveItOnTheScene: 1
+  UserAgreesToHaveItInsideThePluginsFolder: 0
+  GoogleLiveSyncIsUptoDate: 1
+  Assets: []
+  Google_WebServiceURL:
+  Google_SpreadsheetKey:
+  Google_SpreadsheetName:
+  Google_LastUpdatedVersion:
+  GoogleUpdateFrequency: 3
+  GoogleUpdateDelay: 5
+  mLanguages: []
+  IgnoreDeviceLanguage: 0
+  _AllowUnloadingLanguages: 0
+  mTerms: []
+  CaseInsensitiveTerms: 0
+  OnMissingTranslation: 1
+  mTerm_AppName:

@@ -1,0 +1,277 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1709254077376921
+GameObject:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Component:
+  - component: {fileID: 4730242686860875}
+  - component: {fileID: 114724804207875695}
+  m_Layer: 0
+  m_Name: I2Languages_eventscene
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4730242686860875
+Transform:
+  serializedVersion: 2
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1709254077376921}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -0, z: -0}
+--- !u!114 &114724804207875695
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1709254077376921}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7554888af13e447d4982f6ad48f0af4b, type: 3}
+  m_Name:
+  m_EditorClassIdentifier:
+  mSource:
+    UserAgreesToHaveItOnTheScene: 1
+    UserAgreesToHaveItInsideThePluginsFolder: 0
+    GoogleLiveSyncIsUptoDate: 1
+    mTerms:
+    - Term: FONT
+      TermType: 1
+      Languages:
+      - Fonts/SVN-Titillium bold
+      - Fonts/SVN-Titillium bold
+      - Fonts/SVN-Titillium bold
+      - Fonts/SVN-Titillium bold
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_EVENT_SCENE_MONTH_EVENT
+      TermType: 0
+      Languages:
+      - Sự kiện tháng
+      - Monthly events
+      - อีเวนท์ เดือน
+      - 每月活動
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_EVENT_SCENE_SALE
+      TermType: 0
+      Languages:
+      - Ưu đãi
+      - Cool Events
+      - สิทธิพิเศษ
+      - 優惠活動
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_EVENT_SCENE_SET_EQUIP
+      TermType: 0
+      Languages:
+      - Bộ trang bị
+      - Equipment set
+      - ชุดอุปกรณ์
+      - 套裝
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_EVENT_SCENE_TAB_WEEK
+      TermType: 0
+      Languages:
+      - Sự kiện tuần
+      - Weekly events
+      - อีเว้นท์ สัปดาห์
+      - 每周活動
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_FORGING
+      TermType: 0
+      Languages:
+      - Rèn
+      - Gorging
+      - หลอมโลหะ
+      - 鍛造
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_PLACE_HOLDER_GIFT_CODE
+      TermType: 0
+      Languages:
+      - Nhập giftcode
+      - Enter giftcode
+      - ป้อนรหัสของขวัญ
+      - 輸入禮包碼
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_POPUP_7_DAY_EVENT_TITLE
+      TermType: 0
+      Languages:
+      - 7 NGÀY MỞ SERVER
+      - 7 DAYS OPEN SERVER
+      - 7 วันเปิด Server
+      - 開服七天樂
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_POPUP_GIFT_CODE_REDEEM_GIFT
+      TermType: 0
+      Languages:
+      - Đổi quà
+      - Redeem gift code
+      - เปลี่ยนของขวัญ
+      - 兌換禮包
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_POPUP_GROW_FUND_ALL_SERVER
+      TermType: 0
+      Languages:
+      - Toàn Server
+      - All Server
+      - ทั้งเซิร์ฟเวอร์
+      - 全服
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_POPUP_GROW_FUND_TITLE
+      TermType: 0
+      Languages:
+      - Quỹ T.Thành
+      - Growth fund
+      - คลังการเติบโต
+      - 成長基金
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_REWARD_2
+      TermType: 0
+      Languages:
+      - Phần thưởng
+      - Reward
+      - รางวัล
+      - 獎勵
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_WEEK_EVENT
+      TermType: 0
+      Languages:
+      - Gói mua
+      - Weekly events
+      - แพ็คเกจซื้อ
+      - 購買禮包
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MSG_CLAIMED_REWARD
+      TermType: 0
+      Languages:
+      - Bạn đã nhận phần thưởng!
+      - You have claimed this reward!
+      - คุณได้รับรางวัลแล้ว!
+      - 您已獲得獎勵！
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MSG_EVENT_SCENE_EVENT_INCOMPATIBLE
+      TermType: 0
+      Languages:
+      - Sự kiện không được hỗ trợ ở phiên bản này!
+      - The event is not supported in this version!
+      - อีเว้นท์ ไม่ได้รับการสนับสนุนในเวอรชั่นนี้!
+      - 此版本不支持此活動！
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MSG_EVENT_SCENE_NO_EVENT
+      TermType: 0
+      Languages:
+      - Hiện tại không có sự kiện nào!
+      - There is no event at the moment
+      - ขณะนี้ไม่มี อีเว้นท์!
+      - 目前沒有任何活動！
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MSG_EVENT_SCENE_PLEASE_CHOOSE_EQUI
+      TermType: 0
+      Languages:
+      - Hãy lựa chọn bộ trang bị.
+      - Please choose equiment.
+      - โปรดเลือกชุดอุปกรณ์.
+      - 請選擇套裝。
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MSG_POPUP_GIFT_CODE_NOTE
+      TermType: 0
+      Languages:
+      - Phần thưởng sẽ được gửi về hộp thư của nhân vật
+      - Rewards will be sent to your mailboxes
+      - รางวัลจะถูกส่งเข้ากล่องจดหมาย
+      - 獎勵會通過郵件發給玩家
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MSG_POPUP_GIFT_CODE_NOT_ENTER_GIFT_CODE
+      TermType: 0
+      Languages:
+      - Bạn chưa nhập giftcode!
+      - You have not entered giftcode!
+      - คุณยังไม่ได้ป้อนรหัสของขวัญ!
+      - 您還沒輸入禮包碼！
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MSG_REQUIRE_SELECT_EQUIPMENT_SET
+      TermType: 0
+      Languages:
+      - Hãy chọn bộ trang bị
+      - Please select equipment set!
+      - โปรดเลือกโซนอุปกรณ์
+      - 請選擇套裝
+      Flags: 00000000
+      Languages_Touch: []
+    CaseInsensitiveTerms: 0
+    OnMissingTranslation: 1
+    mTerm_AppName:
+    mLanguages:
+    - Name: Vietnamese
+      Code: vi
+      Flags: 0
+    - Name: English
+      Code: en
+      Flags: 0
+    - Name: Thai
+      Code: th
+      Flags: 0
+    - Name: Chinese
+      Code: zh
+      Flags: 0
+    IgnoreDeviceLanguage: 0
+    _AllowUnloadingLanguages: 0
+    Google_WebServiceURL: https://script.google.com/a/k2tek.net/macros/s/AKfycbxBSrkl6g50aW_A_EP1ruz8ynxQqG1ra0KeeUGH/exec
+    Google_SpreadsheetKey: 1IB9l3FqQOdgbdDUYyH5Pck39894MEZ4z-ojpQxUgJRE
+    Google_SpreadsheetName: I2Loc Hải Tặc Đại Chiến Assets/Scenes/LoginScene.unity I2Languages_eventscene
+    Google_LastUpdatedVersion: 1616144300107
+    GoogleUpdateFrequency: 1
+    GoogleInEditorCheckFrequency: 2
+    GoogleUpdateSynchronization: 1
+    GoogleUpdateDelay: 5
+    Assets: []
+  version: 1
+  NeverDestroy: 1
+  UserAgreesToHaveItOnTheScene: 1
+  UserAgreesToHaveItInsideThePluginsFolder: 0
+  GoogleLiveSyncIsUptoDate: 1
+  Assets: []
+  Google_WebServiceURL:
+  Google_SpreadsheetKey:
+  Google_SpreadsheetName:
+  Google_LastUpdatedVersion:
+  GoogleUpdateFrequency: 3
+  GoogleUpdateDelay: 5
+  mLanguages: []
+  IgnoreDeviceLanguage: 0
+  _AllowUnloadingLanguages: 0
+  mTerms: []
+  CaseInsensitiveTerms: 0
+  OnMissingTranslation: 1
+  mTerm_AppName:

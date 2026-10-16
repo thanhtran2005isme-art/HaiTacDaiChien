@@ -1,0 +1,27 @@
+
+245.png
+size: 428,300
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+12
+  rotate: false
+  xy: 2, 9
+  size: 272, 288
+  orig: 272, 288
+  offset: 0, 0
+  index: -1
+Layer-5
+  rotate: false
+  xy: 276, 130
+  size: 149, 167
+  orig: 149, 167
+  offset: 0, 0
+  index: -1
+buff_12
+  rotate: true
+  xy: 276, 2
+  size: 126, 127
+  orig: 126, 127
+  offset: 0, 0
+  index: -1

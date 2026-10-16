@@ -1,0 +1,68 @@
+name: HTDC MySQL 8.4 schema and complete source import
+on:
+  push:
+    branches: [feat/htdc-mysql-foundation]
+    paths:
+      - "database/mysql/**"
+      - "tests/test_mysql_foundation.py"
+      - ".github/workflows/mysql-foundation.yml"
+  workflow_dispatch:
+jobs:
+  schema-and-import:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    services:
+      mysql:
+        image: mysql:8.4
+        env:
+          MYSQL_ROOT_PASSWORD: ci_only_mysql_password
+          MYSQL_DATABASE: htdc_game
+        ports:
+          - 3306:3306
+        options: >-
+          --health-cmd="mysqladmin ping -h 127.0.0.1 --silent"
+          --health-interval=10s
+          --health-timeout=10s
+          --health-retries=20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Validate schema and importer (no runtime dependencies)
+        run: python -m unittest discover -s tests -p "test_mysql_foundation.py" -v
+      - name: Validate all source catalogs
+        run: python database/mysql/import_configs.py --repo-root . --validate-only
+      - name: Generate full, deterministic multilingual seed
+        run: python database/mysql/import_configs.py --repo-root . --output database/mysql/generated/002_game_config_seed.sql
+      - name: Execute real MySQL 8.4 DDL and imported data (disposable CI only)
+        shell: bash
+        run: |
+          set -euo pipefail
+          CID="$(docker ps --filter ancestor=mysql:8.4 --format '{{.ID}}' | head -n 1)"
+          test -n "$CID"
+          docker exec -i "$CID" mysql -uroot --password=ci_only_mysql_password < database/mysql/001_schema.sql
+          docker exec -i "$CID" mysql -uroot --password=ci_only_mysql_password < database/mysql/generated/002_game_config_seed.sql
+          HERO_COUNT="$(docker exec "$CID" mysql -uroot --password=ci_only_mysql_password -N -s -e "SELECT COUNT(*) FROM htdc_game.hero_definitions")"
+          FILE_COUNT="$(docker exec "$CID" mysql -uroot --password=ci_only_mysql_password -N -s -e "SELECT COUNT(*) FROM htdc_game.catalog_files")"
+          TABLE_COUNT="$(docker exec "$CID" mysql -uroot --password=ci_only_mysql_password -N -s -e "SELECT COUNT(*) FROM information_schema.tables WHERE table_schema='htdc_game'")"
+          test "$HERO_COUNT" = "751"
+          test "$FILE_COUNT" = "139"
+          test "$TABLE_COUNT" = "84"
+          test "$(docker exec "$CID" mysql -uroot --password=ci_only_mysql_password -N -s -e "SELECT COUNT(*) FROM htdc_game.catalog_records")" = "66191"
+          test "$(docker exec "$CID" mysql -uroot --password=ci_only_mysql_password -N -s -e "SELECT COUNT(*) FROM htdc_game.item_definitions WHERE display_name IS NULL")" = "17"
+          test "$(docker exec "$CID" mysql -uroot --password=ci_only_mysql_password -N -s -e "SELECT COUNT(*) FROM htdc_game.players")" = "0"
+          # Import again to prove deduplication/upsert and transactional refresh.
+          docker exec -i "$CID" mysql -uroot --password=ci_only_mysql_password < database/mysql/generated/002_game_config_seed.sql
+          test "$(docker exec "$CID" mysql -uroot --password=ci_only_mysql_password -N -s -e "SELECT COUNT(*) FROM htdc_game.catalog_records")" = "66191"
+          test "$(docker exec "$CID" mysql -uroot --password=ci_only_mysql_password -N -s -e "SELECT COUNT(*) FROM htdc_game.hero_definitions")" = "751"
+          test "$(docker exec "$CID" mysql -uroot --password=ci_only_mysql_password -N -s -e "SELECT COUNT(*) FROM htdc_game.players")" = "0"
+          echo "PASS: 84 tables; 139 source files; 66191 source records; 751 heroes; 17 source null names; repeat import stable; zero invented players"
+      - name: Save manifest-only audit report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: htdc-mysql-source-audit
+          path: database/mysql/generated/002_game_config_seed.audit.json
+          if-no-files-found: ignore
+          retention-days: 7

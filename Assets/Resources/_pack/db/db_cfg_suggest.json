@@ -1,0 +1,199 @@
+[
+  {
+    "header": "Nhận vàng miễn phí",
+    "title": [
+      "Đấu trường - Thách đấu",
+      "Hoàn thành tửu quán",
+      "Hoàn thành nhiệm vụ",
+      "Thăng cấp người chơi",
+      "Tiêu diệt boss trinh thám",
+      "Nhận thành tựu"
+    ],
+    "pos_drop": [
+      23,
+      6,
+      10,
+      1,
+      28,
+      3
+    ]
+  },
+  {
+    "header": "Nhận xu",
+    "title": [
+      "Tự động vượt ải",
+      "Chiến dịch - Cướp xu",
+      "Khu giao dịch",
+      "Leo tháp",
+      "Nhiệm vụ hạm đội",
+      "Đánh boss hạm đội",
+      "Hoàn thành nhiệm vụ",
+      "Thử vận may tại vòng quay"
+    ],
+    "pos_drop": [
+      1,
+      14,
+      24,
+      22,
+      12,
+      12,
+      10,
+      5
+    ]
+  },
+  {
+    "header": "Nhận mảnh thuyền viên",
+    "title": [
+      "Tự động vượt ải",
+      "Chiến dịch - Anh hùng",
+      "Hoàn thánh tửu quán",
+      "Leo tháp",
+      "Cửa hàng hạm đội",
+      "Cửa hàng thuyền viên",
+      "Trinh thám bạn bè",
+      "Thử vận may tại vòng quay",
+      "Khu chợ",
+      "Chiêu mộ đặc biệt",
+      "Cửa hàng luyện tập",
+      "Cửa hàng đấu trường"
+    ],
+    "pos_drop": [
+      1,
+      14,
+      6,
+      22,
+      16,
+      18,
+      28,
+      5,
+      2,
+      11,
+      7,
+      8
+    ]
+  },
+  {
+    "header": "Nhận đan kinh nghiệm thuyền viên",
+    "title": [
+      "Tự động vượt ải",
+      "Khu chợ",
+      "Thử vận may tại vòng quay",
+      "Hoàn thành nhiêm vụ",
+      "Chiến dịch - Can đảm",
+      "Trinh thám bạn bè"
+    ],
+    "pos_drop": [
+      1,
+      2,
+      5,
+      10,
+      14,
+      28
+    ]
+  },
+  {
+    "header": "Nhận đan đột phá",
+    "title": [
+      "Tự động vượt ải",
+      "Khu chợ",
+      "Chiến dịch - Can đảm",
+      "Trinh thám bạn bè",
+      "Leo tháp",
+      "Nhận thành tựu"
+    ],
+    "pos_drop": [
+      1,
+      2,
+      14,
+      28,
+      22,
+      3
+    ]
+  },
+  {
+    "header": "Nhận trang bị",
+    "title": [
+      "Tự động vượt ải",
+      "Leo tháp",
+      "Thử vận may tại vòng quay",
+      "Cửa hàng hạm đội"
+    ],
+    "pos_drop": [
+      1,
+      22,
+      5,
+      16
+    ]
+  },
+  {
+    "header": "Nhận tàn chương",
+    "title": [
+      "Tự động vượt ải",
+      "Thử vận may tại vòng quay",
+      "Cửa hàng luyện tập",
+      "Viễn chinh"
+    ],
+    "pos_drop": [
+      1,
+      5,
+      7,
+      13
+    ]
+  },
+  {
+    "header": "Nhận mảnh bảo vật",
+    "title": [
+      "Tự động vượt ải",
+      "Tửu quán",
+      "Cửa hàng hạm đội",
+      "Thử vận may tại siêu cấp vòng quay"
+    ],
+    "pos_drop": [
+      1,
+      6,
+      16,
+      25
+    ]
+  },
+  {
+    "header": "Nhận lệnh hoán đổi",
+    "title": [
+      "Khu chợ",
+      "Cửa hàng đấu trường",
+      "Nhận thành tựu",
+      "Chiêu mộ đặc biệt",
+      "Có thể nhận được khi hoàn thành nhiệm vụ tửu quán 6,7 sao"
+    ],
+    "pos_drop": [
+      2,
+      8,
+      3,
+      11,
+      6
+    ]
+  },
+  {
+    "header": "Nâng cấp thuyền viên",
+    "title": [
+      "Nâng cấp và thức tỉnh thuyền viên",
+      "Luyện thuyền viên",
+      "Chiêu mộ thuyền viên"
+    ],
+    "pos_drop": [
+      26,
+      27,
+      11
+    ]
+  },
+  {
+    "header": "Nâng trang bị",
+    "title": [
+      "Lò rèn",
+      "Sưu tập bộ trang bị để kích hoạt thuộc tính trang bị"
+    ],
+    "pos_drop": [
+      4,
+      0
+    ]
+  }
+]

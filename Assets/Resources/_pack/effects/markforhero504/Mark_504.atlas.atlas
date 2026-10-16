@@ -1,0 +1,153 @@
+
+Mark_504.png
+size: 712,180
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+01_00
+  rotate: false
+  xy: 475, 2
+  size: 75, 82
+  orig: 90, 106
+  offset: 8, 0
+  index: -1
+01_01
+  rotate: false
+  xy: 552, 3
+  size: 74, 86
+  orig: 90, 106
+  offset: 8, 0
+  index: -1
+01_02
+  rotate: true
+  xy: 191, 2
+  size: 74, 90
+  orig: 90, 106
+  offset: 6, 0
+  index: -1
+01_03
+  rotate: false
+  xy: 374, 85
+  size: 72, 93
+  orig: 90, 106
+  offset: 8, 0
+  index: -1
+01_04
+  rotate: false
+  xy: 301, 81
+  size: 71, 97
+  orig: 90, 106
+  offset: 10, 0
+  index: -1
+01_05
+  rotate: false
+  xy: 229, 79
+  size: 70, 99
+  orig: 90, 106
+  offset: 11, 0
+  index: -1
+01_06
+  rotate: false
+  xy: 522, 91
+  size: 71, 87
+  orig: 90, 106
+  offset: 11, 0
+  index: -1
+01_07
+  rotate: false
+  xy: 448, 86
+  size: 72, 92
+  orig: 90, 106
+  offset: 12, 0
+  index: -1
+01_08
+  rotate: true
+  xy: 283, 2
+  size: 75, 97
+  orig: 90, 106
+  offset: 8, 0
+  index: -1
+01_09
+  rotate: false
+  xy: 151, 78
+  size: 76, 100
+  orig: 90, 106
+  offset: 6, 0
+  index: -1
+01_10
+  rotate: false
+  xy: 76, 76
+  size: 73, 102
+  orig: 90, 106
+  offset: 8, 0
+  index: -1
+01_11
+  rotate: true
+  xy: 88, 2
+  size: 72, 101
+  orig: 90, 106
+  offset: 9, 0
+  index: -1
+01_12
+  rotate: false
+  xy: 2, 73
+  size: 72, 105
+  orig: 90, 106
+  offset: 9, 0
+  index: -1
+01_13
+  rotate: false
+  xy: 595, 92
+  size: 74, 86
+  orig: 90, 106
+  offset: 8, 0
+  index: -1
+01_14
+  rotate: true
+  xy: 382, 7
+  size: 76, 91
+  orig: 90, 106
+  offset: 8, 0
+  index: -1
+images/font_03
+  rotate: false
+  xy: 671, 125
+  size: 38, 53
+  orig: 47, 63
+  offset: 3, 3
+  index: -1
+images/font_06
+  rotate: false
+  xy: 46, 18
+  size: 40, 53
+  orig: 51, 59
+  offset: 4, 2
+  index: -1
+images/font_09
+  rotate: false
+  xy: 628, 37
+  size: 39, 53
+  orig: 48, 59
+  offset: 5, 3
+  index: -1
+images/font_11
+  rotate: false
+  xy: 2, 18
+  size: 42, 53
+  orig: 50, 59
+  offset: 0, 4
+  index: -1
+images/font_13
+  rotate: false
+  xy: 669, 37
+  size: 39, 53
+  orig: 56, 60
+  offset: 7, 5
+  index: -1
+images/font_16
+  rotate: true
+  xy: 628, 10
+  size: 25, 53
+  orig: 56, 56
+  offset: 14, 3
+  index: -1

@@ -1,0 +1,42 @@
+[
+ {
+   "spine_id": 182,
+   "name": "Female secretary",
+   "base_atk": 25,
+   "base_hp": 250,
+   "base_speed": 10,
+   "cost_unlock": 0
+ },
+ {
+   "spine_id": 183,
+   "name": "Bodyguard",
+   "base_atk": 30,
+   "base_hp": 280,
+   "base_speed": 12,
+   "cost_unlock": 500
+ },
+ {
+   "spine_id": 195,
+   "name": "Ms. Ba",
+   "base_atk": 35,
+   "base_hp": 340,
+   "base_speed": 14,
+   "cost_unlock": 500
+ },
+ {
+   "spine_id": 198,
+   "name": "Mechanic",
+   "base_atk": 10,
+   "base_hp": 600,
+   "base_speed": 18,
+   "cost_unlock": 2000
+ },
+ {
+   "spine_id": 201,
+   "name": "Mandarin's son",
+   "base_atk": 120,
+   "base_hp": 1500,
+   "base_speed": 24,
+   "cost_unlock": 20000
+ }
+]

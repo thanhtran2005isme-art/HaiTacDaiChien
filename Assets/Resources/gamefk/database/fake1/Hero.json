@@ -1,0 +1,269 @@
+[{
+    "Id": 0,
+    "Avatar": 239,
+    "Name": "Main",
+    "KillGold": 2,
+    "KillExp": 1,
+    "Hp": 300,
+    "Boss": 0,
+    "SpeedMove": 3,
+    "Weapon": [
+      2,10
+    ],
+    "Ability": [],
+    "Action": [     
+    ]
+  },
+  {
+    "Id": 1,
+    "Avatar": 235,
+    "Name": "Áp sát đánh",
+    "KillGold": 2,
+    "KillExp": 1,
+    "Hp": 75,
+    "Boss": 0,
+    "SpeedMove": 1.5,
+    "Weapon": [
+      1
+    ],
+    "Ability": [],
+    "Action": [
+      {
+        "type": 0,
+        "data": [
+          0
+        ]
+      },
+      {
+        "type": 1,
+        "data": [
+          1
+        ]
+      },
+      {
+        "type": 3,
+        "data": [
+          1.5
+        ]
+      }
+    ]
+  },
+  {
+    "Id": 2,
+    "Avatar": 229,
+    "Name": "Cầm đao đâm",
+    "KillGold": 2,
+    "KillExp": 1,
+    "Hp": 150,
+    "Boss": 0,
+    "SpeedMove": 1.5,
+    "Weapon": [
+      5
+    ],
+    "Ability": [],
+    "Action": [
+      {
+        "type": 0,
+        "data": [
+          0
+        ]
+      },
+      {
+        "type": 3,
+        "data": [
+          1
+        ]
+      },
+      {
+        "type": 5,
+        "data": [
+          3.6,
+          0.66
+        ]
+      },
+      {
+        "type": 3,
+        "data": [
+          2
+        ]
+      }
+    ]
+  },
+  {
+    "Id": 3,
+    "Avatar": 236,
+    "Name": "Cầm rìu đánh gần",
+    "KillGold": 2,
+    "KillExp": 1,
+    "Hp": 100,
+    "Boss": 0,
+    "SpeedMove": 1.5,
+    "Weapon": [
+      1
+    ],
+    "Ability": [],
+    "Action": [
+      {
+        "type": 0,
+        "data": [
+          0
+        ]
+      },
+      {
+        "type": 1,
+        "data": [
+          1
+        ]
+      },
+      {
+        "type": 3,
+        "data": [
+          1.5
+        ]
+      }
+    ]
+  },
+  {
+    "Id": 4,
+    "Avatar": 237,
+    "Name": "Cầm nỏ bắn 3 tiêu",
+    "KillGold": 2,
+    "KillExp": 1,
+    "Hp": 100,
+    "Boss": 0,
+    "SpeedMove": 1.5,
+    "Weapon": [
+      8
+    ],
+    "Ability": [],
+    "Action": [
+      {
+        "type": 0,
+        "data": [
+          0
+        ]
+      },
+      {
+        "type": 1,
+        "data": [
+          0
+        ]
+      },
+      {
+        "type": 3,
+        "data": [
+          1
+        ]
+      }
+    ]
+  },
+  {
+    "Id": 5,
+    "Avatar": 1003,
+    "Name": "Đánh xa 3 tiêu hình quạt",
+    "KillGold": 2,
+    "KillExp": 1,
+    "Hp": 100,
+    "Boss": 0,
+    "SpeedMove": 1.5,
+    "Weapon": [
+      4
+    ],
+    "Ability": [],
+    "Action": [
+      {
+        "type": 0,
+        "data": [
+          0
+        ]
+      },
+      {
+        "type": 1,
+        "data": [
+          0
+        ]
+      },
+      {
+        "type": 3,
+        "data": [
+          1
+        ]
+      }
+    ]
+  },
+  {
+    "Id": 6,
+    "Avatar": 1006,
+    "Name": "Cầm đao đâm",
+    "KillGold": 2,
+    "KillExp": 1,
+    "Hp": 150,
+    "Boss": 0,
+    "SpeedMove": 1.5,
+    "Weapon": [
+      5
+    ],
+    "Ability": [],
+    "Action": [
+      {
+        "type": 0,
+        "data": [
+          0
+        ]
+      },
+      {
+        "type": 3,
+        "data": [
+          1
+        ]
+      },
+      {
+        "type": 5,
+        "data": [
+          3.6,
+          0.66
+        ]
+      },
+      {
+        "type": 3,
+        "data": [
+          2
+        ]
+      }
+    ]
+  },
+  {
+    "Id": 7,
+    "Avatar": 1007,
+    "Name": "Ngắm rồi bắn",
+    "KillGold": 2,
+    "KillExp": 1,
+    "Hp": 100,
+    "Boss": 0,
+    "SpeedMove": 1.5,
+    "Weapon": [
+      2
+    ],
+    "Ability": [],
+    "Action": [
+      {
+        "type": 0,
+        "data": [
+          0
+        ]
+      },
+      {
+        "type": 1,
+        "data": [
+          0
+        ]
+      },
+      {
+        "type": 3,
+        "data": [
+          1
+        ]
+      }
+    ]
+  }
+]

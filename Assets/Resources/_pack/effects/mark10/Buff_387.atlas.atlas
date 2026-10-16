@@ -1,0 +1,41 @@
+
+Buff_387.png
+size: 260,136
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+buff/glow_6182
+  rotate: false
+  xy: 2, 4
+  size: 128, 128
+  orig: 128, 128
+  offset: 0, 0
+  index: -1
+buff/images/glow_6126_01
+  rotate: false
+  xy: 132, 68
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+buff/images/glow_6126_02
+  rotate: false
+  xy: 132, 2
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+buff/images/glow_6126_03
+  rotate: false
+  xy: 198, 6
+  size: 60, 60
+  orig: 64, 64
+  offset: 4, 0
+  index: -1
+buff/images/glow_6126_04
+  rotate: false
+  xy: 198, 68
+  size: 60, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1

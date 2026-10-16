@@ -1,0 +1,13 @@
+
+Notifi.png
+size: 34,34
+format: RGBA4444
+filter: Linear,Linear
+repeat: none
+notify_dot
+  rotate: false
+  xy: 2, 2
+  size: 30, 30
+  orig: 32, 32
+  offset: 1, 1
+  index: -1

@@ -1,0 +1,69 @@
+
+boss_fake3.png
+size: 536,176
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+body
+  rotate: false
+  xy: 2, 2
+  size: 229, 170
+  orig: 229, 170
+  offset: 0, 0
+  index: -1
+eye1
+  rotate: true
+  xy: 281, 96
+  size: 76, 13
+  orig: 76, 13
+  offset: 0, 0
+  index: -1
+eye1b
+  rotate: true
+  xy: 233, 54
+  size: 118, 46
+  orig: 118, 46
+  offset: 0, 0
+  index: -1
+eye2
+  rotate: false
+  xy: 281, 81
+  size: 13, 13
+  orig: 18, 13
+  offset: 0, 0
+  index: -1
+rau
+  rotate: true
+  xy: 233, 5
+  size: 47, 62
+  orig: 47, 62
+  offset: 0, 0
+  index: -1
+shadow
+  rotate: false
+  xy: 297, 77
+  size: 231, 95
+  orig: 231, 95
+  offset: 0, 0
+  index: -1
+sushi1
+  rotate: true
+  xy: 297, 4
+  size: 71, 79
+  orig: 71, 79
+  offset: 0, 0
+  index: -1
+sushi2
+  rotate: false
+  xy: 438, 20
+  size: 96, 55
+  orig: 96, 55
+  offset: 0, 0
+  index: -1
+sushi3
+  rotate: true
+  xy: 378, 4
+  size: 71, 58
+  orig: 71, 59
+  offset: 0, 1
+  index: -1

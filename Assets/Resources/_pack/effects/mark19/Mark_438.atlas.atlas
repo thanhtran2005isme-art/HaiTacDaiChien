@@ -1,0 +1,20 @@
+
+Mark_438.png
+size: 180,132
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+glow_light
+  rotate: false
+  xy: 2, 2
+  size: 128, 128
+  orig: 130, 130
+  offset: 1, 1
+  index: -1
+spark copy
+  rotate: true
+  xy: 132, 86
+  size: 44, 43
+  orig: 48, 48
+  offset: 2, 3
+  index: -1

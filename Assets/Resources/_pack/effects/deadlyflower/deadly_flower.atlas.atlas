@@ -1,0 +1,125 @@
+
+deadly_flower.png
+size: 944,224
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+images/sequence_1097_01
+  rotate: false
+  xy: 323, 102
+  size: 96, 120
+  orig: 128, 128
+  offset: 16, 0
+  index: -1
+images/sequence_1097_02
+  rotate: true
+  xy: 131, 2
+  size: 94, 124
+  orig: 128, 128
+  offset: 22, 0
+  index: -1
+images/sequence_1097_03
+  rotate: false
+  xy: 2, 94
+  size: 90, 128
+  orig: 128, 128
+  offset: 24, 0
+  index: -1
+images/sequence_1097_04
+  rotate: true
+  xy: 2, 2
+  size: 90, 127
+  orig: 128, 128
+  offset: 22, 0
+  index: -1
+images/sequence_1097_05
+  rotate: false
+  xy: 421, 103
+  size: 96, 119
+  orig: 128, 128
+  offset: 19, 8
+  index: -1
+images/sequence_1097_06
+  rotate: false
+  xy: 216, 98
+  size: 105, 124
+  orig: 128, 128
+  offset: 13, 4
+  index: -1
+images/sequence_1097_07
+  rotate: false
+  xy: 519, 106
+  size: 106, 116
+  orig: 128, 128
+  offset: 12, 8
+  index: -1
+images/sequence_1097_08
+  rotate: false
+  xy: 726, 110
+  size: 107, 112
+  orig: 128, 128
+  offset: 8, 4
+  index: -1
+images/sequence_1097_09
+  rotate: false
+  xy: 835, 110
+  size: 104, 112
+  orig: 128, 128
+  offset: 11, 4
+  index: -1
+images/sequence_1097_10
+  rotate: true
+  xy: 601, 4
+  size: 100, 108
+  orig: 128, 128
+  offset: 13, 4
+  index: -1
+images/sequence_1097_11
+  rotate: false
+  xy: 820, 2
+  size: 98, 106
+  orig: 128, 128
+  offset: 16, 4
+  index: -1
+images/sequence_1097_12
+  rotate: true
+  xy: 375, 2
+  size: 98, 108
+  orig: 128, 128
+  offset: 16, 4
+  index: -1
+images/sequence_1097_13
+  rotate: true
+  xy: 711, 5
+  size: 99, 107
+  orig: 128, 128
+  offset: 15, 4
+  index: -1
+images/sequence_1097_14
+  rotate: true
+  xy: 485, 2
+  size: 99, 114
+  orig: 128, 128
+  offset: 12, 0
+  index: -1
+images/sequence_1097_15
+  rotate: true
+  xy: 257, 4
+  size: 92, 116
+  orig: 128, 128
+  offset: 12, 0
+  index: -1
+images/sequence_1097_16
+  rotate: false
+  xy: 627, 106
+  size: 97, 116
+  orig: 128, 128
+  offset: 11, 0
+  index: -1
+robin/glow_12001
+  rotate: true
+  xy: 94, 98
+  size: 124, 120
+  orig: 128, 128
+  offset: 0, 4
+  index: -1

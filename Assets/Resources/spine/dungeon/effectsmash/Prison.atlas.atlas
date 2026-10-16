@@ -1,0 +1,153 @@
+
+Prison.png
+size: 624,278
+format: RGBA4444
+filter: Linear,Linear
+repeat: none
+bgr
+  rotate: false
+  xy: 423, 2
+  size: 26, 26
+  orig: 50, 50
+  offset: 11, 14
+  index: -1
+comm/112001
+  rotate: false
+  xy: 2, 129
+  size: 149, 147
+  orig: 184, 184
+  offset: 18, 20
+  index: -1
+comm/chongji_0
+  rotate: true
+  xy: 566, 92
+  size: 43, 52
+  orig: 100, 100
+  offset: 25, 28
+  index: -1
+comm/chongji_1
+  rotate: true
+  xy: 397, 32
+  size: 64, 79
+  orig: 100, 100
+  offset: 15, 14
+  index: -1
+comm/chongji_2
+  rotate: false
+  xy: 548, 191
+  size: 74, 85
+  orig: 100, 100
+  offset: 9, 9
+  index: -1
+comm/chongji_3
+  rotate: true
+  xy: 454, 188
+  size: 88, 92
+  orig: 100, 100
+  offset: 3, 5
+  index: -1
+comm/chongji_4
+  rotate: false
+  xy: 397, 98
+  size: 83, 85
+  orig: 100, 100
+  offset: 13, 1
+  index: -1
+comm/sz_guoce1
+  rotate: true
+  xy: 2, 19
+  size: 108, 140
+  orig: 172, 188
+  offset: 32, 24
+  index: -1
+comm/ui_guangqiu
+  rotate: false
+  xy: 153, 181
+  size: 108, 95
+  orig: 108, 101
+  offset: 0, 2
+  index: -1
+comm/ui_qiceshengji_1
+  rotate: false
+  xy: 263, 183
+  size: 94, 93
+  orig: 100, 100
+  offset: 6, 0
+  index: -1
+comm/ui_qiceshengji_10
+  rotate: false
+  xy: 482, 30
+  size: 70, 69
+  orig: 100, 100
+  offset: 9, 11
+  index: -1
+comm/ui_qiceshengji_11
+  rotate: false
+  xy: 566, 137
+  size: 51, 52
+  orig: 100, 100
+  offset: 18, 19
+  index: -1
+comm/ui_qiceshengji_12
+  rotate: false
+  xy: 391, 2
+  size: 30, 28
+  orig: 100, 100
+  offset: 28, 32
+  index: -1
+comm/ui_qiceshengji_2
+  rotate: false
+  xy: 359, 185
+  size: 93, 91
+  orig: 100, 100
+  offset: 7, 0
+  index: -1
+comm/ui_qiceshengji_3
+  rotate: false
+  xy: 153, 91
+  size: 91, 88
+  orig: 100, 100
+  offset: 3, 1
+  index: -1
+comm/ui_qiceshengji_4
+  rotate: false
+  xy: 237, 2
+  size: 81, 84
+  orig: 100, 100
+  offset: 9, 4
+  index: -1
+comm/ui_qiceshengji_5
+  rotate: true
+  xy: 482, 101
+  size: 85, 82
+  orig: 100, 100
+  offset: 7, 8
+  index: -1
+comm/ui_qiceshengji_6
+  rotate: false
+  xy: 144, 4
+  size: 91, 85
+  orig: 100, 100
+  offset: 1, 8
+  index: -1
+comm/ui_qiceshengji_7
+  rotate: true
+  xy: 246, 88
+  size: 91, 81
+  orig: 100, 100
+  offset: 9, 16
+  index: -1
+comm/ui_qiceshengji_8
+  rotate: true
+  xy: 320, 3
+  size: 83, 69
+  orig: 100, 100
+  offset: 14, 19
+  index: -1
+comm/ui_qiceshengji_9
+  rotate: false
+  xy: 329, 93
+  size: 66, 88
+  orig: 100, 100
+  offset: 21, 0
+  index: -1

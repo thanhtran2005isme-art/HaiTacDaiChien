@@ -1,0 +1,41 @@
+
+Hit_156.png
+size: 337,89
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Fx/Hit_1/0
+  rotate: true
+  xy: 248, 24
+  size: 63, 56
+  orig: 90, 92
+  offset: 11, 13
+  index: -1
+Fx/Hit_1/1
+  rotate: false
+  xy: 171, 12
+  size: 75, 75
+  orig: 90, 92
+  offset: 7, 7
+  index: -1
+Fx/Hit_1/2
+  rotate: true
+  xy: 89, 5
+  size: 82, 80
+  orig: 90, 92
+  offset: 4, 4
+  index: -1
+Fx/Hit_1/3
+  rotate: false
+  xy: 2, 2
+  size: 85, 85
+  orig: 90, 92
+  offset: 3, 2
+  index: -1
+Fx/Light/6
+  rotate: false
+  xy: 306, 58
+  size: 29, 29
+  orig: 29, 29
+  offset: 0, 0
+  index: -1

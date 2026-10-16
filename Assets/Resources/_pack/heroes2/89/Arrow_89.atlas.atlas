@@ -1,0 +1,55 @@
+
+Arrow_89.png
+size: 948,192
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Char_moria_skill_1_bianfu/000
+  rotate: false
+  xy: 376, 15
+  size: 169, 172
+  orig: 174, 176
+  offset: 3, 1
+  index: -1
+Char_moria_skill_1_bianfu/001
+  rotate: true
+  xy: 2, 3
+  size: 184, 181
+  orig: 189, 186
+  offset: 3, 2
+  index: -1
+Char_moria_skill_1_bianfu/002
+  rotate: true
+  xy: 185, 11
+  size: 176, 189
+  orig: 182, 195
+  offset: 3, 2
+  index: -1
+Char_moria_skill_1_bianfu/003
+  rotate: false
+  xy: 547, 2
+  size: 152, 185
+  orig: 158, 190
+  offset: 4, 2
+  index: -1
+Char_moria_skill_1_bianfu/004
+  rotate: false
+  xy: 701, 52
+  size: 125, 135
+  orig: 130, 140
+  offset: 3, 2
+  index: -1
+Char_moria_skill_1_bianfu/005
+  rotate: false
+  xy: 828, 73
+  size: 116, 114
+  orig: 122, 118
+  offset: 3, 1
+  index: -1
+Char_moria_skill_1_bianfu/006
+  rotate: true
+  xy: 828, 4
+  size: 67, 104
+  orig: 73, 109
+  offset: 3, 2
+  index: -1

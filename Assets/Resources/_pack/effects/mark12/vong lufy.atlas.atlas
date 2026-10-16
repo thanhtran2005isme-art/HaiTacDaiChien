@@ -1,0 +1,27 @@
+
+vong lufy.png
+size: 668,368
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Ellipse 1
+  rotate: false
+  xy: 355, 53
+  size: 311, 311
+  orig: 311, 311
+  offset: 0, 0
+  index: -1
+Ellipse 1 copy 3
+  rotate: false
+  xy: 2, 13
+  size: 351, 351
+  orig: 351, 351
+  offset: 0, 0
+  index: -1
+Layer 1
+  rotate: true
+  xy: 355, 2
+  size: 49, 75
+  orig: 49, 75
+  offset: 0, 0
+  index: -1

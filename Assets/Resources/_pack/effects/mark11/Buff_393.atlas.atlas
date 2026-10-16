@@ -1,0 +1,20 @@
+
+Buff_393.png
+size: 360,244
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+glow_1007
+  rotate: false
+  xy: 252, 138
+  size: 104, 104
+  orig: 128, 128
+  offset: 12, 12
+  index: -1
+images/glow_6003
+  rotate: false
+  xy: 2, 2
+  size: 248, 240
+  orig: 256, 256
+  offset: 8, 4
+  index: -1

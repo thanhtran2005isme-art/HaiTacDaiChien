@@ -1,0 +1,76 @@
+
+Arrow_148.png
+size: 308,276
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Char_kuma_skill_1_fly/000
+  rotate: false
+  xy: 2, 202
+  size: 72, 71
+  orig: 77, 76
+  offset: 3, 2
+  index: -1
+Char_kuma_skill_1_fly/001
+  rotate: false
+  xy: 76, 202
+  size: 72, 71
+  orig: 77, 76
+  offset: 3, 2
+  index: -1
+Char_kuma_skill_1_fly/002
+  rotate: false
+  xy: 224, 201
+  size: 72, 72
+  orig: 77, 76
+  offset: 3, 1
+  index: -1
+Char_kuma_skill_1_fly/003
+  rotate: true
+  xy: 163, 120
+  size: 79, 80
+  orig: 85, 85
+  offset: 4, 1
+  index: -1
+Char_kuma_skill_1_fly/004
+  rotate: false
+  xy: 88, 19
+  size: 99, 99
+  orig: 106, 106
+  offset: 5, 2
+  index: -1
+Char_kuma_skill_1_fly/005
+  rotate: false
+  xy: 189, 2
+  size: 116, 116
+  orig: 123, 123
+  offset: 4, 2
+  index: -1
+Char_kuma_skill_1_fly/006
+  rotate: true
+  xy: 82, 122
+  size: 78, 79
+  orig: 83, 85
+  offset: 3, 3
+  index: -1
+Char_kuma_skill_1_fly/007
+  rotate: true
+  xy: 2, 40
+  size: 80, 84
+  orig: 86, 88
+  offset: 4, 2
+  index: -1
+Char_kuma_skill_1_fly/008
+  rotate: false
+  xy: 2, 123
+  size: 78, 77
+  orig: 83, 81
+  offset: 3, 2
+  index: -1
+Char_kuma_skill_1_fly/009
+  rotate: false
+  xy: 150, 202
+  size: 72, 71
+  orig: 77, 76
+  offset: 3, 2
+  index: -1

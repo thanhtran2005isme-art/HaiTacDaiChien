@@ -1,0 +1,5 @@
+Nhóm	Số lượng	Vai trò
+LocalizeTarget_UnityUI_Text	203	Xử lý bản địa hóa chữ trong UI
+LocalizeTarget_UnityUI_Image	3	Xử lý bản địa hóa hình ảnh UI
+File .meta tương ứng	206	GUID và thông tin import của Unity
+Tổng cộng	412 file	Được cách ly để Unity mở được

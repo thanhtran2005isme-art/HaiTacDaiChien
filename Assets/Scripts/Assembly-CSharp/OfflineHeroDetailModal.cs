@@ -1,0 +1,164 @@
+using System;
+using System.Collections.Generic;
+using Spine.Unity;
+using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+
+public sealed class OfflineHeroDetailModal : MonoBehaviour
+{
+    private static GameObject activeLayer;
+    private GameObject originalPanel;
+
+    public static void Show(OfflineHeroRecord hero, Canvas canvas,
+        OfflineHeroCatalog catalog = null, Action onPartyChanged = null)
+    {
+        if (hero == null || canvas == null)
+        {
+            UnityEngine.Debug.LogWarning("[HTDC Heroes] Cannot show hero info: hero or Canvas missing.");
+            return;
+        }
+        CloseActive();
+        GameObject prefab = Resources.Load<GameObject>("prefabs/heroinfo/PanelHeroInfo");
+        if (prefab == null)
+        {
+            UnityEngine.Debug.LogWarning("[HTDC Heroes] Original PanelHeroInfo prefab missing.");
+            return;
+        }
+        GameObject layer = new GameObject("HTDC Offline Hero Details",
+            typeof(RectTransform), typeof(CanvasRenderer), typeof(Image));
+        layer.transform.SetParent(canvas.transform, false);
+        RectTransform rect = layer.GetComponent<RectTransform>();
+        rect.anchorMin = Vector2.zero;
+        rect.anchorMax = Vector2.one;
+        rect.offsetMin = Vector2.zero;
+        rect.offsetMax = Vector2.zero;
+        Image blocker = layer.GetComponent<Image>();
+        blocker.color = new Color(0f, 0f, 0f, 0.45f);
+        blocker.raycastTarget = true;
+        layer.transform.SetAsLastSibling();
+        OfflineHeroDetailModal monitor = layer.AddComponent<OfflineHeroDetailModal>();
+        GameObject panel = Instantiate(prefab, layer.transform, false);
+        panel.SetActive(true);
+        monitor.originalPanel = panel;
+        activeLayer = layer;
+
+        HeroSpineInfo sourceInfo = panel.GetComponentInChildren<HeroSpineInfo>(true);
+        if (sourceInfo != null)
+        {
+            if (sourceInfo.m_TextHeroName != null)
+                sourceInfo.m_TextHeroName.text = hero.Name;
+            if (sourceInfo.m_ImageHero != null)
+            {
+                Sprite portrait = OfflineHeroArt.LoadPortrait(hero.AvatarId);
+                sourceInfo.m_ImageHero.sprite = portrait;
+                sourceInfo.m_ImageHero.color = portrait == null ? Color.clear : Color.white;
+                sourceInfo.m_ImageHero.preserveAspect = true;
+            }
+        }
+        // Multiple original subpanels contain TextHeroName; correct all displayed copies.
+        foreach (Text label in panel.GetComponentsInChildren<Text>(true))
+            if (label.name == "TextHeroName") label.text = hero.Name;
+
+        // Raw configuration data only. No claim about actual account level, power or skills.
+        GameObject info = new GameObject("OfflineHeroSourceData",
+            typeof(RectTransform), typeof(CanvasRenderer), typeof(Text));
+        info.transform.SetParent(panel.transform, false);
+        RectTransform ir = info.GetComponent<RectTransform>();
+        ir.anchorMin = new Vector2(0.5f, 0f);
+        ir.anchorMax = new Vector2(0.5f, 0f);
+        ir.pivot = new Vector2(0.5f, 0f);
+        ir.anchoredPosition = new Vector2(0f, 8f);
+        ir.sizeDelta = new Vector2(860f, 56f);
+        Text labelData = info.GetComponent<Text>();
+        labelData.font = Resources.GetBuiltinResource<Font>("Arial.ttf");
+        labelData.fontSize = 16;
+        labelData.alignment = TextAnchor.MiddleCenter;
+        labelData.color = new Color(1f, 0.85f, 0.42f);
+        labelData.raycastTarget = false;
+        labelData.text = hero.Name + " | ID " + hero.Id + " | " +
+            hero.Faction + " | " + hero.Star + " sao | " + hero.ClassName +
+            "\nID kỹ năng gốc: " + hero.ActiveSkillId + " / " +
+            hero.Passive1SkillId + " / " + hero.Passive2SkillId + " / " +
+            (hero.Passive3SkillId < 0 ? "không có" : hero.Passive3SkillId.ToString());
+        // Keep list cards untouched: optional offline party editing belongs
+        // inside detail, not as an overlay hiding character artwork.
+        CreatePartyAction(layer, hero, catalog, onPartyChanged);
+    }
+
+    private static void CreatePartyAction(GameObject layer, OfflineHeroRecord hero,
+        OfflineHeroCatalog catalog, Action onPartyChanged)
+    {
+        if (layer == null || hero == null || catalog == null) return;
+
+        GameObject go = new GameObject("OfflineDetailPartyAction",
+            typeof(RectTransform), typeof(CanvasRenderer), typeof(Image), typeof(Button));
+        go.transform.SetParent(layer.transform, false);
+        RectTransform rect = go.GetComponent<RectTransform>();
+        rect.anchorMin = new Vector2(1f, 0f);
+        rect.anchorMax = new Vector2(1f, 0f);
+        rect.pivot = new Vector2(1f, 0f);
+        rect.anchoredPosition = new Vector2(-26f, 18f);
+        rect.sizeDelta = new Vector2(195f, 46f);
+
+        Image background = go.GetComponent<Image>();
+        background.color = new Color(0.49f, 0.29f, 0.10f, 0.96f);
+        Button button = go.GetComponent<Button>();
+        button.targetGraphic = background;
+
+        GameObject textGO = new GameObject("Text",
+            typeof(RectTransform), typeof(CanvasRenderer), typeof(Text));
+        textGO.transform.SetParent(go.transform, false);
+        RectTransform textRect = textGO.GetComponent<RectTransform>();
+        textRect.anchorMin = Vector2.zero;
+        textRect.anchorMax = Vector2.one;
+        textRect.offsetMin = Vector2.zero;
+        textRect.offsetMax = Vector2.zero;
+        Text text = textGO.GetComponent<Text>();
+        text.font = Resources.GetBuiltinResource<Font>("Arial.ttf");
+        text.fontSize = 18;
+        text.alignment = TextAnchor.MiddleCenter;
+        text.color = Color.white;
+        text.raycastTarget = false;
+
+        Action update = () =>
+        {
+            bool selected = OfflineHeroParty.Read(catalog).Exists(
+                item => item.AvatarId == hero.AvatarId);
+            text.text = selected ? "Bỏ khỏi đội hình" : "Thêm vào đội hình";
+        };
+        update();
+        button.onClick.AddListener(() =>
+        {
+            string notice;
+            if (OfflineHeroParty.Toggle(catalog, hero.Id, out notice))
+            {
+                update();
+                if (onPartyChanged != null) onPartyChanged();
+            }
+            else
+            {
+                UnityEngine.Debug.LogWarning("[HTDC Heroes] " + notice);
+            }
+        });
+    }
+
+    public static bool CloseActive()
+    {
+        if (activeLayer == null) return false;
+        Destroy(activeLayer);
+        activeLayer = null;
+        return true;
+    }
+
+    private void Update()
+    {
+        // Original PanelHeroInfoOfflineBridge hides its root on Back instead of destroying.
+        if (originalPanel == null || !originalPanel.activeSelf) CloseActive();
+    }
+
+    private void OnDestroy()
+    {
+        if (activeLayer == gameObject) activeLayer = null;
+    }
+}

@@ -1,0 +1,27 @@
+
+276.png
+size: 136,92
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+spark copy
+  rotate: false
+  xy: 2, 3
+  size: 49, 84
+  orig: 106, 106
+  offset: 27, 10
+  index: -1
+spark2
+  rotate: false
+  xy: 53, 4
+  size: 42, 83
+  orig: 106, 106
+  offset: 30, 12
+  index: -1
+spark3
+  rotate: true
+  xy: 97, 2
+  size: 85, 34
+  orig: 106, 106
+  offset: 11, 38
+  index: -1

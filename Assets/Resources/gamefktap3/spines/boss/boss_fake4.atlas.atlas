@@ -1,0 +1,153 @@
+
+boss_fake4.png
+size: 364,1012
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+aura
+  rotate: true
+  xy: 2, 779
+  size: 229, 235
+  orig: 231, 238
+  offset: 1, 1
+  index: -1
+body1
+  rotate: true
+  xy: 2, 398
+  size: 143, 161
+  orig: 143, 161
+  offset: 0, 0
+  index: -1
+body2
+  rotate: true
+  xy: 164, 246
+  size: 98, 160
+  orig: 98, 160
+  offset: 0, 0
+  index: -1
+chest1
+  rotate: false
+  xy: 2, 2
+  size: 147, 153
+  orig: 147, 153
+  offset: 0, 0
+  index: -1
+chest2
+  rotate: false
+  xy: 216, 409
+  size: 146, 153
+  orig: 146, 153
+  offset: 0, 0
+  index: -1
+chest3
+  rotate: false
+  xy: 239, 736
+  size: 120, 127
+  orig: 120, 127
+  offset: 0, 0
+  index: -1
+crack1
+  rotate: false
+  xy: 239, 865
+  size: 120, 143
+  orig: 120, 144
+  offset: 0, 0
+  index: -1
+crack2
+  rotate: false
+  xy: 216, 564
+  size: 146, 170
+  orig: 146, 170
+  offset: 0, 0
+  index: -1
+crack3
+  rotate: true
+  xy: 2, 543
+  size: 146, 170
+  orig: 146, 170
+  offset: 0, 0
+  index: -1
+eye1
+  rotate: false
+  xy: 165, 476
+  size: 46, 12
+  orig: 46, 12
+  offset: 0, 0
+  index: -1
+eye2
+  rotate: false
+  xy: 216, 766
+  size: 11, 11
+  orig: 12, 12
+  offset: 0, 1
+  index: -1
+hand
+  rotate: false
+  xy: 174, 551
+  size: 40, 138
+  orig: 40, 138
+  offset: 0, 0
+  index: -1
+head1
+  rotate: true
+  xy: 2, 254
+  size: 142, 160
+  orig: 142, 160
+  offset: 0, 0
+  index: -1
+head2
+  rotate: true
+  xy: 165, 346
+  size: 61, 161
+  orig: 61, 163
+  offset: 0, 2
+  index: -1
+hoa1
+  rotate: true
+  xy: 151, 13
+  size: 142, 80
+  orig: 142, 80
+  offset: 0, 0
+  index: -1
+hoa2
+  rotate: false
+  xy: 233, 26
+  size: 76, 80
+  orig: 76, 80
+  offset: 0, 0
+  index: -1
+leg
+  rotate: false
+  xy: 174, 490
+  size: 39, 59
+  orig: 41, 59
+  offset: 1, 0
+  index: -1
+shadow
+  rotate: true
+  xy: 248, 108
+  size: 136, 96
+  orig: 136, 96
+  offset: 0, 0
+  index: -1
+skillhand
+  rotate: true
+  xy: 161, 157
+  size: 87, 85
+  orig: 88, 86
+  offset: 1, 0
+  index: -1
+skillhand2
+  rotate: true
+  xy: 2, 157
+  size: 95, 157
+  orig: 95, 158
+  offset: 0, 1
+  index: -1
+slash
+  rotate: true
+  xy: 2, 691
+  size: 86, 212
+  orig: 87, 213
+  offset: 0, 1
+  index: -1

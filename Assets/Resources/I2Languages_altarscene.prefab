@@ -1,0 +1,205 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1709254077376921
+GameObject:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Component:
+  - component: {fileID: 4730242686860875}
+  - component: {fileID: 114724804207875695}
+  m_Layer: 0
+  m_Name: I2Languages_altarscene
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4730242686860875
+Transform:
+  serializedVersion: 2
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1709254077376921}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -0, z: -0}
+--- !u!114 &114724804207875695
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1709254077376921}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7554888af13e447d4982f6ad48f0af4b, type: 3}
+  m_Name:
+  m_EditorClassIdentifier:
+  mSource:
+    UserAgreesToHaveItOnTheScene: 1
+    UserAgreesToHaveItInsideThePluginsFolder: 0
+    GoogleLiveSyncIsUptoDate: 1
+    mTerms:
+    - Term: FONT
+      TermType: 1
+      Languages:
+      - Fonts/SVN-Titillium bold
+      - Fonts/SVN-Titillium bold
+      - Fonts/SVN-Titillium bold
+      - Fonts/SVN-Titillium bold
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_ALTAR_SCENE_PREVIEW_RESOURCE_RECOVERY
+      TermType: 0
+      Languages:
+      - Xem trước tài nguyên thu hồi
+      - Preview
+      - ดูทรัพยากรที่กู้คืน.
+      - 回收資源預覽
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: LBL_ALTAR_SCENE_RETURN_UPPER
+      TermType: 0
+      Languages:
+      - TƯỚNG HOÀN TRẢ
+      - Reset Hero
+      - รีเซ็ตฮีโร่
+      - 重生英雄
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MSG_ALTAR_SCENE_CAN_NOT_ALTAR_ALL_HERO
+      TermType: 0
+      Languages:
+      - Bạn không thể huyết tế toàn bộ thuyền viên của mình
+      - You can't disassemble all of your heroes
+      - คุณไม่สามารถใช้เลือดให้ลูกเรือทั้งหมดของคุณได้.
+      - 您不能將您的所有船員進行血祭
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MSG_ALTAR_SCENE_DESC_ALTAR_HAS_HERO_HIGHER_THAN_3_STAR
+      TermType: 0
+      Languages:
+      - Có thuyền viên cao hơn 3 sao trong danh sách huyết tế. Bạn có chắc chắn?
+      - You have chosen 4 Star+ hero. Do you want to continue?
+      - มีลูกเรือมากกว่า 3 ดาวในรายชื่อการใช้เลือด. คุณแน่ใจหรือไม่?
+      - 血祭名單中有高於3星的船員，你確定繼續？
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MSG_ALTAR_SCENE_DESC_RETURN_HERO
+      TermType: 0
+      Languages:
+      - '* Hoàn trả tướng về cấp độ 1. Khi hoàn trả sẽ nhận lại được toàn bộ nguyên liệu đã cung cấp '
+      - '* Reset hero to level 1.All resources used to level the hero up shall be returned.'
+      - '* รีเซ็ตฮีโร่กลับสู่ระดับ 1.เมื่อรีเซ็ตจะได้รับคืนทรัพยากรทั้งหมด.'
+      - '*重生英雄到1級。 重生時可獲得已消耗的全部材料'
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MSG_ALTAR_SCENE_DESC_RETURN_LEVEL_1
+      TermType: 0
+      Languages:
+      - Thuyền viên trên sẽ đưa về trạng thái level 1
+      - The crew member will return to level 1 status
+      - ลูกเรือจะถูกเอากลับไปยัง สถานะเลเวล1
+      - 以上的船員會重置回1級
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MSG_ALTAR_SCENE_DESC_UNLOCK_HERO
+      TermType: 0
+      Languages:
+      - Thuyền trưởng có muốn mở khóa?
+      - Do you want to unlock?
+      - กัปตันต้องการปลดล็อคไหม?
+      - 船長是否要解鎖？
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MSG_ALTAR_SCENE_LIST_HERO_ALTAR_FULL
+      TermType: 0
+      Languages:
+      - Số tướng huyết tế đã đầy
+      - Hero list was full
+      - จำนวนฮีโร่ใช้เลือกได้เต็มแล้ว.
+      - 血祭的英雄數量已滿
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MSG_ALTAR_SCENE_PLS_SELECT_HERO
+      TermType: 0
+      Languages:
+      - Hãy chọn thuyền viên
+      - Please select a hero
+      - โปรดเลือกลูกเรือ.
+      - 請選擇船員
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MSG_ALTAR_SCENE_PLS_SELECT_HERO_ALTAR
+      TermType: 0
+      Languages:
+      - Bạn chưa chọn tướng huyết tế
+      - You have not selected any hero!
+      - คุณยังไม่ได้เลือกฮีโร่ให้เลือด!
+      - 您還沒選擇要血祭的英雄
+      Flags: 00000000
+      Languages_Touch: []
+    - Term: MSG_ALTAR_SCENE_SELECT_MIN
+      TermType: 0
+      Languages:
+      - Chọn ít nhất
+      - Please select at least
+      - เลือกน้อยสุด.
+      - 請至少選擇
+      Flags: 00000000
+      Languages_Touch: []
+    CaseInsensitiveTerms: 0
+    OnMissingTranslation: 1
+    mTerm_AppName:
+    mLanguages:
+    - Name: Vietnamese
+      Code: vi
+      Flags: 0
+    - Name: English
+      Code: en
+      Flags: 0
+    - Name: Thai
+      Code: th
+      Flags: 0
+    - Name: Chinese
+      Code: zh
+      Flags: 0
+    IgnoreDeviceLanguage: 0
+    _AllowUnloadingLanguages: 0
+    Google_WebServiceURL: https://script.google.com/a/k2tek.net/macros/s/AKfycbxoUV6GXCTqTKCfHE_Vrlh8B8qGUuO-ic3EtEz3/exec
+    Google_SpreadsheetKey: 1FNZsLK041jyIHFGRaIAD6r82FfnurYKqOAVOGENyReQ
+    Google_SpreadsheetName: I2Loc Hải Tặc Đại Chiến Assets/Scenes/LoginScene.unity I2Languages_altarscene
+    Google_LastUpdatedVersion: 1615781068131
+    GoogleUpdateFrequency: 1
+    GoogleInEditorCheckFrequency: 2
+    GoogleUpdateSynchronization: 1
+    GoogleUpdateDelay: 5
+    Assets: []
+  version: 1
+  NeverDestroy: 1
+  UserAgreesToHaveItOnTheScene: 1
+  UserAgreesToHaveItInsideThePluginsFolder: 0
+  GoogleLiveSyncIsUptoDate: 1
+  Assets: []
+  Google_WebServiceURL:
+  Google_SpreadsheetKey:
+  Google_SpreadsheetName:
+  Google_LastUpdatedVersion:
+  GoogleUpdateFrequency: 3
+  GoogleUpdateDelay: 5
+  mLanguages: []
+  IgnoreDeviceLanguage: 0
+  _AllowUnloadingLanguages: 0
+  mTerms: []
+  CaseInsensitiveTerms: 0
+  OnMissingTranslation: 1
+  mTerm_AppName:

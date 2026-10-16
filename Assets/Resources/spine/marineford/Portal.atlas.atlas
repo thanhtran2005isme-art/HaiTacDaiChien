@@ -1,0 +1,97 @@
+
+Portal.png
+size: 932,552
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+cast_feet
+  rotate: false
+  xy: 659, 291
+  size: 123, 123
+  orig: 128, 128
+  offset: 4, 1
+  index: -1
+images/lighting2_01
+  rotate: false
+  xy: 2, 225
+  size: 464, 73
+  orig: 512, 73
+  offset: 32, 0
+  index: -1
+images/lighting2_02
+  rotate: false
+  xy: 468, 212
+  size: 444, 59
+  orig: 512, 73
+  offset: 36, 14
+  index: -1
+images/lighting2_03
+  rotate: false
+  xy: 444, 18
+  size: 459, 52
+  orig: 512, 73
+  offset: 45, 19
+  index: -1
+images/lighting2_04
+  rotate: false
+  xy: 444, 145
+  size: 456, 65
+  orig: 512, 74
+  offset: 8, 0
+  index: -1
+images/lighting2_05
+  rotate: false
+  xy: 444, 72
+  size: 444, 71
+  orig: 512, 73
+  offset: 44, 2
+  index: -1
+images/lighting2_06
+  rotate: false
+  xy: 515, 416
+  size: 394, 68
+  orig: 512, 73
+  offset: 110, 3
+  index: -1
+images/lighting2_07
+  rotate: false
+  xy: 515, 486
+  size: 412, 64
+  orig: 512, 73
+  offset: 72, 0
+  index: -1
+object_1010_green
+  rotate: false
+  xy: 515, 273
+  size: 142, 141
+  orig: 165, 174
+  offset: 11, 17
+  index: -1
+object_3062
+  rotate: false
+  xy: 2, 300
+  size: 511, 250
+  orig: 512, 256
+  offset: 0, 2
+  index: -1
+object_3081
+  rotate: false
+  xy: 218, 3
+  size: 224, 220
+  orig: 256, 256
+  offset: 16, 16
+  index: -1
+object_3083
+  rotate: false
+  xy: 2, 2
+  size: 214, 221
+  orig: 256, 256
+  offset: 21, 14
+  index: -1
+object_5027
+  rotate: false
+  xy: 784, 295
+  size: 118, 119
+  orig: 128, 128
+  offset: 5, 5
+  index: -1

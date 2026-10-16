@@ -1,0 +1,252 @@
+{
+  "prefix_pack_ios":"com.warofpirates.legend.pack",
+  "prefix_month_ios":"com.warofpirates.legend.mc",
+  "prefix_pack_android":"kbht.epic.pack",
+  "prefix_month_android":"kbht.epic.mc",
+  "iap_ios": [
+    {
+      "idItem": 1,
+      "name": "Privilege Card",
+      "productID": "afkop.month.10",
+      "valueIAP": 1000,
+      "typeItem": 2,
+      "desc": "購買大禮包後，您可立即獲得1000鉆石、1000VIP經驗\n\n後續30天內，每天會將200鉆石發送到您的郵件\n總共可獲得7000鉆石！趕快來購買此超值商品吧！",
+      "totalBonus": 7000,
+      "pathIcon": "icon_1",
+      "cost": "11.99"
+    },
+    {
+      "idItem": 2,
+      "name": "Mini Privilege Card",
+      "productID": "afkop.month.5",
+      "valueIAP": 500,
+      "typeItem": 1,
+      "desc": "購買小禮包後，您可立即獲得500鉆石、500VIP經驗\n\n後續30天內，每天會將75鉆石發送到您的郵件",
+      "totalBonus": 2750,
+      "pathIcon": "icon_2",
+      "cost": "5.99"
+    },
+    {
+ "idItem": 11,
+      "name": "",
+      "productID": "afkop.pack.1",
+      "valueIAP": 100,
+      "typeItem": 0,
+      "desc": "",
+      "totalBonus": 0,
+      "pathIcon": "icon_3_1",
+      "cost": "0.99"
+    },
+    {
+"idItem": 10,
+      "name": "",
+      "productID": "afkop.pack.3",
+      "valueIAP": 250,
+      "typeItem": 0,
+      "desc": "",
+      "totalBonus": 0,
+      "pathIcon": "icon_3_2",
+      "cost": "2.99"
+    },
+    {
+      "idItem": 3,
+      "name": "",
+      "productID": "afkop.pack.5",
+      "valueIAP": 500,
+      "typeItem": 0,
+      "desc": "",
+      "totalBonus": 0,
+      "pathIcon": "icon_4",
+      "cost": "5.99"
+    },
+    {
+      "idItem": 4,
+      "name": "",
+      "productID": "afkop.pack.10",
+      "valueIAP": 1000,
+      "typeItem": 0,
+      "desc": "",
+      "totalBonus": 0,
+      "pathIcon": "icon_5",
+      "cost": "11.99"
+    },
+    {
+      "idItem": 5,
+      "name": "",
+      "productID": "afkop.pack.20",
+      "valueIAP": 2000,
+      "typeItem": 0,
+      "desc": "",
+      "totalBonus": 0,
+      "pathIcon": "icon_6",
+      "cost": "21.99"
+    },
+    {
+      "idItem": 6,
+      "name": "",
+      "productID": "afkop.pack.30",
+      "valueIAP": 3000,
+      "typeItem": 0,
+      "desc": "",
+      "totalBonus": 0,
+      "pathIcon": "icon_7",
+      "cost": "32.99"
+    },
+    {
+      "idItem": 7,
+      "name": "",
+      "productID": "afkop.pack.50",
+      "valueIAP": 5000,
+      "typeItem": 0,
+      "desc": "",
+      "totalBonus": 0,
+      "pathIcon": "icon_8",
+      "cost": "59.99"
+    },
+    {
+      "idItem": 8,
+      "name": "",
+      "productID": "afkop.pack.70",
+      "valueIAP": 7000,
+      "typeItem": 0,
+      "desc": "",
+      "totalBonus": 0,
+      "pathIcon": "icon_9",
+      "cost": "74.99"
+    },
+    {
+      "idItem": 9,
+      "name": "",
+      "productID": "afkop.pack.100",
+      "valueIAP": 10000,
+      "typeItem": 0,
+      "desc": "",
+      "totalBonus": 0,
+      "pathIcon": "icon_10",
+      "cost": "99.99"
+    }
+  ],
+   "iap_android": [
+    {
+      "idItem": 20,
+      "name": "Privilege Card",
+      "productID": "afkop.mc.10",
+      "valueIAP": 1000,
+      "typeItem": 2,
+      "desc": "購買大禮包後，您可立即獲得1000鉆石、1000VIP經驗\n\n後續30天內，每天會將200鉆石發送到您的郵件\n總共可獲得7000鉆石！趕快來購買此超值商品吧",
+      "totalBonus": 7000,
+      "pathIcon": "icon_1",
+      "cost": "11.99"
+    },
+    {
+      "idItem": 21,
+      "name": "Mini Privilege Card",
+      "productID": "afkop.mc.5",
+      "valueIAP": 500,
+      "typeItem": 1,
+      "desc": "購買小禮包後，您可立即獲得500鉆石、500VIP經驗\n\n後續30天內，每天會將75鉆石發送到您的郵件",
+      "totalBonus": 2750,
+      "pathIcon": "icon_2",
+      "cost": "5.99"
+    },
+     {
+       "idItem": 30,
+      "name": "",
+      "productID": "afkop.pack.1",
+      "valueIAP": 100,
+      "typeItem": 0,
+      "desc": "",
+      "totalBonus": 0,
+      "pathIcon": "icon_3_1",
+      "cost": "0.99"
+    },
+    {
+  "idItem": 29,
+      "name": "",
+      "productID": "afkop.pack.3",
+      "valueIAP": 250,
+      "typeItem": 0,
+      "desc": "",
+      "totalBonus": 0,
+      "pathIcon": "icon_3_2",
+      "cost": "2.99"
+    },
+    {
+      "idItem": 22,
+      "name": "",
+      "productID": "afkop.pack.5",
+      "valueIAP": 500,
+      "typeItem": 0,
+      "desc": "",
+      "totalBonus": 0,
+      "pathIcon": "icon_4",
+      "cost": "5.99"
+    },
+    {
+      "idItem": 23,
+      "name": "",
+      "productID": "afkop.pack.10",
+      "valueIAP": 1000,
+      "typeItem": 0,
+      "desc": "",
+      "totalBonus": 0,
+      "pathIcon": "icon_5",
+      "cost": "11.99"
+    },
+    {
+      "idItem": 24,
+      "name": "",
+      "productID": "afkop.pack.20",
+      "valueIAP": 2000,
+      "typeItem": 0,
+      "desc": "",
+      "totalBonus": 0,
+      "pathIcon": "icon_6",
+      "cost": "21.99"
+    },
+    {
+      "idItem": 25,
+      "name": "",
+      "productID": "afkop.pack.30",
+      "valueIAP": 3000,
+      "typeItem": 0,
+      "desc": "",
+      "totalBonus": 0,
+      "pathIcon": "icon_7",
+      "cost": "32.99"
+    },
+    {
+      "idItem": 26,
+      "name": "",
+      "productID": "afkop.pack.50",
+      "valueIAP": 5000,
+      "typeItem": 0,
+      "desc": "",
+      "totalBonus": 0,
+      "pathIcon": "icon_8",
+      "cost": "59.99"
+    },
+    {
+      "idItem": 27,
+      "name": "",
+      "productID": "afkop.pack.70",
+      "valueIAP": 7000,
+      "typeItem": 0,
+      "desc": "",
+      "totalBonus": 0,
+      "pathIcon": "icon_9",
+      "cost": "74.99"
+    },
+    {
+      "idItem": 28,
+      "name": "",
+      "productID": "afkop.pack.100",
+      "valueIAP": 10000,
+      "typeItem": 0,
+      "desc": "",
+      "totalBonus": 0,
+      "pathIcon": "icon_10",
+      "cost": "99.99"
+    }
+  ]
+}

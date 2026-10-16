@@ -1,0 +1,20 @@
+
+Refresh_item.png
+size: 232,172
+format: RGBA4444
+filter: Linear,Linear
+repeat: none
+refresh upgrade/itemborder
+  rotate: false
+  xy: 2, 2
+  size: 168, 168
+  orig: 192, 192
+  offset: 12, 12
+  index: -1
+refresh upgrade/upsmall
+  rotate: true
+  xy: 172, 70
+  size: 100, 58
+  orig: 100, 58
+  offset: 0, 0
+  index: -1

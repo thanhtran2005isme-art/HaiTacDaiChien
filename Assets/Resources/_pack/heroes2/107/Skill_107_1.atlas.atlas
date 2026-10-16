@@ -1,0 +1,62 @@
+
+Skill_107_1.png
+size: 988,544
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Char_ace_skill_1_fireball/000
+  rotate: false
+  xy: 247, 5
+  size: 237, 192
+  orig: 266, 210
+  offset: 21, 7
+  index: -1
+Char_ace_skill_1_fireball/001
+  rotate: false
+  xy: 2, 5
+  size: 243, 192
+  orig: 266, 210
+  offset: 14, 8
+  index: -1
+Char_ace_skill_1_fireball/002
+  rotate: false
+  xy: 741, 106
+  size: 231, 193
+  orig: 266, 210
+  offset: 25, 7
+  index: -1
+Char_ace_skill_1_fireball/003
+  rotate: true
+  xy: 792, 316
+  size: 226, 192
+  orig: 266, 210
+  offset: 30, 7
+  index: -1
+Char_ace_skill_1_hit/000
+  rotate: false
+  xy: 564, 301
+  size: 226, 241
+  orig: 231, 252
+  offset: 3, 5
+  index: -1
+Char_ace_skill_1_hit/001
+  rotate: true
+  xy: 486, 2
+  size: 242, 253
+  orig: 248, 260
+  offset: 4, 4
+  index: -1
+Char_ace_skill_1_hit/002
+  rotate: true
+  xy: 285, 246
+  size: 296, 277
+  orig: 303, 284
+  offset: 5, 4
+  index: -1
+Char_ace_skill_1_hit/003
+  rotate: true
+  xy: 2, 199
+  size: 343, 281
+  orig: 349, 286
+  offset: 3, 2
+  index: -1

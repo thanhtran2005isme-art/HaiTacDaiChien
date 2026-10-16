@@ -1,0 +1,30 @@
+{
+    "ios":[
+        "com.warofpirates.legend.mc.5",
+        "com.warofpirates.legend.mc.10",
+        "com.warofpirates.legend.pack.1",
+        "com.warofpirates.legend.pack.3",
+        "com.warofpirates.legend.pack.5",
+        "com.warofpirates.legend.pack.10",
+        "com.warofpirates.legend.pack.20",
+        "com.warofpirates.legend.pack.30",
+        "com.warofpirates.legend.pack.50",
+        "com.warofpirates.legend.pack.70",
+        "com.warofpirates.legend.pack.80",
+        "com.warofpirates.legend.pack.100"
+    ],
+    "android":[
+        "kbht.epic.mc.5",
+        "kbht.epic.mc.10",
+        "kbht.epic.pack.1",
+        "kbht.epic.pack.3",
+        "kbht.epic.pack.5",
+        "kbht.epic.pack.10",
+        "kbht.epic.pack.20",
+        "kbht.epic.pack.30",
+        "kbht.epic.pack.50",
+        "kbht.epic.pack.70",
+        "kbht.epic.pack.80",
+        "kbht.epic.pack.100"
+    ]
+}

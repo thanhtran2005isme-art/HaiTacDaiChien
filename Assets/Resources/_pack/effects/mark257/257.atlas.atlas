@@ -1,0 +1,13 @@
+
+257.png
+size: 248,248
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+circle-light
+  rotate: false
+  xy: 2, 2
+  size: 243, 241
+  orig: 243, 247
+  offset: 0, 3
+  index: -1

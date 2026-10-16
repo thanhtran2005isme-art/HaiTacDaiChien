@@ -1,0 +1,98 @@
+﻿[
+ {
+   "Icon": "icon_buff_armor",
+   "HieuQua": "Increase x% Armor"
+ },
+ {
+   "Icon": "icon_buff_armor_break",
+   "HieuQua": "Increase Armor Break x%"
+ },
+ {
+   "Icon": "icon_buff_attack",
+   "HieuQua": "Increase x% Attack"
+ },
+ {
+   "Icon": "icon_buff_block",
+   "HieuQua": "Increase x% block"
+ },
+ {
+   "Icon": "icon_buff_controll_immune",
+   "HieuQua": "Increase x% Controll Immune"
+ },
+ {
+   "Icon": "icon_buff_crit",
+   "HieuQua": "Increase x% Crit"
+ },
+ {
+   "Icon": "icon_buff_crit_dmg",
+   "HieuQua": "Increase x% Crit damage"
+ },
+ {
+   "Icon": "icon_buff_holy_dmg",
+   "HieuQua": "Increase x% true damage"
+ },
+ {
+   "Icon": "icon_buff_precision",
+   "HieuQua": "Increase x% Accuracy"
+ },
+ {
+   "Icon": "icon_buff_reduce_dmg",
+   "HieuQua": "Increase x% Damage reduction"
+ },
+ {
+   "Icon": "icon_buff_skill_dmg",
+   "HieuQua": "Increase x% Skill damage"
+ },
+ {
+   "Icon": "icon_buff_speed",
+   "HieuQua": "Increase x Speed"
+ },
+ {
+   "Icon": "icon_debuff_armor",
+   "HieuQua": "Decrease x% Armor"
+ },
+ {
+   "Icon": "icon_debuff_armor_break",
+   "HieuQua": "Decrease x% Armor Break"
+ },
+ {
+   "Icon": "icon_debuff_attack",
+   "HieuQua": "Decrease x% Attack"
+ },
+ {
+   "Icon": "icon_debuff_block",
+   "HieuQua": "Decrease x% block"
+ },
+ {
+   "Icon": "icon_debuff_controll_immune_new",
+   "HieuQua": "Decrease x% Controll Immune"
+ },
+ {
+   "Icon": "icon_debuff_crit",
+   "HieuQua": "Decrease x% Crit"
+ },
+ {
+   "Icon": "icon_debuff_crit_dmg",
+   "HieuQua": "Decrease x% Crit damage"
+ },
+ {
+   "Icon": "icon_debuff_holy_dmg",
+   "HieuQua": "Decrease x% true damage"
+ },
+ {
+   "Icon": "icon_debuff_precision",
+   "HieuQua": "Decrease x% Accuracy"
+ },
+ {
+   "Icon": "icon_debuff_reduce_dmg",
+   "HieuQua": "Decrease x% Damage Reduction"
+ },
+ {
+   "Icon": "icon_debuff_skill_dmg",
+   "HieuQua": "Decrease x% Skill damage"
+ },
+ {
+   "Icon": "icon_debuff_speed",
+   "HieuQua": "Decrease x Speed"
+ }
+]

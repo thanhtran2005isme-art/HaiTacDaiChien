@@ -1,0 +1,223 @@
+
+win_marineford.png
+size: 1028,532
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+1
+  rotate: false
+  xy: 666, 195
+  size: 218, 36
+  orig: 218, 36
+  offset: 0, 0
+  index: -1
+10
+  rotate: false
+  xy: 907, 84
+  size: 61, 53
+  orig: 293, 127
+  offset: 69, 0
+  index: -1
+11
+  rotate: false
+  xy: 759, 32
+  size: 42, 39
+  orig: 293, 127
+  offset: 57, 72
+  index: -1
+12
+  rotate: false
+  xy: 681, 2
+  size: 44, 27
+  orig: 293, 127
+  offset: 16, 81
+  index: -1
+13
+  rotate: true
+  xy: 803, 32
+  size: 34, 51
+  orig: 293, 127
+  offset: 13, 39
+  index: -1
+14
+  rotate: false
+  xy: 907, 44
+  size: 54, 38
+  orig: 293, 127
+  offset: 29, 23
+  index: -1
+15
+  rotate: false
+  xy: 886, 195
+  size: 45, 36
+  orig: 293, 127
+  offset: 38, 50
+  index: -1
+16
+  rotate: false
+  xy: 803, 68
+  size: 102, 125
+  orig: 102, 127
+  offset: 0, 2
+  index: -1
+2
+  rotate: false
+  xy: 567, 125
+  size: 84, 87
+  orig: 293, 127
+  offset: 204, 21
+  index: -1
+3
+  rotate: false
+  xy: 681, 31
+  size: 76, 40
+  orig: 293, 127
+  offset: 156, 75
+  index: -1
+4
+  rotate: false
+  xy: 943, 282
+  size: 70, 86
+  orig: 293, 127
+  offset: 156, 0
+  index: -1
+5
+  rotate: false
+  xy: 856, 20
+  size: 49, 46
+  orig: 293, 127
+  offset: 125, 72
+  index: -1
+6
+  rotate: false
+  xy: 970, 144
+  size: 56, 49
+  orig: 293, 127
+  offset: 118, 40
+  index: -1
+7
+  rotate: false
+  xy: 907, 139
+  size: 61, 54
+  orig: 293, 127
+  offset: 111, 0
+  index: -1
+74
+  rotate: false
+  xy: 567, 7
+  size: 112, 116
+  orig: 128, 128
+  offset: 11, 4
+  index: -1
+8
+  rotate: false
+  xy: 759, 2
+  size: 48, 28
+  orig: 293, 127
+  offset: 83, 84
+  index: -1
+9
+  rotate: true
+  xy: 970, 84
+  size: 58, 44
+  orig: 293, 127
+  offset: 76, 43
+  index: -1
+Untitled-3
+  rotate: false
+  xy: 666, 233
+  size: 275, 135
+  orig: 275, 135
+  offset: 0, 0
+  index: -1
+dag
+  rotate: false
+  xy: 309, 13
+  size: 256, 199
+  orig: 256, 256
+  offset: 0, 21
+  index: -1
+glow_10002
+  rotate: false
+  xy: 681, 73
+  size: 120, 120
+  orig: 128, 128
+  offset: 4, 4
+  index: -1
+naruto1_60
+  rotate: false
+  xy: 943, 195
+  size: 80, 85
+  orig: 80, 85
+  offset: 0, 0
+  index: -1
+tryty_00
+  rotate: false
+  xy: 2, 343
+  size: 319, 187
+  orig: 360, 187
+  offset: 40, 0
+  index: -1
+tryty_01
+  rotate: true
+  xy: 2, 9
+  size: 332, 172
+  orig: 360, 187
+  offset: 28, 4
+  index: -1
+tryty_09
+  rotate: true
+  xy: 2, 9
+  size: 332, 172
+  orig: 360, 187
+  offset: 28, 4
+  index: -1
+tryty_02
+  rotate: false
+  xy: 323, 364
+  size: 340, 166
+  orig: 360, 187
+  offset: 20, 10
+  index: -1
+tryty_08
+  rotate: false
+  xy: 323, 364
+  size: 340, 166
+  orig: 360, 187
+  offset: 20, 10
+  index: -1
+tryty_03
+  rotate: false
+  xy: 665, 370
+  size: 342, 160
+  orig: 360, 187
+  offset: 18, 14
+  index: -1
+tryty_07
+  rotate: false
+  xy: 665, 370
+  size: 342, 160
+  orig: 360, 187
+  offset: 18, 14
+  index: -1
+tryty_04
+  rotate: false
+  xy: 323, 214
+  size: 341, 148
+  orig: 360, 187
+  offset: 19, 17
+  index: -1
+tryty_06
+  rotate: false
+  xy: 323, 214
+  size: 341, 148
+  orig: 360, 187
+  offset: 19, 17
+  index: -1
+tryty_05
+  rotate: true
+  xy: 176, 3
+  size: 338, 131
+  orig: 360, 187
+  offset: 22, 18
+  index: -1

@@ -1,0 +1,82 @@
+[
+ {
+   "rank": "1",
+   "point_per_hour": 23
+ },
+ {
+   "rank": "2",
+   "point_per_hour": 22
+ },
+ {
+   "rank": "3",
+   "point_per_hour": 20
+ },
+ {
+   "rank": "4",
+   "point_per_hour": 19
+ },
+ {
+   "rank": "5",
+   "point_per_hour": 18
+ },
+ {
+   "rank": "6-10",
+   "point_per_hour": 17
+ },
+ {
+   "rank": "11 - 20",
+   "point_per_hour": 16
+ },
+ {
+   "rank": "21 - 50",
+   "point_per_hour": 14
+ },
+ {
+   "rank": "51 - 100",
+   "point_per_hour": 13
+ },
+ {
+   "rank": "101 -150",
+   "point_per_hour": 12
+ },
+ {
+   "rank": "151 - 200",
+   "point_per_hour": 10
+ },
+ {
+   "rank": "201 - 250",
+   "point_per_hour": 9
+ },
+ {
+   "rank": "251 - 300",
+   "point_per_hour": 8
+ },
+ {
+   "rank": "301 - 400",
+   "point_per_hour": 7
+ },
+ {
+   "rank": "401 - 500",
+   "point_per_hour": 6
+ },
+ {
+   "rank": "501 - 600",
+   "point_per_hour": 5
+ },
+ {
+   "rank": "601 - 800",
+   "point_per_hour": 4
+ },
+ {
+   "rank": "801-1000",
+   "point_per_hour": 3
+ },
+ {
+   "rank": "1001 - 3000",
+   "point_per_hour": 2
+ },
+ {
+   "rank": "3001 - 999999",
+   "point_per_hour": 1
+ }
+]

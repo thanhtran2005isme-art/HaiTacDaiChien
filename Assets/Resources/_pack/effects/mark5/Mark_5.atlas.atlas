@@ -1,0 +1,83 @@
+
+Mark_5.png
+size: 138,407
+format: RGBA4444
+filter: Linear,Linear
+repeat: none
+aa
+  rotate: false
+  xy: 2, 2
+  size: 134, 142
+  orig: 146, 158
+  offset: 6, 8
+  index: -1
+skeleton-animation_0
+  rotate: true
+  xy: 64, 200
+  size: 51, 56
+  orig: 57, 74
+  offset: 5, 2
+  index: -1
+skeleton-animation_1
+  rotate: true
+  xy: 2, 253
+  size: 50, 58
+  orig: 57, 74
+  offset: 4, 1
+  index: -1
+skeleton-animation_2
+  rotate: true
+  xy: 62, 253
+  size: 50, 61
+  orig: 57, 74
+  offset: 2, 0
+  index: -1
+skeleton-animation_3
+  rotate: true
+  xy: 2, 148
+  size: 51, 60
+  orig: 57, 74
+  offset: 3, 0
+  index: -1
+skeleton-animation_4
+  rotate: true
+  xy: 2, 356
+  size: 49, 57
+  orig: 57, 74
+  offset: 6, 0
+  index: -1
+skeleton-animation_5
+  rotate: true
+  xy: 61, 356
+  size: 49, 58
+  orig: 57, 74
+  offset: 5, 1
+  index: -1
+skeleton-animation_6
+  rotate: true
+  xy: 2, 201
+  size: 50, 60
+  orig: 57, 74
+  offset: 2, 1
+  index: -1
+skeleton-animation_7
+  rotate: true
+  xy: 64, 146
+  size: 52, 56
+  orig: 57, 74
+  offset: 1, 1
+  index: -1
+skeleton-animation_8
+  rotate: true
+  xy: 2, 305
+  size: 49, 57
+  orig: 57, 74
+  offset: 6, 2
+  index: -1
+skeleton-animation_9
+  rotate: true
+  xy: 61, 305
+  size: 49, 55
+  orig: 57, 74
+  offset: 6, 2
+  index: -1
