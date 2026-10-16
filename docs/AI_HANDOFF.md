@@ -1,4 +1,17 @@
-# AI HANDOFF — Hải Tặc UI Viewer
+# AI HANDOFF — Hải Tặc Đại Chiến Unity project
+
+> **Trạng thái hiện tại tính đến 2026-10-16:** các mục bên dưới là nhật ký bàn giao theo ngày; khi nội dung lịch sử nói khác với Git hiện tại, hãy ưu tiên HEAD, commit và trạng thái kiểm thử mới nhất.
+
+## 2026-10-16 — Viết lại README và xác nhận baseline của repo
+
+- `README.md` đã được viết lại theo cấu trúc thực tế hiện tại: Unity project nằm ở root (`Assets/`, `Packages/`, `ProjectSettings/`), không còn giới thiệu repo như ứng dụng web UI viewer ở root.
+- `main` hiện đã nhận PR #10 `feat(db): HTDC 84-table MySQL 8.4 + XAMPP MariaDB 10.4 foundation` bằng merge commit `bba09406fbe261a62f079f4be283b7bbb21ca94d` vào ngày 2026-10-16. Những ghi chú cũ phía dưới nói PR #10 là Draft hoặc `main` chưa thay đổi chỉ là trạng thái lịch sử trước khi merge.
+- Hiện có mã danh mục tướng offline từ `Assets/Resources/_pack/db/db_heroes.json`, lớp danh sách/chi tiết tướng mới và lựa chọn đội hình cục bộ tối đa sáu tướng bằng PlayerPrefs. Không được mô tả đó là inventory/tài khoản server.
+- `database/mysql/` và `database/xampp/` là nền tảng schema/import độc lập; chưa có backend API đã triển khai kết nối Unity client, chưa khôi phục backend game gốc.
+- Đã đọc README hiện tại, cây repo, cấu hình Unity 2022.3.51f1, một số lớp C# then chốt, test và hướng dẫn database. Branch tài liệu hiện tại: `docs/game-readme-refresh`.
+- **Kiểm thử:** thay đổi này là tài liệu; không chạy Unity Editor/Play Mode hoặc build game. Các test Python/static và CI cần được xem theo đúng commit nếu muốn xác nhận kết quả. Không suy luận rằng game đã chạy trọn vẹn từ việc viết README.
+- **Bước tiếp theo:** review diff README/handoff, chạy các test phù hợp, mở project bằng Unity 2022.3.51f1 để xác nhận compile và Edit Mode → Play Mode → Edit Mode trước khi công bố tính năng runtime.
+
 
 ## 2026-10-12 — Independent MySQL 8.4 foundation (separate from Hero UI PR #9)
 
