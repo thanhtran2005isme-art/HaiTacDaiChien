@@ -9,7 +9,7 @@
 - Hiện có mã danh mục tướng offline từ `Assets/Resources/_pack/db/db_heroes.json`, lớp danh sách/chi tiết tướng mới và lựa chọn đội hình cục bộ tối đa sáu tướng bằng PlayerPrefs. Không được mô tả đó là inventory/tài khoản server.
 - `database/mysql/` và `database/xampp/` là nền tảng schema/import độc lập; chưa có backend API đã triển khai kết nối Unity client, chưa khôi phục backend game gốc.
 - Đã đọc README hiện tại, cây repo, cấu hình Unity 2022.3.51f1, một số lớp C# then chốt, test và hướng dẫn database. Branch tài liệu hiện tại: `docs/game-readme-refresh`.
-- **Kiểm thử:** thay đổi này là tài liệu; không chạy Unity Editor/Play Mode hoặc build game. Các test Python/static và CI cần được xem theo đúng commit nếu muốn xác nhận kết quả. Không suy luận rằng game đã chạy trọn vẹn từ việc viết README.
+- **Kiểm thử:** PR #11 bổ sung `tests/test_project_docs.py` vì workflow `docs-governance.yml` gọi file này nhưng `main` chưa có; test kiểm tra cấu trúc Unity, link README và các tuyên bố về phạm vi dự án. Lần CI đầu thất bại với `NO TESTS RAN` do thiếu file; sau đó file test được thêm vào commit `da300ba20e4f0b52dde0ebf9168514a6760e45f8`. Cần kiểm tra kết quả CI trên HEAD cuối cùng của PR. Không chạy Unity Editor/Play Mode/build, nên không thể kết luận game đã chạy trọn vẹn.
 - **Bước tiếp theo:** review diff README/handoff, chạy các test phù hợp, mở project bằng Unity 2022.3.51f1 để xác nhận compile và Edit Mode → Play Mode → Edit Mode trước khi công bố tính năng runtime.
 
 
