@@ -1,122 +1,164 @@
-> **AI/ChatGPT tiếp tục dự án:** đọc [AGENTS.md](AGENTS.md) → [docs/AI_HANDOFF.md](docs/AI_HANDOFF.md) → [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md). Lịch sử: [docs/history/2026-10.md](docs/history/2026-10.md). Mọi chức năng mới sửa trong **nhánh riêng → PR → kiểm thử/xác nhận → merge main** theo [quy trình Git](docs/WORKFLOW.md).
+# Hải Tặc Đại Chiến (HTDC)
 
-# Hải Tặc — UI Viewer chạy offline không cần Unity
+> **Dự án Unity đang phát triển** — mục tiêu là xây dựng và hoàn thiện một bản prototype có thể chạy offline, từng bước khôi phục giao diện và dữ liệu tướng, rồi phát triển backend riêng. Repository hiện **chưa phải bản game online hoàn chỉnh**; các chức năng cần server gốc vẫn chưa hoạt động đầy đủ.
 
-Có hai bản xem trước UI cùng dùng dữ liệu Unity đã trích xuất:
+## Giới thiệu
 
-**A. Bản web (khuyên dùng nếu chỉ muốn mở nhanh):** chạy `CHAY_UI_OFFLINE.bat` ở thư mục gốc. Windows mở trình duyệt tại http://127.0.0.1:8765. Bạn có thể mở repo bằng VS Code để xem/sửa HTML, CSS, JS.
+Hải Tặc Đại Chiến là project Unity tập trung vào giao diện, dữ liệu nhân vật và các hệ thống nền của game. Repository hiện chứa Unity project ở thư mục gốc, các Scene/Prefab/tài nguyên đã được đưa vào project, mã C# hiện có và những phần mới được phát triển độc lập để phục dựng từng tính năng.
 
-**B. Bản Unity:** nằm tại `unity-ui-viewer/`; chỉ cần Unity khi muốn phát triển project C# Unity uGUI, dựng scene trong Unity Editor, hoặc build game Unity.
+Các phần đang được làm theo hướng **ưu tiên tính chính xác của dữ liệu nguồn, tách rõ chức năng offline mới với hành vi game gốc, và kiểm thử trước khi khẳng định đã hoạt động**.
 
-## Chạy ngay trên Windows 10 bằng .bat
+## Trạng thái dự án
 
-Nếu bạn chưa tải repo:
+| Hạng mục | Trạng thái hiện tại |
+|---|---|
+| Unity project và Scene | Có project tại thư mục gốc; gồm các Scene như Home, Hero List, Battle, Login, World, Campaign và Arena. Sự hiện diện của Scene không đồng nghĩa toàn bộ luồng chơi đã hoạt động. |
+| Danh mục tướng offline | Có mã đọc danh mục tướng từ JSON nguồn và lọc theo hệ, sao, trạng thái phát hành. |
+| Giao diện danh sách/chi tiết tướng | Đang phát triển bằng cách tận dụng Scene, prefab và Sprite có sẵn trong project; cần xác minh trực tiếp trong Unity Editor. |
+| Đội hình offline | Có lựa chọn tối đa 6 tướng, lưu cục bộ bằng Unity PlayerPrefs. Đây **không** phải kho tướng của tài khoản server. |
+| Database | Có thiết kế schema độc lập gồm 84 bảng cho MySQL và biến thể cho MariaDB/XAMPP, cùng công cụ nhập cấu hình nguồn. |
+| Backend API và đăng nhập online | **Chưa triển khai hoàn chỉnh, chưa kết nối với client Unity.** |
+| Build/gameplay end-to-end | Chưa có xác nhận rằng toàn bộ game có thể build và chơi trọn vẹn; cần kiểm tra Unity Editor, Play Mode và các phụ thuộc thực tế. |
 
-```bat
-set GIT_LFS_SKIP_SMUDGE=1
+## Tính năng và phần việc hiện có
+
+### Unity client
+
+- Project sử dụng **Unity 2022.3.51f1** và C#.
+- Tổ chức giao diện qua Unity uGUI, Scene, Prefab, Text/Image/Button và các tài nguyên nhân vật có sẵn trong project.
+- Scene liên quan đến giao diện và phát triển gồm `Assets/Scenes/Home2Scene.unity`, `Assets/Scenes/HeroListNewScene.unity`, `Assets/Scenes/HomeScene.unity` và những Scene khác trong `Assets/Scenes/`.
+- `OfflineHeroCatalog` đọc dữ liệu cấu hình tướng từ `Assets/Resources/_pack/db/db_heroes.json`. Snapshot nguồn hiện có 751 bản ghi cấu hình; đây là dữ liệu định nghĩa, không phải danh sách tướng mà người chơi sở hữu.
+- `OfflineHeroListPresenter` và `OfflineHeroDetailModal` là phần triển khai mới cho danh sách và chi tiết tướng offline. Ảnh hoặc Spine chỉ hiện khi tài nguyên tương ứng thực sự có và được liên kết đúng.
+- `OfflineHeroParty` lưu đội hình cục bộ tối đa 6 tướng bằng PlayerPrefs; không đồng bộ với server hoặc database.
+
+**Lưu ý về code nguồn:** một phần script hiện có được xuất/khôi phục từ project Unity và có các phương thức còn là stub hoặc trả về giá trị mặc định. Ví dụ những lớp như `DbManager`, `NetworkController`, `PlayerInventory` và `LineUpSaveLoad` chưa thể được xem là backend hay gameplay gốc đã phục hồi đầy đủ. Các tính năng mới cần được đánh dấu rõ là triển khai độc lập, không suy diễn rằng chúng tương đương hành vi của bản game gốc.
+
+### Nền tảng database
+
+Thư mục `database/` chứa một **thiết kế database mới**, không phải bản sao đã xác minh của server gốc:
+
+- Schema MySQL 8.4 gồm 84 bảng cho tài khoản, phiên đăng nhập, người chơi, tướng/vật phẩm, đội hình, tiến trình, trận đấu, nhiệm vụ, cửa hàng, guild, PvP và log giao dịch.
+- Script `database/mysql/import_configs.py` nhập các file cấu hình JSON/TXT có trong repository. Snapshot được kiểm kê gồm 139 file qua các thư mục ngôn ngữ và 66.191 bản ghi đã giải mã.
+- Có schema riêng tương thích mục tiêu MariaDB 10.4/XAMPP tại `database/xampp/`.
+
+Schema và dữ liệu cấu hình **chưa tự tạo server đang chạy**. Client Unity chưa được kết nối tới API/database này; tài khoản, đăng nhập, kho tướng người chơi, tiền tệ, mua hàng và các giao dịch gameplay chưa thể coi là hoàn chỉnh hoặc an toàn cho môi trường production.
+
+## Công nghệ
+
+- **Game client:** Unity 2022.3.51f1, C#, Unity uGUI.
+- **Dữ liệu cấu hình:** JSON/TXT, Unity Resources.
+- **Lưu đội hình prototype:** PlayerPrefs (local/offline).
+- **Database foundation:** MySQL 8.4; schema tương thích MariaDB 10.4/XAMPP.
+- **Kiểm tra tự động:** Python unittest và GitHub Actions cho các kiểm tra tĩnh, dữ liệu và schema.
+
+Các kiểm tra tự động không thay thế việc mở project trong Unity Editor, kiểm tra Console, chạy Play Mode hoặc xác nhận hình ảnh/animation thực tế.
+
+## Bắt đầu với Unity
+
+### Yêu cầu
+
+- Git và Git LFS.
+- Unity Hub và Unity Editor **2022.3.51f1**.
+- Python 3.11+ nếu muốn chạy bộ kiểm thử hoặc công cụ dữ liệu.
+- MySQL 8.4 hoặc XAMPP/MariaDB chỉ khi cần làm việc với phần database; không bắt buộc để mở Unity project.
+
+### Tải project
+
+Từ Terminal, PowerShell hoặc CMD:
+
+```bash
+git lfs install
 git clone https://github.com/thanhtran2005isme-art/HaiTacDaiChien.git
 cd HaiTacDaiChien
-CHAY_UI_OFFLINE.bat
-```
-
-Nếu đã có repo:
-
-```bat
-git pull origin main
-CHAY_UI_OFFLINE.bat
-```
-
-**Chỉ cần Python 3 + trình duyệt web.** Nếu `python` hoặc `py` chưa được nhận diện, cần cài Python và thêm vào PATH. Không cần Node.js, npm, Unity Editor hay chạy game GOSU. Trình duyệt được mở tự động; bạn cũng có thể tự truy cập `http://127.0.0.1:8765/`.
-
-Nếu đang mở trong VS Code: mở terminal tại thư mục gốc rồi chạy `./CHAY_UI_OFFLINE.bat` trong PowerShell (hoặc `CHAY_UI_OFFLINE.bat` trong CMD).
-
-## Có những chức năng gì?
-
-- Mở **5 cây UI ứng viên** ứng với 4 ảnh đã cung cấp (nâng cấp tàu; chi tiết tướng; bản đồ A/B; trang chủ).
-- Vẽ wireframe bố cục tương đối theo `RectTransform` với canvas **1600×900 giả định**.
-- Click ô màu để xem GameObject, Sprite ứng viên, lớp Spine, anchor/size, tên nút và đường dẫn.
-- Tìm kiếm thành phần UI; lọc Image có Sprite, Button, Spine và Image thiếu Sprite.
-- Phóng to, thu nhỏ, hiện hoặc ẩn các node không active.
-- Chuyển màn hình bằng menu hoặc phím trái/phải.
-- Nút **Tăng cấp +1** chỉ thay đổi con số demo trong trang; không phải gameplay thật.
-
-## Cấu trúc file
-
-- `CHAY_UI_OFFLINE.bat` — file chạy trên Windows.
-- `tools/serve_ui_viewer.py` — máy chủ Python localhost chỉ cung cấp 5 file được phép.
-- `web-ui-viewer/index.html`, `style.css`, `app.js` — giao diện web.
-- `unity-ui-viewer/Assets/StreamingAssets/ui-scenes.json` — dữ liệu metadata cho cả bản web và Unity.
-- `tools/build_unity_viewer_data.py` — sinh lại dữ liệu từ các báo cáo CSV.
-- `tests/test_offline_web_viewer.py` — kiểm thử HTTP, quyền truy cập và dữ liệu.
-
-Lỗi thiếu JSON: từ thư mục root, chạy `py tools/build_unity_viewer_data.py --repo-root .`.
-
-Lỗi cổng 8765 đang dùng: mở terminal và chạy `py tools/serve_ui_viewer.py --port 8766`.
-
-Để dừng: quay lại cửa sổ terminal đã mở .bat và nhấn `Ctrl+C`.
-
-## Spine animation thật từ XAPK (preview độc lập, chưa phải client game)
-
-Đã kiểm tra trên XAPK thật trong GitHub Actions: 434 skeleton JSON Spine, 522 atlas văn bản, 422 skeleton và atlas trùng tên; 595/600 tên trang atlas khớp Texture2D. Các skeleton dùng **Spine 3.8**. Đây là kiểm kê tài nguyên, không chứng minh skin/animation runtime của mỗi scene Unity.
-
-Trên Windows:
-
-1. Cập nhật dự án bằng lệnh git pull origin main.
-2. Chạy **CHUAN_BI_DO_HOA.bat** (có thể tải XAPK từ Git LFS và cài UnityPy/Pillow, yêu cầu mạng lần đầu).
-3. Chạy **CHAY_UI_OFFLINE.bat**, mở http://127.0.0.1:8765/ và chọn **Animation Spine** hoặc truy cập http://127.0.0.1:8765/spine-viewer.
-4. Dữ liệu skeleton JSON, atlas và texture đã giải mã chỉ lưu trong output/local-spine/ (đã được Git bỏ qua).
-
-Xuất một skeleton đã xác minh: py -3 tools/export_local_spine.py --name Ace --limit 1
-
-Xuất tối đa 12 bộ nhân vật mặc định: py -3 tools/export_local_spine.py --limit 12
-
-**Phát animation:** Sau khi chuẩn bị đồ họa, chạy CAI_SPINE_PLAYER_38.bat (hoặc đồng ý khi CHUAN_BI_DO_HOA.bat hỏi) để tải bản Player 3.8 chính thức từ nhánh 3.8 của EsotericSoftware, vào máy **sau khi tự xác nhận điều kiện cấp phép**. Có thể bỏ qua bước này để chỉ xem metadata và Sprite. Cần bộ **Spine Player 3.8 tương thích và được phép sử dụng**. Không dùng runtime 4.x để render skeleton 3.8. Khi có quyền sử dụng hợp lệ, tự cung cấp 2 tệp spine-player.js và spine-player.css (bản build 3.8) vào output/local-spine-runtime/. Trang xem sẽ báo thiếu runtime thay vì tự tạo animation giả. Xem hướng dẫn và giấy phép tại https://esotericsoftware.com/spine-player và https://esotericsoftware.com/spine-runtimes-license. Repository không phân phối thư viện Spine chính thức hoặc artwork thương mại.
-
-**Còn thiếu:** chưa ánh xạ chính xác skeleton/skin/animation sang SpineMonster, SpineShipPlayer và vị trí nhân vật trong 5 scene. Preview riêng chỉ phát bộ skeleton được chọn, không phải giao diện game, server hoặc gameplay. Muốn khôi phục trong scene phải xác minh prefab, skin và track animation lúc chạy; không ghép theo tên một cách võ đoán.
-
-## Tự động hiển thị Sprite giải mã từ XAPK trên máy (mới)
-
-Bản Web có thể tự hiển thị các Sprite **thực sự giải mã được**, không cần chọn ảnh thủ công sau khi chuẩn bị dữ liệu một lần. Ảnh chỉ lưu ở `output/local-ui-art/`, không được đưa lên GitHub.
-
-Trên Windows, chạy từ thư mục repository:
-
-```bat
 git lfs pull
-py -3 -m pip install UnityPy Pillow
-CHAY_UI_OFFLINE.bat
 ```
 
-Trong lần chạy đầu, `.bat` gọi `tools/export_local_ui_art.py` nếu chưa có `output/local-ui-art/manifest.json`. Script đọc APK đã trích tại `output/apks/` (nếu có), nếu không thì đọc XAPK thật từ thư mục gốc. Nếu XAPK chỉ là Git LFS pointer hoặc không có UnityPy, chương trình vẫn mở wireframe nhưng **không thể tự tạo ảnh**.
+Repository dùng Git LFS cho nhiều loại tài nguyên Unity và hình ảnh. Nếu bỏ qua bước lấy LFS, một số file có thể chỉ là pointer và không mở/import được đúng.
 
-Để xuất lại khi có bản XAPK mới:
+### Mở trong Unity
 
-```bat
-py -3 tools\export_local_ui_art.py
-CHAY_UI_OFFLINE.bat
+1. Mở Unity Hub, chọn **Add project from disk** và trỏ đến thư mục gốc `HaiTacDaiChien` — thư mục chứa `Assets/`, `Packages/` và `ProjectSettings/`.
+2. Chọn Unity Editor **2022.3.51f1** và chờ Unity import/compile hoàn tất.
+3. Mở các Scene cần kiểm tra, ví dụ `Assets/Scenes/Home2Scene.unity` hoặc `Assets/Scenes/HeroListNewScene.unity`.
+4. Kiểm tra tab **Console** trước khi chạy. Khi thay đổi giao diện, kiểm tra cả Edit Mode, Play Mode và sau khi thoát Play Mode.
+
+Không có cam kết rằng toàn bộ luồng khởi động, đăng nhập, chiến đấu hoặc kết nối server đã hoạt động chỉ bằng cách mở project. Nếu gặp lỗi import/compile, hãy ghi lại Unity version và lỗi Console đầu tiên để khoanh vùng.
+
+## Chạy kiểm thử
+
+Từ thư mục gốc repository:
+
+**Windows (PowerShell/CMD):**
+
+```powershell
+py -3 -m unittest discover -s tests -p "test_*.py" -v
 ```
 
-Script chỉ xuất Sprite tham chiếu bởi 5 scene hiện tại, giữ PNG crop do UnityPy giải mã và đối chiếu định danh Unity (`serialized file + Sprite path ID`), không đoán theo tên. Các đường dẫn UI có nhiều Sprite không thể phân biệt sẽ bị bỏ qua để tránh ghép sai. Manifest báo số lượng `sprite_images_exported`, `ui_nodes_mapped` và `ambiguous_paths`. Trình duyệt tự đọc manifest; chọn ảnh thủ công vẫn hoạt động để bổ sung/ghi đè khi cần.
+**Linux/macOS:**
 
-**Lưu ý quyền sử dụng:** Chỉ giải mã và sử dụng nội bộ các tài nguyên bạn có quyền dùng. Ảnh được phục vụ qua cổng localhost chỉ khi có trong manifest đã tạo, không có endpoint đọc tùy ý. Không chia sẻ thư mục `output/`, XAPK hay ảnh thương mại. Khung, đối tượng Spine, skin, animation, CanvasScaler runtime và asset tải thêm từ server **không tự được khôi phục**.
+```bash
+python3 -m unittest discover -s tests -p 'test_*.py' -v
+```
 
-## Hiển thị ảnh thật từ máy (bản Web mới)
+Có thể chạy từng nhóm riêng:
 
-Sau khi mở `CHAY_UI_OFFLINE.bat` và vào `http://127.0.0.1:8765/`, trong cột trái bạn sẽ thấy **Ảnh của bạn**.
+```bash
+python3 -m unittest discover -s tests -p 'test_offline_hero_catalog.py' -v
+python3 -m unittest discover -s tests -p 'test_offline_hero_ui.py' -v
+python3 -m unittest discover -s tests -p 'test_home2_scene_navigation.py' -v
+python3 -m unittest discover -s tests -p 'test_mysql_foundation.py' -v
+python3 -m unittest discover -s tests -p 'test_xampp_mariadb_schema.py' -v
+```
 
-**Cách 1 — Tự ghép hàng loạt:** nhấn **Chọn thư mục ảnh**, chọn thư mục có PNG, JPG hoặc WebP mà bạn có quyền sử dụng. Trình duyệt sẽ tìm đúng **tên Sprite** (không tính đuôi), ví dụ nếu metadata ghi `bgr_monster` thì file có thể tên `bgr_monster.png`. Các ảnh chỉ nằm trong bộ nhớ trình duyệt, **không tải lên máy chủ**, không sao chép vào GitHub. Tên trùng nhau bị bỏ qua để tránh gắn nhầm; hiện giới hạn 750 ảnh, tổng 250 MB và tối đa 20 MB/ảnh.
+Các bài test trong `tests/` phần lớn kiểm tra dữ liệu, cấu trúc file, hợp đồng mã nguồn và hồi quy tĩnh. Kết quả PASS không chứng minh project compile trong Unity, animation đã render đúng, hay game có thể chơi end-to-end.
 
-**Cách 2 — Gán ảnh thủ công:** chọn một vùng UI hoặc tìm GameObject trong danh sách; ở cột bên phải chọn **Chọn ảnh cho nút**. Cách này dùng được cho nút chưa có Sprite hoặc các mục Spine mà bạn có ảnh được phép dùng. Có thể bỏ ảnh gán riêng cho một nút.
+## Database: tài liệu và lệnh chạy
 
-**Cách 3 — Đối chiếu với ảnh chụp:** nhấn **Chọn ảnh nền scene** tại cột trái để đặt ảnh của màn hình hiện tại phía sau các vùng UI. Dùng **Viền kiểm tra** để xem/hide đường biên các thành phần. Đây là ảnh tham chiếu, **không phải tái tạo giao diện chạy được**.
+Nếu làm việc với phần database, hãy đọc tài liệu tương ứng trước khi import:
 
-Các ảnh dùng từ máy **không được giữ lại sau khi tải lại trang**; bạn cần chọn lại thư mục. Bạn có thể tắt server và xóa toàn bộ ảnh khỏi phiên ngay trên giao diện. Có thể chọn lại thư mục sau khi cập nhật file mới mà không sửa code.
+- [MySQL 8.4: schema và nhập dữ liệu](database/mysql/README.md)
+- [MariaDB/XAMPP: schema và hướng dẫn nhập](database/xampp/README.md)
 
-**Quan trọng:** Bản Web chưa đóng gói bất kỳ nhân vật, thuyền, texture, skin Spine hay artwork gốc của GOSU. Nếu không chọn ảnh có quyền sử dụng thì một số vùng vẫn chỉ là wireframe màu. Chỉ đổi CSS/metadata **không thể tự sinh hình ảnh của game**. File atlas chứa nhiều Sprite cần được chia thành các ảnh riêng đã có quyền sử dụng và được kiểm chứng trước khi ghép theo tên.
+Không cần cài database để chỉ mở Unity project. File SQL sinh tự động và báo cáo kiểm toán được đặt trong thư mục generated bị Git bỏ qua. Chỉ import vào database thử nghiệm đã chuẩn bị; sao lưu trước khi thử với dữ liệu quan trọng. Không dùng schema này cho server public/production khi chưa có backend, phân quyền, kiểm thử giao dịch và rà soát bảo mật.
 
-## Lưu ý kỹ thuật và quyền sử dụng
+## Cấu trúc repository
 
-Đây **chỉ là công cụ xem metadata UI**, không phải game chơi được hay project Unity gốc. Các vùng màu là placeholder: chưa có hình ảnh gốc, hiệu ứng Spine, skin, bản đồ 3D, camera, animation thực tế, server hoặc gameplay. Giao diện dựng gần đúng từ thông tin tĩnh; chưa kiểm chứng tỷ lệ CanvasScaler runtime.
+```text
+HaiTacDaiChien/
+├── Assets/
+│   ├── Scenes/                       # Các Scene Unity
+│   ├── Scripts/Assembly-CSharp/      # C# hiện có và phần triển khai mới
+│   └── Resources/_pack/db/           # Dữ liệu cấu hình game
+├── Packages/                         # Unity package manifest
+├── ProjectSettings/                  # Cấu hình project Unity
+├── database/
+│   ├── mysql/                        # Schema MySQL và importer
+│   └── xampp/                        # Schema/ghi chú cho MariaDB
+├── tests/                            # Python unittest và kiểm tra hồi quy
+├── tools/                            # Công cụ audit/kiểm tra dữ liệu
+└── docs/                             # Handoff, quyết định và quy trình phát triển
+```
 
-Không đưa asset thương mại, dữ liệu cá nhân, XAPK, mã game dịch ngược hoặc ảnh chụp game vào bản web. Máy chủ bản web chỉ bind **127.0.0.1**; ảnh chọn từ máy hiển thị qua URL `blob:` nội bộ trong browser và không có endpoint upload, không gọi API game nào.
+## Hướng phát triển tiếp theo
 
-Nếu cần một client game có thể chơi, vẫn cần phát triển gameplay, art được phép sử dụng, lưu dữ liệu và server mới.
+1. **Ổn định client:** mở và kiểm thử các Scene bằng đúng phiên bản Unity; sửa lỗi compile, tham chiếu mất, layout và thao tác người dùng.
+2. **Hoàn thiện gameplay offline:** chốt dữ liệu tướng, đội hình, lưu/khôi phục trạng thái và các luồng màn hình có thể hoạt động mà không giả lập dữ liệu tài khoản.
+3. **Xây backend riêng:** API đăng nhập, phiên, người chơi, inventory và đội hình; dùng dữ liệu server làm nguồn sự thật thay vì tin giá trị do client gửi lên.
+4. **Kết nối database an toàn:** giao dịch nguyên tử cho tiền/vật phẩm/phần thưởng, xác minh quyền sở hữu, chống xử lý lặp và kiểm thử tích hợp.
+5. **Xác minh bản build:** chỉ công bố tính năng là hoàn thành sau khi có bằng chứng từ Unity Editor/Play Mode và kiểm tra luồng sử dụng tương ứng.
+
+## Quyền sử dụng tài nguyên
+
+Đây là dự án nghiên cứu/phát triển, **không phải bản phát hành chính thức của Hải Tặc Đại Chiến**. Tên thương mại, artwork, âm thanh, dữ liệu game, thư viện và runtime bên thứ ba có thể thuộc quyền của chủ sở hữu tương ứng. Hãy xác minh quyền sử dụng trước khi chia sẻ hoặc phân phối bản build/tài nguyên. Không commit tài khoản cá nhân, mật khẩu, token, file `.env`, database dump có dữ liệu nhạy cảm hoặc runtime/tài nguyên thương mại khi chưa có giấy phép.
+
+## Tài liệu thêm
+
+- [Bàn giao và trạng thái công việc](docs/AI_HANDOFF.md)
+- [Quy trình nhánh, PR và kiểm thử](docs/WORKFLOW.md)
+- [Checklist xác minh giao diện trong runtime](docs/RUNTIME_SCREEN_CHECKLIST.md)
+- [MySQL 8.4](database/mysql/README.md)
+- [MariaDB/XAMPP](database/xampp/README.md)
+
+---
+
+**Nguyên tắc của project:** phân biệt rõ dữ liệu nguồn, chức năng đã triển khai offline, thiết kế backend mới và các phần chưa được xác minh trong Unity. Không đánh dấu tính năng hoàn thành chỉ dựa trên mã tĩnh hoặc tên Scene.
